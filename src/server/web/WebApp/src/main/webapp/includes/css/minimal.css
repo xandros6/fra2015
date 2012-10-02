@@ -1,0 +1,104 @@
+/* 
+    Document   : minimal
+    Created on : 2-ott-2012, 10.25.01
+    Author     : francesco
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    font-family: sans-serif;
+    width:90%;
+    margin: auto 5% auto 5%;
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+    color:black;
+}
+
+#header {
+    text-align:center;
+}
+
+#footer {
+    background-color: green;
+}
+
+#footer .disclaimer {
+    border: black 1px solid;
+    text-align:center;
+}
+
+#topmenu {
+    background-color: green;
+    color:white;
+}
+
+#topmenu a, #topmenu a:visited, #topmenu a:active {
+    text-decoration: none;
+    color:white;
+}
+
+#topmenu li {
+    padding: 0px 10px 0px 10px;
+    display: inline;
+}
+
+#main {
+    padding:25px 0px 25px 0px;
+    text-align: center;
+}
+
+.tablelayout {
+    padding:0px;
+    margin:0px;
+    display:table-row;
+    width:100%;
+}
+
+.navigation {
+    margin:0px;
+    display: table-cell;
+
+    width:25%;
+}
+
+.navigation ul {
+    margin:0px;
+    padding:0px;
+    list-style-image: none;
+    list-style: none;
+}
+
+.navigation li {
+    text-align: right;
+}
+
+.content {
+    padding:5px;
+    display: table-cell;
+    text-align: left;
+    width:75%;
+}
+
+.login {
+    text-align: center;
+}
+
+.login table {
+    border: black 1px solid;
+}
+
+.login caption {
+    background-color: darkgrey;
+    color: white;
+}
+
+
+
+
