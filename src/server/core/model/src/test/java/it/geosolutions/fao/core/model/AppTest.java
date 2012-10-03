@@ -1,4 +1,4 @@
-package it.geosolutions.fao.core.model;
+package it.geosolutions.fra2015.core.model;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

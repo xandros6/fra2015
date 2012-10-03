@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ page import="it.geosolutions.fao.core.model.user.User" %>
-<%@ page import="it.geosolutions.fao.core.model.user.Privilege" %>
+<%@ page import="it.geosolutions.fra2015.core.model.user.User" %>
+<%@ page import="it.geosolutions.fra2015.core.model.user.Privilege" %>
 <%
 
     User user = (User) request.getSession().getAttribute(User.class.getName());

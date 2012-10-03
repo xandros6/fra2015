@@ -3,7 +3,7 @@
     Created on : 2-ott-2012, 10.11.06
     Author     : francesco
 --%>
-<%@page import="it.geosolutions.fao.webapp.rte.RTEConfigurationHelper"%>
+<%@page import="it.geosolutions.fra2015.webapp.rte.RTEConfigurationHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <!DOCTYPE html>
