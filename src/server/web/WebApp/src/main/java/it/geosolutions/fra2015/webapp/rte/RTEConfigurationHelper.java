@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.geosolutions.fao.webapp.rte;
+package it.geosolutions.fra2015.webapp.rte;
 
 import com.ckeditor.CKEditorConfig;
 import com.ckeditor.EventHandler;

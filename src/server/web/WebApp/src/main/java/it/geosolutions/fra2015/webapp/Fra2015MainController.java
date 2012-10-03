@@ -1,4 +1,4 @@
-package it.geosolutions.fao.webapp;
+package it.geosolutions.fra2015.webapp;
 
 
 import com.lidlesslabs.enterprise.MainController;

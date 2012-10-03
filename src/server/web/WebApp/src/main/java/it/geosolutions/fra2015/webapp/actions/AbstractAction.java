@@ -1,4 +1,4 @@
-package it.geosolutions.fao.webapp.actions;
+package it.geosolutions.fra2015.webapp.actions;
 
 import com.lidlesslabs.enterprise.Action;
 import com.lidlesslabs.enterprise.ContextObjectFactory;

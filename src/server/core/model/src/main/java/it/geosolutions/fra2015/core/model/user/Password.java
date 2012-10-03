@@ -1,4 +1,4 @@
-package it.geosolutions.fao.core.model.user;
+package it.geosolutions.fra2015.core.model.user;
 
 import java.io.Serializable;
 import java.math.BigInteger;
