@@ -1,8 +1,9 @@
 package it.geosolutions.fra2015.webapp.actions;
 
-import com.lidlesslabs.enterprise.Action;
-import com.lidlesslabs.enterprise.ContextObjectFactory;
-import com.lidlesslabs.enterprise.ResponseObject;
+import it.geosolutions.fra2015.webapp.Action;
+import it.geosolutions.fra2015.webapp.ContextObjectFactory;
+import it.geosolutions.fra2015.webapp.ResponseObject;
+
 
 /**
  *

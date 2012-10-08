@@ -65,7 +65,7 @@
         </div>
         <%@include file="jspf/footer.jspf" %>
         <ckeditor:replace replace="editor" basePath="/WebApp/ckeditor/"
-                          config="<%= RTEConfigurationHelper.createConfig()%>"
-            
-             />
-    </html>
+        
+
+                          />
+</html>

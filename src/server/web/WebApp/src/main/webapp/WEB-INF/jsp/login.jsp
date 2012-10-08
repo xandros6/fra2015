@@ -48,11 +48,11 @@
                             if (d) {
                                 document.location="home.action";
                             } else {
-                                alert("fail Login error, try again");
+                                alert("Login error, try again");
                             }
                         },
                         error: function(o,s,e) {
-                            alert("error Login error, try again");
+                            alert("Connection error, try again later pls");
                         }
                         
                     });

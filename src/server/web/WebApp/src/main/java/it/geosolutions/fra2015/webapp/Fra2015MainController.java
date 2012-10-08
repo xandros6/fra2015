@@ -1,8 +1,5 @@
 package it.geosolutions.fra2015.webapp;
 
-
-import com.lidlesslabs.enterprise.MainController;
-
 /**
  *
  * @author francesco

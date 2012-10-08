@@ -1,8 +1,8 @@
 package it.geosolutions.fra2015.webapp.actions.login;
 
-import com.lidlesslabs.enterprise.RequestObject;
-import com.lidlesslabs.enterprise.ResponseObject;
 import it.geosolutions.fra2015.core.model.user.User;
+import it.geosolutions.fra2015.webapp.RequestObject;
+import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
 import it.geosolutions.fra2015.webapp.actions.HomeAction;
 import java.util.logging.Level;

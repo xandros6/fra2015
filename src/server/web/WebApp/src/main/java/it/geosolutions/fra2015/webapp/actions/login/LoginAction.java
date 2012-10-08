@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package it.geosolutions.fra2015.webapp.actions.login;
 
-import com.lidlesslabs.enterprise.RequestObject;
-import com.lidlesslabs.enterprise.ResponseObject;
 import it.geosolutions.fra2015.core.model.user.User;
+import it.geosolutions.fra2015.webapp.RequestObject;
+import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -71,7 +68,7 @@ public class LoginAction extends AbstractAction {
     }
 
     protected ResponseObject fail() {
-        ResponseObject responseObject = getResponseObject("login.fail");
+        ResponseObject responseObject = getResponseObject("false");
         responseObject.getSessionMap().put(User.class.getName(), null);
         responseObject.getResponseMap().put("message", "login.fail");
         return responseObject;
@@ -84,8 +81,7 @@ public class LoginAction extends AbstractAction {
 
         // UserDao.update(user);
 
-        ResponseObject responseObject = getResponseObject("login.success");
-
+        ResponseObject responseObject = getResponseObject("true");
         responseObject.getSessionMap().put(User.class.getName(), user);
 
         return responseObject;

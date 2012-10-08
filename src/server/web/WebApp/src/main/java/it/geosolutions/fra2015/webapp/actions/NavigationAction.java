@@ -1,7 +1,7 @@
 package it.geosolutions.fra2015.webapp.actions;
 
-import com.lidlesslabs.enterprise.RequestObject;
-import com.lidlesslabs.enterprise.ResponseObject;
+import it.geosolutions.fra2015.webapp.RequestObject;
+import it.geosolutions.fra2015.webapp.ResponseObject;
 
 /**
  *
