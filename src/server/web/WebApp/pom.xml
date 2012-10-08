@@ -96,6 +96,26 @@
                     </execution>
                 </executions>
             </plugin>
+	    
+	    <plugin>
+	      <groupId>org.mortbay.jetty</groupId>
+	      <artifactId>maven-jetty-plugin</artifactId>
+	      <version>6.1.8</version>
+
+	      <configuration>
+		<!--          <contextPath>fra2015</contextPath> -->
+		<contextPath>WebApp</contextPath>
+		
+		<connectors>
+		  <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+		    <port>8081</port>
+		    <maxIdleTime>10000</maxIdleTime>
+		  </connector>
+		</connectors>
+
+	      </configuration>
+	    </plugin>
+
         </plugins>
     </build>
 
