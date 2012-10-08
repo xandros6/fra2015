@@ -9,6 +9,8 @@ import com.lidlesslabs.enterprise.ResponseObject;
 import it.geosolutions.fra2015.core.model.user.User;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,27 +35,44 @@ public class LoginAction extends AbstractAction {
 
         String username = request.getString("username");
 
+        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "check username " + username);
+
         if (username == null) {
-            return fail();
+            return page();
         }
 
-        User user = null; // UserDAO.load(username);
+//        User user = null; // UserDAO.load(username);
+//
+//        if (user == null) {
+//            return fail();
+//        }
 
-        if (user == null) {
-            return fail();
+        String password = request.getString("password");
+        
+        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "password:"+password);
+
+        if (true) {
+            if ("admin".equals(username) && "admin".equals(password)) {
+                return success(new User());
+            }
         }
 
-        if (user.getPassword().check(request.getString("password"))) {
-            return success(user);
-        }
+//        if (user.getPassword().check(password)) {
+//            return success(user);
+//        }
 
         return fail();
 
     }
 
-    protected ResponseObject fail() {
+    protected ResponseObject page() {
         ResponseObject responseObject = getResponseObject("login");
-        responseObject.getResponseMap().put(User.class.getName(), null);
+        return responseObject;
+    }
+
+    protected ResponseObject fail() {
+        ResponseObject responseObject = getResponseObject("login.fail");
+        responseObject.getSessionMap().put(User.class.getName(), null);
         responseObject.getResponseMap().put("message", "login.fail");
         return responseObject;
     }
@@ -62,12 +81,13 @@ public class LoginAction extends AbstractAction {
 
         user.setLoginDate(Calendar.getInstance());
         user.setLoginCount(user.getLoginCount() + 1);
-        
+
         // UserDao.update(user);
 
-        ResponseObject responseObject = getResponseObject("home");
-        responseObject.getResponseMap().put(User.class.getName(), user);
-        
+        ResponseObject responseObject = getResponseObject("login.success");
+
+        responseObject.getSessionMap().put(User.class.getName(), user);
+
         return responseObject;
     }
 }

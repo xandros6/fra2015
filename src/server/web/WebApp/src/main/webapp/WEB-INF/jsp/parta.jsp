@@ -22,20 +22,20 @@
 
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/header.jspf" %>
-        <div id="main">
+        <%@include file="jspf/header.jspf" %>
+<div id="main">
             <div id="topmenu">
-                <%@include file="WEB-INF/jspf/sectionmenu.jspf" %>
+                <%@include file="jspf/sectionmenu.jspf" %>
             </div>
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
-                    <%@include file="WEB-INF/jspf/partbmenu.jspf" %>
+                    <%@include file="jspf/partamenu.jspf" %>
                 </div>
                 <div class="content">
                 </div>
             </div>
         </div>
-        <%@include file="WEB-INF/jspf/footer.jspf" %>
+        <%@include file="jspf/footer.jspf" %>
     </body>
 </html>

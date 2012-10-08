@@ -2,11 +2,6 @@ package it.geosolutions.fra2015.core.model.user;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
 import javax.persistence.*;
 
 /**
@@ -27,7 +22,7 @@ public class User implements Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar creationDate;
     @Enumerated
-    private Privilege privilege;
+    private UserGroup userGroup;
     
     private int loginCount = 0;
 
@@ -81,12 +76,12 @@ public class User implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public Privilege getPrivilege() {
-        return privilege;
+    public UserGroup getUserGroup() {
+        return userGroup;
     }
 
-    public void setPrivilege(Privilege privilege) {
-        this.privilege = privilege;
+    public void setUserGroup(UserGroup privilege) {
+        this.userGroup = privilege;
     }
 
     public int getLoginCount() {

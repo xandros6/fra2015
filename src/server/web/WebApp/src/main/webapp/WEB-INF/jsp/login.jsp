@@ -18,6 +18,8 @@
                 
                 $("#bLogin").click(function(event) {
                     
+
+                    
                     //@todo ajax this 
                     
                     var username = $("#username").val();
@@ -34,12 +36,27 @@
                         return;
                     }
                     
-                    if (username == "admin" && 
-                        password == "admin") {
-                        document.location = "introduction.jsp ";   
-                    } else {
-                        alert("Login error, try again");
-                    }
+
+                        
+                    $.ajax({
+                        type:"POST",
+                        url:"login.action",
+                        data:"username="+username+"&password="+password,
+                        dataType:'json',
+                        timeout:5000,
+                        success: function(d,s) {
+                            if (d) {
+                                document.location="home.action";
+                            } else {
+                                alert("fail Login error, try again");
+                            }
+                        },
+                        error: function(o,s,e) {
+                            alert("error Login error, try again");
+                        }
+                        
+                    });
+
                     
                 }
             );
@@ -49,7 +66,7 @@
 
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/header.jspf" %>
+        <%@include file="jspf/header.jspf" %>
         <div id="main">
             <div class="login">
                 <table>
@@ -72,6 +89,6 @@
                 </table>
             </div>
         </div>
-        <%@include file="WEB-INF/jspf/footer.jspf" %>
+        <%@include file="jspf/footer.jspf" %>
     </body>
 </html>

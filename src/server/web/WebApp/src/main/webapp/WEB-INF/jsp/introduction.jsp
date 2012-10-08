@@ -40,15 +40,15 @@
 
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/header.jspf" %>
+        <%@include file="jspf/header.jspf" %>
         <div id="main">
             <div id="topmenu">
-                <%@include file="WEB-INF/jspf/sectionmenu.jspf" %>
+                <%@include file="jspf/sectionmenu.jspf" %>
             </div>
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
-                    <%@include file="WEB-INF/jspf/introductionmenu.jspf" %>
+                    <%@include file="jspf/introductionmenu.jspf" %>
                 </div>
                 <div class="content">
                     <form id="form1" action="introduction.jsp" method="post">
@@ -63,7 +63,7 @@
 
             </div>
         </div>
-        <%@include file="WEB-INF/jspf/footer.jspf" %>
+        <%@include file="jspf/footer.jspf" %>
         <ckeditor:replace replace="editor" basePath="/WebApp/ckeditor/"
                           config="<%= RTEConfigurationHelper.createConfig()%>"
             

@@ -1,8 +1,0 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<ul>
-    <li><a href="introduction.jsp">Introduction</a></li>
-    <li><a href="forest.jsp">Forest area and characteristics</a></li>
-    <li><a href="parta.jsp">Part A</a></li>
-    <li class="last"><a href="partb.jsp">Part B</a></li>
-</ul>
