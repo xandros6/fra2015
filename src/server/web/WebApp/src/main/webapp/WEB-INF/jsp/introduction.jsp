@@ -18,10 +18,31 @@
             $(document).ready(function(){
                 
                 $("#bSave").click(function(event) {
+
+                    var editor = CKEDITOR.instances['editor'];
                     
-                    var value = CKEDITOR.instances['editor'];
+                    var text = editor.getData();
                     
-                    window.richtext = value.getData();
+                        
+                    $.ajax({
+                        type:"POST",
+                        url:"introduction.action",
+                        data:"body="+text,
+                        dataType:'json',
+                        timeout:5000,
+                        success: function(d,s) {
+                            if (d) {
+                                $("#bSave").attr("disabled", "disabled");
+                                alert("Data saved");
+                            } else {
+                                alert("An error has occurred while saving data!");
+                            }
+                        },
+                        error: function(o,s,e) {
+                            alert("Connection error, try again later pls");
+                        }
+                        
+                    });
                    
                 });
                 
@@ -65,7 +86,7 @@
         </div>
         <%@include file="jspf/footer.jspf" %>
         <ckeditor:replace replace="editor" basePath="/WebApp/ckeditor/"
-        
+
 
                           />
 </html>

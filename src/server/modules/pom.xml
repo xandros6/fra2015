@@ -11,7 +11,5 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>FRA2015 - Modules</name>
-  <modules>
-    <module>fra2015-rest-root</module>
-  </modules>
+  <modules></modules>
 </project>
