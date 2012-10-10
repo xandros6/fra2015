@@ -6,14 +6,14 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
-}
+
 
 body {
     font-family: sans-serif;
-    width:90%;
-    margin: auto 5% auto 5%;
+   
+    margin: 0  auto ;
+	
+	
 }
 
 a, a:visited, a:active {
@@ -24,69 +24,144 @@ a, a:visited, a:active {
 #header {
     text-align:center;
 }
+/** TODO remove it */
+#header img{
+	display:none;
 
+}
+#header {
+	background-image: url(../../images/frabanner.png);
+	height: 180px;
+	background-repeat: no-repeat;
+	background-position-y: -160px;
+	overflow: visible;
+	
+	
+}
 #footer {
-    background-color: green;
+   
+   border-top:thin solid black;
+   position:absolute;
+   
+	
+}
+#partners{
+	float:right;
+}
+
+#partners .fao-logo{
+	background-image: url(../../images/faologo_tr.png);
+	height: 120px;
+	width:300px;
+	
+	background-position:right;
+	overflow:visible;
+	background-repeat:no-repeat;
+
 }
 
 #footer .disclaimer {
-    border: black 1px solid;
+    
     text-align:center;
-    margin-bottom:50px;
+    width:100%;
+	
 }
 
 #topmenu {
     background-color: green;
     color:white;
 }
-
+#topmenu  ul{
+	margin:0;
+}
 #topmenu a, #topmenu a:visited, #topmenu a:active {
     text-decoration: none;
     color:white;
+	margin: 0px auto;
+	
+	
 }
 
+#topmenu li:hover{
+    text-decoration: none;
+    color:black;
+	
+	
+	
+	/*font-weight:bold;*/
+	
+	background-color: #00aa00;
+}
 #topmenu li {
     padding: 0px 10px 0px 10px;
     display: inline;
 }
 
 #main {
-    padding:25px 0px 25px 0px;
+    padding:0 0px 0 0px;
     text-align: center;
 }
 
+#main > .tablelayout >.navigation, #main > .tablelayout  >.content{
+	padding-top:20px;
+	padding-bottom: 20px;
+
+}
 .tablelayout {
     padding:0px;
     margin:0px;
     display:table-row;
     width:100%;
+	
 }
 
 .navigation {
+	border-right:thin solid black;
+	
     margin:0px;
+	left: -4px;
+	position: relative;
     display: table-cell;
 
-    width:25%;
+    width:20%;
 }
-
+.navigation h3{
+	text-align:left;
+	margin-top:0px;
+	top:0px;
+	
+	padding-left: 10px;
+}
 .navigation ul {
     margin:0px;
     padding:0px;
     list-style-image: none;
     list-style: none;
 }
+.navigation ul>:first-child{
+	border-top: thin dashed black;
 
+}
 .navigation li {
     text-align: right;
+	padding-right:5px;
+	border-bottom: thin dashed black;
+	
+	
+}
+.navigation ul li:hover{
+	background-color:#00AA00;
 }
 
 .content {
     padding:5px;
     display: table-cell;
     text-align: left;
-    width:75%;
+    width:80%;
 }
-
+form * {
+    vertical-align: top;
+}
 .login {
     text-align: center;
 }
@@ -100,6 +175,12 @@ a, a:visited, a:active {
     color: white;
 }
 
-
+#form1 input[type=button] {
+    border: 1px solid #006;
+    background: #00aa00;
+	font-weight:bold;
+	padding:5px;
+	float:right;
+}
 
 
