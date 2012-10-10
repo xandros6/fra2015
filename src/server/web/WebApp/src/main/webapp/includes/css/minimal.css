@@ -51,8 +51,8 @@ a, a:visited, a:active {
 
 #partners .fao-logo{
 	background-image: url(../../images/faologo_tr.png);
-	height: 120px;
-	width:300px;
+	height: 100px;
+	width: 100px;
 	
 	background-position:right;
 	overflow:visible;

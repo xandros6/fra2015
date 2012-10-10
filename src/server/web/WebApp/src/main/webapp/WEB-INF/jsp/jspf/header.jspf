@@ -2,7 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <div id="header">
     <div id ="partners">
-	<div class="fao-logo"></div>
+	<a href="http://www.fao.org/"><div class="fao-logo"></div></a>
 	
 	</div>
 </div>
