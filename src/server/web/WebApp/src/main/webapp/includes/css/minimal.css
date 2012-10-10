@@ -15,6 +15,11 @@ body {
 	
 	
 }
+html,body{
+height:100%;
+}
+
+
 
 a, a:visited, a:active {
     text-decoration: none;
@@ -38,12 +43,12 @@ a, a:visited, a:active {
 	
 	
 }
+
 #footer {
-   
+
    border-top:thin solid black;
    position:absolute;
-   
-	
+
 }
 #partners{
 	float:right;
@@ -66,6 +71,8 @@ a, a:visited, a:active {
     width:100%;
 	
 }
+
+
 
 #topmenu {
     background-color: green;
@@ -168,6 +175,7 @@ form * {
 
 .login table {
     border: black 1px solid;
+	margin: 100px auto;
 }
 
 .login caption {
