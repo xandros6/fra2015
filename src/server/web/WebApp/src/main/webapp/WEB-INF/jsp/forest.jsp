@@ -23,7 +23,7 @@
     </head>
     <body>
         <%@include file="jspf/header.jspf" %>
-<div id="main">
+        <div id="main">
             <div id="topmenu">
                 <%@include file="jspf/sectionmenu.jspf" %>
             </div>

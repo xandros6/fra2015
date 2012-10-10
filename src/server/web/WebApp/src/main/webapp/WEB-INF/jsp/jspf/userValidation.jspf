@@ -1,20 +1,22 @@
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.util.logging.Level"%>
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="it.geosolutions.fra2015.core.model.user.User" %>
 <%@ page import="it.geosolutions.fra2015.core.model.user.UserGroup" %>
 <%
+    {
+        User user = (User) request.getSession().getAttribute(User.class.getName());
 
-    User user = (User) request.getSession().getAttribute(User.class.getName());
-
-    if (user == null) {
-        response.sendRedirect("login.action");
-    }
-
-    UserGroup privilege = (UserGroup) request.getSession().getAttribute(UserGroup.class.getName());
-
-    if (privilege != null) {
-        if (privilege.ordinal() > user.getUserGroup().ordinal()) {
+        if (user == null) {
             response.sendRedirect("login.action");
         }
-    }
 
+        UserGroup privilege = (UserGroup) request.getSession().getAttribute(UserGroup.class.getName());
+
+        if (privilege != null) {
+            if (privilege.ordinal() > user.getUserGroup().ordinal()) {
+                response.sendRedirect("login.action");
+            }
+        }
+    }
 %>

@@ -1,8 +1,16 @@
 <%-- any content can be specified here e.g.: --%>
+<%@page import="it.geosolutions.fra2015.core.model.user.UserGroup"%>
+<%@page import="it.geosolutions.fra2015.core.model.user.User"%>
 <%@ page pageEncoding="UTF-8" %>
 <ul>
-    <li><a href="navigation.action?section=introduction">Introduction</a></li>
+    <%
+        User user = (User) session.getAttribute(User.class.getName());
+        if (user.getUserGroup().equals(UserGroup.ADMINISTRATOR)) {%>
+    <li><a href="users.action">Users</a></li>
+    <%        }
+    %><li><a href="navigation.action?section=introduction">Introduction</a></li>
     <li><a href="navigation.action?section=forest">Forest area and characteristics</a></li>
     <li><a href="navigation.action?section=parta">Part A</a></li>
-    <li class="last"><a href="navigation.action?section=partb">Part B</a></li>
+    <li><a href="navigation.action?section=partb">Part B</a></li>
+    <li class="last"><a href="logout.action">Logout</a></li>
 </ul>

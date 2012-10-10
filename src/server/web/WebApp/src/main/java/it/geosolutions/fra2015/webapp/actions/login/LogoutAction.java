@@ -19,7 +19,7 @@ public class LogoutAction extends AbstractAction {
 
     @Override
     public ResponseObject call(RequestObject request) {
-        ResponseObject response = new HomeAction().call(request);
+        ResponseObject response = getResponseObject("login");
 
         User user = (User) request.getSessionMap().get(User.class.getName());
 
@@ -27,12 +27,12 @@ public class LogoutAction extends AbstractAction {
             Logger.getLogger(LogoutAction.class.getName()).log(Level.WARNING, "nessun utente attualmente connesso");
             return response;
         }
-        
+
         response.getSessionMap().put(User.class.getName(), null);
-        
-        Logger.getLogger(LogoutAction.class.getName()).log(Level.INFO, "{0} logged out",user.getUsername());
-        
+
+        Logger.getLogger(LogoutAction.class.getName()).log(Level.INFO, "{0} logged out", user.getUsername());
+
         return response;
-        
+
     }
 }

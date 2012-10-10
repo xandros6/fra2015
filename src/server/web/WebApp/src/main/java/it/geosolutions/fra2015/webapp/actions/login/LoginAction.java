@@ -1,7 +1,7 @@
-
 package it.geosolutions.fra2015.webapp.actions.login;
 
 import it.geosolutions.fra2015.core.model.user.User;
+import it.geosolutions.fra2015.core.model.user.UserGroup;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
@@ -32,7 +32,7 @@ public class LoginAction extends AbstractAction {
 
         String username = request.getString("username");
 
-        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "check username " + username);
+        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "check username {0}", username);
 
         if (username == null) {
             return page();
@@ -45,14 +45,20 @@ public class LoginAction extends AbstractAction {
 //        }
 
         String password = request.getString("password");
-        
-        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "password:"+password);
+
+        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "password:{0}", password);
 
         if (true) {
+
             if ("admin".equals(username) && "admin".equals(password)) {
-                return success(new User());
+                return success(createUser(username, UserGroup.ADMINISTRATOR));
+            } else if ("user".equals(username) && "user".equals(password)) {
+                return success(createUser(username, UserGroup.USER));
             }
+            
         }
+        
+        
 
 //        if (user.getPassword().check(password)) {
 //            return success(user);
@@ -61,6 +67,8 @@ public class LoginAction extends AbstractAction {
         return fail();
 
     }
+    
+    
 
     protected ResponseObject page() {
         ResponseObject responseObject = getResponseObject("login");
@@ -85,5 +93,12 @@ public class LoginAction extends AbstractAction {
         responseObject.getSessionMap().put(User.class.getName(), user);
 
         return responseObject;
+    }
+
+    protected User createUser(String username, UserGroup group) {
+        User user = new User();
+        user.setUsername(username);
+        user.setUserGroup(group);
+        return user;
     }
 }

@@ -6,6 +6,7 @@
 <%@page import="it.geosolutions.fra2015.webapp.rte.RTEConfigurationHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
+<%@include file="jspf/userValidation.jspf" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -74,19 +75,17 @@
                 <div class="content">
                     <form id="form1" action="introduction.jsp" method="post">
                         <label for="editor">Enter text here:</label>
-                        <textarea cols="80" name="editor" rows="10"></textarea>
+                        <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
                         <br/>
                         <input id="bReload" type="button" value="Cancel"/>
                         <input id="bSave" type="button" value="Save"/>
                     </form>
                 </div>
-
-
             </div>
         </div>
         <%@include file="jspf/footer.jspf" %>
         <ckeditor:replace replace="editor" basePath="/WebApp/ckeditor/"
-
-
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
 </html>
