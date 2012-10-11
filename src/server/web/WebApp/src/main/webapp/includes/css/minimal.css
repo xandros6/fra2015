@@ -217,17 +217,38 @@ form * {
 
 /* FORMS */
 #form1 input[type=button] {
-    border: 1px solid #006;
-    background: #00aa00;
-    font-weight:bold;
-    padding:5px;
     float:right;
 }
 
 /* USERS PAGE */
-#usersTableHeaderRow >td {
+.admin table #usersTableHeaderRow th {
 	background-color:green;
-	border:thin solid black;
+	color:white;
+	border:1px solid green;
+	padding:5px;
 
 }
-
+.admin table td{
+	padding:5px;
+}
+ .admin table{
+	margin: 0 auto;
+	
+}
+.admin table caption{
+	font-weight:bold;
+}
+.admin table  input[type=button]{
+	height:30px;
+	font-size:14px;
+}
+.admin table tr.even{
+	background-color:#aeecb4;
+}
+ .admin table tr.odd{
+	background-color:#8bbf90;
+}
+.admin  .control input[type=button]{
+	float:right;
+	
+}
