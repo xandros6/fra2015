@@ -5,17 +5,15 @@
 <%@ page pageEncoding="UTF-8" %>
 <%{%>
 <ul>
-    <%
-    ResourceBundle rb = (ResourceBundle)request.getAttribute("strings");
-    
+    <%ResourceBundle srb = (ResourceBundle) request.getAttribute("strings");
         User user = (User) session.getAttribute(User.class.getName());
         if (user.getUserGroup().equals(UserGroup.ADMINISTRATOR)) {%>
-    <li><a href="users.action"><%=rb.getString("section.users")%></a></li>
+    <li><a href="users.action"><%=srb.getString("section.users")%></a></li>
     <%        }
-    %><li><a href="navigation.action?section=introduction"><%=rb.getString("section.introduction")%></a></li>
-    <li><a href="navigation.action?section=forest"><%=rb.getString("section.forest")%></a></li>
-    <li><a href="navigation.action?section=parta"><%=rb.getString("section.parta")%></a></li>
-    <li><a href="navigation.action?section=partb"><%=rb.getString("section.partb")%></a></li>
-    <li class="last"><a href="logout.action"><%=rb.getString("section.logout")%></a></li>
+    %><li><a href="navigation.action?section=introduction"><%=srb.getString("section.introduction")%></a></li>
+    <li><a href="navigation.action?section=forest"><%=srb.getString("section.forest")%></a></li>
+    <li><a href="navigation.action?section=parta"><%=srb.getString("section.parta")%></a></li>
+    <li><a href="navigation.action?section=partb"><%=srb.getString("section.partb")%></a></li>
+    <li class="last"><a href="logout.action"><%=srb.getString("section.logout")%></a></li>
 </ul>
 <%}%>

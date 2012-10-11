@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="jspf/userValidation.jspf"%>
+<%ResourceBundle rb = (ResourceBundle) request.getAttribute("strings");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +26,10 @@
                 <img src="images/faologo.png" /><br/>
                 <h1>Forestry Department</h1>
                 <h2>Food and Agriculture Organization of the United Nations</h2>
+            </div>
+            <div class="disclaimer">
+                <h3><%=rb.getString("disclaimer.title")%></h3>
+                <%=rb.getString("disclaimer.body")%>
             </div>
         </div>
         <%@include file="jspf/footer.jspf" %>

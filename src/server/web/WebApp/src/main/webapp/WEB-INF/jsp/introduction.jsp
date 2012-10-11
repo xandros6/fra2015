@@ -73,6 +73,41 @@
                     <%@include file="jspf/introductionmenu.jspf" %>
                 </div>
                 <div class="content">
+                    <h3>Report preparation and contact persons</h3>
+                    <table>                
+                        <caption>The present report was prepared by the following person(s)</caption>
+                        <thead>
+                            <tr id="usersTableHeaderRow">
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Name<br/>
+                                    (FAMILY NAME, First name)
+                                </th>
+                                <th>
+                                    Istitution/Address
+                                </th>
+                                <th>
+                                    E-mail
+                                </th>
+                                <th>
+                                    Tables
+                                </th>
+                                <th style="width:100px">
+                                    &nbsp;
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr id="usersTableCommandRow">
+                                <td colspan="6" class="control">
+                                    <input id="usersTableAdd" type="button" value="+"/>
+                                    <input id="usersTableSave" type="button" value="Save"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <form id="form1" action="introduction.jsp" method="post">
                         <label for="editor">Enter text here:</label>
                         <textarea id="editor" name="editor" cols="80" rows="10"></textarea>

@@ -122,6 +122,11 @@
                             <th></th>
                             <th></th>
                         </tr>
+                        <tr class="warning">
+                            <th colspan="6">
+                                <span style="background-color: red">WARNING!!!</span>
+                                Review data for years 1990 - 2000, please.</th>
+                        </tr>
                         <tr>
                             <th rowspan="2"><%=forests.getString("q1.data.table1a.header.categories")%></th>
                             <th colspan="5"><%=forests.getString("q1.data.table1a.header.area")%></th>
@@ -244,24 +249,24 @@
         </div>
         <%@include file="jspf/footer.jspf" %>
 
-    <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
-                      events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-                      globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                      />
-    <ckeditor:replace replace="adjustmentEditor" basePath="/WebApp/ckeditor/"
-                      events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-                      globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                      />
+        <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
+        <ckeditor:replace replace="adjustmentEditor" basePath="/WebApp/ckeditor/"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
 
-    <ckeditor:replace replace="estimationEditor" basePath="/WebApp/ckeditor/"
-                      events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-                      globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                      />
+        <ckeditor:replace replace="estimationEditor" basePath="/WebApp/ckeditor/"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
 
-    <ckeditor:replace replace="reclassificationEditor" basePath="/WebApp/ckeditor/"
-                      events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-                      globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                      />
-</body>
+        <ckeditor:replace replace="reclassificationEditor" basePath="/WebApp/ckeditor/"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
+    </body>
 </html>
 

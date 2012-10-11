@@ -1,12 +1,8 @@
 <%-- any content can be specified here e.g.: --%>
 <%@page import="java.util.ResourceBundle"%>
 <%@ page pageEncoding="UTF-8" %>
-<%{
-        ResourceBundle footerrb = (ResourceBundle) request.getAttribute("strings");%>
+<%{ResourceBundle frb = (ResourceBundle) request.getAttribute("strings");%>
 <div id="footer">
-    <div class="disclaimer">
-        <h3><%=footerrb.getString("disclaimer.title")%></h3>
-        <%=footerrb.getString("disclaimer.body")%>
-    </div>
+
 </div>
 <%}%>
