@@ -15,7 +15,8 @@
     %><li><a href="navigation.action?section=introduction"><%=rb.getString("section.introduction")%></a></li>
     <li><a href="navigation.action?section=forest"><%=rb.getString("section.forest")%></a></li>
     <li><a href="navigation.action?section=parta"><%=rb.getString("section.parta")%></a></li>
-    <li><a href="navigation.action?section=partb"><%=rb.getString("section.partb")%></a></li>
-    <li class="last"><a href="logout.action"><%=rb.getString("section.logout")%></a></li>
+    <li class="last"><a href="navigation.action?section=partb"><%=rb.getString("section.partb")%></a></li>
+    
 </ul>
+<span id="logout"><a href="logout.action"><%=rb.getString("section.logout")%></a></span>
 <%}%>

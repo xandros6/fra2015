@@ -83,14 +83,16 @@ a, a:visited, a:active {
     color:white;
 	border-top:thin solid black;
 	border-bottom:thin solid black;
+	position:relative;
+	font-weight:bold;
 	
 }
 #topmenu  ul{
     margin:0 auto;
-	font-weight:bold;
+	
 }
 
-#topmenu ul li {
+#topmenu ul li,#logout {
 	border-left: thin solid white;
 	margin-left: -4px;
 }
@@ -104,20 +106,22 @@ a, a:visited, a:active {
 #topmenu ul li.last {
 	border-right: thin solid white;
 } 
-#logout {
-	float:right;
-}
 
-#topmenu li:hover{
+
+#topmenu li:hover,#logout:hover{
     text-decoration: none;
     color:black;
     background-color: #00aa00;
 }
-#topmenu li {
-    padding: 0px 10px 0px 10px;
+#topmenu li,#logout  {
+    padding: 0px 10px;
     display: inline;
 }
-
+#logout {
+	position:absolute;
+	right:0px;
+	top:0px;
+}
 /* MAIN */
 #main {
     padding:0 0px 0 0px;
