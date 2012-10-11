@@ -34,7 +34,6 @@ a, a:visited, a:active {
     background-image: url(../../images/frabanner.png);
     height: 180px;
     background-repeat: no-repeat;
-    background-position-y: -160px;
     overflow: visible;
 
 
@@ -142,6 +141,7 @@ a, a:visited, a:active {
 .navigation ul {
     list-style-image: none;
     list-style: none;
+	padding:0px;
 }
 .navigation ul>:first-child{
     border-top: thin dashed black;
