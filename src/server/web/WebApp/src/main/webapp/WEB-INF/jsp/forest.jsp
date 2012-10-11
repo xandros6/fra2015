@@ -33,8 +33,6 @@
                     <%@include file="jspf/forestmenu.jspf" %>
                 </div>
                 <div class="content">
-                    
-                    
                 </div>
             </div>
         </div>
