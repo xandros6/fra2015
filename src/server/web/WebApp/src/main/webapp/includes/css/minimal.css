@@ -15,19 +15,20 @@ body {
 
 
 }
+
 html,body{
     height:100%;
 }
-
-
 
 a, a:visited, a:active {
     text-decoration: none;
     color:black;
 }
 
+/* HEADER */
 #header {
     text-align:center;
+	position:relative;
 }
 
 #header {
@@ -39,12 +40,7 @@ a, a:visited, a:active {
 
 }
 
-#footer {
-
-    border-top:thin solid black;
-    position:absolute;
-
-}
+/* PARTNERS */
 #partners{
     float:right;
 }
@@ -60,6 +56,19 @@ a, a:visited, a:active {
 
 }
 
+/* LANGUAGES */
+#languages {
+	position:absolute;
+	right:5px;
+	bottom:0px;
+}
+/* FOOTER */
+#footer {
+
+    border-top:thin solid black;
+    position:absolute;
+
+}
 #footer .disclaimer {
 
     text-align:center;
@@ -68,30 +77,40 @@ a, a:visited, a:active {
 }
 
 
-
+/* TOP MENU */
 #topmenu {
     background-color: green;
     color:white;
+	border-top:thin solid black;
+	border-bottom:thin solid black;
+	
 }
 #topmenu  ul{
-    margin:0;
+    margin:0 auto;
+	font-weight:bold;
 }
+
+#topmenu ul li {
+	border-left: thin solid white;
+	margin-left: -4px;
+}
+
 #topmenu a, #topmenu a:visited, #topmenu a:active {
     text-decoration: none;
     color:white;
     margin: 0px auto;
 
-
+}
+#topmenu ul li.last {
+	border-right: thin solid white;
+} 
+#logout {
+	float:right;
 }
 
 #topmenu li:hover{
     text-decoration: none;
     color:black;
-
-
-
-    /*font-weight:bold;*/
-
     background-color: #00aa00;
 }
 #topmenu li {
@@ -99,6 +118,7 @@ a, a:visited, a:active {
     display: inline;
 }
 
+/* MAIN */
 #main {
     padding:0 0px 0 0px;
     text-align: center;
@@ -119,6 +139,7 @@ a, a:visited, a:active {
 
 }
 
+/* NAVIGATION MENU */
 .navigation {
 
     border-right:thin solid black;
@@ -158,6 +179,7 @@ a, a:visited, a:active {
     background-color:#00AA00;
 }
 
+/* CONTENT */
 .content {
     padding:5px;
     display: table-cell;
@@ -183,6 +205,7 @@ form * {
     height:32px;
 }
 
+/* LOGIN */
 .login {
     text-align: center;
 }
@@ -200,11 +223,20 @@ form * {
 .control img {
     float:left;
 }
+
+/* FORMS */
 #form1 input[type=button] {
     border: 1px solid #006;
     background: #00aa00;
     font-weight:bold;
     padding:5px;
     float:right;
+}
+
+/* USERS PAGE */
+#usersTableHeaderRow >td {
+	background-color:green;
+	border:thin solid black;
+
 }
 
