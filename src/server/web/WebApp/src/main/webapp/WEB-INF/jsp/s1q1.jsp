@@ -75,8 +75,8 @@
                 </div>
                 <div class="content">
                     <h1><%= forests.getString("q1.title")%>:<%=forests.getString("q1.body")%></h1>
+                    <h2>1.1 <%=forests.getString("q1.fra2015.categories.title")%></h2>
                     <table>
-                        <caption>1.1 <%=forests.getString("q1.fra2015.categories.title")%></caption>
                         <tr>
                             <th><%=forests.getString("q1.fra2015.categories.category")%></th>
                             <th><%=forests.getString("q1.fra2015.categories.definition")%></th>
@@ -94,9 +94,9 @@
 
                     </table>
 
-                    <h3>1.2 <%=forests.getString("q1.national.data")%></h3>
+                    <h2>1.2 <%=forests.getString("q1.national.data")%></h2>
+                    <h3>1.2.1 <%=forests.getString("q1.data.sources.title")%></h3>
                     <table id="t1_2">
-                        <caption>1.2.1 <%=forests.getString("q1.data.sources.title")%></caption>
                         <tr>
                             <th>#</th>
                             <th><%=forests.getString("q1.data.sources.header.reference")%></th>
@@ -112,8 +112,8 @@
                             </th>
                         </tr>
                     </table>
+                    <h3>1.2.2 <%=forests.getString("q1.classification.title")%></h3>
                     <table>
-                        <caption>1.2.2 <%=forests.getString("q1.classification.title")%></caption>
                         <tr>
                             <th>#</th>
                             <th><%=forests.getString("q1.classification.header.class")%></th>
@@ -123,22 +123,22 @@
                     <h4>1.2.3 <%=forests.getString("q1.original.data.title")%></h4>
                     <textarea id="originaldataEditor" name="originalDataEditor"></textarea>
 
-                    <h3>1.3 <%=forests.getString("q1.analysis.title")%></h3>
+                    <h2>1.3 <%=forests.getString("q1.analysis.title")%></h2>
 
-                    <h4>1.3.1 <%=forests.getString("q1.adjustment.title")%></h4>
+                    <h3>1.3.1 <%=forests.getString("q1.adjustment.title")%></h3>
                     <textarea id="adjustmentEditor" name="adjustmentEditor"></textarea>
 
-                    <h4>1.3.2 <%=forests.getString("q1.estimation.title")%></h4>
+                    <h3>1.3.2 <%=forests.getString("q1.estimation.title")%></h3>
                     <textarea id="estimationEditor" name="estimationEditor"></textarea>
 
-                    <h4>1.3.3 <%=forests.getString("q1.reclassification.title")%></h4>
+                    <h3>1.3.3 <%=forests.getString("q1.reclassification.title")%></h3>
                     <textarea id="reclassificationEditor" name="reclassificationEditor"></textarea>
 
 
-                    <h3>1.4 <%=forests.getString("q1.data.title")%></h3>
-
+                    <h2>1.4 <%=forests.getString("q1.data.title")%></h2>
+                    <h3>1.4.1 <%=forests.getString("q1.data.table1a.title")%></h3>
                     <table>
-                        <caption>1.4.1 <%=forests.getString("q1.data.table1a.title")%></caption>
+
                         <tr style="display:none">
                             <th></th>
                             <th></th>
@@ -150,8 +150,8 @@
                         <tr class="warning">
                             <th colspan="6">
                                 <span class="warning-message">WARNING!!!
-                                Review data for years 1990 - 2000, please.</span>
-							</th>
+                                    Review data for years 1990 - 2000, please.</span>
+                            </th>
                         </tr>
                         <tr>
                             <th rowspan="2"><%=forests.getString("q1.data.table1a.header.categories")%></th>
@@ -189,9 +189,9 @@
                             <td></td>
                         </tr>
                     </table>
-
+                    <h3>1.4.2 <%=forests.getString("q1.data.table1b.title")%></h3>
                     <table>
-                        <caption>1.4.2 <%=forests.getString("q1.data.table1b.title")%></caption>
+
                         <tr style="display:none">
                             <th></th>
                             <th></th>
@@ -253,22 +253,49 @@
                         </tr>
                     </table>
 
+                    <h3>1.4.3 <%=forests.getString("q1.data.tiers.title")%></h3>
                     <table>
-                        <caption>1.4.3 <%=forests.getString("q1.data.tiers.title")%></caption>
-                    </table>
-                    <table>
-                        <caption>1.4.4 <%=forests.getString("q1.data.tier.criteria.title")%></caption>
-                    </table>
-                    <table>
-                        <caption>1.4.5 <%=forests.getString("q1.data.comments.title")%></caption>
-                    </table>
-
-                    <table>
-                        <caption>1.4.6 <%=forests.getString("q1.data.other.comments.title")%></caption>
+                        <tr>
+                            <th>Category</th>
+                            <th>Tier for status</th>
+                            <th>Tier for reported trend</th>
+                        </tr>
                     </table>
 
+                    <h3>1.4.4 <%=forests.getString("q1.data.tier.criteria.title")%></h3>
                     <table>
-                        <caption>1.4.7 <%=forests.getString("q1.data.expected.title")%></caption>
+                        <tr>
+                            <th>Category</th>
+                            <th>Tier for status</th>
+                            <th>Tier for reported trend</th>
+                        </tr>
+                    </table>
+
+                    <h3>1.4.5 <%=forests.getString("q1.data.comments.title")%></h3>
+                    <table>
+                        <tr>
+                            <th>Category</th>
+                            <th>Comments related to data, definitions, etc.</th>
+                            <th>Comments on reported status and trends</th>
+                        </tr>
+                    </table>
+
+                    <h3>1.4.6 <%=forests.getString("q1.data.other.comments.title")%></h3>
+                    <table>
+                        <tr>
+                            <th>Other general comments to the table</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                    <h3>1.4.7 <%=forests.getString("q1.data.expected.title")%></h3>
+                    <table>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Year</th>
+                        </tr>
                     </table>
                 </div>
             </div>

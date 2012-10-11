@@ -4,7 +4,6 @@
 <%{ResourceBundle frb = (ResourceBundle) request.getAttribute("strings");%>
 <div id="footer">
 
-<h3>COPYRIGHT</h3>
-<p class="copyright">All rights reserved. FAO encourages the reproduction and dissemination of material published on this Web site. Non-commercial uses will be authorized free of charge, upon request. Reproduction for resale or other commercial purposes, including educational purposes, may incur fees. Applications for permission to reproduce or disseminate FAO copyright material, and all queries concerning rights and licences, should be addressed by e-mail to <a href="mailto:copyright@fao.org">copyright@fao.org</a>.
-</div>
+<h3><%=frb.getString("copyright.title")%></h3>
+<div class="copyright"><%=frb.getString("copyright.body")%></div>
 <%}%>
