@@ -6,15 +6,20 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
-}
+
 
 body {
     font-family: sans-serif;
-    width:90%;
-    margin: auto 5% auto 5%;
+
+    margin: 0  auto ;
+
+
 }
+html,body{
+    height:100%;
+}
+
+
 
 a, a:visited, a:active {
     text-decoration: none;
@@ -25,57 +30,86 @@ a, a:visited, a:active {
     text-align:center;
 }
 
+#header {
+    background-image: url(../../images/frabanner.png);
+    height: 180px;
+    background-repeat: no-repeat;
+    background-position-y: -160px;
+    overflow: visible;
+
+
+}
+
 #footer {
-    background-color: green;
+
+    border-top:thin solid black;
+    position:absolute;
+
+}
+#partners{
+    float:right;
+}
+
+#partners .fao-logo{
+    background-image: url(../../images/faologo_tr.png);
+    height: 100px;
+    width: 100px;
+
+    background-position:right;
+    overflow:visible;
+    background-repeat:no-repeat;
+
 }
 
 #footer .disclaimer {
-    border: black 1px solid;
+
     text-align:center;
-    margin-bottom:50px;
+    width:100%;
+
 }
+
+
 
 #topmenu {
     background-color: green;
     color:white;
 }
-
+#topmenu  ul{
+    margin:0;
+}
 #topmenu a, #topmenu a:visited, #topmenu a:active {
     text-decoration: none;
     color:white;
+    margin: 0px auto;
+
+
 }
 
+#topmenu li:hover{
+    text-decoration: none;
+    color:black;
+
+
+
+    /*font-weight:bold;*/
+
+    background-color: #00aa00;
+}
 #topmenu li {
     padding: 0px 10px 0px 10px;
     display: inline;
 }
 
 #main {
-    padding:25px 0px 25px 0px;
+    padding:0 0px 0 0px;
     text-align: center;
 }
 
-.admin table {
-    width:100%;
-}
 
-.admin caption {
-    font-size: 1.5em;
-}
+#main > .tablelayout >.navigation, #main > .tablelayout  >.content{
+    padding-top:20px;
+    padding-bottom: 20px;
 
-.admin th {
-    background-color: gainsboro;
-    color: #333333;
-}
-
-.admin td {
-    border:gainsboro 1px solid;
-    height:32px;
-}
-
-.admin td.control {
-    text-align: right;
-    border: none;
 }
 
 .tablelayout {
@@ -83,33 +117,57 @@ a, a:visited, a:active {
     margin:0px;
     display:table-row;
     width:100%;
+
 }
 
 .navigation {
-    padding-right:10px;
-    display: table-cell;
-    width:25%;
-}
 
-.navigation h3 {
-    border-bottom: gainsboro 1px solid;
+    border-right:thin solid black;
+
+    margin:0px;
+    left: -4px;
+    position: relative;
+    display: table-cell;
+
+    width:20%;
+}
+.navigation h3{
+    text-align:left;
+    margin-top:0px;
+    top:0px;
+
+    padding-left: 10px;
 }
 
 .navigation ul {
     list-style-image: none;
     list-style: none;
 }
+.navigation ul>:first-child{
+    border-top: thin dashed black;
 
+}
 .navigation li {
     text-align: right;
+    padding-right:5px;
+    border-bottom: thin dashed black;
+
+
+}
+.navigation ul li:hover{
+    background-color:#00AA00;
 }
 
 .content {
     padding:5px;
     display: table-cell;
     text-align: left;
-    width:75%;
+    width:80%;
 }
+form * {
+    vertical-align: top;
+}
+
 
 .content table {
     width:100%;
@@ -131,6 +189,7 @@ a, a:visited, a:active {
 
 .login table {
     border: black 1px solid;
+    margin: 100px auto;
 }
 
 .login caption {
@@ -140,5 +199,12 @@ a, a:visited, a:active {
 
 .control img {
     float:left;
+}
+#form1 input[type=button] {
+    border: 1px solid #006;
+    background: #00aa00;
+    font-weight:bold;
+    padding:5px;
+    float:right;
 }
 

@@ -13,7 +13,7 @@
             timeout:5000,
             success: function(d,s) {
                 if (d) {
-                    alert("<%=hrb.getString("locale.success")%>");
+//                    alert("<%=hrb.getString("locale.success")%>");
                     document.location = document.location;
                 } else {
                     alert("<%=hrb.getString("locale.error.notavailable")%>");
@@ -28,15 +28,12 @@
     
 </script>
 <div id="header">
-    <div class="control">
-        <%{
-                Locale locale = (Locale) session.getAttribute("locale");
-        %>
-        <%="current locale is " + locale.toString()%>
+    <div id ="partners">
+        <a href="http://www.fao.org/"><div class="fao-logo"></div></a>
+    </div>
+    <div id="languages">
         <img src="images/flags/UK.GIF" alt="UK" onclick="Javascript:setLocale('en','UK')" width="32" height="24"/>
         <img src="images/flags/FRA.GIF" alt="FRA" onclick="Javascript:setLocale('fr','FR')" width="32" height="24"/>
         <img src="images/flags/SPA.GIF" alt="SPA" onclick="Javascript:setLocale('es','ES')" width="32" height="24"  />
-        <%}%>
     </div>
-    <img id="logo" src="images/fra2015logo.jpg" alt="FRA 2015 logo"/>
 </div>

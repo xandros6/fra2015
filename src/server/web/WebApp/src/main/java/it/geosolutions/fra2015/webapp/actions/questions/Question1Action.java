@@ -23,9 +23,10 @@ public class Question1Action extends AbstractQuestionAction {
 
         try {
             ResourceBundle strings = getResourceBundle("strings");
+            System.out.println("resource strings");
 
             for (String key : strings.keySet()) {
-                System.out.println(key + "=" + strings.getString(key));
+                System.out.println("\t"+key + "=" + strings.getString(key));
             }
 
             ro.getResponseMap().put("strings", strings);
@@ -36,13 +37,28 @@ public class Question1Action extends AbstractQuestionAction {
 
 
         try {
+            System.out.println("resource fra2015categories");
+            
             ResourceBundle cats = getResourceBundle("fra2015categories");
 
             for (String key : cats.keySet()) {
-                System.out.println(key + "=" + cats.getString(key));
+                System.out.println("\t"+key + "=" + cats.getString(key));
             }
             ro.getResponseMap().put("categories", cats);
             Logger.getLogger(Question1Action.class.getName()).log(Level.INFO, "fra2015categories resource bundle loaded");
+        } catch (Exception e) {
+            Logger.getLogger(Question1Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+        }
+
+        try {
+            System.out.println("resource forests");
+            ResourceBundle cats = getResourceBundle("forests");
+
+            for (String key : cats.keySet()) {
+                System.out.println("\t"+key + "=" + cats.getString(key));
+            }
+            ro.getResponseMap().put("forests", cats);
+            Logger.getLogger(Question1Action.class.getName()).log(Level.INFO, "forests resource bundle loaded");
         } catch (Exception e) {
             Logger.getLogger(Question1Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }

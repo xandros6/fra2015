@@ -11,6 +11,8 @@
 
 
     ResourceBundle cats = (ResourceBundle) request.getAttribute("categories");
+    
+    ResourceBundle forests = (ResourceBundle) request.getAttribute("forests");
 
 
 %>
@@ -18,7 +20,7 @@
 <html>
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>FRA 2015 Template page</title>
+        <title>FRA 2015 Question 1</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript">
         </script>
@@ -44,12 +46,12 @@
                     <%@include file="jspf/forestmenu.jspf" %>
                 </div>
                 <div class="content">
-                    <h1><%= strings.getString("q1.title")%>:<%=strings.getString("q1.body")%></h1>
+                    <h1><%= forests.getString("q1.title")%>:<%=forests.getString("q1.body")%></h1>
                     <table>
-                        <caption>1.1 <%=strings.getString("t1.1.title")%></caption>
+                        <caption>1.1 <%=forests.getString("t1.1.title")%></caption>
                         <tr>
-                            <th><%=strings.getString("t1.1.category.header")%></th>
-                            <th><%=strings.getString("t1.1.definition.header")%></th>
+                            <th><%=forests.getString("t1.1.category.header")%></th>
+                            <th><%=forests.getString("t1.1.definition.header")%></th>
                         </tr>
 
                         <tr>
