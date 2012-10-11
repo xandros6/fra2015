@@ -6,8 +6,6 @@
         Purpose of the stylesheet follows.
 */
 
-
-
 body {
     font-family: sans-serif;
 
@@ -18,6 +16,8 @@ body {
 
 html,body{
     height:100%;
+	bottom:0px;
+	top:0px;
 }
 
 a, a:visited, a:active {
@@ -25,6 +25,46 @@ a, a:visited, a:active {
     color:black;
 }
 
+ table th {
+    background-color: gainsboro;
+    color: #333333;
+}
+
+ table tr:hover,table tr.even:hover{
+	background-color:#F0F0F0;
+}
+
+ table td {
+    border:gainsboro 1px solid;
+    height:32px;
+}
+table tr.even{
+	background-color:#FAFAFA;
+}
+.control,.control:hover{
+	background-color:white;
+}
+.control input[type=button],.control input[type=button]:hover{
+	float:right;
+
+}
+
+/* ICONS */
+.icon16{
+	width: 16px;
+	height: 16px;
+	display:inline;
+}
+
+/* DISCLAIMER */
+.disclaimer{
+	margin:50px;
+}
+
+.icon-warning{
+	background-image: url(../../images/icons/error.png);
+	
+}
 /* HEADER */
 #header {
     text-align:center;
@@ -64,18 +104,26 @@ a, a:visited, a:active {
 }
 /* FOOTER */
 #footer {
-
+	
+	padding:30px;
     border-top:thin solid black;
-    position:absolute;
+    position:relative;
+	font-size:15px;
+	font-style:italic;
 
 }
-#footer .disclaimer {
-
+#footer h3 {
     text-align:center;
     width:100%;
 
 }
-
+#footer .copyright{
+	text-align:center;
+    width:50%;
+	margin:0 auto;
+	position:relative;
+	bottom:0px;
+}
 
 /* TOP MENU */
 #topmenu {
@@ -126,12 +174,13 @@ a, a:visited, a:active {
 #main {
     padding:0 0px 0 0px;
     text-align: center;
+	
+	
 }
 
-
-#main > .tablelayout >.navigation, #main > .tablelayout  >.content{
+#main > .tablelayout >.navigation, #main > .tablelayout  >.content,#main > .admin{
     padding-top:20px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 
 }
 
@@ -147,7 +196,8 @@ a, a:visited, a:active {
 .navigation {
 
     border-right:thin solid black;
-
+	bottom:0;
+	
     margin:0px;
     left: -4px;
     position: relative;
@@ -176,11 +226,20 @@ a, a:visited, a:active {
     text-align: right;
     padding-right:5px;
     border-bottom: thin dashed black;
-
+	font-weight:bold;
 
 }
-.navigation ul li:hover{
-    background-color:#00AA00;
+.navigation li a:active,.navigation li a:visited{
+	color:
+}
+.navigation ul li:hover,.navigation ul li:hover a:visited{
+    background-color:green;
+	color:white;
+	font-weight:bold;
+}
+
+.navigation ul li div.icon16{
+	float:left;margin:auto;
 }
 
 /* CONTENT */
@@ -199,18 +258,19 @@ form * {
     width:100%;
 }
 
-.content th {
-    background-color: gainsboro;
-    color: #333333;
+
+.content table caption{
+	text-align:left;
+	font-weight:bold;
+	color:#5F5F5F;
 }
+.content .warning .warning-message{
+	padding-left:16px;
+	background-image: url(../../images/icons/error.png);
+	background-repeat:no-repeat;
+	background-color:orange;
 
-.content td {
-    border:gainsboro 1px solid;
-    height:32px;
 }
-
-
-
 .control img {
     float:left;
 }
@@ -222,9 +282,9 @@ form * {
 
 /* USERS PAGE */
 .admin table #usersTableHeaderRow th {
-	background-color:green;
-	color:white;
-	border:1px solid green;
+	background-color:gainsboro;
+	
+	
 	padding:5px;
 
 }
@@ -242,13 +302,7 @@ form * {
 	height:30px;
 	font-size:14px;
 }
-.admin table tr.even{
-	background-color:#aeecb4;
-}
+
  .admin table tr.odd{
-	background-color:#8bbf90;
-}
-.admin  .control input[type=button]{
-	float:right;
 	
 }

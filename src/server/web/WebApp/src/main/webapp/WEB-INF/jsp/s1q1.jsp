@@ -149,8 +149,9 @@
                         </tr>
                         <tr class="warning">
                             <th colspan="6">
-                                <span style="background-color: red">WARNING!!!</span>
-                                Review data for years 1990 - 2000, please.</th>
+                                <span class="warning-message">WARNING!!!
+                                Review data for years 1990 - 2000, please.</span>
+							</th>
                         </tr>
                         <tr>
                             <th rowspan="2"><%=forests.getString("q1.data.table1a.header.categories")%></th>
