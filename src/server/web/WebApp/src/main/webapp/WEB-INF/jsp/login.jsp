@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>FRA 2015 Login</title>
-        <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
+        <link href="includes/css/login.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script>
             

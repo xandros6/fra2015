@@ -11,9 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>FRA 2015 Gestione utenti</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
-        <script src="includes/jquery-1.8.2.min.js" type="text/javascript">
-        </script>
-
+		<link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="includes/jquery-ui.min.js"></script>
+ 
         <script type="text/javascript">
             <!--
             
@@ -24,7 +25,7 @@
             nations = new Array('Italy','USA','UK','Germany','France','Spain');            
             
             $(document).ready(function(){
-                
+                $(":button").button();
                 $("#usersTableAdd").click(function(ev) {
                     
                     var rowIndex, db;
@@ -56,7 +57,7 @@
                     
                 cols = $("#usersTableHeaderRow > th").size();
 
-                control.before( "<tr id=usersTableRow"+rowIndex+"></tr>");
+                control.before( "<tr id=usersTableRow"+rowIndex+ (rowIndex%2?" class='odd'":" class='even' ")+"></tr>");
                 
                 var row = $("#usersTableRow"+rowIndex);
                     
@@ -97,6 +98,7 @@
                 }
                 
                 row.html(result);
+				$("#usersTableDeleteRow"+rowIndex).button();
                 
                 return row;
             }

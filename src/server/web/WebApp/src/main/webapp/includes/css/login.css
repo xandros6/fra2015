@@ -32,10 +32,11 @@ a, a:visited, a:active {
 }
 
 #header {
-    background-image: url(../../images/frabanner.png);
-    height: 180px;
+    background-image: url(../../images/fra2015logo.jpg);
+    height: 381px;
     background-repeat: no-repeat;
     overflow: visible;
+	background-position:center;
 
 
 }
@@ -59,8 +60,10 @@ a, a:visited, a:active {
 /* LANGUAGES */
 #languages {
 	position:absolute;
-	right:5px;
-	bottom:0px;
+	text-align:center;
+	width:100%;
+	bottom:-100px;
+	
 }
 /* FOOTER */
 #footer {
@@ -143,45 +146,6 @@ a, a:visited, a:active {
 
 }
 
-/* NAVIGATION MENU */
-.navigation {
-
-    border-right:thin solid black;
-
-    margin:0px;
-    left: -4px;
-    position: relative;
-    display: table-cell;
-
-    width:20%;
-}
-.navigation h3{
-    text-align:left;
-    margin-top:0px;
-    top:0px;
-
-    padding-left: 10px;
-}
-
-.navigation ul {
-    list-style-image: none;
-    list-style: none;
-	padding:0px;
-}
-.navigation ul>:first-child{
-    border-top: thin dashed black;
-
-}
-.navigation li {
-    text-align: right;
-    padding-right:5px;
-    border-bottom: thin dashed black;
-
-
-}
-.navigation ul li:hover{
-    background-color:#00AA00;
-}
 
 /* CONTENT */
 .content {
@@ -209,46 +173,24 @@ form * {
     height:32px;
 }
 
+/* LOGIN */
+.login {
+    text-align: center;
+}
 
+.login table {
+    border: black 1px solid;
+    margin: 100px auto;
+}
+
+.login caption {
+    background-color: darkgrey;
+    color: white;
+}
 
 .control img {
     float:left;
 }
 
-/* FORMS */
-#form1 input[type=button] {
-    float:right;
-}
 
-/* USERS PAGE */
-.admin table #usersTableHeaderRow th {
-	background-color:green;
-	color:white;
-	border:1px solid green;
-	padding:5px;
 
-}
-.admin table td{
-	padding:5px;
-}
- .admin table{
-	margin: 0 auto;
-	
-}
-.admin table caption{
-	font-weight:bold;
-}
-.admin table  input[type=button]{
-	height:30px;
-	font-size:14px;
-}
-.admin table tr.even{
-	background-color:#aeecb4;
-}
- .admin table tr.odd{
-	background-color:#8bbf90;
-}
-.admin  .control input[type=button]{
-	float:right;
-	
-}
