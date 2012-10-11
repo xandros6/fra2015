@@ -14,10 +14,13 @@
         <title>FRA 2015 Introduction</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="includes/jquery-ui.min.js"></script>
+		<link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		
         <script>
             
             $(document).ready(function(){
-                
+                $(":button").button();
                 $("#bSave").click(function(event) {
 
                     var editor = CKEDITOR.instances['editor'];

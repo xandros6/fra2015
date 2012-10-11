@@ -18,6 +18,8 @@ body {
 
 html,body{
     height:100%;
+	bottom:0px;
+	top:0px;
 }
 
 a, a:visited, a:active {
@@ -25,6 +27,29 @@ a, a:visited, a:active {
     color:black;
 }
 
+ table th {
+    background-color: gainsboro;
+    color: #333333;
+}
+
+ table tr:hover,table tr.even:hover{
+	background-color:#F0F0F0;
+}
+
+ table td {
+    border:gainsboro 1px solid;
+    height:32px;
+}
+table tr.even{
+	background-color:#FAFAFA;
+}
+.control,.control:hover{
+	background-color:white;
+}
+.control input[type=button],.control input[type=button]:hover{
+	float:right;
+
+}
 /* HEADER */
 #header {
     text-align:center;
@@ -76,7 +101,6 @@ a, a:visited, a:active {
 
 }
 
-
 /* TOP MENU */
 #topmenu {
     background-color: green;
@@ -126,8 +150,9 @@ a, a:visited, a:active {
 #main {
     padding:0 0px 0 0px;
     text-align: center;
+	
+	
 }
-
 
 #main > .tablelayout >.navigation, #main > .tablelayout  >.content{
     padding-top:20px;
@@ -147,6 +172,7 @@ a, a:visited, a:active {
 .navigation {
 
     border-right:thin solid black;
+	bottom:0;
 
     margin:0px;
     left: -4px;
@@ -199,17 +225,12 @@ form * {
     width:100%;
 }
 
-.content th {
-    background-color: gainsboro;
-    color: #333333;
+
+.content table caption{
+	text-align:left;
+	font-weight:bold;
+	color:#5F5F5F;
 }
-
-.content td {
-    border:gainsboro 1px solid;
-    height:32px;
-}
-
-
 
 .control img {
     float:left;
@@ -222,9 +243,9 @@ form * {
 
 /* USERS PAGE */
 .admin table #usersTableHeaderRow th {
-	background-color:green;
-	color:white;
-	border:1px solid green;
+	background-color:gainsboro;
+	
+	
 	padding:5px;
 
 }
@@ -242,13 +263,7 @@ form * {
 	height:30px;
 	font-size:14px;
 }
-.admin table tr.even{
-	background-color:#aeecb4;
-}
+
  .admin table tr.odd{
-	background-color:#8bbf90;
-}
-.admin  .control input[type=button]{
-	float:right;
 	
 }
