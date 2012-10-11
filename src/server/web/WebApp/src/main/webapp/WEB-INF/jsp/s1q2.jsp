@@ -121,7 +121,7 @@
                             <th><%=forests.getString("q1.classification.header.definition")%></th>
                         </tr>
                     </table>
-                    <h4>1.2.3 <%=forests.getString("q1.original.data.title")%></h4>
+                    <h3>1.2.3 <%=forests.getString("q1.original.data.title")%></h3>
                     <textarea id="originaldataEditor" name="originalDataEditor"></textarea>
 
                     <h2>1.3 <%=forests.getString("q1.analysis.title")%></h2>

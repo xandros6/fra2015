@@ -67,7 +67,6 @@
             <div id="topmenu">
                 <%@include file="jspf/sectionmenu.jspf" %>
             </div>
-
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
@@ -81,7 +80,6 @@
                             <th><%=forests.getString("q1.fra2015.categories.category")%></th>
                             <th><%=forests.getString("q1.fra2015.categories.definition")%></th>
                         </tr>
-
                         <tr>
                             <td><%=cats.getString("q1.forest.category")%></td><td><%=cats.getString("q1.forest.definition")%></td>
                         </tr>
@@ -120,7 +118,7 @@
                             <th><%=forests.getString("q1.classification.header.definition")%></th>
                         </tr>
                     </table>
-                    <h4>1.2.3 <%=forests.getString("q1.original.data.title")%></h4>
+                    <h3>1.2.3 <%=forests.getString("q1.original.data.title")%></h3>
                     <textarea id="originaldataEditor" name="originalDataEditor"></textarea>
 
                     <h2>1.3 <%=forests.getString("q1.analysis.title")%></h2>
