@@ -1,8 +1,7 @@
-<%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 <h3>Forest area and characteristics</h3>
 <ul>
-    <li>Question 1</li>
+    <li><a href="question1.action">Question 1</a></li>
     <li>Question 2</li>
     <li>Question 3</li>
     <li>Question 4</li>

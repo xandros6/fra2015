@@ -17,7 +17,7 @@ public class LoginAction extends AbstractAction {
 
     @Override
     public ResponseObject call(RequestObject request) {
-
+        
         User user = (User) request.getSessionMap().get(User.class.getName());
 
         if (user != null) {

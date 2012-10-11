@@ -2,6 +2,10 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <description>FRA 2015 progam report application</description>
     <display-name>FRA 2015</display-name>
+    <context-param>
+        <param-name>strings</param-name>
+        <param-value>strings.properties</param-value>
+    </context-param>
     <listener>
         <description>main servlet context listener</description>
         <listener-class>it.geosolutions.fra2015.webapp.listeners.WebApplicationListener</listener-class>

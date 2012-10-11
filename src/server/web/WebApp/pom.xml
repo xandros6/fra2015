@@ -48,6 +48,17 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <targetPath>META-INF/webapp</targetPath>
+                <directory>${basedir}/src/main/webapp/resources</directory>
+            </resource>
+            <resource>
+                <targetPath>META-INF/webapp/images</targetPath>
+                <directory>${basedir}/src/main/webapp/images</directory>
+            </resource>
+            
+        </resources>
 
         <plugins>
             <plugin>
@@ -119,5 +130,7 @@
 
         </plugins>
     </build>
+    
+    
 
 </project>

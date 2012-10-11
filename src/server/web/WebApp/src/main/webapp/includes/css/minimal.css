@@ -86,15 +86,16 @@ a, a:visited, a:active {
 }
 
 .navigation {
-    margin:0px;
+    padding-right:10px;
     display: table-cell;
-
     width:25%;
 }
 
+.navigation h3 {
+    border-bottom: gainsboro 1px solid;
+}
+
 .navigation ul {
-    margin:0px;
-    padding:0px;
     list-style-image: none;
     list-style: none;
 }
@@ -110,6 +111,20 @@ a, a:visited, a:active {
     width:75%;
 }
 
+.content table {
+    width:100%;
+}
+
+.content th {
+    background-color: gainsboro;
+    color: #333333;
+}
+
+.content td {
+    border:gainsboro 1px solid;
+    height:32px;
+}
+
 .login {
     text-align: center;
 }
@@ -123,6 +138,7 @@ a, a:visited, a:active {
     color: white;
 }
 
-
-
+.control img {
+    float:left;
+}
 

@@ -89,7 +89,7 @@ public class MainController extends HttpServlet {
 
         String url = ConfigurationManager.getView(view);
 
-        log.log(Level.FINE, "forward to view:{0} url:{1}", new Object[]{view, url});
+        log.log(Level.INFO, "forward to view:{0} url:{1}", new Object[]{view, url});
 
         if (url == null) {
             if (view.startsWith("http")) {

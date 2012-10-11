@@ -11,8 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>FRA 2015 Template page</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
-        <script src="includes/jquery-1.8.2.min.js" type="text/javascript"/>
-        <script lang="javascript">
+        <script src="includes/jquery-1.8.2.min.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
             <!--
             $(document).ready(function(){
                 // @todo add code here

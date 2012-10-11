@@ -1,16 +1,21 @@
 <%-- any content can be specified here e.g.: --%>
+<%@page import="java.util.ResourceBundle"%>
 <%@page import="it.geosolutions.fra2015.core.model.user.UserGroup"%>
 <%@page import="it.geosolutions.fra2015.core.model.user.User"%>
 <%@ page pageEncoding="UTF-8" %>
+<%{%>
 <ul>
     <%
+    ResourceBundle rb = (ResourceBundle)request.getAttribute("strings");
+    
         User user = (User) session.getAttribute(User.class.getName());
         if (user.getUserGroup().equals(UserGroup.ADMINISTRATOR)) {%>
-    <li><a href="users.action">Users</a></li>
+    <li><a href="users.action"><%=rb.getString("section.users")%></a></li>
     <%        }
-    %><li><a href="navigation.action?section=introduction">Introduction</a></li>
-    <li><a href="navigation.action?section=forest">Forest area and characteristics</a></li>
-    <li><a href="navigation.action?section=parta">Part A</a></li>
-    <li><a href="navigation.action?section=partb">Part B</a></li>
-    <li class="last"><a href="logout.action">Logout</a></li>
+    %><li><a href="navigation.action?section=introduction"><%=rb.getString("section.introduction")%></a></li>
+    <li><a href="navigation.action?section=forest"><%=rb.getString("section.forest")%></a></li>
+    <li><a href="navigation.action?section=parta"><%=rb.getString("section.parta")%></a></li>
+    <li><a href="navigation.action?section=partb"><%=rb.getString("section.partb")%></a></li>
+    <li class="last"><a href="logout.action"><%=rb.getString("section.logout")%></a></li>
 </ul>
+<%}%>
