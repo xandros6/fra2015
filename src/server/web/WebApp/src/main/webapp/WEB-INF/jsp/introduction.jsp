@@ -135,7 +135,6 @@
                             </tr>
                         </tbody>
                     </table>
-
                     <label for="editor"><%=strings.getString("introduction.title")%>:</label>
                     <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
                     <br/>
