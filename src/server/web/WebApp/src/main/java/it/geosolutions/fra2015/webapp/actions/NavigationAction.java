@@ -13,10 +13,6 @@ public class NavigationAction extends AbstractAction {
     public ResponseObject call(RequestObject request) {
         String section = request.getString("section");
         ResponseObject ro = this.getResponseObject(section);
-
-        ro.getResponseMap().put("forests", getResourceBundle("forests"));
-
-
         return ro;
     }
 }

@@ -31,7 +31,7 @@
 <html>
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>FRA 2015 Question 1</title>
+        <title>FRA 2015 Question 2</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript">
         </script>
@@ -74,7 +74,7 @@
                     <%@include file="jspf/forestmenu.jspf" %>
                 </div>
                 <div class="content">
-                    <h1><%= forests.getString("q1.title")%>:<%=forests.getString("q1.body")%></h1>
+                    <h1><%= forests.getString("q2.title")%>:<%=forests.getString("q2.body")%></h1>
                     <table>
                         <caption>1.1 <%=forests.getString("q1.fra2015.categories.title")%></caption>
                         <tr>
@@ -147,12 +147,7 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr class="warning">
-                            <th colspan="6">
-                                <span style="background-color: red">WARNING!!!</span>
-                                Review data for years 1990 - 2000, please.</th>
-                        </tr>
-                        <tr>
+                            <tr>
                             <th rowspan="2"><%=forests.getString("q1.data.table1a.header.categories")%></th>
                             <th colspan="5"><%=forests.getString("q1.data.table1a.header.area")%></th>
                         </tr>

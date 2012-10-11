@@ -3,10 +3,20 @@
     Created on : 2-ott-2012, 10.11.06
     Author     : francesco
 --%>
+<%@page import="java.util.ResourceBundle"%>
 <%@page import="it.geosolutions.fra2015.webapp.rte.RTEConfigurationHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <%@include file="jspf/userValidation.jspf" %>
+<%
+
+    ResourceBundle strings = (ResourceBundle) request.getAttribute("strings");
+
+    if (strings == null) {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+    }
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +24,8 @@
         <title>FRA 2015 Introduction</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="includes/gridedit.js" type="text/javascript">
+        </script>
         <script>
             
             $(document).ready(function(){
@@ -55,6 +67,21 @@
                    
                 });
                 
+                $("#personsTableAdd").click(function(ev) {
+                    
+                    var rowIndex;
+                    
+                    rowIndex = $("#personsTable  tr").size();
+                    
+                    createRow("personsTable",rowIndex);
+                                        
+                });
+                $("#personsTableSave").click(function(ev) {
+                    
+                    alert('Not supported yet.');
+                                        
+                });
+                
                 
 
             });
@@ -74,10 +101,10 @@
                 </div>
                 <div class="content">
                     <h3>Report preparation and contact persons</h3>
-                    <table>                
+                    <table id="personsTable">                
                         <caption>The present report was prepared by the following person(s)</caption>
                         <thead>
-                            <tr id="usersTableHeaderRow">
+                            <tr>
                                 <th>
                                     #
                                 </th>
@@ -100,21 +127,21 @@
                             </tr>
                         </thead>
                         <tbody id="usersTableBody">
-                            <tr id="usersTableCommandRow">
+                            <tr >
                                 <td colspan="6" class="control">
-                                    <input id="usersTableAdd" type="button" value="+"/>
-                                    <input id="usersTableSave" type="button" value="Save"/>
+                                    <input id="personsTableAdd" type="button" value="+"/>
+                                    <input id="personsTableSave" type="button" value="Save"/>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <form id="form1" action="introduction.jsp" method="post">
-                        <label for="editor">Enter text here:</label>
-                        <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
-                        <br/>
-                        <input id="bReload" type="button" value="Cancel"/>
-                        <input id="bSave" type="button" value="Save"/>
-                    </form>
+
+                    <label for="editor"><%=strings.getString("introduction.title")%>:</label>
+                    <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
+                    <br/>
+                    <input id="bReload" type="button" value="Cancel"/>
+                    <input id="bSave" type="button" value="Save"/>
+
                 </div>
             </div>
         </div>

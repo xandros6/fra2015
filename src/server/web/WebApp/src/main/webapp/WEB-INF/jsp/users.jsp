@@ -11,10 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>FRA 2015 Gestione utenti</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
-		<link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
-		<script src="includes/jquery-ui.min.js"></script>
- 
+        <script src="includes/jquery-ui.min.js"></script>
+        <script src="includes/gridedit.js" type="text/javascript">
+        </script>
         <script type="text/javascript">
             <!--
             
@@ -25,110 +26,43 @@
             nations = new Array('Italy','USA','UK','Germany','France','Spain');            
             
             $(document).ready(function(){
+                
                 $(":button").button();
+                
+                
                 $("#usersTableAdd").click(function(ev) {
                     
-                    var rowIndex, db;
+                    var rowIndex;
                     
-                    rowIndex = $("#usersTableBody > tr").size();
+                    rowIndex = $("#usersTable tr").size();
                     
-                    createRow(rowIndex);
+                    createRow("usersTable",rowIndex);
+                                        
+                });
+                $("#usersTableSave").click(function(ev) {
+                    
+                    alert('Not supported yet.');
                                         
                 });
                 
-                $("#usersTableSave").click(function(ev) {
-                    
-                    alert("Not supported yet.")
-                    
-                });
-                
-                // @todo load users
-                
-                generateRandomUsers();
-                
-                
+                generateRandomUsers("usersTable");
                 
             });
             
-            function createRow(rowIndex) {
-                var control, cols;
-                 
-                control = $("#usersTableCommandRow");
-                    
-                cols = $("#usersTableHeaderRow > th").size();
-
-                control.before( "<tr id=usersTableRow"+rowIndex+ (rowIndex%2?" class='odd'":" class='even' ")+"></tr>");
-                
-                var row = $("#usersTableRow"+rowIndex);
-                    
-                row = configRow(row, rowIndex, cols, true );
-                
-                var db = $("#usersTableDeleteRow"+rowIndex);
-                    
-                db.click(function(ev) {
-                        
-                    deleteRow(rowIndex);
-                        
-                });
-                
-                return row;
-            }
             
-            function configRow(row, rowIndex, cols, controls) {
-                
-                var result= "", i=0;
-                
-                for (i;i<cols;i++) {
-                    result+="<td>";
-                    switch (i) {
-                        case 0:
-                            result+=rowIndex;
-                            break;
-                        case cols-1:
-                            if (controls)  {
-                                result+='<input id="usersTableDeleteRow'+
-                                    rowIndex+
-                                    '" type="button" value="-" />';
-                            }
-                            break;
-                        default:
-                    }
-
-                    result+="</td>";
-                }
-                
-                row.html(result);
-				$("#usersTableDeleteRow"+rowIndex).button();
-                
-                return row;
-            }
-            
-            function deleteRow(rowIndex) {
-                
-                $("#usersTableRow"+rowIndex).remove();
-                
-            }
-            
-            function generateRandomUsers() {
+            function generateRandomUsers(tableId) {
                 
                 var count = Math.floor(Math.random()*10)+1;
                 
-                //                alert('genero '+count+" utenti "+nations[3]);
-                
                 var i=0;
-                
-                var cols = $("#usersTableHeaderRow > th").size();
                 
                 for (i = 0; i < count; i++) {
                     
-                    var row = createRow(i);
-                    
-                    
+                    createRow(tableId,i);
             
-                    var cells = $("#usersTableRow"+i+" > td");
+                    var cells = $("#"+tableId+"Row"+i+" > td");
                     
                     var name, surname, nation, email;
-                    
                         
                     var index = Math.floor(Math.random()*names.length);
                         
@@ -147,11 +81,9 @@
                     
                     for (j = 0; j < cells.size(); j++) {
                         
-                        var cellKey = "#usersTableRow"+i+" td:nth-child("+(j+1)+")";
+                        var cellKey = "#"+tableId+"Row"+i+" td:nth-child("+(j+1)+")";
                         
                         var cell = $(cellKey);
-                        
-                        //                        cell.html(i+","+j);
                         
                         switch(j) {
                             case 0:
@@ -187,10 +119,10 @@
         <%@include file="jspf/header.jspf" %>
         <div id="main">
             <div id="topmenu">
-                <%@include file="jspf/sectionmenu.jspf" %>
+                <%@include file="jspf/adminmenu.jspf" %>
             </div>
             <div class="admin">
-                <table>                
+                <table id="usersTable">                
                     <caption>Active users</caption>
                     <thead>
                         <tr id="usersTableHeaderRow">

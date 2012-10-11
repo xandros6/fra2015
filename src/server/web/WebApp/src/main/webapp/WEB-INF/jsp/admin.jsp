@@ -20,7 +20,7 @@
         <%@include file="jspf/header.jspf" %>
         <div id="main">
             <div id="topmenu">
-                <%@include file="jspf/sectionmenu.jspf" %>
+                <%@include file="jspf/adminmenu.jspf" %>
             </div>
             <div id="content">
                 <img src="images/faologo.png" /><br/>

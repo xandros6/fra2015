@@ -43,13 +43,17 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         RequestObject req = ContextObjectFactory.getRequestObject(request);
-
-        Action action = ActionFactory.createAction(req);
+        Action action = null;
+        try {
+            action = ActionFactory.createAction(req);
+        } catch (Exception e) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, "invalid action +req", e);
+        }
 
         ResponseObject wrapper;
 
         try {
-
+            
             wrapper = action.call(req);
 
         } catch (Exception ex) {
