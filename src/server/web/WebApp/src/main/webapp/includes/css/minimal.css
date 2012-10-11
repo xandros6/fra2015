@@ -6,8 +6,6 @@
         Purpose of the stylesheet follows.
 */
 
-
-
 body {
     font-family: sans-serif;
 
@@ -102,16 +100,25 @@ table tr.even{
 }
 /* FOOTER */
 #footer {
-
+	
+	padding:30px;
     border-top:thin solid black;
-    position:absolute;
+    position:relative;
+	font-size:15px;
+	font-style:italic;
 
 }
-#footer .disclaimer {
-
+#footer h3 {
     text-align:center;
     width:100%;
 
+}
+#footer .copyright{
+	text-align:center;
+    width:50%;
+	margin:0 auto;
+	position:relative;
+	bottom:0px;
 }
 
 /* TOP MENU */
@@ -167,9 +174,9 @@ table tr.even{
 	
 }
 
-#main > .tablelayout >.navigation, #main > .tablelayout  >.content{
+#main > .tablelayout >.navigation, #main > .tablelayout  >.content,#main > .admin{
     padding-top:20px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 
 }
 
@@ -186,7 +193,7 @@ table tr.even{
 
     border-right:thin solid black;
 	bottom:0;
-
+	
     margin:0px;
     left: -4px;
     position: relative;
@@ -215,11 +222,16 @@ table tr.even{
     text-align: right;
     padding-right:5px;
     border-bottom: thin dashed black;
-
+	font-weight:bold;
 
 }
-.navigation ul li:hover{
-    background-color:#00AA00;
+.navigation li a:active,.navigation li a:visited{
+	color:
+}
+.navigation ul li:hover,.navigation ul li:hover a:visited{
+    background-color:green;
+	color:white;
+	font-weight:bold;
 }
 
 .navigation ul li div.icon16{
