@@ -37,10 +37,12 @@
         </script>
         <script src="includes/gridedit.js" type="text/javascript">
         </script>
+		<link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="includes/jquery-ui.min.js"></script>
         <script type="text/javascript">
             <!--
             $(document).ready(function(){
-                
+                $(":button").button();
                 $("#t1_2Add").click(function(ev) {
                     
                     var rowIndex;
@@ -107,7 +109,7 @@
                             <th>&nbsp;</th>
                         </tr>
                         <tr>
-                            <th colspan="6">
+                            <th colspan="6" class="control">
                                 <input id="t1_2Add" type="button" value="+"/>
                                 <input id="t1_2Save" type="button" value="Save"/>
                             </th>
@@ -148,12 +150,7 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr class="warning">
-                            <th colspan="6">
-                                <span class="warning-message">WARNING!!!
-                                    Review data for years 1990 - 2000, please.</span>
-                            </th>
-                        </tr>
+                        
                         <tr>
                             <th rowspan="2"><%=forests.getString("q1.data.table1a.header.categories")%></th>
                             <th colspan="5"><%=forests.getString("q1.data.table1a.header.area")%></th>
