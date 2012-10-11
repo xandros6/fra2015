@@ -44,7 +44,7 @@ table tr.even{
 .control,.control:hover{
 	background-color:white;
 }
-.control input[type=button],.control input[type=button]:hover,#bReload,bSave{
+.control input[type=button],.control input[type=button]:hover,#bReload,#bSave{
 	float:right;
 
 }
@@ -119,7 +119,7 @@ table tr.even{
 }
 #footer .copyright{
 	text-align:center;
-    width:50%;
+    width:90%;
 	margin:0 auto;
 	position:relative;
 	bottom:0px;
@@ -298,11 +298,12 @@ form * {
 .admin table caption{
 	font-weight:bold;
 }
-.admin table  input[type=button]{
+table  input[type=button]{
 	height:30px;
 	font-size:14px;
 }
+table td input[type=button]{
+	width:70px;
 
- .admin table tr.odd{
-	
 }
+

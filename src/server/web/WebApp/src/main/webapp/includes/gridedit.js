@@ -43,11 +43,11 @@ function configRow(tableIndex, rowIndex, cols, controls) {
 
         result+="</td>";
     }
-                
+       $("#"+did).button();          
     row.html(result);
     
     var button = $("#"+did);
-                    
+    button.button();
     button.click(function(ev) {
                         
         deleteRow(tableIndex, rowIndex);
@@ -55,7 +55,7 @@ function configRow(tableIndex, rowIndex, cols, controls) {
     });
                     
     button = $("#"+eid);
-                    
+    button.button();               
     button.click(function(ev) {
                         
         editRow(tableIndex, rowIndex);
@@ -63,7 +63,7 @@ function configRow(tableIndex, rowIndex, cols, controls) {
     });
                     
     button = $("#"+sid);
-                    
+    button.button();                
     button.click(function(ev) {
                         
         commitRow(tableIndex, rowIndex);
