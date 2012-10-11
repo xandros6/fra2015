@@ -50,6 +50,19 @@ table tr.even{
 	float:right;
 
 }
+
+/* ICONS */
+.icon16{
+	width: 16px;
+	height: 16px;
+	display:inline;
+}
+
+
+.icon-warning{
+	background-image: url(../../images/icons/error.png);
+	
+}
 /* HEADER */
 #header {
     text-align:center;
@@ -209,6 +222,10 @@ table tr.even{
     background-color:#00AA00;
 }
 
+.navigation ul li div.icon16{
+	float:left;margin:auto;
+}
+
 /* CONTENT */
 .content {
     padding:5px;
@@ -231,7 +248,13 @@ form * {
 	font-weight:bold;
 	color:#5F5F5F;
 }
+.content .warning .warning-message{
+	padding-left:16px;
+	background-image: url(../../images/icons/error.png);
+	background-repeat:no-repeat;
+	background-color:orange;
 
+}
 .control img {
     float:left;
 }

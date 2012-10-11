@@ -4,7 +4,7 @@
         ResourceBundle nrb = (ResourceBundle) request.getAttribute("forests");%>
 <h3>Forest area and characteristics</h3>
 <ul>
-    <li><a href="question1.action"><%= nrb.getString("q1.title")%>: <%=nrb.getString("q1.body")%></a></li>
+    <li><div class="icon16 icon-warning" src="includes/icons/error.png"></div><a href="question1.action"><%= nrb.getString("q1.title")%>: <%=nrb.getString("q1.body")%></a></li>
     <li>Question 2</li>
     <li>Question 3</li>
     <li>Question 4</li>

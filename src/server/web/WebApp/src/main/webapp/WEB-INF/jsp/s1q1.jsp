@@ -124,7 +124,7 @@
                         </tr>
                         <tr class="warning">
                             <th colspan="6">
-                                <span style="background-color: red">WARNING!!!</span>
+                                <span class="warning-message">WARNING!!!</span>
                                 Review data for years 1990 - 2000, please.</th>
                         </tr>
                         <tr>
