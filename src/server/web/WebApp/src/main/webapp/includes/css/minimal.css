@@ -44,7 +44,7 @@ table tr.even{
 .control,.control:hover{
 	background-color:white;
 }
-.control input[type=button],.control input[type=button]:hover{
+.control input[type=button],.control input[type=button]:hover,#bReload,bSave{
 	float:right;
 
 }
@@ -223,7 +223,7 @@ table tr.even{
 
 }
 .navigation li {
-    text-align: right;
+    text-align: left;
     padding-right:5px;
     border-bottom: thin dashed black;
 	font-weight:bold;
