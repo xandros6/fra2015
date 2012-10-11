@@ -2,9 +2,9 @@
     Document   : template
     Created on : 2-ott-2012, 10.11.06
     Author     : francesco
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+--%><%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ResourceBundle"%>
+<%ResourceBundle rb = (ResourceBundle) request.getAttribute("strings");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,25 +18,20 @@
                 
                 $("#bLogin").click(function(event) {
                     
-
-                    
                     //@todo ajax this 
                     
                     var username = $("#username").val();
                     
                     if (username == null || username == "") {
-                        alert("Enter your account name, please.");
+                        alert("<%=rb.getString("login.error.username")%>");
                         return;
                     }
-                    
                     
                     var password = $("#password").val();
                     if (password == null) {
-                        alert("Enter your password, please.");
+                        alert("<%=rb.getString("login.error.password")%>");
                         return;
                     }
-                    
-
                         
                     $.ajax({
                         type:"POST",
@@ -48,11 +43,11 @@
                             if (d) {
                                 document.location="home.action";
                             } else {
-                                alert("Login error, try again");
+                                alert("<%=rb.getString("login.error.invalid")%>");
                             }
                         },
                         error: function(o,s,e) {
-                            alert("Connection error, try again later pls");
+                            alert("<%=rb.getString("login.error.connection")%>");
                         }
                         
                     });
@@ -70,20 +65,20 @@
         <div id="main">
             <div class="login">
                 <table>
-                    <caption>Login:</caption>
+                    <caption><%=rb.getString("login.title")%>:</caption>
                     <tr>
-                        <th>Username:</th>
+                        <th><%=rb.getString("login.header.username")%>:</th>
                         <td><input id="username" type="text"/> </td>
                     </tr>
                     <tr>
-                        <th>Password:</th>
+                        <th><%=rb.getString("login.header.password")%>:</th>
                         <td>
                             <input id="password" type="password"/>
                         </td>
                     </tr>
                     <tr>
                         <th colspan="2">
-                            <input id="bLogin" type="button" value="Login" />
+                            <input id="bLogin" type="button" value="<%=rb.getString("login.submit")%>" />
                         </th>
                     </tr>
                 </table>

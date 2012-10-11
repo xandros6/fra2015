@@ -2,11 +2,11 @@
 <%@page import="java.util.ResourceBundle"%>
 <%@ page pageEncoding="UTF-8" %>
 <%{
-        ResourceBundle rb = (ResourceBundle) request.getAttribute("strings");%>
+        ResourceBundle footerrb = (ResourceBundle) request.getAttribute("strings");%>
 <div id="footer">
     <div class="disclaimer">
-        <h3><%=rb.getString("disclaimer.title")%></h3>
-        <%=rb.getString("disclaimer.body")%>
+        <h3><%=footerrb.getString("disclaimer.title")%></h3>
+        <%=footerrb.getString("disclaimer.body")%>
     </div>
 </div>
 <%}%>

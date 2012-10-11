@@ -5,6 +5,7 @@
 package it.geosolutions.fra2015.webapp.actions;
 
 import it.geosolutions.fra2015.webapp.RequestObject;
+import it.geosolutions.fra2015.webapp.ResourceBundleManager;
 import it.geosolutions.fra2015.webapp.ResponseObject;
 import java.util.Locale;
 
@@ -19,17 +20,17 @@ public class LocaleAction extends AbstractAction {
         String language = request.getString("language");
         String country = request.getString("country");
 
-        Locale locale = Locale.forLanguageTag(language );
-
-        System.out.println("looking for " + language );
+        Locale locale = new Locale(language, country);
 
         ResponseObject ro;
 
         if (locale != null) {
 
-            System.out.println("locale found:" + locale.getLanguage());
+            System.out.println("locale found:" + locale);
 
             Locale.setDefault(locale);
+
+            ResourceBundleManager.getInstance().reloadCache();
 
             ro = getResponseObject("true");
 
