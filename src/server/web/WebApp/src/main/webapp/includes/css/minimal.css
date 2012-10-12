@@ -216,6 +216,7 @@ table tr.even{
 .navigation ul {
     list-style-image: none;
     list-style: none;
+    list-style: none;
 	padding:0px;
 }
 .navigation ul>:first-child{
@@ -224,7 +225,7 @@ table tr.even{
 }
 .navigation li {
     text-align: left;
-    padding-right:5px;
+    padding:5px;
     border-bottom: thin dashed black;
 	font-weight:bold;
 
