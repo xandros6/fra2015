@@ -12,13 +12,18 @@
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
-        <%@include file="/WEB-INF/jsp/jspf/header.jspf" %>
+        <div id="header">
+            <div id ="partners">
+                <a href="http://www.fao.org/"><div class="fao-logo"></div></a>
+            </div>
+
+        </div>
         <div id="main">
             <h1>404: Page not found</h1>
             File or document requested by client was not found.<br/>
             Please check the address and try again.
         </div>
-        <%@include file="/WEB-INF/jsp/jspf/footer.jspf" %>
+        <div id="footer"></div>
     </body>
 </html>
 

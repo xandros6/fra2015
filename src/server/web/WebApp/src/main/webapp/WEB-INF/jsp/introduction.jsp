@@ -40,7 +40,7 @@
                         
                     $.ajax({
                         type:"POST",
-                        url:"introduction.action",
+                        url:"introduction.action/save",
                         data:"body="+text,
                         dataType:'json',
                         timeout:5000,
@@ -98,7 +98,7 @@
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
-                    <%@include file="jspf/introductionmenu.jspf" %>
+                    <%@include file="jspf/section1.jspf" %>
                 </div>
                 <div class="content">
                     <h3>Report preparation and contact persons</h3>

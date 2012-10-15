@@ -11,7 +11,7 @@ public class IntroductionAction extends AbstractAction {
 
     @Override
     public ResponseObject call(RequestObject request) {
-        ResponseObject ro = getResponseObject("true");
+        ResponseObject ro = getResponseObject("introduction");
         return ro;
     }
 }

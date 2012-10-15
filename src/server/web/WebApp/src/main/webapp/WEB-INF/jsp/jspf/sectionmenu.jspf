@@ -5,7 +5,7 @@
 <%{
         LocalizationBundle srb = (LocalizationBundle) request.getAttribute("strings");%>
 <ul>
-    <li><a href="navigation.action?section=introduction"><%=srb.getString("section.introduction")%></a></li>
+    <li><a href="introduction.action"><%=srb.getString("section.introduction")%></a></li>
     <li><a href="question1.action"><%=srb.getString("section.forest")%></a></li>
     <li><a href="question11.action"><%=srb.getString("section.parta")%></a></li>
     <li><a href="question15.action"><%=srb.getString("section.partb")%></a></li>
