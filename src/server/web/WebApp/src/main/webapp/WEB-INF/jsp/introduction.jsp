@@ -3,14 +3,14 @@
     Created on : 2-ott-2012, 10.11.06
     Author     : francesco
 --%>
-<%@page import="java.util.ResourceBundle"%>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
 <%@page import="it.geosolutions.fra2015.webapp.rte.RTEConfigurationHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <%@include file="jspf/userValidation.jspf" %>
 <%
 
-    ResourceBundle strings = (ResourceBundle) request.getAttribute("strings");
+    LocalizationBundle strings = (LocalizationBundle) request.getAttribute("strings");
 
     if (strings == null) {
         response.sendError(HttpServletResponse.SC_NOT_FOUND);

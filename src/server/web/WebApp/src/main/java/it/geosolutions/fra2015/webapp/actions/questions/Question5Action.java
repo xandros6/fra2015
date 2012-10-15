@@ -3,7 +3,6 @@ package it.geosolutions.fra2015.webapp.actions.questions;
 import it.geosolutions.fra2015.webapp.LocalizationBundle;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,19 +10,18 @@ import java.util.logging.Logger;
  *
  * @author francesco
  */
-public class Question2Action extends AbstractQuestionAction {
+public class Question5Action extends AbstractQuestionAction {
 
-    public Question2Action() {
+    public Question5Action() {
         super(1, 1);
     }
 
     @Override
     public ResponseObject call(RequestObject request) {
 
-        ResponseObject ro = this.getResponseObject("s1q2");
+        ResponseObject ro = this.getResponseObject("s1q1");
 
         try {
-            
             LocalizationBundle strings = getLocalizationBundle("strings");
             System.out.println("resource strings");
 
@@ -32,9 +30,9 @@ public class Question2Action extends AbstractQuestionAction {
             }
 
             ro.getResponseMap().put("strings", strings);
-            Logger.getLogger(Question2Action.class.getName()).log(Level.INFO, "string resource bundle loaded");
+            Logger.getLogger(Question5Action.class.getName()).log(Level.INFO, "string resource bundle loaded");
         } catch (Exception e) {
-            Logger.getLogger(Question2Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+            Logger.getLogger(Question5Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }
 
 
@@ -47,9 +45,9 @@ public class Question2Action extends AbstractQuestionAction {
                 System.out.println("\t"+key + "=" + cats.getString(key));
             }
             ro.getResponseMap().put("categories", cats);
-            Logger.getLogger(Question2Action.class.getName()).log(Level.INFO, "fra2015categories resource bundle loaded");
+            Logger.getLogger(Question5Action.class.getName()).log(Level.INFO, "fra2015categories resource bundle loaded");
         } catch (Exception e) {
-            Logger.getLogger(Question2Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+            Logger.getLogger(Question5Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }
 
         try {
@@ -60,9 +58,9 @@ public class Question2Action extends AbstractQuestionAction {
                 System.out.println("\t"+key + "=" + cats.getString(key));
             }
             ro.getResponseMap().put("forests", cats);
-            Logger.getLogger(Question2Action.class.getName()).log(Level.INFO, "forests resource bundle loaded");
+            Logger.getLogger(Question5Action.class.getName()).log(Level.INFO, "forests resource bundle loaded");
         } catch (Exception e) {
-            Logger.getLogger(Question2Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+            Logger.getLogger(Question5Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }
 
         return ro;

@@ -1,14 +1,14 @@
-<%@page import="java.util.ResourceBundle"%>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
 <%@page import="it.geosolutions.fra2015.core.model.user.UserGroup"%>
 <%@page import="it.geosolutions.fra2015.core.model.user.User"%>
 <%@page pageEncoding="UTF-8" %>
 <%{
-        ResourceBundle srb = (ResourceBundle) request.getAttribute("strings");%>
+        LocalizationBundle srb = (LocalizationBundle) request.getAttribute("strings");%>
 <ul>
     <li><a href="navigation.action?section=introduction"><%=srb.getString("section.introduction")%></a></li>
     <li><a href="question1.action"><%=srb.getString("section.forest")%></a></li>
-    <li><a href="navigation.action?section=parta"><%=srb.getString("section.parta")%></a></li>
-    <li><a href="navigation.action?section=partb"><%=srb.getString("section.partb")%></a></li>
+    <li><a href="question11.action"><%=srb.getString("section.parta")%></a></li>
+    <li><a href="question15.action"><%=srb.getString("section.partb")%></a></li>
 </ul>
 <span id="logout"><a href="logout.action"><%=srb.getString("section.logout")%></a></span>
 <%}%>

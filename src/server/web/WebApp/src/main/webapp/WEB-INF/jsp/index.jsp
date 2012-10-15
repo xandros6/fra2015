@@ -1,6 +1,7 @@
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="jspf/userValidation.jspf"%>
-<%ResourceBundle rb = (ResourceBundle) request.getAttribute("strings");%>
+<%LocalizationBundle rb = (LocalizationBundle) request.getAttribute("strings");%>
 <!DOCTYPE html>
 <html>
     <head>

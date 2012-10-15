@@ -3,25 +3,25 @@
     Created on : 10-ott-2012, 16.20.45
     Author     : francesco
 --%>
-<%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
 <%@page import="it.geosolutions.fra2015.webapp.rte.RTEConfigurationHelper"%>
-<%@page import="java.util.ResourceBundle"%>
+<%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 
-    ResourceBundle strings = (ResourceBundle) request.getAttribute("strings");
+    LocalizationBundle strings = (LocalizationBundle) request.getAttribute("strings");
 
     if (strings == null) {
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 
-    ResourceBundle cats = (ResourceBundle) request.getAttribute("categories");
+    LocalizationBundle cats = (LocalizationBundle) request.getAttribute("categories");
 
     if (cats == null) {
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 
-    ResourceBundle forests = (ResourceBundle) request.getAttribute("forests");
+    LocalizationBundle forests = (LocalizationBundle) request.getAttribute("forests");
 
     if (forests == null) {
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -37,7 +37,7 @@
         </script>
         <script src="includes/gridedit.js" type="text/javascript">
         </script>
-		<link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-ui.min.js"></script>
         <script type="text/javascript">
             <!--
@@ -301,6 +301,19 @@
             </div>
         </div>
         <%@include file="jspf/footer.jspf" %>
+        
+                <%
+
+            if (true) {
+
+                strings.dumpMissingResources();
+                cats.dumpMissingResources();
+                forests.dumpMissingResources();
+
+            }
+
+
+        %>
 
         <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"

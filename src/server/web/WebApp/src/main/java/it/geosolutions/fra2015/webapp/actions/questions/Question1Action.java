@@ -1,8 +1,8 @@
 package it.geosolutions.fra2015.webapp.actions.questions;
 
+import it.geosolutions.fra2015.webapp.LocalizationBundle;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,7 +22,7 @@ public class Question1Action extends AbstractQuestionAction {
         ResponseObject ro = this.getResponseObject("s1q1");
 
         try {
-            ResourceBundle strings = getResourceBundle("strings");
+            LocalizationBundle strings = getLocalizationBundle("strings");
             System.out.println("resource strings");
 
             for (String key : strings.keySet()) {
@@ -39,7 +39,7 @@ public class Question1Action extends AbstractQuestionAction {
         try {
             System.out.println("resource fra2015categories");
             
-            ResourceBundle cats = getResourceBundle("fra2015categories");
+            LocalizationBundle cats = getLocalizationBundle("fra2015categories");
 
             for (String key : cats.keySet()) {
                 System.out.println("\t"+key + "=" + cats.getString(key));
@@ -52,7 +52,7 @@ public class Question1Action extends AbstractQuestionAction {
 
         try {
             System.out.println("resource forests");
-            ResourceBundle cats = getResourceBundle("forests");
+            LocalizationBundle cats = getLocalizationBundle("forests");
 
             for (String key : cats.keySet()) {
                 System.out.println("\t"+key + "=" + cats.getString(key));

@@ -1,14 +1,24 @@
 <%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<h3>Part B: Operational scale progress toward sfm</h3>
-<ul>
-    <li>Question 15</li>
-    <li>Question 16</li>
-    <li>Question 17</li>
-    <li>Question 18</li>
-    <li>Question 19</li>
-    <li>Question 20</li>
-    <li>Question 21</li>
-    <li>Question 22</li>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
+<%@page pageEncoding="UTF-8" %>
+<%{
+        LocalizationBundle lb = (LocalizationBundle) request.getAttribute("partb");
 
+        if (lb != null) {
+
+
+%>
+<h3><%=lb.getString("section.title")%>:<br/>
+    <%=lb.getString("section.description")%></h3>
+<ul>
+    <li><%=lb.getString("q15.title")%>:<%=lb.getString("q15.body")%></li>
+    <li><%=lb.getString("q16.title")%>:<%=lb.getString("q16.body")%></li>
+    <li><%=lb.getString("q17.title")%>:<%=lb.getString("q17.body")%></li>
+    <li><%=lb.getString("q18.title")%>:<%=lb.getString("q18.body")%></li>
+    <li><%=lb.getString("q19.title")%>:<%=lb.getString("q19.body")%></li>
+    <li><%=lb.getString("q20.title")%>:<%=lb.getString("q20.body")%></li>
+    <li><%=lb.getString("q21.title")%>:<%=lb.getString("q21.body")%></li>
+    <li><%=lb.getString("q22.title")%>:<%=lb.getString("q22.body")%></li>
 </ul>
+<%}
+    }%>

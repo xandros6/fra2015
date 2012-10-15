@@ -13,7 +13,7 @@ public class ResourceBundleManager {
 
     private final boolean debug = true;
     public final static String RESOURCE_PATH_PREFIX = "META-INF.webapp.";
-    private final static Map<String, ResourceBundle> cache = new HashMap<String, ResourceBundle>();
+    private final static Map<String, LocalizationBundle> cache = new HashMap<String, LocalizationBundle>();
 
     private ResourceBundleManager() {
     }
@@ -27,29 +27,30 @@ public class ResourceBundleManager {
         private static final ResourceBundleManager INSTANCE = new ResourceBundleManager();
     }
 
-    public ResourceBundle getResourceBundle(String name) {
-        return this.getResourceBundle(name, false);
+    public LocalizationBundle getLocalizationBundle(String name) {
+        return this.getLocalizationBundle(name, false);
     }
 
-    public synchronized ResourceBundle getResourceBundle(String name, boolean reloadCache) {
+    public synchronized LocalizationBundle getLocalizationBundle(String name, boolean reloadCache) {
 
 
-        ResourceBundle rb = null;
+        LocalizationBundle lb = null;
 
         if (!reloadCache) {
-            rb = cache.get(name);
+            lb = cache.get(name);
         }
 
-
-
-        if (rb == null) {
-            rb = ResourceBundle.getBundle(
+        if (lb == null) {
+            ResourceBundle rb = ResourceBundle.getBundle(
                     RESOURCE_PATH_PREFIX
                     + name);
-            cache.put(name, rb);
+            lb = new LocalizationBundle(name, rb);
+            cache.put(name, lb);
         }
+        
 
-        return rb;
+
+        return lb;
 
     }
 
@@ -61,7 +62,7 @@ public class ResourceBundleManager {
         }
 
         for (String key : cache.keySet()) {
-            ResourceBundle rb = getResourceBundle(key, true);
+            LocalizationBundle rb = getLocalizationBundle(key, true);
             if (debug) {
                 System.out.println("\tkey:" + key);
                 for (String s : rb.keySet()) {

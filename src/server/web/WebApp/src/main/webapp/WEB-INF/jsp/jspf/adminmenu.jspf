@@ -1,9 +1,9 @@
-<%@page import="java.util.ResourceBundle"%>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
 <%@page import="it.geosolutions.fra2015.core.model.user.UserGroup"%>
 <%@page import="it.geosolutions.fra2015.core.model.user.User"%>
 <%@page pageEncoding="UTF-8" %>
 <%{
-        ResourceBundle srb = (ResourceBundle) request.getAttribute("strings");%>
+        LocalizationBundle srb = (LocalizationBundle) request.getAttribute("strings");%>
 <ul>
     <li><a href="users.action"><%=srb.getString("section.users")%></a></li>
     <li><a href="activity.action"><%=srb.getString("section.activity")%></a></li>

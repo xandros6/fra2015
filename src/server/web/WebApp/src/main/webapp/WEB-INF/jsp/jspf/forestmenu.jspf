@@ -1,18 +1,18 @@
-<%@page import="java.util.ResourceBundle"%>
-<%@ page pageEncoding="UTF-8" %>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
+<%@page pageEncoding="UTF-8" %>
 <% {
-        ResourceBundle nrb = (ResourceBundle) request.getAttribute("forests");%>
-<h3>Forest area and characteristics</h3>
+        LocalizationBundle nrb = (LocalizationBundle) request.getAttribute("forests");%>
+<h3><%=nrb.getString("section.title")%></h3>
 <ul>
     <li><img src="images/redIcon.png" alt="warning"/><a href="question1.action"><%= nrb.getString("q1.title")%>: <%=nrb.getString("q1.body")%></a></li>
     <li><a href="question2.action"><%= nrb.getString("q2.title")%>: <%=nrb.getString("q2.body")%></a></li>
-    <li>Question 3</li>
-    <li>Question 4</li>
-    <li>Question 5</li>
-    <li>Question 6</li>
-    <li>Question 7</li>
-    <li>Question 8</li>
-    <li>Question 9</li>
-    <li>Question 10</li>
+    <li><a href="question3.action"><%= nrb.getString("q3.title")%>: <%=nrb.getString("q3.body")%></a></li>
+    <li><a href="question4.action"><%= nrb.getString("q4.title")%>: <%=nrb.getString("q4.body")%></a></li>
+    <li><a href="question5.action"><%= nrb.getString("q5.title")%>: <%=nrb.getString("q5.body")%></a></li>
+    <li><a href="question6.action"><%= nrb.getString("q6.title")%>: <%=nrb.getString("q6.body")%></a></li>
+    <li><a href="question7.action"><%= nrb.getString("q7.title")%>: <%=nrb.getString("q7.body")%></a></li>
+    <li><a href="question8.action"><%= nrb.getString("q8.title")%>: <%=nrb.getString("q8.body")%></a></li>
+    <li><a href="question9.action"><%= nrb.getString("q9.title")%>: <%=nrb.getString("q9.body")%></a></li>
+    <li><a href="question10.action"><%= nrb.getString("q10.title")%>: <%=nrb.getString("q10.body")%></a></li>
 </ul>
 <%}%>

@@ -2,9 +2,9 @@
     Document   : template
     Created on : 2-ott-2012, 10.11.06
     Author     : francesco
---%><%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ResourceBundle"%>
-<%ResourceBundle rb = (ResourceBundle) request.getAttribute("strings");%>
+--%><%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%LocalizationBundle rb = (LocalizationBundle) request.getAttribute("strings");%>
 <!DOCTYPE html>
 <html>
     <head>

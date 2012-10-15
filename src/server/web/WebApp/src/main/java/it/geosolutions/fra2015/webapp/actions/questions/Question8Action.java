@@ -11,9 +11,9 @@ import java.util.logging.Logger;
  *
  * @author francesco
  */
-public class Question2Action extends AbstractQuestionAction {
+public class Question8Action extends AbstractQuestionAction {
 
-    public Question2Action() {
+    public Question8Action() {
         super(1, 1);
     }
 
@@ -32,9 +32,9 @@ public class Question2Action extends AbstractQuestionAction {
             }
 
             ro.getResponseMap().put("strings", strings);
-            Logger.getLogger(Question2Action.class.getName()).log(Level.INFO, "string resource bundle loaded");
+            Logger.getLogger(Question8Action.class.getName()).log(Level.INFO, "string resource bundle loaded");
         } catch (Exception e) {
-            Logger.getLogger(Question2Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+            Logger.getLogger(Question8Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }
 
 
@@ -47,9 +47,9 @@ public class Question2Action extends AbstractQuestionAction {
                 System.out.println("\t"+key + "=" + cats.getString(key));
             }
             ro.getResponseMap().put("categories", cats);
-            Logger.getLogger(Question2Action.class.getName()).log(Level.INFO, "fra2015categories resource bundle loaded");
+            Logger.getLogger(Question8Action.class.getName()).log(Level.INFO, "fra2015categories resource bundle loaded");
         } catch (Exception e) {
-            Logger.getLogger(Question2Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+            Logger.getLogger(Question8Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }
 
         try {
@@ -60,9 +60,9 @@ public class Question2Action extends AbstractQuestionAction {
                 System.out.println("\t"+key + "=" + cats.getString(key));
             }
             ro.getResponseMap().put("forests", cats);
-            Logger.getLogger(Question2Action.class.getName()).log(Level.INFO, "forests resource bundle loaded");
+            Logger.getLogger(Question8Action.class.getName()).log(Level.INFO, "forests resource bundle loaded");
         } catch (Exception e) {
-            Logger.getLogger(Question2Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
+            Logger.getLogger(Question8Action.class.getName()).log(Level.SEVERE, "invalid bundle", e);
         }
 
         return ro;

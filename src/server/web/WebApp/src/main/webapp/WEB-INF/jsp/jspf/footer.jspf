@@ -1,7 +1,7 @@
 <%-- any content can be specified here e.g.: --%>
-<%@page import="java.util.ResourceBundle"%>
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
 <%@ page pageEncoding="UTF-8" %>
-<%{ResourceBundle frb = (ResourceBundle) request.getAttribute("strings");%>
+<%{LocalizationBundle frb = (LocalizationBundle) request.getAttribute("strings");%>
 <div id="footer">
 
 <h3><%=frb.getString("copyright.title")%></h3>
