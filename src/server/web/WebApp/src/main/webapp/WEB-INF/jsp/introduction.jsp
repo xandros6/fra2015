@@ -16,6 +16,12 @@
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 
+    LocalizationBundle slr = (LocalizationBundle) request.getAttribute("sectionBundle");
+
+    if (slr == null) {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+    }
+
 %>
 <!DOCTYPE html>
 <html>
@@ -101,26 +107,26 @@
                     <%@include file="jspf/section1.jspf" %>
                 </div>
                 <div class="content">
-                    <h3>Report preparation and contact persons</h3>
+                    <h1><%=slr.getString("title")%></h1>
+                    <h3><caption><%=slr.getString("report.label")%>:</h3>
                     <table id="personsTable">                
-                        <caption>The present report was prepared by the following person(s)</caption>
                         <thead>
                             <tr>
                                 <th>
-                                    #
+                                    &nbsp;
                                 </th>
                                 <th>
-                                    Name<br/>
-                                    (FAMILY NAME, First name)
+                                    <%=slr.getString("report.header.name")%><br/>
+                                    <%=slr.getString("report.header.subtitle")%>
                                 </th>
                                 <th>
-                                    Istitution/Address
+                                    <%=slr.getString("report.header.istitution")%>
                                 </th>
                                 <th>
-                                    E-mail
+                                    <%=slr.getString("report.header.email")%>
                                 </th>
                                 <th>
-                                    Tables
+                                    <%=slr.getString("report.header.tables")%>
                                 </th>
                                 <th style="width:100px">
                                     &nbsp;
@@ -136,7 +142,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <label for="editor"><%=strings.getString("introduction.title")%>:</label>
+                    <h3><%=slr.getString("introduction.label")%>:</h3>
                     <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
                     <br/>
                     <input id="bReload" type="button" value="Cancel"/>
@@ -145,6 +151,15 @@
                 </div>
             </div>
         </div>
+
+        <%
+
+
+            strings.dumpMissingResources();
+            slr.dumpMissingResources();
+
+
+        %>
         <%@include file="jspf/footer.jspf" %>
         <ckeditor:replace replace="editor" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"

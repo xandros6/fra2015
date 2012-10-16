@@ -51,7 +51,7 @@
         <script type="text/javascript">
             <!--
             $(document).ready(function(){
-                $(":button").button();
+                
                 $("#t1_2Add").click(function(ev) {
                     
                     var rowIndex;

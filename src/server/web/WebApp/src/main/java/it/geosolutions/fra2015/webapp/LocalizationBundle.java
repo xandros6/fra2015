@@ -34,8 +34,12 @@ public class LocalizationBundle {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nMissing keys for ").append(name).append(" are:");
-        
+        if (missing.isEmpty()) {
+            sb.append("No missing keys in bundle ").append(name);
+        } else {
+            sb.append("\nMissing keys for ").append(name).append(" are:");
+        }
+
         for (String key : missing) {
             sb.append("\n").append(key).append("=");
         }
