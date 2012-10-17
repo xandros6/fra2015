@@ -14,7 +14,7 @@
         <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script src="includes/jquery-ui.min.js"></script>
-        <script src="includes/gridedit.js" type="text/javascript">
+        <script src="includes/kGrid.js" type="text/javascript">
         </script>
         <script type="text/javascript">
             <!--

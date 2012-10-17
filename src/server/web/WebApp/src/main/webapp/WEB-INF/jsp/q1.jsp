@@ -44,7 +44,7 @@
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript">
         </script>
-        <script src="includes/gridedit.js" type="text/javascript">
+        <script src="includes/grid.kt.js" type="text/javascript">
         </script>
         <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-ui.min.js"></script>
@@ -52,22 +52,67 @@
             <!--
             $(document).ready(function(){
                 
-                $("#t1_2Add").click(function(ev) {
-                    
-                    var rowIndex;
-                    
-                    rowIndex = $("#t1_2  tr").size();
-                    
-                    createRow("t1_2",rowIndex);
-                                        
-                });
-                $("#t1_2Save").click(function(ev) {
-                    
-                    alert('Not supported yet.');
-                                        
-                });
+                var table = $("#t1_2_1");
+                
+                var model = new ColumnModel();
+                
+                model.addColumn("id", "#", false);
+                model.addColumn("reference", "<%=qlr.getString("data.sources.header.reference")%>", true);
+                model.addColumn("variable","<%=qlr.getString("data.sources.header.variable")%>", true);
+                model.addColumn("year","<%=qlr.getString("data.sources.header.year")%>", true );
+                model.addColumn("comments", "<%=qlr.getString("data.sources.header.comments")%>",true);
+                
+                table.data('columnModel', model);
+                
+                KT.configureTable(table);
+                
+                table = $("#t1_2_2");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("id", "#");
+                model.addColumn("class", "<%=qlr.getString("classification.header.class")%>",true);
+                model.addColumn("definition", "<%=qlr.getString("classification.header.definition")%>",true);
+
+                table.data('columnModel',model);
+                
+                KT.configureTable(table);
+                
+                table = $("#t1_4_1");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("category");
+                model.addColumn("1990", "1990", true);
+                model.addColumn("2000", "2000", true);
+                model.addColumn("2005", "2005", true);
+                model.addColumn("2010", "2010", true);
+                model.addColumn("2015", "2015", true);
+                
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.setEditable(table, true);
+                
+                table = $("#t1_4_2");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("category");
+                model.addColumn("annual_1990", "1990", true);
+                model.addColumn("annual_2000", "2000", true);
+                model.addColumn("annual_2005", "2005", true);
+                model.addColumn("annual_2010", "2010", true);
+                model.addColumn("introduced_1990", "1990", true);
+                model.addColumn("introduced_2000", "2000", true);
+                model.addColumn("introduced_2005", "2005", true);
+                model.addColumn("introduced_2010", "2010", true);
+                
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.setEditable(table, true);
                 
                 $(":button").button();
+                
             });
             -->
         </script>
@@ -129,34 +174,17 @@
                             <td><%=qlr.getString("fra2015.categories.other.land.name")%></td>
                             <td><%=qlr.getString("fra2015.categories.other.land.definition")%></td>
                         </tr>
-
                     </table>
 
                     <h2>1.2 <%=qlr.getString("national.data")%></h2>
                     <h3>1.2.1 <%=qlr.getString("data.sources.title")%></h3>
-                    <table id="t1_2">
-                        <tr>
-                            <th>#</th>
-                            <th><%=qlr.getString("data.sources.header.reference")%></th>
-                            <th><%=qlr.getString("data.sources.header.variable")%></th>
-                            <th><%=qlr.getString("data.sources.header.year")%></th>
-                            <th><%=qlr.getString("data.sources.header.comments")%></th>
-                            <th>&nbsp;</th>
-                        </tr>
-                        <tr>
-                            <th colspan="6" class="control">
-                                <input id="t1_2Add" type="button" value="+"/>
-                                <input id="t1_2Save" type="button" value="Save"/>
-                            </th>
-                        </tr>
+                    <table id="t1_2_1">
+
                     </table>
+
                     <h3>1.2.2 <%=qlr.getString("classification.title")%></h3>
-                    <table>
-                        <tr>
-                            <th>#</th>
-                            <th><%=qlr.getString("classification.header.class")%></th>
-                            <th><%=qlr.getString("classification.header.definition")%></th>
-                        </tr>
+                    <table id="t1_2_2">
+
                     </table>
                     <h3>1.2.3 <%=qlr.getString("original.data.title")%></h3>
                     <textarea id="originaldataEditor" name="originalDataEditor"></textarea>
@@ -175,7 +203,7 @@
 
                     <h2>1.4 <%=qlr.getString("data.title")%></h2>
                     <h3>1.4.1 <%=qlr.getString("data.table1a.title")%></h3>
-                    <table>
+                    <table id="t1_4_1">
 
                         <tr style="display:none">
                             <th></th>
@@ -228,8 +256,8 @@
                         </tr>
                     </table>
                     <h3>1.4.2 <%=qlr.getString("data.table1b.title")%></h3>
-                    <table>
-
+                    <table id="t1_4_2">
+                        <caption><%=qlr.getString("data.table1b.caption")%></caption>
                         <tr style="display:none">
                             <th></th>
                             <th></th>
@@ -352,7 +380,7 @@
 
         %>
 
-                <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />

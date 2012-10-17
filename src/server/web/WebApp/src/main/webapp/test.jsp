@@ -13,30 +13,35 @@
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript">
         </script>
-        <script src="includes/gridedit.js" type="text/javascript">
+        <script src="includes/grid.kt.js" type="text/javascript">
         </script>
         <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-ui.min.js"></script>
         <script type="text/javascript">
             <!--
             $(document).ready(function(){
-                
-                addLocalizedObject("#t1", {
-                    
-                    "pino":"Pino",
-                    "gino":"Gino",
-                    "lino":"Lino"
-                    
-                });
+              
+              
+              $("#io").bind('blur', function(ev) {
+                  
+                  alert("this.val()");
+                  
+              });
         
-                
-                configureTable("#t1", new Array("pino", "gino", "lino"), null);
             });
             -->
         </script>
     </head>
     <body>
         <h1>Hello World!</h1>
-        <table id="t1" style="width:100%"></table>
+        <table id="t1" style="width:100%">
+            
+            <tr>
+                <td>
+                    
+                   <input type="text" id="io"/> 
+                </td>
+            </tr>
+        </table>
     </body>
 </html>

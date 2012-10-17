@@ -30,67 +30,24 @@
         <title>FRA 2015 Introduction</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
-        <script src="includes/gridedit.js" type="text/javascript"></script>
+        <script src="includes/kGrid.js" type="text/javascript"></script>
         <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-ui.min.js"></script>
         <script>
-            
             $(document).ready(function(){
+                
+                addLocalizedObject("#personsTable",{
+                    "name":"<%=slr.getString("report.header.name")%><br/>(<%=slr.getString("report.header.subtitle")%>)",
+                    "institution":"<%=slr.getString("report.header.istitution")%>",
+                    "email":"<%=slr.getString("report.header.email")%>",
+                    "tables":"<%=slr.getString("report.header.tables")%>"
+                });
+                
+                configureTable("#personsTable", 
+                new Array("name", "institution", "email", "tables"), 
+                null);
+                
                 $(":button").button();
-                $("#bSave").click(function(event) {
-
-                    var editor = CKEDITOR.instances['editor'];
-                    
-                    var text = editor.getData();
-                    
-                        
-                    $.ajax({
-                        type:"POST",
-                        url:"introduction.action/save",
-                        data:"body="+text,
-                        dataType:'json',
-                        timeout:5000,
-                        success: function(d,s) {
-                            if (d) {
-                                $("#bSave").attr("disabled", "disabled");
-                                alert("Data saved");
-                            } else {
-                                alert("An error has occurred while saving data!");
-                            }
-                        },
-                        error: function(o,s,e) {
-                            alert("Connection error, try again later pls");
-                        }
-                        
-                    });
-                   
-                });
-                
-                $("#bReload").click(function(event) {
-                    
-                    var value = CKEDITOR.instances['editor'];
-                    
-                    value.setData(window.richtext);
-                   
-                });
-                
-                $("#personsTableAdd").click(function(ev) {
-                    
-                    var rowIndex;
-                    
-                    rowIndex = $("#personsTable  tr").size();
-                    
-                    createRow("personsTable",rowIndex);
-                                        
-                });
-                $("#personsTableSave").click(function(ev) {
-                    
-                    alert('Not supported yet.');
-                                        
-                });
-                
-                
-
             });
         </script>
 
@@ -109,45 +66,12 @@
                 <div class="content">
                     <h1><%=slr.getString("title")%></h1>
                     <h3><caption><%=slr.getString("report.label")%>:</h3>
-                    <table id="personsTable">                
-                        <thead>
-                            <tr>
-                                <th>
-                                    &nbsp;
-                                </th>
-                                <th>
-                                    <%=slr.getString("report.header.name")%><br/>
-                                    <%=slr.getString("report.header.subtitle")%>
-                                </th>
-                                <th>
-                                    <%=slr.getString("report.header.istitution")%>
-                                </th>
-                                <th>
-                                    <%=slr.getString("report.header.email")%>
-                                </th>
-                                <th>
-                                    <%=slr.getString("report.header.tables")%>
-                                </th>
-                                <th style="width:100px">
-                                    &nbsp;
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="usersTableBody">
-                            <tr >
-                                <td colspan="6" class="control">
-                                    <input id="personsTableAdd" type="button" value="+"/>
-                                    <input id="personsTableSave" type="button" value="Save"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <table id="personsTable"></table>
                     <h3><%=slr.getString("introduction.label")%>:</h3>
                     <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
                     <br/>
                     <input id="bReload" type="button" value="Cancel"/>
                     <input id="bSave" type="button" value="Save"/>
-
                 </div>
             </div>
         </div>

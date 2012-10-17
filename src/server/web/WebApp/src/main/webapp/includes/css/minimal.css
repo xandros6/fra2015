@@ -8,16 +8,13 @@
 
 body {
     font-family: sans-serif;
-
     margin: 0  auto ;
-
-
 }
 
 html,body{
     height:100%;
-	bottom:0px;
-	top:0px;
+    bottom:0px;
+    top:0px;
 }
 
 a, a:visited, a:active {
@@ -25,50 +22,77 @@ a, a:visited, a:active {
     color:black;
 }
 
- table th {
+table th {
     background-color: gainsboro;
     color: #333333;
 }
 
- table tr:hover,table tr.even:hover{
-	background-color:#F0F0F0;
+table tr:hover,table tr.even:hover{
+    background-color:#F0F0F0;
 }
 
- table td {
+table td {
     border:gainsboro 1px solid;
     height:32px;
 }
+
+table td.editable {
+    border:green 1px solid;
+}
+
+table td.editing {
+    border:red 1px solid;
+}
+
+.editing input[type=text], .editing input[type=text]:focus{
+    background-color:transparent;
+    border:0px;
+    width:100%;
+    height:100%;
+}
+
+
 table tr.even{
-	background-color:#FAFAFA;
+    background-color:#FAFAFA;
 }
+
+table caption {
+    caption-side:bottom;
+}
+
+td.control {
+    text-align:right;
+}
+
 .control,.control:hover{
-	background-color:white;
+    background-color:white;
 }
+
 .control input[type=button],.control input[type=button]:hover,#bReload,#bSave{
-	float:right;
+    float:right;
 
 }
 
 /* ICONS */
 .icon16{
-	width: 16px;
-	height: 16px;
-	display:inline;
+    width: 16px;
+    height: 16px;
+    display:inline;
 }
 
 /* DISCLAIMER */
 .disclaimer{
-	margin:50px;
+    margin:50px;
 }
 
 .icon-warning{
-	background-image: url(../../images/icons/error.png);
-	
+    background-image: url(../../images/icons/error.png);
+
 }
 /* HEADER */
 #header {
     text-align:center;
-	position:relative;
+    position:relative;
 }
 
 #header {
@@ -98,18 +122,18 @@ table tr.even{
 
 /* LANGUAGES */
 #languages {
-	position:absolute;
-	right:5px;
-	bottom:0px;
+    position:absolute;
+    right:5px;
+    bottom:0px;
 }
 /* FOOTER */
 #footer {
-	
-	padding:30px;
+
+    padding:30px;
     border-top:thin solid black;
     position:relative;
-	font-size:15px;
-	font-style:italic;
+    font-size:15px;
+    font-style:italic;
 
 }
 #footer h3 {
@@ -118,31 +142,31 @@ table tr.even{
 
 }
 #footer .copyright{
-	text-align:center;
+    text-align:center;
     width:90%;
-	margin:0 auto;
-	position:relative;
-	bottom:0px;
+    margin:0 auto;
+    position:relative;
+    bottom:0px;
 }
 
 /* TOP MENU */
 #topmenu {
     background-color: green;
     color:white;
-	border-top:thin solid black;
-	border-bottom:thin solid black;
-	position:relative;
-	font-weight:bold;
-	
+    border-top:thin solid black;
+    border-bottom:thin solid black;
+    position:relative;
+    font-weight:bold;
+
 }
 #topmenu  ul{
     margin:0 auto;
-	
+
 }
 
 #topmenu ul li,#logout {
-	border-left: thin solid white;
-	margin-left: -4px;
+    border-left: thin solid white;
+    margin-left: -4px;
 }
 
 #topmenu a, #topmenu a:visited, #topmenu a:active {
@@ -152,7 +176,7 @@ table tr.even{
 
 }
 #topmenu ul li.last {
-	border-right: thin solid white;
+    border-right: thin solid white;
 } 
 
 
@@ -166,16 +190,16 @@ table tr.even{
     display: inline;
 }
 #logout {
-	position:absolute;
-	right:0px;
-	top:0px;
+    position:absolute;
+    right:0px;
+    top:0px;
 }
 /* MAIN */
 #main {
     padding:0 0px 0 0px;
     text-align: center;
-	
-	
+
+
 }
 
 #main > .tablelayout >.navigation, #main > .tablelayout  >.content,#main > .admin{
@@ -196,8 +220,8 @@ table tr.even{
 .navigation {
 
     border-right:thin solid black;
-	bottom:0;
-	
+    bottom:0;
+
     margin:0px;
     left: -4px;
     position: relative;
@@ -217,7 +241,7 @@ table tr.even{
     list-style-image: none;
     list-style: none;
     list-style: none;
-	padding:0px;
+    padding:0px;
 }
 .navigation ul>:first-child{
     border-top: thin dashed black;
@@ -227,20 +251,20 @@ table tr.even{
     text-align: left;
     padding:5px;
     border-bottom: thin dashed black;
-	font-weight:bold;
+    font-weight:bold;
 
 }
 .navigation li a:active,.navigation li a:visited{
-	color:
+    color:
 }
 .navigation ul li:hover,.navigation ul li:hover a:visited{
     background-color:green;
-	color:white;
-	font-weight:bold;
+    color:white;
+    font-weight:bold;
 }
 
 .navigation ul li div.icon16{
-	float:left;margin:auto;
+    float:left;margin:auto;
 }
 
 /* CONTENT */
@@ -261,15 +285,15 @@ form * {
 
 
 .content table caption{
-	text-align:left;
-	font-weight:bold;
-	color:#5F5F5F;
+    text-align:left;
+    font-weight:bold;
+    color:#5F5F5F;
 }
 .content .warning .warning-message{
-	padding-left:16px;
-	background-image: url(../../images/icons/error.png);
-	background-repeat:no-repeat;
-	background-color:orange;
+    padding-left:16px;
+    background-image: url(../../images/icons/error.png);
+    background-repeat:no-repeat;
+    background-color:orange;
 
 }
 .control img {
@@ -283,28 +307,28 @@ form * {
 
 /* USERS PAGE */
 .admin table #usersTableHeaderRow th {
-	background-color:gainsboro;
-	
-	
-	padding:5px;
+    background-color:gainsboro;
+
+
+    padding:5px;
 
 }
 .admin table td{
-	padding:5px;
+    padding:5px;
 }
- .admin table{
-	margin: 0 auto;
-	
+.admin table{
+    margin: 0 auto;
+
 }
 .admin table caption{
-	font-weight:bold;
+    font-weight:bold;
 }
 table  input[type=button]{
-	height:30px;
-	font-size:14px;
+    height:30px;
+    font-size:14px;
 }
 table td input[type=button]{
-	width:70px;
+    width:70px;
 
 }
 
