@@ -111,6 +111,51 @@
                 
                 KT.setEditable(table, true);
                 
+                table = $("#t1_4_3");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("category", "<%=qlr.getString("data.tiers.header.category")%>");
+                model.addColumn("status", "<%=qlr.getString("data.tiers.header.status")%>", true);
+                model.addColumn("trend", "<%=qlr.getString("data.tiers.header.trend")%>",true);
+                
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.setEditable(table,true);
+                
+                table = $("#t1_4_5");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("category", "<%=qlr.getString("data.comments.header.category")%>");
+                model.addColumn("data", "<%=qlr.getString("data.comments.header.data")%>", true);
+                model.addColumn("trends", "<%=qlr.getString("data.comments.header.trends")%>",true);
+                
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.setEditable(table,true);
+                
+                table = $("#t1_4_6");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("category", "<%=qlr.getString("data.other.header.title")%>",true);
+                
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.setEditable(table,true);
+                
+                table = $("#t1_4_7");
+                
+                model = new ColumnModel();
+                
+                model.addColumn("id", "&nbsp;");
+                model.addColumn("year", "<%=qlr.getString("data.expected.header.year")%>", true);
+                
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.setEditable(table,true);
+                
                 $(":button").button();
                 
             });
@@ -126,11 +171,6 @@
             </div>
             <div class="tablelayout">
                 &nbsp;
-                <%
-                    if (debug) {
-                        System.out.println("navigation");
-                    }
-                %>
                 <div class="navigation">
                     <%switch (section) {
                             case 1:%>
@@ -148,11 +188,6 @@
                         default:%>
                     <%}%>
                 </div>
-                <%
-                    if (debug) {
-                        System.out.println("content");
-                    }
-                %>
                 <div class="content">
                     <h1><%= slr.getString("q1.title")%>:<%=slr.getString("q1.body")%></h1>
 
@@ -204,20 +239,7 @@
                     <h2>1.4 <%=qlr.getString("data.title")%></h2>
                     <h3>1.4.1 <%=qlr.getString("data.table1a.title")%></h3>
                     <table id="t1_4_1">
-
-                        <tr style="display:none">
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <tr class="warning">
-                            <th colspan="6">
-                                <span class="warning-message">WARNING!!!
-                                    Review data for years 1990 - 2000, please.</span>
-                            </th>
+                        <caption class="warning">WARNING!!! Review data for years 1990 - 2000, please.</caption>
                         </tr>
                         <tr>
                             <th rowspan="2"><%=qlr.getString("data.table1a.header.categories")%></th>
@@ -320,36 +342,159 @@
                     </table>
 
                     <h3>1.4.3 <%=qlr.getString("data.tiers.title")%></h3>
-                    <table>
+                    <table id="t1_4_3">
                         <tr>
-                            <th>Category</th>
-                            <th>Tier for status</th>
-                            <th>Tier for reported trend</th>
+                            <th><%=qlr.getString("data.tiers.header.category")%></th>
+                            <th><%=qlr.getString("data.tiers.header.status")%></th>
+                            <th><%=qlr.getString("data.tiers.header.trend")%></th>
                         </tr>
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.forest.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.other.wooded.land.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.other.land.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.inland.water.bodies.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.afforestation.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.reforestation.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.natural.expansion.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.deforestation.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
                     </table>
 
+
                     <h3>1.4.4 <%=qlr.getString("data.tier.criteria.title")%></h3>
-                    <table>
+                    <table id="t1_4_4">
                         <tr>
-                            <th>Category</th>
-                            <th>Tier for status</th>
-                            <th>Tier for reported trend</th>
+                            <th><%=qlr.getString("data.tier.criteria.header.category")%></th>
+                            <th><%=qlr.getString("data.tier.criteria.header.status")%></th>
+                            <th><%=qlr.getString("data.tier.criteria.header.trend")%></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li><%=qlr.getString("fra2015.categories.forest.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.other.wooded.land.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.other.land.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.inland.water.bodies.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.afforestation.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.reforestation.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.natural.expansion.name")%></li>
+                                    <li><%=qlr.getString("fra2015.categories.deforestation.name")%></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><%=qlr.getString("data.tier.criteria.status.t3.title")%>:<%=qlr.getString("data.tier.criteria.status.t3.body")%></li>
+                                    <li><%=qlr.getString("data.tier.criteria.status.t2.title")%>:<%=qlr.getString("data.tier.criteria.status.t2.body")%></li>
+                                    <li><%=qlr.getString("data.tier.criteria.status.t1.title")%>:<%=qlr.getString("data.tier.criteria.status.t1.body")%></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><%=qlr.getString("data.tier.criteria.trend.t3.title")%>:<%=qlr.getString("data.tier.criteria.trend.t3.body")%></li>
+                                    <li><%=qlr.getString("data.tier.criteria.trend.t2.title")%>:<%=qlr.getString("data.tier.criteria.trend.t2.body")%></li>
+                                    <li><%=qlr.getString("data.tier.criteria.trend.t1.title")%>:<%=qlr.getString("data.tier.criteria.trend.t1.body")%></li>
+                                </ul>
+
+                            </td>
                         </tr>
                     </table>
 
                     <h3>1.4.5 <%=qlr.getString("data.comments.title")%></h3>
-                    <table>
+                    <table id="t1_4_5">
                         <tr>
-                            <th>Category</th>
-                            <th>Comments related to data, definitions, etc.</th>
-                            <th>Comments on reported status and trends</th>
+                            <th><%=qlr.getString("data.comments.header.category")%></th>
+                            <th><%=qlr.getString("data.comments.header.data")%></th>
+                            <th><%=qlr.getString("data.comments.header.trends")%></th>
+                        </tr>
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.forest.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.other.wooded.land.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.other.land.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.inland.water.bodies.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.afforestation.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.reforestation.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.natural.expansion.name")%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><%=qlr.getString("fra2015.categories.deforestation.name")%></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </table>
 
                     <h3>1.4.6 <%=qlr.getString("data.other.comments.title")%></h3>
-                    <table>
+                    <table id="t1_4_6">
                         <tr>
-                            <th>Other general comments to the table</th>
+                            <th><%=qlr.getString("data.other.comments.title")%></th>
                         </tr>
                         <tr>
                             <td></td>
@@ -357,17 +502,19 @@
                     </table>
 
                     <h3>1.4.7 <%=qlr.getString("data.expected.title")%></h3>
-                    <table>
+                    <table id="t1_4_7">
                         <tr>
                             <th>&nbsp;</th>
-                            <th>Year</th>
+                            <th><%=qlr.getString("data.expected.header.year")%></th>
                         </tr>
+                        <tr><td><%= qlr.getString("data.expected.inventory")%></td><td></td></tr>
+                        <tr><td><%= qlr.getString("data.expected.mapping")%></td><td></td></tr>
+                        <tr><td><%= qlr.getString("data.expected.other")%></td><td></td></tr>
                     </table>
                 </div>
             </div>
         </div>
         <%@include file="jspf/footer.jspf" %>
-
         <%
 
             if (debug) {

@@ -41,14 +41,12 @@
         var columns = table.data("columnModel");
         
         if (columns == null) {
-            alert(localizedStrings['errors']['null.columns']);
+            alert("setEditable error:"+localizedStrings['errors']['null.columns']);
             return;
         }
         
-        var columnCount = columns.getColumnCount()+1;
+        var columnCount = columns.getColumnCount();
         
-        
-        var addText = localizedStrings['controlButtons']['addRow'];
         var saveText = localizedStrings['controlButtons']['saveTable'];
         
         var row = table.find("tr:last");
@@ -63,9 +61,11 @@
         
         control.addClass("control");
         
-        control.attr('colspan',columnCount);
-        
         if (!fixed) {
+            
+            control.attr('colspan',columnCount+1);
+            
+            var addText = localizedStrings['controlButtons']['addRow'];
             
             control.append( "<input class=\"addButton\" type=\"button\" value=\""+addText+"\"/>");
             
@@ -84,10 +84,18 @@
             });
             
         } else {
+            
+            control.attr('colspan',columnCount);
                         
             table.find("tr").each(function(i) {
                 
                 var row = $(this);
+                
+                if (i%2 == 0) {
+                    row.addClass("even");
+                } else {
+                    row.addClass("odd");
+                }
                 
                 row.find("td").each(function(i) {
                 
@@ -108,6 +116,7 @@
                     }
             
                 });
+                
                 
             
             
