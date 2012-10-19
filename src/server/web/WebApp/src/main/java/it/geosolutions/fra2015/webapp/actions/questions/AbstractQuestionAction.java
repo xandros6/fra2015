@@ -1,18 +1,20 @@
 package it.geosolutions.fra2015.webapp.actions.questions;
 
+import it.geosolutions.fra2015.core.model.enums.UserGroup;
 import it.geosolutions.fra2015.webapp.ResponseObject;
-import it.geosolutions.fra2015.webapp.actions.AbstractAction;
+import it.geosolutions.fra2015.webapp.actions.AbstractPrivilegedAction;
 
 /**
  *
  * @author francesco
  */
-public abstract class AbstractQuestionAction extends AbstractAction {
+public abstract class AbstractQuestionAction extends AbstractPrivilegedAction {
 
     protected int section;
     protected int question;
 
     public AbstractQuestionAction(int section, int question) {
+        super(UserGroup.USER);
         this.section = section;
         this.question = question;
     }

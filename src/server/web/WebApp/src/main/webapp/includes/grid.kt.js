@@ -3,15 +3,11 @@
     KT.$ = _$;
     
     var localizedStrings={
-        controlButtons:{
-            'addRow':'+',
-            'saveTable':'Save'
-        },
-        rowButtons:{
-            'deleteRow':'-',
-            'editRow':'Edit',
-            'commitRow':'Save'
-        },
+        save:"Save",
+        edit:"Edit",
+        add:"+",
+        remove:"-",
+        cancel:"Cancel",
         errors:{
             'null.table':'Table is null',
             'null.row':'Row is null',
@@ -21,12 +17,6 @@
             'commit.noedits':'No edits to commit'
         }
     };
-    
-    KT.addLocalizedObject = function (selectString, obj) {
-        
-        localizedStrings[selectString] = obj;
-    
-    }
     
     KT.setEditable = function(table) {
         KT.setEditable(table, false);
@@ -41,13 +31,13 @@
         var columns = table.data("columnModel");
         
         if (columns == null) {
-            alert("setEditable error:"+localizedStrings['errors']['null.columns']);
+            alert(localizedStrings['errors']['null.columns']);
             return;
         }
         
         var columnCount = columns.getColumnCount();
         
-        var saveText = localizedStrings['controlButtons']['saveTable'];
+        var saveText = localizedStrings['save'];
         
         var row = table.find("tr:last");
         
@@ -65,11 +55,13 @@
             
             control.attr('colspan',columnCount+1);
             
-            var addText = localizedStrings['controlButtons']['addRow'];
+            var addText = localizedStrings['add'];
             
             control.append( "<input class=\"addButton\" type=\"button\" value=\""+addText+"\"/>");
             
             var bAdd = control.find("input.addButton");
+            
+            
         
             bAdd.click(function(ev){
             
@@ -192,15 +184,17 @@
         
         ev.preventDefault();
         
-        $(this).unbind('click');
-        
         var row = $(this).closest("tr");
         
-        KT.editRow(row);
+        if (KT.editRow(row)) {
+            
+            $(this).unbind('click');
         
-        $(this).click(KT.onCommitClick);
+            $(this).click(KT.onCommitClick);
         
-        $(this).val(localizedStrings['rowButtons']['commitRow']);
+            $(this).val(localizedStrings['save']);
+            
+        }
     
     }
     
@@ -216,7 +210,7 @@
         
         $(this).click(KT.onEditClick);
         
-        $(this).val(localizedStrings['rowButtons']['editRow']);
+        $(this).val(localizedStrings['edit']);
     
     }
     
@@ -247,8 +241,8 @@
         
         var columns = table.data('columnModel');
         
-        var removeText = localizedStrings['rowButtons']['deleteRow'];
-        var editText = localizedStrings['rowButtons']['editRow'];
+        var removeText = localizedStrings['remove'];
+        var editText = localizedStrings['edit'];
         
         var lastRow = table.find("tr:last");
         
@@ -286,8 +280,8 @@
         
         cell = row.find("td:last");
         
-        cell.append('<input class="editRow" type="button" value="'+editText+'" />');
         cell.append('<input class="deleteRow" type="button" value="'+removeText+'" />');
+        cell.append('<input class="editRow" type="button" value="'+editText+'" />');
         
         var button = cell.find(".deleteRow");
         
@@ -306,6 +300,7 @@
     }
     
     KT.deleteRow = function(row) {
+        
         if (row == null) {
             alert(localizedStrings['errors']['null.row']);
             return;
@@ -313,17 +308,14 @@
         
         var created = row.data('created');
         
-        if (!created) {
-            
-            var table = row.closest("table");
-            
-            var removed = table.data('removed');
-            
-            removed[removed.length] = row.data('id');
-        
+        if (created) {
+            // rimuovo la linea che non è nel db
+            row.remove();
+        } else {
+            // invisibilizzo la riga in modo da poterla cancellare dal db
+            row.data('removed',true);
+            row.addClass('removed');
         }
-        
-        row.remove();
     
     }
     
@@ -331,7 +323,14 @@
         
         if (row == null) {
             alert(localizedStrings['errors']['null.row']);
-            return;
+            return false ;
+        }
+        
+        var table = row.closest("table");
+        
+        if (table.find("td.editing").length > 0) {
+            alert("You are editing another row, please commit and try again please.");
+            return false;
         }
         
         row.find("td").each(function(i) {
@@ -354,6 +353,8 @@
         });
         
         $(":button").button();
+        
+        return true;
     
     }
     
@@ -365,11 +366,19 @@
         
         if (cell == null){
             alert(localizedStrings['errors']['null.cell']);
-            return;
+            return false;
         }
         
-        if (!cell.hasClass("editable")) {
-            return;
+        if (!cell.hasClass("editable").length > 0) {
+            return false;
+        }
+        
+                
+        var table = cell.closest("table");
+        
+        if (table.find("td.editing")) {
+            alert("cell:already editing");
+            return false;
         }
         
         cell.removeClass("editable");
@@ -383,6 +392,8 @@
         var editor = cell.find("input[type=text]");
         
         editor.bind('blur', KT.commitCell);
+        
+        return true;
         
     }
     
@@ -439,26 +450,28 @@
             return;
         }
         
-        var removed = table.data('removed');
-        
-        for (var i in removed) {
-            //@todo ajax remove(removed[i]);
-            alert ("remove "+i)
+        if (table.find("td.editing").length > 0) {
+            alert("Commit any edits before saving, please");
+            return;
         }
-
         
         
         table.find("tr").each(function(index) {
             
-            if ($(this).data('created')) {
-                $(this).data('created',false);
-                $(this).data('id', Math.floor(Math.random()*100));
-                alert("create "+JSON.stringify(KT.marshall($(this))))
+            //@todo ajax this
             
-            //@todo ajax create($(this))
-            } else if ($(this).data('updated')) {
-                $(this).data('updated',false);
-                alert("update "+JSON.stringify(KT.marshall($(this))))
+            var row = $(this);
+            
+            if (row.data('created')) {
+                row.data('created',false);
+                row.data('id', Math.floor(Math.random()*100));//@todo remove this
+                alert("create row "+index+":"+JSON.stringify(KT.marshall(row)))
+            } else if (row.data('updated')) {
+                row.data('updated',false);
+                alert("update row "+index+":"+JSON.stringify(KT.marshall(row)))
+            } else if (row.data('removed')) {
+                alert("delete row "+index+":"+JSON.stringify(KT.marshall(row)))
+                row.remove();
             }
         
         });

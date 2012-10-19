@@ -7,7 +7,6 @@
 <%@page import="it.geosolutions.fra2015.webapp.rte.RTEConfigurationHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
-<%@include file="jspf/userValidation.jspf" %>
 <%
 
     LocalizationBundle strings = (LocalizationBundle) request.getAttribute("strings");
@@ -30,22 +29,24 @@
         <title>FRA 2015 Introduction</title>
         <link href="includes/css/minimal.css" type="text/css" rel="stylesheet"/>
         <script src="includes/jquery-1.8.2.min.js" type="text/javascript"></script>
-        <script src="includes/kGrid.js" type="text/javascript"></script>
+        <script src="includes/grid.kt.js" type="text/javascript"></script>
         <link href="includes/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="includes/jquery-ui.min.js"></script>
         <script>
-            $(document).ready(function(){
+            $(document).ready(function() {
+
+                var table = $("#personsTable");
                 
-                addLocalizedObject("#personsTable",{
-                    "name":"<%=slr.getString("report.header.name")%><br/>(<%=slr.getString("report.header.subtitle")%>)",
-                    "institution":"<%=slr.getString("report.header.istitution")%>",
-                    "email":"<%=slr.getString("report.header.email")%>",
-                    "tables":"<%=slr.getString("report.header.tables")%>"
-                });
+                var model = new ColumnModel();
+               
+                model.addColumn("name", "<%=slr.getString("report.header.name")%>", true);
+                model.addColumn("institution","<%=slr.getString("report.header.subtitle")%>", true);
+                model.addColumn("email","<%=slr.getString("report.header.email")%>", true );
+                model.addColumn("tables", "<%=slr.getString("report.header.tables")%>",true);
                 
-                configureTable("#personsTable", 
-                new Array("name", "institution", "email", "tables"), 
-                null);
+                table.data(model.DATA_PROPERTY_NAME, model);
+                
+                KT.configureTable(table);
                 
                 $(":button").button();
             });
@@ -65,13 +66,13 @@
                 </div>
                 <div class="content">
                     <h1><%=slr.getString("title")%></h1>
-                    <h3><caption><%=slr.getString("report.label")%>:</h3>
+                    <h3><%=slr.getString("report.label")%>:</h3>
                     <table id="personsTable"></table>
                     <h3><%=slr.getString("introduction.label")%>:</h3>
-                    <textarea id="editor" name="editor" cols="80" rows="10"></textarea>
-                    <br/>
-                    <input id="bReload" type="button" value="Cancel"/>
-                    <input id="bSave" type="button" value="Save"/>
+                    <form name="introduction">
+                        <textarea id="introduction_rte" name="editor" cols="80" rows="10"></textarea>
+                        <input id="introduction_save" type="button" value="<%=strings.getString("save")%>" />
+                    </form>
                 </div>
             </div>
         </div>
@@ -85,8 +86,7 @@
 
         %>
         <%@include file="jspf/footer.jspf" %>
-        <ckeditor:replace replace="editor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="introduction_rte" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                          />
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"/>
 </html>

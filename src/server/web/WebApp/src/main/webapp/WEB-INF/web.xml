@@ -3,8 +3,24 @@
     <description>FRA 2015 progam report application</description>
     <display-name>FRA 2015</display-name>
     <context-param>
-        <param-name>strings</param-name>
-        <param-value>strings.properties</param-value>
+        <description>possible values are: development, production</description>
+        <param-name>status</param-name>
+        <param-value>development</param-value>
+    </context-param>
+    <context-param>
+        <description>general debug of application</description>
+        <param-name>debug</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>debug of login module</description>
+        <param-name>debug_login</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <description>debug main servlet</description>
+        <param-name>debug_main_controller</param-name>
+        <param-value>false</param-value>
     </context-param>
     <listener>
         <description>main servlet context listener</description>

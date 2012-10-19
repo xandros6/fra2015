@@ -19,10 +19,8 @@ public class LocalizedQuestionAction extends AbstractQuestionAction {
         super(section, question);
     }
 
-
-
     @Override
-    public ResponseObject call(RequestObject request) {
+    public ResponseObject privilegedCall(RequestObject request) {
 
         ResponseObject ro = this.getResponseObject();
 

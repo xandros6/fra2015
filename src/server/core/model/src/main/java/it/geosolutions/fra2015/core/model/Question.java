@@ -1,25 +1,42 @@
-package it.geosolutions.fra2015.core.model.questionnaire;
+package it.geosolutions.fra2015.core.model;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Entity;
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
 /**
  *
  * @author francesco
  */
-@Entity
+@MappedSuperclass
 public class Question implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    protected String body;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<Warning> warnings;
+    @ManyToOne
+    private Report report;
+    @OneToMany
+    private List<Category> categories;
+    @OneToMany(mappedBy = "question")
+    private List<Tier> tiers;
+    @OneToMany(mappedBy = "question")
+    private List<DataSource> dataSources;
+    @OneToMany(mappedBy = "question")
+    private List<Classification> classifications;
+    private String originalData;
+    private String adjustement;
+    private String estimation;
+    private String reclassification;
 
     public Long getId() {
         return id;
@@ -28,11 +45,6 @@ public class Question implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    @OneToMany
-    List<Category> categories;
-    
-    
 
     @Override
     public int hashCode() {
@@ -58,5 +70,4 @@ public class Question implements Serializable {
     public String toString() {
         return "it.geosolutions.fra2015.core.model.questionnaire.Question[ id=" + id + " ]";
     }
-    
 }

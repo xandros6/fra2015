@@ -1,7 +1,7 @@
 package it.geosolutions.fra2015.webapp.actions.login;
 
 import it.geosolutions.fra2015.core.model.user.User;
-import it.geosolutions.fra2015.core.model.user.UserGroup;
+import it.geosolutions.fra2015.core.model.enums.UserGroup;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
@@ -17,7 +17,7 @@ public class LoginAction extends AbstractAction {
 
     @Override
     public ResponseObject call(RequestObject request) {
-        
+
         User user = (User) request.getSessionMap().get(User.class.getName());
 
         if (user != null) {
@@ -44,31 +44,43 @@ public class LoginAction extends AbstractAction {
 //            return fail();
 //        }
 
+
+
         String password = request.getString("password");
+        
+        /*
+         * @todo remove from here
+         */
 
         Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "password:{0}", password);
+
 
         if (true) {
 
             if ("admin".equals(username) && "admin".equals(password)) {
                 return success(createUser(username, UserGroup.ADMINISTRATOR));
+            } else if ("reviser".equals(username) && "reviser".equals(password)) {
+                return success(createUser(username, UserGroup.SUPERUSER));
             } else if ("user".equals(username) && "user".equals(password)) {
                 return success(createUser(username, UserGroup.USER));
+            } else if ("guest".equals(username) && "guest".equals(password)) {
+                return success(createUser(username, UserGroup.GUEST));
             }
-            
+
         }
-        
-        
+        /*
+         * @todo to here
+         */
 
 //        if (user.getPassword().check(password)) {
 //            return success(user);
 //        }
 
+
+
         return fail();
 
     }
-    
-    
 
     protected ResponseObject page() {
         ResponseObject responseObject = getResponseObject("login");

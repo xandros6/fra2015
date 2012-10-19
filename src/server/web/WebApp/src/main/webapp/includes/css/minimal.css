@@ -10,17 +10,6 @@
 
 body {
     font-family: sans-serif;
-    margin: 0  auto ;
-}
-
-img {
-    border:0px;
-}
-
-html,body{
-    height:100%;
-    bottom:0px;
-    top:0px;
 }
 
 a, a:visited, a:active {
@@ -28,34 +17,68 @@ a, a:visited, a:active {
     color:black;
 }
 
-table td {
-    vertical-align: top;
+input[type=button] {
+    min-width: 64px;
+    min-height:24px;
+    font-size:1.2em;
+    float:right;
 }
 
-table th {
-    background-color: gainsboro;
-    color: #333333;
-    padding:3px;
-    text-align:center;
+table caption {
+    caption-side:bottom;
+}
+
+table tr.removed {
+    visibility: hidden;
+    display: none;
 }
 
 table tr:hover,table tr.even:hover{
     background-color:#F0F0F0;
 }
 
-table td {
-    border:gainsboro 1px solid;
-    height:32px;
-    padding:3px;
+table tr.even{
+    background-color:#FAFAFA;
 }
 
-table td.editable {
+table tr th {
+    background-color: gainsboro;
+    color: #333333;
+    padding:3px;
+    text-align:center;
+    border: darkgray 1px solid;
+}
+
+table tr td {
+    vertical-align: top;
+    border:gainsboro 1px solid;
+    padding:3px;
+    min-height:44px;
+    height:44px
+}
+
+table tr td.control {
+    border:none;
+}
+
+table tr td.editable {
     background-color: yellow;
 }
 
-table td.editing {
-    border:red 1px solid;
+table tr td.editing {
+    border:darkgray 1px solid;
 }
+
+
+table tr td.editing input[type=text]{
+    background-color:transparent;
+    border:0px;
+    width:100%;
+    height:100%;
+    outline: none;
+    padding:0px 5px 0px 5px;
+}
+
 
 .content table ul {
     list-style-image: none;
@@ -72,37 +95,8 @@ table td.editing {
     padding-bottom:0px;
 }
 
-
-td.editing input[type=text]{
-    background-color:transparent;
-    border:0px;
-    width:100%;
-    height:100%;
-    outline: none;
-    padding:0px 5px 0px 5px;
-}
-
-
-table tr.even{
-    background-color:#FAFAFA;
-}
-
-table caption {
-    caption-side:bottom;
-}
-
-td.control {
-    text-align:right;
-    border:none;
-}
-
-.control,.control:hover{
+.control, .control:hover{
     background-color:white;
-}
-
-.control input[type=button],.control input[type=button]:hover,#bReload,#bSave{
-    float:right;
-
 }
 
 /* ICONS */
@@ -132,8 +126,6 @@ td.control {
     height: 180px;
     background-repeat: no-repeat;
     overflow: visible;
-
-
 }
 
 /* PARTNERS */
@@ -227,14 +219,11 @@ td.control {
 #main {
     padding:0 0px 0 0px;
     text-align: center;
-
-
 }
 
 #main > .tablelayout >.navigation, #main > .tablelayout  >.content,#main > .admin{
     padding-top:20px;
     padding-bottom: 50px;
-
 }
 
 .tablelayout {
@@ -242,7 +231,6 @@ td.control {
     margin:0px;
     display:table-row;
     width:100%;
-
 }
 
 /* NAVIGATION MENU */
@@ -320,7 +308,7 @@ form * {
     color:#5F5F5F;
 }
 .content .warning {
-    
+
     padding: 5px;
     padding-left: 19px;
     background-image: url('../../images/icons/error.png');
@@ -329,41 +317,8 @@ form * {
     background-color:orange;
     caption-side: top;
     text-align: center;
-    
+
 }
 .control img {
     float:left;
 }
-
-/* FORMS */
-#form1 input[type=button] {
-    float:right;
-}
-
-/* USERS PAGE */
-.admin table #usersTableHeaderRow th {
-    background-color:gainsboro;
-
-
-    padding:5px;
-
-}
-.admin table td{
-    padding:5px;
-}
-.admin table{
-    margin: 0 auto;
-
-}
-.admin table caption{
-    font-weight:bold;
-}
-table  input[type=button]{
-    height:30px;
-    font-size:14px;
-}
-table td input[type=button]{
-    width:70px;
-
-}
-

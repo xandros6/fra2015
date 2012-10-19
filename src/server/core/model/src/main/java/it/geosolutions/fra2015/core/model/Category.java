@@ -1,10 +1,13 @@
-package it.geosolutions.fra2015.core.model.questionnaire;
+package it.geosolutions.fra2015.core.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.Index;
 
 /**
@@ -23,6 +26,10 @@ public class Category implements Serializable {
     private String name;
     @Column(name = "definition", nullable = false)
     private String definition;
+    @ManyToOne
+    private Category parent;
+    @OneToMany(mappedBy = "parent")
+    private List<Category> childs;
 
     /**
      * @return the id
@@ -59,6 +66,24 @@ public class Category implements Serializable {
     public void setDefinition(String definition) {
         this.definition = definition;
     }
+
+    public Category getParent() {
+        return parent;
+    }
+
+    public void setParent(Category parent) {
+        this.parent = parent;
+    }
+
+    public List<Category> getChilds() {
+        return childs;
+    }
+
+    public void setChilds(List<Category> childs) {
+        this.childs = childs;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -4,7 +4,6 @@
     Author     : francesco
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="jspf/userValidation.jspf" %>
 <!DOCTYPE html>
 <html>
     <head>

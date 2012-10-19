@@ -139,7 +139,7 @@
                 
                 model = new ColumnModel();
                 
-                model.addColumn("category", "<%=qlr.getString("data.other.header.title")%>",true);
+                model.addColumn("category", "<%=qlr.getString("data.other.comments.header.title")%>",true);
                 
                 table.data(model.DATA_PROPERTY_NAME, model);
                 
@@ -222,19 +222,28 @@
 
                     </table>
                     <h3>1.2.3 <%=qlr.getString("original.data.title")%></h3>
-                    <textarea id="originaldataEditor" name="originalDataEditor"></textarea>
+                    <form name="f1_2_3"/>
+                    <textarea id="rte1_2_3" name="originalDataEditor"></textarea>
+                    <input id="save1_2_3"type="button" value="<%=strings.getString("save")%>"/>
+                    </form>
 
                     <h2>1.3 <%=qlr.getString("analysis.title")%></h2>
 
                     <h3>1.3.1 <%=qlr.getString("adjustment.title")%></h3>
-                    <textarea id="adjustmentEditor" name="adjustmentEditor"></textarea>
-
+                    <form name="f_1_3_1">
+                        <textarea id="rte1_3_1" name="adjustmentEditor"></textarea>
+                        <input id="save1_3_1" type="button" value="<%=strings.getString("save")%>"/>
+                    </form>
                     <h3>1.3.2 <%=qlr.getString("estimation.title")%></h3>
-                    <textarea id="estimationEditor" name="estimationEditor"></textarea>
-
+                    <form name="f_1_3_2">
+                        <textarea id="rte1_3_2" name="estimationEditor"></textarea>
+                        <input id="save1_3_2" type="button" value="<%=strings.getString("save")%>"/>
+                    </form>
                     <h3>1.3.3 <%=qlr.getString("reclassification.title")%></h3>
-                    <textarea id="reclassificationEditor" name="reclassificationEditor"></textarea>
-
+                    <form name="f_1_3_3">
+                        <textarea id="rte1_3_3" name="reclassificationEditor"></textarea>
+                        <input id="save1_3_3" type="button" value="<%=strings.getString("save")%>"/>
+                    </form>
 
                     <h2>1.4 <%=qlr.getString("data.title")%></h2>
                     <h3>1.4.1 <%=qlr.getString("data.table1a.title")%></h3>
@@ -494,7 +503,7 @@
                     <h3>1.4.6 <%=qlr.getString("data.other.comments.title")%></h3>
                     <table id="t1_4_6">
                         <tr>
-                            <th><%=qlr.getString("data.other.comments.title")%></th>
+                            <th><%=qlr.getString("data.other.comments.header.title")%></th>
                         </tr>
                         <tr>
                             <td></td>
@@ -527,21 +536,21 @@
 
         %>
 
-        <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="rte1_2_3" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
-        <ckeditor:replace replace="adjustmentEditor" basePath="/WebApp/ckeditor/"
-        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                          />
-
-        <ckeditor:replace replace="estimationEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="rte1_3_1" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
 
-        <ckeditor:replace replace="reclassificationEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="rte1_3_2" basePath="/WebApp/ckeditor/"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
+
+        <ckeditor:replace replace="rte1_3_3" basePath="/WebApp/ckeditor/"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />

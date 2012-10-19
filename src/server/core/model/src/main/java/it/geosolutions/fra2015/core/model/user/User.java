@@ -1,8 +1,19 @@
 package it.geosolutions.fra2015.core.model.user;
 
+import it.geosolutions.fra2015.core.model.enums.UserGroup;
+import it.geosolutions.fra2015.core.model.Warning;
 import java.io.Serializable;
 import java.util.Calendar;
-import javax.persistence.*;
+import java.util.List;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
