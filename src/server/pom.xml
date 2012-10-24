@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
     <name>FRA2015 - Server Root</name>
     <modules>
-        <module>modules</module>
         <module>web</module>
         <module>core</module>
     </modules>

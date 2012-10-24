@@ -1,22 +1,16 @@
 package it.geosolutions.fra2015.core.model.user.dao;
 
+import it.geosolutions.fra2015.core.model.GenericDAO;
 import it.geosolutions.fra2015.core.model.user.User;
-import java.util.List;
+import javax.ejb.Local;
+
+
 
 /**
  *
  * @author Francesco Rogo <f.rogo@computernopanic.com>
  */
-public interface UserDAO {
-
-    String create(String username, String password, String usergroup);
-
-    User read(String username);
-
-    void update(User user);
-
-    void delete(User user);
-    
-    List<User> readAll();
+@Local
+public interface UserDAO extends GenericDAO<User, String>{
 
 }

@@ -1,6 +1,5 @@
 package it.geosolutions.fra2015.core.model.listeners;
 
-import it.geosolutions.fra2015.core.model.Question;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostRemove;

@@ -1,15 +1,14 @@
 package it.geosolutions.fra2015.core.model.user;
 
 import it.geosolutions.fra2015.core.model.enums.UserGroup;
-import it.geosolutions.fra2015.core.model.Warning;
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
@@ -19,6 +18,9 @@ import javax.persistence.TemporalType;
  *
  * @author francesco
  */
+@NamedQueries({
+    @NamedQuery(name = "user.select.all", query = "SELECT i FROM User i")
+})
 @Entity
 public class User implements Serializable {
 
@@ -34,7 +36,6 @@ public class User implements Serializable {
     private Calendar creationDate;
     @Enumerated
     private UserGroup userGroup;
-    
     private int loginCount = 0;
 
     @PrePersist
@@ -102,6 +103,4 @@ public class User implements Serializable {
     public void setLoginCount(int loginCount) {
         this.loginCount = loginCount;
     }
-    
-    
 }

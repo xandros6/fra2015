@@ -2,6 +2,7 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <description>FRA 2015 progam report application</description>
     <display-name>FRA 2015</display-name>
+    <distributable/>
     <context-param>
         <description>possible values are: development, production</description>
         <param-name>status</param-name>
@@ -51,4 +52,14 @@
         <error-code>404</error-code>
         <location>/error/e404.jsp</location>
     </error-page>
+    <ejb-local-ref>
+        <ejb-ref-name>ejb/UserDAO</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local-home/>
+        <local>it.geosolutions.fra2015.core.model.user.dao.UserDAO</local>
+    </ejb-local-ref>
+    <resource-env-ref>
+        <resource-env-ref-name>jdbc/fra2015</resource-env-ref-name>
+        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
+    </resource-env-ref>
 </web-app>

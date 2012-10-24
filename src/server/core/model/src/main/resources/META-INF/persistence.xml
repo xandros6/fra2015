@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-  <persistence-unit name="it.geosolutions.fra2015_model_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>it.geosolutions.fra2015.core.model.questionnaire.Introduction</class>
-    <class>it.geosolutions.fra2015.core.model.questionnaire.Section</class>
-    <class>it.geosolutions.fra2015.core.model.questionnaire.Definition</class>
-    <class>it.geosolutions.fra2015.core.model.Category</class>
-    <class>it.geosolutions.fra2015.core.model.Question</class>
-    <class>it.geosolutions.fra2015.core.model.data.Person</class>
-    <class>it.geosolutions.fra2015.core.model.warning</class>
-    <class>it.geosolutions.fra2015.core.model.Warning</class>
-    <class>it.geosolutions.fra2015.core.model.Activity</class>
-    <class>it.geosolutions.fra2015.core.model.Tier</class>
-    <class>it.geosolutions.fra2015.core.model.TierCriteria</class>
-    <class>it.geosolutions.fra2015.core.model.Comment</class>
-    <class>it.geosolutions.fra2015.core.model.DataSource</class>
-    <class>it.geosolutions.fra2015.core.model.Classification</class>
-    <properties>
-      <property name="hibernate.connection.username" value="postgres"/>
-      <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-      <property name="hibernate.connection.password" value="admin"/>
-      <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/fra2015"/>
-      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-    </properties>
-  </persistence-unit>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="pu_fra2015" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>it.geosolutions.fra2015.core.model.user.User</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.connection.datasource" value="java:comp/env/jdbc/fra2015"/>
+        </properties>
+    </persistence-unit>
 </persistence>
