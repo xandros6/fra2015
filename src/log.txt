@@ -1,0 +1,105 @@
++ Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] Reactor build order: 
+[INFO]   FRA2015 Master
+[INFO]   FRA2015 Server
+[INFO]   FRA2015 - Core
+[INFO]   FRA2015 - Core - Model
+[INFO] ------------------------------------------------------------------------
+[INFO] Building FRA2015 Master
+[INFO]    task-segment: [clean, install]
+[INFO] ------------------------------------------------------------------------
+[INFO] [clean:clean {execution: default-clean}]
+[INFO] [site:attach-descriptor {execution: default-attach-descriptor}]
+[INFO] Preparing source:jar
+[WARNING] Removing: jar from forked lifecycle, to prevent recursive invocation.
+[INFO] No goals needed for project - skipping
+[INFO] [source:jar {execution: attach-sources}]
+[INFO] [install:install {execution: default-install}]
+[INFO] Installing E:\Documenti\work\projects\fra2015\src\pom.xml to C:\Documents and Settings\kekko\.m2\repository\it\geosolutions\fra2015\1.1-SNAPSHOT\fra2015-1.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Building FRA2015 Server
+[INFO]    task-segment: [clean, install]
+[INFO] ------------------------------------------------------------------------
+[INFO] [clean:clean {execution: default-clean}]
+[INFO] [site:attach-descriptor {execution: default-attach-descriptor}]
+[INFO] Preparing source:jar
+[WARNING] Removing: jar from forked lifecycle, to prevent recursive invocation.
+[INFO] No goals needed for project - skipping
+[INFO] [source:jar {execution: attach-sources}]
+[INFO] [install:install {execution: default-install}]
+[INFO] Installing E:\Documenti\work\projects\fra2015\src\server\pom.xml to C:\Documents and Settings\kekko\.m2\repository\it\geosolutions\fra2015\fra2015-server\1.1-SNAPSHOT\fra2015-server-1.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Building FRA2015 - Core
+[INFO]    task-segment: [clean, install]
+[INFO] ------------------------------------------------------------------------
+[INFO] [clean:clean {execution: default-clean}]
+[INFO] [site:attach-descriptor {execution: default-attach-descriptor}]
+[INFO] Preparing source:jar
+[WARNING] Removing: jar from forked lifecycle, to prevent recursive invocation.
+[INFO] No goals needed for project - skipping
+[INFO] [source:jar {execution: attach-sources}]
+[INFO] [install:install {execution: default-install}]
+[INFO] Installing E:\Documenti\work\projects\fra2015\src\server\core\pom.xml to C:\Documents and Settings\kekko\.m2\repository\it\geosolutions\fra2015\fra2015-core\1.1-SNAPSHOT\fra2015-core-1.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Building FRA2015 - Core - Model
+[INFO]    task-segment: [clean, install]
+[INFO] ------------------------------------------------------------------------
+[INFO] [clean:clean {execution: default-clean}]
+[INFO] Deleting directory E:\Documenti\work\projects\fra2015\src\server\core\model\target
+[INFO] [resources:resources {execution: default-resources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] [compiler:compile {execution: default-compile}]
+[INFO] Compiling 18 source files to E:\Documenti\work\projects\fra2015\src\server\core\model\target\classes
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Compilation failure
+Failure executing javac,  but could not parse the error:
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Trace
+org.apache.maven.BuildFailureException: Compilation failure
+Failure executing javac,  but could not parse the error:
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoals(DefaultLifecycleExecutor.java:715)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoalWithLifecycle(DefaultLifecycleExecutor.java:556)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoal(DefaultLifecycleExecutor.java:535)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoalAndHandleFailures(DefaultLifecycleExecutor.java:387)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeTaskSegments(DefaultLifecycleExecutor.java:348)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.execute(DefaultLifecycleExecutor.java:180)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:328)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:138)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:362)
+	at org.apache.maven.cli.compat.CompatibleMain.main(CompatibleMain.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)
+	at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
+	at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:375)
+Caused by: org.apache.maven.plugin.CompilationFailureException: Compilation failure
+Failure executing javac,  but could not parse the error:
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+
+	at org.apache.maven.plugin.AbstractCompilerMojo.execute(AbstractCompilerMojo.java:516)
+	at org.apache.maven.plugin.CompilerMojo.execute(CompilerMojo.java:114)
+	at org.apache.maven.plugin.DefaultPluginManager.executeMojo(DefaultPluginManager.java:490)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoals(DefaultLifecycleExecutor.java:694)
+	... 17 more
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2 seconds
+[INFO] Finished at: Wed Oct 24 16:55:56 CEST 2012
+[INFO] Final Memory: 17M/41M
+[INFO] ------------------------------------------------------------------------
