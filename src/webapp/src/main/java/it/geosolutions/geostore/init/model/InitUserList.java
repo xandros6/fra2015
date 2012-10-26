@@ -25,9 +25,9 @@
  * <http://www.geo-solutions.it/>.
  *
  */
-package it.geosolutions.geostore.init.model;
+package it.geosolutions.fra2015.init.model;
 
-import it.geosolutions.geostore.core.model.User;
+import it.geosolutions.fra2015.server.model.User;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;

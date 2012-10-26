@@ -17,17 +17,17 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package it.geosolutions.geostore.init;
+package it.geosolutions.fra2015.init;
 
-import it.geosolutions.geostore.core.model.Category;
-import it.geosolutions.geostore.core.model.User;
-import it.geosolutions.geostore.init.model.InitUserList;
-import it.geosolutions.geostore.services.CategoryService;
-import it.geosolutions.geostore.services.UserService;
-import it.geosolutions.geostore.services.exception.BadRequestServiceEx;
-import it.geosolutions.geostore.services.rest.model.CategoryList;
-import it.geosolutions.geostore.services.rest.model.RESTUser;
-import it.geosolutions.geostore.services.rest.utils.GeoStoreJAXBContext;
+import it.geosolutions.fra2015.core.model.Category;
+import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.init.model.InitUserList;
+import it.geosolutions.fra2015.services.CategoryService;
+import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.rest.model.CategoryList;
+import it.geosolutions.fra2015.services.rest.model.RESTUser;
+import it.geosolutions.fra2015.services.rest.utils.fra2015JAXBContext;
 import java.io.File;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
@@ -39,9 +39,9 @@ import org.springframework.beans.factory.InitializingBean;
  *
  * @author ETj (etj at geo-solutions.it)
  */
-public class GeoStoreInit implements InitializingBean {
+public class fra2015Init implements InitializingBean {
 
-    private final static Logger LOGGER = Logger.getLogger(GeoStoreInit.class);
+    private final static Logger LOGGER = Logger.getLogger(fra2015Init.class);
     protected UserService userService;
     protected CategoryService categoryService;
 
@@ -51,7 +51,7 @@ public class GeoStoreInit implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
 
-        LOGGER.info("===== Starting GeoStore services =====");
+        LOGGER.info("===== Starting fra2015 services =====");
 
         long catCnt = categoryService.getCount(null);
         if (catCnt == 0) {
@@ -83,7 +83,7 @@ public class GeoStoreInit implements InitializingBean {
 
     private void initCategories(File file) {
         try {
-            JAXBContext context = GeoStoreJAXBContext.getContext();
+            JAXBContext context = fra2015JAXBContext.getContext();
             CategoryList list = (CategoryList)context.createUnmarshaller().unmarshal(file);
             for (Category item : list.getList()) {
                 LOGGER.info("Adding category " + item);
@@ -139,7 +139,7 @@ public class GeoStoreInit implements InitializingBean {
 
     private static JAXBContext getUserContext() {
     
-        List<Class> allClasses = GeoStoreJAXBContext.getGeoStoreClasses();
+        List<Class> allClasses = fra2015JAXBContext.getfra2015Classes();
         allClasses.add(InitUserList.class);
 
         if(LOGGER.isDebugEnabled())
@@ -148,7 +148,7 @@ public class GeoStoreInit implements InitializingBean {
         try {
             return JAXBContext.newInstance(allClasses.toArray(new Class[allClasses.size()]));
         } catch (JAXBException ex) {
-            LOGGER.error("Can't create GeoStore context: " + ex.getMessage(), ex);
+            LOGGER.error("Can't create fra2015 context: " + ex.getMessage(), ex);
             return null;
         }
     }
