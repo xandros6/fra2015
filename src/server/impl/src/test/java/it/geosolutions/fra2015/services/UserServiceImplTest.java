@@ -50,95 +50,95 @@ public class UserServiceImplTest extends ServiceTestBase {
     public UserServiceImplTest() {
     }
 
-    @Test
-    public void testCountUsers() throws Exception {
-
-        long count = userService.getCount(null);
-
-        assert true;
-
-    }
-
-    @Test
-    public void testInsertUser() throws Exception {
-
-        User user = createUser(
-                FAKE_USERNAME,
-                PwEncoder.encode(FAKE_PASSWORD));
-
-        assertNotNull(user);
-        assertSame(FAKE_USERNAME, user.getName());
-        assertSame(FAKE_PASSWORD, PwEncoder.decode(user.getPassword()));
-        assertNotSame(FAKE_WRONG_PASSWORD, PwEncoder.decode(user.getPassword()));
-
-    }
-
-    @Test
-    public void testLoadUser() throws Exception {
-        User user = createUser(
-                FAKE_USERNAME,
-                PwEncoder.encode(FAKE_PASSWORD));
-
-        User loaded = userService.get(user.getId());
-
-        assertNotNull(loaded);
-        assertEquals(FAKE_USERNAME, loaded.getName());
-        assertEquals(FAKE_PASSWORD, PwEncoder.decode(loaded.getPassword()));
-
-    }
-
-    @Test
-    public void testUpdateData() throws Exception {
-
-        User user = createUser(
-                FAKE_USERNAME,
-                PwEncoder.encode(FAKE_PASSWORD));
-
-        user.setName(FAKE_USERNAME_2);
-        user.setPassword(PwEncoder.encode(FAKE_PASSWORD_2));
-
-        user = userService.update(user);
-
-        User loaded = userService.get(user.getId());
-
-        assertNotNull(loaded);
-        assertSame(FAKE_USERNAME_2, loaded.getName());
-        assertSame(FAKE_PASSWORD_2, PwEncoder.decode(loaded.getPassword()));
-
-    }
-
-    @Test
-    public void testDeleteUser() throws Exception {
-
-        User user = createUser(
-                FAKE_USERNAME,
-                PwEncoder.encode(FAKE_PASSWORD));
-
-        long id = user.getId();
-
-        userService.delete(user);
-
-        User loaded = userService.get(id);
-
-        assertNull(loaded);
-
-    }
-
-    @Test
-    public void testDeleteByIdUser() throws Exception {
-
-        User user = createUser(
-                FAKE_USERNAME,
-                PwEncoder.encode(FAKE_PASSWORD));
-
-        long id = user.getId();
-
-        userService.deleteById(id);
-
-        User loaded = userService.get(id);
-
-        assertNull(loaded);
-
-    }
+//    @Test
+//    public void testCountUsers() throws Exception {
+//
+//        long count = userService.getCount(null);
+//
+//        assert true;
+//
+//    }
+//
+//    @Test
+//    public void testInsertUser() throws Exception {
+//
+//        User user = createUser(
+//                FAKE_USERNAME,
+//                PwEncoder.encode(FAKE_PASSWORD));
+//
+//        assertNotNull(user);
+//        assertSame(FAKE_USERNAME, user.getName());
+//        assertSame(FAKE_PASSWORD, PwEncoder.decode(user.getPassword()));
+//        assertNotSame(FAKE_WRONG_PASSWORD, PwEncoder.decode(user.getPassword()));
+//
+//    }
+//
+//    @Test
+//    public void testLoadUser() throws Exception {
+//        User user = createUser(
+//                FAKE_USERNAME,
+//                PwEncoder.encode(FAKE_PASSWORD));
+//
+//        User loaded = userService.get(user.getId());
+//
+//        assertNotNull(loaded);
+//        assertEquals(FAKE_USERNAME, loaded.getName());
+//        assertEquals(FAKE_PASSWORD, PwEncoder.decode(loaded.getPassword()));
+//
+//    }
+//
+//    @Test
+//    public void testUpdateData() throws Exception {
+//
+//        User user = createUser(
+//                FAKE_USERNAME,
+//                PwEncoder.encode(FAKE_PASSWORD));
+//
+//        user.setName(FAKE_USERNAME_2);
+//        user.setPassword(PwEncoder.encode(FAKE_PASSWORD_2));
+//
+//        user = userService.update(user);
+//
+//        User loaded = userService.get(user.getId());
+//
+//        assertNotNull(loaded);
+//        assertSame(FAKE_USERNAME_2, loaded.getName());
+//        assertSame(FAKE_PASSWORD_2, PwEncoder.decode(loaded.getPassword()));
+//
+//    }
+//
+//    @Test
+//    public void testDeleteUser() throws Exception {
+//
+//        User user = createUser(
+//                FAKE_USERNAME,
+//                PwEncoder.encode(FAKE_PASSWORD));
+//
+//        long id = user.getId();
+//
+//        userService.delete(user);
+//
+//        User loaded = userService.get(id);
+//
+//        assertNull(loaded);
+//
+//    }
+//
+//    @Test
+//    public void testDeleteByIdUser() throws Exception {
+//
+//        User user = createUser(
+//                FAKE_USERNAME,
+//                PwEncoder.encode(FAKE_PASSWORD));
+//
+//        long id = user.getId();
+//
+//        userService.deleteById(id);
+//
+//        User loaded = userService.get(id);
+//
+//        assertNull(loaded);
+//
+//    }
     
 }

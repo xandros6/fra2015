@@ -179,6 +179,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
             <groupId>asm</groupId>
             <artifactId>asm</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>

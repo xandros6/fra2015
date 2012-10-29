@@ -39,7 +39,7 @@ public class ServiceTestBase extends TestCase {
 
     protected static UserService userService;
     protected static ClassPathXmlApplicationContext ctx = null;
-    protected final Logger LOGGER = Logger.getLogger(getClass());
+    protected final Logger log = Logger.getLogger(getClass());
 
     /**
      *
@@ -47,9 +47,7 @@ public class ServiceTestBase extends TestCase {
     public ServiceTestBase() {
         synchronized (ServiceTestBase.class) {
             if (ctx == null) {
-                String[] paths = {"classpath*:applicationContext.xml"
-//                         ,"applicationContext-test.xml"
-                };
+                String[] paths = {"classpath*:applicationContext.xml"};
                 ctx = new ClassPathXmlApplicationContext(paths);
                 userService = (UserService) ctx.getBean("userService");
             }
@@ -61,8 +59,19 @@ public class ServiceTestBase extends TestCase {
      */
     @Override
     protected void setUp() throws Exception {
-        LOGGER.info("################ Running " + getClass().getSimpleName() + "::" + getName());
-        super.setUp();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Setup ").append(getClass().getSimpleName()).append("::").append(getName()).append("...");
+
+        try {
+            super.setUp();
+            sb.append("DONE");
+        } catch (Exception ex) {
+            sb.append("FAILED:").append(ex);
+            throw ex;
+        } finally {
+            log.info(sb.toString());
+        }
         removeAll();
     }
 
@@ -70,7 +79,7 @@ public class ServiceTestBase extends TestCase {
      *
      */
     public void testCheckServices() {
-        assertNotNull(userService);
+//        assertNotNull(userService);
     }
 
     /**
@@ -78,7 +87,7 @@ public class ServiceTestBase extends TestCase {
      * @throws BadRequestServiceEx
      */
     protected void removeAll() throws NotFoundServiceEx, BadRequestServiceEx {
-        LOGGER.info("***** removeAll()");
+        log.info("***** removeAll()");
         removeAllUser();
     }
 
@@ -88,7 +97,7 @@ public class ServiceTestBase extends TestCase {
     private void removeAllUser() throws BadRequestServiceEx {
         List<User> list = userService.getAll(null, null);
         for (User item : list) {
-            LOGGER.info("Removing User: " + item.getName());
+            log.info("Removing User: " + item.getName());
 
             try {
                 userService.delete(item);
@@ -112,6 +121,10 @@ public class ServiceTestBase extends TestCase {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
-        return userService.insert(user);
+        user = userService.insert(user);
+        
+        log.info("User "+user.getId()+" created");
+        
+        return user;
     }
 }

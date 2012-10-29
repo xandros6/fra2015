@@ -1,0 +1,196 @@
+/* 
+    Document   : minimal
+    Created on : 2-ott-2012, 10.25.01
+    Author     : francesco
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+
+body {
+    font-family: sans-serif;
+
+    margin: 0  auto ;
+
+
+}
+
+html,body{
+    height:100%;
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+    color:black;
+}
+
+/* HEADER */
+#header {
+    text-align:center;
+	position:relative;
+}
+
+#header {
+    background-image: url(../../images/fra2015logo.jpg);
+    height: 381px;
+    background-repeat: no-repeat;
+    overflow: visible;
+	background-position:center;
+
+
+}
+
+/* PARTNERS */
+#partners{
+    float:right;
+}
+
+#partners .fao-logo{
+    background-image: url(../../images/faologo_tr.png);
+    height: 100px;
+    width: 100px;
+
+    background-position:right;
+    overflow:visible;
+    background-repeat:no-repeat;
+
+}
+
+/* LANGUAGES */
+#languages {
+	position:absolute;
+	text-align:center;
+	width:100%;
+	bottom:-100px;
+	
+}
+/* FOOTER */
+#footer {
+
+    border-top:thin solid black;
+    position:absolute;
+
+}
+#footer .disclaimer {
+
+    text-align:center;
+    width:100%;
+
+}
+
+
+/* TOP MENU */
+#topmenu {
+    background-color: green;
+    color:white;
+	border-top:thin solid black;
+	border-bottom:thin solid black;
+	position:relative;
+	font-weight:bold;
+	
+}
+#topmenu  ul{
+    margin:0 auto;
+	
+}
+
+#topmenu ul li,#logout {
+	border-left: thin solid white;
+	margin-left: -4px;
+}
+
+#topmenu a, #topmenu a:visited, #topmenu a:active {
+    text-decoration: none;
+    color:white;
+    margin: 0px auto;
+
+}
+#topmenu ul li.last {
+	border-right: thin solid white;
+} 
+
+
+#topmenu li:hover,#logout:hover{
+    text-decoration: none;
+    color:black;
+    background-color: #00aa00;
+}
+#topmenu li,#logout  {
+    padding: 0px 10px;
+    display: inline;
+}
+#logout {
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+/* MAIN */
+#main {
+    padding:0 0px 0 0px;
+    text-align: center;
+}
+
+
+#main > .tablelayout >.navigation, #main > .tablelayout  >.content{
+    padding-top:20px;
+    padding-bottom: 20px;
+
+}
+
+.tablelayout {
+    padding:0px;
+    margin:0px;
+    display:table-row;
+    width:100%;
+
+}
+
+
+/* CONTENT */
+.content {
+    padding:5px;
+    display: table-cell;
+    text-align: left;
+    width:80%;
+}
+form * {
+    vertical-align: top;
+}
+
+
+.content table {
+    width:100%;
+}
+
+.content th {
+    background-color: gainsboro;
+    color: #333333;
+}
+
+.content td {
+    border:gainsboro 1px solid;
+    height:32px;
+}
+
+/* LOGIN */
+.login {
+    text-align: center;
+}
+
+.login table {
+    border: black 1px solid;
+    margin: 100px auto;
+}
+
+.login caption {
+    background-color: darkgrey;
+    color: white;
+}
+
+.control img {
+    float:left;
+}
+
+
+
