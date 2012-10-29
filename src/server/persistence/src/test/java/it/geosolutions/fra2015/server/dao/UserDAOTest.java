@@ -57,7 +57,7 @@ public class UserDAOTest extends BaseDAOTest {
         user.setPassword(PwEncoder.encode(PASSWORD));
         userDAO.persist(user);
 
-        assertNotNull(user.getId());
+        assertNotNull("User id not set by persist()", user.getId());
 
     }
 
@@ -71,6 +71,7 @@ public class UserDAOTest extends BaseDAOTest {
 
         userDAO.persist(user);
 
+        assertNotNull("Id not set by persist()", user.getId());
         User loaded = userDAO.find(user.getId());
 
         assertNotNull(loaded);
@@ -103,6 +104,7 @@ public class UserDAOTest extends BaseDAOTest {
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
+        assertNotNull("Id not set by persist()", user.getId());
 
         user.setName("updateUser2");
         user.setPassword(PwEncoder.encode(PASSWORD_2));
@@ -129,6 +131,7 @@ public class UserDAOTest extends BaseDAOTest {
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
+        assertNotNull("Id not set by persist()", user.getId());
 
         long id = user.getId();
 
@@ -149,6 +152,7 @@ public class UserDAOTest extends BaseDAOTest {
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
+        assertNotNull("Id not set by persist()", user.getId());
 
         long id = user.getId();
 

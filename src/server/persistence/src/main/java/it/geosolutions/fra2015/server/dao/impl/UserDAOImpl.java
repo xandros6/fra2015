@@ -39,4 +39,24 @@ public class UserDAOImpl extends BaseDAO<User, Long> implements UserDAO {
         return super.search(search);
     }
 
+    @Override
+    public void persist(User... entities) {
+        super.persist(entities);
+    }
+
+    @Override
+    public User merge(User entity) {
+        return super.merge(entity);
+    }
+
+    @Override
+    public boolean remove(User entity) {
+        return super.remove(entity);
+    }
+
+    @Override
+    public boolean removeById(Long id) {
+        return super.removeById(id);
+    }
+
 }
