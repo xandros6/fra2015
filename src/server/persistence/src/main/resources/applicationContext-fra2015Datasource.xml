@@ -44,7 +44,7 @@
 
     <bean id="fra2015DataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.h2.Driver" />
-        <property name="url" value="jdbc:h2:tcp://localhost/fra2015" />
+        <property name="url" value="jdbc:h2:mem:fra2015" />
         <property name="username" value="fra2015" />
         <property name="password" value="fra2015" />
     </bean>
