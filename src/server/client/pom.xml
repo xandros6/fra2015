@@ -46,28 +46,18 @@
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-services-api</artifactId>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-rest-api</artifactId>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
 
         <!-- ================================================================-->
         <!-- Core lib -->
         <!-- ================================================================-->
-
-        <dependency>
-            <groupId>com.sun.jersey.contribs</groupId>
-            <artifactId>jersey-apache-client</artifactId>
-            <version>1.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-client</artifactId>
-            <version>1.12</version>
-        </dependency>
 
         <!-- ================================================================-->
         <!--  Misc support libs -->
@@ -77,6 +67,11 @@
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>apache-client</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

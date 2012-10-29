@@ -31,7 +31,7 @@
     <groupId>it.geosolutions.fra2015</groupId>
     <artifactId>fra2015-rest-extjs</artifactId>
     <packaging>jar</packaging>
-    <name>FRA2015 - REST EXTJS services</name>
+    <name>FRA2015 - Server - REST EXTJS services</name>
 
     <dependencies>
         <!-- ================================================================-->
@@ -41,12 +41,6 @@
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-services-api</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        
-	<dependency>
-            <groupId>it.geosolutions.fra2015</groupId>
-            <artifactId>fra2015-rest-impl</artifactId>
             <version>1.1-SNAPSHOT</version>
         </dependency>
 		
@@ -59,7 +53,11 @@
             <classifier>jdk15</classifier>
             <!--scope>compile</scope-->
         </dependency>
-        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>fra2015-rest-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

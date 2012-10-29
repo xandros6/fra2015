@@ -17,57 +17,81 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package it.geosolutions.fra2015.server.dao;
 
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import junit.framework.TestCase;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Class BaseDAOTest
- * 
+ *
  * @author ETj (etj at geo-solutions.it)
  * @author Tobia di Pisa (tobia.dipisa at geo-solutions.it)
  */
 public abstract class BaseDAOTest extends TestCase {
-	
-    protected final static Logger log = Logger.getLogger(BaseDAOTest.class.getName());
 
+    protected final static Logger log = Logger.getLogger(BaseDAOTest.class);
     protected static UserDAO userDAO;
-
     protected static ClassPathXmlApplicationContext ctx = null;
 
     public BaseDAOTest() {
 
-        synchronized(BaseDAOTest.class) {
-            if(ctx == null) {
+        synchronized (BaseDAOTest.class) {
+            if (ctx == null) {
                 String[] paths = {
-                        "applicationContext.xml"
+                    "applicationContext.xml"
 //                         ,"applicationContext-test.xml"
                 };
                 ctx = new ClassPathXmlApplicationContext(paths);
 
-                userDAO = (UserDAO)ctx.getBean("userDAO"); 
+                userDAO = (UserDAO) ctx.getBean("userDAO");
             }
         }
     }
 
     @Override
     protected void setUp() throws Exception {
-        log.log(Level.INFO, "Running {0}::{1}", new Object[]{getClass().getSimpleName(), getName()});
-        
-        super.setUp();
-        
-        log.log(Level.INFO, "Ending setup for {0}", getName());
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Setup ").append(getClass().getSimpleName()).append("::").append(getName()).append("...");
+
+        try {
+            super.setUp();
+            sb.append("DONE");
+        } catch (Exception ex) {
+            sb.append("FAILED:").append(ex);
+            throw ex;
+        } finally {
+            log.info(sb.toString());
+        }
+    }
+
+    @Override
+    protected void runTest() throws Throwable {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("[").append(this.getName()).append("] Start");
+
+        log.info(sb.toString());
+
+        try {
+            super.runTest();
+        } catch (Exception ex) {
+            throw ex;
+        } finally {
+            sb = new StringBuilder();
+            sb.append("[").append(this.getName()).append("] End");
+            log.info(sb.toString());
+        }
+
     }
 
     @Test
     public void testCheckDAOs() {
         assertNotNull(userDAO);
     }
-
 }

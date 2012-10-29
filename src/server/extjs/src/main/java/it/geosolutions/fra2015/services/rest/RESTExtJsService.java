@@ -33,8 +33,6 @@
 package it.geosolutions.fra2015.services.rest;
 
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
-
-import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -62,7 +60,6 @@ public interface RESTExtJsService {
     @GET
     @Path("/search/{nameLike}")
     @Produces({MediaType.APPLICATION_JSON})
-    @RolesAllowed({"ADMIN", "USER", "GUEST"})
     String getAllResources(
     		@Context SecurityContext sc,
     		@PathParam("nameLike") String nameLike,

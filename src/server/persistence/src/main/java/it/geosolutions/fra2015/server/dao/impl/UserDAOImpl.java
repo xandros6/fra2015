@@ -39,11 +39,4 @@ public class UserDAOImpl extends BaseDAO<User, Long> implements UserDAO {
         return super.search(search);
     }
 
-    @Override
-    public void persist(User... entities) {
-        super.persist(entities);
-    }
-    
-    
-    
 }

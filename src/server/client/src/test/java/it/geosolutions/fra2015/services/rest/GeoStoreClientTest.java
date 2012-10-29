@@ -51,10 +51,10 @@ import static org.junit.Assert.*;
  *
  * @author ETj (etj at geo-solutions.it)
  */
-public class fra2015ClientTest {
-    private final static Logger LOGGER = Logger.getLogger(fra2015ClientTest.class);
+public class Fra2015ClientTest {
+    private final static Logger LOGGER = Logger.getLogger(Fra2015ClientTest.class);
 
-    public fra2015ClientTest() {
+    public Fra2015ClientTest() {
     }
 
 
@@ -69,13 +69,13 @@ public class fra2015ClientTest {
 
     @Before
     public void before() throws Exception {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
         assumeTrue(pingfra2015(client));
     }
 
-    protected fra2015Client createClient() {
-        fra2015Client client = new fra2015Client();
-        client.setfra2015RestUrl("http://localhost:9191/fra2015/rest");
+    protected Fra2015Client createClient() {
+        Fra2015Client client = new Fra2015Client();
+        client.setFra2015RestUrl("http://localhost:9191/fra2015/rest");
         client.setUsername("admin");
         client.setPassword("admin");
         return client;
@@ -88,7 +88,7 @@ public class fra2015ClientTest {
 
     @Test
     public void testRemoveAllAttribs() {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
 
         final String KEY_STRING = "stringAtt";
 
@@ -157,7 +157,7 @@ public class fra2015ClientTest {
     @Test
 //    @Ignore
     public void _testInsertResource() {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
 
         final String KEY_STRING = "stringAtt";
         final String KEY_DATE = "dateAtt";
@@ -220,7 +220,7 @@ public class fra2015ClientTest {
     }
 
     public void _testUpdateResource() {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
 
         final String KEY_STRING = "stringAtt";
         final String KEY_DATE = "dateAtt";
@@ -312,7 +312,7 @@ public class fra2015ClientTest {
 
     @Test
     public void _testSearchByCategory() {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
 
         removeAllResources(client);
         removeAllCategories(client);
@@ -337,7 +337,7 @@ public class fra2015ClientTest {
 
     @Test
     public void _testGetResource() {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
         Resource resource = client.getResource(261l);
         System.out.println("Resource is " + resource);
         if(resource.getAttribute() != null) {
@@ -349,7 +349,7 @@ public class fra2015ClientTest {
 
     @Test
     public void _testClearAll() {
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
 
         removeAllResources(client);
         removeAllCategories(client);
@@ -393,7 +393,7 @@ public class fra2015ClientTest {
         return resource;
     }
 
-    protected void removeAllResources(fra2015Client client) {
+    protected void removeAllResources(Fra2015Client client) {
         SearchFilter filter = new FieldFilter(BaseField.NAME, "*", SearchOperator.IS_NOT_NULL);
         {
             ShortResourceList resources = client.searchResources(filter);
@@ -414,7 +414,7 @@ public class fra2015ClientTest {
         }
     }
 
-    protected void removeAllCategories(fra2015Client client) {
+    protected void removeAllCategories(Fra2015Client client) {
         {
             CategoryList categories = client.getCategories();
             if(categories.getList() != null) {
@@ -462,7 +462,7 @@ public class fra2015ClientTest {
     @Test
     public void testGetResourceFull() {
 
-        fra2015Client client = createClient();
+        Fra2015Client client = createClient();
 
         final String DATA = "we wish you a merry xmas and a happy new year";
 
@@ -502,7 +502,7 @@ public class fra2015ClientTest {
     }
 
 
-    protected boolean pingfra2015(fra2015Client client) {
+    protected boolean pingfra2015(Fra2015Client client) {
         try {
             client.getCategories();
             return true;

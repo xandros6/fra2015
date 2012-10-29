@@ -2,19 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.geosolutions.fra2015.server.dao.util;
 
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * 
+ *
  * @author ETj <etj at geo-solutions.it>
  */
 public class PwEncoderTest {
@@ -39,14 +36,19 @@ public class PwEncoderTest {
     }
 
     public void testString(String test) {
+
+        Logger log = Logger.getLogger(PwEncoderTest.class);
         
-        Logger log = Logger.getLogger(PwEncoderTest.class.getName());
+        StringBuilder sb = new StringBuilder();
 
         String enc = PwEncoder.encode(test);
-        log.log(Level.INFO, "ENC --> {0}", enc);
+        
         String dec = PwEncoder.decode(enc);
-        log.log(Level.INFO, "DEC --> {0}", dec);
+                
+        sb.append("testing ").append(test).append(" enc:").append(enc).append(" dec:").append(dec);
+        
+        log.info(sb.toString());
+        
         assertEquals(test, dec);
     }
-
 }

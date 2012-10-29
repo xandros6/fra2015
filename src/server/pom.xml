@@ -40,8 +40,10 @@
         <module>model</module>
         <module>services-api</module>
         <module>api</module>
-        <module>services-impl</module>
+        <module>restimpl</module>
         <module>impl</module>
+        <module>test</module>
+        <module>extjs</module>
     </modules>
 
     <properties>

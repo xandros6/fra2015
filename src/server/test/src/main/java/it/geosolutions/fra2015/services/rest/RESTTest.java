@@ -19,10 +19,7 @@
  */
 package it.geosolutions.fra2015.services.rest;
 
-import it.geosolutions.fra2015.core.model.Category;
 import it.geosolutions.fra2015.server.model.User;
-import it.geosolutions.fra2015.core.model.enums.Role;
-import it.geosolutions.fra2015.services.CategoryService;
 import it.geosolutions.fra2015.services.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
@@ -35,25 +32,11 @@ public class RESTTest implements InitializingBean {
 
     private final static Logger LOGGER = Logger.getLogger(RESTTest.class);
     protected UserService userService;
-    protected CategoryService categoryService;
 
     @Override
     public void afterPropertiesSet() throws Exception {
 
         LOGGER.info("===== Starting fra2015 REST test services =====");
-
-        long catCnt = categoryService.getCount(null);
-        if (catCnt == 0) {
-            LOGGER.info("No category found. Creating default.");
-            for (String name : new String[]{"TestCategory1", "TestCategory2"}) {
-                Category c = new Category();
-                c.setName(name);
-                categoryService.insert(c);
-                LOGGER.info("Created " + c);
-            }
-        } else {
-            LOGGER.info("Categories already in db: " + catCnt);
-        }
 
         long userCnt = userService.getCount(null);
         if (userCnt == 0) {
@@ -61,17 +44,15 @@ public class RESTTest implements InitializingBean {
 
             User admin = new User();
             admin.setName("admin");
-            admin.setNewPassword("admin");
-            admin.setRole(Role.ADMIN);
+            admin.setPassword("admin");
             userService.insert(admin);
             LOGGER.info("Created " + admin);
 
-            User pinco = new User();
-            pinco.setName("pinco");
-            pinco.setNewPassword("pinco");
-            pinco.setRole(Role.USER);
-            userService.insert(pinco);
-            LOGGER.info("Created " + pinco);
+            User user = new User();
+            user.setName("user");
+            user.setPassword("user");
+            userService.insert(user);
+            LOGGER.info("Created " + user);
 
         } else {
             LOGGER.info("Users already in db: " + userCnt);
@@ -79,10 +60,6 @@ public class RESTTest implements InitializingBean {
     }
 
     //==========================================================================
-
-    public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
 
     public void setUserService(UserService userService) {
         this.userService = userService;

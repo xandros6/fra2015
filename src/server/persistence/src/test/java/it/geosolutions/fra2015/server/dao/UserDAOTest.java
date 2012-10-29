@@ -22,7 +22,6 @@ package it.geosolutions.fra2015.server.dao;
 import it.geosolutions.fra2015.server.dao.util.PwEncoder;
 import it.geosolutions.fra2015.server.model.User;
 import java.util.List;
-import java.util.logging.Level;
 import org.junit.Test;
 
 /**
@@ -33,9 +32,7 @@ import org.junit.Test;
  */
 public class UserDAOTest extends BaseDAOTest {
 
-    private final static String USERNAME = "user";
     private final static String PASSWORD = "password";
-    private final static String USERNAME_2 = "user_2";
     private final static String PASSWORD_2 = "password_2";
     private final boolean debug = true;
 
@@ -44,39 +41,32 @@ public class UserDAOTest extends BaseDAOTest {
 
         int count = userDAO.count(null);
 
-        assertSame(0, count);
+        assertEquals(0, count);
+
+
 
     }
 
     @Test
     public void testCreateUser() throws Exception {
 
-        if (debug) {
-            log.info("test user creation");
-        }
+
 
         User user = new User();
-        user.setName(USERNAME);
+        user.setName("createUser");
         user.setPassword(PwEncoder.encode(PASSWORD));
-         userDAO.save(user);
-         
-         
+        userDAO.persist(user);
 
-        int count = userDAO.count(null);
-
-        assertSame(1, count);
+        assertNotNull(user.getId());
 
     }
 
     @Test
     public void testReadUser() throws Exception {
 
-        if (debug) {
-            log.info("test user loading by id");
-        }
 
         User user = new User();
-        user.setName(USERNAME);
+        user.setName("readUser");
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
@@ -84,8 +74,10 @@ public class UserDAOTest extends BaseDAOTest {
         User loaded = userDAO.find(user.getId());
 
         assertNotNull(loaded);
-        assertSame(USERNAME, loaded.getName());
-        assertSame(PASSWORD, PwEncoder.decode(loaded.getPassword()));
+
+        assertEquals("readUser", loaded.getName());
+        assertEquals(PASSWORD, PwEncoder.decode(loaded.getPassword()));
+
 
     }
 
@@ -99,45 +91,41 @@ public class UserDAOTest extends BaseDAOTest {
         List<User> users = userDAO.findAll();
 
         assertNotNull(users);
-        assertSame(userDAO.count(null), users.size());
+        assertEquals(userDAO.count(null), users.size());
 
     }
 
     @Test
     public void testUpdateUser() throws Exception {
 
-        if (debug) {
-            log.info("test user updating");
-        }
-
         User user = new User();
-        user.setName(USERNAME);
+        user.setName("updateUser1");
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
 
-        user.setName(USERNAME_2);
+        user.setName("updateUser2");
         user.setPassword(PwEncoder.encode(PASSWORD_2));
-        user = userDAO.merge(user);
 
+        userDAO.merge(user);
 
         User loaded = userDAO.find(user.getId());
 
         assertNotNull(loaded);
-        assertSame(USERNAME_2, loaded.getName());
-        assertSame(PASSWORD_2, PwEncoder.decode(loaded.getPassword()));
+
+        assertEquals("updateUser2", loaded.getName());
+
+        assertEquals(PASSWORD_2, PwEncoder.decode(loaded.getPassword()));
 
     }
 
     @Test
     public void testDeleteUser() throws Exception {
 
-        if (debug) {
-            log.info("test user deleting");
-        }
+
 
         User user = new User();
-        user.setName(USERNAME);
+        user.setName("deleteUser");
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
@@ -149,17 +137,15 @@ public class UserDAOTest extends BaseDAOTest {
         User loaded = userDAO.find(id);
 
         assertNull(loaded);
+
     }
 
     @Test
     public void testDeleteByIdUser() throws Exception {
 
-        if (debug) {
-            log.info("test user deleting by id");
-        }
 
         User user = new User();
-        user.setName(USERNAME);
+        user.setName("deleteByIdUser");
         user.setPassword(PwEncoder.encode(PASSWORD));
 
         userDAO.persist(user);
@@ -171,5 +157,23 @@ public class UserDAOTest extends BaseDAOTest {
         User loaded = userDAO.find(id);
 
         assertNull(loaded);
+
+    }
+
+    @Test
+    public void testDeleteAll() throws Exception {
+
+        List<User> users = userDAO.findAll();
+
+        for (User user : users) {
+
+            userDAO.remove(user);
+
+        }
+
+        int count = userDAO.count(null);
+
+        assertEquals(0, count);
+
     }
 }
