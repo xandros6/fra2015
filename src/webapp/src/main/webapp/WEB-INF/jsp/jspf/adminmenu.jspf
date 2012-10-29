@@ -1,0 +1,13 @@
+<%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
+<%@page import="it.geosolutions.fra2015.core.model.user.UserGroup"%>
+<%@page import="it.geosolutions.fra2015.core.model.user.User"%>
+<%@page pageEncoding="UTF-8" %>
+<%{
+        LocalizationBundle srb = (LocalizationBundle) request.getAttribute("strings");%>
+<ul>
+    <li><a href="users.action"><%=srb.getString("section.users")%></a></li>
+    <li><a href="activity.action"><%=srb.getString("section.activity")%></a></li>
+    <li><a href="navigation.action?section=introduction"><%=srb.getString("section.survey")%></a></li>
+</ul>
+<span id="logout"><a href="logout.action"><%=srb.getString("section.logout")%></a></span>
+<%}%>
