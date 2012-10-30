@@ -72,7 +72,7 @@
             <div id="topmenu">
                 <%@include file="jspf/sectionmenu.jspf" %>
             </div>
-            <div class="tablelayout" style="background-color: red;">
+            <div class="tablelayout">
                 <div class="navigation">
                     <jsp:include page="navigationmenu.jsp"/>
                 </div>
