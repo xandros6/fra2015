@@ -86,7 +86,7 @@
 
         %>
         <%@include file="jspf/footer.jspf" %>
-        <ckeditor:replace replace="introduction_rte" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="introduction_rte" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"/>
 </html>

@@ -6,12 +6,17 @@ import com.ckeditor.GlobalEventHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author francesco
  */
 public class RTEConfigurationHelper {
+    
+    public static String getBasePath(HttpSession session) {
+        return session.getServletContext().getContextPath() + "/ckeditor/";
+    }
 
     public static CKEditorConfig createConfig() {
         CKEditorConfig settings = new CKEditorConfig();
