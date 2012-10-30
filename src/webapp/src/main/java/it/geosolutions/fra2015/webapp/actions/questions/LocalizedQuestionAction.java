@@ -53,10 +53,10 @@ public class LocalizedQuestionAction extends AbstractQuestionAction {
 
         try {
 
-            LocalizationBundle cats = getLocalizationBundle("section" + section);
+            LocalizationBundle cats = getLocalizationBundle("section");
 
             if (debug) {
-                System.out.println("resource section" + section);
+                System.out.println("resource section");
 
                 for (String key : cats.keySet()) {
                     System.out.println("\t" + key + "=" + cats.getString(key));

@@ -9,15 +9,28 @@
 <%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <%
 
+
+    int section = (Integer) request.getAttribute("section");
+    int question = (Integer) request.getAttribute("question");
+
     LocalizationBundle strings = (LocalizationBundle) request.getAttribute("strings");
 
     if (strings == null) {
+        System.out.println("string resource bundle is null");
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 
     LocalizationBundle slr = (LocalizationBundle) request.getAttribute("sectionBundle");
 
     if (slr == null) {
+        System.out.println("section resource bundle is null");
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+    }
+
+    LocalizationBundle qlr = (LocalizationBundle) request.getAttribute("questionBundle");
+
+    if (qlr == null) {
+        System.out.println("question resource bundle is null");
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 
@@ -39,10 +52,10 @@
                 
                 var model = new ColumnModel();
                
-                model.addColumn("name", "<%=slr.getString("report.header.name")%>", true);
-                model.addColumn("institution","<%=slr.getString("report.header.subtitle")%>", true);
-                model.addColumn("email","<%=slr.getString("report.header.email")%>", true );
-                model.addColumn("tables", "<%=slr.getString("report.header.tables")%>",true);
+                model.addColumn("name", "<%=qlr.getString("report.header.name")%>", true);
+                model.addColumn("institution","<%=qlr.getString("report.header.subtitle")%>", true);
+                model.addColumn("email","<%=qlr.getString("report.header.email")%>", true );
+                model.addColumn("tables", "<%=qlr.getString("report.header.tables")%>",true);
                 
                 table.data(model.DATA_PROPERTY_NAME, model);
                 
@@ -60,15 +73,14 @@
                 <%@include file="jspf/sectionmenu.jspf" %>
             </div>
             <div class="tablelayout">
-                &nbsp;
                 <div class="navigation">
-                    <%@include file="jspf/section1.jspf" %>
+                    <jsp:include page="navigationmenu.jsp"/>
                 </div>
                 <div class="content">
-                    <h1><%=slr.getString("title")%></h1>
-                    <h3><%=slr.getString("report.label")%>:</h3>
+                    <h1><%=slr.getString("introduction.title")%></h1>
+                    <h3><%=qlr.getString("report.label")%>:</h3>
                     <table id="personsTable"></table>
-                    <h3><%=slr.getString("introduction.label")%>:</h3>
+                    <h3><%=qlr.getString("introduction.label")%>:</h3>
                     <form name="introduction">
                         <textarea id="introduction_rte" name="editor" cols="80" rows="10"></textarea>
                         <input id="introduction_save" type="button" value="<%=strings.getString("save")%>" />
