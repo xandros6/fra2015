@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="2.4"
-         xmlns="http://java.sun.com/xml/ns/j2ee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-
-<!--    <listener>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <!--    <listener>
         <description>main servlet context listener</description>
         <listener-class>it.geosolutions.fra2015.webapp.listeners.WebApplicationListener</listener-class>
     </listener>
@@ -28,7 +24,6 @@
         <servlet-name>MainController</servlet-name>
         <url-pattern>*.action</url-pattern>
     </servlet-mapping>
-    
     <!-- pick up all spring application contexts -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -36,36 +31,28 @@
             classpath*:applicationContext.xml
         </param-value>
     </context-param>
-
     <!--    <context-param>
         <param-name>log4jConfigLocation</param-name>
         <param-value>file:${config.dir}/log4j.xml</param-value>
     </context-param>-->
-
     <!-- spring context loader -->
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
-
-<!--    <listener>
+    <!--    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>-->
-
-
     <!-- CXF Servlet -->
     <servlet>
         <servlet-name>CXFServlet</servlet-name>
         <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>CXFServlet</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
-	
     <!-- Default page to serve -->
     <welcome-file-list>
-        <welcome-file>Application.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
 </web-app>

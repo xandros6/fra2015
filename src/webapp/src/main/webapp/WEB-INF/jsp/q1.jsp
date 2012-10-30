@@ -172,21 +172,7 @@
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
-                    <%switch (section) {
-                            case 1:%>
-                    <%@include file="jspf/section1.jspf" %>
-                    <%break;
-                        case 2:%>
-                    <%@include file="jspf/section2.jspf" %>
-                    <%break;
-                        case 3:%>
-                    <%@include file="jspf/section3.jspf" %>
-                    <%break;
-                        case 4:%>
-                    <%@include file="jspf/section4.jspf" %>
-                    <%break;
-                        default:%>
-                    <%}%>
+                    <jsp:include page="navigationmenu.jsp"/>
                 </div>
                 <div class="content">
                     <h1><%= slr.getString("q1.title")%>:<%=slr.getString("q1.body")%></h1>
@@ -536,21 +522,21 @@
 
         %>
 
-        <ckeditor:replace replace="rte1_2_3" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="rte1_2_3" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
-        <ckeditor:replace replace="rte1_3_1" basePath="/WebApp/ckeditor/"
-        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                          />
-
-        <ckeditor:replace replace="rte1_3_2" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="rte1_3_1" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
 
-        <ckeditor:replace replace="rte1_3_3" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="rte1_3_2" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
+
+        <ckeditor:replace replace="rte1_3_3" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />

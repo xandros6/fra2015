@@ -284,6 +284,28 @@ table tr td.editing input[type=text]{
     float:left;margin:auto;
 }
 
+
+.navigation dt {
+    background-color: gainsboro;
+    text-align:center;
+    margin-top:0px;
+    top:0px;
+    border: darkgrey 1px solid;
+    padding-left: 10px;
+}
+
+.navigation dd {
+    display: table-cell;
+    margin-bottom:15px;
+
+}
+
+.navigation dd li {
+    text-align: right;
+    margin-bottom:15px;
+}
+
+
 /* CONTENT */
 .content {
     padding:5px;

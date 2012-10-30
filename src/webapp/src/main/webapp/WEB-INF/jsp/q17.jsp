@@ -112,21 +112,7 @@
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
-                    <%switch (section) {
-                            case 1:%>
-                    <%@include file="jspf/section1.jspf" %>
-                    <%break;
-                        case 2:%>
-                    <%@include file="jspf/section2.jspf" %>
-                    <%break;
-                        case 3:%>
-                    <%@include file="jspf/section3.jspf" %>
-                    <%break;
-                        case 4:%>
-                    <%@include file="jspf/section4.jspf" %>
-                    <%break;
-                        default:%>
-                    <%}%>
+                    <jsp:include page="navigationmenu.jsp"/>
                 </div>
                 <div class="content">
                     <h1><%= slr.getString("q17.title")%>:<%=slr.getString("q17.body")%></h1>
@@ -231,21 +217,21 @@
             </div>
         </div>
         <%@include file="jspf/footer.jspf" %>
-        <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="originaldataEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
-        <ckeditor:replace replace="adjustmentEditor" basePath="/WebApp/ckeditor/"
-        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                          />
-
-        <ckeditor:replace replace="estimationEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="adjustmentEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
 
-        <ckeditor:replace replace="reclassificationEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="estimationEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
+
+        <ckeditor:replace replace="reclassificationEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />

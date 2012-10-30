@@ -47,7 +47,7 @@
             <!--
             $(document).ready(function(){
                 
-               var table = $("#t11_2_1");
+                var table = $("#t11_2_1");
                 
                 var model = new ColumnModel();
                 
@@ -96,25 +96,11 @@
             <div class="tablelayout">
                 &nbsp;
                 <div class="navigation">
-                    <%switch (section) {
-                            case 1:%>
-                    <%@include file="jspf/section1.jspf" %>
-                    <%break;
-                        case 2:%>
-                    <%@include file="jspf/section2.jspf" %>
-                    <%break;
-                        case 3:%>
-                    <%@include file="jspf/section3.jspf" %>
-                    <%break;
-                        case 4:%>
-                    <%@include file="jspf/section4.jspf" %>
-                    <%break;
-                        default:%>
-                    <%}%>
+                    <jsp:include page="navigationmenu.jsp"/>
                 </div>
                 <div class="content">
                     <h1><%= slr.getString("q11.title")%>:<%=slr.getString("q11.body")%></h1>
-                    
+
                     <h2>11.1 <%=qlr.getString("fra2015.categories.title")%></h2>
                     <table>
                         <tr>
@@ -126,13 +112,13 @@
                             <td><%=qlr.getString("fra2015.categories.nationalstakeholderplatform.definition")%></td>
                         </tr>
                     </table>        
-                        
+
                     <h2>11.2 <%=qlr.getString("national.data")%></h2>
                     <h3>11.2.1 <%=qlr.getString("data.sources.title")%></h3>
                     <table id="t11_2_1">
 
                     </table>
-                    
+
                     <h3><%=qlr.getString("data.table11.title")%></h3>
                     <table id="t11_2_2">
                         <tr style="display:none">
@@ -144,7 +130,7 @@
                             <td></td>
                         </tr>
                     </table>
-                            
+
                     <h2>11.3 <%=qlr.getString("data.comments.title")%></h2>
                     <h3></h3>
                     <table id="t11_3_1">
@@ -161,21 +147,21 @@
             </div>
         </div>
         <%@include file="jspf/footer.jspf" %>
-        <ckeditor:replace replace="originaldataEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="originaldataEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
-        <ckeditor:replace replace="adjustmentEditor" basePath="/WebApp/ckeditor/"
-        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
-        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
-                          />
-
-        <ckeditor:replace replace="estimationEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="adjustmentEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
 
-        <ckeditor:replace replace="reclassificationEditor" basePath="/WebApp/ckeditor/"
+        <ckeditor:replace replace="estimationEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
+        events="<%=RTEConfigurationHelper.createEventHandlers()%>"
+        globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
+                          />
+
+        <ckeditor:replace replace="reclassificationEditor" basePath="<%=RTEConfigurationHelper.getBasePath(session)%>"
         events="<%=RTEConfigurationHelper.createEventHandlers()%>"
         globalEvents="<%=RTEConfigurationHelper.createGlobalEventHandler()%>"
                           />
