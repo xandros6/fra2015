@@ -19,11 +19,8 @@
  */
 package it.geosolutions.fra2015.services;
 
-import it.geosolutions.fra2015.server.dao.util.PwEncoder;
-import it.geosolutions.fra2015.server.model.User;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 /**
  * Class UserServiceImplTest.

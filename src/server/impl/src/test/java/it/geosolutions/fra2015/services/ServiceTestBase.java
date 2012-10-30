@@ -19,6 +19,7 @@
  */
 package it.geosolutions.fra2015.services;
 
+import it.geosolutions.fra2015.server.model.Password;
 import it.geosolutions.fra2015.server.model.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
@@ -120,7 +121,8 @@ public class ServiceTestBase extends TestCase {
     protected User createUser(String name, String password) throws Exception {
         User user = new User();
         user.setName(name);
-        user.setPassword(password);
+        user.setPassword(new Password());
+        user.getPassword().setPassword(password);
         user = userService.insert(user);
         
         log.info("User "+user.getId()+" created");

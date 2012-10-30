@@ -28,9 +28,11 @@
  */
 package it.geosolutions.fra2015.server.model;
 
+import it.geosolutions.fra2015.server.model.enums.UserGroup;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -69,13 +71,12 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = false, length = 20)
     @Index(name = "idx_user_name")
     private String name;
-    /**
-     * @todo modificare questo campo e trasformarlo in un campo embed Password con il salt
-     */ 
-    @Column(nullable = false, name = "user_password", updatable = true)
-    @Index(name = "idx_user_password")
-    private String password;
 
+    @Column(nullable = false, updatable = true)
+    private Password password;
+
+    @Enumerated
+    protected UserGroup userGroup = UserGroup.GUEST;
     /**
      * @return the id
      */
@@ -109,16 +110,26 @@ public class User implements Serializable {
      * @return the password
      */
     @XmlTransient
-    public String getPassword() {
+    public Password getPassword() {
         return password;
     }
 
     /**
      * @param password the password to set
      */
-    public void setPassword(String password) {
+    public void setPassword(Password password) {
         this.password = password;
     }
+
+    public UserGroup getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(UserGroup userGroup) {
+        this.userGroup = userGroup;
+    }
+    
+    
 
     @Override
     public int hashCode() {

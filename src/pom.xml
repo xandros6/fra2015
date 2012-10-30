@@ -152,6 +152,7 @@
     <modules>
         <module>server</module>
 <!--        <module>webapp</module>-->
+        <module>webapp</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
