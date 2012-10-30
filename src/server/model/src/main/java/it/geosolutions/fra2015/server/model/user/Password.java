@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.*;
@@ -29,6 +30,10 @@ public class Password implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public void setPassword(byte[] bytes) throws NoSuchAlgorithmException {
+        this.setPassword(encryptPassword(bytes));
+    }
 
     public String getSalt() {
         return getPassword().substring(getPassword().lastIndexOf(":") + 1);
@@ -48,6 +53,21 @@ public class Password implements Serializable {
             Logger.getLogger(Password.class.getName()).log(Level.SEVERE, null, e);
             return false;
         }
+    }
+    
+    public static String encryptPassword(byte[] bytes) throws NoSuchAlgorithmException {
+        return encryptPassword(bytes, "MD5");
+    }
+
+    public static String encryptPassword(byte[] bytes, String algorithm) throws NoSuchAlgorithmException {
+
+        SecureRandom sr = new SecureRandom();
+
+        sr.setSeed(System.currentTimeMillis());
+
+        BigInteger bi = BigInteger.valueOf(sr.nextLong());
+
+        return encryptPassword(bytes, bi.toString().substring(0, 8), algorithm);
     }
 
     public static String encryptPassword(byte[] bytes, String salt, String algorithm) throws NoSuchAlgorithmException {

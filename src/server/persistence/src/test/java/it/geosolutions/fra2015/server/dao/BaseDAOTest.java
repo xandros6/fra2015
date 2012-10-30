@@ -20,7 +20,6 @@
 package it.geosolutions.fra2015.server.dao;
 
 import junit.framework.TestCase;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -43,7 +42,6 @@ public abstract class BaseDAOTest extends TestCase {
             if (ctx == null) {
                 String[] paths = {
                     "applicationContext.xml"
-//                         ,"applicationContext-test.xml"
                 };
                 ctx = new ClassPathXmlApplicationContext(paths);
 
