@@ -41,7 +41,6 @@
         <module>api</module>
         <module>restimpl</module>
         <module>impl</module>
-        <module>extjs</module>
         <module>services-api</module>
     </modules>
 
