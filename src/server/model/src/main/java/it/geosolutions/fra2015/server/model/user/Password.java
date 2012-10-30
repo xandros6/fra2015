@@ -1,4 +1,4 @@
-package it.geosolutions.fra2015.server.model;
+package it.geosolutions.fra2015.server.model.user;
 
 import java.io.Serializable;
 import java.math.BigInteger;

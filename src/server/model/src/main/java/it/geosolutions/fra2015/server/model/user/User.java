@@ -26,9 +26,9 @@
  * <http://www.geo-solutions.it/>.
  *
  */
-package it.geosolutions.fra2015.server.model;
+package it.geosolutions.fra2015.server.model.user;
 
-import it.geosolutions.fra2015.server.model.enums.UserGroup;
+import it.geosolutions.fra2015.server.model.user.enums.UserGroup;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

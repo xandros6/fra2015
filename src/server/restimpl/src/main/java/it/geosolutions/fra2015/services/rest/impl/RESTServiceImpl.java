@@ -27,7 +27,7 @@
  */
 package it.geosolutions.fra2015.services.rest.impl;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.rest.exception.*;
 import it.geosolutions.fra2015.services.rest.utils.Fra2015Principal;
 import java.security.Principal;

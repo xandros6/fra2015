@@ -20,7 +20,7 @@
 package it.geosolutions.fra2015.services.rest.utils;
 
 import it.geosolutions.fra2015.server.dao.util.PwEncoder;
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import org.apache.cxf.configuration.security.AuthorizationPolicy;

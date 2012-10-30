@@ -18,6 +18,6 @@
     <li><a href="question7.action"><%= nrb.getString("q7.title")%>: <%=nrb.getString("q7.body")%></a></li>
     <li><a href="question8.action"><%= nrb.getString("q8.title")%>: <%=nrb.getString("q8.body")%></a></li>
     <li><a href="question9.action"><%= nrb.getString("q9.title")%>: <%=nrb.getString("q9.body")%></a></li>
-    <li><a href="question10.action"><%= nrb.getString("q10.title")%>: <%=nrb.getString("q10.body")%></a></li>
+    
 </ul>
 <%}%>

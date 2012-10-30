@@ -26,29 +26,29 @@
     <!-- === Service providers ==============================================-->
     <!-- ====================================================================-->
 
-    <bean id="restStoredDataService" class="it.geosolutions.fra2015.services.rest.impl.RESTStoredDataServiceImpl">
+<!--    <bean id="restStoredDataService" class="it.geosolutions.fra2015.services.rest.impl.RESTStoredDataServiceImpl">
     </bean>
     
     <bean id="restResourceService" class="it.geosolutions.fra2015.services.rest.impl.RESTResourceServiceImpl">
     </bean>
     
     <bean id="restCategoryService" class="it.geosolutions.fra2015.services.rest.impl.RESTCategoryServiceImpl">
-    </bean>
+    </bean>-->
 
     <bean id="restUserService" class="it.geosolutions.fra2015.services.rest.impl.RESTUserServiceImpl">
     </bean>
 
-    <bean id="restMiscService" class="it.geosolutions.fra2015.services.rest.impl.RESTMiscServiceImpl">
+<!--    <bean id="restMiscService" class="it.geosolutions.fra2015.services.rest.impl.RESTMiscServiceImpl">
     </bean>
 
     <bean id="restBackupService" class="it.geosolutions.fra2015.services.rest.impl.RESTBackupServiceImpl">
-    </bean>
+    </bean>-->
     
     <!-- ====================================================================-->
     <!-- === REST Services ==================================================-->
     <!-- ====================================================================-->
 
-    <jaxrs:server id="fra2015RESTStoredData" address="/data">
+<!--    <jaxrs:server id="fra2015RESTStoredData" address="/data">
         <jaxrs:serviceBeans>
           <ref bean="restStoredDataService"/>
         </jaxrs:serviceBeans>
@@ -68,9 +68,9 @@
                <property name="securedObject" ref="restStoredDataService"/>
             </bean>
         </jaxrs:inInterceptors>     
-    </jaxrs:server>
+    </jaxrs:server>-->
     
-    <jaxrs:server id="fra2015RESTResource" address="/resources">
+<!--    <jaxrs:server id="fra2015RESTResource" address="/resources">
         <jaxrs:serviceBeans>
           <ref bean="restResourceService"/>
         </jaxrs:serviceBeans>
@@ -91,9 +91,9 @@
                <property name="securedObject" ref="restResourceService"/>
             </bean>
         </jaxrs:inInterceptors> 
-    </jaxrs:server>
+    </jaxrs:server>-->
 
-    <jaxrs:server id="fra2015RESTCategory" address="/categories">
+<!--    <jaxrs:server id="fra2015RESTCategory" address="/categories">
         <jaxrs:serviceBeans>
           <ref bean="restCategoryService"/>
         </jaxrs:serviceBeans>
@@ -113,7 +113,7 @@
                <property name="securedObject" ref="restCategoryService"/>
             </bean>
         </jaxrs:inInterceptors>  
-    </jaxrs:server>
+    </jaxrs:server>-->
     
     <jaxrs:server id="fra2015RESTUser" address="/users">
         <jaxrs:serviceBeans>
@@ -129,15 +129,15 @@
            <ref bean="jsonProvider"/>
         </jaxrs:providers>    
         
-        <jaxrs:inInterceptors>
+<!--        <jaxrs:inInterceptors>
             <ref bean="fra2015AuthInterceptor"/>
             <bean class="org.apache.cxf.interceptor.security.SecureAnnotationsInterceptor">
                <property name="securedObject" ref="restUserService"/>
             </bean>
-        </jaxrs:inInterceptors>      
+        </jaxrs:inInterceptors>      -->
     </jaxrs:server>
 
-    <jaxrs:server id="fra2015RESTMisc" address="/misc">
+<!--    <jaxrs:server id="fra2015RESTMisc" address="/misc">
         <jaxrs:serviceBeans>
           <ref bean="restMiscService"/>
         </jaxrs:serviceBeans>
@@ -157,9 +157,9 @@
                <property name="securedObject" ref="restMiscService"/>
             </bean>
         </jaxrs:inInterceptors>
-    </jaxrs:server>
+    </jaxrs:server>-->
 
-    <jaxrs:server id="fra2015RESTBackup" address="/backup">
+<!--    <jaxrs:server id="fra2015RESTBackup" address="/backup">
         <jaxrs:serviceBeans>
           <ref bean="restBackupService"/>
         </jaxrs:serviceBeans>
@@ -180,7 +180,7 @@
                <property name="securedObject" ref="restBackupService"/>
             </bean>
         </jaxrs:inInterceptors>
-    </jaxrs:server>
+    </jaxrs:server>-->
 
 
 <!--    <jaxrs:server id="fra2015RESTExtJs" address="/extjs">
@@ -213,7 +213,7 @@
     <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.JSONProvider"/>
     <bean id="jaxbContextResolver" class="it.geosolutions.fra2015.services.rest.utils.JAXBContextResolver" />
 
-    <bean id="fra2015AuthInterceptor" class="it.geosolutions.fra2015.services.rest.utils.fra2015AuthenticationInterceptor">
+<!--    <bean id="fra2015AuthInterceptor" class="it.geosolutions.fra2015.services.rest.utils.fra2015AuthenticationInterceptor">
     	<property name="userService" ref="userService"/>
-    </bean>
+    </bean>-->
 </beans>

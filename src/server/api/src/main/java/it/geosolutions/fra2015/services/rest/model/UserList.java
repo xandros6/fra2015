@@ -27,7 +27,7 @@
  */
 package it.geosolutions.fra2015.services.rest.model;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;

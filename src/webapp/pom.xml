@@ -119,6 +119,17 @@
 
     <build>
         <finalName>fra2015</finalName>
+        <resources>
+            <resource>
+                <targetPath>META-INF/webapp</targetPath>
+                <directory>${basedir}/src/main/webapp/resources</directory>
+            </resource>
+            <resource>
+                <targetPath>META-INF/webapp/images</targetPath>
+                <directory>${basedir}/src/main/webapp/images</directory>
+            </resource>
+            
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -133,6 +144,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
                 <configuration>
                 </configuration>
             </plugin>

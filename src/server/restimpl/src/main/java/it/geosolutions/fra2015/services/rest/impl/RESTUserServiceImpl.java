@@ -27,7 +27,7 @@
  */
 package it.geosolutions.fra2015.services.rest.impl;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
@@ -66,7 +66,7 @@ public class RESTUserServiceImpl implements RESTUserService {
 
     /*
      * (non-Javadoc) @see
-     * it.geosolutions.fra2015.services.rest.RESTUserInterface#insert(it.geosolutions.fra2015.server.model.User)
+     * it.geosolutions.fra2015.services.rest.RESTUserInterface#insert(it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
     public User insert(SecurityContext sc, User user) {
@@ -85,7 +85,7 @@ public class RESTUserServiceImpl implements RESTUserService {
 
     /*
      * (non-Javadoc) @see it.geosolutions.fra2015.services.rest.RESTUserInterface#update(long,
-     * it.geosolutions.fra2015.server.model.User)
+     * it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
     public User update(SecurityContext sc, long id, User user) {

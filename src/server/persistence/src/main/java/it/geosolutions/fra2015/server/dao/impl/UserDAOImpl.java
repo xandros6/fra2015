@@ -21,7 +21,7 @@ package it.geosolutions.fra2015.server.dao.impl;
 
 import com.googlecode.genericdao.search.ISearch;
 import it.geosolutions.fra2015.server.dao.UserDAO;
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 

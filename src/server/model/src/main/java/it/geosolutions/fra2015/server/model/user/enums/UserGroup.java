@@ -1,4 +1,4 @@
-package it.geosolutions.fra2015.server.model.enums;
+package it.geosolutions.fra2015.server.model.user.enums;
 
 /**
  *

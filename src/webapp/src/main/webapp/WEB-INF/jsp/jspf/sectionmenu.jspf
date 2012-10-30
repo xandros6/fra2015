@@ -1,6 +1,6 @@
 <%@page import="it.geosolutions.fra2015.webapp.LocalizationBundle"%>
-<%@page import="it.geosolutions.fra2015.core.model.user.UserGroup"%>
-<%@page import="it.geosolutions.fra2015.core.model.user.User"%>
+<%@page import="it.geosolutions.fra2015.server.model.user.enums.UserGroup"%>
+<%@page import="it.geosolutions.fra2015.server.model.user.User"%>
 <%@page pageEncoding="UTF-8" %>
 <%{
         LocalizationBundle srb = (LocalizationBundle) request.getAttribute("strings");%>

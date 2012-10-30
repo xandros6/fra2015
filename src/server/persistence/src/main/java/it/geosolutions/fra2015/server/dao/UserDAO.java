@@ -19,7 +19,7 @@
  */
 package it.geosolutions.fra2015.server.dao;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 
 /** 
  * Interface UserDAO.

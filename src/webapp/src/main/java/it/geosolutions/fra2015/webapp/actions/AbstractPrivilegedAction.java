@@ -1,7 +1,7 @@
 package it.geosolutions.fra2015.webapp.actions;
 
-import it.geosolutions.fra2015.server.model.User;
-import it.geosolutions.fra2015.server.model.enums.UserGroup;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.server.model.user.enums.UserGroup;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.login.LoginAction;

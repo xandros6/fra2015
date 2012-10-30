@@ -19,7 +19,7 @@
  */
 package it.geosolutions.fra2015.services.rest;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.InitializingBean;

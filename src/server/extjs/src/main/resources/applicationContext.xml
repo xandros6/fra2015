@@ -47,12 +47,12 @@
            <ref bean="jsonProvider"/>
         </jaxrs:providers>    
         
-        <jaxrs:inInterceptors>
+<!--        <jaxrs:inInterceptors>
             <ref bean="fra2015AuthInterceptor"/>
             <bean class="org.apache.cxf.interceptor.security.SecureAnnotationsInterceptor">
                <property name="securedObject" ref="restExtJsService"/>
             </bean>
-        </jaxrs:inInterceptors>      
+        </jaxrs:inInterceptors>      -->
     </jaxrs:server>
 	
 </beans>

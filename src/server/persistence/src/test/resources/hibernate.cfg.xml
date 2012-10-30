@@ -7,6 +7,6 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
     <property name="hibernate.connection.driver_class">org.h2.Driver</property>
-    <mapping class="it.geosolutions.fra2015.server.model.User"/>
+    <mapping class="it.geosolutions.fra2015.server.model.user.User"/>
   </session-factory>
 </hibernate-configuration>

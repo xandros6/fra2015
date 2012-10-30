@@ -19,7 +19,7 @@
  */
 package it.geosolutions.fra2015.services.rest.utils;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.rest.model.UserList;
 import java.io.File;
 import java.io.IOException;
@@ -92,7 +92,7 @@ public class Fra2015JAXBContext {
     }
 
     private static List<Class<User>> getModelClasses() {
-        return Arrays.asList(it.geosolutions.fra2015.server.model.User.class);
+        return Arrays.asList(it.geosolutions.fra2015.server.model.user.User.class);
     }
 
     public static JAXBContext getContext() {

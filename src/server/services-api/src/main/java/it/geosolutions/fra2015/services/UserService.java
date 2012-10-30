@@ -28,7 +28,7 @@
  */
 package it.geosolutions.fra2015.services;
 
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;

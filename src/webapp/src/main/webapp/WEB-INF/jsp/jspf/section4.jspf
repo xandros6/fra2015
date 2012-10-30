@@ -11,13 +11,13 @@
 <h3><%=lb.getString("title")%>:<br/>
     <%=lb.getString("description")%></h3>
 <ul>
-    <li><%=lb.getString("q15.title")%>:<%=lb.getString("q15.body")%></li>
-    <li><%=lb.getString("q16.title")%>:<%=lb.getString("q16.body")%></li>
-    <li><%=lb.getString("q17.title")%>:<%=lb.getString("q17.body")%></li>
-    <li><%=lb.getString("q18.title")%>:<%=lb.getString("q18.body")%></li>
-    <li><%=lb.getString("q19.title")%>:<%=lb.getString("q19.body")%></li>
-    <li><%=lb.getString("q20.title")%>:<%=lb.getString("q20.body")%></li>
-    <li><%=lb.getString("q21.title")%>:<%=lb.getString("q21.body")%></li>
-    <li><%=lb.getString("q22.title")%>:<%=lb.getString("q22.body")%></li>
+    <li><a href="question14.action"><%=lb.getString("q14.title")%>:<%=lb.getString("q14.body")%></a></li>
+    <li><a href="question15.action"><%=lb.getString("q15.title")%>:<%=lb.getString("q15.body")%></a></li>
+    <li><a href="question16.action"><%=lb.getString("q16.title")%>:<%=lb.getString("q16.body")%></a></li>
+    <li><a href="question17.action"><%=lb.getString("q17.title")%>:<%=lb.getString("q17.body")%></a></li>
+    <li><a href="question18.action"><%=lb.getString("q18.title")%>:<%=lb.getString("q18.body")%></a></li>
+    <li><a href="question19.action"><%=lb.getString("q19.title")%>:<%=lb.getString("q19.body")%></a></li>
+    <li><a href="question20.action"><%=lb.getString("q20.title")%>:<%=lb.getString("q20.body")%></a></li>
+    <li><a href="question21.action"><%=lb.getString("q21.title")%>:<%=lb.getString("q21.body")%></a></li>
 </ul>
 <%}%>

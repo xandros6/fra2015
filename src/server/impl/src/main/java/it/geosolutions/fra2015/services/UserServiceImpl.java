@@ -21,7 +21,7 @@ package it.geosolutions.fra2015.services;
 
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.fra2015.server.dao.UserDAO;
-import it.geosolutions.fra2015.server.model.User;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /* (non-Javadoc)
-     * @see it.geosolutions.fra2015.services.UserService#insert(it.geosolutions.fra2015.server.model.User)
+     * @see it.geosolutions.fra2015.services.UserService#insert(it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
     public User insert(User user) throws BadRequestServiceEx, NotFoundServiceEx {
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /* (non-Javadoc)
-     * @see it.geosolutions.fra2015.services.UserService#update(it.geosolutions.fra2015.server.model.User)
+     * @see it.geosolutions.fra2015.services.UserService#update(it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
     public User update(User user) throws NotFoundServiceEx, BadRequestServiceEx {

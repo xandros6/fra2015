@@ -11,9 +11,10 @@
 <h3><%=lb.getString("title")%>:<br/>
     <%=lb.getString("description")%></h3>
 <ul>
-    <li><%=lb.getString("q11.title")%>:<%=lb.getString("q11.body")%></li>
-    <li><%=lb.getString("q12.title")%>:<%=lb.getString("q12.body")%></li>
-    <li><%=lb.getString("q13.title")%>:<%=lb.getString("q13.body")%></li>
-    <li><%=lb.getString("q14.title")%>:<%=lb.getString("q14.body")%></li>
+    <li><a href="question10.action"><%= lb.getString("q10.title")%>: <%=lb.getString("q10.body")%></a></li>
+    <li><a href="question11.action"><%=lb.getString("q11.title")%>:<%=lb.getString("q11.body")%></a></li>
+    <li><a href="question12.action"><%=lb.getString("q12.title")%>:<%=lb.getString("q12.body")%></a></li>
+    <li><a href="question13.action"><%=lb.getString("q13.title")%>:<%=lb.getString("q13.body")%></a></li>
+
 </ul>
 <%}%>
