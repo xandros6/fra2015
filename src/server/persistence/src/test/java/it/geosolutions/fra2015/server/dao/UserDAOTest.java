@@ -19,7 +19,6 @@
  */
 package it.geosolutions.fra2015.server.dao;
 
-import it.geosolutions.fra2015.server.dao.util.PwEncoder;
 import it.geosolutions.fra2015.server.model.user.Password;
 import it.geosolutions.fra2015.server.model.user.User;
 import java.util.List;
@@ -44,19 +43,15 @@ public class UserDAOTest extends BaseDAOTest {
 
         assertEquals(0, count);
 
-
-
     }
 
     @Test
     public void testCreateUser() throws Exception {
 
-
-
         User user = new User();
         user.setName("createUser");
         user.setPassword(new Password());
-        user.getPassword().setPassword(PASSWORD);
+        user.getPassword().setPassword(PASSWORD.getBytes());
         userDAO.persist(user);
 
         assertNotNull("User id not set by persist()", user.getId());
@@ -70,7 +65,7 @@ public class UserDAOTest extends BaseDAOTest {
         User user = new User();
         user.setName("readUser");
         user.setPassword(new Password());
-        user.getPassword().setPassword(PASSWORD);
+        user.getPassword().setPassword(PASSWORD.getBytes());
 
         userDAO.persist(user);
 
@@ -80,7 +75,7 @@ public class UserDAOTest extends BaseDAOTest {
         assertNotNull(loaded);
 
         assertEquals("readUser", loaded.getName());
-//        assertTrue(loaded.getPassword().check(PASSWORD_2));
+        assertTrue(loaded.getPassword().check(PASSWORD));
 
 
     }
@@ -105,13 +100,13 @@ public class UserDAOTest extends BaseDAOTest {
         User user = new User();
         user.setName("updateUser1");
         user.setPassword(new Password());
-        user.getPassword().setPassword(PASSWORD);
+        user.getPassword().setPassword(PASSWORD.getBytes());
 
         userDAO.persist(user);
         assertNotNull("Id not set by persist()", user.getId());
 
         user.setName("updateUser2");
-        user.getPassword().setPassword(PASSWORD_2);
+        user.getPassword().setPassword(PASSWORD_2.getBytes());
 
         userDAO.merge(user);
 
@@ -121,7 +116,7 @@ public class UserDAOTest extends BaseDAOTest {
 
         assertEquals("updateUser2", loaded.getName());
 
-//        assertTrue(loaded.getPassword().check(PASSWORD_2));
+        assertTrue(loaded.getPassword().check(PASSWORD_2));
 
     }
 
