@@ -261,13 +261,13 @@ table tr td.editing input[type=text]{
     padding:0px;
 }
 .navigation ul>:first-child{
-    border-top: thin dashed black;
+    
 
 }
 .navigation li {
     text-align: left;
     padding:5px;
-    border-bottom: thin dashed black;
+    
     font-weight:bold;
 
 }
