@@ -3,8 +3,8 @@ package it.geosolutions.fra2015.webapp.actions.questions;
 import it.geosolutions.fra2015.webapp.LocalizationBundle;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -36,17 +36,20 @@ public class LocalizedQuestionAction extends AbstractQuestionAction {
         try {
             LocalizationBundle strings = getLocalizationBundle("strings");
             if (debug) {
-                System.out.println("resource strings");
+
+                Logger log = Logger.getLogger(Question1Action.class.getName());
+
+                log.trace("resource strings");
 
                 for (String key : strings.keySet()) {
-                    System.out.println("\t" + key + "=" + strings.getString(key));
+                    log.trace("\t" + key + "=" + strings.getString(key));
                 }
             }
 
             ro.getResponseMap().put("strings", strings);
 
         } catch (Exception e) {
-            Logger.getLogger(Question1Action.class.getName()).log(Level.SEVERE, "missing bundle", e);
+            Logger.getLogger(Question1Action.class.getName()).log(Level.ERROR, "missing bundle", e);
         }
 
         // carico le risorse di sezione
@@ -56,17 +59,21 @@ public class LocalizedQuestionAction extends AbstractQuestionAction {
             LocalizationBundle cats = getLocalizationBundle("section");
 
             if (debug) {
-                System.out.println("resource section");
+
+                Logger log = Logger.getLogger(Question1Action.class.getName());
+
+
+                log.trace("resource section");
 
                 for (String key : cats.keySet()) {
-                    System.out.println("\t" + key + "=" + cats.getString(key));
+                    log.trace("\t" + key + "=" + cats.getString(key));
                 }
             }
 
             ro.getResponseMap().put("sectionBundle", cats);
 
         } catch (Exception e) {
-            Logger.getLogger(Question1Action.class.getName()).log(Level.SEVERE, "missing bundle", e);
+            Logger.getLogger(Question1Action.class.getName()).log(Level.ERROR, "missing bundle", e);
         }
 
         // carico le risorse di domanda
@@ -76,17 +83,20 @@ public class LocalizedQuestionAction extends AbstractQuestionAction {
             LocalizationBundle cats = getLocalizationBundle("question" + question);
 
             if (debug) {
-                System.out.println("resource question" + question);
+
+                Logger log = Logger.getLogger(Question1Action.class.getName());
+
+                log.trace("resource question" + question);
 
                 for (String key : cats.keySet()) {
-                    System.out.println("\t" + key + "=" + cats.getString(key));
+                    log.trace("\t" + key + "=" + cats.getString(key));
                 }
             }
 
             ro.getResponseMap().put("questionBundle", cats);
 
         } catch (Exception e) {
-            Logger.getLogger(Question1Action.class.getName()).log(Level.SEVERE, "missing bundle", e);
+            Logger.getLogger(Question1Action.class.getName()).log(Level.ERROR, "missing bundle", e);
         }
 
     }

@@ -7,9 +7,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -101,7 +101,7 @@ public class RequestObject {
                 return Boolean.parseBoolean(getString(key));
             }
         } catch (NumberFormatException ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, "invalid " + key, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, "invalid " + key, ex);
         }
         return null;
     }
@@ -125,7 +125,7 @@ public class RequestObject {
                 return Long.parseLong(getString(key));
             }
         } catch (NumberFormatException ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, "invalid " + key, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, "invalid " + key, ex);
         }
         return null;
     }
@@ -137,7 +137,7 @@ public class RequestObject {
                 return Double.parseDouble(str);
             }
         } catch (NumberFormatException ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, "invalid " + key, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, "invalid " + key, ex);
 
         }
         return null;
@@ -150,7 +150,7 @@ public class RequestObject {
                 return Float.parseFloat(str);
             }
         } catch (NumberFormatException ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, "invalid " + key, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, "invalid " + key, ex);
 
         }
         return null;
@@ -163,7 +163,7 @@ public class RequestObject {
                 return Byte.parseByte(str);
             }
         } catch (NumberFormatException ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, "invalid key:" + key, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, "invalid key:" + key, ex);
         }
 
         return null;
@@ -197,7 +197,7 @@ public class RequestObject {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, null, ex);
         }
 
         return new Integer[]{};
@@ -221,7 +221,7 @@ public class RequestObject {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, null, ex);
         }
 
         return new Long[]{};
@@ -245,7 +245,7 @@ public class RequestObject {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, null, ex);
         }
 
         return new Double[]{};
@@ -269,7 +269,7 @@ public class RequestObject {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, null, ex);
         }
 
         return new Float[]{};
@@ -293,7 +293,7 @@ public class RequestObject {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, null, ex);
         }
 
         return new Byte[]{};
@@ -322,7 +322,7 @@ public class RequestObject {
                 return c;
             }
         } catch (ParseException ex) {
-            Logger.getLogger(RequestObject.class.getName()).log(Level.SEVERE, "invalid key:" + key, ex);
+            Logger.getLogger(RequestObject.class.getName()).log(Level.ERROR, "invalid key:" + key, ex);
         }
         return null;
     }
