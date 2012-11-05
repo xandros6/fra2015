@@ -4,8 +4,8 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -23,13 +23,13 @@ public class LogoutAction extends AbstractAction {
         User user = (User) request.getSessionMap().get(User.class.getName());
 
         if (user == null) {
-            Logger.getLogger(LogoutAction.class.getName()).log(Level.WARNING, "nessun utente attualmente connesso");
+            Logger.getLogger(LogoutAction.class.getName()).log(Level.WARN, "nessun utente attualmente connesso");
             return response;
         }
 
         response.getSessionMap().put(User.class.getName(), null);
 
-        Logger.getLogger(LogoutAction.class.getName()).log(Level.INFO, "{0} logged out", user.getName());
+        Logger.getLogger(LogoutAction.class.getName()).log(Level.INFO, user.getName() + " logged out");
 
         return response;
 

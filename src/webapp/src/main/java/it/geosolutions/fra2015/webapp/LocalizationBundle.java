@@ -7,8 +7,8 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -66,7 +66,7 @@ public class LocalizationBundle {
             str = bundle.getString(key);
         } catch (MissingResourceException ex) {
             str = "resource " + key + " is missing";
-            Logger.getLogger(LocalizationBundle.class.getName()).log(Level.WARNING, str, ex);
+            Logger.getLogger(LocalizationBundle.class.getName()).log(Level.WARN, str, ex);
             if (!missing.contains(key)) {
                 missing.add(key);
             }
@@ -83,7 +83,7 @@ public class LocalizationBundle {
             stringArray = bundle.getStringArray(key);
         } catch (MissingResourceException ex) {
             String str = "resource " + key + " is missing";
-            Logger.getLogger(LocalizationBundle.class.getName()).log(Level.WARNING, str, ex);
+            Logger.getLogger(LocalizationBundle.class.getName()).log(Level.WARN, str, ex);
             stringArray = new String[]{};
             if (!missing.contains(key)) {
                 missing.add(key);
@@ -102,7 +102,7 @@ public class LocalizationBundle {
 
         } catch (Exception ex) {
             String str = "resource " + key + " is missing";
-            Logger.getLogger(LocalizationBundle.class.getName()).log(Level.WARNING, str, ex);
+            Logger.getLogger(LocalizationBundle.class.getName()).log(Level.WARN, str, ex);
             object = null;
             if (!missing.contains(key)) {
                 missing.add(key);

@@ -5,9 +5,9 @@ import it.geosolutions.fra2015.server.model.user.enums.UserGroup;
 import it.geosolutions.fra2015.webapp.RequestObject;
 import it.geosolutions.fra2015.webapp.ResponseObject;
 import it.geosolutions.fra2015.webapp.actions.AbstractAction;
-import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 
 /**
  *
@@ -32,7 +32,7 @@ public class LoginAction extends AbstractAction {
 
         String username = request.getString("username");
 
-        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "check username {0}", username);
+        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "check username "+ username);
 
         if (username == null) {
             return page();
@@ -52,7 +52,7 @@ public class LoginAction extends AbstractAction {
          * @todo remove from here
          */
 
-        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "password:{0}", password);
+        Logger.getLogger(LoginAction.class.getName()).log(Level.INFO, "[@TODO REMOVE THIS LOG]password:"+ password);
 
 
         if (true) {

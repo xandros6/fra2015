@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import javax.servlet.ServletConfig;
 
 /**
@@ -33,7 +33,7 @@ public class ConfigurationManager {
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.ERROR, null, ex);
         }
 
         try {
@@ -47,7 +47,7 @@ public class ConfigurationManager {
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.ERROR, null, ex);
         }
 
         File tmpDir = new File(config.getServletContext().getRealPath("/tmp"));
@@ -55,7 +55,7 @@ public class ConfigurationManager {
         if (!tmpDir.exists()) {
 
             if (!tmpDir.mkdir()) {
-                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, "impossibile creare la cartella temporanea /tmp");
+                Logger.getLogger(MainController.class.getName()).log(Level.ERROR, "impossibile creare la cartella temporanea /tmp");
             }
 
         }

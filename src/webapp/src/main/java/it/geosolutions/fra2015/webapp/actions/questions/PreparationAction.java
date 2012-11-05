@@ -8,8 +8,6 @@ import it.geosolutions.fra2015.webapp.ResponseObject;
  */
 public class PreparationAction extends LocalizedQuestionAction {
 
-    private final boolean debug = true;
-
     public PreparationAction() {
         super(1, 0);
     }

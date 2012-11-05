@@ -5,8 +5,8 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -84,7 +84,7 @@ public class ContextObjectFactory {
                 }
 
             } catch (Exception ex) {
-                Logger.getLogger(ContextObjectFactory.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ContextObjectFactory.class.getName()).log(Level.ERROR, null, ex);
             }
 
         } else {

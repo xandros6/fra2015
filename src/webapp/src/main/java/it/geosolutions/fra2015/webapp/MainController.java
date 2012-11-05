@@ -1,8 +1,8 @@
 package it.geosolutions.fra2015.webapp;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -47,13 +47,13 @@ public class MainController extends HttpServlet {
         try {
             action = ActionFactory.createAction(req);
         } catch (Exception e) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, "invalid action +req", e);
+            Logger.getLogger(MainController.class.getName()).log(Level.ERROR, "invalid action +req", e);
         }
 
         ResponseObject wrapper;
 
         try {
-            
+
             wrapper = action.call(req);
 
         } catch (Exception ex) {
@@ -66,7 +66,7 @@ public class MainController extends HttpServlet {
                 sb.append(":").append(ex.getMessage());
             }
 
-            log.log(Level.SEVERE, sb.toString(), ex);
+            log.log(Level.ERROR, sb.toString(), ex);
 
             wrapper = ContextObjectFactory.getResponseObject();
             wrapper.setView("error");
@@ -93,11 +93,11 @@ public class MainController extends HttpServlet {
 
         String url = ConfigurationManager.getView(view);
 
-        log.log(Level.INFO, "forward to view:{0} url:{1}", new Object[]{view, url});
+        log.info("forward to view:" + view + " url:" + url);
 
         if (url == null) {
             if (view.startsWith("http")) {
-                log.log(Level.FINE, "redirecting to {0}", view);
+                log.log(Level.DEBUG, "redirecting to " + view);
                 response.sendRedirect(view);
                 return;
             } else {

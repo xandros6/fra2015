@@ -2,8 +2,9 @@ package it.geosolutions.fra2015.webapp;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 
 /**
  *
@@ -43,11 +44,11 @@ public class ActionFactory {
                 }
 
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainController.class.getName()).log(Level.ERROR, null, ex);
             } catch (InstantiationException ex) {
-                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainController.class.getName()).log(Level.ERROR, null, ex);
             } catch (IllegalAccessException ex) {
-                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainController.class.getName()).log(Level.ERROR, null, ex);
             }
 
             if (action == null) {
