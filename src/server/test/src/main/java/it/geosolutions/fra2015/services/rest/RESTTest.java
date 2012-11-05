@@ -19,6 +19,7 @@
  */
 package it.geosolutions.fra2015.services.rest;
 
+import it.geosolutions.fra2015.server.model.user.Password;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import org.apache.log4j.Logger;
@@ -39,18 +40,21 @@ public class RESTTest implements InitializingBean {
         LOGGER.info("===== Starting fra2015 REST test services =====");
 
         long userCnt = userService.getCount(null);
+        
         if (userCnt == 0) {
             LOGGER.info("No user found. Creating default.");
 
             User admin = new User();
             admin.setName("admin");
-            admin.setPassword("admin");
+            admin.setPassword(new Password());
+            admin.getPassword().setPassword("admin".getBytes());
             userService.insert(admin);
             LOGGER.info("Created " + admin);
 
             User user = new User();
             user.setName("user");
-            user.setPassword("user");
+            user.setPassword(new Password());
+            user.getPassword().setPassword("user".getBytes());
             userService.insert(user);
             LOGGER.info("Created " + user);
 
@@ -60,7 +64,6 @@ public class RESTTest implements InitializingBean {
     }
 
     //==========================================================================
-
     public void setUserService(UserService userService) {
         this.userService = userService;
     }

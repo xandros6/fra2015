@@ -68,22 +68,22 @@ public class Fra2015Client {
         return wr;
     }
 
-//    protected WebResource getBaseWebResource(Object ...path) {
-//        if(fra2015RestUrl == null)
-//            throw new IllegalStateException("fra2015 URL not set");
-//
-//        Client c = Client.create();
-//        if (username != null || password != null) {
-//            c.addFilter(new HTTPBasicAuthFilter(username != null ? username : "", password != null ? password : ""));
-//        }
-//
-//        WebResource wr = c.resource(fra2015RestUrl);
-//
-//        for (Object o : path) {
-//            wr = wr.path(o.toString());
-//        }
-//        return wr;
-//    }
+    protected WebResource getBaseWebResource(Object ...path) {
+        if(fra2015RestUrl == null)
+            throw new IllegalStateException("fra2015 URL not set");
+
+        Client c = Client.create();
+        if (username != null || password != null) {
+            c.addFilter(new HTTPBasicAuthFilter(username != null ? username : "", password != null ? password : ""));
+        }
+
+        WebResource wr = c.resource(fra2015RestUrl);
+
+        for (Object o : path) {
+            wr = wr.path(o.toString());
+        }
+        return wr;
+    }
 
     protected WebResource getBaseWebResource(Object ...path) {
         if(fra2015RestUrl == null)

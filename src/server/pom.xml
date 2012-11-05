@@ -42,6 +42,7 @@
         <module>restimpl</module>
         <module>impl</module>
         <module>services-api</module>
+        <module>test</module>
     </modules>
 
     <properties>
