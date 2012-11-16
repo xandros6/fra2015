@@ -335,7 +335,7 @@ table tr td.editing input[type=text]{
 
 /* CONTENT */
 .content {
-    padding: 20px;
+    padding: 30px;
     display: table-cell;
     text-align: left;
     width:80%;
