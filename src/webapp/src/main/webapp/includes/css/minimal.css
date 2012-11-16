@@ -122,8 +122,8 @@ table tr td.editing input[type=text]{
 }
 
 #header {
-    background-image: url('../../images/frabanner.png');
-    height: 180px;
+    background-image: url('../../images/frabanner_small.png');
+    height: 130px;
     background-repeat: no-repeat;
     overflow: visible;
 }
@@ -268,16 +268,17 @@ table tr td.editing input[type=text]{
     text-align: left;
     padding:5px;
     
-    font-weight:bold;
+    
 
 }
-.navigation li a:active,.navigation li a:visited{
+.navigation li a:active,.navigation li a,.navigation li a:visited{
     color: black;
+
 }
-.navigation ul li:hover,.navigation ul li:hover a:visited{
+.navigation ul li:hover,.navigation ul li:hover a,.navigation ul li:hover a:visited{
     background-color:green;
     color:white;
-    font-weight:bold;
+    
 }
 
 .navigation ul li div.icon16{
@@ -290,18 +291,20 @@ table tr td.editing input[type=text]{
     text-align:center;
     margin-top:0px;
     top:0px;
-    border: darkgrey 1px solid;
+    border-top: darkgrey 1px solid;
+	border-bottom: darkgrey 1px solid;
     padding-left: 10px;
+	font-weight:bold;
 }
 
 .navigation dd {
-    display: table-cell;
+   
     margin-bottom:15px;
 
 }
 
 .navigation dd li {
-    text-align: right;
+    padding-left:10px;
     margin-bottom:15px;
 }
 
