@@ -32,37 +32,42 @@ time, mark, audio, video {
 }
 
 h1 {
-    padding-top:1em;
-    font-size:2em;
+    padding-top:0.5em;
+	padding-bottom: 0.5em;
+    font-size:1.5em;
     font-weight: bold;
 }
 
 h2 {
-    padding-top:1em;
-    font-size:1.6em;
+    padding-top:1.2em;
+	padding-bottom: 0.5em;
+    font-size:1.2em;
     font-weight: bold;
 }
 
 h3 {
     padding-top:1em;
-    font-size:1.2em;
+	padding-bottom: 0.5em;
+    font-size:1em;
     font-weight: bold;
 }
 
 h4 {
-    padding-top:1em;
+    padding-top:0.7em;
+	padding-bottom: 0.5em;
     font-size:0.6em;
     font-weight: bold;
 }
 
 h5 {
-    padding-top:1em;
+    padding-top:0.7em;
+	padding-bottom: 0.5em;
     font-size:0.4em;
     font-weight: bold;
 }
 
 th {
-    font-weight:bold;
+   
 }
 
 form * {
