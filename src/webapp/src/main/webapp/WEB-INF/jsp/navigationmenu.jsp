@@ -20,7 +20,7 @@
     <dt><%=lb.getString("topic1.title")%></dt>
     <dd>
         <ul>
-            <li><a href="question1.action"><%= lb.getString("q1.title")%>: <img src="images/redIcon.png" alt="warning"/> <%=lb.getString("q1.body")%></a></li>
+            <li class="warn"><a href="question1.action"><%= lb.getString("q1.title")%>: <%=lb.getString("q1.body")%></a></li>
             <li><a href="question2.action"><%= lb.getString("q2.title")%>: <%=lb.getString("q2.body")%></a></li>
         </ul>
     </dd>
