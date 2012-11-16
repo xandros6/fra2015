@@ -154,7 +154,7 @@ table tr td.editing input[type=text]{
 #footer {
 
     padding:30px;
-    border-top:thin solid black;
+    border-top:thin solid gray;
     position:relative;
     font-size:15px;
     font-style:italic;
@@ -171,6 +171,7 @@ table tr td.editing input[type=text]{
     margin:0 auto;
     position:relative;
     bottom:0px;
+	color:gray;
 }
 
 /* TOP MENU */
@@ -236,7 +237,7 @@ table tr td.editing input[type=text]{
 /* NAVIGATION MENU */
 .navigation {
 
-    border-right:thin solid black;
+    border-right:thin solid gray;
     bottom:0;
 
     margin:0px;
@@ -246,6 +247,8 @@ table tr td.editing input[type=text]{
 
     width:20%;
 }
+
+
 .navigation h3{
     text-align:left;
     margin-top:0px;
@@ -267,17 +270,40 @@ table tr td.editing input[type=text]{
 .navigation li {
     text-align: left;
     padding:5px;
-    
-    
-
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:thin dashed gainsboro;
+	.
 }
+.navigation ul li:last-child{
+
+	border-bottom:none;
+}
+
+
 .navigation li a:active,.navigation li a,.navigation li a:visited{
     color: black;
 
 }
-.navigation ul li:hover,.navigation ul li:hover a,.navigation ul li:hover a:visited{
-    background-color:green;
-    color:white;
+.navigation ul li:hover a,.navigation ul li:hover a:visited{
+    
+    
+}
+
+.navigation ul li:hover{
+	background-color:#8BD58B;
+}
+
+.navigation ul li.warn {
+    text-align: left;
+    padding:10px;
+	background-color:#FFB732;
+
+}
+
+.navigation li.warn:hover {
+    background-color:orange;
+
     
 }
 
@@ -291,27 +317,25 @@ table tr td.editing input[type=text]{
     text-align:center;
     margin-top:0px;
     top:0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
     border-top: darkgrey 1px solid;
 	border-bottom: darkgrey 1px solid;
-    padding-left: 10px;
+    
 	font-weight:bold;
 }
 
-.navigation dd {
-   
-    margin-bottom:15px;
 
-}
 
 .navigation dd li {
     padding-left:10px;
-    margin-bottom:15px;
+    
 }
 
 
 /* CONTENT */
 .content {
-    padding:5px;
+    padding: 20px;
     display: table-cell;
     text-align: left;
     width:80%;
