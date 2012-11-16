@@ -18,12 +18,12 @@ a, a:visited, a:active {
 }
 
 input[type=button] {
-    min-width: 64px;
-    min-height:24px;
-    font-size:1.2em;
+   
     float:right;
 }
-
+input[type=button].ui-button {
+padding: .3em .5em;
+}
 table caption {
     caption-side:bottom;
 }
