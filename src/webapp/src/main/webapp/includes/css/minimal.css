@@ -203,8 +203,8 @@ table tr td.editing input[type=text]:focus{
     border-left: thin solid white;
 }
 
-#topmenu ul li:first-child {
-    border-left:0px;
+#topmenu ul li:last-child {
+    border-right: thin solid white;
 }
 
 #topmenu a, #topmenu a:visited, #topmenu a:active {
