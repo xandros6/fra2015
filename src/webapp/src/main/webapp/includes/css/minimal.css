@@ -246,8 +246,8 @@ table tr td.editing input[type=text]:focus{
 }
 
 /* NAVIGATION MENU */
-.navigation {
-
+.navigation.ui-accordion {
+    font-size:0.8em;
     border-right:thin solid gray;
     bottom:0;
 
@@ -259,6 +259,9 @@ table tr td.editing input[type=text]:focus{
     width:20%;
 }
 
+.navigation.ui-accordion .ui-accordion-content{
+  padding: 0px;
+}
 
 .navigation h3{
     text-align:left;

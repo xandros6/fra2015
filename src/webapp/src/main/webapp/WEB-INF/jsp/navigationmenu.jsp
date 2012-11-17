@@ -10,21 +10,21 @@
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 %><dl>
-    <dt><%=lb.getString("preparation.title")%></dt>
+    <dt class="accordion-header"><%=lb.getString("preparation.title")%></dt>
     <dd>
         <ul>
             <li><a href="preparation.action"><%= lb.getString("report.title")%></a></li>
             <li><a href="preparation.action"><%= lb.getString("introduction.title")%></a></li>
         </ul>
     </dd>
-    <dt><%=lb.getString("topic1.title")%></dt>
+    <dt class="accordion-header"><%=lb.getString("topic1.title")%></dt>
     <dd>
         <ul>
             <li class="warn"><a href="question1.action"><%= lb.getString("q1.title")%>: <%=lb.getString("q1.body")%></a></li>
             <li><a href="question2.action"><%= lb.getString("q2.title")%>: <%=lb.getString("q2.body")%></a></li>
         </ul>
     </dd>
-    <dt><%=lb.getString("topic2.title")%></dt>
+    <dt class="accordion-header"><%=lb.getString("topic2.title")%></dt>
     <dd>
         <ul>
             <li><a href="question3.action"><%= lb.getString("q3.title")%>: <%=lb.getString("q3.body")%></a></li>
@@ -32,26 +32,26 @@
 
         </ul>
     </dd>
-    <dt><%=lb.getString("topic3.title")%></dt>
+    <dt class="accordion-header"><%=lb.getString("topic3.title")%></dt>
     <dd>
         <ul>
             <li><a href="question5.action"><%= lb.getString("q5.title")%>: <%=lb.getString("q5.body")%></a></li>
 
         </ul>
     </dd>
-    <dt><%=lb.getString("topic4.title")%></dt><dd>
+    <dt class="accordion-header"><%=lb.getString("topic4.title")%></dt><dd>
         <ul>
             <li><a href="question6.action"><%= lb.getString("q6.title")%>: <%=lb.getString("q6.body")%></a></li>
             <li><a href="question7.action"><%= lb.getString("q7.title")%>: <%=lb.getString("q7.body")%></a></li>
         </ul>
     </dd>
-    <dt><%=lb.getString("topic5.title")%></dt><dd>
+    <dt class="accordion-header" ><%=lb.getString("topic5.title")%></dt><dd>
         <ul>
             <li><a href="question8.action"><%= lb.getString("q8.title")%>: <%=lb.getString("q8.body")%></a></li>
             <li><a href="question9.action"><%= lb.getString("q9.title")%>: <%=lb.getString("q9.body")%></a></li>
         </ul>
     </dd>
-    <dt><%=lb.getString("topic6.title")%></dt><dd>
+    <dt class="accordion-header"><%=lb.getString("topic6.title")%></dt><dd>
         <dl>
             <dt><%=lb.getString("topic6.1.title")%></dt>
             <dd>        
@@ -73,18 +73,23 @@
         </dl>
 
     </dd>
-    <dt><%=lb.getString("topic7.title")%></dt><dd>
+    <dt class="accordion-header"><%=lb.getString("topic7.title")%></dt><dd>
         <ul>
             <li><a href="question18.action"><%=lb.getString("q18.title")%>:<%=lb.getString("q18.body")%></a></li>
             <li><a href="question19.action"><%=lb.getString("q19.title")%>:<%=lb.getString("q19.body")%></a></li>
             <li><a href="question20.action"><%=lb.getString("q20.title")%>:<%=lb.getString("q20.body")%></a></li>
         </ul>
     </dd>
-    <dt><%=lb.getString("topic8.title")%></dt><dd>
+    <dt class="accordion-header"><%=lb.getString("topic8.title")%></dt><dd>
         <ul>
             <li><a href="question21.action"><%=lb.getString("q21.title")%>:<%=lb.getString("q21.body")%></a></li>
         </ul>
     </dd>
 </dl>
+<script>
+  $(function(){
+    $(".navigation").accordion({header:'dt.accordion-header',heightStyle:'content',autoHeight: false,collapsible:true});    
+  })
+</script>
 <%}%>
 
