@@ -345,6 +345,10 @@ dt.accordion-header.warn .ui-icon{
 	font-weight:bold;
 }
 
+.navigation dd dt {
+
+	background-color:#F3F3F3;
+}
 
 
 .navigation dd li {
