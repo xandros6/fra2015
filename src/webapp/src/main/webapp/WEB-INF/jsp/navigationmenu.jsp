@@ -17,7 +17,7 @@
             <li><a href="preparation.action"><%= lb.getString("introduction.title")%></a></li>
         </ul>
     </dd>
-    <dt class="accordion-header"><%=lb.getString("topic1.title")%></dt>
+    <dt class="accordion-header warn"><%=lb.getString("topic1.title")%></dt>
     <dd>
         <ul>
             <li class="warn"><a href="question1.action"><%= lb.getString("q1.title")%>: <%=lb.getString("q1.body")%></a></li>
@@ -88,7 +88,8 @@
 </dl>
 <script>
   $(function(){
-    $(".navigation").accordion({header:'dt.accordion-header',heightStyle:'content',autoHeight: false,collapsible:true});    
+    $(".navigation").accordion({header:'dt.accordion-header',heightStyle:'content',autoHeight: false,collapsible:true});
+	
   })
 </script>
 <%}%>

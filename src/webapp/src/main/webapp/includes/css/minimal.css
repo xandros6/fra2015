@@ -321,6 +321,12 @@ table tr td.editing input[type=text]:focus{
     
 }
 
+
+dt.accordion-header.warn .ui-icon{
+	 background-image: url('../../images/icons/error.png');
+	 background-position:left center;
+}
+
 .navigation ul li div.icon16{
     float:left;margin:auto;
 }
