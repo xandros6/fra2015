@@ -5,10 +5,10 @@
 <%{
         LocalizationBundle srb = (LocalizationBundle) request.getAttribute("strings");%>
 <ul>
-    <li><a href="preparation.action"><%=srb.getString("section.preparation")%></a></li>
-    <li><a href="question1.action"><%=srb.getString("section.forest")%></a></li>
-    <li><a href="question11.action"><%=srb.getString("section.parta")%></a></li>
-    <li><a href="question15.action"><%=srb.getString("section.partb")%></a></li>
+    <li><a href="preparation.action"><%=srb.getString("section.preparation")%></a></li><!--
+    --><li><a href="question1.action"><%=srb.getString("section.forest")%></a></li><!--
+    --><li><a href="question11.action"><%=srb.getString("section.parta")%></a></li><!--
+    --><li><a href="question15.action"><%=srb.getString("section.partb")%></a></li>
 </ul>
 <span id="logout"><a href="logout.action"><%=srb.getString("section.logout")%></a></span>
 <%}%>
