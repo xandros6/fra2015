@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>FRA 2015</title>
@@ -6,8 +7,12 @@
         <link href="css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
         <link href="css/bootstrap.css" rel="stylesheet" />
         <link href="css/fra2015.css" rel="stylesheet" />
-        
-        
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
 
 
     </head>
@@ -81,19 +86,19 @@
                             }
                             
                             if ( page ){
-                               $('#main').empty();
-                               page.render();
-                               $('#main').append( page.el ); 
+                                $('#main').empty();
+                                page.render();
+                                $('#main').append( page.el ); 
                             } else {
                                 console.error( 'cannot find a page for user: ' + App.user.username );
                             }
                           
                               
-                          },
-                          'logout': function(){
-                              App.user.logout();
-                              router.trigger('default');
-                          }
+                        },
+                        'logout': function(){
+                            App.user.logout();
+                            router.trigger('default');
+                        }
                         
                     });
                     

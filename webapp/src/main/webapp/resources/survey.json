@@ -1,40 +1,151 @@
-{
-    "version":0.1,
-    "sections":[
+{   "version":"0.1",
+    "type":"survey",
+    "items":[
+    {
+        "type":"section",
+        "title":"Introduction",
+        "items":[
         {
-           "title":"Introduction",
-           "questions":[
-               {
-                   "title":"Contact persons",
-                   "description":"The present report was prepared y the following person(s)",
-                   "type":"table",
-                   "columns":[
-                       "First name", "Last name", "Institution", "Email", 
-                   ]
-               },{
-                   "title":"Introductory text",
-                   "description":"Place an introductory text on the content of this report",
-                   "type":"textfield"
-               }
-           ]
+            "type":"table",
+            "title":"Contact persons",
+            "description":"The present report was prepared by the following person(s)",
+            "columns":[
+            "First name", "Last name", "Institution", "Email" 
+            ]
         },
         {
-           "title":"Introduction",
-           "questions":[
-               {
-                   "title":"Contact persons",
-                   "description":"The present report was prepared y the following person(s)",
-                   "type":"table",
-                   "columns":[
-                       "First name", "Last name", "Institution", "Email", 
-                   ]
-               },{
-                   "title":"Introductory text",
-                   "description":"Place an introductory text on the content of this report",
-                   "type":"textfield"
-               }
-           ]
+            "title":"Introductory text",
+            "description":"Place an introductory text on the content of this report",
+            "type":"textarea"
         }
+        ]
+    },
+    {
+        "type": "section",
+        "title":"Forest area and characteristics",
+        "description":"What is the area of forest and other wooded land and how has it changed over time?",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "items":[
+                      
+            {
+                "type":"table",
+                "title":"Data sources",
+                "columns":[
+                "#", "Reference", "Variable", "Year", "Comments"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition"
+                ]
+            },{
+                "title":"Original data",
+                "type":"textarea"
+            }
+                      
+            ]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[
+                
+            {
+                "title":"Adjustiment",
+                "type":"textarea"
+            },
+            {
+                "title":"Estimation and forecasting",
+                "type":"textarea"
+            },
+            {
+                "title":"Reclassification into FRA2015 categories",
+                "type":"textarea"
+            }
+                
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Analysis and processing of national data",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[
+                
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Comments on reported data",
+                "columns":[
+                "Comments related to data, definitions, etc.", "Comments on reported status and trends"
+                ],
+                "rows":[
+                "Forest", "Other wooded land", "Other land", "Inland water bodies", "Afforestation", "Reforestation", "Natural expansion", "Deforestation"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Expected year for completion of ongoing/planned national forest inventory and/or RS survey / mapping or other effort to assess forest area",
+                "columns":[
+                "Year"
+                ],
+                "rows":[
+                "National forest inventory", "Remote sensing survey / mapping", "Other efforts"
+                ]
+            }
+                
+            ]
+        }
+        ]
+    },
+    {
+        "type":"section",
+        "title":"Production",
+        "description":"What are the stocks and growth rates of the forests and how have they changed?",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"Analysis and processing of national data",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[]
+        }
+        ]
+    }
     ]
     
 }
