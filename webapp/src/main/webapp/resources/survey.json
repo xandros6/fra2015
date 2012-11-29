@@ -1,0 +1,40 @@
+{
+    "version":0.1,
+    "sections":[
+        {
+           "title":"Introduction",
+           "questions":[
+               {
+                   "title":"Contact persons",
+                   "description":"The present report was prepared y the following person(s)",
+                   "type":"table",
+                   "columns":[
+                       "First name", "Last name", "Institution", "Email", 
+                   ]
+               },{
+                   "title":"Introductory text",
+                   "description":"Place an introductory text on the content of this report",
+                   "type":"textfield"
+               }
+           ]
+        },
+        {
+           "title":"Introduction",
+           "questions":[
+               {
+                   "title":"Contact persons",
+                   "description":"The present report was prepared y the following person(s)",
+                   "type":"table",
+                   "columns":[
+                       "First name", "Last name", "Institution", "Email", 
+                   ]
+               },{
+                   "title":"Introductory text",
+                   "description":"Place an introductory text on the content of this report",
+                   "type":"textfield"
+               }
+           ]
+        }
+    ]
+    
+}
