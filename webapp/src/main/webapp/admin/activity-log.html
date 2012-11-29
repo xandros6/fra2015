@@ -1,0 +1,68 @@
+<div class="container">
+
+    <form class="form-inline pull-left">
+        <label>
+            from <input type="text" class="input-small" id="startDate" />
+        </label>
+        <label>
+            to <input type="text" class="input-small" id="endDate" />
+        </label>
+
+        <label>
+            &nbsp; type
+            <select class="input-small">
+                <option>User</option>
+                <option>Country</option>
+            </select>
+        </label>
+        <label>
+            &nbsp; keyword
+            <input class="input-small"  type="text">
+        </label>
+        <button type="submit" class="btn">Search</button>
+    </form>
+
+
+
+
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Username</th>
+                <th>Country</th>
+                <th>Question id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>today</td>
+                <td>user 1</td>
+                <td>country 1</td>
+                <td>1.2</td>
+            </tr>
+            <tr>
+                <td>today</td>
+                <td>user 2</td>
+                <td>country 2</td>
+                <td>2.9</td>
+            </tr>
+            <tr>
+                <td>yesterday</td>
+                <td>user 2</td>
+                <td>country 2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>24 November at 8:35</td>
+                <td>user 2</td>
+                <td>country 2</td>
+                <td>3.1</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul class="pager pull-right">
+        <li class="disabled"><a href="#">Newer</a></li>
+        <li><a href="#">Older</a></li>
+    </ul>
+</div>

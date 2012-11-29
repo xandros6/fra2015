@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>FRA 2015</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link href="css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/fra2015.css" rel="stylesheet" />
+        
+        
+
+
+    </head>
+    <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+
+
+
+        <div id="wrap">
+            <div id="main"></div>
+            <div id="push"></div>
+        </div>
+
+
+        <div id="footer">
+            <div class="container">
+                <p class="muted credit">
+                    All rights reserved. FAO encourages the reproduction and dissemination of material 
+                    published on this Web site. Non-commercial uses will be authorized free of charge, upon request. 
+                    Reproduction for resale or other commercial purposes, including educational purposes, may incur fees. 
+                    Applications for permission to reproduce or disseminate FAO copyright material, 
+                    and all queries concerning rights and licences, should be addressed by e-mail to <a href="#">copyright@fao.org</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- javascripts -->
+        <script src="js/jquery-1.8.3.js" ></script>
+        <script src="js/jquery-ui-1.9.2.custom.js" ></script>
+        <script src="js/bootstrap.js" ></script>
+        <script src="js/ejs.js" ></script>
+        <script src="js/prototype.js"></script>
+        <script src="js/fra2015.js"></script>
+        <script type="text/javascript">
+            (function($) {
+                
+                $(document).ready(function(){
+            
+                    var router = new Controller({
+                        'default': function(){
+                            var page = new LoginPage;
+                            page.render();
+                            page.getLoginButton().bind('click', function(){
+                                var username = page.getUsername();
+                                var password = page.getPassword();
+                                if ( App.user.login( username, password ) ){
+                                    router.trigger('login');
+                                } else {
+                                    page.displayError('Username or password are incorrect.');
+                                }
+                                
+                            });
+                            $('#main').empty();
+                            $('#main').append( page.el );   
+                        },
+                        'login': function(){
+                            var page = null;
+                            // TODO selection should depends on role
+                            switch( App.user.username ){
+                                case 'contributor':
+                                    page = new ContributorPage;
+                                    break;
+                                case 'admin':
+                                    page = new AdminPage;
+                                    break;
+                                case 'reviewer':
+                                    page = new ReviewerPage;
+                                    break;
+                                default:
+                                    page = new ErrorPage('page not found');
+                            }
+                            
+                            if ( page ){
+                               $('#main').empty();
+                               page.render();
+                               $('#main').append( page.el ); 
+                            } else {
+                                console.error( 'cannot find a page for user: ' + App.user.username );
+                            }
+                          
+                              
+                          },
+                          'logout': function(){
+                              App.user.logout();
+                              router.trigger('default');
+                          }
+                        
+                    });
+                    
+                    router.start();
+                    
+                    // use the controllar as a app-wide service bus
+                    App.addListener( router );
+                });
+                
+            })(jQuery);
+        </script>
+    </body>
+</html>
