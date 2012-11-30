@@ -17,7 +17,13 @@
         {
             "title":"Introductory text",
             "description":"Place an introductory text on the content of this report",
-            "type":"textarea"
+            "type":"textarea",
+            "feedbacks":[
+            {
+                "reviewer":"reviewer 1",
+                "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            }
+            ]
         }
         ]
     },
@@ -62,11 +68,27 @@
             },
             {
                 "title":"Estimation and forecasting",
-                "type":"textarea"
+                "type":"textarea",
+                "feedbacks":[
+                {
+                    "reviewer":"reviewer 1",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                }
+                ]
             },
             {
                 "title":"Reclassification into FRA2015 categories",
-                "type":"textarea"
+                "type":"textarea",
+                "feedbacks":[
+                {
+                    "reviewer":"reviewer 1",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                },
+               {
+                    "reviewer":"reviewer 1",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                }
+                ]
             }
 
             ]
@@ -646,7 +668,7 @@
             "title":"Data",
             "items":[
                 
-             {
+            {
                 "type":"table",
                 "title":"Table 21a",
                 "description":"Forest area (000 ha)",
@@ -657,7 +679,7 @@
                 "Government target/aspiration for forest area"
                 ]
             },
-             {
+            {
                 "type":"table",
                 "title":"Table 21a",
                 "description":"Forest area (000 ha)",
@@ -666,15 +688,21 @@
                 ],
                 "rows":[
                 "Forests earmarked for conversion"
+                ],
+                 "feedbacks":[
+                {
+                    "reviewer":"reviewer 1",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                }
                 ]
             }           
-        ]
+            ]
         },
         {
             "type":"section",
             "title":"Comments",
             "items":[
-              {
+            {
                 "type":"table",
                 "title":"Comments",
                 "columns":[
@@ -685,7 +713,7 @@
                 "Forests earmarked for conversion"
                 ]
             }                  
-        ]
+            ]
         }
         ]
     }

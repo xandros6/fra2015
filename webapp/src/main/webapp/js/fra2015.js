@@ -302,6 +302,9 @@
     var TextArea = Class.create(View, {
         initialize:function( $super, options ){
             $super();
+            
+            this.json = options.json;
+            
             this.id =  Math.random().toString(36).substring(7);
             var text = $('<textarea></textarea>');
             text.attr('class', 'texteditor');
@@ -328,6 +331,20 @@
             this.el.append( control );
             this.el.append('<br/><br/>');
             this.el.append(text);
+            
+            if ( this.json.feedbacks ){
+                var self = this;
+                // add feedbacks
+                $.each( this.json.feedbacks, function(index, feed){
+                    var feedback = $('<div></div>');
+                    feedback.addClass('alert alert-block');
+                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
+                
+                    self.el.append('<br/>');
+                    self.el.append(feedback);
+                });               
+            }
+
         },
         render: function($super){
             $super();
@@ -340,6 +357,8 @@
     var Table = Class.create(View, {
         initialize:function( $super, options ){
             $super();
+            
+            this.json = options.json;
             
             this.el.append('<h4>' + options.title + '</h4>');
             if ( options.description ){
@@ -405,7 +424,7 @@
                 control.append( saveBtn );
                 
                 this.el.append( control );
-                
+
             } else {
                 
                 // TODO refactor, clean code
@@ -504,7 +523,21 @@
             
                       
             this.el.append(table);
-            
+ 
+            if ( this.json.feedbacks ){
+                var self = this;
+                // add feedbacks
+                $.each( this.json.feedbacks, function(index, feed){
+                    var feedback = $('<div></div>');
+                    feedback.addClass('alert alert-block');
+                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
+                
+                    self.el.append('<br/>');
+                    self.el.append(feedback);
+                });               
+            }
+
+ 
         },
         render: function($super){
             $super();
@@ -516,6 +549,7 @@
     var Section = Class.create(View, {
         initialize:function( $super, options ){
             $super();
+            this.json = options.json;
             this.options = options;
             this.el = $('<section></section>');
             this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
@@ -633,9 +667,40 @@
                         item.bind('load', function( elem ){
                             right.append( elem );
                             
+                            var fc = 0;
+                            var feedback = function(index, obj){
+                                console.log(obj);
+                                switch( obj.type ){
+                                    case 'table':
+                                    case 'textarea':
+                                        if ( obj.feedbacks ){
+                                            fc += obj.feedbacks.length;
+                                        }
+                                        break;
+                                    case 'section':
+                                        $.each( obj.items, feedback );
+                                        break;
+                                    default:
+                                        break;
+                                         
+                                }
+                            };
+                            feedback(0, item.json );
+                            
+                            var label = '';
+                            // add feedback info
+                            if ( fc > 0){
+                                label = '<span class="badge badge-warning">'+ fc + '</span>';
+                            }
+                            
                             var li = $('<li></li>');
                             ul.append( li );
-                            li.append('<a href="#'+ item.options.title.replace(/\s/g, "-").toLowerCase() +'"><i class="icon-chevron-right"></i>'+ item.options.title +'</a>')
+                            li.append(
+                                '<a href="#'+ item.options.title.replace(/\s/g, "-").toLowerCase() 
+                                + '"><i class="icon-chevron-right"></i>'
+                                + label +' ' + item.options.title 
+                                +'</a>');
+                            
                             
                             count++;
                             if (count >= length){
@@ -670,7 +735,9 @@
                 case 'textarea':
                     view = new TextArea({
                         title: obj.title,
-                        description: obj.description
+                        description: obj.description,
+                        feedbacks: obj.feedbacks,
+                        json:obj
                     });
                     break;
                 case 'table':
@@ -678,7 +745,9 @@
                         title: obj.title,
                         description: obj.description,
                         columns: obj.columns,
-                        rows: obj.rows
+                        rows: obj.rows,
+                        feedbacks: obj.feedbacks,
+                        json:obj
                     });
                     break;
                 case 'section':
@@ -691,7 +760,8 @@
                     view = new Section({
                         title: obj.title,
                         description: obj.description,
-                        items: items
+                        items: items,
+                        json:obj
                     });
                     break;
                 default:
