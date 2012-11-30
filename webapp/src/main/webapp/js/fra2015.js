@@ -314,6 +314,19 @@
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }
+            var saveBtn = $('<a>Save</a>');
+            saveBtn.attr('href', '#');
+            saveBtn.attr('class', 'btn btn-mini btn-primary');
+            saveBtn.click(function(evt){
+                alert('Saved!');
+                return false;
+            });
+              
+            var control = $('<p></p>');
+            control.attr('class', 'pull-right');  
+            control.append( saveBtn );     
+            this.el.append( control );
+            this.el.append('<br/><br/>');
             this.el.append(text);
         },
         render: function($super){
@@ -377,6 +390,21 @@
                     }) );
                     tbody.append( row );
                 }
+                
+                var saveBtn = $('<a>Save</a>');
+                saveBtn.attr('href', '#');
+                saveBtn.attr('class', 'btn btn-mini btn-primary');
+                saveBtn.click(function(evt){
+                    alert('Saved!');
+                    return false;
+                });
+              
+                var control = $('<p></p>');
+                control.attr('class', 'pull-right');
+                
+                control.append( saveBtn );
+                
+                this.el.append( control );
                 
             } else {
                 
