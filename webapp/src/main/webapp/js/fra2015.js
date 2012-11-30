@@ -592,6 +592,7 @@
             var survey = this;
             
             // TODO avoid to call ajax more than once
+            // create a model in the MVC
             $.ajax({
                 type:'GET',
                 dataType:'text',
@@ -701,16 +702,111 @@
             return view;
         }
     });
+    
+    var Summary = Class.create(View, {
+        initialize:function( $super ){
+            $super();            
+        },     
+        render: function($super){
+            $super(); 
+            var self = this;
+            $.ajax({
+                type:'GET',
+                dataType:'text',
+                url:'./resources/survey.json',
+                success: function(data){
+                    // TODO refactor
+                    // use a model component (MVC)
+                    var obj;
+                    try{
+                        obj = $.parseJSON( data ); 
+                    } catch (e){
+                        throw 'cannot parse ./resources/survey.json: ' + e;
+                    }
+                    if (!obj.items ){
+                        throw 'parsing error: survey has no property "items".';
+                    }
+                    
+                    var table = $('<table></table>');
+                    table.addClass('table table-bordered table-hover table-condensed');
+                    var thead = $('<thead></thead>');
+                    var trow = $('<tr></tr>');
+                    thead.append( trow );
+                    trow.append('<th>Number</th>');
+                    trow.append('<th>Section</th>');
+                    trow.append('<th>State</th>');
+                    table.append( thead );
+                    
+                    // populate rows
+                    
+                    var breadcrumbs = new Array;
+                    var section = null;
+                    
+                    var builder = function(index, elem){
+                        
+                        var parent = '';
+                        $.each( breadcrumbs, function(id, item){
+                            if (id>0){
+                                parent += '.';
+                            }
+                            parent += item;
+                        });
+                     
+                        switch( elem.type ){
+                            case 'textarea':
+                            case 'table':
+                                var row = $('<tr></tr>');
+                                row.append('<td>' + parent + '.'+ (index+1) + '</td>');
+                                row.append('<td>' + section + '</td>');
+                                row.append('<td class="error">incomplete</td>'); // TODO
+                                table.append( row );
+                                break;
+                            case 'survey':
+                                if (!elem.items){
+                                    throw 'parsing error: section ' + elem.title + ' has no property "items".';
+                                }
+                                $.each( elem.items, builder );
+                                break;
+                            case 'section':
+                                if (!elem.items){
+                                    throw 'parsing error: section ' + elem.title + ' has no property "items".';
+                                }
+                                if (breadcrumbs.length===0){ // top level sections
+                                    section = elem.title;
+                                }
+                                breadcrumbs.push( (index+1) );
+                                $.each( elem.items, builder );
+                                breadcrumbs.pop( );
+                                break;
+                            default:
+                                throw "parsing error: " + elem.type + " is not a valid type.";
+                        }
+                     
+                    };
+                    
+                    builder(0, obj);
+                    
+                    self.el.attr('class', 'container');
+                    self.el.empty();
+                    self.el.append(table);
+                    
+                    self.trigger('load');
+                   
+                }
+            });
+        }
+    });
  
     this.ContributorPage = Class.create(TabPage, {
         initialize:function( $super ){
             var survey = new Survey;
+            var summary = new Summary;
             $super( {
                 container: Templates.build('contributor/index'),
                 tabs:[
                 survey,
                 Templates.build('contributor/check'),
-                Templates.build('contributor/summary'),
+                summary,
                 Templates.build('contributor/export')       
                 ]
             });
