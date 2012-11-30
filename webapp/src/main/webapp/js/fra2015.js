@@ -290,7 +290,7 @@
         'reviewer/export': function(){
             // TODO use template variables
             return new Template({
-                url: './admin/export.html'
+                url: './reviewer/export.html'
             });
         },  
         
