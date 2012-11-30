@@ -351,7 +351,29 @@
                     var row = $('<tr></tr>');
                     row.append( '<td>'+ options.rows[i] + '</td>' );
                     row.append( $.map(options.columns, function( column ){
-                        return $('<td></td>');
+                        var cell = $('<td></td>')
+                        cell.addClass('editable');
+                        cell.click(function(){
+                            if ( cell.hasClass('editable') ){
+                                cell.removeClass("editable");
+                                cell.addClass("editing");
+                                var text = cell.html();
+                                cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                                cell.find('.celleditor').blur( function(){
+                                    if ( cell.hasClass('editing') ){
+                                        cell.removeClass("editing");
+                                        cell.addClass("editable");
+                                        var text = cell.find(".celleditor").attr('value');
+                                        cell.html( text );
+                                    }
+                                    return false;  
+                                });
+                                cell.find('.celleditor').focus();
+                            }
+                            return false;
+                        });
+                        cell.append('&nbsp;');
+                        return cell;
                     }) );
                     tbody.append( row );
                 }
@@ -375,28 +397,28 @@
                 row.append( $.map(options.columns, function( column ){
                     
                     var cell = $('<td></td>')
-                        cell.addClass('editable');
-                        cell.click(function(){
-                            if ( cell.hasClass('editable') ){
-                                cell.removeClass("editable");
-                                cell.addClass("editing");
-                                var text = cell.html();
-                                cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
-                                cell.find('.celleditor').blur( function(){
-                                    if ( cell.hasClass('editing') ){
-                                        cell.removeClass("editing");
-                                        cell.addClass("editable");
-                                        var text = cell.find(".celleditor").attr('value');
-                                        cell.html( text );
-                                    }
-                                    return false;  
-                                });
-                                cell.find('.celleditor').focus();
-                            }
-                            return false;
-                        });
-                        cell.append('&nbsp;');
-                        return cell;
+                    cell.addClass('editable');
+                    cell.click(function(){
+                        if ( cell.hasClass('editable') ){
+                            cell.removeClass("editable");
+                            cell.addClass("editing");
+                            var text = cell.html();
+                            cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                            cell.find('.celleditor').blur( function(){
+                                if ( cell.hasClass('editing') ){
+                                    cell.removeClass("editing");
+                                    cell.addClass("editable");
+                                    var text = cell.find(".celleditor").attr('value');
+                                    cell.html( text );
+                                }
+                                return false;  
+                            });
+                            cell.find('.celleditor').focus();
+                        }
+                        return false;
+                    });
+                    cell.append('&nbsp;');
+                    return cell;
                 }));
                 table.append( tbody );
                 
