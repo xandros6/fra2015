@@ -1,4 +1,5 @@
-{   "version":"0.1",
+{
+    "version":"0.1",
     "type":"survey",
     "items":[
     {
@@ -10,7 +11,7 @@
             "title":"Contact persons",
             "description":"The present report was prepared by the following person(s)",
             "columns":[
-            "First name", "Last name", "Institution", "Email" 
+            "First name", "Last name", "Institution", "Email"
             ]
         },
         {
@@ -29,7 +30,7 @@
             "type":"section",
             "title":"FRA2015 Categories and definitions",
             "items":[
-                      
+
             {
                 "type":"table",
                 "title":"Data sources",
@@ -47,14 +48,14 @@
                 "title":"Original data",
                 "type":"textarea"
             }
-                      
+
             ]
         },
         {
             "type":"section",
             "title":"National data",
             "items":[
-                
+
             {
                 "title":"Adjustiment",
                 "type":"textarea"
@@ -67,7 +68,7 @@
                 "title":"Reclassification into FRA2015 categories",
                 "type":"textarea"
             }
-                
+
             ]
         },
         {
@@ -79,7 +80,7 @@
             "type":"section",
             "title":"Data",
             "items":[
-                
+
             {
                 "type":"table",
                 "title":"Classification and definitions",
@@ -114,7 +115,7 @@
                 "National forest inventory", "Remote sensing survey / mapping", "Other efforts"
                 ]
             }
-                
+
             ]
         }
         ]
@@ -145,7 +146,549 @@
             "items":[]
         }
         ]
+    },{
+        "type":"section",
+        "title":"Protective functions and selected ecosystem services",
+        "description":"What are the stocks and growth rates of the forests and how have they changed?",
+        "items":[]
+    },{
+        "type":"section",
+        "title":"Biodiversity/Conservation",
+        "description":"How much forest area is managed for protection of soil and water and ecosystem services?",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "description":"",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[
+            {
+                "type":"table",
+                "title":"Data sources",
+                "columns":[
+                "#", "Reference", "Definition", "Variable"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition", "Year", "Comments"
+                ]
+            },
+            {
+                "title":"Original data",
+                "type":"textarea"
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Analysis and processing of national data",
+            "items":[
+            {
+                "title":"Adjustment",
+                "type":"textarea"
+            },
+            {
+                "title":"Estimation and forecasting",
+                "type":"textarea"
+            },
+
+            {
+                "title":"Reclassification into FRA2015 categories",
+                "type":"textarea"
+            }
+
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[
+
+            {
+                "type":"table",
+                "title":"Table 5a",
+                "columns":[
+                "1990", "2000", "2005", "2010", "2015"
+                ],
+                "rows":[
+                "Protection of soil and water(1)",
+                "…of which production of clean water",
+                "…of which coastal stabilization",
+                "…of which desertification control",
+                "…of which avalanche control",
+                "…of which erosion, flood protection or reducing flood risk",
+                "…of which other (please specify in comments below the table)"
+                ]
+            },
+            {
+                "title":"Other",
+                "description":"(1)Under this reporting category all areas designated for protection of soil and water should be reported, regardless whether they are primarily designated or not.",
+                "type":"textarea"
+            },
+            {
+                "type":"table",
+                "title":"Tiers",
+                "columns":[
+                "Tier for status", "Tier for reported trend"
+                ],
+                "rows":[
+                "Protection of soil and water",
+                "Ecosystem services, cultural or spiritual values"
+                ]
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Comments",
+            "items":[
+            {
+                "type":"table",
+                "title":"",
+                "columns":[
+                "Comments related to data, definitions, etc.", "Category"
+                ],
+                "rows":[
+                "Protection of soil and water",
+                "Production of soil and water",
+                "Coastal stabilization",
+                "Desertification control",
+                "Avalanche control",
+                "Erosion, flood protection or reducing flood risk",
+                "Other protective functions",
+                "Ecosystem services, cultural or spiritual values",
+                "Public recreation",
+                "Spiritual or cultural services",
+                "Other ecosystem services",
+                "Other ecosystem services"
+                ]
+            },
+            {
+                "title":"Other comments to the table",
+                "type":"textarea"
+            }
+            ]
+        }
+        ]
+    },{
+        "type":"section",
+        "title":"Disturbance and forest degradation",
+        "description":"How much forest area is damaged each year?",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[
+            {
+                "type":"table",
+                "title":"Data sources",
+                "columns":[
+                "#", "Reference", "Variable", "Year", "Comments"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition"
+                ]
+            },
+            {
+                "title":"Original data",
+                "type":"textarea"
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Analysis and processing of national data",
+            "items":[
+            {
+                "title":"Adjustment",
+                "type":"textarea"
+            },
+            {
+                "title":"Estimation and forecasting",
+                "type":"textarea"
+            },
+
+            {
+                "title":"Reclassification into FRA2015 categories",
+                "type":"textarea"
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[
+            {
+                "type":"section",
+                "title":"Table 8a (Pre-filled data from remote sensing)",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"000 ha and number of fires",
+                    "columns":[
+                    "2003", "2004", "2005", "2006", "2007"
+                    ],
+                    "rows":[
+                    "Total land area burned by fire",
+                    "... of which forest area burned"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"000 ha and number of fires",
+                    "columns":[
+                    "2008", "2009", "2010", "2011", "2012"
+                    ],
+                    "rows":[
+                    "Total land area burned by fire",
+                    "... of which forest area burned"
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Table 8b",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"",
+                    "columns":[
+                    "Outbreak category", "Description/name", "Area damaged (000 hectares)", "Comments"
+                    ]
+                }
+                ]
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Comments",
+            "items":[
+            {
+                "type":"table",
+                "title":"",
+                "columns":[
+                "Comments related to data, definitions, etc.", "Comments on the reported trend"
+                ],
+                "rows":[
+                "Area affected by fire",
+                "Insects",
+                "Diseases",
+                "Severe weather events"
+                ]
+            },
+            {
+                "title":"Other comments to the table",
+                "type":"textarea"
+            }
+            ]
+        }
+
+        ]
+    },{
+        "type":"section",
+        "title":"Measuring progress towards SFM",
+        "description":"What forest policy and regulatory framework exists to support implementation of sustainable forest management (SFM)?",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[
+            {
+                "type":"table",
+                "title":"Data sources",
+                "columns":[
+                "#", "Reference", "Variable", "Year", "Comments"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition"
+                ]
+            },
+            {
+                "title":"Original data",
+                "type":"textarea"
+            }
+
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[
+            {
+                "type":"table",
+                "title":"Table 10",
+                "columns":[
+                "National", "Regional", "Provincial/State", "Local"
+                ],
+                "rows":[
+                "Policies supporting sustainable management of forests",
+                "... of which, in publicly owned forests",
+                "... of which, in publicly owned forests",
+                "Legislation and regulations supporting sustainable management of forests",
+                "... of which, in publicly owned forests",
+                "... of which, in publicly owned forests"
+                ]
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Comments",
+            "items":[
+            {
+                "type":"table",
+                "title":"",
+                "columns":[
+                "Comments"
+                ],
+                "rows":[
+                "Policies supporting sustainable management of forests",
+                "Legislation and regulations supporting sustainable management of forests"
+                ]
+            }
+            ]
+        }
+        ]
+    },{
+        "type":"section",
+        "title":"Economics/Livelihoods",
+        "description":"Who owns and manages the forests and how has this changed?",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "items":[]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[
+            {
+                "type":"table",
+                "title":"Data sources",
+                "columns":[
+                "#", "Reference", "Variable", "Year", "Comments"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Classification and definitions",
+                "columns":[
+                "#", "National class", "Definition"
+                ]
+            },
+            {
+                "title":"Original data",
+                "type":"textarea"
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Analysis and processing of national data",
+            "items":[
+            {
+                "title":"Adjustment",
+                "type":"textarea"
+            },
+            {
+                "title":"Estimation and forecasting",
+                "type":"textarea"
+            },
+
+            {
+                "title":"Reclassification into FRA2015 categories",
+                "type":"textarea"
+            }
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[
+            {
+                "type":"table",
+                "title":"Table 18a",
+                "description":"Forest area (1000 hectares)",
+                "columns":[
+                "1990", "2000", "2005", "2010"
+                ],
+                "rows":[
+                "Public ownership",
+                "…of which owned by the state at national scale",
+                "…of which owned by the state at the sub-national government scale",
+                "Private ownership",
+                "...of which owned by individuals",
+                "...of which owned by private business entities and institutions",
+                "...of which owned by local, tribal and indigenous communities",
+                "Unknown ownership",
+                "TOTAL"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Tiers",
+                "columns":[
+                "Tier for status", "Tier for reported trend"
+                ],
+                "rows":[
+                "Public ownership",
+                "Private ownership",
+                "Unknown ownership"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Table 18b - Holder of management rights of public forests",
+                "description":"Forest area (000 hectares)",
+                "columns":[
+                "1990", "2000", "2005", "2010"
+                ],
+                "rows":[
+                "Public Administration",
+                "Individuals",
+                "Private companies",
+                "Communities",
+                "Other",
+                "TOTAL"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"",
+                "columns":[
+                "Tier for status", "Tier for reported trend"
+                ],
+                "rows":[
+                "Public Administration",
+                "Individuals",
+                "Private companies",
+                "Communities",
+                "Other"
+                ]
+            },
+            {
+                "type":"table",
+                "title":"Comments",
+                "columns":[
+                "Comments related to data, definitions, etc.", "Comments on the reported trend"
+                ],
+                "rows":[
+                "Public ownership",
+                "Unknown ownership",
+                "Unknown ownership",
+                "Management rights"
+                ]
+            },
+            {
+                "title":"Other general comments to the table",
+                "type":"textarea"
+            }            
+                
+            ]
+        }
+        ]
+    },{
+        "type":"section",
+        "title":"Looking forward",
+        "description":"What is forest area likely to be in the future",
+        "items":[
+        {
+            "type":"section",
+            "title":"FRA2015 Categories and definitions",
+            "items":[
+                    
+        ]
+        },
+        {
+            "type":"section",
+            "title":"National data",
+            "items":[
+ 
+            {
+                "type":"table",
+                "title":"Data sources",
+                "columns":[
+                "#", "Reference", "Variable", "Year", "Comments"
+                ]
+            }                   
+            ]
+        },
+        {
+            "type":"section",
+            "title":"Data",
+            "items":[
+                
+             {
+                "type":"table",
+                "title":"Table 21a",
+                "description":"Forest area (000 ha)",
+                "columns":[
+                "2020", "2030"
+                ],
+                "rows":[
+                "Government target/aspiration for forest area"
+                ]
+            },
+             {
+                "type":"table",
+                "title":"Table 21a",
+                "description":"Forest area (000 ha)",
+                "columns":[
+                "2013"
+                ],
+                "rows":[
+                "Forests earmarked for conversion"
+                ]
+            }           
+        ]
+        },
+        {
+            "type":"section",
+            "title":"Comments",
+            "items":[
+              {
+                "type":"table",
+                "title":"Comments",
+                "columns":[
+                "Comments"
+                ],
+                "rows":[
+                "Government target/aspiration for forest area",
+                "Forests earmarked for conversion"
+                ]
+            }                  
+        ]
+        }
+        ]
     }
     ]
-    
+
 }

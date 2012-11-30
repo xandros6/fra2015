@@ -191,6 +191,7 @@
             var self = this;
             this.tabs[ index ].bind('load', function(elem){
                 self.el.find('#tabContent').append( elem );
+                self.trigger('load');
             });
             this.tabs[ index ].render();
             
@@ -301,7 +302,14 @@
     var TextArea = Class.create(View, {
         initialize:function( $super, options ){
             $super();
+            this.id =  Math.random().toString(36).substring(7);
             var text = $('<textarea></textarea>');
+            text.attr('class', 'texteditor');
+            text.attr('cols', '80');
+            text.attr('rows', '10');
+            text.attr('id', this.id);
+            text.attr('name', this.id);
+            // text.ckeditor();
             this.el.append('<h4>' + options.title + '</h4>');
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
@@ -310,6 +318,7 @@
         },
         render: function($super){
             $super();
+            // CKEDITOR.replace( this.id );
             this.trigger('load');
             return this;
         }
@@ -318,17 +327,132 @@
     var Table = Class.create(View, {
         initialize:function( $super, options ){
             $super();
-            var table = $('<table></table>');
-            table.attr('class', 'table table-bordered table-hover table-condensed');
-            var head = $('<thead></thead>').append('<tr></tr>');
-            head.append( $.map(options.columns, function( column ){
-                return $('<th></th>').append(column);
-            }));
-            table.append( head );
+            
             this.el.append('<h4>' + options.title + '</h4>');
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
+            }  
+            
+            
+            var table = $('<table></table>');
+            table.attr('class', 'table table-bordered table-hover table-condensed');
+            
+            if ( options.rows && options.rows.length>0){
+                var head = $('<thead></thead>').append('<tr></tr>'); //!
+                head.append('<th></th>'); // empty cell above row column
+                head.append( $.map(options.columns, function( column ){
+                    return $('<th></th>').append(column);
+                }));
+                table.append( head );
+                var tbody = $('<tbody></tbody>');
+                table.append( tbody );
+                
+                for ( var i=0; i<options.rows.length; i++){
+                    var row = $('<tr></tr>');
+                    row.append( '<td>'+ options.rows[i] + '</td>' );
+                    row.append( $.map(options.columns, function( column ){
+                        return $('<td></td>');
+                    }) );
+                    tbody.append( row );
+                }
+                
+            } else {
+                
+                // TODO refactor, clean code
+                
+                var head = $('<thead></thead>');
+                var headRow = $('<tr></tr>');
+                head.append( headRow );
+                headRow.append( $.map(options.columns, function( column ){
+                    return $('<th></th>').append(column);
+                }));
+                table.append( head );
+                // create an empty row
+                var tbody = $('<tbody></tbody>');
+                var row = $('<tr></tr>');
+                tbody.append( row );
+                // TODO refactor
+                row.append( $.map(options.columns, function( column ){
+                    
+                    var cell = $('<td></td>')
+                        cell.addClass('editable');
+                        cell.click(function(){
+                            if ( cell.hasClass('editable') ){
+                                cell.removeClass("editable");
+                                cell.addClass("editing");
+                                var text = cell.html();
+                                cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                                cell.find('.celleditor').blur( function(){
+                                    if ( cell.hasClass('editing') ){
+                                        cell.removeClass("editing");
+                                        cell.addClass("editable");
+                                        var text = cell.find(".celleditor").attr('value');
+                                        cell.html( text );
+                                    }
+                                    return false;  
+                                });
+                                cell.find('.celleditor').focus();
+                            }
+                            return false;
+                        });
+                        cell.append('&nbsp;');
+                        return cell;
+                }));
+                table.append( tbody );
+                
+                // button to add new row to table
+                var addBtn = $('<a>Add row</a>');
+                addBtn.attr('href', '#');
+                addBtn.attr('class', 'btn btn-mini');
+                addBtn.click(function(evt){
+                    var row = $('<tr></tr>');
+                    tbody.append( row );
+                    row.append( $.map(options.columns, function( column ){
+                        var cell = $('<td></td>')
+                        cell.addClass('editable');
+                        cell.click(function(){
+                            if ( cell.hasClass('editable') ){
+                                cell.removeClass("editable");
+                                cell.addClass("editing");
+                                var text = cell.html();
+                                cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                                cell.find('.celleditor').blur( function(){
+                                    if ( cell.hasClass('editing') ){
+                                        cell.removeClass("editing");
+                                        cell.addClass("editable");
+                                        var text = cell.find(".celleditor").attr('value');
+                                        cell.html( text );
+                                    }
+                                    return false;  
+                                });
+                                cell.find('.celleditor').focus();
+                            }
+                            return false;
+                        });
+                        cell.append('&nbsp;');
+                        return cell;
+                    }));
+                    return false;
+                });
+                
+                var saveBtn = $('<a>Save</a>');
+                saveBtn.attr('href', '#');
+                saveBtn.attr('class', 'btn btn-mini btn-primary');
+                saveBtn.click(function(evt){
+                    alert('Saved!');
+                    return false;
+                });
+              
+                var control = $('<p></p>');
+                control.attr('class', 'pull-right');
+                
+                control.append( saveBtn );
+                control.append( addBtn );
+                
+                this.el.append( control );
             }
+            
+                      
             this.el.append(table);
             
         },
@@ -442,13 +566,13 @@
                     row.attr('class', 'row');
                     
                     var left =  $('<div></div>');
-                    left.attr('class', 'span3 bs-docs-sidebar');
+                    left.attr('class', 'span4 bs-docs-sidebar');
                     var ul = $('<ul></ul>');
                     ul.attr('class', 'nav nav-list bs-docs-sidenav');
                     left.append(ul);
                     
                     var right =  $('<div></div>');
-                    right.attr('class', 'span9');
+                    right.attr('class', 'span8');
                     
                     row.append(left);
                     row.append(right);
@@ -503,7 +627,7 @@
                         title: obj.title,
                         description: obj.description,
                         columns: obj.columns,
-                        row: obj.rows
+                        rows: obj.rows
                     });
                     break;
                 case 'section':
@@ -515,7 +639,7 @@
                     });
                     view = new Section({
                         title: obj.title,
-                        description: obj.descriptions,
+                        description: obj.description,
                         items: items
                     });
                     break;
@@ -544,6 +668,7 @@
         render: function($super){
             $super();
             this.select(0);
+        // this.trigger('load');
         }
     });
     
@@ -562,7 +687,7 @@
         render: function($super){
             $super();
             this.select(0);
-            
+        // this.trigger('load');
         } 
     });
     
@@ -580,6 +705,7 @@
         render: function($super){
             $super();
             this.select(0);
+        // this.trigger('load');
         } 
     });
     
@@ -588,6 +714,7 @@
         render: function(){
             
             this.el.append( 'error' );
+            this.trigger('load');
         }
     });
     

@@ -42,7 +42,10 @@
         <!-- javascripts -->
         <script src="js/jquery-1.8.3.js" ></script>
         <script src="js/jquery-ui-1.9.2.custom.js" ></script>
-        <script src="js/bootstrap.js" ></script>
+        <script src="ckeditor/ckeditor.js"></script>
+        <script src="ckeditor/adapters/jquery.js">
+        
+                <script src="js/bootstrap.js" ></script>
         <script src="js/ejs.js" ></script>
         <script src="js/prototype.js"></script>
         <script src="js/fra2015.js"></script>
@@ -87,13 +90,33 @@
                             
                             if ( page ){
                                 $('#main').empty();
+                                
+                                page.bind('load', function(el){
+                                    
+                                    $('#main').append( el );
+                                    
+                                    // TOFIX hack
+                                    // search the page for texteditor elements
+                                    // activate ckeditor for each one
+                                    var editors = $('.texteditor');
+                                    $.each( editors, function(index, elem){
+                                        var editor = $( elem );
+                                        editor.ckeditor({ 
+                                            // see http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Toolbar
+                                            toolbar: 'MyToolbar'
+                                        });
+                                    });                 
+                                    
+                                });
+                                
                                 page.render();
-                                $('#main').append( page.el ); 
+                                // $('#main').append( page.el ); 
+                                
+                           
+                                
                             } else {
                                 console.error( 'cannot find a page for user: ' + App.user.username );
-                            }
-                          
-                              
+                            }     
                         },
                         'logout': function(){
                             App.user.logout();
