@@ -729,7 +729,7 @@
                     }
                 });                
             } else {
-                model.trigger('load');
+                this.trigger('load');
             }
 
         },
