@@ -3,7 +3,7 @@
     
     // fake data for login
     var users = {
-        'contributor':'contributor',
+        'user':'user',
         'admin':'admin',
         'reviewer':'reviewer'
     };
@@ -56,22 +56,42 @@
         
     });
     
+    // TODO abstract Observable class
+    var Model = Class.create({
+        initialize:function(){
+            this.events = {
+                'load': []  
+            };
+        },
+        trigger: function( event ){
+            var handlers = this.events[event];
+            for (var i=0; i<handlers.length; i++){
+                var handler = handlers[i];
+                handler.call( this, this );
+            }
+        },
+        bind: function(event, handler){
+            this.events[event].push( handler );
+        }      
+    });
+    
     var View = Class.create({
         initialize:function(){
             this.el = $('<div></div>');
             this.events = {
-                'load': []  
+                'load': [],
+                'click':[]
             };
         },
         render: function(){
             // do nothing  
             return this;
         },
-        trigger: function( event ){
+        trigger: function( event, params ){
             var handlers = this.events[event];
             for (var i=0; i<handlers.length; i++){
                 var handler = handlers[i];
-                handler.call( this, this.el );
+                handler.call( this, this.el, params );
             }
         },
         bind: function(event, handler){
@@ -175,6 +195,7 @@
                     var tab = tabs[i];
                     self.el.find(tab).bind('click', selectionHandler( i ));
                 }
+                self.trigger('load', self.el);
             });
             this.container.render()
             $super();
@@ -551,13 +572,16 @@
             $super();
             this.json = options.json;
             this.options = options;
+            this.items = options.items;
             this.el = $('<section></section>');
             this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
         },
         render: function($super, depth, num){
             $super();
+            
+            this.el.empty();
           
-            this.el.append( this.createTitle(num + ' ' + this.options.title, depth) );
+            this.el.append( this.createTitle(this.options.title, depth) );
             if ( this.options.description ){
                 this.el.append( this.createDescription(this.options.description, depth));
             }
@@ -616,132 +640,202 @@
         }
     });
  
-    var Survey = Class.create(View, {
-        initialize:function( $super ){
-            $super();            
-        },
-        render: function($super){
-            $super(); 
-  
-            var survey = this;
+    var Question = Class.create(Section, {
+        
+        initialize:function( $super, options ){
+            $super( options );
+            this.number = options.number;
             
-            // TODO avoid to call ajax more than once
-            // create a model in the MVC
-            $.ajax({
-                type:'GET',
-                dataType:'text',
-                url:'./resources/survey.json',
-                success: function(data){
-                    var obj;
-                    try{
-                        obj = $.parseJSON( data ); 
-                    } catch (e){
-                        throw 'cannot parse ./resources/survey.json: ' + e;
+        },
+ 
+        createTitle: function( title ){
+            return html = $('<div class="page-header"><h1> Question #'+ this.number +'</h1></div>');
+        },
+        createDescription: function(description ){
+            var html = $('<p></p>');
+            html.attr('class', 'lead');
+            html.append( description );
+            return html;          
+        }    
+        
+    });
+ 
+    var SurveyView = Class.create( View, {
+        
+        initialize: function($super, model){
+            $super();
+        /*var view = this;
+            model.bind('load', function(){
+                
+                view.trigger('load', view.el);
+            });*/
+        },
+        
+        getQuestions: function(){
+            if ( this.items ){
+                var questions = [];
+                var proj = function(index, view){
+                    switch (view.json.type){
+                        case 'section':
+                            $.each( view.items, proj);
+                            break;
+                        case 'textarea':
+                        case 'table':
+                            break;
+                        case 'question':
+                            questions.push(view);
+                        default:
+                            break;
+                            
                     }
-                    if (!obj.items ){
-                        throw 'parsing error: survey has no property "items".';
+                };
+                $.each( this.items, proj);
+                
+                return questions;
+            } else {
+                throw "survey does not have items.";
+            }
+        },
+        
+        render: function(){
+        //this.model.load();
+        }
+    });
+ 
+    var Survey = Class.create( Model, {
+        
+        initialize: function($super){
+            $super();
+        },
+        
+        isEmpty: function(){
+            return this.survey===undefined || this.survey===null;  
+        },
+        
+        load: function(){
+            if ( this.isEmpty() ){
+                var model = this;
+                $.ajax({
+                    type:'GET',
+                    dataType:'text',
+                    url:'./resources/survey.json',
+                    success: function(data){
+                        try{
+                            model.survey = $.parseJSON( data ); 
+                        } catch (e){
+                            throw 'cannot parse ./resources/survey.json: ' + e;
+                        }
+                        model.trigger('load');
                     }
-                    var count = 0, length = obj.items.length;
-                    survey.build( obj, survey );  
-                    survey.el.attr('class', 'container');
-                    survey.el.empty();
+                });                
+            } else {
+                model.trigger('load');
+            }
+
+        },
+  
+        createNavBar: function(){
+            
+            var ul = $('<ul></ul>');
+            ul.attr('class', 'nav nav-list');
+            
+            
+            // TODO create a real view   
+            var view = new View;
+            view.el = ul;
+            
+            var fc = 0;
+            var qnum = 0;
+            var depth = 0;
+            var builder = function(index, obj){
+                switch( obj.type ){
+                    case 'table':
+                    case 'textarea':
+                        if ( obj.feedbacks ){
+                            fc += obj.feedbacks.length;
+                        }
+                        
+                        break;
                     
-                    // TODO refactor: externalize this rubbish!
-                    var row = $('<div></div>');
-                    row.attr('class', 'row');
-                    
-                    var left =  $('<div></div>');
-                    left.attr('class', 'span4 bs-docs-sidebar');
-                    var ul = $('<ul></ul>');
-                    ul.attr('class', 'nav nav-list bs-docs-sidenav');
-                    left.append(ul);
-                    
-                    var right =  $('<div></div>');
-                    right.attr('class', 'span8');
-                    
-                    row.append(left);
-                    row.append(right);
-                    survey.el.append( row );
-                    
-                    $.each( survey.items, function (index, item){
-                        item.bind('load', function( elem ){
-                            right.append( elem );
-                            
-                            var fc = 0;
-                            var feedback = function(index, obj){
-                                console.log(obj);
-                                switch( obj.type ){
-                                    case 'table':
-                                    case 'textarea':
-                                        if ( obj.feedbacks ){
-                                            fc += obj.feedbacks.length;
-                                        }
-                                        break;
-                                    case 'section':
-                                        $.each( obj.items, feedback );
-                                        break;
-                                    default:
-                                        break;
-                                         
-                                }
-                            };
-                            feedback(0, item.json );
-                            
-                            var label = '';
-                            // add feedback info
-                            if ( fc > 0){
-                                label = '<span class="badge badge-warning">'+ fc + '</span>';
-                            }
-                            
+                    case 'survey':
+                        depth++;
+                        $.each( obj.items, builder );
+                        break;
+                    case 'section':
+                        if (depth===1){
                             var li = $('<li></li>');
                             ul.append( li );
-                            li.append(
-                                '<a href="#'+ item.options.title.replace(/\s/g, "-").toLowerCase() 
-                                + '"><i class="icon-chevron-right"></i>'
-                                + label +' ' + item.options.title 
-                                +'</a>');
-                            
-                            
-                            count++;
-                            if (count >= length){
-                                survey.trigger('load');
-                            }
-                        });
-                        item.render(1, index+1);
-                    });
+                            li.addClass('nav-header');
+                            li.append( obj.title );  
+                        }
+                        depth++;
+                        $.each( obj.items, builder );
+                        depth--;
+                        break;
+                    case 'question':
+                        var li = $('<li></li>');
+                        ul.append( li );
+   
+                        var text = $('<div></div>');
+                        text.append( (qnum+1) + '. ' + obj.description );
+                        li.append( text );
                         
-                    
-                }
-            });
+                        li.click(
+                            (function(num){
+                                return function(){
+                                    ul.find('.active').removeClass('active');
+                                    li.addClass('active');
+                                    view.trigger('click', num);
+                                }
+                            }).call(this, qnum++));
+                        depth++;
+                        
+                        fc = 0;
+                        
+                        $.each( obj.items, builder );
+                        
+                        if (fc>0){
+                            text.append( '&nbsp;&nbsp;<span class="badge badge-warning">'+ fc + '</span>' );
+                        }
+                        
+                        depth--;
+                        break;
+                    default:
+                        break;
+                                         
+                }             
+            }
+            builder(0, this.survey);
+            
+                
+            return view;
             
         },
-        build: function( obj, survey ){
-            
-            var view = null;
-            
-            if ( !obj.type ){
-                throw "parsing error: wrong format.";
-            }
-            
-            switch ( obj.type ){
-                case 'survey':
+        
+        createSurvey: function(){
+            var num = 0;
+            var builder = this;
+            return builder.createView( this.survey, {
+                'survey': function( obj, handlers){
                     if (!obj.items ){
                         throw 'parsing error: survey has no property "items".';
                     }
+                    var survey = new SurveyView;
                     survey.items = $.map( obj.items, function(item){
-                        return survey.build( item, survey );
+                        return builder.createView( item, handlers );
                     });
-                    view = survey;
-                case 'textarea':
-                    view = new TextArea({
+                    return survey;
+                },
+                'textarea': function(obj, handlers){
+                    return new TextArea({
                         title: obj.title,
                         description: obj.description,
                         feedbacks: obj.feedbacks,
                         json:obj
                     });
-                    break;
-                case 'table':
-                    view = new Table({
+                },
+                'table': function(obj, handlers){
+                    return new Table({
                         title: obj.title,
                         description: obj.description,
                         columns: obj.columns,
@@ -749,29 +843,124 @@
                         feedbacks: obj.feedbacks,
                         json:obj
                     });
-                    break;
-                case 'section':
+                },
+                'question': function(obj, handlers){
+                    if (!obj.items){
+                        throw 'parsing error: question ' + obj.title + ' has no property "items".';
+                    }
+                    var items = $.map( obj.items, function(item){
+                        return builder.createView( item, handlers );
+                    });
+                    var view = new Question({
+                        title: obj.title,
+                        description: obj.description,
+                        number: (num+1),
+                        items: items,
+                        json:obj
+                    });
+                    num++;
+                    return view;
+                },   
+                'section': function(obj, handlers){
                     if (!obj.items){
                         throw 'parsing error: section ' + obj.title + ' has no property "items".';
                     }
                     var items = $.map( obj.items, function(item){
-                        return survey.build( item, survey );
+                        return builder.createView( item, handlers );
                     });
-                    view = new Section({
+                    var view = new Section({
                         title: obj.title,
                         description: obj.description,
                         items: items,
                         json:obj
                     });
-                    break;
-                default:
-                    throw "parsing error: " + obj.type + " is not a valid type.";
-                 
+                    return view;
+                }            
+            });
+        },
+        
+        createView: function( obj, handlers ){
+            if ( !obj.type ){
+                throw "parsing error: wrong format.";
+            }
+            var handler = handlers[ obj.type ];
+            if ( handler ){
+                return handler.call(this, obj, handlers);
+            } else {
+                throw "no handler for: " + obj.type;
             }
             
-            return view;
         }
+        
     });
+    
+    var SurveyPage = Class.create(Page, {
+        initialize:function( $super ){
+            $super();
+            
+            var page = this;
+            var model = new Survey
+            // var view = new SurveyView( model );
+            
+            var container = $('<div></div>');
+            container.attr('class', 'container');
+            container.empty();
+              
+            var row = $('<div></div>');
+            row.attr('class', 'row');
+                    
+            var left =  $('<div></div>');
+            left.attr('class', 'span4');
+            
+                    
+            var right =  $('<div></div>');
+            right.attr('class', 'span8');
+            right.attr('id', 'tabContent');
+                    
+            row.append(left);
+            row.append(right);
+            container.append( row );
+            
+            
+            
+            model.bind('load', function( context ){
+                
+                            
+                var cView = new View;
+                cView.el = container;
+                
+               
+                var s = model.createSurvey();
+                s.render();
+                var questions = s.getQuestions();
+                
+                var tabPage = new TabPage({
+                    container: cView,
+                    tabs: questions
+                });
+                tabPage.bind('load', function( el){
+                    page.el = el;
+                    page.trigger('load', el);
+                });
+                tabPage.render();
+                cView.trigger('load', cView.el);
+                tabPage.select(0);
+                
+                var nav = model.createNavBar();
+                left.append( nav.el );
+                nav.bind('click', function( el, index ){
+                    tabPage.select( index );
+                });
+            });
+            this.model = model;
+            
+        },
+        render: function($super){
+            $super();
+            this.model.load();
+        } 
+    });
+ 
     
     var Summary = Class.create(View, {
         initialize:function( $super ){
@@ -869,7 +1058,9 @@
  
     this.ContributorPage = Class.create(TabPage, {
         initialize:function( $super ){
-            var survey = new Survey;
+            
+            var survey = new SurveyPage;
+            
             var summary = new Summary;
             $super( {
                 container: Templates.build('contributor/index'),
