@@ -102,43 +102,41 @@
                                     $.each( editors, function(index, elem){
                                         var editor = $( elem );
                                         
-                                        if ( ! editor.hasClass('cke_contents')){
-                                            editor.ckeditor({ 
-                                                // see http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Toolbar
-                                                toolbar: 'MyToolbar'
-                                            });      
-                                        } else {
-                                            
-                                        }
+                                        editor.ckeditor({ 
+                                            // see http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Toolbar
+                                            toolbar: 'MyToolbar'
+                                        });      
+                                        
+                                        editor.removeClass('texteditor');
                                         
   
                                     });                 
                                     
-                            });
+                                });
                                 
-                            page.render();
-                            // $('#main').append( page.el ); 
+                                page.render();
+                                // $('#main').append( page.el ); 
                                 
                            
                                 
-                        } else {
-                            console.error( 'cannot find a page for user: ' + App.user.username );
-                        }     
-                    },
-                    'logout': function(){
-                        App.user.logout();
-                        router.trigger('default');
-                    }
+                            } else {
+                                console.error( 'cannot find a page for user: ' + App.user.username );
+                            }     
+                        },
+                        'logout': function(){
+                            App.user.logout();
+                            router.trigger('default');
+                        }
                         
+                    });
+                    
+                    router.start();
+                    
+                    // use the controllar as a app-wide service bus
+                    App.addListener( router );
                 });
-                    
-                router.start();
-                    
-                // use the controllar as a app-wide service bus
-                App.addListener( router );
-            });
                 
-        })(jQuery);
+            })(jQuery);
         </script>
     </body>
 </html>
