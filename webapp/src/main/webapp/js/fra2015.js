@@ -1,45 +1,45 @@
 var countries = [
-            "AF|Afghanistan","AL|Albania","DZ|Algeria","AS|American Samoa",
-            "AD|Andorra","AO|Angola","AI|Anguilla","AQ|Antarctica","AG|Antigua And Barbuda",
-            "AR|Argentina","AM|Armenia","AW|Aruba","AU|Australia","AT|Austria","AZ|Azerbaijan",
-            "BS|Bahamas","BH|Bahrain","BD|Bangladesh","BB|Barbados","BY|Belarus","BE|Belgium",
-            "BZ|Belize","BJ|Benin","BM|Bermuda","BT|Bhutan","BO|Bolivia","BA|Bosnia And Herzegovina",
-            "BW|Botswana","BV|Bouvet Island","BR|Brazil","IO|British Indian Ocean Territory",
-            "BN|Brunei Darussalam","BG|Bulgaria","BF|Burkina Faso","BI|Burundi","KH|Cambodia",
-            "CM|Cameroon","CA|Canada","CV|Cape Verde","KY|Cayman Islands","CF|Central African Republic",
-            "TD|Chad","CL|Chile","CN|China","CX|Christmas Island","CC|Cocos (keeling) Islands","CO|Colombia",
-            "KM|Comoros","CG|Congo","CD|Congo, The Democratic Republic Of The","CK|Cook Islands","CR|Costa Rica",
-            "CI|Cote D'ivoire","HR|Croatia","CU|Cuba","CY|Cyprus","CZ|Czech Republic","DK|Denmark","DJ|Djibouti",
-            "DM|Dominica","DO|Dominican Republic","TP|East Timor","EC|Ecuador","EG|Egypt","SV|El Salvador",
-            "GQ|Equatorial Guinea","ER|Eritrea","EE|Estonia","ET|Ethiopia","FK|Falkland Islands (malvinas)",
-            "FO|Faroe Islands","FJ|Fiji","FI|Finland","FR|France","GF|French Guiana","PF|French Polynesia",
-            "TF|French Southern Territories","GA|Gabon","GM|Gambia","GE|Georgia","DE|Germany","GH|Ghana","GI|Gibraltar",
-            "GR|Greece","GL|Greenland","GD|Grenada","GP|Guadeloupe","GU|Guam","GT|Guatemala","GN|Guinea","GW|Guinea-bissau",
-            "GY|Guyana","HT|Haiti","HM|Heard Island And Mcdonald Islands","VA|Holy See (vatican City State)","HN|Honduras",
-            "HK|Hong Kong","HU|Hungary","IS|Iceland","IN|India","ID|Indonesia","IR|Iran, Islamic Republic Of","IQ|Iraq",
-            "IE|Ireland","IL|Israel","IT|Italy","JM|Jamaica","JP|Japan","JO|Jordan","KZ|Kazakstan","KE|Kenya","KI|Kiribati",
-            "KP|Korea, Democratic People's Republic Of","KR|Korea, Republic Of","KV|Kosovo","KW|Kuwait","KG|Kyrgyzstan",
-            "LA|Lao People's Democratic Republic","LV|Latvia","LB|Lebanon","LS|Lesotho","LR|Liberia","LY|Libyan Arab Jamahiriya", 
-            "LI|Liechtenstein","LT|Lithuania","LU|Luxembourg","MO|Macau","MK|Macedonia, The Former Yugoslav Republic Of",
-            "MG|Madagascar","MW|Malawi","MY|Malaysia","MV|Maldives","ML|Mali","MT|Malta","MH|Marshall Islands","MQ|Martinique",
-            "MR|Mauritania","MU|Mauritius","YT|Mayotte","MX|Mexico","FM|Micronesia, Federated States Of","MD|Moldova, Republic Of",
-            "MC|Monaco","MN|Mongolia","MS|Montserrat","ME|Montenegro","MA|Morocco","MZ|Mozambique","MM|Myanmar","NA|Namibia",
-            "NR|Nauru","NP|Nepal","NL|Netherlands","AN|Netherlands Antilles","NC|New Caledonia","NZ|New Zealand","NI|Nicaragua",
-            "NE|Niger","NG|Nigeria","NU|Niue","NF|Norfolk Island","MP|Northern Mariana Islands","NO|Norway","OM|Oman",
-            "PK|Pakistan","PW|Palau","PS|Palestinian Territory, Occupied","PA|Panama","PG|Papua New Guinea","PY|Paraguay",
-            "PE|Peru","PH|Philippines","PN|Pitcairn","PL|Poland","PT|Portugal","PR|Puerto Rico","QA|Qatar","RE|Reunion",
-            "RO|Romania","RU|Russian Federation","RW|Rwanda","SH|Saint Helena","KN|Saint Kitts And Nevis","LC|Saint Lucia",
-            "PM|Saint Pierre And Miquelon","VC|Saint Vincent And The Grenadines","WS|Samoa","SM|San Marino",
-            "ST|Sao Tome And Principe","SA|Saudi Arabia","SN|Senegal","RS|Serbia","SC|Seychelles","SL|Sierra Leone",
-            "SG|Singapore","SK|Slovakia","SI|Slovenia","SB|Solomon Islands","SO|Somalia","ZA|South Africa",
-            "GS|South Georgia And The South Sandwich Islands","ES|Spain","LK|Sri Lanka","SD|Sudan","SR|Suriname",
-            "SJ|Svalbard And Jan Mayen","SZ|Swaziland","SE|Sweden","CH|Switzerland","SY|Syrian Arab Republic",
-            "TW|Taiwan, Province Of China","TJ|Tajikistan","TZ|Tanzania, United Republic Of","TH|Thailand","TG|Togo",
-            "TK|Tokelau","TO|Tonga","TT|Trinidad And Tobago","TN|Tunisia","TR|Turkey","TM|Turkmenistan",
-            "TC|Turks And Caicos Islands","TV|Tuvalu","UG|Uganda","UA|Ukraine","AE|United Arab Emirates",
-            "GB|United Kingdom","US|United States","UM|United States Minor Outlying Islands","UY|Uruguay",
-            "UZ|Uzbekistan","VU|Vanuatu","VE|Venezuela","VN|Viet Nam","VG|Virgin Islands, British",
-            "VI|Virgin Islands, U.s.","WF|Wallis And Futuna","EH|Western Sahara","YE|Yemen","ZM|Zambia","ZW|Zimbabwe" ];
+"AF|Afghanistan","AL|Albania","DZ|Algeria","AS|American Samoa",
+"AD|Andorra","AO|Angola","AI|Anguilla","AQ|Antarctica","AG|Antigua And Barbuda",
+"AR|Argentina","AM|Armenia","AW|Aruba","AU|Australia","AT|Austria","AZ|Azerbaijan",
+"BS|Bahamas","BH|Bahrain","BD|Bangladesh","BB|Barbados","BY|Belarus","BE|Belgium",
+"BZ|Belize","BJ|Benin","BM|Bermuda","BT|Bhutan","BO|Bolivia","BA|Bosnia And Herzegovina",
+"BW|Botswana","BV|Bouvet Island","BR|Brazil","IO|British Indian Ocean Territory",
+"BN|Brunei Darussalam","BG|Bulgaria","BF|Burkina Faso","BI|Burundi","KH|Cambodia",
+"CM|Cameroon","CA|Canada","CV|Cape Verde","KY|Cayman Islands","CF|Central African Republic",
+"TD|Chad","CL|Chile","CN|China","CX|Christmas Island","CC|Cocos (keeling) Islands","CO|Colombia",
+"KM|Comoros","CG|Congo","CD|Congo, The Democratic Republic Of The","CK|Cook Islands","CR|Costa Rica",
+"CI|Cote D'ivoire","HR|Croatia","CU|Cuba","CY|Cyprus","CZ|Czech Republic","DK|Denmark","DJ|Djibouti",
+"DM|Dominica","DO|Dominican Republic","TP|East Timor","EC|Ecuador","EG|Egypt","SV|El Salvador",
+"GQ|Equatorial Guinea","ER|Eritrea","EE|Estonia","ET|Ethiopia","FK|Falkland Islands (malvinas)",
+"FO|Faroe Islands","FJ|Fiji","FI|Finland","FR|France","GF|French Guiana","PF|French Polynesia",
+"TF|French Southern Territories","GA|Gabon","GM|Gambia","GE|Georgia","DE|Germany","GH|Ghana","GI|Gibraltar",
+"GR|Greece","GL|Greenland","GD|Grenada","GP|Guadeloupe","GU|Guam","GT|Guatemala","GN|Guinea","GW|Guinea-bissau",
+"GY|Guyana","HT|Haiti","HM|Heard Island And Mcdonald Islands","VA|Holy See (vatican City State)","HN|Honduras",
+"HK|Hong Kong","HU|Hungary","IS|Iceland","IN|India","ID|Indonesia","IR|Iran, Islamic Republic Of","IQ|Iraq",
+"IE|Ireland","IL|Israel","IT|Italy","JM|Jamaica","JP|Japan","JO|Jordan","KZ|Kazakstan","KE|Kenya","KI|Kiribati",
+"KP|Korea, Democratic People's Republic Of","KR|Korea, Republic Of","KV|Kosovo","KW|Kuwait","KG|Kyrgyzstan",
+"LA|Lao People's Democratic Republic","LV|Latvia","LB|Lebanon","LS|Lesotho","LR|Liberia","LY|Libyan Arab Jamahiriya", 
+"LI|Liechtenstein","LT|Lithuania","LU|Luxembourg","MO|Macau","MK|Macedonia, The Former Yugoslav Republic Of",
+"MG|Madagascar","MW|Malawi","MY|Malaysia","MV|Maldives","ML|Mali","MT|Malta","MH|Marshall Islands","MQ|Martinique",
+"MR|Mauritania","MU|Mauritius","YT|Mayotte","MX|Mexico","FM|Micronesia, Federated States Of","MD|Moldova, Republic Of",
+"MC|Monaco","MN|Mongolia","MS|Montserrat","ME|Montenegro","MA|Morocco","MZ|Mozambique","MM|Myanmar","NA|Namibia",
+"NR|Nauru","NP|Nepal","NL|Netherlands","AN|Netherlands Antilles","NC|New Caledonia","NZ|New Zealand","NI|Nicaragua",
+"NE|Niger","NG|Nigeria","NU|Niue","NF|Norfolk Island","MP|Northern Mariana Islands","NO|Norway","OM|Oman",
+"PK|Pakistan","PW|Palau","PS|Palestinian Territory, Occupied","PA|Panama","PG|Papua New Guinea","PY|Paraguay",
+"PE|Peru","PH|Philippines","PN|Pitcairn","PL|Poland","PT|Portugal","PR|Puerto Rico","QA|Qatar","RE|Reunion",
+"RO|Romania","RU|Russian Federation","RW|Rwanda","SH|Saint Helena","KN|Saint Kitts And Nevis","LC|Saint Lucia",
+"PM|Saint Pierre And Miquelon","VC|Saint Vincent And The Grenadines","WS|Samoa","SM|San Marino",
+"ST|Sao Tome And Principe","SA|Saudi Arabia","SN|Senegal","RS|Serbia","SC|Seychelles","SL|Sierra Leone",
+"SG|Singapore","SK|Slovakia","SI|Slovenia","SB|Solomon Islands","SO|Somalia","ZA|South Africa",
+"GS|South Georgia And The South Sandwich Islands","ES|Spain","LK|Sri Lanka","SD|Sudan","SR|Suriname",
+"SJ|Svalbard And Jan Mayen","SZ|Swaziland","SE|Sweden","CH|Switzerland","SY|Syrian Arab Republic",
+"TW|Taiwan, Province Of China","TJ|Tajikistan","TZ|Tanzania, United Republic Of","TH|Thailand","TG|Togo",
+"TK|Tokelau","TO|Tonga","TT|Trinidad And Tobago","TN|Tunisia","TR|Turkey","TM|Turkmenistan",
+"TC|Turks And Caicos Islands","TV|Tuvalu","UG|Uganda","UA|Ukraine","AE|United Arab Emirates",
+"GB|United Kingdom","US|United States","UM|United States Minor Outlying Islands","UY|Uruguay",
+"UZ|Uzbekistan","VU|Vanuatu","VE|Venezuela","VN|Viet Nam","VG|Virgin Islands, British",
+"VI|Virgin Islands, U.s.","WF|Wallis And Futuna","EH|Western Sahara","YE|Yemen","ZM|Zambia","ZW|Zimbabwe" ];
 
 
 (function($) {
@@ -65,6 +65,7 @@ var countries = [
         login: function(username, password){
             if ( users[ username ] === password ){
                 this.username = username;
+                this.role = username;
                 this.password = password;
                 this.token = 'FAKE TOKEN';
                 return true;
@@ -374,13 +375,14 @@ var countries = [
         /* reviewer templates */
         
         'reviewer/index': function(){
-            return new Template({
+            var t = new Template({
                 url: './reviewer/index.html'
             });
+            return t;
         },
         'reviewer/activity-log': function(){
             
-             var users = [
+            var users = [
             'user1', 'user2', 'user3', 'user4'  
             ];
             
@@ -404,9 +406,25 @@ var countries = [
         },
         'reviewer/surveys': function(){
             // TODO use template vars
-            return new Template({
+            var t = new Template({
                 url: './reviewer/surveys.html'
+            }); 
+            t.bind('load', function( el ){
+                el.find('#viewBtn').click(function(){
+                    // TODO refactor, better paging system
+                    el.empty();
+                    var model = new Survey;
+                    var survey = new SurveyPage({
+                        model:model
+                    });
+                    
+                    survey.bind('load', function( ){
+                        el.append( survey.el );
+                    });
+                    survey.render();
+                });
             });
+            return t;
         },
         'reviewer/export': function(){
             // TODO use template variables
@@ -429,7 +447,12 @@ var countries = [
             this.id =  Math.random().toString(36).substring(7);
             var text = $('<textarea></textarea>');
             text.attr('class', 'texteditor');
-            text.attr('cols', '80');
+            if ( App.user.role != 'user'){
+                text.attr('disabled', 'disabled');
+                text.attr('value', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+                text.attr('class', 'texteditor span8');
+            }
+            text.attr('cols', '160');
             text.attr('rows', '10');
             text.attr('id', this.id);
             text.attr('name', this.id);
@@ -448,11 +471,37 @@ var countries = [
               
             var control = $('<p></p>');
             control.attr('class', 'pull-right');  
-            control.append( saveBtn );     
+            if ( App.user.role == 'user'){
+                control.append( saveBtn );     
+            }
+            
             this.el.append( control );
             this.el.append('<br/><br/>');
             this.el.append(text);
             
+            if ( App.user.role == 'reviewer' ){
+                var self = this;
+                
+                var feedInput = $('<textarea></textarea>');
+                feedInput.addClass('span8');
+                
+                this.el.append( feedInput );
+                var feedBtn = $('<a>Add Feedback</a>');
+                feedBtn.addClass('btn btn-primary btn-small pull-right');
+                feedBtn.click( function(){
+                    var text = feedInput.val();
+                    var feed = $('<div></div>');
+                    feed.addClass('alert alert-block');
+                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
+                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');     
+                    self.el.append(feed);
+                    feedInput.val('');
+                });
+                this.el.append( feedBtn );
+                this.el.append('<br/><br/>');
+            }
+            
+            // TODO create superclass in commod for tables and textareas
             if ( this.json.feedbacks ){
                 var self = this;
                 // add feedbacks
@@ -465,6 +514,7 @@ var countries = [
                     self.el.append(feedback);
                 });               
             }
+            
 
         },
         render: function($super){
@@ -551,7 +601,10 @@ var countries = [
                 var control = $('<p></p>');
                 control.attr('class', 'pull-right');
                 
-                control.append( saveBtn );
+                if ( App.user.role == 'user'){
+                    control.append( saveBtn );
+                }
+                
                 
                 this.el.append( control );
 
@@ -574,7 +627,10 @@ var countries = [
                     tbody.append( row );
                     row.append( $.map(options.columns, function( column ){
                         var cell = $('<td></td>');
-                        cell.addClass('editable');
+                        if ( App.user.role == 'user'){ 
+                            cell.addClass('editable');
+                        }
+                        
                         cell.click(function(){
                             if ( cell.hasClass('editable') ){
                                 cell.removeClass("editable");
@@ -594,6 +650,9 @@ var countries = [
                             }
                             return false;
                         });
+                                        
+                        
+                       
                         cell.append('&nbsp;');
                         return cell;
                     }));       
@@ -618,7 +677,12 @@ var countries = [
                 var control = $('<p></p>');
                 control.attr('class', 'pull-right');
                 
-                control.append( saveBtn );
+                if ( App.user.role == 'user'){ 
+                    control.append( saveBtn );
+                } else {
+                    addBtn.attr('disabled', 'disabled');
+                }
+                
                 control.append( addBtn );
                 
                 this.el.append( control );
@@ -626,6 +690,30 @@ var countries = [
             
                       
             this.el.append(table);
+ 
+            // TODO refactor: superclass for both textarea and table
+ 
+            if ( App.user.role == 'reviewer' ){
+                var self = this;
+                
+                var feedInput = $('<textarea></textarea>');
+                feedInput.addClass('span8');
+                
+                this.el.append( feedInput );
+                var feedBtn = $('<a>Add Feedback</a>');
+                feedBtn.addClass('btn btn-primary btn-small pull-right');
+                feedBtn.click( function(){
+                    var text = feedInput.val();
+                    var feed = $('<div></div>');
+                    feed.addClass('alert alert-block');
+                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
+                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');     
+                    self.el.append(feed);
+                    feedInput.val('');
+                });
+                this.el.append( feedBtn );
+                this.el.append('<br/><br/>');
+            }
  
             if ( this.json.feedbacks ){
                 var self = this;
