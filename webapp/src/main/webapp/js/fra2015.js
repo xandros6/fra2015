@@ -80,7 +80,8 @@
             this.el = $('<div></div>');
             this.events = {
                 'load': [],
-                'click':[]
+                'click':[],
+                'change':[]
             };
         },
         render: function(){
@@ -88,14 +89,20 @@
             return this;
         },
         trigger: function( event, params ){
+            // console.log('trigger event ' + event);
             var handlers = this.events[event];
             for (var i=0; i<handlers.length; i++){
                 var handler = handlers[i];
+                // console.log( handler);
                 handler.call( this, this.el, params );
             }
         },
         bind: function(event, handler){
             this.events[event].push( handler );
+        },
+        unbind: function(event, handler){
+            var index = this.events[event].indexOf(handler);
+            this.events[event].splice(index, 1);
         }
     });
 
@@ -180,7 +187,21 @@
             $super();
             this.container = options.container;
             this.tabs = options.tabs;
+         
+            var self = this;
+            $.each( this.tabs, function(index, tab){
+                tab.bind('load', function(elem){
+                    self.el.find('#tabContent').empty();
+                    self.el.find('#tabContent').append( elem );
+                    self.trigger('change', elem);
+                    
+               
+                    
+                    
+                });
+            });
         },
+            
         render: function($super){
             var self = this;
             var selectionHandler = function( index ){
@@ -197,7 +218,7 @@
                 }
                 self.trigger('load', self.el);
             });
-            this.container.render()
+            this.container.render();
             $super();
             return this;
         },
@@ -208,12 +229,12 @@
             var tab = this.el.find('.tab')[ index ];
             this.el.find(tab).parent().attr('class', 'active');
             // display tab
-            this.el.find('#tabContent').empty();
-            var self = this;
-            this.tabs[ index ].bind('load', function(elem){
+            // this.el.find('#tabContent').empty();
+            // var self = this;
+            /*this.tabs[ index ].bind('load', function(elem){
                 self.el.find('#tabContent').append( elem );
-                self.trigger('load');
-            });
+                self.trigger('change', elem);
+            });*/
             this.tabs[ index ].render();
             
         }
@@ -333,18 +354,18 @@
             text.attr('rows', '10');
             text.attr('id', this.id);
             text.attr('name', this.id);
-            // text.ckeditor();
             this.el.append('<h4>' + options.title + '</h4>');
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }
             var saveBtn = $('<a>Save</a>');
+            saveBtn.attr('id', 'saveBtn');
             saveBtn.attr('href', '#');
             saveBtn.attr('class', 'btn btn-mini btn-primary');
-            saveBtn.click(function(evt){
+            /*saveBtn.click(function(evt){
                 alert('Saved!');
                 return false;
-            });
+            });*/
               
             var control = $('<p></p>');
             control.attr('class', 'pull-right');  
@@ -369,9 +390,16 @@
         },
         render: function($super){
             $super();
-            // CKEDITOR.replace( this.id );
+            this.addEvents();
             this.trigger('load');
             return this;
+        },
+        addEvents: function(){
+            this.el.find('#saveBtn').click(function(evt){
+                alert('Saved!');
+                return false;
+            });
+
         }
     });
     
@@ -389,6 +417,8 @@
             
             var table = $('<table></table>');
             table.attr('class', 'table table-bordered table-hover table-condensed');
+            
+            // TODO create two different type of table
             
             if ( options.rows && options.rows.length>0){
                 var head = $('<thead></thead>').append('<tr></tr>'); //!
@@ -434,10 +464,10 @@
                 var saveBtn = $('<a>Save</a>');
                 saveBtn.attr('href', '#');
                 saveBtn.attr('class', 'btn btn-mini btn-primary');
-                saveBtn.click(function(evt){
+                /*saveBtn.click(function(evt){
                     alert('Saved!');
                     return false;
-                });
+                });*/
               
                 var control = $('<p></p>');
                 control.attr('class', 'pull-right');
@@ -457,48 +487,14 @@
                     return $('<th></th>').append(column);
                 }));
                 table.append( head );
-                // create an empty row
                 var tbody = $('<tbody></tbody>');
-                var row = $('<tr></tr>');
-                tbody.append( row );
-                // TODO refactor
-                row.append( $.map(options.columns, function( column ){
-                    
-                    var cell = $('<td></td>')
-                    cell.addClass('editable');
-                    cell.click(function(){
-                        if ( cell.hasClass('editable') ){
-                            cell.removeClass("editable");
-                            cell.addClass("editing");
-                            var text = cell.html();
-                            cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
-                            cell.find('.celleditor').blur( function(){
-                                if ( cell.hasClass('editing') ){
-                                    cell.removeClass("editing");
-                                    cell.addClass("editable");
-                                    var text = cell.find(".celleditor").attr('value');
-                                    cell.html( text );
-                                }
-                                return false;  
-                            });
-                            cell.find('.celleditor').focus();
-                        }
-                        return false;
-                    });
-                    cell.append('&nbsp;');
-                    return cell;
-                }));
                 table.append( tbody );
                 
-                // button to add new row to table
-                var addBtn = $('<a>Add row</a>');
-                addBtn.attr('href', '#');
-                addBtn.attr('class', 'btn btn-mini');
-                addBtn.click(function(evt){
+                this.addEmptyRow = function(){
                     var row = $('<tr></tr>');
                     tbody.append( row );
                     row.append( $.map(options.columns, function( column ){
-                        var cell = $('<td></td>')
+                        var cell = $('<td></td>');
                         cell.addClass('editable');
                         cell.click(function(){
                             if ( cell.hasClass('editable') ){
@@ -521,17 +517,24 @@
                         });
                         cell.append('&nbsp;');
                         return cell;
-                    }));
-                    return false;
-                });
+                    }));       
+                    return row;
+                };
+                
+                // create an empty row
+                this.addEmptyRow();
+                
+                // button to add new row to table
+                var addBtn = $('<a>Add row</a>');
+                addBtn.attr('id', 'addBtn');
+                addBtn.attr('href', '#');
+                addBtn.attr('class', 'btn btn-mini');
                 
                 var saveBtn = $('<a>Save</a>');
+                saveBtn.attr('id', 'saveBtn');
                 saveBtn.attr('href', '#');
                 saveBtn.attr('class', 'btn btn-mini btn-primary');
-                saveBtn.click(function(evt){
-                    alert('Saved!');
-                    return false;
-                });
+               
               
                 var control = $('<p></p>');
                 control.attr('class', 'pull-right');
@@ -562,9 +565,47 @@
         },
         render: function($super){
             $super();
+            
+            this.addEvents();
+            
             this.trigger('load');
             return this;
-        }   
+        },
+        
+        addEvents: function(){
+            
+            var table = this;
+            this.el.find('#saveBtn').click(function(evt){
+                alert('Saved!');
+                return false;
+            });
+            this.el.find('#addBtn').click(function(evt){
+                table.addEmptyRow();
+                return false;
+            });
+            
+            this.el.find('.editable').click(function(){
+                var cell = $(this);
+                if ( cell.hasClass('editable') ){
+                    cell.removeClass("editable");
+                    cell.addClass("editing");
+                    var text = cell.html();
+                    cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                    cell.find('.celleditor').blur( function(){
+                        if ( cell.hasClass('editing') ){
+                            cell.removeClass("editing");
+                            cell.addClass("editable");
+                            var text = cell.find(".celleditor").attr('value');
+                            cell.html( text );
+                        }
+                        return false;  
+                    });
+                    cell.find('.celleditor').focus();
+                }
+                return false;
+            });             
+            
+        }
     });
     
     var Section = Class.create(View, {
@@ -575,11 +616,8 @@
             this.items = options.items;
             this.el = $('<section></section>');
             this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
-        },
-        render: function($super, depth, num){
-            $super();
             
-            this.el.empty();
+            var depth = 2; // TOFIX
           
             this.el.append( this.createTitle(this.options.title, depth) );
             if ( this.options.description ){
@@ -588,21 +626,29 @@
             
             var count = 0, length = this.options.items.length;
             var el = this.el, section=this;
-            if ( this.options.items.length === 0 ){
-                section.trigger('load');
-            } else {
+            if ( this.options.items.length > 0 ){
                 $.each( this.options.items, function (index, item){
                     item.bind('load', function(elem){
                         el.append( elem );
                         count++;
                         if (count >= length){
-                            section.trigger('load');
+                           // section.trigger('load');
                         }
                     });               
-                    item.render( depth + 1, num + '.' + (index+1))           
+                           
                 });          
             }
+        },
+        render: function($super, depth, num){
+            $super();
+            if ( this.options.items.length > 0 ){
+                $.each( this.options.items, function (index, item){
+                    item.render( depth + 1, num + '.' + (index+1));    
+                });
+            } 
+            this.trigger('load');
             
+                
             return this;
         },
         createTitle: function( title, depth ){
@@ -643,8 +689,8 @@
     var Question = Class.create(Section, {
         
         initialize:function( $super, options ){
-            $super( options );
             this.number = options.number;
+            $super( options );
             
         },
  
@@ -779,15 +825,16 @@
                         var text = $('<div></div>');
                         text.append( (qnum+1) + '. ' + obj.description );
                         li.append( text );
+                        text.addClass('tab');
                         
-                        li.click(
+                        /*li.click(
                             (function(num){
                                 return function(){
-                                    ul.find('.active').removeClass('active');
-                                    li.addClass('active');
+                                    // ul.find('.active').removeClass('active');
+                                    // li.addClass('active');
                                     view.trigger('click', num);
                                 }
-                            }).call(this, qnum++));
+                            }).call(this, qnum++));*/
                         depth++;
                         
                         fc = 0;
@@ -938,19 +985,26 @@
                     container: cView,
                     tabs: questions
                 });
-                tabPage.bind('load', function( el){
-                    page.el = el;
-                    page.trigger('load', el);
-                });
-                tabPage.render();
-                cView.trigger('load', cView.el);
-                tabPage.select(0);
                 
+                // add nav bar to tab page
                 var nav = model.createNavBar();
                 left.append( nav.el );
                 nav.bind('click', function( el, index ){
                     tabPage.select( index );
                 });
+                
+                tabPage.bind('load', function( el){
+                    page.el = el;
+                    page.trigger('load', el);
+                });
+                tabPage.bind('change', function(el){
+                    page.trigger('change');
+                });
+                tabPage.render();
+                cView.trigger('load', cView.el);
+                tabPage.select(0);
+                
+               
             });
             this.model = model;
             
@@ -1059,7 +1113,11 @@
     this.ContributorPage = Class.create(TabPage, {
         initialize:function( $super ){
             
+            var page = this;
             var survey = new SurveyPage;
+            survey.bind('change', function(){
+                page.trigger('change');
+            });
             
             var summary = new Summary;
             $super( {

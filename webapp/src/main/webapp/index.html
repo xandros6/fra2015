@@ -91,27 +91,36 @@
                             if ( page ){
                                 $('#main').empty();
                                 
-                                page.bind('load', function(el){
+                                var loading = function(el){
+                                    console.log('load');
                                     
                                     $('#main').append( el );
                                     
-                                    // TOFIX hack
-                                    // search the page for texteditor elements
-                                    // activate ckeditor for each one
-                                    var editors = $('.texteditor');
-                                    $.each( editors, function(index, elem){
-                                        var editor = $( elem );
-                                        
-                                        editor.ckeditor({ 
-                                            // see http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Toolbar
-                                            toolbar: 'MyToolbar'
-                                        });      
-                                        
-                                        editor.removeClass('texteditor');
-                                        
-  
-                                    });                 
                                     
+                                    
+                                    // load just once
+                                    page.unbind('load', loading);
+                                };
+                                
+                                page.bind('load', loading);
+                                page.bind('change', function(){
+                                     $( 'textarea.texteditor').each( function() {
+                                            
+                                            
+                                        var id = $(this).attr('id');    
+                                        var instance = CKEDITOR.instances[ id ];
+                                        if (instance){
+                                            CKEDITOR.remove( instance );
+                                            $('#cke_' + id).remove();
+                                        }
+                                        
+                                        CKEDITOR.replace( id, { 
+                                            toolbar: 'MyToolbar'
+                                        } );
+                                            
+                                       
+
+                                    });
                                 });
                                 
                                 page.render();
