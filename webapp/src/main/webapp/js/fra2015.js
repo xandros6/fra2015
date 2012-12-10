@@ -835,6 +835,7 @@
                                     view.trigger('click', num);
                                 }
                             }).call(this, qnum++));*/
+                        qnum++;
                         depth++;
                         
                         fc = 0;
