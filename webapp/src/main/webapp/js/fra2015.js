@@ -564,7 +564,9 @@ var countries = [
                     row.append( '<td>'+ options.rows[i] + '</td>' );
                     row.append( $.map(options.columns, function( column ){
                         var cell = $('<td></td>')
-                        cell.addClass('editable');
+                        if ( App.user.role == 'user'){ 
+                            cell.addClass('editable');
+                        }
                         cell.click(function(){
                             if ( cell.hasClass('editable') ){
                                 cell.removeClass("editable");
@@ -988,11 +990,16 @@ var countries = [
                     case 'question':
                         var li = $('<li></li>');
                         ul.append( li );
-   
+                        
+                        var a = $('<a></a>');
+                        a.attr('href', '#');
+                        a.addClass('tab');
+                        li.append( a );
+                        
                         var text = $('<div></div>');
                         text.append( (qnum+1) + '. ' + obj.description );
-                        li.append( text );
-                        text.addClass('tab');
+                        a.append( text );
+                        
                         
                         /*li.click(
                             (function(num){
