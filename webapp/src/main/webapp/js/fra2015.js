@@ -72,7 +72,11 @@
         },
         bind: function(event, handler){
             this.events[event].push( handler );
-        }      
+        },
+        unbind: function(event, handler){
+            var index = this.events[event].indexOf(handler);
+            this.events[event].splice(index, 1);
+        }
     });
     
     var View = Class.create({
@@ -632,7 +636,7 @@
                         el.append( elem );
                         count++;
                         if (count >= length){
-                           // section.trigger('load');
+                        // section.trigger('load');
                         }
                     });               
                            
@@ -943,11 +947,11 @@
     });
     
     var SurveyPage = Class.create(Page, {
-        initialize:function( $super ){
+        initialize:function( $super, options ){
             $super();
             
             var page = this;
-            var model = new Survey
+            var model = options.model;
             // var view = new SurveyView( model );
             
             var container = $('<div></div>');
@@ -970,9 +974,9 @@
             container.append( row );
             
             
-            
-            model.bind('load', function( context ){
+            this.loading = function(  ){
                 
+                page.model.unbind('load', page.loading);
                             
                 var cView = new View;
                 cView.el = container;
@@ -1005,122 +1009,113 @@
                 cView.trigger('load', cView.el);
                 tabPage.select(0);
                 
-               
-            });
+                
+            };
+            
+            
             this.model = model;
             
         },
         render: function($super){
             $super();
+            this.model.bind('load', this.loading);
             this.model.load();
         } 
     });
  
     
     var Summary = Class.create(View, {
-        initialize:function( $super ){
+        initialize:function( $super, options){
             $super();            
+            this.model = options.model;
+            var self = this;
+            this.loading = function(){
+                
+                self.model.unbind('load', self.loading);
+                
+                var table = $('<table></table>');
+                table.addClass('table table-bordered table-hover table-condensed');
+                var thead = $('<thead></thead>');
+                var trow = $('<tr></tr>');
+                thead.append( trow );
+                trow.append('<th>Number</th>');
+                trow.append('<th>Question</th>');
+                trow.append('<th>State</th>');
+                table.append( thead );
+                var breadcrumbs = new Array;
+                var section = null;
+                    
+                var builder = function(index, obj){
+                        
+                    var parent = '';
+                    $.each( breadcrumbs, function(id, item){
+                        if (id>0){
+                            parent += '.';
+                        }
+                        parent += item;
+                    });
+                     
+                    switch( obj.type ){
+                        case 'textarea':
+                        case 'table':
+                            // TODO count how many are incomplete
+                            break;
+                        case 'survey':
+                            $.each( obj.items, builder );
+                            break;
+                        case 'section':
+                            if (breadcrumbs.length===0){ // top level sections
+                                section = obj.title;
+                            }
+                            breadcrumbs.push( (index+1) );
+                            $.each( obj.items, builder );
+                            breadcrumbs.pop( );
+                            break;
+                        case 'question':
+                             var row = $('<tr></tr>');
+                             row.append('<td>' + parent + '.'+ (index+1) + '</td>');
+                             row.append('<td>' + obj.description + '</td>');
+                             row.append('<td> '+ Math.floor(Math.random()*101) +'% completed</td>'); // TODO
+                             table.append(row);
+                             break;
+                        default:
+                            throw "parsing error: " + obj.type + " is not a valid type.";
+                    }
+                     
+                };
+                    
+                builder(0, self.model.survey);
+                    
+                self.el.attr('class', 'container');
+                self.el.empty();
+                self.el.append(table);
+                    
+                self.trigger('load');
+            };
+            
         },     
         render: function($super){
             $super(); 
-            var self = this;
-            $.ajax({
-                type:'GET',
-                dataType:'text',
-                url:'./resources/survey.json',
-                success: function(data){
-                    // TODO refactor
-                    // use a model component (MVC)
-                    var obj;
-                    try{
-                        obj = $.parseJSON( data ); 
-                    } catch (e){
-                        throw 'cannot parse ./resources/survey.json: ' + e;
-                    }
-                    if (!obj.items ){
-                        throw 'parsing error: survey has no property "items".';
-                    }
-                    
-                    var table = $('<table></table>');
-                    table.addClass('table table-bordered table-hover table-condensed');
-                    var thead = $('<thead></thead>');
-                    var trow = $('<tr></tr>');
-                    thead.append( trow );
-                    trow.append('<th>Number</th>');
-                    trow.append('<th>Section</th>');
-                    trow.append('<th>State</th>');
-                    table.append( thead );
-                    
-                    // populate rows
-                    
-                    var breadcrumbs = new Array;
-                    var section = null;
-                    
-                    var builder = function(index, elem){
-                        
-                        var parent = '';
-                        $.each( breadcrumbs, function(id, item){
-                            if (id>0){
-                                parent += '.';
-                            }
-                            parent += item;
-                        });
-                     
-                        switch( elem.type ){
-                            case 'textarea':
-                            case 'table':
-                                var row = $('<tr></tr>');
-                                row.append('<td>' + parent + '.'+ (index+1) + '</td>');
-                                row.append('<td>' + section + '</td>');
-                                row.append('<td class="error">incomplete</td>'); // TODO
-                                table.append( row );
-                                break;
-                            case 'survey':
-                                if (!elem.items){
-                                    throw 'parsing error: section ' + elem.title + ' has no property "items".';
-                                }
-                                $.each( elem.items, builder );
-                                break;
-                            case 'section':
-                                if (!elem.items){
-                                    throw 'parsing error: section ' + elem.title + ' has no property "items".';
-                                }
-                                if (breadcrumbs.length===0){ // top level sections
-                                    section = elem.title;
-                                }
-                                breadcrumbs.push( (index+1) );
-                                $.each( elem.items, builder );
-                                breadcrumbs.pop( );
-                                break;
-                            default:
-                                throw "parsing error: " + elem.type + " is not a valid type.";
-                        }
-                     
-                    };
-                    
-                    builder(0, obj);
-                    
-                    self.el.attr('class', 'container');
-                    self.el.empty();
-                    self.el.append(table);
-                    
-                    self.trigger('load');
-                   
-                }
-            });
+            this.model.bind('load', this.loading);
+            this.model.load();
         }
     });
  
     this.ContributorPage = Class.create(TabPage, {
         initialize:function( $super ){
             
+            var model = new Survey;
             var page = this;
-            var survey = new SurveyPage;
+            var survey = new SurveyPage({
+                model:model
+            });
             survey.bind('change', function(){
                 page.trigger('change');
             });
             
-            var summary = new Summary;
+            var summary = new Summary({
+                model:model
+            });
             $super( {
                 container: Templates.build('contributor/index'),
                 tabs:[
