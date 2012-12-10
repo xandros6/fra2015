@@ -1156,6 +1156,7 @@ var countries = [
                 
                 // add nav bar to tab page
                 var nav = model.createNavBar();
+                left.empty();
                 left.append( nav.el );
                 nav.bind('click', function( el, index ){
                     tabPage.select( index );
