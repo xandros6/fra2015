@@ -547,10 +547,33 @@ var countries = [
             var table = $('<table></table>');
             table.attr('class', 'table table-bordered table-hover table-condensed');
             
-            // TODO create two different type of table
+            // TODO create three different type of table?
             
-            if ( options.rows && options.rows.length>0){
-                var head = $('<thead></thead>').append('<tr></tr>'); //!
+            if ( options.data && options.header ){
+                
+                var head = $('<thead></thead>'); 
+                var row = $('<tr></tr>');
+                head.append( row );
+                row.append( $.map(options.header, function( column ){
+                    return $('<th></th>').append(column);
+                }));
+                table.append( head );
+                var tbody = $('<tbody></tbody>');
+                table.append( tbody );
+                
+                
+                
+                
+                $.each( options.data, function(index, cells){
+                    var row = $('<tr></tr>');
+                    row.append( $.map(cells, function( cell ){
+                        return $('<td></td>').append(cell);
+                    }));
+                    table.append(row);
+                });
+                
+            } else if ( options.rows && options.rows.length>0){
+                var head = $('<thead></thead>').append('<tr></tr>'); 
                 head.append('<th></th>'); // empty cell above row column
                 head.append( $.map(options.columns, function( column ){
                     return $('<th></th>').append(column);
@@ -1063,6 +1086,8 @@ var countries = [
                         columns: obj.columns,
                         rows: obj.rows,
                         feedbacks: obj.feedbacks,
+                        data: obj.data,
+                        header: obj.header,
                         json:obj
                     });
                 },
