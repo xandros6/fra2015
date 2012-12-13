@@ -776,6 +776,7 @@ var countries = [
                 
                 this.el.append(table); 
                 this.el.append( control );
+                 this.el.append('<br/><br/>');
 
             } else {
                 
@@ -854,6 +855,7 @@ var countries = [
                 this.el.append(table); 
                 
                 this.el.append( control );
+                 this.el.append('<br/><br/>');
             }
             
                       
