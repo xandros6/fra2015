@@ -344,7 +344,8 @@ var countries = [
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
-                });            
+                });  
+                el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
             });
             return t;
         },
@@ -383,7 +384,8 @@ var countries = [
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
-                });            
+                }); 
+                 el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
             });
             return t;
         },
@@ -409,6 +411,7 @@ var countries = [
                 el.find( "#users" ).autocomplete({
                     source: users
                 });
+                el.find('#userField').val( App.user.username + ' (' + App.user.role +')' );
             });
             return t;
         },
@@ -448,7 +451,8 @@ var countries = [
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
-                });            
+                });  
+                 el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
             });
             return t;
             return t;
@@ -530,6 +534,54 @@ var countries = [
             text.attr('id', this.id);
             text.attr('name', this.id);
             this.el.append('<h4>' + options.title + '</h4>');
+      
+            var feedDiv = $('<div></div>');
+            
+            
+      
+            // TODO create superclass in commod for tables and textareas
+            if ( this.json.feedbacks ){
+                var self = this;
+                // add feedbacks
+                $.each( this.json.feedbacks, function(index, feed){
+                    var feedback = $('<div></div>');
+                    feedback.addClass('alert alert-block');
+                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
+                
+                    /// self.el.append('<br/>');
+                    self.el.append(feedback);
+                });               
+            }
+            
+            this.el.append( feedDiv );
+
+            if ( App.user.role == 'reviewer' ){
+                var self = this;
+                
+                var feedInput = $('<textarea></textarea>');
+                feedInput.addClass('span8');
+                
+                this.el.append( feedInput );
+                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
+                feedBtn.addClass('btn btn-primary btn-small pull-right');
+                feedBtn.click( function(){
+                    var text = feedInput.val();
+                    var feed = $('<div></div>');
+                    feed.addClass('alert alert-block');
+                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
+                    feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');     
+                    feedDiv.append(feed);
+                    feedInput.val('');
+                });
+                this.el.append( feedBtn );
+                this.el.append( '<br/><br/>' );
+            }
+            
+   
+            
+            
+            
+            
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }
@@ -548,45 +600,13 @@ var countries = [
                 control.append( saveBtn );     
             }
             
-            this.el.append( control );
-            this.el.append('<br/><br/>');
             this.el.append(text);
+            this.el.append('<br/><br/>');
+            this.el.append( control );
             
-            if ( App.user.role == 'reviewer' ){
-                var self = this;
-                
-                var feedInput = $('<textarea></textarea>');
-                feedInput.addClass('span8');
-                
-                this.el.append( feedInput );
-                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
-                feedBtn.addClass('btn btn-primary btn-small pull-right');
-                feedBtn.click( function(){
-                    var text = feedInput.val();
-                    var feed = $('<div></div>');
-                    feed.addClass('alert alert-block');
-                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');     
-                    self.el.append(feed);
-                    feedInput.val('');
-                });
-                this.el.append( feedBtn );
-                this.el.append('<br/><br/>');
-            }
             
-            // TODO create superclass in commod for tables and textareas
-            if ( this.json.feedbacks ){
-                var self = this;
-                // add feedbacks
-                $.each( this.json.feedbacks, function(index, feed){
-                    var feedback = $('<div></div>');
-                    feedback.addClass('alert alert-block');
-                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
-                
-                    self.el.append('<br/>');
-                    self.el.append(feedback);
-                });               
-            }
+            
+
             
 
         },
@@ -612,13 +632,62 @@ var countries = [
             this.json = options.json;
             
             this.el.append('<h4>' + options.title + '</h4>');
+            
+            
+            // TODO refactor: superclass for both textarea and table
+ 
+            var feedDiv = $('<div></div>');
+            
+            if ( this.json.feedbacks ){
+                var self = this;
+                // add feedbacks
+                $.each( this.json.feedbacks, function(index, feed){
+                    var feedback = $('<div></div>');
+                    feedback.addClass('alert alert-block');
+                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' '+ $.t('says') +': "' + feed.text +'"');
+                
+                    // self.el.append('<br/>');
+                    feedDiv.append(feedback);
+                });               
+            }
+            
+            this.el.append( feedDiv );
+ 
+            if ( App.user.role == 'reviewer' ){
+                var self = this;
+                
+                var feedInput = $('<textarea></textarea>');
+                feedInput.addClass('span8');
+                
+                this.el.append( feedInput );
+                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
+                feedBtn.addClass('btn btn-primary btn-small pull-right');
+                feedBtn.click( function(){
+                    var text = feedInput.val();
+                    var feed = $('<div></div>');
+                    feed.addClass('alert alert-block');
+                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
+                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');     
+                    feedDiv.append(feed);
+                    feedInput.val('');
+                });
+                this.el.append( feedBtn );
+                this.el.append('<br/><br/>');
+            }
+ 
+  
+            
+            
+            
+            
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }  
             
             
             var table = $('<table></table>');
-            table.attr('class', 'table table-bordered table-hover table-condensed');
+            table.attr('class', 'table table-bordered table-hover table-condensed table-striped');
+            
             
             // TODO create three different type of table?
             
@@ -644,6 +713,8 @@ var countries = [
                     }));
                     table.append(row);
                 });
+                
+                this.el.append(table); 
                 
             } else if ( options.rows && options.rows.length>0){
                 var head = $('<thead></thead>').append('<tr></tr>'); 
@@ -703,7 +774,7 @@ var countries = [
                     control.append( saveBtn );
                 }
                 
-                
+                this.el.append(table); 
                 this.el.append( control );
 
             } else {
@@ -776,56 +847,17 @@ var countries = [
                 control.attr('class', 'pull-right');
                 
                 if ( App.user.role == 'user'){ 
+                    control.append( addBtn );
                     control.append( saveBtn );
-                } else {
-                    addBtn.attr('disabled', 'disabled');
-                }
+                } 
                 
-                control.append( addBtn );
+                this.el.append(table); 
                 
                 this.el.append( control );
             }
             
                       
-            this.el.append(table);
- 
-            // TODO refactor: superclass for both textarea and table
- 
-            if ( App.user.role == 'reviewer' ){
-                var self = this;
-                
-                var feedInput = $('<textarea></textarea>');
-                feedInput.addClass('span8');
-                
-                this.el.append( feedInput );
-                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
-                feedBtn.addClass('btn btn-primary btn-small pull-right');
-                feedBtn.click( function(){
-                    var text = feedInput.val();
-                    var feed = $('<div></div>');
-                    feed.addClass('alert alert-block');
-                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');     
-                    self.el.append(feed);
-                    feedInput.val('');
-                });
-                this.el.append( feedBtn );
-                this.el.append('<br/><br/>');
-            }
- 
-            if ( this.json.feedbacks ){
-                var self = this;
-                // add feedbacks
-                $.each( this.json.feedbacks, function(index, feed){
-                    var feedback = $('<div></div>');
-                    feedback.addClass('alert alert-block');
-                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' '+ $.t('says') +': "' + feed.text +'"');
-                
-                    self.el.append('<br/>');
-                    self.el.append(feedback);
-                });               
-            }
-
+           
  
         },
         render: function($super){
