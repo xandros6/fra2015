@@ -69,7 +69,27 @@ body {
 
 /* Sidenav for Docs
 -------------------------------------------------- */
+.nav-header {
+	padding: 0px 15px 0px 0px;
+	color:#666;
+}
+.table th,.table td {
+  border-top: 1px solid #AAAAAA;
+  border-left: 1px solid #AAAAAA;
+  
+}
+.table-bordered {
+	border: 1px solid #AAAAAA;
+	border-left: 0;
+}	
+.table.table-bordered thead th{
+	background:lightgray;
+	
+}
 
+.nav-list > li > a {
+padding: 0px 15px;
+}
 
 
 /*.bs-docs-sidenav {
@@ -181,9 +201,11 @@ body {
 -------------------------------------------------- */
 
 /* padding for in-page bookmarks and fixed navbar */
+/*
 section {
   padding-top: 30px;
 }
+*/
 section > .page-header,
 section > .lead {
   color: #5a5a5a;
