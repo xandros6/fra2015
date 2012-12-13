@@ -84,6 +84,18 @@ var countries = [
         listeners: [],
         
         initialize: function(){
+            // load internationalization options
+            $.i18n.init({
+                lng:'en-US',
+                resGetPath: 'locales/__lng__/__ns__.json'
+            }).done(function(){
+                $(document).i18n();
+            });
+            
+            this.events = {
+                'lang': []  
+            };
+            
             this.user = new User;
         },
         
@@ -95,6 +107,24 @@ var countries = [
             for (var i=0; i<this.listeners.length; i++){
                 this.listeners[i].trigger( event );
             }
+        },
+        setLanguage: function( lang ){
+            $.i18n.init({
+                lng:lang
+            }).done(function(){
+                $(document).i18n();
+            });
+            this.trigger('lang');
+        },
+        trigger: function( event ){
+            var handlers = this.events[event];
+            for (var i=0; i<handlers.length; i++){
+                var handler = handlers[i];
+                handler.call( this, this );
+            }
+        },
+        bind: function(event, handler){
+            this.events[event].push( handler );
         }
        
         
@@ -212,6 +242,16 @@ var countries = [
                 ext:'.html'
             }).render();
             this.el.append( html );
+            var el = this.el;
+            this.el.find('#languageSelector')
+            .change( function(){
+                var lang = '';
+                el.find("select option:selected").each(function () {
+                    lang += $(this).attr('value');
+                });
+                App.setLanguage( lang );
+            });
+            this.trigger('load', this.el);
         },
         getLoginButton: function(){
             return this.el.find('#loginBtn');
@@ -293,9 +333,20 @@ var countries = [
         /* contributor templates */
         
         'contributor/index': function(){
-            return new Template({
+            var t = new Template({
                 url: './contributor/index.html'
             });
+            t.bind('load', function(el){
+                el.find('#languageSelector')
+                  .change( function(){
+                    var lang = '';
+                    el.find("select option:selected").each(function () {
+                        lang += $(this).attr('value');
+                    });
+                    App.setLanguage( lang );
+                });            
+            });
+            return t;
         },
         'contributor/survey': function(){
             return new Template({
@@ -321,9 +372,20 @@ var countries = [
         /* admin templates  */
         
         'admin/index': function(){
-            return new Template({
+            var t = new Template({
                 url: './admin/index.html'
             });
+            t.bind('load', function(el){
+                el.find('#languageSelector')
+                  .change( function(){
+                    var lang = '';
+                    el.find("select option:selected").each(function () {
+                        lang += $(this).attr('value');
+                    });
+                    App.setLanguage( lang );
+                });            
+            });
+            return t;
         },
         'admin/activity-log': function(){
             
@@ -378,6 +440,17 @@ var countries = [
             var t = new Template({
                 url: './reviewer/index.html'
             });
+            t.bind('load', function(el){
+                el.find('#languageSelector')
+                  .change( function(){
+                    var lang = '';
+                    el.find("select option:selected").each(function () {
+                        lang += $(this).attr('value');
+                    });
+                    App.setLanguage( lang );
+                });            
+            });
+            return t;
             return t;
         },
         'reviewer/activity-log': function(){
@@ -460,7 +533,7 @@ var countries = [
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }
-            var saveBtn = $('<a>Save</a>');
+            var saveBtn = $('<a>'+ $.t('save') +'</a>');
             saveBtn.attr('id', 'saveBtn');
             saveBtn.attr('href', '#');
             saveBtn.attr('class', 'btn btn-mini btn-primary');
@@ -486,14 +559,14 @@ var countries = [
                 feedInput.addClass('span8');
                 
                 this.el.append( feedInput );
-                var feedBtn = $('<a>Add Feedback</a>');
+                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
                 feedBtn.addClass('btn btn-primary btn-small pull-right');
                 feedBtn.click( function(){
                     var text = feedInput.val();
                     var feed = $('<div></div>');
                     feed.addClass('alert alert-block');
                     feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');     
+                    feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');     
                     self.el.append(feed);
                     feedInput.val('');
                 });
@@ -615,7 +688,7 @@ var countries = [
                     tbody.append( row );
                 }
                 
-                var saveBtn = $('<a>Save</a>');
+                var saveBtn = $('<a>'+ $.t('save') +'</a>');
                 saveBtn.attr('href', '#');
                 saveBtn.attr('class', 'btn btn-mini btn-primary');
                 /*saveBtn.click(function(evt){
@@ -688,12 +761,12 @@ var countries = [
                 this.addEmptyRow();
                 
                 // button to add new row to table
-                var addBtn = $('<a>Add row</a>');
+                var addBtn = $('<a>'+ $.t('add_row') +'</a>');
                 addBtn.attr('id', 'addBtn');
                 addBtn.attr('href', '#');
                 addBtn.attr('class', 'btn btn-mini');
                 
-                var saveBtn = $('<a>Save</a>');
+                var saveBtn = $('<a>'+ $.t('save') +'</a>');
                 saveBtn.attr('id', 'saveBtn');
                 saveBtn.attr('href', '#');
                 saveBtn.attr('class', 'btn btn-mini btn-primary');
@@ -725,7 +798,7 @@ var countries = [
                 feedInput.addClass('span8');
                 
                 this.el.append( feedInput );
-                var feedBtn = $('<a>Add Feedback</a>');
+                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
                 feedBtn.addClass('btn btn-primary btn-small pull-right');
                 feedBtn.click( function(){
                     var text = feedInput.val();
@@ -746,7 +819,7 @@ var countries = [
                 $.each( this.json.feedbacks, function(index, feed){
                     var feedback = $('<div></div>');
                     feedback.addClass('alert alert-block');
-                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
+                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' '+ $.t('says') +': "' + feed.text +'"');
                 
                     self.el.append('<br/>');
                     self.el.append(feedback);
@@ -882,18 +955,20 @@ var countries = [
         
         initialize:function( $super, options ){
             this.number = options.number;
+            this.description = options.description;
             $super( options );
             
         },
  
         createTitle: function( title ){
-            return html = $('<div class="page-header"><h1> Question #'+ this.number +'</h1></div>');
+            return html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.description + '</h1></div>');
         },
         createDescription: function(description ){
-            var html = $('<p></p>');
+            /*var html = $('<p></p>');
             html.attr('class', 'lead');
             html.append( description );
-            return html;          
+            return html;*/
+            return '';
         }    
         
     });
@@ -944,11 +1019,17 @@ var countries = [
         
         initialize: function($super){
             $super();
+            var self = this;
+            App.bind('lang', function(){
+                    self.survey = null;
+                    self.load();
+            });
         },
         
         isEmpty: function(){
             return this.survey===undefined || this.survey===null;  
         },
+        
         
         load: function(){
             if ( this.isEmpty() ){
@@ -956,7 +1037,7 @@ var countries = [
                 $.ajax({
                     type:'GET',
                     dataType:'text',
-                    url:'./resources/survey.json',
+                    url:'./resources/'+ $.i18n.lng() +'/survey.json',
                     success: function(data){
                         try{
                             model.survey = $.parseJSON( data ); 
@@ -1023,15 +1104,6 @@ var countries = [
                         text.append( (qnum+1) + '. ' + obj.description );
                         a.append( text );
                         
-                        
-                        /*li.click(
-                            (function(num){
-                                return function(){
-                                    // ul.find('.active').removeClass('active');
-                                    // li.addClass('active');
-                                    view.trigger('click', num);
-                                }
-                            }).call(this, qnum++));*/
                         qnum++;
                         depth++;
                         
@@ -1171,7 +1243,7 @@ var countries = [
             
             this.loading = function(  ){
                 
-                page.model.unbind('load', page.loading);
+                // page.model.unbind('load', page.loading);
                             
                 var cView = new View;
                 cView.el = container;

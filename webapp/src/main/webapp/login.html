@@ -6,22 +6,19 @@
         </div>
         <div class="span4">
             <div class="form-signin">
-                <h2 class="form-signin-heading">Please sign in</h2>
+                <h2 class="form-signin-heading" data-i18n="login_title"></h2>
                 <input id="usernameTextField" type="text" class="input-block-level" placeholder="Username">
                 <input id="passwordTextField" type="password" class="input-block-level" placeholder="Password">
                 <label>
-                    Select your language: <br/>
-                    <select class="input-block-level">
-                        <option>English</option>
-                        <option>French</option>
-                        <option>Spanish</option>
+                    <span data-i18n="login_select"></span>: <br/>
+                    <select id="languageSelector" class="input-block-level">
+                        <option value="en-US">English</option>
+                        <option value="fr-FR">French</option>
+                        <option value="es-ES">Spanish</option>
                     </select>
                 </label>
 
-                <!--<label class="checkbox">
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>-->
-                <a id="loginBtn" href="#" class="btn btn-large btn-primary">Sign in</a>
+                <a id="loginBtn" href="#" class="btn btn-large btn-primary" data-i18n="login_signin"></a>
             </div>
         </div>
 

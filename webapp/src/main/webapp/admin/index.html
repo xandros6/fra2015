@@ -8,16 +8,17 @@
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
-                <li class="active"><a href="#" class="tab">Activity Log</a></li>
-                <li><a href="#" class="tab">Create users</a></li>
-                <li><a href="#" class="tab">Export</a></li>
+                <li class="active"><a href="#" class="tab" data-i18n="toolbar_activity_log">Activity Log</a></li>
+                <li><a href="#" class="tab" data-i18n="toolbar_create_users">Create users</a></li>
+                <li><a href="#" class="tab" data-i18n="toolbar_export">Export</a></li>
             </ul>
             <div class="navbar-form pull-right">
-                <button type="submit" class="logout btn"><i class="icon-off"></i>&nbsp; Logout</button>
-                <select class="language input-small">
-                    <option>English</option>
-                    <option>French</option>
-                    <option>Spanish</option>
+                <button type="submit" class="logout btn">
+                    <i class="icon-off"></i>&nbsp; <span data-i18n="toolbar_logout">Logout</span></button>
+                <select id="languageSelector" class="language input-small">
+                    <option value="en-US">English</option>
+                    <option value="fr-FR">French</option>
+                    <option value="es-ES">Spanish</option>
                 </select>
             </div>
         </div>

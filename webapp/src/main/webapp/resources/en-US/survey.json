@@ -1,6 +1,7 @@
 {
-    "version":"0.1",
+    "version":"0.2",
     "type":"survey",
+    "language":"en-US",
     "items":[
     {
         "type":"section",
@@ -126,28 +127,92 @@
                 "items":[
 
                 {
-                    "type":"table",
-                    "title":"Classification and definitions",
-                    "columns":[
-                    "#", "National class", "Definition"
-                    ]
+                  "type":"table",
+                  "title":"Table 1a",
+                  "description":"Area (1000 hectares)",
+                  "columns": [ "1990", "2000", "2005", "2010", "2015" ],
+                  "rows":[
+                      "Forest", "Other wooded land", "Other land", "of which with tree cover", "Inland body water"
+                  ],
+                  "unit":"1000 ha",
+                  "id":"1a",
+                  "rowIds":[ "1.1", "1.2", "1.3", "1.3.1", "1.4", "1.5"]
+                },
+
+                {
+                  "type":"table",
+                  "title":"Table 1b",
+                  "description":"Annual forest establishment/loss",
+                  "columns": [ "1990", "2000", "2005", "2010", "2015" ],
+                  "rows":[
+                      "Forest expansion", "... of which afforestation", "... of which natural expansion of forest", 
+                      "Deforestation", "... of which human induced",
+                      "Reforestation", "... of which artificial"
+                  ],
+                  "unit":"1000 ha",
+                  "id":"1b",
+                  "rowIds":[ "1.6", "1.6.1", "1.6.2", "1.7", "1.7.1", "1.8", "1.8.1" ]
+                },
+
+                {
+                  "type":"table",
+                  "title":"Table 1c",
+                  "description":"... of which of introduced species)",
+                  "columns": [ "1990", "2000", "2005", "2010", "2015" ],
+                  "rows":[
+                      "Forest expansion", "... of which afforestation", "... of which natural expansion of forest", 
+                      "Deforestation", "... of which human induced",
+                      "Reforestation", "... of which artificial"
+                  ],
+                  "unit":"1000 ha",
+                  "id":"1c",
+                  "rowIds":[ "1.6", "1.6.1", "1.6.2", "1.7", "1.7.1", "1.8", "1.8.1" ]
+                },
+                {
+                  "type":"table",
+                  "title":"Tiers",
+                  "columns":[ "Tier for status", "Tier for reported trend"],
+                  "rows":[
+                      "Forest", "Other wooded land", "Forest expansion", "Deforestation", "Reforestation"
+                  ]
                 },
                 {
                     "type":"table",
-                    "title":"Classification and definitions",
-                    "columns":[
-                    "#", "National class", "Definition"
+                    "title":"Tier criteria",
+                    "header":[ "Category", "Tier for status", "Tier for reported trend"],
+                    "data":[
+                        [
+                            "Forest<br/>Other wooded land<br/>Forest expansion<br/>Deforestation<br/>Reforestation",
+                            "",
+                            ""
+                        ]
                     ]
-                },
-                {
+                }
+
+
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                  {
                     "type":"table",
                     "title":"Comments on reported data",
                     "columns":[
                     "Comments related to data, definitions, etc.", "Comments on reported status and trends"
                     ],
                     "rows":[
-                    "Forest", "Other wooded land", "Other land", "Inland water bodies", "Afforestation", "Reforestation", "Natural expansion", "Deforestation"
+                    "Forest", "Other wooded land", "Other land", 
+                    "Other land with tree cover", "Inland water bodies", 
+                    "Forest expansion", "Reforestation", 
+                    "Deforestation"
                     ]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other general comments to the table"
                 },
                 {
                     "type":"table",
@@ -158,8 +223,7 @@
                     "rows":[
                     "National forest inventory", "Remote sensing survey / mapping", "Other efforts"
                     ]
-                }
-
+                }                  
                 ]
             }
             ]
