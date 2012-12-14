@@ -9,6 +9,7 @@
         "items":[
         {
             "type":"question",
+            "nocount":true,
             "title":"(ES) Report preparation and contact persons",
             "description":"(ES) Introduction",
             "items":[

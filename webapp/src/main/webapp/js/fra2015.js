@@ -995,7 +995,10 @@ var countries = [
         },
  
         createTitle: function( title ){
-            return html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.description + '</h1></div>');
+            if ( this.number ){
+                return html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.description + '</h1></div>');
+            }
+            return html = $('<div class="page-header"><h1>'+ this.description + '</h1></div>');
         },
         createDescription: function(description ){
             /*var html = $('<p></p>');
@@ -1135,10 +1138,15 @@ var countries = [
                         li.append( a );
                         
                         var text = $('<div></div>');
-                        text.append( (qnum+1) + '. ' + obj.description );
+                        
+                        if ( ! obj.nocount ){
+                            text.append( (qnum+1) + '. '  );
+                            qnum++;
+                        }
+                        text.append(obj.description);
                         a.append( text );
                         
-                        qnum++;
+                        
                         depth++;
                         
                         fc = 0;
@@ -1204,14 +1212,25 @@ var countries = [
                     var items = $.map( obj.items, function(item){
                         return builder.createView( item, handlers );
                     });
-                    var view = new Question({
+                    var view = null;
+                    if ( !obj.nocount ){
+                       view = new Question({
                         title: obj.title,
                         description: obj.description,
                         number: (num+1),
                         items: items,
                         json:obj
-                    });
-                    num++;
+                        });
+                        num++; 
+                    } else {
+                        view = new Question({
+                        title: obj.title,
+                        description: obj.description,
+                        items: items,
+                        json:obj
+                        });
+                    }
+                    
                     return view;
                 },   
                 'section': function(obj, handlers){

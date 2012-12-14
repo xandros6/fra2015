@@ -14,6 +14,7 @@
             "items":[
             {
                 "type":"table",
+                "nocount":true,
                 "title":"(FR) Contact persons",
                 "description":"(FR) The present report was prepared by the following person(s)",
                 "columns":[
