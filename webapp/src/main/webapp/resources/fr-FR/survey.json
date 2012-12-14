@@ -9,12 +9,12 @@
         "items":[
         {
             "type":"question",
+            "nocount":true,
             "title":"(FR) Report preparation and contact persons",
             "description":"(FR) Introduction",
             "items":[
             {
                 "type":"table",
-                "nocount":true,
                 "title":"(FR) Contact persons",
                 "description":"(FR) The present report was prepared by the following person(s)",
                 "columns":[

@@ -1355,13 +1355,18 @@ var countries = [
                 self.model.unbind('load', self.loading);
                 
                 var table = $('<table></table>');
-                table.addClass('table table-bordered table-hover table-condensed');
+                table.addClass('table table-bordered table-hover table-condensed table-striped');
                 var thead = $('<thead></thead>');
                 var trow = $('<tr></tr>');
                 thead.append( trow );
-                trow.append('<th>Number</th>');
-                trow.append('<th>Question</th>');
-                trow.append('<th>State</th>');
+                trow.append('<th></th>');
+                trow.append('<th>Variables / TOPIC</th>');
+                trow.append('<th>Unit</th>');
+                trow.append('<th>1990</th>');
+                trow.append('<th>2000</th>');
+                trow.append('<th>2005</th>');
+                trow.append('<th>2010</th>');
+                trow.append('<th>2015</th>');
                 table.append( thead );
                 var breadcrumbs = new Array;
                 var section = null;
@@ -1378,26 +1383,53 @@ var countries = [
                      
                     switch( obj.type ){
                         case 'textarea':
+                            break;
                         case 'table':
-                            // TODO count how many are incomplete
+                            if ( obj.rows && obj.rowIds ){
+                                
+                                
+                                
+                                $.each( obj.rows, function(id, title ){
+                                    var row = $('<tr></tr>');
+                                    if (id===0){
+                                        row.append('<td rowspan="' + obj.rows.length +'">'+ obj.id +'</td>');
+                                    }
+                                    
+                                    row.append( $('<td>'+ obj.rowIds[id] + '. ' + title +'</td>') );
+                                    row.append( $('<td>'+ obj.unit +'</td>') );
+                                    row.append('<td></td>');
+                                    row.append('<td></td>');
+                                    row.append('<td></td>');
+                                    row.append('<td></td>');
+                                    row.append('<td></td>');
+                                    
+                                    table.append(row);
+                                });
+                                
+                                
+                                
+                            }
+                            
                             break;
                         case 'survey':
                             $.each( obj.items, builder );
                             break;
                         case 'section':
-                            if (breadcrumbs.length===0){ // top level sections
+                            if (breadcrumbs.length===0 && index > 0){ // top level sections and skip intro
                                 section = obj.title;
+                                table.append('<tr><td></td><td colspan="7"><strong>' + obj.title +'</strong></td></tr>');
                             }
                             breadcrumbs.push( (index+1) );
                             $.each( obj.items, builder );
                             breadcrumbs.pop( );
                             break;
                         case 'question':
-                            var row = $('<tr></tr>');
+                            /*var row = $('<tr></tr>');
                             row.append('<td>' + parent + '.'+ (index+1) + '</td>');
                             row.append('<td>' + obj.description + '</td>');
                             row.append('<td> '+ Math.floor(Math.random()*101) +'% completed</td>'); // TODO
-                            table.append(row);
+                            table.append(row);*/
+                            $.each( obj.items, builder );
                             break;
                         default:
                             throw "parsing error: " + obj.type + " is not a valid type.";
