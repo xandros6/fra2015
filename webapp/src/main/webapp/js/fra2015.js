@@ -427,6 +427,14 @@ var countries = [
                 el.find( "#countries" ).autocomplete({
                     source: countries
                 });
+                el.find('#item')
+                  .click(function(){
+                    el.find('#createUserWindow').modal('show');
+                });
+                el.find('#editBtn')
+                  .click(function(){
+                    el.find('#createUserWindow').modal('show');
+                });
             });
             return t;
         },
