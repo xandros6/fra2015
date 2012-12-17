@@ -2,4 +2,5 @@ clone
 old
 webapp/target
 /src
-/server
+/hsqldb
+target

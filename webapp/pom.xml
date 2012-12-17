@@ -15,6 +15,36 @@
     </properties>
 
     <dependencies>
+        <!-- ================================================================-->
+        <!-- FRA2015 modules -->
+        <!-- ================================================================-->
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-persistence</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <!-- =============================================================== -->
+
+        <dependency>
+            <groupId>com.ckeditor</groupId>
+            <artifactId>ckeditor-java-core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-rest-impl</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>fra2015-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -22,6 +52,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <resources>

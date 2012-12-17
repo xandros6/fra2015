@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>it.geosolutions.fra2015</groupId>
+        <artifactId>fra2015-server</artifactId>
+        <version>1.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>it.geosolutions.fra2015</groupId>
+    <artifactId>fra2015-rest-test</artifactId>
+    <packaging>war</packaging>
+
+    <name>FRA2015 - Server - REST services test</name>
+
+    <developers>
+        <developer>
+            <name>Emanuele Tajariol</name>
+            <id>ETj</id>
+            <organization>GeoSolutions</organization>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+	
+    <dependencies>
+        <!-- ================================================================-->
+        <!-- fra2015 modules -->
+        <!-- ================================================================-->
+
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-rest-impl</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- =============================================================== -->
+
+    </dependencies>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>utf8</encoding>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                
+            </plugin>
+
+            <!-- Run the application using "mvn jetty:run" -->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.20</version>
+                <configuration>
+                    <!--					<webAppSourceDirectory>${basedir}/war</webAppSourceDirectory>-->
+                    <webAppConfig>
+                        <contextPath>/fra2015</contextPath>
+                    </webAppConfig>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>9191</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <reload>manual</reload>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>

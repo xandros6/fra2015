@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2007 - 2010 GeoSolutions S.A.S.
+ http://www.geo-solutions.it
+
+ GPLv3 + Classpath exception
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses />.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>it.geosolutions.fra2015</groupId>
+        <artifactId>fra2015-server</artifactId>
+        <version>1.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>it.geosolutions.fra2015</groupId>
+    <artifactId>fra2015-rest-impl</artifactId>
+    <packaging>jar</packaging>
+    <name>FRA2015 - Server - REST services</name>
+
+    <dependencies>
+        <!-- ================================================================-->
+        <!-- fra2015 modules -->
+        <!-- ================================================================-->
+
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-persistence</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-services-api</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-rest-api</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- ================================================================-->
+        <!-- Core lib -->
+        <!-- ================================================================-->
+
+        <!-- ================================================================-->
+        <!--  Misc support libs -->
+        <!-- ================================================================-->
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+		
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+		
+        <dependency>
+            <groupId>xom</groupId>
+            <artifactId>xom</artifactId>
+            <version>1.1</version>
+        </dependency>
+    
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            
+        </plugins>
+    </build>
+
+
+</project>
