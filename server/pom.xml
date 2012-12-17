@@ -36,12 +36,12 @@
     <name>FRA2015 Server</name>
 
     <modules>
-        <module>persistence</module>
         <module>model</module>
-        <module>api</module>
-        <module>restimpl</module>
-        <module>impl</module>
-        <module>services-api</module>
+        <module>persistence</module>
+        <module>services-api</module>        
+        <module>services-impl</module>
+        <module>rest-api</module>
+        <module>rest-impl</module>
         <module>test</module>
     </modules>
 
