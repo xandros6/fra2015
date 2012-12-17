@@ -5,12 +5,12 @@
     <parent>
         <groupId>it.geosolutions</groupId>
         <artifactId>fra2015-root</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>1.2-SNAPSHOT</version>
     </parent>
 
     <groupId>it.geosolutions.fra2015</groupId>
     <artifactId>fra2015-webapp</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>fra2015</name>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-persistence</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.2-SNAPSHOT</version>
         </dependency>
         <!-- =============================================================== -->
 
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-rest-impl</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>

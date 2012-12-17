@@ -24,12 +24,12 @@
     <parent>
         <groupId>it.geosolutions</groupId>
         <artifactId>fra2015-root</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>1.2-SNAPSHOT</version>
     </parent>
 
     <groupId>it.geosolutions.fra2015</groupId>
     <artifactId>fra2015-server</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
