@@ -41,7 +41,6 @@
         <module>services-api</module>        
         <module>services-impl</module>
         <module>rest-api</module>
-        <module>rest-impl</module>
         <module>test</module>
     </modules>
 
