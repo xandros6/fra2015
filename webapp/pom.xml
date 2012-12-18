@@ -59,7 +59,7 @@
     <build>
 
         <finalName>fra2015</finalName>
-
+<!--
         <resources>
             <resource>
                 <targetPath>META-INF/webapp</targetPath>
@@ -83,6 +83,7 @@
             </resource>
             
         </resources>
+-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
