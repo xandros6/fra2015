@@ -33,6 +33,7 @@ import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
 import it.geosolutions.fra2015.services.rest.model.UserList;
+import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -100,7 +101,7 @@ public interface RESTUserService {
     @GET
     @Path("/")
     @RolesAllowed({"ADMIN"})
-    public UserList getAll(
+    public List<User> getAll(
     		@Context SecurityContext sc, 
             @QueryParam("page") Integer page,
             @QueryParam("entries") Integer entries)throws BadRequestWebEx;

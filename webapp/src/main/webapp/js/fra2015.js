@@ -338,7 +338,7 @@ var countries = [
             });
             t.bind('load', function(el){
                 el.find('#languageSelector')
-                  .change( function(){
+                .change( function(){
                     var lang = '';
                     el.find("select option:selected").each(function () {
                         lang += $(this).attr('value');
@@ -378,14 +378,14 @@ var countries = [
             });
             t.bind('load', function(el){
                 el.find('#languageSelector')
-                  .change( function(){
+                .change( function(){
                     var lang = '';
                     el.find("select option:selected").each(function () {
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
                 }); 
-                 el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
+                el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
             });
             return t;
         },
@@ -416,10 +416,54 @@ var countries = [
             return t;
         },
         'admin/create-users': function(){
+            
+            var resource = new Resource({
+                base:'http://localhost:9191/fra2015/rest', // TODO externalise
+                endpoint:'users',
+                type:'User',
+                api:{
+                    find:'',
+                    create:''
+                }
+            });
+            
+
+            
             var t = new Template({
                 url: './admin/create-users.html'
             });
             t.bind('load', function( el ){
+                
+                var addRow = function( index, user ){
+                    var row = $('<tr class="rowItem"></tr>');
+                    row.append('<td>'+ user.name +'</td>');
+                    row.append('<td>'+ user.username +'</td>');
+                    row.append('<td>'+ user.role +'</td>');
+                    row.append('<td>'+ user.countries +'</td>');
+                    row.append('<td><a id="editBtn" href="#" class="btn" >Edit</a></td>');
+                    el.find('#userTable')
+                        .append( row );
+                };
+                
+                var loadItems = function(){
+                    resource.find()
+                    .onSuccess( function( result ){
+                        // remove existing rows
+                        el.find('.rowItem').remove();
+                        
+                        if ( result.User ){
+                            $.each( result.User, addRow );
+                        }
+                        
+                    })
+                    .onFailure( function( response ){
+                        var msg = 'Cannot load users';
+                        // display error message
+                        el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                    }).execute();
+                };
+                loadItems();
+                
                 el.find( "#createBtn" ).click(function(){
                     el.find('#createUserWindow').modal('show');
                 });
@@ -428,12 +472,36 @@ var countries = [
                     source: countries
                 });
                 el.find('#item')
-                  .click(function(){
+                .click(function(){
                     el.find('#createUserWindow').modal('show');
                 });
                 el.find('#editBtn')
-                  .click(function(){
+                .click(function(){
                     el.find('#createUserWindow').modal('show');
+                });
+                el.find( "#saveBtn" ).click(function(){
+                    
+                    var obj = {};
+                    obj.name = el.find('#fullnameTextField').val();
+                    obj.password = el.find('#passwordTextField').val();
+                    obj.role = el.find('#roleComboBox').val();
+                    obj.username = el.find('#usernameTextField').val();
+                    obj.email = el.find('#emailTextField').val();
+                    // obj.countries;
+                    
+
+                    resource.create( obj )
+                    .onSuccess(function(){
+                        loadItems();
+                    })
+                    .onFailure(function( response ){
+                       console.error( response );
+                       var msg = 'cannot save user';
+                       el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );         
+                    }).execute();
+                    
+                    // close window
+                    el.find('#createUserWindow').modal('hide');
                 });
             });
             return t;
@@ -453,14 +521,14 @@ var countries = [
             });
             t.bind('load', function(el){
                 el.find('#languageSelector')
-                  .change( function(){
+                .change( function(){
                     var lang = '';
                     el.find("select option:selected").each(function () {
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
                 });  
-                 el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
+                el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
             });
             return t;
             return t;
@@ -542,6 +610,11 @@ var countries = [
             text.attr('id', this.id);
             text.attr('name', this.id);
             this.el.append('<h4>' + options.title + '</h4>');
+      
+            if (options.tooltip){
+                this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
+            }
+      
       
             var feedDiv = $('<div></div>');
             
@@ -641,6 +714,10 @@ var countries = [
             
             this.el.append('<h4>' + options.title + '</h4>');
             
+                 
+            if (options.tooltip){
+                this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
+            }
             
             // TODO refactor: superclass for both textarea and table
  
@@ -784,7 +861,7 @@ var countries = [
                 
                 this.el.append(table); 
                 this.el.append( control );
-                 this.el.append('<br/><br/>');
+                this.el.append('<br/><br/>');
 
             } else {
                 
@@ -863,7 +940,7 @@ var countries = [
                 this.el.append(table); 
                 
                 this.el.append( control );
-                 this.el.append('<br/><br/>');
+                this.el.append('<br/><br/>');
             }
             
                       
@@ -997,16 +1074,23 @@ var countries = [
         
         initialize:function( $super, options ){
             this.number = options.number;
+            this.link = options.link;
             this.description = options.description;
             $super( options );
             
         },
  
         createTitle: function( title ){
+            var html = null;
             if ( this.number ){
-                return html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.description + '</h1></div>');
+                html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.description + '</h1></div>');
+            } else {
+                html = $('<div class="page-header"><h1>'+ this.description + '</h1></div>');
             }
-            return html = $('<div class="page-header"><h1>'+ this.description + '</h1></div>');
+            if ( this.link ){
+              html.append('<div class="well"><p> Click the button to download question documentation. </p> <a href="#" class="btn btn-large btn-primary">Download Documentation</a></div>');
+            }
+            return html;
         },
         createDescription: function(description ){
             /*var html = $('<p></p>');
@@ -1066,8 +1150,8 @@ var countries = [
             $super();
             var self = this;
             App.bind('lang', function(){
-                    self.survey = null;
-                    self.load();
+                self.survey = null;
+                self.load();
             });
         },
         
@@ -1197,6 +1281,7 @@ var countries = [
                     return new TextArea({
                         title: obj.title,
                         description: obj.description,
+                        tooltip: obj.tooltip,
                         feedbacks: obj.feedbacks,
                         json:obj
                     });
@@ -1205,6 +1290,7 @@ var countries = [
                     return new Table({
                         title: obj.title,
                         description: obj.description,
+                        tooltip: obj.tooltip,
                         columns: obj.columns,
                         rows: obj.rows,
                         feedbacks: obj.feedbacks,
@@ -1222,20 +1308,21 @@ var countries = [
                     });
                     var view = null;
                     if ( !obj.nocount ){
-                       view = new Question({
-                        title: obj.title,
-                        description: obj.description,
-                        number: (num+1),
-                        items: items,
-                        json:obj
+                        view = new Question({
+                            title: obj.title,
+                            description: obj.description,
+                            link: obj.link,
+                            number: (num+1),
+                            items: items,
+                            json:obj
                         });
                         num++; 
                     } else {
                         view = new Question({
-                        title: obj.title,
-                        description: obj.description,
-                        items: items,
-                        json:obj
+                            title: obj.title,
+                            description: obj.description,
+                            items: items,
+                            json:obj
                         });
                     }
                     

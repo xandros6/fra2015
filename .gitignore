@@ -4,3 +4,7 @@ webapp/target
 /src
 /hsqldb
 target
+hsql
+server/persistence/hsql
+server/services-impl/hsql
+webapp/hsql

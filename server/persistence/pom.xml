@@ -41,6 +41,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-model</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.0.0</version>
         </dependency>
 
         <!-- ================================================================-->

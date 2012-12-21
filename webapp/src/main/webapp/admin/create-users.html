@@ -1,87 +1,50 @@
 
-
-
-<div class="container">
-
-    <div class="row">
-        <p class="pull-right">
-            <a href="#" id="createBtn" class="btn" > Create user </a>
-            <a href="#" class="btn btn-primary">Apply filter</a>
-        </p>     
-    </div>
-
-
-    <div class="row">
-        <!--<div class="span4">
-            <div class="well well-large">
-                <button class="close">&times;</button>
-                <form>
-                    <fieldset>
-
-                        <legend>Search criteria</legend>
-
-
-                        <label>Role</label>
-                        <select id="roleCombo" class="input-block-level">
-                            <option>Any</option>
-                            <option>Contributor</option>
-                            <option>Reviewer</option>
-                        </select>
-
-                        <label>Country</label>
-                        <input id="countries" class="input-large"  type="text">
-
-                        <label>Keyword</label>
-                        <input class="input-large"  type="text">
-
-                        <button type="submit" class="btn">Search</button>
-                    </fieldset>
-                </form>
-
-            </div>          
-        </div>-->
-        <div class="span12">
             <div id="createUserWindow" class="modal hide fade span8">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3>Create user</h3>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="control-group">
-                        <label class="control-label" for="fullnameField">Full name:</label>
-                        <div class="controls" id="usernameField">
-                            <input type="text"  value="John Doe" class="input-block-level">
+                        <label class="control-label" for="fullnameTextField">Full name:</label>
+                        <div class="controls" >
+                            <input id="fullnameTextField" type="text"  value="John Doe" class="input-block-level">
                         </div>
                     </div> 
                     <div class="control-group">
-                        <label class="control-label" for="emailField">Email:</label>
-                        <div class="controls" id="usernameField">
-                            <input type="text"  value="john@doe.com" class="input-block-level">
+                        <label class="control-label" for="passwordTextField">Password</label>
+                        <div class="controls" >
+                            <input id="passwordTextField" type="password"  class="input-block-level">
+                        </div>
+                    </div> 
+                    <div class="control-group">
+                        <label class="control-label" for="emailTextField">Email:</label>
+                        <div class="controls" >
+                            <input id="emailTextField" type="text"  value="john@doe.com" class="input-block-level">
                         </div>
                     </div> 
                     <div class="control-group error">
-                        <label class="control-label" for="usernameField">Username:</label>
-                        <div class="controls" id="usernameField">
-                            <input type="text"  value="ExistingUsername" class="input-block-level">
+                        <label class="control-label" for="usernameTextField">Username:</label>
+                        <div class="controls" >
+                            <input id="usernameTextField" type="text"  value="ExistingUsername" class="input-block-level">
                             <span class="help-inline">Username already in use.</span>
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="roleCombo">Role:</label>
+                        <label class="control-label" for="roleComboBox">Role:</label>
                         <div class="controls">
-                            <select id="roleCombo" class="input-block-level">
+                            <select id="roleComboBox" class="input-block-level">
                                 <option>Contributor</option>
                                 <option>Reviewer</option>
+                                <option>Reviewer Editor</option>
                             </select>
                             <span class="help-inline">Select a role.</span>
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="countryCombo">Countries:</label>
+                        <label class="control-label" for="countryComboBox">Countries:</label>
                         <div class="controls">
-                            <select multiple="multiple" id="countryCombo" class="input-block-level">
+                            <select multiple="multiple" id="countryComboBox" class="input-block-level">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -94,13 +57,31 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn" data-dismiss="modal">Close</a>
-                    <a href="#" class="btn btn-primary">Save changes</a>
+                    <a id="saveBtn" href="#" class="btn btn-primary">Save changes</a>
                 </div>
             </div>
 
-            <table class="table table-bordered table-hover table-condensed table-striped">
+
+<div class="container">
+
+    <div class="row">
+        <div id="errorPanel"></div>
+    </div>
+    
+    <div class="row">
+        <p class="pull-right">
+            <a href="#" id="createBtn" class="btn" > Create user </a>
+            <a href="#" class="btn btn-primary">Apply filter</a>
+        </p>     
+    </div>
+
+
+    <div class="row">
+        <div class="span12">
+            <table id="userTable" class="table table-bordered table-hover table-condensed table-striped">
                 <thead>
                     <tr>
+                        <th>Fullname</th>
                         <th>Username</th>
                         <th>Role</th>
                         <th>Countries</th>
@@ -108,38 +89,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                           <input class="input-large"  type="text"> 
-                        </td>
-                         <td>
-                            <select id="roleCombo" class="input-block-level">
-                                <option>Any</option>
-                                <option>Contributor</option>
-                                <option>Reviewer</option>
-                            </select>
-                        </td>
-                         <td>
-                            <input id="countries" class="input-large"  type="text">
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr id="item">
-                        <td>user 1</td>
-                        <td>contributor</td>
-                        <td>country 1</td>
-                        <td>
-                            <a id="editBtn" href="#" class="btn" >Edit</a>
-                        </td>
-                    </tr>
-                    <tr id="item">
-                        <td>user 2</td>
-                        <td>reviewer</td>
-                        <td>country 2, country3</td>
-                        <td>
-                            <a id="editBtn" href="#" class="btn" >Edit</a>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>         
             <ul class="pager pull-right">

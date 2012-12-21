@@ -36,8 +36,8 @@ public class UserDAOTest extends BaseDAOTest {
     private final static String PASSWORD_2 = "password_2";
     private final boolean debug = true;
 
-    @Test
-    public void testCountUser() {
+    // @Test
+    /*public void testCountUser() {
 
         int count = userDAO.count(null);
 
@@ -45,7 +45,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testCreateUser() throws Exception {
 
         User user = new User();
@@ -58,7 +58,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testReadUser() throws Exception {
 
 
@@ -80,7 +80,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testReadAllUsers() throws Exception {
 
         if (debug) {
@@ -94,7 +94,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testUpdateUser() throws Exception {
 
         User user = new User();
@@ -120,7 +120,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testDeleteUser() throws Exception {
 
 
@@ -144,7 +144,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testDeleteByIdUser() throws Exception {
 
 
@@ -166,7 +166,7 @@ public class UserDAOTest extends BaseDAOTest {
 
     }
 
-    @Test
+    // @Test
     public void testDeleteAll() throws Exception {
 
         List<User> users = userDAO.findAll();
@@ -181,5 +181,5 @@ public class UserDAOTest extends BaseDAOTest {
 
         assertEquals(0, count);
 
-    }
+    }*/
 }

@@ -71,7 +71,19 @@ public class User implements Serializable {
     private String name;
 
     @Column(nullable = false, updatable = true)
-    private Password password;
+    private String password;
+    
+    @Column(nullable = false, updatable = false)
+    private String username;
+    
+    @Column(nullable = false, updatable = true)
+    private String email;
+    
+    @Column(nullable = true, updatable = true)
+    private String countries;
+    
+    @Column(nullable = false, updatable = false)
+    private String role;
 
     @Enumerated
     protected UserGroup userGroup = UserGroup.GUEST;
@@ -107,15 +119,14 @@ public class User implements Serializable {
     /**
      * @return the password
      */
-    @XmlTransient
-    public Password getPassword() {
+    public String getPassword() {
         return password;
     }
 
     /**
      * @param password the password to set
      */
-    public void setPassword(Password password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -126,9 +137,42 @@ public class User implements Serializable {
     public void setUserGroup(UserGroup userGroup) {
         this.userGroup = userGroup;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCountries() {
+        return countries;
+    }
+
+    public void setCountries(String countries) {
+        this.countries = countries;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
     
     
 
+    
     @Override
     public int hashCode() {
         int hash = 5;

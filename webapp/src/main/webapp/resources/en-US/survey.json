@@ -44,6 +44,7 @@
             "type": "question",
             "title":"Forest area and characteristics",
             "description":"What is the area of forest and other wooded land and how has it changed over time?",
+            "link":"http://nolink",
             "items":[
             {
                 "type":"section",
@@ -69,6 +70,7 @@
                 {
                     "type":"table",
                     "title":"Data sources",
+                    "tooltip":"This is a tooltip",
                     "columns":[
                     "#", "Reference", "Variable", "Year", "Comments"
                     ]

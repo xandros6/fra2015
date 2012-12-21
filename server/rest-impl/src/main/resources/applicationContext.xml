@@ -36,6 +36,7 @@
     </bean>-->
 
     <bean id="restUserService" class="it.geosolutions.fra2015.services.rest.impl.RESTUserServiceImpl">
+       
     </bean>
 
 <!--    <bean id="restMiscService" class="it.geosolutions.fra2015.services.rest.impl.RESTMiscServiceImpl">

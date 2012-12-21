@@ -88,7 +88,7 @@ public abstract class BaseDAOTest extends TestCase {
 
     }
 
-    @Test
+    // @Test
     public void testCheckDAOs() {
         assertNotNull(userDAO);
     }

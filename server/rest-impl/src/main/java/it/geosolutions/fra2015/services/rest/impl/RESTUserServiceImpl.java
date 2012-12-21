@@ -163,20 +163,9 @@ public class RESTUserServiceImpl implements RESTUserService {
      * (non-Javadoc) @see it.geosolutions.fra2015.services.rest.RESTUserInterface#getAll(java.lang.Integer, java.lang.Integer)
      */
     @Override
-    public UserList getAll(SecurityContext sc, Integer page, Integer entries) throws BadRequestWebEx {
+    public List<User> getAll(SecurityContext sc, Integer page, Integer entries) throws BadRequestWebEx {
         try {
-            List<User> userList = userService.getAll(page, entries);
-            Iterator<User> iterator = userList.iterator();
-
-            List<RESTUser> restUSERList = new ArrayList<RESTUser>();
-            while (iterator.hasNext()) {
-                User user = iterator.next();
-
-                RESTUser restUser = new RESTUser(user.getId(), user.getName());
-                restUSERList.add(restUser);
-            }
-
-            return new UserList(restUSERList);
+            return userService.getAll(page, entries);
         } catch (BadRequestServiceEx ex) {
             throw new BadRequestWebEx(ex.getMessage());
         }
