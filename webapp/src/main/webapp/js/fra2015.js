@@ -644,7 +644,7 @@ var countries = [
                 
                 this.el.append( feedInput );
                 var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
-                feedBtn.addClass('btn btn-primary btn-small pull-right');
+                feedBtn.addClass('btn btn-small');
                 feedBtn.click( function(){
                     var text = feedInput.val();
                     var feed = $('<div></div>');
@@ -654,8 +654,34 @@ var countries = [
                     feedDiv.append(feed);
                     feedInput.val('');
                 });
-                this.el.append( feedBtn );
-                this.el.append( '<br/><br/>' );
+                // this.el.append( feedBtn );
+                
+                      
+                var approveBtn = $('<a>'+ $.t('approve') +'</a>');
+                approveBtn.addClass('btn btn-primary btn-small');
+                approveBtn.attr('data-toggle', 'button');
+                approveBtn.click( function(){
+                   switch ( approveBtn.text() ){
+                       case $.t('approve'):
+                           approveBtn.text( $.t('cancel') );
+                           break;
+                       case $.t('cancel'):
+                           approveBtn.text( $.t('approve') );
+                           break;
+                       default:
+                           break
+                   }
+                });
+                
+                var feedControl = $('<div></div>');
+                feedControl.addClass('pull-right btn-group');
+                feedControl.append( approveBtn );
+                feedControl.append( feedBtn );
+                
+                
+                this.el.append( feedControl );
+                
+                // this.el.append( '<br/><br/>' );
             }
             
    
@@ -746,7 +772,7 @@ var countries = [
                 
                 this.el.append( feedInput );
                 var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
-                feedBtn.addClass('btn btn-primary btn-small pull-right');
+                feedBtn.addClass('btn btn-small');
                 feedBtn.click( function(){
                     var text = feedInput.val();
                     var feed = $('<div></div>');
@@ -756,8 +782,37 @@ var countries = [
                     feedDiv.append(feed);
                     feedInput.val('');
                 });
-                this.el.append( feedBtn );
-                this.el.append('<br/><br/>');
+                
+                // add toogle button
+                // <button type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
+                
+                var approveBtn = $('<a>'+ $.t('approve') +'</a>');
+                approveBtn.addClass('btn btn-primary btn-small');
+                approveBtn.attr('data-toggle', 'button');
+                approveBtn.click( function(){
+                   switch ( approveBtn.text() ){
+                       case $.t('approve'):
+                           approveBtn.text( $.t('cancel') );
+                           break;
+                       case $.t('cancel'):
+                           approveBtn.text( $.t('approve') );
+                           break;
+                       default:
+                           break
+                   }
+                });
+                
+                var feedControl = $('<div></div>');
+                feedControl.addClass('pull-right btn-group');
+                feedControl.append( approveBtn );
+                feedControl.append( feedBtn );
+                
+                
+                this.el.append( feedControl );
+                
+                
+                
+                // this.el.append('<br/><br/>');
             }
  
   

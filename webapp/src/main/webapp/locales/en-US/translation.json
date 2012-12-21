@@ -14,5 +14,7 @@
 
     "save":"Save",
     "add_row":"Add row",
-    "add_feedback":"Add feedback"
+    "add_feedback":"Add feedback",
+    "approve": "Approve entry",
+    "cancel": "Cancel approval"
 }
