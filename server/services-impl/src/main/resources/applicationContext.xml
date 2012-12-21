@@ -15,4 +15,7 @@
     <bean id="userService" class="it.geosolutions.fra2015.services.UserServiceImpl">
     </bean>
     
+    <bean id="authenticationService" class="it.geosolutions.fra2015.services.AuthenticationServiceImpl">
+    </bean>
+    
 </beans>

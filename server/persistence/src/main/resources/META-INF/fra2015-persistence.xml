@@ -25,5 +25,6 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd ">
     <persistence-unit name="fra2015" transaction-type="RESOURCE_LOCAL">
         <!-- when adding/removing classes, please also keep aligned the src/test/resource/hibernate.cfg.xml file -->
         <class>it.geosolutions.fra2015.server.model.user.User</class>
+        <class>it.geosolutions.fra2015.server.model.user.Token</class>
     </persistence-unit>
 </persistence>

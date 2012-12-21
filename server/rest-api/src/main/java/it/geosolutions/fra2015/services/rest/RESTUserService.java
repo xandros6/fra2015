@@ -32,7 +32,6 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
-import it.geosolutions.fra2015.services.rest.model.UserList;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;

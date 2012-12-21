@@ -40,8 +40,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <!-- fra2015 -->
         <!-- ================================================================-->
         <dependency>
+            
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-model</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        
             <exclusions>
                 <exclusion>
                     <groupId>cglib</groupId>

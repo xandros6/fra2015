@@ -38,6 +38,10 @@
     <bean id="restUserService" class="it.geosolutions.fra2015.services.rest.impl.RESTUserServiceImpl">
        
     </bean>
+    
+    <bean id="restAuthentication" class="it.geosolutions.fra2015.services.rest.impl.AuthenticationServiceImpl">
+       
+    </bean>
 
 <!--    <bean id="restMiscService" class="it.geosolutions.fra2015.services.rest.impl.RESTMiscServiceImpl">
     </bean>
@@ -119,6 +123,28 @@
     <jaxrs:server id="fra2015RESTUser" address="/users">
         <jaxrs:serviceBeans>
           <ref bean="restUserService"/>
+        </jaxrs:serviceBeans>
+
+        <jaxrs:features>
+             <cxf:logging/>
+        </jaxrs:features>
+
+        <jaxrs:providers>
+           <ref bean="jaxbXmlProvider"/>
+           <ref bean="jsonProvider"/>
+        </jaxrs:providers>    
+        
+<!--        <jaxrs:inInterceptors>
+            <ref bean="fra2015AuthInterceptor"/>
+            <bean class="org.apache.cxf.interceptor.security.SecureAnnotationsInterceptor">
+               <property name="securedObject" ref="restUserService"/>
+            </bean>
+        </jaxrs:inInterceptors>      -->
+    </jaxrs:server>
+    
+        <jaxrs:server id="fra2015RESTAuth" address="/auth">
+        <jaxrs:serviceBeans>
+          <ref bean="restAuthentication"/>
         </jaxrs:serviceBeans>
 
         <jaxrs:features>

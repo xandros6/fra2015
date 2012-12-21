@@ -40,5 +40,9 @@
     <bean id="userDAO" class="it.geosolutions.fra2015.server.dao.impl.UserDAOImpl" >
         <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
+    
+    <bean id="tokenDAO" class="it.geosolutions.fra2015.server.dao.impl.TokenDAOImpl" >
+        <property name="searchProcessor" ref="fra2015SearchProcessor" />
+    </bean>
 	
 </beans>
