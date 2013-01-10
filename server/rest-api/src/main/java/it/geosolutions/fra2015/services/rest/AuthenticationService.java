@@ -29,7 +29,7 @@ public interface AuthenticationService {
     		@Context SecurityContext sc, 
     		@QueryParam("username") String username, @QueryParam("password") String password) throws NotFoundWebEx;
         
-            @GET
+    @GET
     @Path("/check")
     @Produces({MediaType.TEXT_PLAIN, MediaType.TEXT_XML, MediaType.APPLICATION_JSON})
     @RolesAllowed({"ADMIN"})

@@ -6,7 +6,7 @@
 
         <link href="css/jquery.ui.timepicker.css" rel="stylesheet" />
         <link href="css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
-        
+
         <link href="css/bootstrap.css" rel="stylesheet" />
         <link href="css/fra2015.css" rel="stylesheet" />
 
@@ -43,6 +43,7 @@
 
         <!-- javascripts -->
         <script src="js/jquery-1.8.3.js" ></script>
+        <script src="js/jquery.validate.js"></script>
         <script src="js/i18next-1.5.9.js" ></script>
         <script src="js/jquery-ui-1.9.2.custom.js" ></script>
         <script src="js/jquery.ui.timepicker.js" ></script>
@@ -52,108 +53,21 @@
         <script src="js/bootstrap.js" ></script>
         <script src="js/ejs.js" ></script>
         <script src="js/prototype.js"></script>
-        
+        <script src="js/underscore.js"></script>
+
+        <script src="js/constants.js"></script>
         <script src="js/rest.js"></script>
-        <script src="js/fra2015.js"></script>
+        <script src="js/uicore.js"></script>
+        <script src="js/fra2015.js"></script> 
+        <script src="js/ui.js"></script>
         
-            
+
+
         <script type="text/javascript">
             (function($) {
-                
                 $(document).ready(function(){
-            
-                    var router = new Controller({
-                        'default': function(){
-                            var page = new LoginPage;
-                              page.bind('load', function(){
-                                $('#main').empty();
-                                $('#main').append( page.el ); 
-                                $('#main').i18n();
-                            });
-                            page.render();
-                          
-                            page.getLoginButton().bind('click', function(){
-                                var username = page.getUsername();
-                                var password = page.getPassword();
-                                if ( App.user.login( username, password ) ){
-                                    router.trigger('login');
-                                } else {
-                                    page.displayError('Username or password are incorrect.');
-                                }
-                                
-                            });
-                            
-                        },
-                        'login': function(){
-                            var page = null;
-                            // TODO selection should depends on role
-                            switch( App.user.username ){
-                                case 'user':
-                                    page = new ContributorPage;
-                                    break;
-                                case 'admin':
-                                    page = new AdminPage;
-                                    break;
-                                case 'reviewer':
-                                    page = new ReviewerPage;
-                                    break;
-                                default:
-                                    page = new ErrorPage('page not found');
-                            }
-                            
-                            if ( page ){
-                                $('#main').empty();
-                                
-                                var loading = function(el){
-                                    
-                                    $('#main').append( el );  
-                                    // load just once
-                                    // page.unbind('load', loading);
-                                    $(document).i18n();
-                                };
-                                
-                                page.bind('load', loading);
-                                page.bind('change', function(){
-                                     $( 'textarea.texteditor').each( function() {
-                                            
-                                            
-                                        var id = $(this).attr('id');    
-                                        var instance = CKEDITOR.instances[ id ];
-                                        if (instance){
-                                            CKEDITOR.remove( instance );
-                                            $('#cke_' + id).remove();
-                                        }
-                                        
-                                        CKEDITOR.replace( id, { 
-                                            toolbar: 'MyToolbar'
-                                        } );
-                                            
-                                       
-
-                                    });
-                                    $(document).i18n();
-                                });
-                                
-                                page.render();
-                                // $('#main').append( page.el ); 
-                                
-                           
-                                
-                            } else {
-                                console.error( 'cannot find a page for user: ' + App.user.username );
-                            }     
-                        },
-                        'logout': function(){
-                            App.user.logout();
-                            router.trigger('default');
-                        }
-                        
-                    });
-                    
-                    router.start();
-                    
-                    // use the controllar as a app-wide service bus
-                    App.addListener( router );
+                    var app = Core.start('app');
+                    app.init();
                 });
                 
             })(jQuery);

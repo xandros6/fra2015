@@ -58,6 +58,12 @@ public class UserServiceImpl implements UserService {
             throw new BadRequestServiceEx("User type must be specified !");
         }
 
+        String password = "" + user.getNewPassword();
+        if ( password != null ){
+            // TODO encode password
+            user.setPassword( password );
+        }
+        
         userDAO.persist(user);
 
         return user;
@@ -67,7 +73,7 @@ public class UserServiceImpl implements UserService {
      * @see it.geosolutions.fra2015.services.UserService#update(it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
-    public User update(User user) throws NotFoundServiceEx, BadRequestServiceEx {
+    public long update(User user) throws NotFoundServiceEx, BadRequestServiceEx {
 
         User orig = userDAO.find(user.getId());
 
@@ -75,9 +81,15 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundServiceEx("User not found " + user.getId());
         }
 
-        user = userDAO.merge(user);
+        String password = "" + user.getNewPassword();
+        if ( password != null ){
+            // TODO encode password
+            user.setPassword( password );
+        }
+        
+        userDAO.merge(user);
 
-        return user;
+        return user.getId();
     }
 
 

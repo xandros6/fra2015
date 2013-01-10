@@ -150,8 +150,36 @@
             return cursor;
         },
         
-        update: function(){
-            
+        update: function(id, item){
+            var uri = new Uri( this.base );
+            uri.append( this.endpoint );
+            uri.append( this.api.update );
+            uri.append( id );
+            var data = marshal( this.type, item );
+            var cursor =  new (Class.create(Cursor, {
+                execute: function( $super ){
+                    $super();
+                    $.ajax({
+                        url: uri.toString(),
+                        type:'PUT',
+                        contentType:'text/xml',
+                        dataType:'json',
+                        data: data,
+                        success: function( data ){
+                            try{
+                                var obj = $.parseJSON(data);
+                                cursor.successHandler.call(this, obj);
+                            } catch (e){
+                                cursor.failureHandler.call(this, 'cannot parse response: ' + e);
+                            }
+                        },
+                        failure: function( data ){
+                            cursor.failureHandler.call(this, data);
+                        }
+                    });
+                }
+            }));
+            return cursor;                   
             
         },
         

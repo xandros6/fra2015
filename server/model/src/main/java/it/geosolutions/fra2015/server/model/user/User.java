@@ -70,6 +70,8 @@ public class User implements Serializable {
     @Index(name = "idx_user_name")
     private String name;
 
+    private transient String newPassword = null;
+    
     @Column(nullable = false, updatable = true)
     private String password;
     
@@ -90,7 +92,6 @@ public class User implements Serializable {
     /**
      * @return the id
      */
-    @XmlTransient
     public Long getId() {
         return id;
     }
@@ -119,6 +120,8 @@ public class User implements Serializable {
     /**
      * @return the password
      */
+    
+    @XmlTransient
     public String getPassword() {
         return password;
     }
@@ -168,6 +171,14 @@ public class User implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
     
     

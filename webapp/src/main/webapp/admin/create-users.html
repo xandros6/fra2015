@@ -1,65 +1,56 @@
 
-            <div id="createUserWindow" class="modal hide fade span8">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>Create user</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="control-group">
-                        <label class="control-label" for="fullnameTextField">Full name:</label>
-                        <div class="controls" >
-                            <input id="fullnameTextField" type="text"  value="John Doe" class="input-block-level">
-                        </div>
-                    </div> 
-                    <div class="control-group">
-                        <label class="control-label" for="passwordTextField">Password</label>
-                        <div class="controls" >
-                            <input id="passwordTextField" type="password"  class="input-block-level">
-                        </div>
-                    </div> 
-                    <div class="control-group">
-                        <label class="control-label" for="emailTextField">Email:</label>
-                        <div class="controls" >
-                            <input id="emailTextField" type="text"  value="john@doe.com" class="input-block-level">
-                        </div>
-                    </div> 
-                    <div class="control-group error">
-                        <label class="control-label" for="usernameTextField">Username:</label>
-                        <div class="controls" >
-                            <input id="usernameTextField" type="text"  value="ExistingUsername" class="input-block-level">
-                            <span class="help-inline">Username already in use.</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="roleComboBox">Role:</label>
-                        <div class="controls">
-                            <select id="roleComboBox" class="input-block-level">
-                                <option>Contributor</option>
-                                <option>Reviewer</option>
-                                <option>Reviewer Editor</option>
-                            </select>
-                            <span class="help-inline">Select a role.</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="countryComboBox">Countries:</label>
-                        <div class="controls">
-                            <select multiple="multiple" id="countryComboBox" class="input-block-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                            <span class="help-inline">Select one or more countries.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn" data-dismiss="modal">Close</a>
-                    <a id="saveBtn" href="#" class="btn btn-primary">Save changes</a>
-                </div>
-            </div>
+<div id="createUserWindow" class="modal hide fade span8">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Create user</h3>
+    </div>
+    <div class="modal-body">
+
+        <input id="cid" name="id"  type="hidden" />
+        <form class="cmxform" id="createUserForm" method="get" action="">
+            <fieldset>
+                <p>
+                    <label for="cname" class="control-label">Name</label>
+                    <input id="cname" name="name" size="25" class="required input-block-level" />
+                </p>
+                <p>
+                    <label for="cusername" class="control-label">Username</label>
+                    <input id="cusername" name="username" size="25"  class="required input-block-level" />
+                </p>
+                <p>
+                    <label for="cpassword" class="control-label">Password</label>
+                    <input id="cpassword" name="email" size="25" type="password" class="required password input-block-level" />
+                </p>
+                <p>
+                    <label for="cemail" class="control-label">E-Mail</label>
+                    <input id="cemail" name="email" size="25"  class="required email input-block-level" />
+                </p>
+                <p>
+                    <label class="control-label" for="roleComboBox">Role</label>
+                    <select id="roleComboBox" class="input-block-level">
+                        <option value="contributor">Contributor</option>
+                        <option value="reviewer">Reviewer</option>
+                        <option value="editor">Reviewer Editor</option>
+                    </select>
+                </p>
+                <p>
+                    <label class="control-label" for="countryComboBox">Countries:</label>
+                    <select multiple="multiple" id="countryComboBox" class="input-block-level">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                </p>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <a id="saveBtn" href="#" class="btn btn-primary">Create</a>
+    </div>
+</div>
 
 
 <div class="container">
@@ -67,7 +58,7 @@
     <div class="row">
         <div id="errorPanel"></div>
     </div>
-    
+
     <div class="row">
         <p class="pull-right">
             <a href="#" id="createBtn" class="btn" > Create user </a>

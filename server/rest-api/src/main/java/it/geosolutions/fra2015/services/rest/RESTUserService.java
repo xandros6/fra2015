@@ -69,7 +69,7 @@ public interface RESTUserService {
     @Path("/user/{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_XML})
     @RolesAllowed({"ADMIN"})
-    public User update(
+    public long update(
     		@Context SecurityContext sc, 
     		@PathParam("id") long id,
     		@Multipart("user") User user) throws NotFoundWebEx;

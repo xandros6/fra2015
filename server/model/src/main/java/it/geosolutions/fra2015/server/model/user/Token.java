@@ -54,7 +54,7 @@ public class Token implements Serializable {
         return token;
     }
 
-    public void setValue(String token) {
+    public void setToken(String token) {
         this.token = token;
     }
 

@@ -55,7 +55,7 @@ public interface UserService {
      * @throws NotFoundServiceEx
      * @throws BadRequestServiceEx
      */
-    public User update(User user) throws NotFoundServiceEx, BadRequestServiceEx;
+    public long update(User user) throws NotFoundServiceEx, BadRequestServiceEx;
 
     /**
      * @param id

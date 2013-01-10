@@ -1,68 +1,26 @@
-var countries = [
-"AF|Afghanistan","AL|Albania","DZ|Algeria","AS|American Samoa",
-"AD|Andorra","AO|Angola","AI|Anguilla","AQ|Antarctica","AG|Antigua And Barbuda",
-"AR|Argentina","AM|Armenia","AW|Aruba","AU|Australia","AT|Austria","AZ|Azerbaijan",
-"BS|Bahamas","BH|Bahrain","BD|Bangladesh","BB|Barbados","BY|Belarus","BE|Belgium",
-"BZ|Belize","BJ|Benin","BM|Bermuda","BT|Bhutan","BO|Bolivia","BA|Bosnia And Herzegovina",
-"BW|Botswana","BV|Bouvet Island","BR|Brazil","IO|British Indian Ocean Territory",
-"BN|Brunei Darussalam","BG|Bulgaria","BF|Burkina Faso","BI|Burundi","KH|Cambodia",
-"CM|Cameroon","CA|Canada","CV|Cape Verde","KY|Cayman Islands","CF|Central African Republic",
-"TD|Chad","CL|Chile","CN|China","CX|Christmas Island","CC|Cocos (keeling) Islands","CO|Colombia",
-"KM|Comoros","CG|Congo","CD|Congo, The Democratic Republic Of The","CK|Cook Islands","CR|Costa Rica",
-"CI|Cote D'ivoire","HR|Croatia","CU|Cuba","CY|Cyprus","CZ|Czech Republic","DK|Denmark","DJ|Djibouti",
-"DM|Dominica","DO|Dominican Republic","TP|East Timor","EC|Ecuador","EG|Egypt","SV|El Salvador",
-"GQ|Equatorial Guinea","ER|Eritrea","EE|Estonia","ET|Ethiopia","FK|Falkland Islands (malvinas)",
-"FO|Faroe Islands","FJ|Fiji","FI|Finland","FR|France","GF|French Guiana","PF|French Polynesia",
-"TF|French Southern Territories","GA|Gabon","GM|Gambia","GE|Georgia","DE|Germany","GH|Ghana","GI|Gibraltar",
-"GR|Greece","GL|Greenland","GD|Grenada","GP|Guadeloupe","GU|Guam","GT|Guatemala","GN|Guinea","GW|Guinea-bissau",
-"GY|Guyana","HT|Haiti","HM|Heard Island And Mcdonald Islands","VA|Holy See (vatican City State)","HN|Honduras",
-"HK|Hong Kong","HU|Hungary","IS|Iceland","IN|India","ID|Indonesia","IR|Iran, Islamic Republic Of","IQ|Iraq",
-"IE|Ireland","IL|Israel","IT|Italy","JM|Jamaica","JP|Japan","JO|Jordan","KZ|Kazakstan","KE|Kenya","KI|Kiribati",
-"KP|Korea, Democratic People's Republic Of","KR|Korea, Republic Of","KV|Kosovo","KW|Kuwait","KG|Kyrgyzstan",
-"LA|Lao People's Democratic Republic","LV|Latvia","LB|Lebanon","LS|Lesotho","LR|Liberia","LY|Libyan Arab Jamahiriya", 
-"LI|Liechtenstein","LT|Lithuania","LU|Luxembourg","MO|Macau","MK|Macedonia, The Former Yugoslav Republic Of",
-"MG|Madagascar","MW|Malawi","MY|Malaysia","MV|Maldives","ML|Mali","MT|Malta","MH|Marshall Islands","MQ|Martinique",
-"MR|Mauritania","MU|Mauritius","YT|Mayotte","MX|Mexico","FM|Micronesia, Federated States Of","MD|Moldova, Republic Of",
-"MC|Monaco","MN|Mongolia","MS|Montserrat","ME|Montenegro","MA|Morocco","MZ|Mozambique","MM|Myanmar","NA|Namibia",
-"NR|Nauru","NP|Nepal","NL|Netherlands","AN|Netherlands Antilles","NC|New Caledonia","NZ|New Zealand","NI|Nicaragua",
-"NE|Niger","NG|Nigeria","NU|Niue","NF|Norfolk Island","MP|Northern Mariana Islands","NO|Norway","OM|Oman",
-"PK|Pakistan","PW|Palau","PS|Palestinian Territory, Occupied","PA|Panama","PG|Papua New Guinea","PY|Paraguay",
-"PE|Peru","PH|Philippines","PN|Pitcairn","PL|Poland","PT|Portugal","PR|Puerto Rico","QA|Qatar","RE|Reunion",
-"RO|Romania","RU|Russian Federation","RW|Rwanda","SH|Saint Helena","KN|Saint Kitts And Nevis","LC|Saint Lucia",
-"PM|Saint Pierre And Miquelon","VC|Saint Vincent And The Grenadines","WS|Samoa","SM|San Marino",
-"ST|Sao Tome And Principe","SA|Saudi Arabia","SN|Senegal","RS|Serbia","SC|Seychelles","SL|Sierra Leone",
-"SG|Singapore","SK|Slovakia","SI|Slovenia","SB|Solomon Islands","SO|Somalia","ZA|South Africa",
-"GS|South Georgia And The South Sandwich Islands","ES|Spain","LK|Sri Lanka","SD|Sudan","SR|Suriname",
-"SJ|Svalbard And Jan Mayen","SZ|Swaziland","SE|Sweden","CH|Switzerland","SY|Syrian Arab Republic",
-"TW|Taiwan, Province Of China","TJ|Tajikistan","TZ|Tanzania, United Republic Of","TH|Thailand","TG|Togo",
-"TK|Tokelau","TO|Tonga","TT|Trinidad And Tobago","TN|Tunisia","TR|Turkey","TM|Turkmenistan",
-"TC|Turks And Caicos Islands","TV|Tuvalu","UG|Uganda","UA|Ukraine","AE|United Arab Emirates",
-"GB|United Kingdom","US|United States","UM|United States Minor Outlying Islands","UY|Uruguay",
-"UZ|Uzbekistan","VU|Vanuatu","VE|Venezuela","VN|Viet Nam","VG|Virgin Islands, British",
-"VI|Virgin Islands, U.s.","WF|Wallis And Futuna","EH|Western Sahara","YE|Yemen","ZM|Zambia","ZW|Zimbabwe" ];
-
-
 (function($) {
-    
+
     // fake data for login
     var users = {
         'user':'user',
         'admin':'admin',
         'reviewer':'reviewer'
     };
-    
+
     var User = Class.create({
-        
+
         initialize: function(){
             this.username = null;
             this.token = null;
         },
-        
+
         isGuest: function(){
             return (this.token === null);
         },
-        
+
         login: function(username, password){
+
+            // left just for debugging
             if ( users[ username ] === password ){
                 this.username = username;
                 this.role = username;
@@ -70,19 +28,34 @@ var countries = [
                 this.token = 'FAKE TOKEN';
                 return true;
             }
+
+            $.ajax({
+                url:'ocalhost:9191/fra2015/rest/auth/login?username='+ username +'&password=' + password,
+                dataType:'json',
+                success: function( data ){
+                    this.username = data.user.username;
+                    this.role = data.user.role;
+                    this.token = data.token;
+                },
+                failure: function( data ){
+                    console.error('Cannot login. ' + data);
+                }
+            });
+
+
             return false;
         },
-        
+
         logout: function(){
             this.token = null;
         }
     });
-    
-    
+
+
     this.Application = Class.create({
-        
+
         listeners: [],
-        
+
         initialize: function(){
             // load internationalization options
             $.i18n.init({
@@ -91,18 +64,18 @@ var countries = [
             }).done(function(){
                 $(document).i18n();
             });
-            
+
             this.events = {
-                'lang': []  
+                'lang': []
             };
-            
+
             this.user = new User;
         },
-        
+
         addListener: function( listener ){
             this.listeners.push( listener );
         },
-        
+
         notify: function( event ){
             for (var i=0; i<this.listeners.length; i++){
                 this.listeners[i].trigger( event );
@@ -126,15 +99,15 @@ var countries = [
         bind: function(event, handler){
             this.events[event].push( handler );
         }
-       
-        
+
+
     });
-    
+
     // TODO abstract Observable class
     var Model = Class.create({
         initialize:function(){
             this.events = {
-                'load': []  
+                'load': []
             };
         },
         trigger: function( event ){
@@ -152,7 +125,7 @@ var countries = [
             this.events[event].splice(index, 1);
         }
     });
-    
+
     var View = Class.create({
         initialize:function(){
             this.el = $('<div></div>');
@@ -163,7 +136,7 @@ var countries = [
             };
         },
         render: function(){
-            // do nothing  
+            // do nothing
             return this;
         },
         trigger: function( event, params ){
@@ -189,14 +162,14 @@ var countries = [
         render:function( $super ){
             $super();
             this.el.find('.logout').bind('click', function(){
-                App.notify('logout'); 
+                App.notify('logout');
             });
         }
-    
-    });    
-    
+
+    });
+
     var Template = Class.create(View, {
-        
+
         initialize: function($super, options){
             $super();
             this.url = options.url;
@@ -204,7 +177,7 @@ var countries = [
         render:function( $super ){
             $super();
             var html = new EJS({
-                url: this.url, 
+                url: this.url,
                 ext:'.html'
             }).render();
             this.el.empty();
@@ -212,10 +185,10 @@ var countries = [
             this.trigger( 'load' );
             return this;
         }
-    
-    });    
-    
-    
+
+    });
+
+
     var Controller = Class.create({
         initialize:function( routing ){
             this.routing = routing;
@@ -229,16 +202,16 @@ var countries = [
             page.call( this );
         }
     });
-    
+
     this.View = View;
     this.Controller = Controller;
-    
+
     this.Page = Page;
-    
+
     this.LoginPage = Class.create(Page, {
         render: function(){
             var html = new EJS({
-                url: './login.html', 
+                url: './login.html',
                 ext:'.html'
             }).render();
             this.el.append( html );
@@ -266,30 +239,30 @@ var countries = [
             this.el.find('#errorPanel')
             .append('<div class="alert alert-error">' + msg + '</div>');
         }
-                                
+
     });
-    
+
     var TabPage = Class.create(Page, {
-        
+
         initialize:function( $super, options ){
             $super();
             this.container = options.container;
             this.tabs = options.tabs;
-         
+
             var self = this;
             $.each( this.tabs, function(index, tab){
                 tab.bind('load', function(elem){
                     self.el.find('#tabContent').empty();
                     self.el.find('#tabContent').append( elem );
                     self.trigger('change', elem);
-                    
-               
-                    
-                    
+
+
+
+
                 });
             });
         },
-            
+
         render: function($super){
             var self = this;
             var selectionHandler = function( index ){
@@ -324,19 +297,19 @@ var countries = [
                 self.trigger('change', elem);
             });*/
             this.tabs[ index ].render();
-            
+
         }
     });
-    
+
     var Templates = {
-        
+
         /* contributor templates */
-        
+
         'contributor/index': function(){
             var t = new Template({
                 url: './contributor/index.html'
             });
-            t.bind('load', function(el){
+            /* t.bind('load', function(el){
                 el.find('#languageSelector')
                 .change( function(){
                     var lang = '';
@@ -344,9 +317,9 @@ var countries = [
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
-                });  
-                el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
-            });
+                });
+               el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
+            });*/
             return t;
         },
         'contributor/survey': function(){
@@ -369,14 +342,14 @@ var countries = [
                 url: './contributor/export.html'
             });
         },
-        
+
         /* admin templates  */
-        
+
         'admin/index': function(){
             var t = new Template({
                 url: './admin/index.html'
             });
-            t.bind('load', function(el){
+            /*t.bind('load', function(el){
                 el.find('#languageSelector')
                 .change( function(){
                     var lang = '';
@@ -384,21 +357,21 @@ var countries = [
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
-                }); 
+                });
                 el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
-            });
+            });*/
             return t;
         },
         'admin/activity-log': function(){
-            
-            
-            
+
+
+
             var users = [
-            'user1', 'user2', 'user3', 'user4'  
+            'user1', 'user2', 'user3', 'user4'
             ];
-            
+
             var t = new Template({
-                url: './admin/activity-log.html' 
+                url: './admin/activity-log.html'
             });
             t.bind('load', function( el ){
                 el.find( "#startTime" ).timepicker();
@@ -416,45 +389,62 @@ var countries = [
             return t;
         },
         'admin/create-users': function(){
-            
+
             var resource = new Resource({
                 base:'http://localhost:9191/fra2015/rest', // TODO externalise
                 endpoint:'users',
                 type:'User',
                 api:{
                     find:'',
-                    create:''
+                    create:'',
+                    update:'user'
                 }
             });
-            
 
-            
+
+
             var t = new Template({
                 url: './admin/create-users.html'
             });
             t.bind('load', function( el ){
-                
+
                 var addRow = function( index, user ){
+                    
+                    var link = $('<a>Edit</a>');
+                    link.addClass('btn');
+                    link.click( function(){
+                        // open a window with pre-filled fields
+                        var win = el.find('#createUserWindow');
+                        win.find('#cid').val( user.id );
+                        win.find('#cname').val( user.name );
+                        win.find('#roleComboBox').val( user.role );
+                        win.find('#cusername').val( user.username );
+                        win.find('#cemail').val( user.email );
+                        win.find( "#saveBtn" ).text('Update');
+                        win.find( "#saveBtn" ).removeClass('disabled');
+                        win.modal('show');
+                    });
+                    
                     var row = $('<tr class="rowItem"></tr>');
                     row.append('<td>'+ user.name +'</td>');
                     row.append('<td>'+ user.username +'</td>');
                     row.append('<td>'+ user.role +'</td>');
                     row.append('<td>'+ user.countries +'</td>');
-                    row.append('<td><a id="editBtn" href="#" class="btn" >Edit</a></td>');
+                    row.append( $('<td></td>').append(link) );
                     el.find('#userTable')
-                        .append( row );
+                    .append( row );
                 };
-                
+
                 var loadItems = function(){
                     resource.find()
                     .onSuccess( function( result ){
                         // remove existing rows
                         el.find('.rowItem').remove();
-                        
+
                         if ( result.User ){
                             $.each( result.User, addRow );
                         }
-                        
+
                     })
                     .onFailure( function( response ){
                         var msg = 'Cannot load users';
@@ -462,12 +452,15 @@ var countries = [
                         el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
                     }).execute();
                 };
+
+
+
                 loadItems();
-                
+
                 el.find( "#createBtn" ).click(function(){
                     el.find('#createUserWindow').modal('show');
                 });
-                
+
                 el.find( "#countries" ).autocomplete({
                     source: countries
                 });
@@ -479,29 +472,59 @@ var countries = [
                 .click(function(){
                     el.find('#createUserWindow').modal('show');
                 });
-                el.find( "#saveBtn" ).click(function(){
-                    
-                    var obj = {};
-                    obj.name = el.find('#fullnameTextField').val();
-                    obj.password = el.find('#passwordTextField').val();
-                    obj.role = el.find('#roleComboBox').val();
-                    obj.username = el.find('#usernameTextField').val();
-                    obj.email = el.find('#emailTextField').val();
-                    // obj.countries;
-                    
+                el.find( "#saveBtn" ).addClass('disabled');
+                el.find('form :input').change(function() {
+                    if ( $("#createUserForm").valid() ){
+                        el.find( "#saveBtn" ).removeClass('disabled');
+                        el.find( "#saveBtn" ).on('click', function(){
 
-                    resource.create( obj )
-                    .onSuccess(function(){
-                        loadItems();
-                    })
-                    .onFailure(function( response ){
-                       console.error( response );
-                       var msg = 'cannot save user';
-                       el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );         
-                    }).execute();
-                    
-                    // close window
-                    el.find('#createUserWindow').modal('hide');
+                            if ( $("#createUserForm").valid()  ){
+                                var obj = {};
+                                obj.name = el.find('#cname').val();
+                                obj.newPassword = el.find('#cpassword').val();
+                                obj.role = el.find('#roleComboBox').val();
+                                obj.username = el.find('#cusername').val();
+                                obj.email = el.find('#cemail').val();
+                                // obj.countries;
+
+                                var id = el.find('#cid').val();
+
+                                if ( ! id ){
+                                    resource.create( obj )
+                                    .onSuccess(function(){
+                                        loadItems();
+                                    })
+                                    .onFailure(function( response ){
+                                        console.error( response );
+                                        var msg = 'cannot save user';
+                                        el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                                    }).execute();
+                                } else {
+                                     resource.update( id, obj )
+                                    .onSuccess(function(){
+                                        loadItems();
+                                        el.find( "#saveBtn" ).text('Save');
+                                    })
+                                    .onFailure(function( response ){
+                                        console.error( response );
+                                        var msg = 'cannot update user';
+                                        el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                                        el.find( "#saveBtn" ).text('Save');
+                                    }).execute();
+                                }
+                                
+
+                                // close window
+                                el.find('#createUserWindow').modal('hide');
+                            } else {
+                                console.error('invalid form.');
+                            }
+
+                        });
+                    } else {
+                        el.find( "#saveBtn" ).addClass('disabled');
+                        el.find( "#saveBtn" ).off('click');
+                    }
                 });
             });
             return t;
@@ -510,11 +533,11 @@ var countries = [
             return new Template({
                 url: './admin/export.html'
             });
-            
-        },       
-        
+
+        },
+
         /* reviewer templates */
-        
+
         'reviewer/index': function(){
             var t = new Template({
                 url: './reviewer/index.html'
@@ -527,21 +550,21 @@ var countries = [
                         lang += $(this).attr('value');
                     });
                     App.setLanguage( lang );
-                });  
+                });
                 el.find('#userField').text( App.user.username + ' (' + App.user.role +')');
             });
             return t;
             return t;
         },
         'reviewer/activity-log': function(){
-            
+
             var users = [
-            'user1', 'user2', 'user3', 'user4'  
+            'user1', 'user2', 'user3', 'user4'
             ];
-            
+
             // TODO use template variables
             var t = new Template({
-                url: './admin/activity-log.html' 
+                url: './admin/activity-log.html'
             });
             t.bind('load', function( el ){
                 el.find( "#startTime" ).timepicker();
@@ -561,7 +584,7 @@ var countries = [
             // TODO use template vars
             var t = new Template({
                 url: './reviewer/surveys.html'
-            }); 
+            });
             t.bind('load', function( el ){
                 el.find('#viewBtn').click(function(){
                     // TODO refactor, better paging system
@@ -570,7 +593,7 @@ var countries = [
                     var survey = new SurveyPage({
                         model:model
                     });
-                    
+
                     survey.bind('load', function( ){
                         el.append( survey.el );
                     });
@@ -584,19 +607,19 @@ var countries = [
             return new Template({
                 url: './reviewer/export.html'
             });
-        },  
-        
+        },
+
         build: function(name){
             return this[name].call(this);
         }
     };
-    
+
     var TextArea = Class.create(View, {
         initialize:function( $super, options ){
             $super();
-            
+
             this.json = options.json;
-            
+
             this.id =  Math.random().toString(36).substring(7);
             var text = $('<textarea></textarea>');
             text.attr('class', 'texteditor');
@@ -610,16 +633,16 @@ var countries = [
             text.attr('id', this.id);
             text.attr('name', this.id);
             this.el.append('<h4>' + options.title + '</h4>');
-      
+
             if (options.tooltip){
                 this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
             }
-      
-      
+
+
             var feedDiv = $('<div></div>');
-            
-            
-      
+
+
+
             // TODO create superclass in commod for tables and textareas
             if ( this.json.feedbacks ){
                 var self = this;
@@ -628,20 +651,20 @@ var countries = [
                     var feedback = $('<div></div>');
                     feedback.addClass('alert alert-block');
                     feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
-                
+
                     /// self.el.append('<br/>');
                     self.el.append(feedback);
-                });               
+                });
             }
-            
+
             this.el.append( feedDiv );
 
             if ( App.user.role == 'reviewer' ){
                 var self = this;
-                
+
                 var feedInput = $('<textarea></textarea>');
                 feedInput.addClass('span8');
-                
+
                 this.el.append( feedInput );
                 var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
                 feedBtn.addClass('btn btn-small');
@@ -650,45 +673,45 @@ var countries = [
                     var feed = $('<div></div>');
                     feed.addClass('alert alert-block');
                     feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');     
+                    feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');
                     feedDiv.append(feed);
                     feedInput.val('');
                 });
                 // this.el.append( feedBtn );
-                
-                      
+
+
                 var approveBtn = $('<a>'+ $.t('approve') +'</a>');
                 approveBtn.addClass('btn btn-primary btn-small');
                 approveBtn.attr('data-toggle', 'button');
                 approveBtn.click( function(){
-                   switch ( approveBtn.text() ){
-                       case $.t('approve'):
-                           approveBtn.text( $.t('cancel') );
-                           break;
-                       case $.t('cancel'):
-                           approveBtn.text( $.t('approve') );
-                           break;
-                       default:
-                           break
-                   }
+                    switch ( approveBtn.text() ){
+                        case $.t('approve'):
+                            approveBtn.text( $.t('cancel') );
+                            break;
+                        case $.t('cancel'):
+                            approveBtn.text( $.t('approve') );
+                            break;
+                        default:
+                            break
+                    }
                 });
-                
+
                 var feedControl = $('<div></div>');
                 feedControl.addClass('pull-right btn-group');
                 feedControl.append( approveBtn );
                 feedControl.append( feedBtn );
-                
-                
+
+
                 this.el.append( feedControl );
-                
-                // this.el.append( '<br/><br/>' );
+
+            // this.el.append( '<br/><br/>' );
             }
-            
-   
-            
-            
-            
-            
+
+
+
+
+
+
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }
@@ -700,21 +723,21 @@ var countries = [
                 alert('Saved!');
                 return false;
             });*/
-              
+
             var control = $('<p></p>');
-            control.attr('class', 'pull-right');  
+            control.attr('class', 'pull-right');
             if ( App.user.role == 'user'){
-                control.append( saveBtn );     
+                control.append( saveBtn );
             }
-            
+
             this.el.append(text);
             this.el.append('<br/><br/>');
             this.el.append( control );
-            
-            
-            
 
-            
+
+
+
+
 
         },
         render: function($super){
@@ -731,24 +754,24 @@ var countries = [
 
         }
     });
-    
+
     var Table = Class.create(View, {
         initialize:function( $super, options ){
             $super();
-            
+
             this.json = options.json;
-            
+
             this.el.append('<h4>' + options.title + '</h4>');
-            
-                 
+
+
             if (options.tooltip){
                 this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
             }
-            
+
             // TODO refactor: superclass for both textarea and table
- 
+
             var feedDiv = $('<div></div>');
-            
+
             if ( this.json.feedbacks ){
                 var self = this;
                 // add feedbacks
@@ -756,20 +779,20 @@ var countries = [
                     var feedback = $('<div></div>');
                     feedback.addClass('alert alert-block');
                     feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' '+ $.t('says') +': "' + feed.text +'"');
-                
+
                     // self.el.append('<br/>');
                     feedDiv.append(feedback);
-                });               
+                });
             }
-            
+
             this.el.append( feedDiv );
- 
+
             if ( App.user.role == 'reviewer' ){
                 var self = this;
-                
+
                 var feedInput = $('<textarea></textarea>');
                 feedInput.addClass('span8');
-                
+
                 this.el.append( feedInput );
                 var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
                 feedBtn.addClass('btn btn-small');
@@ -778,62 +801,62 @@ var countries = [
                     var feed = $('<div></div>');
                     feed.addClass('alert alert-block');
                     feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');     
+                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');
                     feedDiv.append(feed);
                     feedInput.val('');
                 });
-                
+
                 // add toogle button
                 // <button type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
-                
+
                 var approveBtn = $('<a>'+ $.t('approve') +'</a>');
                 approveBtn.addClass('btn btn-primary btn-small');
                 approveBtn.attr('data-toggle', 'button');
                 approveBtn.click( function(){
-                   switch ( approveBtn.text() ){
-                       case $.t('approve'):
-                           approveBtn.text( $.t('cancel') );
-                           break;
-                       case $.t('cancel'):
-                           approveBtn.text( $.t('approve') );
-                           break;
-                       default:
-                           break
-                   }
+                    switch ( approveBtn.text() ){
+                        case $.t('approve'):
+                            approveBtn.text( $.t('cancel') );
+                            break;
+                        case $.t('cancel'):
+                            approveBtn.text( $.t('approve') );
+                            break;
+                        default:
+                            break
+                    }
                 });
-                
+
                 var feedControl = $('<div></div>');
                 feedControl.addClass('pull-right btn-group');
                 feedControl.append( approveBtn );
                 feedControl.append( feedBtn );
-                
-                
+
+
                 this.el.append( feedControl );
-                
-                
-                
-                // this.el.append('<br/><br/>');
+
+
+
+            // this.el.append('<br/><br/>');
             }
- 
-  
-            
-            
-            
-            
+
+
+
+
+
+
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
-            }  
-            
-            
+            }
+
+
             var table = $('<table></table>');
             table.attr('class', 'table table-bordered table-hover table-condensed table-striped');
-            
-            
+
+
             // TODO create three different type of table?
-            
+
             if ( options.data && options.header ){
-                
-                var head = $('<thead></thead>'); 
+
+                var head = $('<thead></thead>');
                 var row = $('<tr></tr>');
                 head.append( row );
                 row.append( $.map(options.header, function( column ){
@@ -842,10 +865,10 @@ var countries = [
                 table.append( head );
                 var tbody = $('<tbody></tbody>');
                 table.append( tbody );
-                
-                
-                
-                
+
+
+
+
                 $.each( options.data, function(index, cells){
                     var row = $('<tr></tr>');
                     row.append( $.map(cells, function( cell ){
@@ -853,11 +876,11 @@ var countries = [
                     }));
                     table.append(row);
                 });
-                
-                this.el.append(table); 
-                
+
+                this.el.append(table);
+
             } else if ( options.rows && options.rows.length>0){
-                var head = $('<thead></thead>').append('<tr></tr>'); 
+                var head = $('<thead></thead>').append('<tr></tr>');
                 head.append('<th></th>'); // empty cell above row column
                 head.append( $.map(options.columns, function( column ){
                     return $('<th></th>').append(column);
@@ -865,13 +888,13 @@ var countries = [
                 table.append( head );
                 var tbody = $('<tbody></tbody>');
                 table.append( tbody );
-                
+
                 for ( var i=0; i<options.rows.length; i++){
                     var row = $('<tr></tr>');
                     row.append( '<td>'+ options.rows[i] + '</td>' );
                     row.append( $.map(options.columns, function( column ){
                         var cell = $('<td></td>')
-                        if ( App.user.role == 'user'){ 
+                        if ( App.user.role == 'user'){
                             cell.addClass('editable');
                         }
                         cell.click(function(){
@@ -887,7 +910,7 @@ var countries = [
                                         var text = cell.find(".celleditor").attr('value');
                                         cell.html( text );
                                     }
-                                    return false;  
+                                    return false;
                                 });
                                 cell.find('.celleditor').focus();
                             }
@@ -898,7 +921,7 @@ var countries = [
                     }) );
                     tbody.append( row );
                 }
-                
+
                 var saveBtn = $('<a>'+ $.t('save') +'</a>');
                 saveBtn.attr('href', '#');
                 saveBtn.attr('class', 'btn btn-mini btn-primary');
@@ -906,22 +929,22 @@ var countries = [
                     alert('Saved!');
                     return false;
                 });*/
-              
+
                 var control = $('<p></p>');
                 control.attr('class', 'pull-right');
-                
+
                 if ( App.user.role == 'user'){
                     control.append( saveBtn );
                 }
-                
-                this.el.append(table); 
+
+                this.el.append(table);
                 this.el.append( control );
                 this.el.append('<br/><br/>');
 
             } else {
-                
+
                 // TODO refactor, clean code
-                
+
                 var head = $('<thead></thead>');
                 var headRow = $('<tr></tr>');
                 head.append( headRow );
@@ -931,16 +954,16 @@ var countries = [
                 table.append( head );
                 var tbody = $('<tbody></tbody>');
                 table.append( tbody );
-                
+
                 this.addEmptyRow = function(){
                     var row = $('<tr></tr>');
                     tbody.append( row );
                     row.append( $.map(options.columns, function( column ){
                         var cell = $('<td></td>');
-                        if ( App.user.role == 'user'){ 
+                        if ( App.user.role == 'user'){
                             cell.addClass('editable');
                         }
-                        
+
                         cell.click(function(){
                             if ( cell.hasClass('editable') ){
                                 cell.removeClass("editable");
@@ -954,65 +977,65 @@ var countries = [
                                         var text = cell.find(".celleditor").attr('value');
                                         cell.html( text );
                                     }
-                                    return false;  
+                                    return false;
                                 });
                                 cell.find('.celleditor').focus();
                             }
                             return false;
                         });
-                                        
-                        
-                       
+
+
+
                         cell.append('&nbsp;');
                         return cell;
-                    }));       
+                    }));
                     return row;
                 };
-                
+
                 // create an empty row
                 this.addEmptyRow();
-                
+
                 // button to add new row to table
                 var addBtn = $('<a>'+ $.t('add_row') +'</a>');
                 addBtn.attr('id', 'addBtn');
                 addBtn.attr('href', '#');
                 addBtn.attr('class', 'btn btn-mini');
-                
+
                 var saveBtn = $('<a>'+ $.t('save') +'</a>');
                 saveBtn.attr('id', 'saveBtn');
                 saveBtn.attr('href', '#');
                 saveBtn.attr('class', 'btn btn-mini btn-primary');
-               
-              
+
+
                 var control = $('<p></p>');
                 control.attr('class', 'pull-right');
-                
-                if ( App.user.role == 'user'){ 
+
+                if ( App.user.role == 'user'){
                     control.append( addBtn );
                     control.append( saveBtn );
-                } 
-                
-                this.el.append(table); 
-                
+                }
+
+                this.el.append(table);
+
                 this.el.append( control );
                 this.el.append('<br/><br/>');
             }
-            
-                      
-           
- 
+
+
+
+
         },
         render: function($super){
             $super();
-            
+
             this.addEvents();
-            
+
             this.trigger('load');
             return this;
         },
-        
+
         addEvents: function(){
-            
+
             var table = this;
             this.el.find('#saveBtn').click(function(evt){
                 alert('Saved!');
@@ -1022,7 +1045,7 @@ var countries = [
                 table.addEmptyRow();
                 return false;
             });
-            
+
             this.el.find('.editable').click(function(){
                 var cell = $(this);
                 if ( cell.hasClass('editable') ){
@@ -1037,16 +1060,16 @@ var countries = [
                             var text = cell.find(".celleditor").attr('value');
                             cell.html( text );
                         }
-                        return false;  
+                        return false;
                     });
                     cell.find('.celleditor').focus();
                 }
                 return false;
-            });             
-            
+            });
+
         }
     });
-    
+
     var Section = Class.create(View, {
         initialize:function( $super, options ){
             $super();
@@ -1055,14 +1078,14 @@ var countries = [
             this.items = options.items;
             this.el = $('<section></section>');
             this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
-            
+
             var depth = 2; // TOFIX
-          
+
             this.el.append( this.createTitle(this.options.title, depth) );
             if ( this.options.description ){
                 this.el.append( this.createDescription(this.options.description, depth));
             }
-            
+
             var count = 0, length = this.options.items.length;
             var el = this.el, section=this;
             if ( this.options.items.length > 0 ){
@@ -1073,21 +1096,21 @@ var countries = [
                         if (count >= length){
                         // section.trigger('load');
                         }
-                    });               
-                           
-                });          
+                    });
+
+                });
             }
         },
         render: function($super, depth, num){
             $super();
             if ( this.options.items.length > 0 ){
                 $.each( this.options.items, function (index, item){
-                    item.render( depth + 1, num + '.' + (index+1));    
+                    item.render( depth + 1, num + '.' + (index+1));
                 });
-            } 
+            }
             this.trigger('load');
-            
-                
+
+
             return this;
         },
         createTitle: function( title, depth ){
@@ -1121,20 +1144,20 @@ var countries = [
                     html = $('<p></p>');
             }
             html.append( description );
-            return html;          
+            return html;
         }
     });
- 
+
     var Question = Class.create(Section, {
-        
+
         initialize:function( $super, options ){
             this.number = options.number;
             this.link = options.link;
             this.description = options.description;
             $super( options );
-            
+
         },
- 
+
         createTitle: function( title ){
             var html = null;
             if ( this.number ){
@@ -1143,7 +1166,7 @@ var countries = [
                 html = $('<div class="page-header"><h1>'+ this.description + '</h1></div>');
             }
             if ( this.link ){
-              html.append('<div class="well"><p> Click the button to download question documentation. </p> <a href="#" class="btn btn-large btn-primary">Download Documentation</a></div>');
+                html.append('<div class="well"><p> Click the button to download question documentation. </p> <a href="#" class="btn btn-large btn-primary">Download Documentation</a></div>');
             }
             return html;
         },
@@ -1153,21 +1176,21 @@ var countries = [
             html.append( description );
             return html;*/
             return '';
-        }    
-        
+        }
+
     });
- 
+
     var SurveyView = Class.create( View, {
-        
+
         initialize: function($super, model){
             $super();
         /*var view = this;
             model.bind('load', function(){
-                
+
                 view.trigger('load', view.el);
             });*/
         },
-        
+
         getQuestions: function(){
             if ( this.items ){
                 var questions = [];
@@ -1183,24 +1206,24 @@ var countries = [
                             questions.push(view);
                         default:
                             break;
-                            
+
                     }
                 };
                 $.each( this.items, proj);
-                
+
                 return questions;
             } else {
                 throw "survey does not have items.";
             }
         },
-        
+
         render: function(){
         //this.model.load();
         }
     });
- 
+
     var Survey = Class.create( Model, {
-        
+
         initialize: function($super){
             $super();
             var self = this;
@@ -1209,12 +1232,12 @@ var countries = [
                 self.load();
             });
         },
-        
+
         isEmpty: function(){
-            return this.survey===undefined || this.survey===null;  
+            return this.survey===undefined || this.survey===null;
         },
-        
-        
+
+
         load: function(){
             if ( this.isEmpty() ){
                 var model = this;
@@ -1224,29 +1247,29 @@ var countries = [
                     url:'./resources/'+ $.i18n.lng() +'/survey.json',
                     success: function(data){
                         try{
-                            model.survey = $.parseJSON( data ); 
+                            model.survey = $.parseJSON( data );
                         } catch (e){
                             throw 'cannot parse ./resources/survey.json: ' + e;
                         }
                         model.trigger('load');
                     }
-                });                
+                });
             } else {
                 this.trigger('load');
             }
 
         },
-  
+
         createNavBar: function(){
-            
+
             var ul = $('<ul></ul>');
             ul.attr('class', 'nav nav-list');
-            
-            
-            // TODO create a real view   
+
+
+            // TODO create a real view
             var view = new View;
             view.el = ul;
-            
+
             var fc = 0;
             var qnum = 0;
             var depth = 0;
@@ -1257,9 +1280,9 @@ var countries = [
                         if ( obj.feedbacks ){
                             fc += obj.feedbacks.length;
                         }
-                        
+
                         break;
-                    
+
                     case 'survey':
                         depth++;
                         $.each( obj.items, builder );
@@ -1269,7 +1292,7 @@ var countries = [
                             var li = $('<li></li>');
                             ul.append( li );
                             li.addClass('nav-header');
-                            li.append( obj.title );  
+                            li.append( obj.title );
                         }
                         depth++;
                         $.each( obj.items, builder );
@@ -1278,46 +1301,46 @@ var countries = [
                     case 'question':
                         var li = $('<li></li>');
                         ul.append( li );
-                        
+
                         var a = $('<a></a>');
                         a.attr('href', '#');
                         a.addClass('tab');
                         li.append( a );
-                        
+
                         var text = $('<div></div>');
-                        
+
                         if ( ! obj.nocount ){
                             text.append( (qnum+1) + '. '  );
                             qnum++;
                         }
                         text.append(obj.description);
                         a.append( text );
-                        
-                        
+
+
                         depth++;
-                        
+
                         fc = 0;
-                        
+
                         $.each( obj.items, builder );
-                        
+
                         if (fc>0){
                             text.append( '&nbsp;&nbsp;<span class="badge badge-warning">'+ fc + '</span>' );
                         }
-                        
+
                         depth--;
                         break;
                     default:
                         break;
-                                         
-                }             
+
+                }
             }
             builder(0, this.survey);
-            
-                
+
+
             return view;
-            
+
         },
-        
+
         createSurvey: function(){
             var num = 0;
             var builder = this;
@@ -1371,7 +1394,7 @@ var countries = [
                             items: items,
                             json:obj
                         });
-                        num++; 
+                        num++;
                     } else {
                         view = new Question({
                             title: obj.title,
@@ -1380,9 +1403,9 @@ var countries = [
                             json:obj
                         });
                     }
-                    
+
                     return view;
-                },   
+                },
                 'section': function(obj, handlers){
                     if (!obj.items){
                         throw 'parsing error: section ' + obj.title + ' has no property "items".';
@@ -1397,10 +1420,10 @@ var countries = [
                         json:obj
                     });
                     return view;
-                }            
+                }
             });
         },
-        
+
         createView: function( obj, handlers ){
             if ( !obj.type ){
                 throw "parsing error: wrong format.";
@@ -1411,56 +1434,56 @@ var countries = [
             } else {
                 throw "no handler for: " + obj.type;
             }
-            
+
         }
-        
+
     });
-    
+
     var SurveyPage = Class.create(Page, {
         initialize:function( $super, options ){
             $super();
-            
+
             var page = this;
             var model = options.model;
             // var view = new SurveyView( model );
-            
+
             var container = $('<div></div>');
             container.attr('class', 'container');
             container.empty();
-              
+
             var row = $('<div></div>');
             row.attr('class', 'row');
-                    
+
             var left =  $('<div></div>');
             left.attr('class', 'span4');
-            
-                    
+
+
             var right =  $('<div></div>');
             right.attr('class', 'span8');
             right.attr('id', 'tabContent');
-                    
+
             row.append(left);
             row.append(right);
             container.append( row );
-            
-            
+
+
             this.loading = function(  ){
-                
+
                 // page.model.unbind('load', page.loading);
-                            
+
                 var cView = new View;
                 cView.el = container;
-                
-               
+
+
                 var s = model.createSurvey();
                 s.render();
                 var questions = s.getQuestions();
-                
+
                 var tabPage = new TabPage({
                     container: cView,
                     tabs: questions
                 });
-                
+
                 // add nav bar to tab page
                 var nav = model.createNavBar();
                 left.empty();
@@ -1468,7 +1491,7 @@ var countries = [
                 nav.bind('click', function( el, index ){
                     tabPage.select( index );
                 });
-                
+
                 tabPage.bind('load', function( el){
                     page.el = el;
                     page.trigger('load', el);
@@ -1479,31 +1502,31 @@ var countries = [
                 tabPage.render();
                 cView.trigger('load', cView.el);
                 tabPage.select(0);
-                
-                
+
+
             };
-            
-            
+
+
             this.model = model;
-            
+
         },
         render: function($super){
             $super();
             this.model.bind('load', this.loading);
             this.model.load();
-        } 
+        }
     });
- 
-    
+
+
     var Summary = Class.create(View, {
         initialize:function( $super, options){
-            $super();            
+            $super();
             this.model = options.model;
             var self = this;
             this.loading = function(){
-                
+
                 self.model.unbind('load', self.loading);
-                
+
                 var table = $('<table></table>');
                 table.addClass('table table-bordered table-hover table-condensed table-striped');
                 var thead = $('<thead></thead>');
@@ -1520,9 +1543,9 @@ var countries = [
                 table.append( thead );
                 var breadcrumbs = new Array;
                 var section = null;
-                    
+
                 var builder = function(index, obj){
-                        
+
                     var parent = '';
                     $.each( breadcrumbs, function(id, item){
                         if (id>0){
@@ -1530,21 +1553,21 @@ var countries = [
                         }
                         parent += item;
                     });
-                     
+
                     switch( obj.type ){
                         case 'textarea':
                             break;
                         case 'table':
                             if ( obj.rows && obj.rowIds ){
-                                
-                                
-                                
+
+
+
                                 $.each( obj.rows, function(id, title ){
                                     var row = $('<tr></tr>');
                                     if (id===0){
                                         row.append('<td rowspan="' + obj.rows.length +'">'+ obj.id +'</td>');
                                     }
-                                    
+
                                     row.append( $('<td>'+ obj.rowIds[id] + '. ' + title +'</td>') );
                                     row.append( $('<td>'+ obj.unit +'</td>') );
                                     row.append('<td></td>');
@@ -1552,14 +1575,14 @@ var countries = [
                                     row.append('<td></td>');
                                     row.append('<td></td>');
                                     row.append('<td></td>');
-                                    
+
                                     table.append(row);
                                 });
-                                
-                                
-                                
+
+
+
                             }
-                            
+
                             break;
                         case 'survey':
                             $.each( obj.items, builder );
@@ -1584,29 +1607,29 @@ var countries = [
                         default:
                             throw "parsing error: " + obj.type + " is not a valid type.";
                     }
-                     
+
                 };
-                    
+
                 builder(0, self.model.survey);
-                    
+
                 self.el.attr('class', 'container');
                 self.el.empty();
                 self.el.append(table);
-                    
+
                 self.trigger('load');
             };
-            
-        },     
+
+        },
         render: function($super){
-            $super(); 
+            $super();
             this.model.bind('load', this.loading);
             this.model.load();
         }
     });
- 
+
     this.ContributorPage = Class.create(TabPage, {
         initialize:function( $super ){
-            
+
             var model = new Survey;
             var page = this;
             var survey = new SurveyPage({
@@ -1615,7 +1638,7 @@ var countries = [
             survey.bind('change', function(){
                 page.trigger('change');
             });
-            
+
             var summary = new Summary({
                 model:model
             });
@@ -1625,7 +1648,7 @@ var countries = [
                 survey,
                 Templates.build('contributor/check'),
                 summary,
-                Templates.build('contributor/export')       
+                Templates.build('contributor/export')
                 ]
             });
         },
@@ -1635,8 +1658,8 @@ var countries = [
         // this.trigger('load');
         }
     });
-    
-    
+
+
     this.AdminPage = Class.create(TabPage, {
         initialize:function( $super ){
             $super( {
@@ -1644,7 +1667,7 @@ var countries = [
                 tabs:[
                 Templates.build('admin/activity-log'),
                 Templates.build('admin/create-users'),
-                Templates.build('admin/export')       
+                Templates.build('admin/export')
                 ]
             });
         },
@@ -1652,9 +1675,9 @@ var countries = [
             $super();
             this.select(0);
         // this.trigger('load');
-        } 
+        }
     });
-    
+
     this.ReviewerPage = Class.create(TabPage, {
         initialize:function( $super ){
             $super( {
@@ -1662,7 +1685,7 @@ var countries = [
                 tabs:[
                 Templates.build('reviewer/surveys'),
                 Templates.build('reviewer/activity-log'),
-                Templates.build('reviewer/export')       
+                Templates.build('reviewer/export')
                 ]
             });
         },
@@ -1670,18 +1693,18 @@ var countries = [
             $super();
             this.select(0);
         // this.trigger('load');
-        } 
+        }
     });
-    
+
     this.ErrorPage = Class.create(Page, {
-        
+
         render: function(){
-            
+
             this.el.append( 'error' );
             this.trigger('load');
         }
     });
-    
+
 }).call(this, jQuery);
 
 

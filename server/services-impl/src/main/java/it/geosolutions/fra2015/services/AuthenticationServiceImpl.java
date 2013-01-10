@@ -52,8 +52,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         
 
         Search search = new Search(User.class);
-        search.addField("password", password);
-        search.addField("username", username);
+        search.addFilterEqual("password", password);
+        search.addFilterEqual("username", username);
         List<User> users = userDAO.search(search);
 
         if (users.isEmpty()) {
@@ -63,9 +63,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new IllegalAccessServiceException("Authentication failed: username or password not valid");
         }
 
-        User user = users.get(0);
+        User user = (User) users.get(0);
         Token token = new Token();
-        token.setValue( UUID.randomUUID().toString() );
+        token.setToken( UUID.randomUUID().toString() );
         token.setUser(user);
         token.setExpiringDate(calculateExpiringDate(new Date()));
 
@@ -116,8 +116,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (value == null) {
             throw new BadRequestServiceEx("Username type must be specified !");
         }
-        Search search = new Search(User.class);
-        search.addField("token", value);
+        Search search = new Search(Token.class);
+        search.addFilterEqual("token", value);
         List<Token> tokens = tokenDAO.search(search);
         if (!tokens.isEmpty()) {
             Token token = tokens.get(0);

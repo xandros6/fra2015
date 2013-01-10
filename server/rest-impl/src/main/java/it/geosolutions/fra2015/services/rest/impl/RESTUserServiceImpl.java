@@ -88,9 +88,10 @@ public class RESTUserServiceImpl implements RESTUserService {
      * it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
-    public User update(SecurityContext sc, long id, User user) {
+    public long update(SecurityContext sc, long id, User user) {
         try {
 
+            user.setId(id);
             return userService.update(user);
 
         } catch (NotFoundServiceEx e) {
