@@ -195,6 +195,10 @@
                     context.trigger('ready', el); 
                 });
                 
+                page.bind('change', function(){
+                    context.trigger('reload');
+                });
+                
                 page.render();
             },
             error: function( msg ){
@@ -227,6 +231,10 @@
                     // LOGOUT button text value
                     page.el.find('#userField').text(username+' ('+role+')');
                     context.trigger('ready', el); 
+                });
+                
+                page.bind('change', function(){
+                    context.trigger('reload');
                 });
                 
                 page.render();
