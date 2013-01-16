@@ -1,103 +1,45 @@
 (function($) {
 
-    // fake data for login
-    var users = {
-        'user':'user',
-        'admin':'admin',
-        'reviewer':'reviewer'
-    };
 
     var User = Class.create({
 
-        initialize: function(){
-            this.username = null;
-            this.token = null;
+        initialize: function(username, role, token){
+            this.username = username;
+            this.token = token;
+            this.role = role;
+            
+            this.actions = {
+                'canAddFeedback': function(user){
+                    return user.role === 'reviewer';
+                },
+                'canEdit': function( user ){
+                    return user.role === 'contributor';
+                },
+                'canSave': function( user ){
+                    return user.role === 'contributor';
+                }
+            }
+            
         },
 
         isGuest: function(){
             return (this.token === null);
-        },
-
-        login: function(username, password){
-
-            // left just for debugging
-            if ( users[ username ] === password ){
-                this.username = username;
-                this.role = username;
-                this.password = password;
-                this.token = 'FAKE TOKEN';
-                return true;
-            }
-
-            $.ajax({
-                url:'ocalhost:9191/fra2015/rest/auth/login?username='+ username +'&password=' + password,
-                dataType:'json',
-                success: function( data ){
-                    this.username = data.user.username;
-                    this.role = data.user.role;
-                    this.token = data.token;
-                },
-                failure: function( data ){
-                    console.error('Cannot login. ' + data);
-                }
-            });
-
-
-            return false;
-        },
-
-        logout: function(){
-            this.token = null;
+        }, 
+        
+        check: function( action ){
+            return this.actions[action].apply( null, [this] ) || false;
         }
     });
 
 
     this.Application = Class.create({
 
-        listeners: [],
-
         initialize: function(){
-            // load internationalization options
-            $.i18n.init({
-                lng:'en-US',
-                resGetPath: 'locales/__lng__/__ns__.json'
-            }).done(function(){
-                $(document).i18n();
-            });
-
-            this.events = {
-                'lang': []
-            };
-
             this.user = new User;
         },
-
-        addListener: function( listener ){
-            this.listeners.push( listener );
-        },
-
-        notify: function( event ){
-            for (var i=0; i<this.listeners.length; i++){
-                this.listeners[i].trigger( event );
-            }
-        },
-        setLanguage: function( lang ){
-            $.i18n.init({
-                lng:lang
-            }).done(function(){
-                $(document).i18n();
-            });
-            this.trigger('lang');
-        },
-        trigger: function( event ){
-            var handlers = this.events[event];
-            for (var i=0; i<handlers.length; i++){
-                var handler = handlers[i];
-                handler.call( this, this );
-            }
-        },
-        bind: function(event, handler){
-            this.events[event].push( handler );
+        
+        setUser: function(username, role, token){
+            this.user = new User(username, role, token);
         }
 
 
@@ -188,59 +130,8 @@
 
     });
 
-
-    var Controller = Class.create({
-        initialize:function( routing ){
-            this.routing = routing;
-        },
-        start: function(){
-            var startPage = this.routing['default'];
-            startPage.call( this );
-        },
-        trigger: function(event){
-            var page = this.routing[event];
-            page.call( this );
-        }
-    });
-
     this.View = View;
-    this.Controller = Controller;
-
     this.Page = Page;
-
-    this.LoginPage = Class.create(Page, {
-        render: function(){
-            var html = new EJS({
-                url: './login.html',
-                ext:'.html'
-            }).render();
-            this.el.append( html );
-            var el = this.el;
-            this.el.find('#languageSelector')
-            .change( function(){
-                var lang = '';
-                el.find("select option:selected").each(function () {
-                    lang += $(this).attr('value');
-                });
-                App.setLanguage( lang );
-            });
-            this.trigger('load', this.el);
-        },
-        getLoginButton: function(){
-            return this.el.find('#loginBtn');
-        },
-        getUsername: function(){
-            return this.el.find('#usernameTextField').val();
-        },
-        getPassword: function(){
-            return this.el.find('#passwordTextField').val();
-        },
-        displayError: function(msg){
-            this.el.find('#errorPanel')
-            .append('<div class="alert alert-error">' + msg + '</div>');
-        }
-
-    });
 
     var TabPage = Class.create(Page, {
 
@@ -278,6 +169,7 @@
                     self.el.find(tab).bind('click', selectionHandler( i ));
                 }
                 self.trigger('load', self.el);
+
             });
             this.container.render();
             $super();
@@ -500,7 +392,7 @@
                                         el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
                                     }).execute();
                                 } else {
-                                     resource.update( id, obj )
+                                    resource.update( id, obj )
                                     .onSuccess(function(){
                                         loadItems();
                                         el.find( "#saveBtn" ).text('Save');
@@ -613,132 +505,141 @@
             return this[name].call(this);
         }
     };
-
-    var TextArea = Class.create(View, {
-        initialize:function( $super, options ){
+    
+    
+    
+    var SubmitFeedback = Class.create(View, {
+        initialize: function($super, feedbacks){
             $super();
+            
+            var feedInput = $('<textarea></textarea>');
+            feedInput.addClass('span8');
 
-            this.json = options.json;
+            this.el.append( feedInput );
+            var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
+            feedBtn.addClass('btn btn-small');
+            feedBtn.click( function(){
+                var text = feedInput.val();
+                var feed = $('<div></div>');
+                feed.addClass('alert alert-block');
+                feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
+                feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');
+                feedbacks.append( feed );
+                feedInput.val('');
+            });
+            // this.el.append( feedBtn );
 
-            this.id =  Math.random().toString(36).substring(7);
-            var text = $('<textarea></textarea>');
-            text.attr('class', 'texteditor');
-            if ( App.user.role != 'user'){
-                text.attr('disabled', 'disabled');
-                text.attr('value', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
-                text.attr('class', 'texteditor span8');
+
+            var approveBtn = $('<a>'+ $.t('approve') +'</a>');
+            approveBtn.addClass('btn btn-primary btn-small');
+            approveBtn.attr('data-toggle', 'button');
+            approveBtn.click( function(){
+                switch ( approveBtn.text() ){
+                    case $.t('approve'):
+                        approveBtn.text( $.t('cancel') );
+                        break;
+                    case $.t('cancel'):
+                        approveBtn.text( $.t('approve') );
+                        break;
+                    default:
+                        break
+                }
+            });
+
+            var feedControl = $('<div></div>');
+            feedControl.addClass('pull-right btn-group');
+            feedControl.append( approveBtn );
+            feedControl.append( feedBtn );
+
+
+            this.el.append( feedControl );
+        }
+    });
+    
+    var Feedbacks = Class.create(View, {
+        initialize: function($super, json){
+            $super();
+            this.json = json;
+            
+           
+            var el = this.el;
+            if ( App.user.check('canAddFeedback')){
+                var addFeedback = new SubmitFeedback( this );
+                this.el.append( addFeedback );
             }
-            text.attr('cols', '160');
-            text.attr('rows', '10');
-            text.attr('id', this.id);
-            text.attr('name', this.id);
+            
+            
+            if ( json ){
+                // create list of previous feedbacks
+                $.each( json, function(index, feed){
+                    var feedback = $('<div></div>');
+                    feedback.addClass('alert alert-block');
+                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
+                    el.append(feedback);
+                }); 
+            }
+            
+        }
+    });
+    
+    var Entry = Class.create(View, {
+        initialize: function($super, options){
+            $super();
+            
+            this.options = options;
+ 
             this.el.append('<h4>' + options.title + '</h4>');
 
             if (options.tooltip){
                 this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
             }
-
-
-            var feedDiv = $('<div></div>');
-
-
-
-            // TODO create superclass in commod for tables and textareas
-            if ( this.json.feedbacks ){
-                var self = this;
-                // add feedbacks
-                $.each( this.json.feedbacks, function(index, feed){
-                    var feedback = $('<div></div>');
-                    feedback.addClass('alert alert-block');
-                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' says: "' + feed.text +'"');
-
-                    /// self.el.append('<br/>');
-                    self.el.append(feedback);
-                });
-            }
-
-            this.el.append( feedDiv );
-
-            if ( App.user.role == 'reviewer' ){
-                var self = this;
-
-                var feedInput = $('<textarea></textarea>');
-                feedInput.addClass('span8');
-
-                this.el.append( feedInput );
-                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
-                feedBtn.addClass('btn btn-small');
-                feedBtn.click( function(){
-                    var text = feedInput.val();
-                    var feed = $('<div></div>');
-                    feed.addClass('alert alert-block');
-                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> '+ $.t('says') +': "' + text +'"');
-                    feedDiv.append(feed);
-                    feedInput.val('');
-                });
-                // this.el.append( feedBtn );
-
-
-                var approveBtn = $('<a>'+ $.t('approve') +'</a>');
-                approveBtn.addClass('btn btn-primary btn-small');
-                approveBtn.attr('data-toggle', 'button');
-                approveBtn.click( function(){
-                    switch ( approveBtn.text() ){
-                        case $.t('approve'):
-                            approveBtn.text( $.t('cancel') );
-                            break;
-                        case $.t('cancel'):
-                            approveBtn.text( $.t('approve') );
-                            break;
-                        default:
-                            break
-                    }
-                });
-
-                var feedControl = $('<div></div>');
-                feedControl.addClass('pull-right btn-group');
-                feedControl.append( approveBtn );
-                feedControl.append( feedBtn );
-
-
-                this.el.append( feedControl );
-
-            // this.el.append( '<br/><br/>' );
-            }
-
-
-
-
-
-
             if ( options.description ){
                 this.el.append( '<p>' + options.description + '</p>');
             }
-            var saveBtn = $('<a>'+ $.t('save') +'</a>');
-            saveBtn.attr('id', 'saveBtn');
-            saveBtn.attr('href', '#');
-            saveBtn.attr('class', 'btn btn-mini btn-primary');
-            /*saveBtn.click(function(evt){
-                alert('Saved!');
-                return false;
-            });*/
+            
+             // feedback list
+            var feedbacks = new Feedbacks( options.feedbacks );
+            this.el.append( feedbacks.el );
+           
 
-            var control = $('<p></p>');
-            control.attr('class', 'pull-right');
-            if ( App.user.role == 'user'){
-                control.append( saveBtn );
+            var control = $('<div class="control"></div>');
+            control.addClass( 'pull-right');
+            if ( App.user.check('canSave')){
+                var saveBtn = $('<a>'+ $.t('save') +'</a>');
+                saveBtn.attr('id', 'saveBtn');
+                saveBtn.attr('href', '#');
+                saveBtn.addClass( 'btn btn-mini btn-primary');
+                control.append( saveBtn ); 
             }
-
-            this.el.append(text);
-            this.el.append('<br/><br/>');
+            
+            this.el.append( '<div class="entry"></div>');
             this.el.append( control );
+            this.el.append('<br/><br/>');
+        }
+    });
 
+    var TextArea = Class.create(Entry, {
+        initialize:function( $super, options ){
+            $super( options );
 
+            this.json = options.json;
 
-
-
-
+            this.id =  Math.random().toString(36).substring(7);
+            var text = $('<textarea></textarea>');
+            text.addClass('texteditor');
+            
+            if ( ! App.user.check('canEdit') ){
+                text.attr('disabled', 'disabled');
+                text.attr('value', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+                text.addClass('span8');
+            }
+            text.attr('cols', '160');
+            text.attr('rows', '10');
+            text.attr('id', this.id);
+            text.attr('name', this.id);
+            
+            this.el.find('.entry').append( text );
+            
         },
         render: function($super){
             $super();
@@ -755,106 +656,29 @@
         }
     });
 
-    var Table = Class.create(View, {
+    var Table = Class.create(Entry, {
         initialize:function( $super, options ){
-            $super();
+            $super( options );
 
             this.json = options.json;
-
-            this.el.append('<h4>' + options.title + '</h4>');
-
-
-            if (options.tooltip){
-                this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
-            }
-
-            // TODO refactor: superclass for both textarea and table
-
-            var feedDiv = $('<div></div>');
-
-            if ( this.json.feedbacks ){
-                var self = this;
-                // add feedbacks
-                $.each( this.json.feedbacks, function(index, feed){
-                    var feedback = $('<div></div>');
-                    feedback.addClass('alert alert-block');
-                    feedback.append( '<strong>'+feed.reviewer+'</strong>' + ' '+ $.t('says') +': "' + feed.text +'"');
-
-                    // self.el.append('<br/>');
-                    feedDiv.append(feedback);
-                });
-            }
-
-            this.el.append( feedDiv );
-
-            if ( App.user.role == 'reviewer' ){
-                var self = this;
-
-                var feedInput = $('<textarea></textarea>');
-                feedInput.addClass('span8');
-
-                this.el.append( feedInput );
-                var feedBtn = $('<a>'+ $.t('add_feedback') +'</a>');
-                feedBtn.addClass('btn btn-small');
-                feedBtn.click( function(){
-                    var text = feedInput.val();
-                    var feed = $('<div></div>');
-                    feed.addClass('alert alert-block');
-                    feed.append('<button type="button" class="close" data-dismiss="alert">&times;</button>');
-                    feed.append( '<strong>Reviewer</strong> says: "' + text +'"');
-                    feedDiv.append(feed);
-                    feedInput.val('');
-                });
-
-                // add toogle button
-                // <button type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
-
-                var approveBtn = $('<a>'+ $.t('approve') +'</a>');
-                approveBtn.addClass('btn btn-primary btn-small');
-                approveBtn.attr('data-toggle', 'button');
-                approveBtn.click( function(){
-                    switch ( approveBtn.text() ){
-                        case $.t('approve'):
-                            approveBtn.text( $.t('cancel') );
-                            break;
-                        case $.t('cancel'):
-                            approveBtn.text( $.t('approve') );
-                            break;
-                        default:
-                            break
-                    }
-                });
-
-                var feedControl = $('<div></div>');
-                feedControl.addClass('pull-right btn-group');
-                feedControl.append( approveBtn );
-                feedControl.append( feedBtn );
-
-
-                this.el.append( feedControl );
-
-
-
-            // this.el.append('<br/><br/>');
-            }
-
-
-
-
-
-
-            if ( options.description ){
-                this.el.append( '<p>' + options.description + '</p>');
-            }
 
 
             var table = $('<table></table>');
             table.attr('class', 'table table-bordered table-hover table-condensed table-striped');
 
+            this.el.find('.entry').append( table );
 
-            // TODO create three different type of table?
+            if ( App.user.check('canEdit')){   
+                // button to add new row to table
+                var addBtn = $('<a>'+ $.t('add_row') +'</a>');
+                addBtn.attr('id', 'addBtn');
+                addBtn.attr('href', '#');
+                addBtn.attr('class', 'btn btn-mini');
+                this.el.find('.control').append( addBtn );
+            }
 
-            if ( options.data && options.header ){
+
+            if ( options.data && options.header ){ /* static table */
 
                 var head = $('<thead></thead>');
                 var row = $('<tr></tr>');
@@ -877,7 +701,6 @@
                     table.append(row);
                 });
 
-                this.el.append(table);
 
             } else if ( options.rows && options.rows.length>0){
                 var head = $('<thead></thead>').append('<tr></tr>');
@@ -894,7 +717,7 @@
                     row.append( '<td>'+ options.rows[i] + '</td>' );
                     row.append( $.map(options.columns, function( column ){
                         var cell = $('<td></td>')
-                        if ( App.user.role == 'user'){
+                        if ( App.user.check('canEdit')){
                             cell.addClass('editable');
                         }
                         cell.click(function(){
@@ -922,25 +745,6 @@
                     tbody.append( row );
                 }
 
-                var saveBtn = $('<a>'+ $.t('save') +'</a>');
-                saveBtn.attr('href', '#');
-                saveBtn.attr('class', 'btn btn-mini btn-primary');
-                /*saveBtn.click(function(evt){
-                    alert('Saved!');
-                    return false;
-                });*/
-
-                var control = $('<p></p>');
-                control.attr('class', 'pull-right');
-
-                if ( App.user.role == 'user'){
-                    control.append( saveBtn );
-                }
-
-                this.el.append(table);
-                this.el.append( control );
-                this.el.append('<br/><br/>');
-
             } else {
 
                 // TODO refactor, clean code
@@ -960,7 +764,7 @@
                     tbody.append( row );
                     row.append( $.map(options.columns, function( column ){
                         var cell = $('<td></td>');
-                        if ( App.user.role == 'user'){
+                        if ( App.user.check('canEdit')){
                             cell.addClass('editable');
                         }
 
@@ -995,34 +799,7 @@
                 // create an empty row
                 this.addEmptyRow();
 
-                // button to add new row to table
-                var addBtn = $('<a>'+ $.t('add_row') +'</a>');
-                addBtn.attr('id', 'addBtn');
-                addBtn.attr('href', '#');
-                addBtn.attr('class', 'btn btn-mini');
-
-                var saveBtn = $('<a>'+ $.t('save') +'</a>');
-                saveBtn.attr('id', 'saveBtn');
-                saveBtn.attr('href', '#');
-                saveBtn.attr('class', 'btn btn-mini btn-primary');
-
-
-                var control = $('<p></p>');
-                control.attr('class', 'pull-right');
-
-                if ( App.user.role == 'user'){
-                    control.append( addBtn );
-                    control.append( saveBtn );
-                }
-
-                this.el.append(table);
-
-                this.el.append( control );
-                this.el.append('<br/><br/>');
             }
-
-
-
 
         },
         render: function($super){
@@ -1227,10 +1004,6 @@
         initialize: function($super){
             $super();
             var self = this;
-            App.bind('lang', function(){
-                self.survey = null;
-                self.load();
-            });
         },
 
         isEmpty: function(){
@@ -1636,7 +1409,7 @@
                 model:model
             });
             survey.bind('change', function(){
-                page.trigger('change');
+               page.trigger('change');
             });
 
             var summary = new Summary({

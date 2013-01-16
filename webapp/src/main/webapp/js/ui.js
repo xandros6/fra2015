@@ -17,6 +17,7 @@
                         username = result.user.username;
                         token = result.token;
                         role =  result.user.role;
+                        App.setUser(username, role, token);
                         context.trigger('loginOk', username, role, token);
                     },
                     error: function(response){
@@ -130,7 +131,7 @@
         
     });
     
-    Core.define('contributor-page', ['ready', 'lang', 'logout'], function(context) {
+    Core.define('contributor-page', ['ready', 'lang', 'logout', 'reload'], function(context) {
 
        
         return {
@@ -154,6 +155,10 @@
                     // LOGOUT button text value
                     page.el.find('#userField').text(username+' ('+role+')');
                     context.trigger('ready', el); 
+
+                });
+                page.bind('change', function(){
+                    context.trigger('reload');
                 });
                 
                 page.render();
@@ -242,6 +247,7 @@
                 el.empty();
                 el.append( page ); 
                 el.i18n();
+                
             };
         
             return {
@@ -262,6 +268,21 @@
                 },
                 ready: function( page ){
                     setPage( page );
+                },
+                reload: function(){
+                    
+                
+                    jQuery('textarea.texteditor').each( function() {                       
+                        var id = $(this).attr('id');    
+                        var instance = CKEDITOR.instances[ id ];
+                        if (instance){
+                            CKEDITOR.remove( instance );
+                            $('#cke_' + id).remove();
+                        }               
+                        CKEDITOR.replace( id, { 
+                            toolbar: 'MyToolbar'
+                        } );
+                    }); 
                 },
                 action: function( ){
                     var params = Array.prototype.slice.call(arguments);

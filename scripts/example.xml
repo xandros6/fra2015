@@ -1,0 +1,3525 @@
+<?xml version="1.0"?>
+<survey>
+	<section>
+		<title>Introduction</title>
+	</section>
+	<section>
+		<title>FOREST AREA AND FOREST CHARACTERISTICS</title>
+	</section>
+	<section>
+		<title>What is the area of forest and other wooded land and how has it changed over time?</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Forest</td>
+						<td>Land  spanning more than 05 hectares with trees higher than 5 meters and a canopy  cover of more than 10 percent or trees able to reach these thresholds  in  situ  It does not include land that is predominantly under agricultural  or urban land use</td>
+					</tr>
+					<tr>
+						<td>Other  wooded land</td>
+						<td>Land not classified as Forest spanning more than 05  hectares with  trees  higher than 5 meters  and  a canopy  cover of 510 percent or trees able to reach these thresholds  in situ   or with a combined cover of shrubs bushes and  trees above 10 percent It does not include land that is predominantly under  agricultural or urban land use</td>
+					</tr>
+					<tr>
+						<td>Other  land</td>
+						<td>All  land that is not classified as Forest or Other wooded land</td>
+					</tr>
+					<tr>
+						<td>of which with tree cover  Subcategory</td>
+						<td>Land  classified as Other land spanning more than 05 hectares with a canopy  cover of more than 10 percent of trees able to reach a height of 5 meters at  maturity</td>
+					</tr>
+					<tr>
+						<td>Inland  water bodies</td>
+						<td>Inland  water bodies generally include major rivers lakes and water reservoirs</td>
+					</tr>
+					<tr>
+						<td>Afforestation</td>
+						<td>Establishment  of forest through planting andor deliberate seeding on land that until  then was not classified as forest</td>
+					</tr>
+					<tr>
+						<td>Reforestation</td>
+						<td>Reestablishment  of forest through planting andor deliberate seeding on land classified as  forest</td>
+					</tr>
+					<tr>
+						<td>Natural  expansion of forest</td>
+						<td>Expansion  of forests through natural succession on land that until then was under  another land use egforest succession on land previously used for  agriculture</td>
+					</tr>
+					<tr>
+						<td>Deforestation</td>
+						<td>The  conversion of forest to other land use or the longterm reduction of the tree  canopy cover below the minimum 10 percent threshold</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title/>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title/>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification into FRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 1a</title>
+				<description>Area 000 hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA 2015 categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Forest</td>
+					</tr>
+					<tr>
+						<td>Other  wooded land</td>
+					</tr>
+					<tr>
+						<td>Other  land</td>
+					</tr>
+					<tr>
+						<td>of which with tree cover</td>
+					</tr>
+					<tr>
+						<td>Inland  water bodies</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 1b</title>
+				<description>Area 000 hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>Annual forest  establishmentloss</td>
+					</tr>
+					<tr>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>Afforestation</td>
+					</tr>
+					<tr>
+						<td>Reforestation</td>
+					</tr>
+					<tr>
+						<td>Natural  expansion of forest</td>
+					</tr>
+					<tr>
+						<td>Deforestation</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 1c</title>
+				<description>Area 000 hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>of which of introduced  species  1</td>
+					</tr>
+					<tr>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>Afforestation</td>
+					</tr>
+					<tr>
+						<td>Reforestation</td>
+					</tr>
+					<tr>
+						<td>Natural expansion of forest</td>
+					</tr>
+					<tr>
+						<td>Deforestation</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Forest</td>
+					</tr>
+					<tr>
+						<td>Other  wooded land</td>
+					</tr>
+					<tr>
+						<td>Afforestation</td>
+					</tr>
+					<tr>
+						<td>Reforestation</td>
+					</tr>
+					<tr>
+						<td>Natural  expansion of forest</td>
+					</tr>
+					<tr>
+						<td>Deforestation</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Forest    Other  wooded land    Afforestation    Reforestation  Natural expansion of forest     Deforestation</td>
+						<td>Tier  3 Data sources Either recent  10 years ago National Forest  Inventory or remote sensing with ground truthing or programme for repeated  compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years  ago        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Comments on reported data</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported status and trends</td>
+					</tr>
+					<tr>
+						<td>Forest</td>
+					</tr>
+					<tr>
+						<td>Other  wooded land</td>
+					</tr>
+					<tr>
+						<td>Other  land</td>
+					</tr>
+					<tr>
+						<td>Other  land with tree cover</td>
+					</tr>
+					<tr>
+						<td>Inland  water bodies</td>
+					</tr>
+					<tr>
+						<td>Afforestation</td>
+					</tr>
+					<tr>
+						<td>Reforestation</td>
+					</tr>
+					<tr>
+						<td>Natural  expansion of forest</td>
+					</tr>
+					<tr>
+						<td>Deforestation</td>
+					</tr>
+				</tbody>
+			</table>
+			<textarea>
+				<title>Other  general comments to the table</title>
+			</textarea>
+			<table>
+				<tbody>
+					<tr>
+						<td>Expected  year for completion of ongoingplanned  national  forest inventory  andor RS survey  mapping or other effort to assess forest area</td>
+					</tr>
+					<tr>
+						<td>National  forest inventory</td>
+					</tr>
+					<tr>
+						<td>Remote  sensing survey  mapping</td>
+					</tr>
+					<tr>
+						<td>Other  efforts</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the area of natural and planted forest and how has it changed over time</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Term</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Naturally  regenerated forest</td>
+						<td>Forest  predominantly composed of trees established through natural regeneration</td>
+					</tr>
+					<tr>
+						<td>Introduced  species</td>
+						<td>A  species subspecies or lower taxon occurring  outside  its natural  range past or present and dispersal potential ie outside the range it  occupies naturally or could occupy without direct or indirect introduction or  care by humans</td>
+					</tr>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Primary  forest</td>
+						<td>Naturally  regenerated forest of native species where there are no clearly visible  indications of human activities and the ecological processes are not  significantly disturbed</td>
+					</tr>
+					<tr>
+						<td>Other  naturally regenerated forest</td>
+						<td>Naturally  regenerated forest  where there are clearly  visible indications of human activities</td>
+					</tr>
+					<tr>
+						<td>of  which of introduced species     subcategory</td>
+						<td>Other  naturally regenerated forest where the trees are predominantly of introduced  species</td>
+					</tr>
+					<tr>
+						<td>Planted  forest</td>
+						<td>Forest  predominantly composed of trees established through planting andor  deliberate seeding</td>
+					</tr>
+					<tr>
+						<td>of  which of of introduced species  subcategory</td>
+						<td>Planted  forest where the plantedseeded trees are predominantly of introduced  species</td>
+					</tr>
+					<tr>
+						<td>Mangroves</td>
+						<td>Area  of forest and other wooded land with mangrove vegetation</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 2a</title>
+				<description>Forest area 000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Primary  forest</td>
+					</tr>
+					<tr>
+						<td>Other  naturally regenerated forest</td>
+					</tr>
+					<tr>
+						<td>of  which of introduced species</td>
+					</tr>
+					<tr>
+						<td>Planted  forest</td>
+					</tr>
+					<tr>
+						<td>of  which of introduced species</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 2b</title>
+				<description>Primary forest converted  to 000 ha</description>
+				<tbody>
+					<tr>
+						<td></td>
+						<td>1990-2000</td>
+						<td>2000-2010</td>
+						<td>2010-2015</td>
+					</tr>
+					<tr>
+						<td>Other natural regeneration</td>
+				    </tr>
+					<tr>
+						<td>Other land</td>
+				    </tr>
+					<tr>
+						<td>Planted</td>
+				    </tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 2c</title>
+				<description>Area 000 hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Mangroves  Forest and OWL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Primary  forest</td>
+					</tr>
+					<tr>
+						<td>Other  naturally regenerated forest</td>
+					</tr>
+					<tr>
+						<td>Planted  forest</td>
+					</tr>
+					<tr>
+						<td>Mangroves</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Primary  forestOther naturally regenerated forest Planted forest</td>
+						<td>Tier  3 Data sources Recent 10 years National Forest Inventory or remote  sensing with ground truthing or data provided by official agencies or  programme for repeated compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on reported status and trends</td>
+					</tr>
+					<tr>
+						<td>Primary  forest</td>
+					</tr>
+					<tr>
+						<td>Other  naturally regenerating forest</td>
+					</tr>
+					<tr>
+						<td>Planted  forest</td>
+					</tr>
+					<tr>
+						<td>Mangroves</td>
+					</tr>
+				</tbody>
+			</table>
+			<textarea>
+				<title>Other  general comments to the table</title>
+			</textarea>
+		</section>
+	</section>
+	<section>
+		<title>What are the stocks and growth rates of the forests and how have they changed</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Growing  stock</td>
+						<td>Volume  over bark of all living trees with a minimum diameter of 10 cm at breast  height or above buttress if these are higher Includes the stem from ground  level up to a top diameter of 0 cm excluding branches</td>
+					</tr>
+					<tr>
+						<td>Mean  annual increment MAI</td>
+						<td>Stand  volume divided by stand age</td>
+					</tr>
+					<tr>
+						<td>Aboveground  biomass</td>
+						<td>All  living biomass above the soil including stem stump branches bark seeds  and foliage</td>
+					</tr>
+					<tr>
+						<td>Belowground  biomass</td>
+						<td>All biomass of live roots Fine roots of less than 2mm  diameter are excluded because these often cannot be distinguished empirically  from soil organic matter or litter</td>
+					</tr>
+					<tr>
+						<td>Dead  wood</td>
+						<td>All nonliving woody biomass not contained in the  litter either standing lying on the ground or in the soil Dead wood  includes wood lying on the surface dead roots and stumps larger than or  equal to 10 cm in diameter or any other diameter used by the country</td>
+					</tr>
+					<tr>
+						<td>Carbon  in aboveground biomass</td>
+						<td>Carbon  in all living biomass above the soil including stem stump branches bark  seeds and foliage</td>
+					</tr>
+					<tr>
+						<td>Carbon  in belowground biomass</td>
+						<td>Carbon  in  all biomass of live roots Fine roots  of less than 2 mm diameter are excluded because these often cannot be  distinguished empirically from soil organic matter or litter</td>
+					</tr>
+					<tr>
+						<td>Carbon  in dead wood</td>
+						<td>Carbon  in  all nonliving woody biomass not contained  in the litter either standing lying on the ground or in the soil Dead  wood includes wood lying on the surface dead roots and stumps larger than  or equal to 10 cm in diameter or any other diameter used by the country</td>
+					</tr>
+					<tr>
+						<td>Carbon  in litter</td>
+						<td>Carbon  in  all nonliving biomass with a diameter  less than the minimum diameter for dead wood eg 10 cm lying dead in  various states of decomposition above the mineral or organic soil</td>
+					</tr>
+					<tr>
+						<td>Soil  carbon</td>
+						<td>Organic carbon in mineral and organic soils including  peat to a specified depth chosen by the country and applied consistently  through the time series</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification and definitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 3a - Forest </title>
+				<description>Growing stock volume  million m 3  over bark</description>
+				<tbody>
+					<tr>
+						<td>FRA 2015 category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Total  growing stock</td>
+					</tr>
+					<tr>
+						<td>of which coniferous</td>
+					</tr>
+					<tr>
+						<td>of which broadleaved</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3a - Other wooded land </title>
+				<description>Growing stock volume  million m 3  over bark</description>
+				<tbody>
+					<tr>
+						<td>FRA 2015 category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Total  growing stock</td>
+					</tr>
+					<tr>
+						<td>of which coniferous</td>
+					</tr>
+					<tr>
+						<td>of which broadleaved</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3b</title>
+				<description>Growing stock in forest million cubic meters</description>
+				<tbody>
+					<tr>
+						<td>Rank</td>
+						<td>Scientific  name</td>
+						<td>Common  name</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>1 st</td>
+					</tr>
+					<tr>
+						<td>2 nd</td>
+					</tr>
+					<tr>
+						<td>3 rd</td>
+					</tr>
+					<tr>
+						<td>4 th</td>
+					</tr>
+					<tr>
+						<td>5 th</td>
+					</tr>
+					<tr>
+						<td>6 th</td>
+					</tr>
+					<tr>
+						<td>7 th</td>
+					</tr>
+					<tr>
+						<td>8 th</td>
+					</tr>
+					<tr>
+						<td>9 th</td>
+					</tr>
+					<tr>
+						<td>10 th</td>
+					</tr>
+					<tr>
+						<td>Remaining</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3c</title>
+				<description>Mean annual increment m 3   per hectare and year</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Mean  annual increment</td>
+					</tr>
+					<tr>
+						<td>of which coniferous</td>
+					</tr>
+					<tr>
+						<td>of which broadleaved</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3d - Forest</title>
+				<description>Biomass million metric  tonnes ovendry weight</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Aboveground  biomass</td>
+					</tr>
+					<tr>
+						<td>Belowground  biomass</td>
+					</tr>
+					<tr>
+						<td>Dead  wood</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3d - Other wooded land</title>
+				<description>Biomass million metric  tonnes ovendry weight</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Aboveground  biomass</td>
+					</tr>
+					<tr>
+						<td>Belowground  biomass</td>
+					</tr>
+					<tr>
+						<td>Dead  wood</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3e - Forest </title>
+				<description>Carbon Million metric  tonnes</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Carbon  in aboveground biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in belowground biomass</td>
+					</tr>
+					<tr>
+						<td>Subtotal  Living biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in dead wood</td>
+					</tr>
+					<tr>
+						<td>Carbon  in litter</td>
+					</tr>
+					<tr>
+						<td>Subtotal  Dead wood and litter</td>
+					</tr>
+					<tr>
+						<td>Soil  carbon</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 3e - Other wooded land </title>
+				<description>Carbon Million metric  tonnes</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Carbon  in aboveground biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in belowground biomass</td>
+					</tr>
+					<tr>
+						<td>Subtotal  Living biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in dead wood</td>
+					</tr>
+					<tr>
+						<td>Carbon  in litter</td>
+					</tr>
+					<tr>
+						<td>Subtotal  Dead wood and litter</td>
+					</tr>
+					<tr>
+						<td>Soil  carbon</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Variablecategory</td>
+						<td>Tier for status</td>
+						<td>Tier for trend</td>
+					</tr>
+					<tr>
+						<td>Total  growing stock</td>
+					</tr>
+					<tr>
+						<td>Mean  annual increment</td>
+					</tr>
+					<tr>
+						<td>Above  ground biomass</td>
+					</tr>
+					<tr>
+						<td>Below  ground biomass</td>
+					</tr>
+					<tr>
+						<td>Dead  wood</td>
+					</tr>
+					<tr>
+						<td>Carbon  in aboveground biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in below ground biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in dead wood and litter</td>
+					</tr>
+					<tr>
+						<td>Soil  carbon</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Total  growing stock</td>
+						<td>Tier  3 Data sources Recent  10 years National Forest Inventory or remote  sensing with ground truthing or programme for repeated compatible NFI  10  years Domestic volume functions         Tier  2 Data sourcesregisters and statistics modelling or old NFI 10 years  or partial field inventory        Tier  1 Other data sources</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status    Domestic  growth functions        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+					<tr>
+						<td>Mean  annual increment</td>
+						<td>Tier  3 Scientificically tested national volume and growth functions        Tier  2 Selection of volume and growth functions as relevant as possible        Tier  1 Other</td>
+						<td>Tier  3 Confirmationadjustment of functions used through scientific work        Tier  2 Review work done to seekt aalternative functions        Tier  1 Other</td>
+					</tr>
+					<tr>
+						<td>Biomass</td>
+						<td>Tier  3 Countryspecific national or subnational biomass conversion expansion  factors applied or other domestic or otherwise nationally relevant biomass  studies        Tier  2 Application of country specific national or subnational biomass conversion  factors form from other country with similar climatic conditions and forest  types        Tier  1 Internationalregional default biomass expansion factors applied</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+					<tr>
+						<td>Carbon  in above ground biomass        Carbon  in below ground biomass        Carbon  in dead wood and litter        Soil  carbon</td>
+						<td>Tier  3 Countryspecific national or subnational biomass conversion expansion  factors applied        Tier  2 Application of country specific national or subnational biomass  conversion factors form from other country with similar climatic conditions  and forest types        Tier  1 Internationalregional default biomass expansion factors applied</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments on growingstock biomass and carbon</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Total  growing stock</td>
+					</tr>
+					<tr>
+						<td>Growing  stock of broadleaved  coniferous</td>
+					</tr>
+					<tr>
+						<td>Growing  stock composition</td>
+					</tr>
+					<tr>
+						<td>Mean  annual increment</td>
+					</tr>
+					<tr>
+						<td>Aboveground  biomass</td>
+					</tr>
+					<tr>
+						<td>Belowground  biomass</td>
+					</tr>
+					<tr>
+						<td>Dead  wood</td>
+					</tr>
+					<tr>
+						<td>Carbon  in aboveground biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in belowground biomass</td>
+					</tr>
+					<tr>
+						<td>Carbon  in dead wood</td>
+					</tr>
+					<tr>
+						<td>Carbon  in litter</td>
+					</tr>
+					<tr>
+						<td>Soil  carbon</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the status offorest production and how has it changed over time</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Term</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Primary  designated function</td>
+						<td>The primary function or management  objective assigned to a management unit either by legal prescription  documented decision of the landownermanager or evidence provided by  documented studies of forest management practices and customary use</td>
+					</tr>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Production  forest</td>
+						<td>Forest  area designated primarily for production of wood fibre bioenergy andor  nonwood forest products</td>
+					</tr>
+					<tr>
+						<td>Multiple  use forest</td>
+						<td>Forest  area designated for more than one purpose and where none of these alone is  considered as the predominant designated function</td>
+					</tr>
+					<tr>
+						<td>Forest  area available for wood supply</td>
+						<td>Forest  where any legal economic or specific environmental restrictions do not have  a significant impact on the supply of wood</td>
+					</tr>
+					<tr>
+						<td>Non  wood forest product NWFP</td>
+						<td>Goods  derived from forests that are tangible and physical objects of biological  origin other than wood</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			
+			<table>
+				<title>Table 4a</title>
+				<description>Forest area 000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Production  forest</td>
+					</tr>
+					<tr>
+						<td>Multiple  use forest</td>
+					</tr>
+					<tr>
+						<td>Forest  area available for wood supply</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 4b</title>
+				<tbody>
+					<tr>
+						<td>Rank</td>
+						<td>Name  of product</td>
+						<td>Key  species</td>
+						<td>NWFP removals 2010  value 1000 local currency</td>
+						<td>NWFP category</td>
+					</tr>
+					<tr>
+						<td>1 st</td>
+					</tr>
+					<tr>
+						<td>2 nd</td>
+					</tr>
+					<tr>
+						<td>3 rd</td>
+					</tr>
+					<tr>
+						<td>4 th</td>
+					</tr>
+					<tr>
+						<td>5 th</td>
+					</tr>
+					<tr>
+						<td>6 th</td>
+					</tr>
+					<tr>
+						<td>7 th</td>
+					</tr>
+					<tr>
+						<td>8 th</td>
+					</tr>
+					<tr>
+						<td>9 th</td>
+					</tr>
+					<tr>
+						<td>10 th</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+					</tr>
+					<tr>
+						<td>Plant  products  raw material</td>
+					</tr>
+					<tr>
+						<td>Food</td>
+					</tr>
+					<tr>
+						<td>Fodder</td>
+					</tr>
+					<tr>
+						<td>Raw  material for medicine and aromatic products</td>
+					</tr>
+					<tr>
+						<td>Raw  material for colorants and dyes</td>
+					</tr>
+					<tr>
+						<td>Raw  material for utensils handicrafts  construction</td>
+					</tr>
+					<tr>
+						<td>Ornamental  plants</td>
+					</tr>
+					<tr>
+						<td>Exudates</td>
+					</tr>
+					<tr>
+						<td>Other  plant products</td>
+					</tr>
+					<tr>
+						<td/>
+					</tr>
+					<tr>
+						<td>Animal  products  raw material</td>
+					</tr>
+					<tr>
+						<td>Living  animals</td>
+					</tr>
+					<tr>
+						<td>Hides skins and  trophies</td>
+					</tr>
+					<tr>
+						<td> Wild honey and beewax</td>
+					</tr>
+					<tr>
+						<td>Wild meat</td>
+					</tr>
+					<tr>
+						<td>Raw material for medicine</td>
+					</tr>
+					<tr>
+						<td>Raw material for  colorants</td>
+					</tr>
+					<tr>
+						<td>Other edible animal  products</td>
+					</tr>
+					<tr>
+						<td>Other nonedible animal  products</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Production  forest</td>
+					</tr>
+					<tr>
+						<td>Multiple  use forest</td>
+					</tr>
+					<tr>
+						<td>Forest  area available for wood supply</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Production  forest        Multiple  use forest        Forest  area available for wood supply</td>
+						<td>Tier  3 Updated including field verifications national forest maps including  functions        Tier  2Forest maps older than 6 years including forest functions        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Production  forest</td>
+					</tr>
+					<tr>
+						<td>Multiple  use forestry</td>
+					</tr>
+					<tr>
+						<td>Forest  area available for wood supply</td>
+					</tr>
+					<tr>
+						<td>Non  wood forest products</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How much forest area is managed for protection of soil and water</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Protection  of soil and water</td>
+						<td>Forest  area designated or managed for protection of soil and water</td>
+					</tr>
+					<tr>
+						<td>of  which production of clean water</td>
+						<td>Forest  area primarily designated or managed for water production where most human  uses are excluded or heavily modified to protect water quality</td>
+					</tr>
+					<tr>
+						<td>of  which coastal stabilization</td>
+						<td>Forest  area primarily designated or managed for coastal stabilization</td>
+					</tr>
+					<tr>
+						<td>of  which desertification control</td>
+						<td>Forest  area primarily designated or managed for desertification control</td>
+					</tr>
+					<tr>
+						<td>of  which avalanche control</td>
+						<td>Forest  area primarily designated or managed to prevent the development or impact of  avalanches on human life assets or infrastructure</td>
+					</tr>
+					<tr>
+						<td>of  which erosion flood protection or reducing flood risk</td>
+						<td>Forest  area primarily designated or managed for protecting communities or assets  from the impacts or erosion riparian floods and landslides or for  providing flood plain services</td>
+					</tr>
+					<tr>
+						<td>of  which other</td>
+						<td>Forest  area primarily designated or managed for other protective functions</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 5</title>
+				<description>Forest area 1000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Protection  of soil and water</td>
+					</tr>
+					<tr>
+						<td>of  which production of clean water</td>
+					</tr>
+					<tr>
+						<td>of  which coastal stabilization</td>
+					</tr>
+					<tr>
+						<td>of which desertification control</td>
+					</tr>
+					<tr>
+						<td>of which avalanche control</td>
+					</tr>
+					<tr>
+						<td>of  which erosion flood protection or reducing flood risk</td>
+					</tr>
+					<tr>
+						<td>of  which other please specify in comments below the table</td>
+					</tr>
+				</tbody>
+			</table>
+			<textarea>
+				<title>Other</title>
+			</textarea>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for reported trend</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Protection  of soil and water</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Protection  of soil and water</td>
+						<td>Tier  3 High reliability data derived either from high intensity sample survey or  data obtained from national or state agencies responsible for regulations or  legislation relating to soil and water protection         Tier  2 Approaches based on low intensity or incomplete samplebased surveys or  studies that provide data for specific areas that is extrapolated through  statistical analysis to national level estimates         Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Protection  of soil and water</td>
+					</tr>
+					<tr>
+						<td>Production  of clean water</td>
+					</tr>
+					<tr>
+						<td>Coastal  stabilization</td>
+					</tr>
+					<tr>
+						<td>Desertification  control</td>
+					</tr>
+					<tr>
+						<td>Avalanche  control</td>
+					</tr>
+					<tr>
+						<td>Erosion  flood protection or reducing flood risk</td>
+					</tr>
+					<tr>
+						<td>Other  protective functions</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How much forest area is managed for ecosystem services</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Ecosystem  services cultural or spiritual values</td>
+						<td>Forest  area designated or managed for selected ecosystem services or cultural or  spiritual values</td>
+					</tr>
+					<tr>
+						<td>of  which public recreation</td>
+						<td>Forest  area designated or managed for public recreation</td>
+					</tr>
+					<tr>
+						<td>of  which carbon storage or sequestration</td>
+						<td>Forest  area designated or managed for carbon storage or sequestration</td>
+					</tr>
+					<tr>
+						<td>of  which spiritual or cultural services</td>
+						<td>Forest  area designated or managed for spiritual or cultural services</td>
+					</tr>
+					<tr>
+						<td>of  which other</td>
+						<td>Forest  area designated or managed for other ecosystem services</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textaarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textaarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textaarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textaarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 6</title>
+				<description>Forest area 1000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Ecosystem  services cultural or spiritual values</td>
+					</tr>
+					<tr>
+						<td>of which public recreation</td>
+					</tr>
+					<tr>
+						<td>of which carbon storage or sequestration</td>
+					</tr>
+					<tr>
+						<td>of which spiritual or cultural services</td>
+					</tr>
+					<tr>
+						<td>of which other please specify in comments below the table</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Ecosystem  services cultural or spiritual values</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Cultural  or spiritual values    Public  recreation    Spiritual  or cultural services    Other</td>
+						<td>Tier  3  High  reliability data derived either from high intensity sample survey or data obtained  from national or state agencies responsible for regulations          Tier  2  Approaches  based on low intensity or incomplete samplebased surveys or studies that  provide data for specific areas that is extrapolated through statistical  analysis to national level estimates        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Ecosystem  services cultural or spiritual values</td>
+					</tr>
+					<tr>
+						<td>Public  recreation</td>
+					</tr>
+					<tr>
+						<td>Carbon  storage or sequestration</td>
+					</tr>
+					<tr>
+						<td>Spiritual  or cultural services</td>
+					</tr>
+					<tr>
+						<td>Other  ecosystem services</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How much forest area isprotected and designated for the conservation of biodiversity and how has itchanged over time</title>
+		<section>
+			<title>FRA 2015 Categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Conservation  of biodiversity</td>
+						<td>Forest  area designated primarily for conservation of biological diversity Includes  but is not limited to areas designated for biodiversity conservation within  the protected areas</td>
+					</tr>
+					<tr>
+						<td>Forest  area within protected areas</td>
+						<td>Forest  area within formally established protected areas independently of the purpose  for which the protected areas were established</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 7</table>
+				<description>Forest area 000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Conservation  of biodiversity</td>
+					</tr>
+					<tr>
+						<td>Forest  area within protected areas</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Conservation  of biodiversity</td>
+					</tr>
+					<tr>
+						<td>Forest  area within protected areas</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Conservation  of biodiversity         Forests  within protected areas</td>
+						<td>Tier  3Data obtained from national or state agencies responsible for conservation  and protected area or legislation relating to area protection        Tier  2 Studies that provide data for specific areas that is extrapolated through  statistical analysis to national level estimates        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Conservation  of biodiversity</td>
+					</tr>
+					<tr>
+						<td>Forest  area within protected areas</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the area offorest affected by woody invasive species</title>
+		<section>
+			<title>FRA 2015 Categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Invasive  species</td>
+						<td>Species  that are nonnative to a particular ecosystem and whose introduction and  spread cause or are likely to cause sociocultural economic or  environmental harm or harm to human health</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 8</title>
+				<description>Forest area affected  000 ha</description>
+				<tbody>
+					<tr>
+						<td>Scientific  name of woody invasive species</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>8</td>
+					</tr>
+					<tr>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td>10</td>
+					</tr>
+					<tr>
+						<td>Total</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Invasive  species</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Invasive  species</td>
+						<td>Tier  3 Systematic assessment in forest inventory or other survey e g by  conservation department within the last 5 years        Tier  2 Systematic assessment in forest inventory or other survey e g by  conservation department conducted more than 5 years ago        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Invasive  species</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How much forest area isdamaged each year</title>
+		<section>
+			<title>FRA 2015 Categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Number  of fires</td>
+						<td>Number  of fires per year</td>
+					</tr>
+					<tr>
+						<td>Area  affected by fire</td>
+						<td>Area  damaged by fire per year</td>
+					</tr>
+					<tr>
+						<td>Outbreaks  of insects</td>
+						<td>Damage  caused by severe outbreaks of insect pests</td>
+					</tr>
+					<tr>
+						<td>Outbreaks  of diseases</td>
+						<td>Damaged  caused by severe outbreaks of diseases attributable to pathogens such as  bacteria fungi phytoplasma or virus</td>
+					</tr>
+					<tr>
+						<td>Severe  weather events</td>
+						<td>Damage  caused severe weather events such as snow storm drought etc</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 9a ha</title>
+				<description>000 ha of  fires</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 category</td>
+						<td>2003</td>
+						<td>2004</td>
+						<td>2005</td>
+						<td>2006</td>
+						<td>2007</td>
+						<td>2008</td>
+						<td>2009</td>
+						<td>2010</td>
+						<td>2011</td>
+						<td>2012</td>
+					</tr>
+					<tr>
+						<td>Total  land area affected by fire</td>
+					</tr>
+					<tr>
+						<td>of which on forest</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 9a number</title>
+				<description>number of  fires</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 category</td>
+						<td>2003</td>
+						<td>2004</td>
+						<td>2005</td>
+						<td>2006</td>
+						<td>2007</td>
+						<td>2008</td>
+						<td>2009</td>
+						<td>2010</td>
+						<td>2011</td>
+						<td>2012</td>
+					</tr>
+					<tr>
+						<td>Total  land area affected by fire</td>
+					</tr>
+					<tr>
+						<td>of which on forest</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 9b</title>
+				<tbody>
+					<tr>
+						<td>Outbreak  category</td>
+						<td>Outbreakevent</td>
+						<td>Year</td>
+						<td>Area damaged 000  hectares</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<tbody>
+					<tr>
+						<td>Outbreak  category</td>
+					</tr>
+					<tr>
+						<td>1   Insects</td>
+					</tr>
+					<tr>
+						<td>2   Diseases</td>
+					</tr>
+					<tr>
+						<td>3   Severe weather events</td>
+					</tr>
+					<tr>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for trend</td>
+					</tr>
+					<tr>
+						<td>Area  affected by fire</td>
+					</tr>
+					<tr>
+						<td>Insects    Diseases    Severe  weather events</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+						<td>Tier for reported trend</td>
+					</tr>
+					<tr>
+						<td>Area  affected by fire</td>
+						<td>Tier  3 National fire monitoring routines        Tier  2 Remote sensing surveys        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+					<tr>
+						<td>Insects    Diseases    Severe  weather events</td>
+						<td>Tier  3 Systematic survey eg via inventory or aerial damage assessment        Tier 2 Management  records        Tier  1 Other</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Area  affected by fire</td>
+					</tr>
+					<tr>
+						<td>Insects</td>
+					</tr>
+					<tr>
+						<td>Diseases</td>
+					</tr>
+					<tr>
+						<td>Severe  weather events</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the forest areathat has been degraded</title>
+		<table>
+			<tbody>
+				<tr>
+					<td>Category</td>
+					<td>Definition</td>
+				</tr>
+				<tr>
+					<td>Proxy variable for forest degradation</td>
+					<td>Forest that has undergone a reduction of canopy  cover between the years 2000 and 2010 area between the forest canopy cover  range of 3080 as detected by the MODIS VCF sensor</td>
+				</tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr>
+					<td>FRA  2015 category</td>
+					<td>Area  of forest with reduced canopy cover 000 ha</td>
+				</tr>
+				<tr>
+					<td>Degraded  forest</td>
+				</tr>
+			</tbody>
+		</table>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments</td>
+					</tr>
+					<tr>
+						<td>Degraded forest</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>Measuring progress toward SFM</title>
+	</section>
+	<section>
+		<title>Part A Nationalscale enabling environment for SFM</title>
+	</section>
+	<section>
+		<title>What  forest policy andregulatory framework exists to support implementation of sustainable forestmanagement SFM</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Policies  supporting sustainable management of forests</td>
+						<td>Policies or  strategies that explicitly encourage sustainable forest management</td>
+					</tr>
+					<tr>
+						<td>Legislation and  regulations supporting sustainable management of forests</td>
+						<td>Legislation  regulations and programmes that govern and guide sustainable forest management  operations and use</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification and definitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 11</title>
+				<tbody>
+					<tr>
+						<td>FRA  2015 category</td>
+						<td>National</td>
+						<td>Regional</td>
+						<td>Provincial State</td>
+						<td>Local</td>
+					</tr>
+					<tr>
+						<td>Policies  supporting sustainable management of  publicly owned  forests</td>
+					</tr>
+					<tr>
+						<td>Policies supporting sustainable management  of  privately owned  forests</td>
+					</tr>
+					<tr>
+						<td>Legislation and regulations supporting  sustainable management of  publicly owned  forests</td>
+					</tr>
+					<tr>
+						<td>Legislation and  regulations supporting sustainable management of  privately owned forests</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Variable   category</td>
+						<td>Comments  related to data definitions etc</td>
+					</tr>
+					<tr>
+						<td>Policies  supporting sustainable management of forests</td>
+					</tr>
+					<tr>
+						<td>Legislation and  regulations supporting sustainable management of forests</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>Is there a national platform that promotes stakeholder participation in forest policy development</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>National  stakeholder platform</td>
+						<td>A structured means  by which a broad range of stakeholders can provide opinions suggestions  analysis and other input into the development of national forest policy</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<title>Table 12</table>
+					<tbody>
+						<tr>
+							<td>Is there a national platform that  promotes or allows for stakeholder participation in forest policy  development</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+					</tr>
+					<tr>
+						<td>National  stakeholder platform</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the forest area intended to be inpermanent forest land use and how has it changed over time</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Forest area  intended to be in permanent forest land use</td>
+						<td>Forest area that  is designated or expected to be retained as forest and is highly unlikely to  be converted to other land use</td>
+					</tr>
+					<tr>
+						<td>of which permanent  forest estate</td>
+						<td>Forest area that  is designated by law or regulation to be retained as forest and  may not   be converted to other land use</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification and definitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation and forecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification into FRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 13</title>
+				<tbody>
+					<tr>
+						<td>FRA 2015  Categories</td>
+						<td>Forest area 2010 000 ha</td>
+					</tr>
+					<tr>
+						<td>Forest area  intended to be in permanent forest land use</td>
+					</tr>
+					<tr>
+						<td>of which  permanent forest estate</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Forest area  intended to be in permanent forest land use</td>
+						<td/>
+					</tr>
+					<tr>
+						<td>Permanent forest  estate</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Forest area  intended to be in permanent forest land use</td>
+						<td>Tier 3 National  or subnational land use plans strategy documents or other reports within  the past 10 years        Tier 2 National  or subnational land use plans strategy documents or other reports within  the past 20 years        Tier 1 Other</td>
+					</tr>
+					<tr>
+						<td>Permanent forest  estate</td>
+						<td>Tier 3 National  or subnational land use plans strategy documents or other reports within  the past 10 years        Tier 2 National  or subnational land use plans strategy documents or other reports within  the past 20 years        Tier 1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments on  the reported trend</td>
+					</tr>
+					<tr>
+						<td>Forest area  intended to be in permanent forest land use</td>
+					</tr>
+					<tr>
+						<td>Permanent forest  estate</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How does your country measure and reportprogress towards SFM at the national level</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Forest area  monitored under a national forest monitoring framework</td>
+						<td>Forest area  monitored by a national monitoring framework or systems  that provide measurement based periodic  monitoring of forest extent and quality</td>
+					</tr>
+					<tr>
+						<td>Forest reporting  at national scale</td>
+						<td>National  reporting of forest extent and characteristics that includes some measure of  progress toward sustainable forest management</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classificationand definitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 14a</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>of total forest area</td>
+						<td>Most recent year</td>
+						<td>Continuous</td>
+						<td>Periodic</td>
+						<td>Permanent ground plots</td>
+						<td>Temporary ground plots</td>
+						<td>Aerial remote sensing sample based</td>
+						<td>Aerial remote sensing full coverage</td>
+					</tr>
+					<tr>
+						<td>Forest inventory</td>
+					</tr>
+					<tr>
+						<td>Other field  assessments</td>
+					</tr>
+					<tr>
+						<td>Updates to other  sources</td>
+					</tr>
+					<tr>
+						<td>Expert estimate</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 14b</title>
+				<tbody>
+					<tr>
+						<td>Type of forest  reporting used at national scale</td>
+						<td>Check boxes that apply</td>
+					</tr>
+					<tr>
+						<td>1 Criteria and Indicators reporting</td>
+					</tr>
+					<tr>
+						<td>2 Periodic national state of the forest  report</td>
+					</tr>
+					<tr>
+						<td>3 Other please document</td>
+					</tr>
+					<tr>
+						<td>4    None</td>
+					</tr>
+				</tbody>
+			</table>
+			<textarea>
+				<title>Other  type of forest reporting</title>
+			</textarea>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Forest area  monitored under a national forest monitoring framework</td>
+					</tr>
+					<tr>
+						<td>Type of forest  reporting</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>Part BOperational scale progress toward SFM</title>
+	</section>
+	<section>
+		<title>What is the area of forest under a forestmanagement plan and how is this monitored</title>
+		<section>
+			<title>FRA 2015 Categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Forest area with  management plan</td>
+						<td>Forest area that  has a longterm ten years or more documented management plan aiming at  defined management goals which is periodically revised</td>
+					</tr>
+					<tr>
+						<td>of which for  production</td>
+						<td>Forest  management plan mainly focused on production</td>
+					</tr>
+					<tr>
+						<td>of which for  conservation</td>
+						<td>Forest  management plan mainly focused on conservation</td>
+					</tr>
+					<tr>
+						<td>Monitoring of  forest management plans</td>
+						<td>Government  monitoring of forest management plan implementation conducted through field  visits or audits of forest management plan performance</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<title>Table 15a</title>
+					<tbody>
+						<tr>
+							<td>Forest plan  type</td>
+							<td>Forest area 2010 000 ha</td>
+						</tr>
+						<tr>
+							<td>Forest area with  management plan</td>
+						</tr>
+						<tr>
+							<td>of which for  production</td>
+						</tr>
+						<tr>
+							<td>of which for  conservation</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<title>Table 15b</title>
+					<description>Indicate  which if any of the following are required in forest management plans  in your country</description>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1 Soil and water management</td>
+						</tr>
+						<tr>
+							<td>2 High conservation value forest  delineation</td>
+						</tr>
+						<tr>
+							<td>3 Social considerationscommunity  involvement</td>
+						</tr>
+						<tr>
+							<td>4 Monitoring of  forest management plans monitored annually</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</section>
+	
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Forest area with  management plan</td>
+						<td/>
+					</tr>
+					<tr>
+						<td>Percent of area  under forest management plan that is monitored annually</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Forest area with  management plan</td>
+						<td>Tier 3 Reports that describe national records 5  years old or less that contain longterm forest monitoring plans        Tier 2 Industry or other records indicating the  presence of a longterm forest management plan         Tier 1 Other</td>
+					</tr>
+					<tr>
+						<td>Percent of area  under forest management plan that is monitored annually</td>
+						<td>Tier 3 Government  documentation of monitoring extent        Tier 2 Reports from forest managers or other  documental sources        Tier 1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How are stakeholders involved in the managementdecision making for publicly owned forests</title>
+		<section>
+			<title>FRA 2015 Categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Stakeholder involvement</td>
+						<td>Stakeholder  involvement is defined as significant inputs into at least one aspect of  forest management at the operational scale</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 16</title>
+				<decription>Please indicate the type of stakeholder involvement  in forest management decision making required  in your country</description>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>1 Planning phase</td>
+					</tr>
+					<tr>
+						<td>2 Operations phase</td>
+					</tr>
+					<tr>
+						<td>3 Review of operations</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Type of  stakeholder inputs</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier criteria</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Type of  stakeholder inputs</td>
+						<td>Tier 3 Government national or subnational  documentation of stakeholder inputs        Tier 2  Government national or subnational requirement but stakeholder inputs not  documented        Tier 1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the area offorest under an independently verified forest certification scheme</title>
+		<section>
+			<title>FRA 2015 categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Certified forest  area using an international forest management certification scheme</td>
+						<td>Area certified under a forest management  certification scheme with published standards that is internationally  recognized and independently verified by a thirdparty</td>
+					</tr>
+					<tr>
+						<td>of which for  FSC</td>
+						<td>Forest area certified under the Forest Stewardship  Council certification scheme</td>
+					</tr>
+					<tr>
+						<td>of which PEFC</td>
+						<td>Forest area certified under the Programme for the  Endorsement of Forest Certification scheme</td>
+					</tr>
+					<tr>
+						<td>Certified forest  area using a domestic forest management certification scheme</td>
+						<td>Area certified under a forest management  certification scheme with published standards that are nationally recognized  and independently verified by a thirdparty</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification and definitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 17</title>
+				<tbody>
+					<tr>
+						<td>Total forest  area certified under</td>
+						<td>Forest area 2010 000 ha</td>
+					</tr>
+					<tr>
+						<td>International   forest management certification</td>
+					</tr>
+					<tr>
+						<td>of which for  FSC</td>
+					</tr>
+					<tr>
+						<td>of which PEFC</td>
+					</tr>
+					<tr>
+						<td>Domestic  forest management certification</td>
+					</tr>
+					<tr>
+						<td>of which List  domestic   forest management certification schemes and forest area covered by each</td>
+					</tr>
+					<tr>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>3</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier Categories</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>International  forest management certification</td>
+						<td>Tier 3  International forest management scheme records maintained by the certifying  organization for the reporting year        Tier 2  International forest management scheme records reported by the certifying  organization for a period  2 years prior to the reporting year        Tier 1 Other</td>
+					</tr>
+					<tr>
+						<td>Domestic forest  management certification</td>
+						<td>Tier 3 National  registry reports for domestic forest management certification maintained by  the certifying organization for the reporting year        Tier 2 Domestic  forest management scheme records reported by the certifying organization for  a period  2 years prior to the reporting year        Tier 1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>International  forest management certification</td>
+					</tr>
+					<tr>
+						<td>Domestic forest  management certification</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+					</tr>
+					<tr>
+						<td>Certified forest  area using an international forest management certification scheme</td>
+					</tr>
+					<tr>
+						<td>Domestic forest  management certification</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How much money dogovernments collect from and spend on forests</title>
+		<table>
+			<tbody>
+				<tr>
+					<td>Category</td>
+					<td>Definition</td>
+				</tr>
+				<tr>
+					<td>Forest  revenue</td>
+					<td>All  government revenue collected from the domestic production and trade of forest  products and services For this purpose revenue include    Goods   roundwood sawnwood biomass woodbased panels pulp and paper and nonwood  forest products    Services   including concession fees and royalties stumpage payments public timber  sales revenue taxes and charges based on forest area or yield taxes on  domestic trade and export of forest products special levies on forestry  activities and payments into forestrelated funds other miscellaneous  inspection licence and administrative fees levied by forest administrations  permit and licence fees for recreation and other forest related activities</td>
+				</tr>
+				<tr>
+					<td>Public  expenditure on forestry</td>
+					<td>All  government expenditure on forest related activities</td>
+				</tr>
+			</tbody>
+		</table>
+		<table>
+			<title>Table 18</title>
+			<description>Revenues expenditures 000 local  currency</description>
+			<tbody>
+				<tr>
+					<td>FRA 2015  category</td>
+					<td>2000</td>
+					<td>2005</td>
+					<td>2010</td>
+				</tr>
+				<tr>
+					<td>Forest revenue</td>
+				</tr>
+				<tr>
+					<td>Public  expenditure on forestry</td>
+				</tr>
+			</tbody>
+		</table>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+					</tr>
+					<tr>
+						<td>Forest revenue</td>
+					</tr>
+					<tr>
+						<td>Public  expenditure on forestry</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>Who owns and managesthe forests and how has this changed</title>
+		<section>
+			<title>FRA 2015 Categories anddefinitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Public  ownership</td>
+						<td>Forest owned by the State or administrative units of  the public administration or by institutions or corporations owned by the  public administration</td>
+					</tr>
+					<tr>
+						<td>of  which owned by the state at national scale  subcategory</td>
+						<td>Forest owned by the State at the  national scale   or administrative units of the public administration or by institutions or  corporations owned by the public administration</td>
+					</tr>
+					<tr>
+						<td>of  which owned by the state at the subnational government scale  subcategory</td>
+						<td>Forest owned by the State at the  subnational  government scale  or administrative units of the public administration  or by institutions or corporations owned by the public administration</td>
+					</tr>
+					<tr>
+						<td>Private  ownership</td>
+						<td>Forest  owned by individuals families communities private cooperatives  corporations and other business entities private religious and educational  institutions pension or investment funds NGOs nature conservation  associations and other private institutions</td>
+					</tr>
+					<tr>
+						<td>of which individuals    subcategory</td>
+						<td>Forest  owned by individuals and families</td>
+					</tr>
+					<tr>
+						<td>of which private business entities  and institutions    subcategory</td>
+						<td>Forest  owned by private corporations cooperatives companies and other business  entities as well as private nonprofit organizations such as NGOs nature  conservation associations and private religious and educational institutions  etc</td>
+					</tr>
+					<tr>
+						<td>of which local tribal and  indigenous communities     subcategory</td>
+						<td>Forest  owned by a group of individuals belonging to the same community residing  within or in the vicinity of a forest area or forest owned by communities of  indigenous or tribal people The community members are coowners that share  exclusive rights and duties and benefits contribute to the community  development</td>
+					</tr>
+					<tr>
+						<td>Unknown  ownership</td>
+						<td>Forest  area where ownership is unknown includes areas where ownership is unclear or  disputed</td>
+					</tr>
+					<tr>
+						<td>Categories  related to management rights of public forests</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Public  Administration</td>
+						<td>The  Public Administration or institutions or corporations owned by the Public  Administration retains management rights and responsibilities  within the limits   specified by the  legislation</td>
+					</tr>
+					<tr>
+						<td>Individualshouseholds</td>
+						<td>Forest  management rights and responsibilities are transferred from the Public  Administration to individuals or households through longterm leases or  management agreements</td>
+					</tr>
+					<tr>
+						<td>Private  institutions</td>
+						<td>Forest  management rights and responsibilities are transferred from the Public  Administration to corporations other business entities private  cooperatives private nonprofit institutions and associations etc  through longterm leases or management agreements</td>
+					</tr>
+					<tr>
+						<td>Communities</td>
+						<td>Forest  management rights and responsibilities are transferred from the Public  Administration to local communities including indigenous and tribal  communities through longterm leases or management agreements</td>
+					</tr>
+					<tr>
+						<td>Other  form of management rights</td>
+						<td>Forests  for which the transfer of management rights does not belong to any of the  categories mentioned above</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References  to sources of information</td>
+							<td>Variables</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification anddefinitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Original data</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Analysis and processingof national data</title>
+			<section>
+				<title>Adjustment</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Estimation andforecasting</title>
+				<textarea></textarea>
+			</section>
+			<section>
+				<title>Reclassification intoFRA 2015 categories</title>
+				<textarea></textarea>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 19</title>
+				<description>Forest area 1000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>Public  ownership</td>
+					</tr>
+					<tr>
+						<td>of which owned by the state at  national scale</td>
+					</tr>
+					<tr>
+						<td>of which owned by the state at the  subnational government scale</td>
+					</tr>
+					<tr>
+						<td>Private  ownership</td>
+					</tr>
+					<tr>
+						<td>of which owned by individuals</td>
+					</tr>
+					<tr>
+						<td>of which owned by private  business entities and institutions</td>
+					</tr>
+					<tr>
+						<td>of which owned by local tribal  and indigenous communities</td>
+					</tr>
+					<tr>
+						<td>Unknown  ownership</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for reported trend</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Public  ownership</td>
+					</tr>
+					<tr>
+						<td>Private  ownership</td>
+					</tr>
+					<tr>
+						<td>Unknown  ownership</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tier categories</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for reported trend</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Ownership</td>
+						<td>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td>
+						<td>Tier  3 National forestry statisticsregisters of land titles or maps on land  ownership or all forest area under one ownership category that is five years  old or less        Tier 2 Tier 2  National forestry statisticsregisters of land titles or maps on land  ownership or questionnaires that are more than five years old        Tier  1 Other</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 19a</title>
+				<description>Forest area 000  hectares</description>
+				<tbody>
+					<tr>
+						<td>FRA  2015 Categories</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>Public  Administration</td>
+					</tr>
+					<tr>
+						<td>Individuals</td>
+					</tr>
+					<tr>
+						<td>Private  corporations and institutions</td>
+					</tr>
+					<tr>
+						<td>Communities</td>
+					</tr>
+					<tr>
+						<td>Other</td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Tiers</title>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Tier for reported trend</td>
+						<td>Tier for status</td>
+					</tr>
+					<tr>
+						<td>Public  Administration</td>
+					</tr>
+					<tr>
+						<td>Individuals</td>
+					</tr>
+					<tr>
+						<td>Private  corporations and institutions</td>
+					</tr>
+					<tr>
+						<td>Communities</td>
+					</tr>
+					<tr>
+						<td>Other</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Public  ownership</td>
+					</tr>
+					<tr>
+						<td>Private  ownership</td>
+					</tr>
+					<tr>
+						<td>Other  types of ownership</td>
+					</tr>
+					<tr>
+						<td>Management  rights</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>How many people aredirectly employed in forestry</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Fulltime  equivalents FTE</td>
+						<td>A measurement  equal to one person working fulltime during a specified reference period</td>
+					</tr>
+					<tr>
+						<td>Employment</td>
+						<td>Includes all  persons in paid employment</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<title>Classification and definitions</title>
+				<table>
+					<tbody>
+						<tr>
+							<td>National  class</td>
+							<td>Definition</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 20</title>
+				<description>Employment 000 years FTE</description>
+				<tbody>
+					<tr>
+						<td>FRA 2015  Category</td>
+						<td>1990</td>
+						<td>2000</td>
+						<td>2005</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>Employment in forestry  and related workers</td>
+					</tr>
+					<tr>
+						<td>of which female</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments  related to data definitions etc</td>
+						<td>Comments  on the reported trend</td>
+					</tr>
+					<tr>
+						<td>Employment in  forestry and related workers</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is the contribution of forestry to Gross Domestic Product GDP</title>
+		<table>
+			<tbody>
+				<tr>
+					<td>Category</td>
+					<td>Definition</td>
+				</tr>
+				<tr>
+					<td>Forestry contribution to Gross Domestic Product</td>
+					<td>A measure of the contribution of forestry to the  value of total production in a country in a given year</td>
+				</tr>
+			</tbody>
+		</table>
+		<table>
+			<title>Table 21</title>
+			<tbody>
+				<tr>
+					<td>FRA  2015 category</td>
+					<td>Million USD</td>
+				</tr>
+				<tr>
+					<td>Forestry  contribution to GDP</td>
+				</tr>
+			</tbody>
+		</table>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+	<section>
+		<title>What is forest arealikely to be in the future</title>
+		<section>
+			<title>FRA 2015 Categories and definitions</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Definition</td>
+					</tr>
+					<tr>
+						<td>Government  targetaspiration for forest area</td>
+						<td>Government targetaspiration for forest area for a  specific year</td>
+					</tr>
+					<tr>
+						<td>Forests  earmarked for conversion</td>
+						<td>Forest area that  is allocatedclassified or scheduled to be converted into nonforest uses</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>National data</title>
+			<section>
+				<title>Data  sources</title>
+				<table>
+					<tbody>
+						<tr>
+							<td/>
+							<td>References to  sources of information</td>
+							<td>Years</td>
+							<td>Additional  comments</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</section>
+		<section>
+			<title>Data</title>
+			<table>
+				<title>Table 21a</title>
+				<description>Forest area 000 ha</description>
+				<tbody>
+					<tr>
+						<td>FRA 2015  Category</td>
+						<td>2020</td>
+						<td>2030</td>
+					</tr>
+					<tr>
+						<td>Government  targetaspiration for forest area</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<title>Table 21b</title>
+				<description>Forest area 000 ha</description>
+				<tbody>
+					<tr>
+						<td>FRA 2015  Category</td>
+						<td>2013</td>
+					</tr>
+					<tr>
+						<td>Forests  earmarked for conversion</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<title>Comments</title>
+			<table>
+				<tbody>
+					<tr>
+						<td>Category</td>
+						<td>Comments</td>
+					</tr>
+					<tr>
+						<td>Government  targetaspiration for forest area</td>
+					</tr>
+					<tr>
+						<td>Forests  earmarked for conversion</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</section>
+</survey>
