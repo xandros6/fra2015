@@ -294,11 +294,72 @@
             });
 
 
-
+          
             var t = new Template({
                 url: './admin/create-users.html'
             });
             t.bind('load', function( el ){
+                
+                var addCountryHandler = function(){
+                    var value = el.find( "#countries" ).val();
+                    el.find( "#countries" ).val('');
+                    el.find( "#selectedCountries" )
+                    .append( createCountryLabel(value))
+                    .append( '&nbsp;&nbsp;');
+                      
+                    var countries = el.find('#ccountries').val();  
+                    if ( countries.length>0){
+                        countries += ', ' + value;
+                    } else {
+                        countries = value;
+                    }
+                    el.find('#ccountries').val( countries );
+                    
+                    
+                    var role = el.find('#roleComboBox').val();
+                    if ( role !== 'reviewer'){
+                        el.find( "#addCountryBtn" ).off('click');
+                        el.find( "#addCountryBtn" ).addClass('disabled');
+                    }
+                    
+                    return false;
+                };
+                    
+                    
+                function createCountryLabel( name ){
+                    var label = $('<span class="label label-info"></span>');
+                    var closeBtn = $('<button type="button" class="close" data-dismiss="alert">&times;</button></span>');
+                    label.append(name)
+                    .append('&nbsp;')
+                    .append(closeBtn);
+                    closeBtn.click(function(){
+                        var countries = el.find('#ccountries').val( ).split(', ');
+                        var text = '';
+                        $.each( countries, function(id, el){
+                            if ( el !== name ){
+                                if ( text.length > 0 ){
+                                    text += ', ';
+                                }
+                                text += el;  
+                            }
+                           
+                        });
+                        el.find('#ccountries').val( text );
+                        if ( countries.length == 1){ 
+                            el.find( "#addCountryBtn" ).on('click', addCountryHandler);
+                            el.find( "#addCountryBtn" ).removeClass('disabled');
+                        }
+                        
+                    });
+                    return label;
+                };
+                
+                el.find( "#countries" ).autocomplete({
+                    source: countries
+                });
+               
+                
+                el.find( "#addCountryBtn" ).click( addCountryHandler );
 
                 var addRow = function( index, user ){
                     
@@ -314,6 +375,23 @@
                         win.find('#cemail').val( user.email );
                         win.find( "#saveBtn" ).text('Update');
                         win.find( "#saveBtn" ).removeClass('disabled');
+                        
+                        el.find( "#selectedCountries" ).empty();
+                        win.find( "#ccountries" ).val(user.countries);
+                        var array = user.countries.split(', ');
+                        win.find( "#countries" ).val('');
+                        $.each( array, function(id, country){
+                            el.find( "#selectedCountries" )
+                            .append( createCountryLabel(country))
+                            .append( '&nbsp;&nbsp;');
+                      
+                        });
+                        
+                        if ( user.role !== 'reviewer' && array.length>=1){
+                            el.find( "#addCountryBtn" ).off('click');
+                            el.find( "#addCountryBtn" ).addClass('disabled');
+                        }
+                        
                         win.modal('show');
                     });
                     
@@ -371,15 +449,23 @@
                         el.find( "#saveBtn" ).on('click', function(){
 
                             if ( $("#createUserForm").valid()  ){
+                                
+                                var role = el.find('#roleComboBox').val();
+                                var countries = el.find('#ccountries').val();  
+                                if ( countries.split(', ').length > 1 && role != 'reviewer'){
+                                    return;
+                                }
+                                
                                 var obj = {};
                                 obj.name = el.find('#cname').val();
                                 obj.newPassword = el.find('#cpassword').val();
                                 obj.role = el.find('#roleComboBox').val();
                                 obj.username = el.find('#cusername').val();
                                 obj.email = el.find('#cemail').val();
-                                // obj.countries;
+                                obj.countries = countries; 
 
                                 var id = el.find('#cid').val();
+                                
 
                                 if ( ! id ){
                                     resource.create( obj )
@@ -416,6 +502,9 @@
                     } else {
                         el.find( "#saveBtn" ).addClass('disabled');
                         el.find( "#saveBtn" ).off('click');
+                        
+                        el.find( "#addCountryBtn" ).on('click');
+                        el.find( "#addCountryBtn" ).removeClass('disabled');
                     }
                 });
             });
@@ -597,7 +686,7 @@
                 this.el.append( '<p>' + options.description + '</p>');
             }
             
-             // feedback list
+            // feedback list
             var feedbacks = new Feedbacks( options.feedbacks );
             this.el.append( feedbacks.el );
            
@@ -1409,7 +1498,7 @@
                 model:model
             });
             survey.bind('change', function(){
-               page.trigger('change');
+                page.trigger('change');
             });
 
             var summary = new Summary({
