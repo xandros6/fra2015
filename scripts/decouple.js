@@ -53,14 +53,15 @@ saxStream.on("end", function() {
 	var keys = _.keys( labels );
 	_.each( keys, function(key){
 		var label = $('<label></label>');
-		label.append( $('<ref></ref>').append( labels[key]) );
-		label.append( $('<en></en>').append( key ) );
+		label.attr('ref', labels[key]) );
+		// label.append( $('<ref></ref>').append( labels[key]) );
+		// label.append( $('<en></en>').append( key ) );
 		label.append( $('<value></value>').append( 'TRANSLATED TEXT' ) );
 		locale.append( label );
 	});
 	print( locale );
 	
-	fs = require('fs')
+	/*fs = require('fs')
 	fs.readFile('example.xml', 'utf8', function (err, content) {
 	  if (err) {
 	    return console.log(err);
@@ -77,7 +78,7 @@ saxStream.on("end", function() {
 		    }
 		});
 	
-	});
+	}); */
 
 });
 fs.createReadStream("example.xml").pipe(saxStream);

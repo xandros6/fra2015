@@ -300,6 +300,18 @@
             });
             t.bind('load', function( el ){
                 
+                
+                el.find('#filterBtn').click(function(){
+                    var win = el.find('#filterWindow');
+                    var filter = {};
+                    filter.name = win.find('name');
+                    filter.username = win.find('username');
+                    filter.country= win.find('countries');
+                    filter.email= win.find('email');
+                    filter.role= win.find('role');
+                });
+                
+                
                 var addCountryHandler = function(){
                     var value = el.find( "#countries" ).val();
                     el.find( "#countries" ).val('');
@@ -426,6 +438,10 @@
 
 
                 loadItems();
+
+                el.find( '#applyFilterBtn' ).click( function(){
+                    el.find('#filterWindow').modal('show');
+                });
 
                 el.find( "#createBtn" ).click(function(){
                     el.find('#createUserWindow').modal('show');

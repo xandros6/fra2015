@@ -1,0 +1,2570 @@
+<?xml version="1.0"?>
+<locale>
+	<version>PUT VERSION HERE</version>
+	<language>PUT LANGUAGE CODE HERE</language>
+	<label>
+		<ref>0</ref>
+		<en>Introduction</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>1</ref>
+		<en>FOREST AREA AND FOREST CHARACTERISTICS</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>2</ref>
+		<en>What is the area of forest and other wooded land and how has it changed over time?</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>3</ref>
+		<en>FRA 2015 Categories and definitions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>4</ref>
+		<en>Category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>5</ref>
+		<en>Definition</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>6</ref>
+		<en>Forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>7</ref>
+		<en>Land  spanning more than 05 hectares with trees higher than 5 meters and a canopy  cover of more than 10 percent or trees able to reach these thresholds  in  situ  It does not include land that is predominantly under agricultural  or urban land use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>8</ref>
+		<en>Other  wooded land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>9</ref>
+		<en>Land not classified as Forest spanning more than 05  hectares with  trees  higher than 5 meters  and  a canopy  cover of 510 percent or trees able to reach these thresholds  in situ   or with a combined cover of shrubs bushes and  trees above 10 percent It does not include land that is predominantly under  agricultural or urban land use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>10</ref>
+		<en>Other  land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>11</ref>
+		<en>All  land that is not classified as Forest or Other wooded land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>12</ref>
+		<en>of which with tree cover  Subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>13</ref>
+		<en>Land  classified as Other land spanning more than 05 hectares with a canopy  cover of more than 10 percent of trees able to reach a height of 5 meters at  maturity</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>14</ref>
+		<en>Inland  water bodies</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>15</ref>
+		<en>Inland  water bodies generally include major rivers lakes and water reservoirs</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>16</ref>
+		<en>Afforestation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>17</ref>
+		<en>Establishment  of forest through planting andor deliberate seeding on land that until  then was not classified as forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>18</ref>
+		<en>Reforestation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>19</ref>
+		<en>Reestablishment  of forest through planting andor deliberate seeding on land classified as  forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>20</ref>
+		<en>Natural  expansion of forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>21</ref>
+		<en>Expansion  of forests through natural succession on land that until then was under  another land use egforest succession on land previously used for  agriculture</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>22</ref>
+		<en>Deforestation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>23</ref>
+		<en>The  conversion of forest to other land use or the longterm reduction of the tree  canopy cover below the minimum 10 percent threshold</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>24</ref>
+		<en>National data</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>25</ref>
+		<en>Data  sources</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>26</ref>
+		<en>References  to sources of information</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>27</ref>
+		<en>Variables</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>28</ref>
+		<en>Years</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>29</ref>
+		<en>Additional  comments</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>30</ref>
+		<en>Classification anddefinitions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>31</ref>
+		<en>National  class</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>32</ref>
+		<en>Original data</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>33</ref>
+		<en>Analysis and processingof national data</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>34</ref>
+		<en>Adjustment</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>35</ref>
+		<en>Estimation andforecasting</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>36</ref>
+		<en>Reclassification into FRA 2015 categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>37</ref>
+		<en>Data</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>38</ref>
+		<en>Table 1a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>39</ref>
+		<en>Area 000 hectares</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>40</ref>
+		<en>FRA 2015 categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>41</ref>
+		<en>of which with tree cover</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>42</ref>
+		<en>TOTAL</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>43</ref>
+		<en>Table 1b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>44</ref>
+		<en>FRA  2015 Categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>45</ref>
+		<en>Annual forest  establishmentloss</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>46</ref>
+		<en>Table 1c</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>47</ref>
+		<en>of which of introduced  species  1</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>48</ref>
+		<en>Natural expansion of forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>49</ref>
+		<en>Tiers</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>50</ref>
+		<en>Tier for status</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>51</ref>
+		<en>Tier for reported trend</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>52</ref>
+		<en>Tier criteria</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>53</ref>
+		<en>Forest    Other  wooded land    Afforestation    Reforestation  Natural expansion of forest     Deforestation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>54</ref>
+		<en>Tier  3 Data sources Either recent  10 years ago National Forest  Inventory or remote sensing with ground truthing or programme for repeated  compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years  ago        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>55</ref>
+		<en>Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>56</ref>
+		<en>Comments on reported data</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>57</ref>
+		<en>Comments  related to data definitions etc</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>58</ref>
+		<en>Comments  on the reported status and trends</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>59</ref>
+		<en>Other  land with tree cover</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>60</ref>
+		<en>Other  general comments to the table</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>61</ref>
+		<en>Expected  year for completion of ongoingplanned  national  forest inventory  andor RS survey  mapping or other effort to assess forest area</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>62</ref>
+		<en>National  forest inventory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>63</ref>
+		<en>Remote  sensing survey  mapping</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>64</ref>
+		<en>Other  efforts</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>65</ref>
+		<en>What is the area of natural and planted forest and how has it changed over time</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>66</ref>
+		<en>Term</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>67</ref>
+		<en>Naturally  regenerated forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>68</ref>
+		<en>Forest  predominantly composed of trees established through natural regeneration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>69</ref>
+		<en>Introduced  species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>70</ref>
+		<en>A  species subspecies or lower taxon occurring  outside  its natural  range past or present and dispersal potential ie outside the range it  occupies naturally or could occupy without direct or indirect introduction or  care by humans</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>71</ref>
+		<en>Primary  forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>72</ref>
+		<en>Naturally  regenerated forest of native species where there are no clearly visible  indications of human activities and the ecological processes are not  significantly disturbed</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>73</ref>
+		<en>Other  naturally regenerated forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>74</ref>
+		<en>Naturally  regenerated forest  where there are clearly  visible indications of human activities</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>75</ref>
+		<en>of  which of introduced species     subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>76</ref>
+		<en>Other  naturally regenerated forest where the trees are predominantly of introduced  species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>77</ref>
+		<en>Planted  forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>78</ref>
+		<en>Forest  predominantly composed of trees established through planting andor  deliberate seeding</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>79</ref>
+		<en>of  which of of introduced species  subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>80</ref>
+		<en>Planted  forest where the plantedseeded trees are predominantly of introduced  species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>81</ref>
+		<en>Mangroves</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>82</ref>
+		<en>Area  of forest and other wooded land with mangrove vegetation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>83</ref>
+		<en>Reclassification intoFRA 2015 categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>84</ref>
+		<en>Table 2a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>85</ref>
+		<en>Forest area 000  hectares</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>86</ref>
+		<en>of  which of introduced species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>87</ref>
+		<en>Table 2b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>88</ref>
+		<en>Primary forest converted  to 000 ha</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>89</ref>
+		<en>1990-2000</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>90</ref>
+		<en>2000-2010</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>91</ref>
+		<en>2010-2015</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>92</ref>
+		<en>Other natural regeneration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>93</ref>
+		<en>Other land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>94</ref>
+		<en>Planted</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>95</ref>
+		<en>Table 2c</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>96</ref>
+		<en>Mangroves  Forest and OWL</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>97</ref>
+		<en>Tier Criteria</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>98</ref>
+		<en>Primary  forestOther naturally regenerated forest Planted forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>99</ref>
+		<en>Tier  3 Data sources Recent 10 years National Forest Inventory or remote  sensing with ground truthing or data provided by official agencies or  programme for repeated compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>100</ref>
+		<en>Comments</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>101</ref>
+		<en>Comments  on reported status and trends</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>102</ref>
+		<en>Other  naturally regenerating forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>103</ref>
+		<en>What are the stocks and growth rates of the forests and how have they changed</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>104</ref>
+		<en>Growing  stock</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>105</ref>
+		<en>Volume  over bark of all living trees with a minimum diameter of 10 cm at breast  height or above buttress if these are higher Includes the stem from ground  level up to a top diameter of 0 cm excluding branches</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>106</ref>
+		<en>Mean  annual increment MAI</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>107</ref>
+		<en>Stand  volume divided by stand age</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>108</ref>
+		<en>Aboveground  biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>109</ref>
+		<en>All  living biomass above the soil including stem stump branches bark seeds  and foliage</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>110</ref>
+		<en>Belowground  biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>111</ref>
+		<en>All biomass of live roots Fine roots of less than 2mm  diameter are excluded because these often cannot be distinguished empirically  from soil organic matter or litter</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>112</ref>
+		<en>Dead  wood</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>113</ref>
+		<en>All nonliving woody biomass not contained in the  litter either standing lying on the ground or in the soil Dead wood  includes wood lying on the surface dead roots and stumps larger than or  equal to 10 cm in diameter or any other diameter used by the country</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>114</ref>
+		<en>Carbon  in aboveground biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>115</ref>
+		<en>Carbon  in all living biomass above the soil including stem stump branches bark  seeds and foliage</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>116</ref>
+		<en>Carbon  in belowground biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>117</ref>
+		<en>Carbon  in  all biomass of live roots Fine roots  of less than 2 mm diameter are excluded because these often cannot be  distinguished empirically from soil organic matter or litter</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>118</ref>
+		<en>Carbon  in dead wood</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>119</ref>
+		<en>Carbon  in  all nonliving woody biomass not contained  in the litter either standing lying on the ground or in the soil Dead  wood includes wood lying on the surface dead roots and stumps larger than  or equal to 10 cm in diameter or any other diameter used by the country</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>120</ref>
+		<en>Carbon  in litter</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>121</ref>
+		<en>Carbon  in  all nonliving biomass with a diameter  less than the minimum diameter for dead wood eg 10 cm lying dead in  various states of decomposition above the mineral or organic soil</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>122</ref>
+		<en>Soil  carbon</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>123</ref>
+		<en>Organic carbon in mineral and organic soils including  peat to a specified depth chosen by the country and applied consistently  through the time series</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>124</ref>
+		<en>Classification and definitions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>125</ref>
+		<en>Table 3a - Forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>126</ref>
+		<en>Growing stock volume  million m 3  over bark</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>127</ref>
+		<en>FRA 2015 category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>128</ref>
+		<en>Total  growing stock</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>129</ref>
+		<en>of which coniferous</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>130</ref>
+		<en>of which broadleaved</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>131</ref>
+		<en>Table 3a - Other wooded land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>132</ref>
+		<en>Table 3b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>133</ref>
+		<en>Growing stock in forest million cubic meters</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>134</ref>
+		<en>Rank</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>135</ref>
+		<en>Scientific  name</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>136</ref>
+		<en>Common  name</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>137</ref>
+		<en>1 st</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>138</ref>
+		<en>2 nd</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>139</ref>
+		<en>3 rd</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>140</ref>
+		<en>4 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>141</ref>
+		<en>5 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>142</ref>
+		<en>6 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>143</ref>
+		<en>7 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>144</ref>
+		<en>8 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>145</ref>
+		<en>9 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>146</ref>
+		<en>10 th</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>147</ref>
+		<en>Remaining</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>148</ref>
+		<en>Table 3c</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>149</ref>
+		<en>Mean annual increment m 3   per hectare and year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>150</ref>
+		<en>FRA  2015 category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>151</ref>
+		<en>Mean  annual increment</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>152</ref>
+		<en>Table 3d - Forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>153</ref>
+		<en>Biomass million metric  tonnes ovendry weight</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>154</ref>
+		<en>Table 3d - Other wooded land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>155</ref>
+		<en>Table 3e - Forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>156</ref>
+		<en>Carbon Million metric  tonnes</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>157</ref>
+		<en>FRA  2015 Category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>158</ref>
+		<en>Subtotal  Living biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>159</ref>
+		<en>Subtotal  Dead wood and litter</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>160</ref>
+		<en>Table 3e - Other wooded land</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>161</ref>
+		<en>Variablecategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>162</ref>
+		<en>Tier for trend</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>163</ref>
+		<en>Above  ground biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>164</ref>
+		<en>Below  ground biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>165</ref>
+		<en>Carbon  in below ground biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>166</ref>
+		<en>Carbon  in dead wood and litter</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>167</ref>
+		<en>Tier  3 Data sources Recent  10 years National Forest Inventory or remote  sensing with ground truthing or programme for repeated compatible NFI  10  years Domestic volume functions         Tier  2 Data sourcesregisters and statistics modelling or old NFI 10 years  or partial field inventory        Tier  1 Other data sources</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>168</ref>
+		<en>Tier  3 Estimate based on repeated compatible tiers 3 tier for status    Domestic  growth functions        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>169</ref>
+		<en>Tier  3 Scientificically tested national volume and growth functions        Tier  2 Selection of volume and growth functions as relevant as possible        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>170</ref>
+		<en>Tier  3 Confirmationadjustment of functions used through scientific work        Tier  2 Review work done to seekt aalternative functions        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>171</ref>
+		<en>Biomass</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>172</ref>
+		<en>Tier  3 Countryspecific national or subnational biomass conversion expansion  factors applied or other domestic or otherwise nationally relevant biomass  studies        Tier  2 Application of country specific national or subnational biomass conversion  factors form from other country with similar climatic conditions and forest  types        Tier  1 Internationalregional default biomass expansion factors applied</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>173</ref>
+		<en>Carbon  in above ground biomass        Carbon  in below ground biomass        Carbon  in dead wood and litter        Soil  carbon</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>174</ref>
+		<en>Tier  3 Countryspecific national or subnational biomass conversion expansion  factors applied        Tier  2 Application of country specific national or subnational biomass  conversion factors form from other country with similar climatic conditions  and forest types        Tier  1 Internationalregional default biomass expansion factors applied</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>175</ref>
+		<en>Comments on growingstock biomass and carbon</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>176</ref>
+		<en>Comments  on the reported trend</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>177</ref>
+		<en>Growing  stock of broadleaved  coniferous</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>178</ref>
+		<en>Growing  stock composition</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>179</ref>
+		<en>What is the status offorest production and how has it changed over time</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>180</ref>
+		<en>Primary  designated function</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>181</ref>
+		<en>The primary function or management  objective assigned to a management unit either by legal prescription  documented decision of the landownermanager or evidence provided by  documented studies of forest management practices and customary use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>182</ref>
+		<en>Production  forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>183</ref>
+		<en>Forest  area designated primarily for production of wood fibre bioenergy andor  nonwood forest products</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>184</ref>
+		<en>Multiple  use forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>185</ref>
+		<en>Forest  area designated for more than one purpose and where none of these alone is  considered as the predominant designated function</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>186</ref>
+		<en>Forest  area available for wood supply</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>187</ref>
+		<en>Forest  where any legal economic or specific environmental restrictions do not have  a significant impact on the supply of wood</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>188</ref>
+		<en>Non  wood forest product NWFP</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>189</ref>
+		<en>Goods  derived from forests that are tangible and physical objects of biological  origin other than wood</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>190</ref>
+		<en>Table 4a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>191</ref>
+		<en>Table 4b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>192</ref>
+		<en>Name  of product</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>193</ref>
+		<en>Key  species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>194</ref>
+		<en>NWFP removals 2010  value 1000 local currency</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>195</ref>
+		<en>NWFP category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>196</ref>
+		<en>Plant  products  raw material</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>197</ref>
+		<en>Food</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>198</ref>
+		<en>Fodder</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>199</ref>
+		<en>Raw  material for medicine and aromatic products</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>200</ref>
+		<en>Raw  material for colorants and dyes</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>201</ref>
+		<en>Raw  material for utensils handicrafts  construction</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>202</ref>
+		<en>Ornamental  plants</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>203</ref>
+		<en>Exudates</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>204</ref>
+		<en>Other  plant products</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>205</ref>
+		<en>Animal  products  raw material</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>206</ref>
+		<en>Living  animals</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>207</ref>
+		<en>Hides skins and  trophies</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>208</ref>
+		<en>Wild honey and beewax</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>209</ref>
+		<en>Wild meat</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>210</ref>
+		<en>Raw material for medicine</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>211</ref>
+		<en>Raw material for  colorants</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>212</ref>
+		<en>Other edible animal  products</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>213</ref>
+		<en>Other nonedible animal  products</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>214</ref>
+		<en>Production  forest        Multiple  use forest        Forest  area available for wood supply</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>215</ref>
+		<en>Tier  3 Updated including field verifications national forest maps including  functions        Tier  2Forest maps older than 6 years including forest functions        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>216</ref>
+		<en>Multiple  use forestry</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>217</ref>
+		<en>Non  wood forest products</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>218</ref>
+		<en>How much forest area is managed for protection of soil and water</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>219</ref>
+		<en>Protection  of soil and water</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>220</ref>
+		<en>Forest  area designated or managed for protection of soil and water</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>221</ref>
+		<en>of  which production of clean water</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>222</ref>
+		<en>Forest  area primarily designated or managed for water production where most human  uses are excluded or heavily modified to protect water quality</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>223</ref>
+		<en>of  which coastal stabilization</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>224</ref>
+		<en>Forest  area primarily designated or managed for coastal stabilization</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>225</ref>
+		<en>of  which desertification control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>226</ref>
+		<en>Forest  area primarily designated or managed for desertification control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>227</ref>
+		<en>of  which avalanche control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>228</ref>
+		<en>Forest  area primarily designated or managed to prevent the development or impact of  avalanches on human life assets or infrastructure</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>229</ref>
+		<en>of  which erosion flood protection or reducing flood risk</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>230</ref>
+		<en>Forest  area primarily designated or managed for protecting communities or assets  from the impacts or erosion riparian floods and landslides or for  providing flood plain services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>231</ref>
+		<en>of  which other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>232</ref>
+		<en>Forest  area primarily designated or managed for other protective functions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>233</ref>
+		<en>Table 5</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>234</ref>
+		<en>Forest area 1000  hectares</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>235</ref>
+		<en>of which desertification control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>236</ref>
+		<en>of which avalanche control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>237</ref>
+		<en>of  which other please specify in comments below the table</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>238</ref>
+		<en>Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>239</ref>
+		<en>Tier  3 High reliability data derived either from high intensity sample survey or  data obtained from national or state agencies responsible for regulations or  legislation relating to soil and water protection         Tier  2 Approaches based on low intensity or incomplete samplebased surveys or  studies that provide data for specific areas that is extrapolated through  statistical analysis to national level estimates         Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>240</ref>
+		<en>Production  of clean water</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>241</ref>
+		<en>Coastal  stabilization</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>242</ref>
+		<en>Desertification  control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>243</ref>
+		<en>Avalanche  control</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>244</ref>
+		<en>Erosion  flood protection or reducing flood risk</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>245</ref>
+		<en>Other  protective functions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>246</ref>
+		<en>How much forest area is managed for ecosystem services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>247</ref>
+		<en>Ecosystem  services cultural or spiritual values</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>248</ref>
+		<en>Forest  area designated or managed for selected ecosystem services or cultural or  spiritual values</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>249</ref>
+		<en>of  which public recreation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>250</ref>
+		<en>Forest  area designated or managed for public recreation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>251</ref>
+		<en>of  which carbon storage or sequestration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>252</ref>
+		<en>Forest  area designated or managed for carbon storage or sequestration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>253</ref>
+		<en>of  which spiritual or cultural services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>254</ref>
+		<en>Forest  area designated or managed for spiritual or cultural services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>255</ref>
+		<en>Forest  area designated or managed for other ecosystem services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>256</ref>
+		<en/>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>257</ref>
+		<en>Table 6</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>258</ref>
+		<en>of which public recreation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>259</ref>
+		<en>of which carbon storage or sequestration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>260</ref>
+		<en>of which spiritual or cultural services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>261</ref>
+		<en>of which other please specify in comments below the table</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>262</ref>
+		<en>Cultural  or spiritual values    Public  recreation    Spiritual  or cultural services    Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>263</ref>
+		<en>Tier  3  High  reliability data derived either from high intensity sample survey or data obtained  from national or state agencies responsible for regulations          Tier  2  Approaches  based on low intensity or incomplete samplebased surveys or studies that  provide data for specific areas that is extrapolated through statistical  analysis to national level estimates        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>264</ref>
+		<en>Public  recreation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>265</ref>
+		<en>Carbon  storage or sequestration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>266</ref>
+		<en>Spiritual  or cultural services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>267</ref>
+		<en>Other  ecosystem services</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>268</ref>
+		<en>How much forest area isprotected and designated for the conservation of biodiversity and how has itchanged over time</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>269</ref>
+		<en>FRA 2015 Categories anddefinitions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>270</ref>
+		<en>Conservation  of biodiversity</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>271</ref>
+		<en>Forest  area designated primarily for conservation of biological diversity Includes  but is not limited to areas designated for biodiversity conservation within  the protected areas</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>272</ref>
+		<en>Forest  area within protected areas</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>273</ref>
+		<en>Forest  area within formally established protected areas independently of the purpose  for which the protected areas were established</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>274</ref>
+		<en>Table 7</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>275</ref>
+		<en/>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>276</ref>
+		<en>Conservation  of biodiversity         Forests  within protected areas</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>277</ref>
+		<en>Tier  3Data obtained from national or state agencies responsible for conservation  and protected area or legislation relating to area protection        Tier  2 Studies that provide data for specific areas that is extrapolated through  statistical analysis to national level estimates        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>278</ref>
+		<en>What is the area offorest affected by woody invasive species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>279</ref>
+		<en>Invasive  species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>280</ref>
+		<en>Species  that are nonnative to a particular ecosystem and whose introduction and  spread cause or are likely to cause sociocultural economic or  environmental harm or harm to human health</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>281</ref>
+		<en>Table 8</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>282</ref>
+		<en>Forest area affected  000 ha</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>283</ref>
+		<en>Scientific  name of woody invasive species</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>284</ref>
+		<en>Total</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>285</ref>
+		<en>Tier  3 Systematic assessment in forest inventory or other survey e g by  conservation department within the last 5 years        Tier  2 Systematic assessment in forest inventory or other survey e g by  conservation department conducted more than 5 years ago        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>286</ref>
+		<en>How much forest area isdamaged each year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>287</ref>
+		<en>Number  of fires</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>288</ref>
+		<en>Number  of fires per year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>289</ref>
+		<en>Area  affected by fire</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>290</ref>
+		<en>Area  damaged by fire per year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>291</ref>
+		<en>Outbreaks  of insects</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>292</ref>
+		<en>Damage  caused by severe outbreaks of insect pests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>293</ref>
+		<en>Outbreaks  of diseases</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>294</ref>
+		<en>Damaged  caused by severe outbreaks of diseases attributable to pathogens such as  bacteria fungi phytoplasma or virus</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>295</ref>
+		<en>Severe  weather events</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>296</ref>
+		<en>Damage  caused severe weather events such as snow storm drought etc</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>297</ref>
+		<en>Table 9a ha</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>298</ref>
+		<en>000 ha of  fires</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>299</ref>
+		<en>Total  land area affected by fire</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>300</ref>
+		<en>of which on forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>301</ref>
+		<en>Table 9a number</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>302</ref>
+		<en>number of  fires</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>303</ref>
+		<en>Table 9b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>304</ref>
+		<en>Outbreak  category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>305</ref>
+		<en>Outbreakevent</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>306</ref>
+		<en>Year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>307</ref>
+		<en>Area damaged 000  hectares</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>308</ref>
+		<en>1   Insects</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>309</ref>
+		<en>2   Diseases</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>310</ref>
+		<en>3   Severe weather events</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>311</ref>
+		<en>Insects    Diseases    Severe  weather events</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>312</ref>
+		<en>Tier  3 National fire monitoring routines        Tier  2 Remote sensing surveys        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>313</ref>
+		<en>Tier  3 Systematic survey eg via inventory or aerial damage assessment        Tier 2 Management  records        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>314</ref>
+		<en>Insects</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>315</ref>
+		<en>Diseases</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>316</ref>
+		<en>What is the forest areathat has been degraded</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>317</ref>
+		<en>Proxy variable for forest degradation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>318</ref>
+		<en>Forest that has undergone a reduction of canopy  cover between the years 2000 and 2010 area between the forest canopy cover  range of 3080 as detected by the MODIS VCF sensor</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>319</ref>
+		<en>Area  of forest with reduced canopy cover 000 ha</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>320</ref>
+		<en>Degraded  forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>321</ref>
+		<en>Degraded forest</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>322</ref>
+		<en>Measuring progress toward SFM</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>323</ref>
+		<en>Part A Nationalscale enabling environment for SFM</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>324</ref>
+		<en>What  forest policy andregulatory framework exists to support implementation of sustainable forestmanagement SFM</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>325</ref>
+		<en>Policies  supporting sustainable management of forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>326</ref>
+		<en>Policies or  strategies that explicitly encourage sustainable forest management</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>327</ref>
+		<en>Legislation and  regulations supporting sustainable management of forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>328</ref>
+		<en>Legislation  regulations and programmes that govern and guide sustainable forest management  operations and use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>329</ref>
+		<en>References to  sources of information</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>330</ref>
+		<en>Table 11</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>331</ref>
+		<en>National</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>332</ref>
+		<en>Regional</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>333</ref>
+		<en>Provincial State</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>334</ref>
+		<en>Local</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>335</ref>
+		<en>Policies  supporting sustainable management of  publicly owned  forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>336</ref>
+		<en>Policies supporting sustainable management  of  privately owned  forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>337</ref>
+		<en>Legislation and regulations supporting  sustainable management of  publicly owned  forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>338</ref>
+		<en>Legislation and  regulations supporting sustainable management of  privately owned forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>339</ref>
+		<en>Variable   category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>340</ref>
+		<en>Is there a national platform that promotes stakeholder participation in forest policy development</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>341</ref>
+		<en>National  stakeholder platform</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>342</ref>
+		<en>A structured means  by which a broad range of stakeholders can provide opinions suggestions  analysis and other input into the development of national forest policy</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>343</ref>
+		<en>Table 12</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>344</ref>
+		<en>Is there a national platform that  promotes or allows for stakeholder participation in forest policy  development</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>345</ref>
+		<en>What is the forest area intended to be inpermanent forest land use and how has it changed over time</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>346</ref>
+		<en>Forest area  intended to be in permanent forest land use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>347</ref>
+		<en>Forest area that  is designated or expected to be retained as forest and is highly unlikely to  be converted to other land use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>348</ref>
+		<en>of which permanent  forest estate</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>349</ref>
+		<en>Forest area that  is designated by law or regulation to be retained as forest and  may not   be converted to other land use</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>350</ref>
+		<en>Estimation and forecasting</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>351</ref>
+		<en>Table 13</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>352</ref>
+		<en>FRA 2015  Categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>353</ref>
+		<en>Forest area 2010 000 ha</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>354</ref>
+		<en>of which  permanent forest estate</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>355</ref>
+		<en>Permanent forest  estate</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>356</ref>
+		<en>Tier 3 National  or subnational land use plans strategy documents or other reports within  the past 10 years        Tier 2 National  or subnational land use plans strategy documents or other reports within  the past 20 years        Tier 1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>357</ref>
+		<en>Comments on  the reported trend</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>358</ref>
+		<en>How does your country measure and reportprogress towards SFM at the national level</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>359</ref>
+		<en>Forest area  monitored under a national forest monitoring framework</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>360</ref>
+		<en>Forest area  monitored by a national monitoring framework or systems  that provide measurement based periodic  monitoring of forest extent and quality</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>361</ref>
+		<en>Forest reporting  at national scale</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>362</ref>
+		<en>National  reporting of forest extent and characteristics that includes some measure of  progress toward sustainable forest management</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>363</ref>
+		<en>Classificationand definitions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>364</ref>
+		<en>Table 14a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>365</ref>
+		<en>of total forest area</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>366</ref>
+		<en>Most recent year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>367</ref>
+		<en>Continuous</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>368</ref>
+		<en>Periodic</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>369</ref>
+		<en>Permanent ground plots</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>370</ref>
+		<en>Temporary ground plots</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>371</ref>
+		<en>Aerial remote sensing sample based</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>372</ref>
+		<en>Aerial remote sensing full coverage</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>373</ref>
+		<en>Forest inventory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>374</ref>
+		<en>Other field  assessments</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>375</ref>
+		<en>Updates to other  sources</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>376</ref>
+		<en>Expert estimate</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>377</ref>
+		<en>Table 14b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>378</ref>
+		<en>Type of forest  reporting used at national scale</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>379</ref>
+		<en>Check boxes that apply</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>380</ref>
+		<en>1 Criteria and Indicators reporting</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>381</ref>
+		<en>2 Periodic national state of the forest  report</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>382</ref>
+		<en>3 Other please document</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>383</ref>
+		<en>4    None</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>384</ref>
+		<en>Other  type of forest reporting</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>385</ref>
+		<en>Type of forest  reporting</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>386</ref>
+		<en>Part BOperational scale progress toward SFM</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>387</ref>
+		<en>What is the area of forest under a forestmanagement plan and how is this monitored</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>388</ref>
+		<en>Forest area with  management plan</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>389</ref>
+		<en>Forest area that  has a longterm ten years or more documented management plan aiming at  defined management goals which is periodically revised</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>390</ref>
+		<en>of which for  production</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>391</ref>
+		<en>Forest  management plan mainly focused on production</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>392</ref>
+		<en>of which for  conservation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>393</ref>
+		<en>Forest  management plan mainly focused on conservation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>394</ref>
+		<en>Monitoring of  forest management plans</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>395</ref>
+		<en>Government  monitoring of forest management plan implementation conducted through field  visits or audits of forest management plan performance</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>396</ref>
+		<en>Table 15a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>397</ref>
+		<en>Forest plan  type</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>398</ref>
+		<en>Table 15b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>399</ref>
+		<en>Indicate  which if any of the following are required in forest management plans  in your country</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>400</ref>
+		<en>1 Soil and water management</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>401</ref>
+		<en>2 High conservation value forest  delineation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>402</ref>
+		<en>3 Social considerationscommunity  involvement</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>403</ref>
+		<en>4 Monitoring of  forest management plans monitored annually</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>404</ref>
+		<en>Percent of area  under forest management plan that is monitored annually</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>405</ref>
+		<en>Tier 3 Reports that describe national records 5  years old or less that contain longterm forest monitoring plans        Tier 2 Industry or other records indicating the  presence of a longterm forest management plan         Tier 1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>406</ref>
+		<en>Tier 3 Government  documentation of monitoring extent        Tier 2 Reports from forest managers or other  documental sources        Tier 1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>407</ref>
+		<en>How are stakeholders involved in the managementdecision making for publicly owned forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>408</ref>
+		<en>Stakeholder involvement</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>409</ref>
+		<en>Stakeholder  involvement is defined as significant inputs into at least one aspect of  forest management at the operational scale</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>410</ref>
+		<en>Table 16</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>411</ref>
+		<en>Please indicate the type of stakeholder involvement  in forest management decision making required  in your country</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>412</ref>
+		<en>1 Planning phase</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>413</ref>
+		<en>2 Operations phase</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>414</ref>
+		<en>3 Review of operations</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>415</ref>
+		<en>Type of  stakeholder inputs</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>416</ref>
+		<en>Tier 3 Government national or subnational  documentation of stakeholder inputs        Tier 2  Government national or subnational requirement but stakeholder inputs not  documented        Tier 1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>417</ref>
+		<en>What is the area offorest under an independently verified forest certification scheme</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>418</ref>
+		<en>FRA 2015 categories anddefinitions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>419</ref>
+		<en>Certified forest  area using an international forest management certification scheme</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>420</ref>
+		<en>Area certified under a forest management  certification scheme with published standards that is internationally  recognized and independently verified by a thirdparty</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>421</ref>
+		<en>of which for  FSC</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>422</ref>
+		<en>Forest area certified under the Forest Stewardship  Council certification scheme</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>423</ref>
+		<en>of which PEFC</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>424</ref>
+		<en>Forest area certified under the Programme for the  Endorsement of Forest Certification scheme</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>425</ref>
+		<en>Certified forest  area using a domestic forest management certification scheme</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>426</ref>
+		<en>Area certified under a forest management  certification scheme with published standards that are nationally recognized  and independently verified by a thirdparty</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>427</ref>
+		<en>Table 17</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>428</ref>
+		<en>Total forest  area certified under</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>429</ref>
+		<en>International   forest management certification</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>430</ref>
+		<en>Domestic  forest management certification</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>431</ref>
+		<en>of which List  domestic   forest management certification schemes and forest area covered by each</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>432</ref>
+		<en>Tier Categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>433</ref>
+		<en>International  forest management certification</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>434</ref>
+		<en>Tier 3  International forest management scheme records maintained by the certifying  organization for the reporting year        Tier 2  International forest management scheme records reported by the certifying  organization for a period  2 years prior to the reporting year        Tier 1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>435</ref>
+		<en>Domestic forest  management certification</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>436</ref>
+		<en>Tier 3 National  registry reports for domestic forest management certification maintained by  the certifying organization for the reporting year        Tier 2 Domestic  forest management scheme records reported by the certifying organization for  a period  2 years prior to the reporting year        Tier 1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>437</ref>
+		<en>How much money dogovernments collect from and spend on forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>438</ref>
+		<en>Forest  revenue</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>439</ref>
+		<en>All  government revenue collected from the domestic production and trade of forest  products and services For this purpose revenue include    Goods   roundwood sawnwood biomass woodbased panels pulp and paper and nonwood  forest products    Services   including concession fees and royalties stumpage payments public timber  sales revenue taxes and charges based on forest area or yield taxes on  domestic trade and export of forest products special levies on forestry  activities and payments into forestrelated funds other miscellaneous  inspection licence and administrative fees levied by forest administrations  permit and licence fees for recreation and other forest related activities</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>440</ref>
+		<en>Public  expenditure on forestry</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>441</ref>
+		<en>All  government expenditure on forest related activities</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>442</ref>
+		<en>Table 18</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>443</ref>
+		<en>Revenues expenditures 000 local  currency</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>444</ref>
+		<en>FRA 2015  category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>445</ref>
+		<en>Forest revenue</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>446</ref>
+		<en>Who owns and managesthe forests and how has this changed</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>447</ref>
+		<en>Public  ownership</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>448</ref>
+		<en>Forest owned by the State or administrative units of  the public administration or by institutions or corporations owned by the  public administration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>449</ref>
+		<en>of  which owned by the state at national scale  subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>450</ref>
+		<en>Forest owned by the State at the  national scale   or administrative units of the public administration or by institutions or  corporations owned by the public administration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>451</ref>
+		<en>of  which owned by the state at the subnational government scale  subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>452</ref>
+		<en>Forest owned by the State at the  subnational  government scale  or administrative units of the public administration  or by institutions or corporations owned by the public administration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>453</ref>
+		<en>Private  ownership</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>454</ref>
+		<en>Forest  owned by individuals families communities private cooperatives  corporations and other business entities private religious and educational  institutions pension or investment funds NGOs nature conservation  associations and other private institutions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>455</ref>
+		<en>of which individuals    subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>456</ref>
+		<en>Forest  owned by individuals and families</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>457</ref>
+		<en>of which private business entities  and institutions    subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>458</ref>
+		<en>Forest  owned by private corporations cooperatives companies and other business  entities as well as private nonprofit organizations such as NGOs nature  conservation associations and private religious and educational institutions  etc</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>459</ref>
+		<en>of which local tribal and  indigenous communities     subcategory</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>460</ref>
+		<en>Forest  owned by a group of individuals belonging to the same community residing  within or in the vicinity of a forest area or forest owned by communities of  indigenous or tribal people The community members are coowners that share  exclusive rights and duties and benefits contribute to the community  development</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>461</ref>
+		<en>Unknown  ownership</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>462</ref>
+		<en>Forest  area where ownership is unknown includes areas where ownership is unclear or  disputed</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>463</ref>
+		<en>Categories  related to management rights of public forests</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>464</ref>
+		<en>Public  Administration</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>465</ref>
+		<en>The  Public Administration or institutions or corporations owned by the Public  Administration retains management rights and responsibilities  within the limits   specified by the  legislation</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>466</ref>
+		<en>Individualshouseholds</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>467</ref>
+		<en>Forest  management rights and responsibilities are transferred from the Public  Administration to individuals or households through longterm leases or  management agreements</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>468</ref>
+		<en>Private  institutions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>469</ref>
+		<en>Forest  management rights and responsibilities are transferred from the Public  Administration to corporations other business entities private  cooperatives private nonprofit institutions and associations etc  through longterm leases or management agreements</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>470</ref>
+		<en>Communities</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>471</ref>
+		<en>Forest  management rights and responsibilities are transferred from the Public  Administration to local communities including indigenous and tribal  communities through longterm leases or management agreements</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>472</ref>
+		<en>Other  form of management rights</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>473</ref>
+		<en>Forests  for which the transfer of management rights does not belong to any of the  categories mentioned above</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>474</ref>
+		<en>Table 19</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>475</ref>
+		<en>of which owned by the state at  national scale</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>476</ref>
+		<en>of which owned by the state at the  subnational government scale</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>477</ref>
+		<en>of which owned by individuals</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>478</ref>
+		<en>of which owned by private  business entities and institutions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>479</ref>
+		<en>of which owned by local tribal  and indigenous communities</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>480</ref>
+		<en>Tier categories</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>481</ref>
+		<en>Ownership</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>482</ref>
+		<en>Tier  3 National forestry statisticsregisters of land titles or maps on land  ownership or all forest area under one ownership category that is five years  old or less        Tier 2 Tier 2  National forestry statisticsregisters of land titles or maps on land  ownership or questionnaires that are more than five years old        Tier  1 Other</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>483</ref>
+		<en>Table 19a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>484</ref>
+		<en>Individuals</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>485</ref>
+		<en>Private  corporations and institutions</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>486</ref>
+		<en>Other  types of ownership</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>487</ref>
+		<en>Management  rights</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>488</ref>
+		<en>How many people aredirectly employed in forestry</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>489</ref>
+		<en>Fulltime  equivalents FTE</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>490</ref>
+		<en>A measurement  equal to one person working fulltime during a specified reference period</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>491</ref>
+		<en>Employment</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>492</ref>
+		<en>Includes all  persons in paid employment</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>493</ref>
+		<en>Table 20</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>494</ref>
+		<en>Employment 000 years FTE</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>495</ref>
+		<en>FRA 2015  Category</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>496</ref>
+		<en>Employment in forestry  and related workers</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>497</ref>
+		<en>of which female</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>498</ref>
+		<en>Employment in  forestry and related workers</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>499</ref>
+		<en>What is the contribution of forestry to Gross Domestic Product GDP</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>500</ref>
+		<en>Forestry contribution to Gross Domestic Product</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>501</ref>
+		<en>A measure of the contribution of forestry to the  value of total production in a country in a given year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>502</ref>
+		<en>Table 21</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>503</ref>
+		<en>Million USD</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>504</ref>
+		<en>Forestry  contribution to GDP</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>505</ref>
+		<en>What is forest arealikely to be in the future</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>506</ref>
+		<en>Government  targetaspiration for forest area</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>507</ref>
+		<en>Government targetaspiration for forest area for a  specific year</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>508</ref>
+		<en>Forests  earmarked for conversion</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>509</ref>
+		<en>Forest area that  is allocatedclassified or scheduled to be converted into nonforest uses</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>510</ref>
+		<en>Table 21a</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>511</ref>
+		<en>Forest area 000 ha</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+	<label>
+		<ref>512</ref>
+		<en>Table 21b</en>
+		<value>TRANSLATED TEXT</value>
+	</label>
+</locale>
