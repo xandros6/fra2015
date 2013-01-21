@@ -26,5 +26,9 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd ">
         <!-- when adding/removing classes, please also keep aligned the src/test/resource/hibernate.cfg.xml file -->
         <class>it.geosolutions.fra2015.server.model.user.User</class>
         <class>it.geosolutions.fra2015.server.model.user.Token</class>
+        <class>it.geosolutions.fra2015.server.model.survey.Entry</class>
+        <class>it.geosolutions.fra2015.server.model.survey.EntryItem</class>
+        <class>it.geosolutions.fra2015.server.model.survey.NumberValue</class>
+        <class>it.geosolutions.fra2015.server.model.survey.TextValue</class>
     </persistence-unit>
 </persistence>
