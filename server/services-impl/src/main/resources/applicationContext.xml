@@ -18,4 +18,7 @@
     <bean id="authenticationService" class="it.geosolutions.fra2015.services.AuthenticationServiceImpl">
     </bean>
     
+    <bean id="surveyService" class="it.geosolutions.fra2015.services.SurveyServiceImpl">
+    </bean>
+    
 </beans>

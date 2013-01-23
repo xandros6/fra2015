@@ -18,17 +18,15 @@
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" 
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
-http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd ">
-    <persistence-unit name="fra2015" transaction-type="RESOURCE_LOCAL">
-        <!-- when adding/removing classes, please also keep aligned the src/test/resource/hibernate.cfg.xml file -->
-        <class>it.geosolutions.fra2015.server.model.user.User</class>
-        <class>it.geosolutions.fra2015.server.model.user.Token</class>
-        <class>it.geosolutions.fra2015.server.model.survey.Entry</class>
-        <class>it.geosolutions.fra2015.server.model.survey.EntryItem</class>
-        <class>it.geosolutions.fra2015.server.model.survey.NumberValue</class>
-        <class>it.geosolutions.fra2015.server.model.survey.TextValue</class>
-    </persistence-unit>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd ">
+  <persistence-unit name="fra2015" transaction-type="RESOURCE_LOCAL">
+    <!-- when adding/removing classes, please also keep aligned the src/test/resource/hibernate.cfg.xml file -->
+    <class>it.geosolutions.fra2015.server.model.user.User</class>
+    <class>it.geosolutions.fra2015.server.model.user.Token</class>
+    <class>it.geosolutions.fra2015.server.model.survey.Entry</class>
+    <class>it.geosolutions.fra2015.server.model.survey.EntryItem</class>
+    <class>it.geosolutions.fra2015.server.model.survey.NumberValue</class>
+    <class>it.geosolutions.fra2015.server.model.survey.TextValue</class>
+    <class>it.geosolutions.fra2015.server.model.survey.Survey</class>
+  </persistence-unit>
 </persistence>

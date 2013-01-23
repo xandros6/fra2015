@@ -13,9 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * This class represents a text area or a cell within a table.
  * @author marco
  */
 @Entity(name = "EntryItem")
@@ -30,8 +31,7 @@ public class EntryItem implements Serializable {
     private Integer rowNumber;
     @Column(nullable = false, updatable = true)
     private Integer columnNumber;
-    @ManyToOne
-    @JoinColumn(name="entry_id", nullable=false)
+    @ManyToOne(optional=true)
     private Entry entry;
 
     public Long getId() {
@@ -58,6 +58,7 @@ public class EntryItem implements Serializable {
         this.columnNumber = columnNumber;
     }
 
+    @XmlTransient
     public Entry getEntry() {
         return entry;
     }

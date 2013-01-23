@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * This class represents a numerical value
  * @author marco
  */
 @Entity(name = "NumberValue")

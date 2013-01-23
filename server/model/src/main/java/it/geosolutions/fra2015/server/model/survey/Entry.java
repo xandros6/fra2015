@@ -5,27 +5,49 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.ForeignKey;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.IndexColumn;
 
 /**
- *
+ * This class represents a whole table or a text area.
+ * An Entry is also the minimal unit for access control rules.
  * @author marco
  */
 @Entity(name = "Entry")
 @Table(name = "fra_entry" )
 @XmlRootElement(name = "Entry")
 public class Entry implements Serializable {
+
     @Id
     @GeneratedValue
     private Long id;
     
+    @ManyToOne(optional = false)
+    @Index(name = "idx_entry_survey")
+    @ForeignKey(name = "fk_entry_survey")
+    private Survey survey;
+    
     @Column(nullable = false, updatable = false)
     private String type;
+    
+    @OneToMany(mappedBy = "entry", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @IndexColumn(name="id", base=0)
+    private List<EntryItem> entryItems;
 
     public Long getId() {
         return id;
@@ -41,6 +63,25 @@ public class Entry implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @XmlTransient
+    public Survey getSurvey() {
+        return survey;
+    }
+
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
+
+    @XmlElementWrapper(name="EntryItems")
+    @XmlElement(name="entryItem", type=EntryItem.class)
+    public List<EntryItem> getEntryItems() {
+        return entryItems;
+    }
+
+    public void setEntryItems(List<EntryItem> entryItems) {
+        this.entryItems = entryItems;
     }
     
     
