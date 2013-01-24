@@ -29,9 +29,10 @@ public class EntryItem implements Serializable {
     private Long id;
     @Column(nullable = true, updatable = true)
     private Integer rowNumber;
-    @Column(nullable = false, updatable = true)
+    @Column(nullable = true, updatable = true)
     private Integer columnNumber;
-    @ManyToOne(optional=true)
+    @ManyToOne
+    @JoinColumn(name="entry_id", referencedColumnName="id")
     private Entry entry;
 
     public Long getId() {

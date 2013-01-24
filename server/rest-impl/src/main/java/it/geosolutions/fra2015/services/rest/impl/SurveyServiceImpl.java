@@ -4,6 +4,8 @@
  */
 package it.geosolutions.fra2015.services.rest.impl;
 
+import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
@@ -30,6 +32,15 @@ public class SurveyServiceImpl implements SurveyService{
     @Override
     public Survey create(SecurityContext sc, Survey survey) throws BadRequestServiceEx, NotFoundServiceEx {
         try{
+            // fix JAXB
+            // it is better to create a custom JAXB unmarshaller
+            // which sets survey
+            for (Entry e: survey.getEntries()){
+                for (EntryItem i: e.getEntryItems()){
+                    i.setEntry(e);
+                }
+                e.setSurvey(survey);
+            }
             return surveyService.create(survey);
         } catch (BadRequestServiceEx ex) {
             throw new BadRequestWebEx(ex.getMessage());

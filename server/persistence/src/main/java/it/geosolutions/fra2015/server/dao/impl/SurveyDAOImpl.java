@@ -41,4 +41,13 @@ public class SurveyDAOImpl extends BaseDAO<Survey, Long> implements SurveyDAO{
     public boolean removeById(Long id) {
         return super.removeById(id);
     }
+    
+    @Override
+    public Survey save(Survey survey) {
+        
+        /* em().persist(survey);
+        em().flush();
+        return survey;*/
+        return super.save(survey);
+    }
 }

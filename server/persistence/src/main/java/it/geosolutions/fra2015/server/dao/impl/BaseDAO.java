@@ -55,6 +55,7 @@ public class BaseDAO<T, ID extends Serializable> extends GenericDAOImpl<T, ID> {
         super.setEntityManager(this.entityManager);
     }
 
+
     /**
      * JPASearchProcessor setting
      *
