@@ -34,7 +34,10 @@ public class EntryItem implements Serializable {
     @ManyToOne
     @JoinColumn(name="entry_id", referencedColumnName="id")
     private Entry entry;
-
+    
+    @Column(nullable = false, updatable = false)
+    String type;
+    
     public Long getId() {
         return id;
     }
@@ -66,6 +69,14 @@ public class EntryItem implements Serializable {
 
     public void setEntry(Entry entry) {
         this.entry = entry;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
     
     

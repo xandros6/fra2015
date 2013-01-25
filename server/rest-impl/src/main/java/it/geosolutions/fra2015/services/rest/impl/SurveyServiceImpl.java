@@ -7,6 +7,7 @@ package it.geosolutions.fra2015.services.rest.impl;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Survey;
+import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.SurveyService;
@@ -53,6 +54,33 @@ public class SurveyServiceImpl implements SurveyService{
     public List<Survey> getAll(SecurityContext sc, Integer page, Integer entries) throws BadRequestWebEx {
         try{
             return surveyService.getAll();
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        } 
+    }
+
+    @Override
+    public Entry addValue(SecurityContext sc, Long itemId, Value value) {
+        try{
+            return surveyService.addValue( itemId, value);
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        } 
+    }
+
+    @Override
+    public List<Value> getEntryValues(SecurityContext sc, Long itemId, String countryId) throws BadRequestServiceEx, NotFoundServiceEx {
+        
+        if ( countryId == null ){
+            throw new BadRequestServiceEx("Missing parameter countryId");
+        }
+        
+        try{
+            return surveyService.getEntryValues( itemId, countryId );
         } catch (BadRequestServiceEx ex) {
             throw new BadRequestWebEx(ex.getMessage());
         } catch (NotFoundServiceEx ex) {
