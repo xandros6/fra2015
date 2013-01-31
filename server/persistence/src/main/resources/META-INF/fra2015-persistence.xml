@@ -28,5 +28,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <class>it.geosolutions.fra2015.server.model.survey.NumberValue</class>
     <class>it.geosolutions.fra2015.server.model.survey.TextValue</class>
     <class>it.geosolutions.fra2015.server.model.survey.Survey</class>
+    <class>it.geosolutions.fra2015.server.model.survey.Element</class>
+    <class>it.geosolutions.fra2015.server.model.survey.Question</class>
+    <class>it.geosolutions.fra2015.server.model.survey.Session</class>
   </persistence-unit>
 </persistence>

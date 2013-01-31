@@ -53,10 +53,10 @@ saxStream.on("end", function() {
 	var keys = _.keys( labels );
 	_.each( keys, function(key){
 		var label = $('<label></label>');
-		label.attr('ref', labels[key]) );
+		label.attr('ref', labels[key] );
 		// label.append( $('<ref></ref>').append( labels[key]) );
 		// label.append( $('<en></en>').append( key ) );
-		label.append( $('<value></value>').append( 'TRANSLATED TEXT' ) );
+		label.append( $('<value></value>').append( key ) );
 		locale.append( label );
 	});
 	print( locale );

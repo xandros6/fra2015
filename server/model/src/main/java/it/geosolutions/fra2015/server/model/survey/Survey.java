@@ -6,10 +6,8 @@ package it.geosolutions.fra2015.server.model.survey;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,6 +19,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -50,10 +49,10 @@ public class Survey implements Serializable {
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="survey_id", referencedColumnName="id")
     @IndexColumn(name="id", base=0)
-    private List<Entry> entries;
+    private List<Element> elements;
     
     public Survey(){
-        entries = new ArrayList<Entry>();
+        elements = new ArrayList<Element>();
     } 
     
   
@@ -73,19 +72,17 @@ public class Survey implements Serializable {
         this.name = name;
     }
 
-    @XmlElementWrapper(name = "Entries")
-    @XmlElement(name="entry", type=Entry.class)
-    public List<Entry> getEntries() {
-        return entries;
+    @XmlElementWrapper(name = "Elements")
+    @XmlElements({
+        @XmlElement(name = "session", type = Session.class),
+        @XmlElement(name = "question", type = Question.class)})
+    public List<Element> getElements() {
+        return elements;
     }
 
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
+    public void setEntries(List<Element> elements) {
+        this.elements = elements;
     }
     
-    public void addEntry(Entry entry){
-        entry.setSurvey(this);
-        entries.add(entry);
-    }
     
 }

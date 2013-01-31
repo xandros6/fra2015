@@ -14,5 +14,8 @@
     <mapping class="it.geosolutions.fra2015.server.model.survey.NumberValue"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.TextValue"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.Survey"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.Element"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.Question"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.Session"/>
   </session-factory>
 </hibernate-configuration>

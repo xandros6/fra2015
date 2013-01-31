@@ -711,9 +711,8 @@
             control.addClass( 'pull-right');
             if ( App.user.check('canSave')){
                 var saveBtn = $('<a>'+ $.t('save') +'</a>');
-                saveBtn.attr('id', 'saveBtn');
                 saveBtn.attr('href', '#');
-                saveBtn.addClass( 'btn btn-mini btn-primary');
+                saveBtn.addClass( 'btn btn-mini btn-primary btn-save-survey');
                 control.append( saveBtn ); 
             }
             
@@ -731,7 +730,8 @@
 
             this.id =  Math.random().toString(36).substring(7);
             var text = $('<textarea></textarea>');
-            text.addClass('texteditor');
+            text.addClass('texteditor survey-entry-item');
+            text.attr('entry-item-id', 0);
             
             if ( ! App.user.check('canEdit') ){
                 text.attr('disabled', 'disabled');
@@ -753,10 +753,10 @@
             return this;
         },
         addEvents: function(){
-            this.el.find('#saveBtn').click(function(evt){
+            /*this.el.find('#saveBtn').click(function(evt){
                 alert('Saved!');
                 return false;
-            });
+            });*/
 
         }
     });
@@ -919,10 +919,10 @@
         addEvents: function(){
 
             var table = this;
-            this.el.find('#saveBtn').click(function(evt){
+            /* this.el.find('#saveBtn').click(function(evt){
                 alert('Saved!');
                 return false;
-            });
+            }); */
             this.el.find('#addBtn').click(function(evt){
                 table.addEmptyRow();
                 return false;
@@ -1106,16 +1106,51 @@
 
     var Survey = Class.create( Model, {
 
+        // entry_item_id -> entry_item_value
+        values:{},
+
         initialize: function($super){
             $super();
-            var self = this;
         },
 
         isEmpty: function(){
             return this.survey===undefined || this.survey===null;
         },
+        
+        set: function(itemId, value){
+            this.values[ itemId ] = value;
+        },
 
-
+        save: function(){
+        // example XML
+        /*
+        <Values>
+	<Value>
+		<entryItem>
+        	<id>1</id>
+        </entryItem>
+    	<country>IT</country>
+    	<value>Questa è la storia del serpente che ven giù dal monte</value>
+	</Value>
+	<Value>
+		<entryItem>
+        	<id>2</id>
+        </entryItem>
+    	<country>IT</country>
+    	<value>Questa è la storia del serpente che ven giù dal monte</value>
+	</Value>
+        </Values> */
+        /*$.ajax({
+                    type:'POST',
+                    dataType:'xml',
+                    // TODO externalize
+                    url:'http://locahost:9191/fra2015/rest/survey/addValues',
+                    success: function(data){
+                        
+                    }
+                });*/
+        },
+        
         load: function(){
             if ( this.isEmpty() ){
                 var model = this;
@@ -1375,6 +1410,14 @@
                     page.trigger('load', el);
                 });
                 tabPage.bind('change', function(el){
+                    el.find('.survey-entry-item').change(function(){
+                        var entryItemId = $(this).attr('entry-item-id');
+                        var entryItemValue = $(this).val();
+                        model.set( entryItemId,  entryItemValue);
+                    });
+                    el.find('.btn-save-survey').click( function(){
+                        model.save();
+                    });
                     page.trigger('change');
                 });
                 tabPage.render();

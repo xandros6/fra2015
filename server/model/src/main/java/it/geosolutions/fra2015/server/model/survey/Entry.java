@@ -4,26 +4,20 @@
  */
 package it.geosolutions.fra2015.server.model.survey;
 
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.ForeignKey;
-import org.hibernate.annotations.Index;
 import org.hibernate.annotations.IndexColumn;
 
 /**
@@ -34,15 +28,9 @@ import org.hibernate.annotations.IndexColumn;
 @Entity(name = "Entry")
 @Table(name = "fra_entry" )
 @XmlRootElement(name = "Entry")
-public class Entry implements Serializable {
+public class Entry extends Element {
 
-    @Id
-    @GeneratedValue
-    private Long id;
     
-    @ManyToOne
-    @JoinColumn(name="survey_id", referencedColumnName="id")
-    private Survey survey;
     
     @Column(nullable = false, updatable = false)
     private String type;
@@ -52,14 +40,10 @@ public class Entry implements Serializable {
     @JoinColumn(name="entry_id", referencedColumnName="id")
     @IndexColumn(name="id", base=0)
     private List<EntryItem> entryItems;
+    
+    @Column(nullable = true, updatable = false)
+    private String template;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
@@ -69,14 +53,6 @@ public class Entry implements Serializable {
         this.type = type;
     }
 
-    @XmlTransient
-    public Survey getSurvey() {
-        return survey;
-    }
-
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
-    }
 
     @XmlElementWrapper(name="EntryItems")
     @XmlElement(name="entryItem", type=EntryItem.class)
@@ -87,6 +63,16 @@ public class Entry implements Serializable {
     public void setEntryItems(List<EntryItem> entryItems) {
         this.entryItems = entryItems;
     }
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
+    }
+
+  
     
     
 }
