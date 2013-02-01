@@ -3,29 +3,34 @@
     <name>FRA2015</name>
     <Elements>
         <session>
-            <title>Introduction</title>
-            <noCount>true</noCount>
+            <title>Report preparation and contact persons</title>
             <Elements>
-                <entry>
-                    <title>Contact persons</title>
-                    <description>The present report was prepared by the following person(s)</description>
-                    <type>table</type>
-                    <EntryItems>
-                        <entryItem>
-                            <type>String</type>
-                        </entryItem>
-                    </EntryItems>
-                </entry>
-                <entry>
-                    <title>Introductory Text</title>
-                    <description>Place an introductory text on the content of this report</description>
-                    <type>textarea</type>
-                    <EntryItems>
-                        <entryItem>
-                            <type>String</type>
-                        </entryItem>
-                    </EntryItems>
-                </entry>
+                <question>
+                    <title>Introduction</title>
+                    <noCount>true</noCount>
+                    <Elements>
+                        <entry>
+                            <title>Contact persons</title>
+                            <description>The present report was prepared by the following person(s)</description>
+                            <type>table</type>
+                            <EntryItems>
+                                <entryItem>
+                                    <type>String</type>
+                                </entryItem>
+                            </EntryItems>
+                        </entry>
+                        <entry>
+                            <title>Introductory Text</title>
+                            <description>Place an introductory text on the content of this report</description>
+                            <type>textarea</type>
+                            <EntryItems>
+                                <entryItem>
+                                    <type>String</type>
+                                </entryItem>
+                            </EntryItems>
+                        </entry>
+                    </Elements>
+                </question>                
             </Elements>
         </session>		
         <session>
@@ -54,7 +59,34 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                 <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0"></td><td rownumber="0" columnnumber="1">References  to sources of information</td><td rownumber="0" columnnumber="2">Variables</td><td rownumber="0" columnnumber="3">Years</td><td rownumber="0" columnnumber="4">Additional  comments</td></tr><tr><td rownumber="1" columnnumber="0">1</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td><td rownumber="1" columnnumber="3"></td><td rownumber="1" columnnumber="4"></td></tr><tr><td rownumber="2" columnnumber="0">2</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td><td rownumber="2" columnnumber="4"></td></tr><tr><td rownumber="3" columnnumber="0">3</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td><td rownumber="3" columnnumber="4"></td></tr></tbody></table> ]]> 
+                                                 <![CDATA[ 
+                                                    <table class="editable extensible">
+                                                       <tbody>
+                                                          <tr>
+                                                             <td rownumber="0" columnnumber="0"></td>
+                                                             <td rownumber="0" columnnumber="1">References  to sources of information</td>
+                                                             <td rownumber="0" columnnumber="2">Variables</td>
+                                                             <td rownumber="0" columnnumber="3">Years</td>
+                                                             <td rownumber="0" columnnumber="4">Additional  comments</td>
+                                                          </tr><tr>
+                                                             <td rownumber="1" columnnumber="0">1</td>
+                                                             <td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+                                                             <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+                                                             <td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
+                                                             <td class="entry-item editable text" rownumber="1" columnnumber="4"></td>
+                                                          </tr><tr>
+                                                             <td rownumber="2" columnnumber="0">2</td>
+                                                             <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+                                                             <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+                                                             <td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+                                                             <td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+                                                          </tr><tr>
+                                                             <td rownumber="3" columnnumber="0">3</td>
+                                                             <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+                                                             <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+                                                             <td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+                                                             <td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+                                                          </tr></tbody></table> ]]> 
                                             </template>
                                         </entry>								
                                     </Elements>

@@ -41,6 +41,10 @@ public interface SurveyService {
     		@Multipart("survey") Survey survey) throws BadRequestServiceEx, NotFoundServiceEx;
     
     @GET
+    @Path("/{name}")
+    public Survey get(@Context SecurityContext sc, @PathParam("name") String name);
+    
+    @GET
     @Path("/")
     @RolesAllowed({"ADMIN"})
     public List<Survey> getAll(

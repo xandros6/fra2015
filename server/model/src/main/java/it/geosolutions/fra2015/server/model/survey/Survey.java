@@ -40,7 +40,7 @@ public class Survey implements Serializable {
     @XmlElement
     private Long id;
     
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, unique=true)
     @XmlElement
     private String name;
     

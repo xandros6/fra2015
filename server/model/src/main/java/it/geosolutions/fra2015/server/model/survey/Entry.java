@@ -30,6 +30,10 @@ import org.hibernate.annotations.IndexColumn;
 @XmlRootElement(name = "Entry")
 public class Entry extends Element {
 
+    @Column(nullable = true, updatable = false)
+    private String title;
+    @Column(nullable = true, updatable = false)
+    private String description;
     
     
     @Column(nullable = false, updatable = false)
@@ -70,6 +74,22 @@ public class Entry extends Element {
 
     public void setTemplate(String template) {
         this.template = template;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
   

@@ -36,6 +36,8 @@ import org.apache.log4j.Logger;
 public class SurveyServiceImpl implements SurveyService {
 
 
+
+
     public abstract class ValueDAO {
         public abstract void persist(Value value);
         public abstract Value read(Long itemId, String countryId);
@@ -51,6 +53,8 @@ public class SurveyServiceImpl implements SurveyService {
     private NumberValueDAO numberValueDAO;
     
     private Map<String, ValueDAO> map = new HashMap<String, ValueDAO>();
+
+    
 
     public void setSurveyDAO(SurveyDAO surveyDAO) {
         this.surveyDAO = surveyDAO;
@@ -150,6 +154,18 @@ public class SurveyServiceImpl implements SurveyService {
         surveyDAO.persist(survey);
         return survey;
     }
+    
+    @Override
+    public Survey read(String name) throws BadRequestServiceEx, NotFoundServiceEx {
+        Search searchCriteria = new Search(Survey.class);
+        searchCriteria.addFilterEqual("name", name);
+        List<Survey> surveys = surveyDAO.search(searchCriteria);
+        if ( surveys.size() > 0 ){
+            return surveys.get(0);
+        }
+        return null;
+    }
+    
 
     @Override
     public List<Survey> getAll() throws BadRequestServiceEx, NotFoundServiceEx {

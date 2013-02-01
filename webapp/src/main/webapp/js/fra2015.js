@@ -693,7 +693,10 @@
             
             this.options = options;
  
-            this.el.append('<h4>' + options.title + '</h4>');
+            if ( options.title ){
+                this.el.append('<h4>' + options.title + '</h4>');
+            }
+            
 
             if (options.tooltip){
                 this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
@@ -725,7 +728,7 @@
     var TextArea = Class.create(Entry, {
         initialize:function( $super, options ){
             $super( options );
-
+            this.type = 'textarea';
             this.json = options.json;
 
             this.id =  Math.random().toString(36).substring(7);
@@ -738,6 +741,7 @@
                 text.attr('value', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
                 text.addClass('span8');
             }
+            
             text.attr('cols', '160');
             text.attr('rows', '10');
             text.attr('id', this.id);
@@ -753,7 +757,7 @@
             return this;
         },
         addEvents: function(){
-            /*this.el.find('#saveBtn').click(function(evt){
+        /*this.el.find('#saveBtn').click(function(evt){
                 alert('Saved!');
                 return false;
             });*/
@@ -764,116 +768,34 @@
     var Table = Class.create(Entry, {
         initialize:function( $super, options ){
             $super( options );
-
-            this.json = options.json;
-
-
-            var table = $('<table></table>');
-            table.attr('class', 'table table-bordered table-hover table-condensed table-striped');
-
-            this.el.find('.entry').append( table );
-
-            if ( App.user.check('canEdit')){   
-                // button to add new row to table
-                var addBtn = $('<a>'+ $.t('add_row') +'</a>');
-                addBtn.attr('id', 'addBtn');
-                addBtn.attr('href', '#');
-                addBtn.attr('class', 'btn btn-mini');
-                this.el.find('.control').append( addBtn );
-            }
-
-
-            if ( options.data && options.header ){ /* static table */
-
-                var head = $('<thead></thead>');
-                var row = $('<tr></tr>');
-                head.append( row );
-                row.append( $.map(options.header, function( column ){
-                    return $('<th></th>').append(column);
-                }));
-                table.append( head );
-                var tbody = $('<tbody></tbody>');
-                table.append( tbody );
-
-
-
-
-                $.each( options.data, function(index, cells){
-                    var row = $('<tr></tr>');
-                    row.append( $.map(cells, function( cell ){
-                        return $('<td></td>').append(cell);
-                    }));
-                    table.append(row);
-                });
-
-
-            } else if ( options.rows && options.rows.length>0){
-                var head = $('<thead></thead>').append('<tr></tr>');
-                head.append('<th></th>'); // empty cell above row column
-                head.append( $.map(options.columns, function( column ){
-                    return $('<th></th>').append(column);
-                }));
-                table.append( head );
-                var tbody = $('<tbody></tbody>');
-                table.append( tbody );
-
-                for ( var i=0; i<options.rows.length; i++){
-                    var row = $('<tr></tr>');
-                    row.append( '<td>'+ options.rows[i] + '</td>' );
-                    row.append( $.map(options.columns, function( column ){
-                        var cell = $('<td></td>')
-                        if ( App.user.check('canEdit')){
-                            cell.addClass('editable');
-                        }
-                        cell.click(function(){
-                            if ( cell.hasClass('editable') ){
-                                cell.removeClass("editable");
-                                cell.addClass("editing");
-                                var text = cell.html();
-                                cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
-                                cell.find('.celleditor').blur( function(){
-                                    if ( cell.hasClass('editing') ){
-                                        cell.removeClass("editing");
-                                        cell.addClass("editable");
-                                        var text = cell.find(".celleditor").attr('value');
-                                        cell.html( text );
-                                    }
-                                    return false;
-                                });
-                                cell.find('.celleditor').focus();
-                            }
-                            return false;
-                        });
-                        cell.append('&nbsp;');
-                        return cell;
-                    }) );
-                    tbody.append( row );
+            this.type = 'table';
+            
+            var template = options.template;
+            if ( template ){
+                
+                var table = $( template.replace("<![CDATA[", "").replace("]]>", "") );
+                table.addClass('table table-bordered table-hover table-condensed table-striped');
+                
+                if ( App.user.check('canEdit') && table.hasClass("extensible")){   
+                    // button to add new row to table
+                    var addBtn = $('<a>'+ $.t('add_row') +'</a>');
+                    addBtn.attr('id', 'addBtn');
+                    addBtn.attr('href', '#');
+                    addBtn.attr('class', 'btn btn-mini');
+                    this.el.find('.control').append( addBtn );
                 }
-
-            } else {
-
-                // TODO refactor, clean code
-
-                var head = $('<thead></thead>');
-                var headRow = $('<tr></tr>');
-                head.append( headRow );
-                headRow.append( $.map(options.columns, function( column ){
-                    return $('<th></th>').append(column);
-                }));
-                table.append( head );
-                var tbody = $('<tbody></tbody>');
-                table.append( tbody );
-
+                
+                if ( !table.hasClass("editable") ){
+                    this.el.find('.btn-save-survey').remove();
+                }
+                
                 this.addEmptyRow = function(){
-                    var row = $('<tr></tr>');
-                    tbody.append( row );
-                    row.append( $.map(options.columns, function( column ){
-                        var cell = $('<td></td>');
-                        if ( App.user.check('canEdit')){
-                            cell.addClass('editable');
-                        }
-
-                        cell.click(function(){
+                    var last = this.el.find('table').find('tr:last');
+                    var row = last.clone();
+                    row.find('td')
+                       .addClass('editable entry-item')
+                       .click(function(){
+                            var cell = $(this);
                             if ( cell.hasClass('editable') ){
                                 cell.removeClass("editable");
                                 cell.addClass("editing");
@@ -890,28 +812,21 @@
                                 });
                                 cell.find('.celleditor').focus();
                             }
-                            return false;
-                        });
+                            return false;}
+                        )
+                       .append('&nbsp;');
+                    row.appendTo(table);
 
-
-
-                        cell.append('&nbsp;');
-                        return cell;
-                    }));
                     return row;
                 };
-
-                // create an empty row
-                this.addEmptyRow();
-
+                
+                
+                this.el.find('.entry').append( table );
             }
-
         },
         render: function($super){
             $super();
-
             this.addEvents();
-
             this.trigger('load');
             return this;
         },
@@ -919,16 +834,16 @@
         addEvents: function(){
 
             var table = this;
-            /* this.el.find('#saveBtn').click(function(evt){
+            this.el.find('#saveBtn').click(function(evt){
                 alert('Saved!');
                 return false;
-            }); */
+            }); 
             this.el.find('#addBtn').click(function(evt){
                 table.addEmptyRow();
                 return false;
             });
 
-            this.el.find('.editable').click(function(){
+            this.el.find('.entry-item').click(function(){
                 var cell = $(this);
                 if ( cell.hasClass('editable') ){
                     cell.removeClass("editable");
@@ -955,9 +870,9 @@
     var Section = Class.create(View, {
         initialize:function( $super, options ){
             $super();
-            this.json = options.json;
+            this.type = 'section';
             this.options = options;
-            this.items = options.items;
+            
             this.el = $('<section></section>');
             this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
 
@@ -969,7 +884,7 @@
             }
 
             var count = 0, length = this.options.items.length;
-            var el = this.el, section=this;
+            var el = this.el;
             if ( this.options.items.length > 0 ){
                 $.each( this.options.items, function (index, item){
                     item.bind('load', function(elem){
@@ -1033,21 +948,19 @@
     var Question = Class.create(Section, {
 
         initialize:function( $super, options ){
-            this.number = options.number;
-            this.link = options.link;
-            this.description = options.description;
             $super( options );
+            this.type = 'question';
 
         },
 
         createTitle: function( title ){
             var html = null;
             if ( this.number ){
-                html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.description + '</h1></div>');
+                html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.options.title + '</h1></div>');
             } else {
-                html = $('<div class="page-header"><h1>'+ this.description + '</h1></div>');
+                html = $('<div class="page-header"><h1>'+ this.options.title + '</h1></div>');
             }
-            if ( this.link ){
+            if ( this.options.link ){
                 html.append('<div class="well"><p> Click the button to download question documentation. </p> <a href="#" class="btn btn-large btn-primary">Download Documentation</a></div>');
             }
             return html;
@@ -1062,24 +975,67 @@
 
     });
 
+    /*
+     * html representation of the navbar
+     */
+    var NavbarView = Class.create( View, {
+        
+        initialize: function($super){
+            $super();
+            var ul = $('<ul></ul>');
+            ul.attr('class', 'nav nav-list');
+            this.el.append( ul );
+            this.list = ul;
+        },
+        
+        addSection: function( section ){
+            var li = $('<li></li>');
+            this.list.append( li );
+            li.addClass('nav-header');
+            li.append( section.options.title );
+        },
+        
+        addQuestion: function( question ){
+            var li = $('<li></li>');
+            this.list.append( li );
+
+            var a = $('<a></a>');
+            a.attr('href', '#');
+            a.addClass('tab');
+            li.append( a );
+
+            var text = $('<div></div>');
+            // 
+            // text.append( (qnum+1) + '. '  );
+            // qnum++;
+            
+            text.append(question.options.title);
+            a.append( text );
+    
+        }
+        
+    });
+
+    /*
+     *  html representation of a survey
+     */
     var SurveyView = Class.create( View, {
 
-        initialize: function($super, model){
+        initialize: function($super){
             $super();
-        /*var view = this;
-            model.bind('load', function(){
-
-                view.trigger('load', view.el);
-            });*/
+            this.type = 'survey';
         },
 
+        /*
+         *  get the list of question-views (a subset of all views)
+         */
         getQuestions: function(){
             if ( this.items ){
                 var questions = [];
                 var proj = function(index, view){
-                    switch (view.json.type){
+                    switch (view.type){
                         case 'section':
-                            $.each( view.items, proj);
+                            $.each( view.options.items, proj);
                             break;
                         case 'textarea':
                         case 'table':
@@ -1099,11 +1055,69 @@
             }
         },
 
+        getNavbar: function(){
+            if ( this.items ){
+                var navbar = new NavbarView;
+
+
+                var fc = 0;
+                var qnum = 0;
+                var depth = 0;
+                var builder = function(index, obj){
+                    switch( obj.type ){
+                        case 'survey':
+                            depth++;
+                            $.each( obj.items, builder );
+                            depth--;
+                            break;
+                        case 'table':
+                        case 'textarea':
+                            if ( obj.feedbacks ){
+                                fc += obj.feedbacks.length;
+                            }
+
+                            break;
+
+                        case 'section':
+                            if (depth===1){
+                                navbar.addSection( obj );
+                            }
+                            depth++;
+                            $.each( obj.options.items, builder );
+                            depth--;
+                            break;
+                        case 'question':
+                            navbar.addQuestion( obj );
+                            depth++;
+
+                            fc = 0;
+
+                            $.each( obj.options.items, builder );
+
+                            /* if (fc>0){
+                                text.append( '&nbsp;&nbsp;<span class="badge badge-warning">'+ fc + '</span>' );
+                            }*/
+
+                            depth--;            
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+                builder(0, this);
+                return navbar;
+            } else {
+                throw "survey does not have items.";
+            }
+        },
         render: function(){
-        //this.model.load();
         }
     });
 
+    /*
+     *  model for a survey
+     */
     var Survey = Class.create( Model, {
 
         // entry_item_id -> entry_item_value
@@ -1156,14 +1170,12 @@
                 var model = this;
                 $.ajax({
                     type:'GET',
-                    dataType:'text',
-                    url:'./resources/'+ $.i18n.lng() +'/survey.json',
+                    dataType:'json',
+                    // TODO externalize
+                    url:'http://localhost:9191/fra2015/rest/survey/FRA2015',
+                    // url:'./resources/'+ $.i18n.lng() +'/survey.json',
                     success: function(data){
-                        try{
-                            model.survey = $.parseJSON( data );
-                        } catch (e){
-                            throw 'cannot parse ./resources/survey.json: ' + e;
-                        }
+                        model.survey = data;
                         model.trigger('load');
                     }
                 });
@@ -1173,180 +1185,101 @@
 
         },
 
-        createNavBar: function(){
+        
 
-            var ul = $('<ul></ul>');
-            ul.attr('class', 'nav nav-list');
-
-
-            // TODO create a real view
-            var view = new View;
-            view.el = ul;
-
-            var fc = 0;
-            var qnum = 0;
-            var depth = 0;
-            var builder = function(index, obj){
-                switch( obj.type ){
-                    case 'table':
-                    case 'textarea':
-                        if ( obj.feedbacks ){
-                            fc += obj.feedbacks.length;
-                        }
-
-                        break;
-
-                    case 'survey':
-                        depth++;
-                        $.each( obj.items, builder );
-                        break;
-                    case 'section':
-                        if (depth===1){
-                            var li = $('<li></li>');
-                            ul.append( li );
-                            li.addClass('nav-header');
-                            li.append( obj.title );
-                        }
-                        depth++;
-                        $.each( obj.items, builder );
-                        depth--;
-                        break;
-                    case 'question':
-                        var li = $('<li></li>');
-                        ul.append( li );
-
-                        var a = $('<a></a>');
-                        a.attr('href', '#');
-                        a.addClass('tab');
-                        li.append( a );
-
-                        var text = $('<div></div>');
-
-                        if ( ! obj.nocount ){
-                            text.append( (qnum+1) + '. '  );
-                            qnum++;
-                        }
-                        text.append(obj.description);
-                        a.append( text );
-
-
-                        depth++;
-
-                        fc = 0;
-
-                        $.each( obj.items, builder );
-
-                        if (fc>0){
-                            text.append( '&nbsp;&nbsp;<span class="badge badge-warning">'+ fc + '</span>' );
-                        }
-
-                        depth--;
-                        break;
-                    default:
-                        break;
-
-                }
-            }
-            builder(0, this.survey);
-
-
-            return view;
-
-        },
-
+        /*
+         *  create an html representation of the model
+         */
         createSurvey: function(){
-            var num = 0;
             var builder = this;
             return builder.createView( this.survey, {
                 'survey': function( obj, handlers){
-                    if (!obj.items ){
-                        throw 'parsing error: survey has no property "items".';
-                    }
                     var survey = new SurveyView;
-                    survey.items = $.map( obj.items, function(item){
-                        return builder.createView( item, handlers );
-                    });
+                    survey.items =  builder.createView(  obj.Survey, handlers );
                     return survey;
                 },
                 'textarea': function(obj, handlers){
                     return new TextArea({
                         title: obj.title,
-                        description: obj.description,
-                        tooltip: obj.tooltip,
-                        feedbacks: obj.feedbacks,
-                        json:obj
+                        description: obj.description
                     });
                 },
                 'table': function(obj, handlers){
+                    var template = obj.template || '';
                     return new Table({
                         title: obj.title,
                         description: obj.description,
-                        tooltip: obj.tooltip,
-                        columns: obj.columns,
-                        rows: obj.rows,
-                        feedbacks: obj.feedbacks,
-                        data: obj.data,
-                        header: obj.header,
-                        json:obj
+                        template: template.trim()
                     });
                 },
                 'question': function(obj, handlers){
-                    if (!obj.items){
-                        throw 'parsing error: question ' + obj.title + ' has no property "items".';
-                    }
-                    var items = $.map( obj.items, function(item){
-                        return builder.createView( item, handlers );
+                    var elements = [].concat( obj.Elements.question );
+                    return $.map( elements, function( question ){
+                        var items = builder.createView( question, handlers );
+                        var view = new Question({
+                            type: 'question',
+                            title: question.title,
+                            description: question.description,
+                            helpLink: question.helpLink,
+                            tooltip: question.tooltip,
+                            noCount: question.noCount,
+                            items: items
+                        });
+                        return view;
                     });
-                    var view = null;
-                    if ( !obj.nocount ){
-                        view = new Question({
-                            title: obj.title,
-                            description: obj.description,
-                            link: obj.link,
-                            number: (num+1),
-                            items: items,
-                            json:obj
-                        });
-                        num++;
-                    } else {
-                        view = new Question({
-                            title: obj.title,
-                            description: obj.description,
-                            items: items,
-                            json:obj
-                        });
-                    }
-
-                    return view;
                 },
                 'section': function(obj, handlers){
-                    if (!obj.items){
-                        throw 'parsing error: section ' + obj.title + ' has no property "items".';
-                    }
-                    var items = $.map( obj.items, function(item){
-                        return builder.createView( item, handlers );
-                    });
-                    var view = new Section({
-                        title: obj.title,
-                        description: obj.description,
-                        items: items,
-                        json:obj
-                    });
-                    return view;
+                    var elements = [].concat( obj.Elements.session );
+                    return $.map( elements , function( session){
+                        var items = builder.createView( session, handlers );
+                        var view = new Section({
+                            type:'section',
+                            title: session.title,
+                            description: session.description,
+                            helpLink: session.helpLink,
+                            tooltip: session.tooltip,
+                            noCount: session.noCount,
+                            items: items
+                        });
+                        return view;
+                    });   
+                },
+                'entry': function(obj, handlers){
+                    var elements = [].concat(obj.Elements.entry);
+                    return $.map( elements , function( entry ){
+                        var view = builder.createView( entry, handlers );
+                        return view;
+                    });   
                 }
             });
         },
 
         createView: function( obj, handlers ){
-            if ( !obj.type ){
-                throw "parsing error: wrong format.";
+            
+            var handler;
+            
+            if ( obj.Survey ){
+                handler = handlers['survey'];
+            } else if ( obj.Elements ){
+                
+                if (obj.Elements.session){
+                    handler = handlers['section'];
+                } else if ( obj.Elements.question ){
+                    handler = handlers['question'];
+                } else if ( obj.Elements.entry ){
+                    handler = handlers[ 'entry' ];
+                }
+                
+            } else if ( obj.type === 'table' || obj.type === 'textarea'){
+                handler = handlers[ obj.type ];
             }
-            var handler = handlers[ obj.type ];
-            if ( handler ){
-                return handler.call(this, obj, handlers);
-            } else {
-                throw "no handler for: " + obj.type;
+            
+            if ( ! handler ){
+                throw 'wrong format in json file';
             }
+            
+            return handler.call(this, obj, handlers);
+ 
 
         }
 
@@ -1398,7 +1331,7 @@
                 });
 
                 // add nav bar to tab page
-                var nav = model.createNavBar();
+                var nav = s.getNavbar();
                 left.empty();
                 left.append( nav.el );
                 nav.bind('click', function( el, index ){

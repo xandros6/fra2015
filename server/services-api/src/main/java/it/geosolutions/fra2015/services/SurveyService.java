@@ -24,4 +24,6 @@ public interface SurveyService {
     public Entry addValue(Long itemId, Value value) throws BadRequestServiceEx, NotFoundServiceEx;
 
     public List<Value> getEntryValues(Long itemId, String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
+
+    public Survey read(String name) throws BadRequestServiceEx, NotFoundServiceEx;
 }

@@ -7,7 +7,6 @@ package it.geosolutions.fra2015.services.rest.impl;
 import it.geosolutions.fra2015.server.model.survey.Element;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
-import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Session;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.Value;
@@ -115,5 +114,16 @@ public class SurveyServiceImpl implements SurveyService {
 
         }
 
+    }
+
+    @Override
+    public Survey get(SecurityContext sc, String name) {
+        try {
+            return surveyService.read( name );
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        }
     }
 }
