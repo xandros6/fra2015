@@ -5,7 +5,6 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,16 +31,7 @@ public class Element implements Serializable {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     
-    @Column(nullable = false, updatable = false)
-    private String title;
-    @Column(nullable = true, updatable = false)
-    private String description;
-    @Column(nullable = true, updatable = false)
-    private String helpLink;
-    @Column(nullable = true, updatable = false)
-    private String tooltip;
-    @Column(nullable = true, updatable = false)
-    private Boolean noCount;
+
     
     @ManyToOne(optional=true)
     @JoinColumn(name="parent_id", referencedColumnName="id")
@@ -59,54 +49,7 @@ public class Element implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getHelpLink() {
-        return helpLink;
-    }
-
-    public void setHelpLink(String helpLink) {
-        this.helpLink = helpLink;
-    }
-
-    public String getTooltip() {
-        return tooltip;
-    }
-
-    public void setTooltip(String tooltip) {
-        this.tooltip = tooltip;
-    }
-
-    public Boolean getNoCount() {
-        return noCount;
-    }
-
-    public void setNoCount(Boolean noCount) {
-        this.noCount = noCount;
-    }
-
-    @XmlTransient
-    public Element getParent() {
-        return parent;
-    }
-
-    public void setParent(Element parent) {
-        this.parent = parent;
-    }
+  
 
     @XmlTransient
     public Survey getSurvey() {
@@ -115,6 +58,14 @@ public class Element implements Serializable {
 
     public void setSurvey(Survey survey) {
         this.survey = survey;
+    }
+    @XmlTransient
+    public Element getParent() {
+        return parent;
+    }
+
+    public void setParent(Element parent) {
+        this.parent = parent;
     }
     
     

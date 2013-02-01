@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement(name = "Question")
-public class Question extends Element {
+public class Question extends Session {
     
     
     /* @OneToMany(mappedBy = "parent", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)

@@ -36,9 +36,10 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public Survey create(SecurityContext sc, Survey survey) throws BadRequestServiceEx, NotFoundServiceEx {
         try {
-            // fix JAXB
+            // TODO refactor using JAXB
             // it is better to create a custom JAXB unmarshaller
-            // which sets survey
+            // which sets survey correctly
+            // this is needed in order to create proper foreign keys
             for (Element el : survey.getElements()) {
                 el.setSurvey(survey);
                 backtrace(el);
@@ -93,7 +94,7 @@ public class SurveyServiceImpl implements SurveyService {
 
     private void backtrace(Element el) {
 
-       /* if (el instanceof Session) {
+        if (el instanceof Session) {
             Session s = (Session) el;
             List<Element> els = s.getElements();
             if (els != null) {
@@ -103,22 +104,16 @@ public class SurveyServiceImpl implements SurveyService {
                 }
             }
 
-        } else if (el instanceof Question) {
-            Question q = (Question) el;
-            List<Entry> entries = q.getEntries();
-            if (entries != null) {
-                for (Entry entry : entries) {
-                    entry.setQuestion(q);
-                    List<EntryItem> items = entry.getEntryItems();
-                    if ( items != null ){
-                        for (EntryItem item: items ){
-                            item.setEntry(entry);
-                        }
-                    }
+        } else if (el instanceof Entry) {
+            Entry entry = (Entry) el;
+            List<EntryItem> items = entry.getEntryItems();
+            if (items != null) {
+                for (EntryItem item : items) {
+                    item.setEntry(entry);
                 }
             }
 
-        }*/
+        }
 
     }
 }
