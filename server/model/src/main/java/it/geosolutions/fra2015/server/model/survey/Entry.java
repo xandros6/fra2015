@@ -4,6 +4,7 @@
  */
 package it.geosolutions.fra2015.server.model.survey;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,13 +43,18 @@ public class Entry extends Element {
     @OneToMany(mappedBy = "entry", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="entry_id", referencedColumnName="id")
-    @IndexColumn(name="id", base=0)
+    // see http://www.intertech.com/Blog/Post/Hibernate-Why-Are-there-nulls-in-my-collection.aspx
+    // @IndexColumn(name="id", base=0)
     private List<EntryItem> entryItems;
     
     @Column(nullable = true, updatable = false)
     private String template;
 
 
+    public Entry(){
+        entryItems = new ArrayList<EntryItem>();
+    }
+    
     public String getType() {
         return type;
     }
@@ -90,6 +96,10 @@ public class Entry extends Element {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void addEntryItem(EntryItem item) {
+        entryItems.add( item );
     }
 
   

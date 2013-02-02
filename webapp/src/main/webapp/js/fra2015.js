@@ -791,13 +791,14 @@
                 
                 this.addEmptyRow = function(){
                     var last = this.el.find('table').find('tr:last');
-                    var row = last.clone();
+                    var row = last.clone(); 
                     row.find('td')
                        .addClass('editable entry-item')
+                       .attr('entry-id', this.options.id)
                        .click(function(){
-                            var cell = $(this);
+                            var cell = $(this); 
                             if ( cell.hasClass('editable') ){
-                                cell.removeClass("editable");
+                                cell.removeClass("editable"); 
                                 cell.addClass("editing");
                                 var text = cell.html();
                                 cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
@@ -814,8 +815,8 @@
                             }
                             return false;}
                         )
-                       .append('&nbsp;');
-                    row.appendTo(table);
+                       .empty().append('&nbsp;');
+                    row.appendTo(table); 
 
                     return row;
                 };
@@ -834,16 +835,18 @@
         addEvents: function(){
 
             var table = this;
-            this.el.find('#saveBtn').click(function(evt){
+            /*this.el.find('#saveBtn').click(function(evt){
                 alert('Saved!');
                 return false;
-            }); 
+            }); */
             this.el.find('#addBtn').click(function(evt){
                 table.addEmptyRow();
                 return false;
             });
 
-            this.el.find('.entry-item').click(function(){
+            this.el.find('.entry-item')
+                   .attr('entry-id', this.options.id)
+                   .click(function(){
                 var cell = $(this);
                 if ( cell.hasClass('editable') ){
                     cell.removeClass("editable");
@@ -1131,39 +1134,47 @@
             return this.survey===undefined || this.survey===null;
         },
         
-        set: function(itemId, value){
-            this.values[ itemId ] = value;
+        set: function(entryId, row, col, value){     
+            this.values[ entryId+',' + row + ',' + col ] = {
+               entryId: entryId,
+               row: row,
+               col: col,
+               value: value };
         },
 
         save: function(){
-        // example XML
-        /*
-        <Values>
-	<Value>
-		<entryItem>
-        	<id>1</id>
-        </entryItem>
-    	<country>IT</country>
-    	<value>Questa è la storia del serpente che ven giù dal monte</value>
-	</Value>
-	<Value>
-		<entryItem>
-        	<id>2</id>
-        </entryItem>
-    	<country>IT</country>
-    	<value>Questa è la storia del serpente che ven giù dal monte</value>
-	</Value>
-        </Values> */
-        /*$.ajax({
+            var req = '<Updates>';
+            for (var key in this.values){
+                var value = this.values[key];
+                req += '<Update>';
+                req += '<entryId>'+ value.entryId +'</entryId>';
+                req += '<row>'+ value.row +'</row>';
+                req += '<column>'+ value.col +'</column>'; 
+                req += '<value>'+ value.value +'</value>'; 
+                req += '</Update>';
+            }
+            
+            req += '</Updates>';
+            req = '<BatchUpdate>'+ req +'</BatchUpdate>'
+            
+           
+             $.ajax({
                     type:'POST',
-                    dataType:'xml',
+                    contentType:'text/xml',
+                    data: req,
                     // TODO externalize
-                    url:'http://locahost:9191/fra2015/rest/survey/addValues',
+                    url:'http://localhost:9191/fra2015/rest/survey/updateValues',
                     success: function(data){
-                        
+                        console.log( data );
+                    },
+                    error: function(data){
+                        console.log( data );
                     }
-                });*/
+                });
+        
+            
         },
+       
         
         load: function(){
             if ( this.isEmpty() ){
@@ -1200,6 +1211,7 @@
                 },
                 'textarea': function(obj, handlers){
                     return new TextArea({
+                        id: obj.id,
                         title: obj.title,
                         description: obj.description
                     });
@@ -1207,6 +1219,7 @@
                 'table': function(obj, handlers){
                     var template = obj.template || '';
                     return new Table({
+                        id: obj.id,
                         title: obj.title,
                         description: obj.description,
                         template: template.trim()
@@ -1343,12 +1356,16 @@
                     page.trigger('load', el);
                 });
                 tabPage.bind('change', function(el){
-                    el.find('.survey-entry-item').change(function(){
-                        var entryItemId = $(this).attr('entry-item-id');
-                        var entryItemValue = $(this).val();
-                        model.set( entryItemId,  entryItemValue);
+                    el.find('.entry-item').change(function(){
+                        var cell = $(this);
+                        var value = cell.find('.celleditor').val();
+                        var entryId = cell.attr('entry-id');
+                        var rowNo  = cell.attr('rowNumber');
+                        var cellNo = cell.attr('columnNumber');
+                        model.set( entryId, rowNo, cellNo, value);
                     });
-                    el.find('.btn-save-survey').click( function(){
+                    el.find('.btn-save-survey').click( function(e){
+                        e.preventDefault();
                         model.save();
                     });
                     page.trigger('change');

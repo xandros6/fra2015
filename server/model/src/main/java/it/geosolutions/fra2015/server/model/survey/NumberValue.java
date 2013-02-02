@@ -4,13 +4,8 @@
  */
 package it.geosolutions.fra2015.server.model.survey;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -21,51 +16,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity(name = "NumberValue")
 @Table(name = "fra_num_value" )
 @XmlRootElement(name = "NumberValue")
-public class NumberValue implements Serializable {
+public class NumberValue extends Value {
     
-    @Id
-    @GeneratedValue
-    private Long id;
-    
-    @Column(nullable = false, updatable = false)
-    private String country;
-    @Column(nullable = false, updatable = true)
-    private Number itemValue;
-    @ManyToOne
-    @JoinColumn(name="item_id", nullable=false)
-    private EntryItem entryItem;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
+   
+    @Column(name="fra_value", nullable = false, updatable = true)
+    private Number value;
 
     public Number getValue() {
-        return itemValue;
+        return value;
     }
 
-    public void setValue(Number value) {
-        this.itemValue = value;
+    public void setValue(Number itemValue) {
+        this.value = value;
     }
-
-    public EntryItem getEntryItem() {
-        return entryItem;
-    }
-
-    public void setEntryItem(EntryItem entryItem) {
-        this.entryItem = entryItem;
-    }
+   
     
     
     

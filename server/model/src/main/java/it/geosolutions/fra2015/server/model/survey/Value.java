@@ -8,12 +8,15 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  *
@@ -22,19 +25,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @XmlRootElement(name = "Value")
+@XmlSeeAlso({TextValue.class, NumberValue.class})
 public class Value implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    
-    @Column(nullable = false, updatable = false)
-    private String type;
     
     @Column(nullable = false, updatable = false)
     private String country;
     
-    @Column(name="fra_value", nullable = false, updatable = true)
-    private String value;
+    @Transient
+    private String content;
     
     @ManyToOne
     @JoinColumn(name="item_id", nullable=false)
@@ -50,28 +51,12 @@ public class Value implements Serializable {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getCountry() {
         return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
     }
 
     public EntryItem getEntryItem() {
@@ -88,6 +73,14 @@ public class Value implements Serializable {
 
     public void setRowNumber(Integer rowNumber) {
         this.rowNumber = rowNumber;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
     
     

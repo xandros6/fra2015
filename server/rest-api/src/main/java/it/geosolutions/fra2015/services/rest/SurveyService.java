@@ -63,4 +63,11 @@ public interface SurveyService {
     @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_XML})
     @Produces({MediaType.TEXT_PLAIN, MediaType.TEXT_XML, MediaType.APPLICATION_JSON})
     public List<Value> getEntryValues(@Context SecurityContext sc, @PathParam("itemId") Long itemId, @QueryParam("countryId") String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
+
+    @POST
+    @Path("/updateValues")
+    @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_XML})
+    @Produces({MediaType.TEXT_PLAIN, MediaType.TEXT_XML, MediaType.APPLICATION_JSON})
+    public List<Entry> updateValues(@Context SecurityContext sc, @Multipart("updates") Updates updates);
+
 }

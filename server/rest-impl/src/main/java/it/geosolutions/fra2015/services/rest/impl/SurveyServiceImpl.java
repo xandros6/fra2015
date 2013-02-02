@@ -13,8 +13,11 @@ import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.SurveyService;
+import it.geosolutions.fra2015.services.rest.Update;
+import it.geosolutions.fra2015.services.rest.Updates;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.SecurityContext;
 import org.apache.log4j.Logger;
@@ -119,11 +122,37 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public Survey get(SecurityContext sc, String name) {
         try {
-            return surveyService.read( name );
+            return surveyService.read(name);
         } catch (BadRequestServiceEx ex) {
             throw new BadRequestWebEx(ex.getMessage());
         } catch (NotFoundServiceEx ex) {
             throw new NotFoundWebEx(ex.getMessage());
         }
+    }
+
+    @Override
+    public List<Entry> updateValues(SecurityContext sc, Updates updates) {
+        try {
+            List<Entry> result = new ArrayList<Entry>();
+            if (updates.getUpdates() != null) {
+                for (Update update : updates.getUpdates()) {
+                    Entry entry = surveyService.updateValues(
+                            update.getEntryId(),
+                            update.getRow(),
+                            update.getRow(),
+                            update.getValue());
+                    if ( entry != null ){
+                        result.add( entry );
+                    }
+                    
+                }
+            }
+            return result;
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        }
+
     }
 }
