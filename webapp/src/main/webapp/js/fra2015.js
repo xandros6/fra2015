@@ -752,10 +752,8 @@
             
             var value = options.context[ options.id +',0,0'  ];
             if ( value ){
-                text.val( value );  
+                text.val( value.content.replace("<![CDATA[", "").replace("]]>", "") );  
             }
-            
-            
             
             this.el.find('.entry').append( text );
             
@@ -767,10 +765,22 @@
             return this;
         },
         addEvents: function(){
-        /*this.el.find('#saveBtn').click(function(evt){
-                alert('Saved!');
-                return false;
-            });*/
+            this.el.find('.entry-item')
+            .attr('entry-id', this.options.id);
+            
+            var self = this;
+            $.each( this.el.find('.entry-item'), function(index, entry){
+                var cell = $(this);
+                var value = self.options.context[ 
+                self.options.id + ',' 
+                + cell.attr('rowNumber') + ','
+                + cell.attr('columnNumber')];
+                if ( value ){
+                    cell.append( value.content );  
+                } else {
+                    cell.append('&nbsp;');
+                }
+            });
 
         }
     });
@@ -888,9 +898,9 @@
             $.each( this.el.find('.entry-item'), function(index, entry){
                 var cell = $(this);
                 var value = self.options.context[ 
-                                self.options.id + ',' 
-                                + cell.attr('rowNumber') + ','
-                                + cell.attr('columnNumber')];
+                self.options.id + ',' 
+                + cell.attr('rowNumber') + ','
+                + cell.attr('columnNumber')];
                 if ( value ){
                     cell.append( value.content );  
                 } else {
@@ -1413,9 +1423,22 @@
                         var rowNo  = cell.attr('rowNumber');
                         var cellNo = cell.attr('columnNumber');
                         model.set( entryId, rowNo, cellNo, value);
+             
                     });
                     el.find('.btn-save-survey').click( function(e){
                         e.preventDefault();
+                        // TOFIX 
+                        // It seems hard to bind a change event to CKEDITOR
+                        // I need to use this temporary trick
+                        $('textarea.texteditor').each( function() {                       
+                            var id = $(this).attr('id'); 
+                            var entryId = $(this).attr('entry-id'); 
+                            var editor = CKEDITOR.instances[ id ];
+                            model.set( entryId, 0, 0, '<![CDATA[' + editor.getData() + ']]>');
+                            console.log(entryId);
+                        });
+                        
+                        // save model
                         model.save();
                     });
                     page.trigger('change');

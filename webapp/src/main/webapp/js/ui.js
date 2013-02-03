@@ -290,7 +290,14 @@
                         CKEDITOR.replace( id, { 
                             toolbar: 'MyToolbar'
                         } );
-                    }); 
+                        
+                    });
+                    
+                    /*for (var i in CKEDITOR.instances) {
+                        CKEDITOR.instances[i].on('change', function() {
+                            alert('test 1 2 3')
+                        });
+                    }*/
                 },
                 action: function( ){
                     var params = Array.prototype.slice.call(arguments);
