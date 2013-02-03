@@ -1178,12 +1178,12 @@
             var req = '<Updates>';
             for (var key in this.values){
                 var value = this.values[key];
-                req += '<Update>';
+                req += '<update>';
                 req += '<entryId>'+ value.entryId +'</entryId>';
                 req += '<row>'+ value.row +'</row>';
                 req += '<column>'+ value.col +'</column>'; 
                 req += '<value>'+ value.value +'</value>'; 
-                req += '</Update>';
+                req += '</update>';
             }
             
             req += '</Updates>';
@@ -1240,6 +1240,7 @@
                     context[ value.entryId + ',' + value.rowNumber + ','+ value.columnNumber] = value;
                 });
             }
+            console.log( context );
             this.context = context;
         },
 

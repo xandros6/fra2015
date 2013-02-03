@@ -141,7 +141,7 @@ public class SurveyServiceImpl implements SurveyService {
                     Entry entry = surveyService.updateValues(
                             update.getEntryId(),
                             update.getRow(),
-                            update.getRow(),
+                            update.getColumn(),
                             update.getValue());
                     if (entry != null) {
                         result.add(entry);
