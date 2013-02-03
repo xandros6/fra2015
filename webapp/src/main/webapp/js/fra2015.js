@@ -1188,12 +1188,15 @@
             var req = '<Updates>';
             for (var key in this.values){
                 var value = this.values[key];
-                req += '<update>';
-                req += '<entryId>'+ value.entryId +'</entryId>';
-                req += '<row>'+ value.row +'</row>';
-                req += '<column>'+ value.col +'</column>'; 
-                req += '<value>'+ value.value +'</value>'; 
-                req += '</update>';
+                var content = value.value;
+                if ( content && content.length > 0 ){              
+                    req += '<update>';
+                    req += '<entryId>'+ value.entryId +'</entryId>';
+                    req += '<row>'+ value.row +'</row>';
+                    req += '<column>'+ value.col +'</column>'; 
+                    req += '<value>'+ value.value +'</value>'; 
+                    req += '</update>'; 
+                }
             }
             
             req += '</Updates>';
@@ -1434,8 +1437,13 @@
                             var id = $(this).attr('id'); 
                             var entryId = $(this).attr('entry-id'); 
                             var editor = CKEDITOR.instances[ id ];
-                            model.set( entryId, 0, 0, '<![CDATA[' + editor.getData() + ']]>');
-                            console.log(entryId);
+                            var content = editor.getData();
+                            if ( content && content.length > 0 ){ 
+                                model.set( entryId, 0, 0, '<![CDATA[' + content + ']]>');
+                            } else {
+                                model.set( entryId, 0, 0, '');
+                            }
+                            console.log( entryId );
                         });
                         
                         // save model
