@@ -733,7 +733,7 @@
 
             this.id =  Math.random().toString(36).substring(7);
             var text = $('<textarea></textarea>');
-            text.addClass('texteditor survey-entry-item');
+            text.addClass('texteditor');
             text.attr('entry-item-id', 0);
             
             if ( ! App.user.check('canEdit') ){
@@ -746,6 +746,16 @@
             text.attr('rows', '10');
             text.attr('id', this.id);
             text.attr('name', this.id);
+            text.addClass('entry-item');
+            text.attr('rowNumber', 0);
+            text.attr('columnNumber', 0);
+            
+            var value = options.context[ options.id +',0,0'  ];
+            if ( value ){
+                text.val( value );  
+            }
+            
+            
             
             this.el.find('.entry').append( text );
             
@@ -792,30 +802,37 @@
                 this.addEmptyRow = function(){
                     var last = this.el.find('table').find('tr:last');
                     var row = last.clone(); 
+                    
+                    $.each(row.find('td'), function(index, item){
+                        var cell = $(this);
+                        cell.attr('rowNumber', parseInt(cell.attr('rowNumber'))+1);
+                    });
+                    
                     row.find('td')
-                       .addClass('editable entry-item')
-                       .attr('entry-id', this.options.id)
-                       .click(function(){
-                            var cell = $(this); 
-                            if ( cell.hasClass('editable') ){
-                                cell.removeClass("editable"); 
-                                cell.addClass("editing");
-                                var text = cell.html();
-                                cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
-                                cell.find('.celleditor').blur( function(){
-                                    if ( cell.hasClass('editing') ){
-                                        cell.removeClass("editing");
-                                        cell.addClass("editable");
-                                        var text = cell.find(".celleditor").attr('value');
-                                        cell.html( text );
-                                    }
-                                    return false;
-                                });
-                                cell.find('.celleditor').focus();
-                            }
-                            return false;}
-                        )
-                       .empty().append('&nbsp;');
+                    .addClass('editable entry-item')
+                    .attr('entry-id', this.options.id)
+                    .click(function(){
+                        var cell = $(this); 
+                        if ( cell.hasClass('editable') ){
+                            cell.removeClass("editable"); 
+                            cell.addClass("editing");
+                            var text = cell.html();
+                            cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                            cell.find('.celleditor').blur( function(){
+                                if ( cell.hasClass('editing') ){
+                                    cell.removeClass("editing");
+                                    cell.addClass("editable");
+                                    var text = cell.find(".celleditor").attr('value');
+                                    cell.html( text );
+                                }
+                                return false;
+                            });
+                            cell.find('.celleditor').focus();
+                        }
+                        return false;
+                    }
+                    )
+                    .empty().append('&nbsp;');
                     row.appendTo(table); 
 
                     return row;
@@ -845,8 +862,8 @@
             });
 
             this.el.find('.entry-item')
-                   .attr('entry-id', this.options.id)
-                   .click(function(){
+            .attr('entry-id', this.options.id)
+            .click(function(){
                 var cell = $(this);
                 if ( cell.hasClass('editable') ){
                     cell.removeClass("editable");
@@ -865,6 +882,20 @@
                     cell.find('.celleditor').focus();
                 }
                 return false;
+            });
+            
+            var self = this;
+            $.each( this.el.find('.entry-item'), function(index, entry){
+                var cell = $(this);
+                var value = self.options.context[ 
+                                self.options.id + ',' 
+                                + cell.attr('rowNumber') + ','
+                                + cell.attr('columnNumber')];
+                if ( value ){
+                    cell.append( value.content );  
+                } else {
+                    cell.append('&nbsp;');
+                }
             });
 
         }
@@ -1136,10 +1167,11 @@
         
         set: function(entryId, row, col, value){     
             this.values[ entryId+',' + row + ',' + col ] = {
-               entryId: entryId,
-               row: row,
-               col: col,
-               value: value };
+                entryId: entryId,
+                row: row,
+                col: col,
+                value: value
+            };
         },
 
         save: function(){
@@ -1158,19 +1190,19 @@
             req = '<BatchUpdate>'+ req +'</BatchUpdate>'
             
            
-             $.ajax({
-                    type:'POST',
-                    contentType:'text/xml',
-                    data: req,
-                    // TODO externalize
-                    url:'http://localhost:9191/fra2015/rest/survey/updateValues',
-                    success: function(data){
-                        console.log( data );
-                    },
-                    error: function(data){
-                        console.log( data );
-                    }
-                });
+            $.ajax({
+                type:'POST',
+                contentType:'text/xml',
+                data: req,
+                // TODO externalize
+                url:'http://localhost:9191/fra2015/rest/survey/updateValues',
+                success: function(data){
+                    console.log( data );
+                },
+                error: function(data){
+                    console.log( data );
+                }
+            });
         
             
         },
@@ -1183,10 +1215,12 @@
                     type:'GET',
                     dataType:'json',
                     // TODO externalize
-                    url:'http://localhost:9191/fra2015/rest/survey/FRA2015',
+                    // url:'http://localhost:9191/fra2015/rest/survey/FRA2015',
+                    url:'http://localhost:9191/fra2015/rest/survey/?country=IT&name=FRA2015',
                     // url:'./resources/'+ $.i18n.lng() +'/survey.json',
                     success: function(data){
-                        model.survey = data;
+                        model.survey = data.ExtendedSurvey;
+                        model.initContext( data.ExtendedSurvey.Values.value );
                         model.trigger('load');
                     }
                 });
@@ -1196,24 +1230,37 @@
 
         },
 
-        
+        /*
+         * a context is a mapping between entry items and stored values
+         */
+        initContext: function( values ){
+            var context = {};
+            if ( values ){
+                $.each( values, function(index, value){
+                    context[ value.entryId + ',' + value.rowNumber + ','+ value.columnNumber] = value;
+                });
+            }
+            this.context = context;
+        },
 
         /*
          *  create an html representation of the model
          */
         createSurvey: function(){
+            var context = this.context;
             var builder = this;
             return builder.createView( this.survey, {
                 'survey': function( obj, handlers){
                     var survey = new SurveyView;
-                    survey.items =  builder.createView(  obj.Survey, handlers );
+                    survey.items =  builder.createView(  obj.survey, handlers );
                     return survey;
                 },
                 'textarea': function(obj, handlers){
                     return new TextArea({
                         id: obj.id,
                         title: obj.title,
-                        description: obj.description
+                        description: obj.description,
+                        context: context
                     });
                 },
                 'table': function(obj, handlers){
@@ -1222,7 +1269,8 @@
                         id: obj.id,
                         title: obj.title,
                         description: obj.description,
-                        template: template.trim()
+                        template: template.trim(),
+                        context: context
                     });
                 },
                 'question': function(obj, handlers){
@@ -1271,7 +1319,7 @@
             
             var handler;
             
-            if ( obj.Survey ){
+            if ( obj.survey ){
                 handler = handlers['survey'];
             } else if ( obj.Elements ){
                 
@@ -1288,6 +1336,7 @@
             }
             
             if ( ! handler ){
+                console.log( obj );
                 throw 'wrong format in json file';
             }
             

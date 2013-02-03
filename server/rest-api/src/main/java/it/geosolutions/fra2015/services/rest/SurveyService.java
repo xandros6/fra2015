@@ -4,6 +4,8 @@
  */
 package it.geosolutions.fra2015.services.rest;
 
+import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
+import it.geosolutions.fra2015.services.rest.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
@@ -46,6 +48,12 @@ public interface SurveyService {
     
     @GET
     @Path("/")
+    public ExtendedSurvey getSurveyAndValues(@Context SecurityContext sc, 
+                                     @QueryParam("name") String name,
+                                     @QueryParam("country") String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
+    
+    @GET
+    @Path("/all")
     @RolesAllowed({"ADMIN"})
     public List<Survey> getAll(
     		@Context SecurityContext sc, 

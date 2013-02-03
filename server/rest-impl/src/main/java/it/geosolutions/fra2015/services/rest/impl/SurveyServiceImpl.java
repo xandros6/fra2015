@@ -4,6 +4,7 @@
  */
 package it.geosolutions.fra2015.services.rest.impl;
 
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Element;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
@@ -13,10 +14,11 @@ import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.SurveyService;
-import it.geosolutions.fra2015.services.rest.Update;
-import it.geosolutions.fra2015.services.rest.Updates;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
+import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
+import it.geosolutions.fra2015.services.rest.model.Update;
+import it.geosolutions.fra2015.services.rest.model.Updates;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.SecurityContext;
@@ -141,10 +143,10 @@ public class SurveyServiceImpl implements SurveyService {
                             update.getRow(),
                             update.getRow(),
                             update.getValue());
-                    if ( entry != null ){
-                        result.add( entry );
+                    if (entry != null) {
+                        result.add(entry);
                     }
-                    
+
                 }
             }
             return result;
@@ -154,5 +156,28 @@ public class SurveyServiceImpl implements SurveyService {
             throw new NotFoundWebEx(ex.getMessage());
         }
 
+    }
+
+    @Override
+    public ExtendedSurvey getSurveyAndValues(SecurityContext sc, String name, String countryId) throws BadRequestServiceEx, NotFoundServiceEx{
+
+        if (countryId == null) {
+            throw new BadRequestServiceEx("Missing parameter country");
+        }
+
+        try {
+
+            ExtendedSurvey ext = new ExtendedSurvey();
+            Survey survey = surveyService.read(name);
+            ext.setSurvey(survey);
+            List<CompactValue> values = surveyService.getAllValues(countryId);
+            ext.setValues(values);
+            return ext;
+            
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        }
     }
 }

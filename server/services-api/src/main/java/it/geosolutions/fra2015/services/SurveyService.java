@@ -4,6 +4,7 @@
  */
 package it.geosolutions.fra2015.services;
 
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.Value;
@@ -28,4 +29,6 @@ public interface SurveyService {
     public Survey read(String name) throws BadRequestServiceEx, NotFoundServiceEx;
 
     public Entry updateValues(Long entryId, Integer row, Integer row0, String value) throws BadRequestServiceEx, NotFoundServiceEx;
+
+    public List<CompactValue> getAllValues(String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
 }

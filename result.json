@@ -1,309 +1,346 @@
 {
-	"Survey": {
-		"id": 0,
-		"name": "FRA2015",
-		"Elements": {
-			"session": [{
-				"id": 1,
-				"Elements": {
-					"entry": [{
-						"id": 2,
-						"EntryItems": {
-							"entryItem": {
-								"id": 0,
-								"type": "String"
-							}
-						},
-						"type": "table"
-					}, {
-						"id": 3,
-						"EntryItems": {
-							"entryItem": {
-								"id": 1,
-								"type": "String"
-							}
-						},
-						"type": "textarea"
-					}]
-				},
-				"noCount": true,
-				"title": "Introduction"
+	"ExtendedSurvey": {
+		"survey": {
+			"id": 0,
+			"name": "FRA2015",
+			"Elements": {
+				"session": [{
+					"id": 1,
+					"Elements": {
+						"question": {
+							"id": 2,
+							"Elements": {
+								"entry": [{
+									"id": 3,
+									"description": "The present report was prepared by the following person(s)",
+									"EntryItems": {
+										"entryItem": {
+											"id": 0,
+											"type": "String"
+										}
+									},
+									"title": "Contact persons",
+									"type": "table"
+								}, {
+									"id": 4,
+									"description": "Place an introductory text on the content of this report",
+									"EntryItems": {
+										"entryItem": {
+											"id": 1,
+											"type": "String"
+										}
+									},
+									"title": "Introductory Text",
+									"type": "textarea"
+								}]
+							},
+							"noCount": true,
+							"title": "Introduction"
+						}
+					},
+					"title": "Report preparation and contact persons"
+				}, {
+					"id": 5,
+					"Elements": {
+						"question": [{
+							"id": 6,
+							"Elements": {
+								"session": [{
+									"id": 7,
+									"Elements": {
+										"entry": {
+											"id": 8,
+											"EntryItems": "",
+											"template": "\n                                         <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest<\/td><td rownumber=\"1\" columnnumber=\"1\">Land  spanning more than 05 hectares with trees higher than 5 meters and a canopy  cover of more than 10 percent or trees able to reach these thresholds  in  situ  It does not include land that is predominantly under agricultural  or urban land use<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"2\" columnnumber=\"1\">Land not classified as Forest spanning more than 05  hectares with  trees  higher than 5 meters  and  a canopy  cover of 510 percent or trees able to reach these thresholds  in situ   or with a combined cover of shrubs bushes and  trees above 10 percent It does not include land that is predominantly under  agricultural or urban land use<\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  land<\/td><td rownumber=\"3\" columnnumber=\"1\">All  land that is not classified as Forest or Other wooded land<\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">of which with tree cover  Subcategory<\/td><td rownumber=\"4\" columnnumber=\"1\">Land  classified as Other land spanning more than 05 hectares with a canopy  cover of more than 10 percent of trees able to reach a height of 5 meters at  maturity<\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Inland  water bodies<\/td><td rownumber=\"5\" columnnumber=\"1\">Inland  water bodies generally include major rivers lakes and water reservoirs<\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"6\" columnnumber=\"1\">Establishment  of forest through planting andor deliberate seeding on land that until  then was not classified as forest<\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"7\" columnnumber=\"1\">Reestablishment  of forest through planting andor deliberate seeding on land classified as  forest<\/td><\/tr><tr><td rownumber=\"8\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"8\" columnnumber=\"1\">Expansion  of forests through natural succession on land that until then was under  another land use egforest succession on land previously used for  agriculture<\/td><\/tr><tr><td rownumber=\"9\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"9\" columnnumber=\"1\">The  conversion of forest to other land use or the longterm reduction of the tree  canopy cover below the minimum 10 percent threshold<\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}
+									},
+									"title": "FRA 2015 Categories and definitions"
+								}, {
+									"id": 9,
+									"Elements": {
+										"session": [{
+											"id": 10,
+											"Elements": {
+												"entry": {
+													"id": 11,
+													"EntryItems": {
+														"entryItem": [{
+															"columnNumber": 1,
+															"id": 2,
+															"rowNumber": 1,
+															"type": "String"
+														}, {
+															"columnNumber": 2,
+															"id": 3,
+															"rowNumber": 2,
+															"type": "String"
+														}]
+													},
+													"template": "\n                                                  \n                                                    <table class=\"editable extensible\">\n                                                       <tbody>\n                                                          <tr>\n                                                             <td rownumber=\"0\" columnnumber=\"0\"><\/td>\n                                                             <td rownumber=\"0\" columnnumber=\"1\">References  to sources of information<\/td>\n                                                             <td rownumber=\"0\" columnnumber=\"2\">Variables<\/td>\n                                                             <td rownumber=\"0\" columnnumber=\"3\">Years<\/td>\n                                                             <td rownumber=\"0\" columnnumber=\"4\">Additional  comments<\/td>\n                                                          <\/tr><tr>\n                                                             <td rownumber=\"1\" columnnumber=\"0\">1<\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"1\" columnnumber=\"1\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"1\" columnnumber=\"2\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"1\" columnnumber=\"3\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"1\" columnnumber=\"4\"><\/td>\n                                                          <\/tr><tr>\n                                                             <td rownumber=\"2\" columnnumber=\"0\">2<\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"2\" columnnumber=\"1\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"2\" columnnumber=\"2\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"2\" columnnumber=\"3\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"2\" columnnumber=\"4\"><\/td>\n                                                          <\/tr><tr>\n                                                             <td rownumber=\"3\" columnnumber=\"0\">3<\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"3\" columnnumber=\"1\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"3\" columnnumber=\"2\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"3\" columnnumber=\"3\"><\/td>\n                                                             <td class=\"entry-item editable text\" rownumber=\"3\" columnnumber=\"4\"><\/td>\n                                                          <\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}
+											},
+											"title": "Data  sources"
+										}, {
+											"id": 12,
+											"Elements": {
+												"entry": {
+													"id": 13,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">National  class<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\"><\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}
+											},
+											"title": "Classification and definitions"
+										}, {
+											"id": 14,
+											"Elements": {
+												"entry": {
+													"id": 15,
+													"EntryItems": "",
+													"type": "textarea"
+												}
+											},
+											"title": "Original data"
+										}, {
+											"id": 16,
+											"Elements": {
+												"session": [{
+													"id": 17,
+													"Elements": {
+														"entry": {
+															"id": 18,
+															"EntryItems": "",
+															"type": "textarea"
+														}
+													},
+													"title": "Adjustment"
+												}, {
+													"id": 19,
+													"Elements": {
+														"entry": {
+															"id": 20,
+															"EntryItems": "",
+															"type": "textarea"
+														}
+													},
+													"title": "Estimation and forecasting"
+												}, {
+													"id": 21,
+													"Elements": {
+														"entry": {
+															"id": 22,
+															"EntryItems": "",
+															"type": "textarea"
+														}
+													},
+													"title": "Reclassification into FRA 2015 categories"
+												}]
+											},
+											"title": "Analysis and processing of national data"
+										}, {
+											"id": 23,
+											"Elements": {
+												"entry": [{
+													"id": 24,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA 2015 categories<\/td><td colspan=\"5\" rownumber=\"0\" columnnumber=\"1\">Area 000 hectares<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">2015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Other  land<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><td rownumber=\"4\" columnnumber=\"3\"><\/td><td rownumber=\"4\" columnnumber=\"4\"><\/td><td rownumber=\"4\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">of which with tree cover<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><td rownumber=\"5\" columnnumber=\"3\"><\/td><td rownumber=\"5\" columnnumber=\"4\"><\/td><td rownumber=\"5\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Inland  water bodies<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><td rownumber=\"6\" columnnumber=\"3\"><\/td><td rownumber=\"6\" columnnumber=\"4\"><\/td><td rownumber=\"6\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">TOTAL<\/td><td rownumber=\"7\" columnnumber=\"1\"><\/td><td rownumber=\"7\" columnnumber=\"2\"><\/td><td rownumber=\"7\" columnnumber=\"3\"><\/td><td rownumber=\"7\" columnnumber=\"4\"><\/td><td rownumber=\"7\" columnnumber=\"5\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}, {
+													"id": 25,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA  2015 Categories<\/td><td colspan=\"4\" rownumber=\"0\" columnnumber=\"1\">Annual forest  establishmentloss 000 hectares per year<\/td><td colspan=\"4\" rownumber=\"0\" columnnumber=\"2\">of which of introduced  species  1    000 hectares per year<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">1990<\/td><td rownumber=\"1\" columnnumber=\"5\">2000<\/td><td rownumber=\"1\" columnnumber=\"6\">2005<\/td><td rownumber=\"1\" columnnumber=\"7\">2010<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><td rownumber=\"2\" columnnumber=\"6\"><\/td><td rownumber=\"2\" columnnumber=\"7\"><\/td><td rownumber=\"2\" columnnumber=\"8\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><td rownumber=\"3\" columnnumber=\"6\"><\/td><td rownumber=\"3\" columnnumber=\"7\"><\/td><td rownumber=\"3\" columnnumber=\"8\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><td rownumber=\"4\" columnnumber=\"3\"><\/td><td rownumber=\"4\" columnnumber=\"4\"><\/td><td rownumber=\"4\" columnnumber=\"5\"><\/td><td rownumber=\"4\" columnnumber=\"6\"><\/td><td rownumber=\"4\" columnnumber=\"7\"><\/td><td rownumber=\"4\" columnnumber=\"8\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><td rownumber=\"5\" columnnumber=\"3\"><\/td><td rownumber=\"5\" columnnumber=\"4\"><\/td><td rownumber=\"5\" columnnumber=\"5\"><\/td><td rownumber=\"5\" columnnumber=\"6\"><\/td><td rownumber=\"5\" columnnumber=\"7\"><\/td><td rownumber=\"5\" columnnumber=\"8\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}, {
+													"id": 26,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}, {
+													"id": 27,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest    Other  wooded land    Afforestation    Reforestation  Natural expansion of forest     Deforestation<\/td><td rownumber=\"1\" columnnumber=\"1\">Tier  3 Data sources Either recent  10 years ago National Forest  Inventory or remote sensing with ground truthing or programme for repeated  compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years  ago        Tier  1 Other<\/td><td rownumber=\"1\" columnnumber=\"2\">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other<\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}, {
+													"id": 28,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Comments  related to data definitions etc<\/td><td rownumber=\"0\" columnnumber=\"2\">Comments  on the reported status and trends<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  land<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Other  land with tree cover<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Inland  water bodies<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"7\" columnnumber=\"1\"><\/td><td rownumber=\"7\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"8\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"8\" columnnumber=\"1\"><\/td><td rownumber=\"8\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"9\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"9\" columnnumber=\"1\"><\/td><td rownumber=\"9\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}, {
+													"id": 29,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Other  general comments to the table<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}, {
+													"id": 30,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">Expected  year for completion of ongoingplanned  national  forest inventory  andor RS Survey  mapping or other effort to assess forest area<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">National  forest inventory<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Remote  sensing Survey  mapping<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  efforts<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}]
+											},
+											"title": "Data"
+										}]
+									},
+									"title": "National data"
+								}]
+							},
+							"title": "What is the area of forest and other wooded land and how has it changed over time?"
+						}, {
+							"id": 31,
+							"Elements": {
+								"session": [{
+									"id": 32,
+									"Elements": {
+										"entry": {
+											"id": 33,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Term<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Naturally  regenerated forest<\/td><td rownumber=\"1\" columnnumber=\"1\">Forest  predominantly composed of trees established through natural regeneration<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Introduced  species<\/td><td rownumber=\"2\" columnnumber=\"1\">A  species subspecies or lower taxon occurring  outside  its natural  range past or present and dispersal potential ie outside the range it  occupies naturally or could occupy without direct or indirect introduction or  care by humans<\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Category<\/td><td rownumber=\"3\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"4\" columnnumber=\"1\">Naturally  regenerated forest of native species where there are no clearly visible  indications of human activities and the ecological processes are not  significantly disturbed<\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Other  naturally regenerated forest<\/td><td rownumber=\"5\" columnnumber=\"1\">Naturally  regenerated forest  where there are clearly  visible indications of human activities<\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">of  which of introduced species     subcategory<\/td><td rownumber=\"6\" columnnumber=\"1\">Other  naturally regenerated forest where the trees are predominantly of introduced  species<\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"7\" columnnumber=\"1\">Forest  predominantly composed of trees established through planting andor  deliberate seeding<\/td><\/tr><tr><td rownumber=\"8\" columnnumber=\"0\">of  which of of introduced species  subcategory<\/td><td rownumber=\"8\" columnnumber=\"1\">Planted  forest where the plantedseeded trees are predominantly of introduced  species<\/td><\/tr><tr><td rownumber=\"9\" columnnumber=\"0\">Mangroves<\/td><td rownumber=\"9\" columnnumber=\"1\">Area  of forest and other wooded land with mangrove vegetation<\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}
+									},
+									"title": "FRA 2015 Categories and definitions"
+								}, {
+									"id": 34,
+									"Elements": {
+										"session": [{
+											"id": 35,
+											"Elements": {
+												"entry": {
+													"id": 36,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\"><\/td><td rownumber=\"0\" columnnumber=\"1\">References  to sources of information<\/td><td rownumber=\"0\" columnnumber=\"2\">Variables<\/td><td rownumber=\"0\" columnnumber=\"3\">Years<\/td><td rownumber=\"0\" columnnumber=\"4\">Additional  comments<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><td rownumber=\"1\" columnnumber=\"3\"><\/td><td rownumber=\"1\" columnnumber=\"4\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">2<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">3<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}
+											},
+											"title": "Data  sources"
+										}, {
+											"id": 37,
+											"Elements": {
+												"entry": {
+													"id": 38,
+													"EntryItems": "",
+													"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">National  class<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\"><\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\"><\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
+													"type": "table"
+												}
+											},
+											"title": "Classification and definitions"
+										}, {
+											"id": 39,
+											"Elements": {
+												"entry": {
+													"id": 40,
+													"EntryItems": "",
+													"type": "textarea"
+												}
+											},
+											"title": "Original data"
+										}]
+									},
+									"title": "National data"
+								}, {
+									"id": 41,
+									"Elements": {
+										"session": [{
+											"id": 42,
+											"Elements": {
+												"entry": {
+													"id": 43,
+													"EntryItems": "",
+													"type": "textarea"
+												}
+											},
+											"title": "Adjustment"
+										}, {
+											"id": 44,
+											"Elements": {
+												"entry": {
+													"id": 45,
+													"EntryItems": "",
+													"type": "textarea"
+												}
+											},
+											"title": "Estimation andforecasting"
+										}, {
+											"id": 46,
+											"Elements": {
+												"entry": {
+													"id": 47,
+													"EntryItems": "",
+													"type": "textarea"
+												}
+											},
+											"title": "Reclassification into FRA 2015 categories"
+										}]
+									},
+									"title": "Analysis and processingof national data"
+								}, {
+									"id": 48,
+									"Elements": {
+										"entry": [{
+											"id": 49,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA  2015 Categories<\/td><td colspan=\"5\" rownumber=\"0\" columnnumber=\"1\">Forest area 000  hectares<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">2015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  naturally regenerated forest<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">of  which of introduced species<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><td rownumber=\"4\" columnnumber=\"3\"><\/td><td rownumber=\"4\" columnnumber=\"4\"><\/td><td rownumber=\"4\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><td rownumber=\"5\" columnnumber=\"3\"><\/td><td rownumber=\"5\" columnnumber=\"4\"><\/td><td rownumber=\"5\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">of  which of introduced species<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><td rownumber=\"6\" columnnumber=\"3\"><\/td><td rownumber=\"6\" columnnumber=\"4\"><\/td><td rownumber=\"6\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">TOTAL<\/td><td rownumber=\"7\" columnnumber=\"1\"><\/td><td rownumber=\"7\" columnnumber=\"2\"><\/td><td rownumber=\"7\" columnnumber=\"3\"><\/td><td rownumber=\"7\" columnnumber=\"4\"><\/td><td rownumber=\"7\" columnnumber=\"5\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}, {
+											"id": 50,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td colspan=\"9\" rownumber=\"0\" columnnumber=\"0\">Primary forest converted  to 000 ha<\/td><\/tr><tr><td colspan=\"3\" rownumber=\"1\" columnnumber=\"0\">19902000<\/td><td colspan=\"3\" rownumber=\"1\" columnnumber=\"1\">20002010<\/td><td colspan=\"3\" rownumber=\"1\" columnnumber=\"2\">20102015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other natural regeneration<\/td><td rownumber=\"2\" columnnumber=\"1\">Planted<\/td><td rownumber=\"2\" columnnumber=\"2\">Other land<\/td><td rownumber=\"2\" columnnumber=\"3\">Other natural regeneration<\/td><td rownumber=\"2\" columnnumber=\"4\">Planted<\/td><td rownumber=\"2\" columnnumber=\"5\">Other land<\/td><td rownumber=\"2\" columnnumber=\"6\">Other natural regeneration<\/td><td rownumber=\"2\" columnnumber=\"7\">Planted<\/td><td rownumber=\"2\" columnnumber=\"8\">Other land<\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\"><\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><td rownumber=\"3\" columnnumber=\"6\"><\/td><td rownumber=\"3\" columnnumber=\"7\"><\/td><td rownumber=\"3\" columnnumber=\"8\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}, {
+											"id": 51,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA  2015 Categories<\/td><td colspan=\"5\" rownumber=\"0\" columnnumber=\"1\">Area 000 hectares<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">2015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Mangroves  Forest and OWL<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}, {
+											"id": 52,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  naturally regenerated forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Mangroves<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}, {
+											"id": 53,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Primary  forestOther naturally regenerated forest Planted forest<\/td><td rownumber=\"1\" columnnumber=\"1\">Tier  3 Data sources Recent 10 years National Forest Inventory or remote  sensing with ground truthing or data provided by official agencies or  programme for repeated compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years        Tier  1 Other<\/td><td rownumber=\"1\" columnnumber=\"2\">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other<\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}]
+									},
+									"title": "Data"
+								}, {
+									"id": 54,
+									"Elements": {
+										"entry": [{
+											"id": 55,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Comments  related to data definitions etc<\/td><td rownumber=\"0\" columnnumber=\"2\">Comments  on reported status and trends<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  naturally regenerating forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Mangroves<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}, {
+											"id": 56,
+											"EntryItems": "",
+											"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Other  general comments to the table<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
+											"type": "table"
+										}]
+									},
+									"title": "Comments"
+								}]
+							},
+							"title": "What is the area of natural and planted forest and how has it changed over time?"
+						}]
+					},
+					"title": "FOREST AREA AND FOREST CHARACTERISTICS"
+				}]
+			}
+		},
+		"Values": {
+			"value": [{
+				"columnNumber": 1,
+				"content": "a",
+				"entryId": 11,
+				"rowNumber": 1
 			}, {
-				"id": 4,
-				"Elements": {
-					"question": [{
-						"id": 5,
-						"Elements": {
-							"session": [{
-								"id": 6,
-								"Elements": {
-									"entry": {
-										"id": 7,
-										"EntryItems": "",
-										"template": "\n                                         <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest<\/td><td rownumber=\"1\" columnnumber=\"1\">Land  spanning more than 05 hectares with trees higher than 5 meters and a canopy  cover of more than 10 percent or trees able to reach these thresholds  in  situ  It does not include land that is predominantly under agricultural  or urban land use<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"2\" columnnumber=\"1\">Land not classified as Forest spanning more than 05  hectares with  trees  higher than 5 meters  and  a canopy  cover of 510 percent or trees able to reach these thresholds  in situ   or with a combined cover of shrubs bushes and  trees above 10 percent It does not include land that is predominantly under  agricultural or urban land use<\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  land<\/td><td rownumber=\"3\" columnnumber=\"1\">All  land that is not classified as Forest or Other wooded land<\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">of which with tree cover  Subcategory<\/td><td rownumber=\"4\" columnnumber=\"1\">Land  classified as Other land spanning more than 05 hectares with a canopy  cover of more than 10 percent of trees able to reach a height of 5 meters at  maturity<\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Inland  water bodies<\/td><td rownumber=\"5\" columnnumber=\"1\">Inland  water bodies generally include major rivers lakes and water reservoirs<\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"6\" columnnumber=\"1\">Establishment  of forest through planting andor deliberate seeding on land that until  then was not classified as forest<\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"7\" columnnumber=\"1\">Reestablishment  of forest through planting andor deliberate seeding on land classified as  forest<\/td><\/tr><tr><td rownumber=\"8\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"8\" columnnumber=\"1\">Expansion  of forests through natural succession on land that until then was under  another land use egforest succession on land previously used for  agriculture<\/td><\/tr><tr><td rownumber=\"9\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"9\" columnnumber=\"1\">The  conversion of forest to other land use or the longterm reduction of the tree  canopy cover below the minimum 10 percent threshold<\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}
-								},
-								"title": "FRA 2015 Categories and definitions"
-							}, {
-								"id": 8,
-								"Elements": {
-									"session": [{
-										"id": 9,
-										"Elements": {
-											"entry": {
-												"id": 10,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\"><\/td><td rownumber=\"0\" columnnumber=\"1\">References  to sources of information<\/td><td rownumber=\"0\" columnnumber=\"2\">Variables<\/td><td rownumber=\"0\" columnnumber=\"3\">Years<\/td><td rownumber=\"0\" columnnumber=\"4\">Additional  comments<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><td rownumber=\"1\" columnnumber=\"3\"><\/td><td rownumber=\"1\" columnnumber=\"4\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">2<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">3<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}
-										},
-										"title": "Data  sources"
-									}, {
-										"id": 11,
-										"Elements": {
-											"entry": {
-												"id": 12,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">National  class<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\"><\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}
-										},
-										"title": "Classification and definitions"
-									}, {
-										"id": 13,
-										"Elements": {
-											"entry": {
-												"id": 14,
-												"EntryItems": "",
-												"type": "textarea"
-											}
-										},
-										"title": "Original data"
-									}, {
-										"id": 15,
-										"Elements": {
-											"session": [{
-												"id": 16,
-												"Elements": {
-													"entry": {
-														"id": 17,
-														"EntryItems": "",
-														"type": "textarea"
-													}
-												},
-												"title": "Adjustment"
-											}, {
-												"id": 18,
-												"Elements": {
-													"entry": {
-														"id": 19,
-														"EntryItems": "",
-														"type": "textarea"
-													}
-												},
-												"title": "Estimation and forecasting"
-											}, {
-												"id": 20,
-												"Elements": {
-													"entry": {
-														"id": 21,
-														"EntryItems": "",
-														"type": "textarea"
-													}
-												},
-												"title": "Reclassification into FRA 2015 categories"
-											}]
-										},
-										"title": "Analysis and processing of national data"
-									}, {
-										"id": 22,
-										"Elements": {
-											"entry": [{
-												"id": 23,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA 2015 categories<\/td><td colspan=\"5\" rownumber=\"0\" columnnumber=\"1\">Area 000 hectares<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">2015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Other  land<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><td rownumber=\"4\" columnnumber=\"3\"><\/td><td rownumber=\"4\" columnnumber=\"4\"><\/td><td rownumber=\"4\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">of which with tree cover<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><td rownumber=\"5\" columnnumber=\"3\"><\/td><td rownumber=\"5\" columnnumber=\"4\"><\/td><td rownumber=\"5\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Inland  water bodies<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><td rownumber=\"6\" columnnumber=\"3\"><\/td><td rownumber=\"6\" columnnumber=\"4\"><\/td><td rownumber=\"6\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">TOTAL<\/td><td rownumber=\"7\" columnnumber=\"1\"><\/td><td rownumber=\"7\" columnnumber=\"2\"><\/td><td rownumber=\"7\" columnnumber=\"3\"><\/td><td rownumber=\"7\" columnnumber=\"4\"><\/td><td rownumber=\"7\" columnnumber=\"5\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}, {
-												"id": 24,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA  2015 Categories<\/td><td colspan=\"4\" rownumber=\"0\" columnnumber=\"1\">Annual forest  establishmentloss 000 hectares per year<\/td><td colspan=\"4\" rownumber=\"0\" columnnumber=\"2\">of which of introduced  species  1    000 hectares per year<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">1990<\/td><td rownumber=\"1\" columnnumber=\"5\">2000<\/td><td rownumber=\"1\" columnnumber=\"6\">2005<\/td><td rownumber=\"1\" columnnumber=\"7\">2010<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><td rownumber=\"2\" columnnumber=\"6\"><\/td><td rownumber=\"2\" columnnumber=\"7\"><\/td><td rownumber=\"2\" columnnumber=\"8\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><td rownumber=\"3\" columnnumber=\"6\"><\/td><td rownumber=\"3\" columnnumber=\"7\"><\/td><td rownumber=\"3\" columnnumber=\"8\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><td rownumber=\"4\" columnnumber=\"3\"><\/td><td rownumber=\"4\" columnnumber=\"4\"><\/td><td rownumber=\"4\" columnnumber=\"5\"><\/td><td rownumber=\"4\" columnnumber=\"6\"><\/td><td rownumber=\"4\" columnnumber=\"7\"><\/td><td rownumber=\"4\" columnnumber=\"8\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><td rownumber=\"5\" columnnumber=\"3\"><\/td><td rownumber=\"5\" columnnumber=\"4\"><\/td><td rownumber=\"5\" columnnumber=\"5\"><\/td><td rownumber=\"5\" columnnumber=\"6\"><\/td><td rownumber=\"5\" columnnumber=\"7\"><\/td><td rownumber=\"5\" columnnumber=\"8\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}, {
-												"id": 25,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}, {
-												"id": 26,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest    Other  wooded land    Afforestation    Reforestation  Natural expansion of forest     Deforestation<\/td><td rownumber=\"1\" columnnumber=\"1\">Tier  3 Data sources Either recent  10 years ago National Forest  Inventory or remote sensing with ground truthing or programme for repeated  compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years  ago        Tier  1 Other<\/td><td rownumber=\"1\" columnnumber=\"2\">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other<\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}, {
-												"id": 27,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Comments  related to data definitions etc<\/td><td rownumber=\"0\" columnnumber=\"2\">Comments  on the reported status and trends<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  wooded land<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  land<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Other  land with tree cover<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Inland  water bodies<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">Afforestation<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">Reforestation<\/td><td rownumber=\"7\" columnnumber=\"1\"><\/td><td rownumber=\"7\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"8\" columnnumber=\"0\">Natural  expansion of forest<\/td><td rownumber=\"8\" columnnumber=\"1\"><\/td><td rownumber=\"8\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"9\" columnnumber=\"0\">Deforestation<\/td><td rownumber=\"9\" columnnumber=\"1\"><\/td><td rownumber=\"9\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}, {
-												"id": 28,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Other  general comments to the table<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}, {
-												"id": 29,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">Expected  year for completion of ongoingplanned  national  forest inventory  andor RS Survey  mapping or other effort to assess forest area<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">National  forest inventory<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Remote  sensing Survey  mapping<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  efforts<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}]
-										},
-										"title": "Data"
-									}]
-								},
-								"title": "National data"
-							}]
-						},
-						"title": "What is the area of forest and other wooded land and how has it changed over time?"
-					}, {
-						"id": 30,
-						"Elements": {
-							"session": [{
-								"id": 31,
-								"Elements": {
-									"entry": {
-										"id": 32,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Term<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Naturally  regenerated forest<\/td><td rownumber=\"1\" columnnumber=\"1\">Forest  predominantly composed of trees established through natural regeneration<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Introduced  species<\/td><td rownumber=\"2\" columnnumber=\"1\">A  species subspecies or lower taxon occurring  outside  its natural  range past or present and dispersal potential ie outside the range it  occupies naturally or could occupy without direct or indirect introduction or  care by humans<\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Category<\/td><td rownumber=\"3\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"4\" columnnumber=\"1\">Naturally  regenerated forest of native species where there are no clearly visible  indications of human activities and the ecological processes are not  significantly disturbed<\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Other  naturally regenerated forest<\/td><td rownumber=\"5\" columnnumber=\"1\">Naturally  regenerated forest  where there are clearly  visible indications of human activities<\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">of  which of introduced species     subcategory<\/td><td rownumber=\"6\" columnnumber=\"1\">Other  naturally regenerated forest where the trees are predominantly of introduced  species<\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"7\" columnnumber=\"1\">Forest  predominantly composed of trees established through planting andor  deliberate seeding<\/td><\/tr><tr><td rownumber=\"8\" columnnumber=\"0\">of  which of of introduced species  subcategory<\/td><td rownumber=\"8\" columnnumber=\"1\">Planted  forest where the plantedseeded trees are predominantly of introduced  species<\/td><\/tr><tr><td rownumber=\"9\" columnnumber=\"0\">Mangroves<\/td><td rownumber=\"9\" columnnumber=\"1\">Area  of forest and other wooded land with mangrove vegetation<\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}
-								},
-								"title": "FRA 2015 Categories and definitions"
-							}, {
-								"id": 33,
-								"Elements": {
-									"session": [{
-										"id": 34,
-										"Elements": {
-											"entry": {
-												"id": 35,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\"><\/td><td rownumber=\"0\" columnnumber=\"1\">References  to sources of information<\/td><td rownumber=\"0\" columnnumber=\"2\">Variables<\/td><td rownumber=\"0\" columnnumber=\"3\">Years<\/td><td rownumber=\"0\" columnnumber=\"4\">Additional  comments<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><td rownumber=\"1\" columnnumber=\"3\"><\/td><td rownumber=\"1\" columnnumber=\"4\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">2<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">3<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}
-										},
-										"title": "Data  sources"
-									}, {
-										"id": 36,
-										"Elements": {
-											"entry": {
-												"id": 37,
-												"EntryItems": "",
-												"template": "\n                                                  <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">National  class<\/td><td rownumber=\"0\" columnnumber=\"1\">Definition<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\"><\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\"><\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><\/tr><\/tbody><\/table>  \n                                            ",
-												"type": "table"
-											}
-										},
-										"title": "Classification and definitions"
-									}, {
-										"id": 38,
-										"Elements": {
-											"entry": {
-												"id": 39,
-												"EntryItems": "",
-												"type": "textarea"
-											}
-										},
-										"title": "Original data"
-									}]
-								},
-								"title": "National data"
-							}, {
-								"id": 40,
-								"Elements": {
-									"session": [{
-										"id": 41,
-										"Elements": {
-											"entry": {
-												"id": 42,
-												"EntryItems": "",
-												"type": "textarea"
-											}
-										},
-										"title": "Adjustment"
-									}, {
-										"id": 43,
-										"Elements": {
-											"entry": {
-												"id": 44,
-												"EntryItems": "",
-												"type": "textarea"
-											}
-										},
-										"title": "Estimation andforecasting"
-									}, {
-										"id": 45,
-										"Elements": {
-											"entry": {
-												"id": 46,
-												"EntryItems": "",
-												"type": "textarea"
-											}
-										},
-										"title": "Reclassification into FRA 2015 categories"
-									}]
-								},
-								"title": "Analysis and processingof national data"
-							}, {
-								"id": 47,
-								"Elements": {
-									"entry": [{
-										"id": 48,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA  2015 Categories<\/td><td colspan=\"5\" rownumber=\"0\" columnnumber=\"1\">Forest area 000  hectares<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">2015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Other  naturally regenerated forest<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">of  which of introduced species<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><td rownumber=\"4\" columnnumber=\"3\"><\/td><td rownumber=\"4\" columnnumber=\"4\"><\/td><td rownumber=\"4\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"5\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"5\" columnnumber=\"1\"><\/td><td rownumber=\"5\" columnnumber=\"2\"><\/td><td rownumber=\"5\" columnnumber=\"3\"><\/td><td rownumber=\"5\" columnnumber=\"4\"><\/td><td rownumber=\"5\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"6\" columnnumber=\"0\">of  which of introduced species<\/td><td rownumber=\"6\" columnnumber=\"1\"><\/td><td rownumber=\"6\" columnnumber=\"2\"><\/td><td rownumber=\"6\" columnnumber=\"3\"><\/td><td rownumber=\"6\" columnnumber=\"4\"><\/td><td rownumber=\"6\" columnnumber=\"5\"><\/td><\/tr><tr><td rownumber=\"7\" columnnumber=\"0\">TOTAL<\/td><td rownumber=\"7\" columnnumber=\"1\"><\/td><td rownumber=\"7\" columnnumber=\"2\"><\/td><td rownumber=\"7\" columnnumber=\"3\"><\/td><td rownumber=\"7\" columnnumber=\"4\"><\/td><td rownumber=\"7\" columnnumber=\"5\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}, {
-										"id": 49,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td colspan=\"9\" rownumber=\"0\" columnnumber=\"0\">Primary forest converted  to 000 ha<\/td><\/tr><tr><td colspan=\"3\" rownumber=\"1\" columnnumber=\"0\">19902000<\/td><td colspan=\"3\" rownumber=\"1\" columnnumber=\"1\">20002010<\/td><td colspan=\"3\" rownumber=\"1\" columnnumber=\"2\">20102015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other natural regeneration<\/td><td rownumber=\"2\" columnnumber=\"1\">Planted<\/td><td rownumber=\"2\" columnnumber=\"2\">Other land<\/td><td rownumber=\"2\" columnnumber=\"3\">Other natural regeneration<\/td><td rownumber=\"2\" columnnumber=\"4\">Planted<\/td><td rownumber=\"2\" columnnumber=\"5\">Other land<\/td><td rownumber=\"2\" columnnumber=\"6\">Other natural regeneration<\/td><td rownumber=\"2\" columnnumber=\"7\">Planted<\/td><td rownumber=\"2\" columnnumber=\"8\">Other land<\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\"><\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><td rownumber=\"3\" columnnumber=\"3\"><\/td><td rownumber=\"3\" columnnumber=\"4\"><\/td><td rownumber=\"3\" columnnumber=\"5\"><\/td><td rownumber=\"3\" columnnumber=\"6\"><\/td><td rownumber=\"3\" columnnumber=\"7\"><\/td><td rownumber=\"3\" columnnumber=\"8\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}, {
-										"id": 50,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td colspan=\"2\" rownumber=\"0\" columnnumber=\"0\">FRA  2015 Categories<\/td><td colspan=\"5\" rownumber=\"0\" columnnumber=\"1\">Area 000 hectares<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">1990<\/td><td rownumber=\"1\" columnnumber=\"1\">2000<\/td><td rownumber=\"1\" columnnumber=\"2\">2005<\/td><td rownumber=\"1\" columnnumber=\"3\">2010<\/td><td rownumber=\"1\" columnnumber=\"4\">2015<\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Mangroves  Forest and OWL<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><td rownumber=\"2\" columnnumber=\"3\"><\/td><td rownumber=\"2\" columnnumber=\"4\"><\/td><td rownumber=\"2\" columnnumber=\"5\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}, {
-										"id": 51,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  naturally regenerated forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Mangroves<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}, {
-										"id": 52,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Tier for status<\/td><td rownumber=\"0\" columnnumber=\"2\">Tier for reported trend<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Primary  forestOther naturally regenerated forest Planted forest<\/td><td rownumber=\"1\" columnnumber=\"1\">Tier  3 Data sources Recent 10 years National Forest Inventory or remote  sensing with ground truthing or data provided by official agencies or  programme for repeated compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years        Tier  1 Other<\/td><td rownumber=\"1\" columnnumber=\"2\">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other<\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}]
-								},
-								"title": "Data"
-							}, {
-								"id": 53,
-								"Elements": {
-									"entry": [{
-										"id": 54,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Category<\/td><td rownumber=\"0\" columnnumber=\"1\">Comments  related to data definitions etc<\/td><td rownumber=\"0\" columnnumber=\"2\">Comments  on reported status and trends<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\">Primary  forest<\/td><td rownumber=\"1\" columnnumber=\"1\"><\/td><td rownumber=\"1\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"2\" columnnumber=\"0\">Other  naturally regenerating forest<\/td><td rownumber=\"2\" columnnumber=\"1\"><\/td><td rownumber=\"2\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"3\" columnnumber=\"0\">Planted  forest<\/td><td rownumber=\"3\" columnnumber=\"1\"><\/td><td rownumber=\"3\" columnnumber=\"2\"><\/td><\/tr><tr><td rownumber=\"4\" columnnumber=\"0\">Mangroves<\/td><td rownumber=\"4\" columnnumber=\"1\"><\/td><td rownumber=\"4\" columnnumber=\"2\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}, {
-										"id": 55,
-										"EntryItems": "",
-										"template": "\n                                          <table><tbody><tr><td rownumber=\"0\" columnnumber=\"0\">Other  general comments to the table<\/td><\/tr><tr><td rownumber=\"1\" columnnumber=\"0\"><\/td><\/tr><\/tbody><\/table>  \n                                    ",
-										"type": "table"
-									}]
-								},
-								"title": "Comments"
-							}]
-						},
-						"title": "What is the area of natural and planted forest and how has it changed over time?"
-					}]
-				},
-				"title": "FOREST AREA AND FOREST CHARACTERISTICS"
+				"columnNumber": 2,
+				"content": "b",
+				"entryId": 11,
+				"rowNumber": 2
 			}]
 		}
 	}

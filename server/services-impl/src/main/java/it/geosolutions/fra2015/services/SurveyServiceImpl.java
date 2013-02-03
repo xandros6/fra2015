@@ -10,6 +10,7 @@ import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.dao.NumberValueDAO;
 import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.dao.TextValueDAO;
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
@@ -25,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.logging.Level;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.apache.log4j.Logger;
@@ -94,7 +94,9 @@ public class SurveyServiceImpl implements SurveyService {
                 // TODO add unique constraint to TextValue
                 List<TextValue> textValues = textValueDAO.search(searchCriteria);
                 if (textValues.size() > 0) {
-                    return textValues.get(0);
+                    TextValue textValue = textValues.get(0);
+                    textValue.setContent( textValue.getValue() );
+                    return textValue;
                 }
                 return null;
 
@@ -200,7 +202,7 @@ public class SurveyServiceImpl implements SurveyService {
             if (!entry.getEntryItems().isEmpty()) {
                 for (EntryItem item : entry.getEntryItems()) {
                     String type = item.getType();
-                    ValueDAO valueDAO = map.get( type );
+                    ValueDAO valueDAO = map.get(type);
                     Value value = valueDAO.read(item.getId(), countryId);
                     if (value != null) {
                         values.add(value);
@@ -215,7 +217,7 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public Entry updateValues(Long entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
-        LOGGER.info("insert: " + row + "-" + col + "-" + value);
+
 
         Entry entry = entryDAO.find(entryId);
         if (entry != null) {
@@ -232,9 +234,9 @@ public class SurveyServiceImpl implements SurveyService {
                 item.setColumnNumber(col);
                 item.setRowNumber(row);
                 item.setEntry(entry);
-                
+
                 entry.addEntryItem(item);
-                
+
                 entryItemDAO.persist(item);
                 entryDAO.merge(entry);
             } else {
@@ -260,5 +262,33 @@ public class SurveyServiceImpl implements SurveyService {
             return entry;
         }
         throw new BadRequestServiceEx("Entry " + entryId + " not found.");
+    }
+
+    @Override
+    public List<CompactValue> getAllValues(String countryId) throws BadRequestServiceEx, NotFoundServiceEx {
+
+        List<CompactValue> values = new ArrayList<CompactValue>();
+        List<Entry> entries = entryDAO.findAll();
+        if (entries != null) {
+            for (Entry entry : entries) {
+                if (!entry.getEntryItems().isEmpty()) {
+                    for (EntryItem item : entry.getEntryItems()) {
+                        String type = item.getType();
+                        ValueDAO valueDAO = map.get(type);
+                        Value value = valueDAO.read(item.getId(), countryId);
+                        if (value != null) {
+                            CompactValue compact = new CompactValue(
+                                    item.getEntry().getId(), 
+                                    item.getRowNumber(), 
+                                    item.getColumnNumber(),
+                                    value.getContent());
+                            values.add(compact);
+                        }
+                    }
+                }
+            }
+        }
+        return values;
+
     }
 }
