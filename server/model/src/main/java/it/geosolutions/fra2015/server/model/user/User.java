@@ -84,7 +84,7 @@ public class User implements Serializable {
     @Column(nullable = true, updatable = true)
     private String countries;
     
-    @Column(nullable = false, updatable = true)
+    @Column(nullable = false, updatable = false)
     private String role;
 
     @Enumerated

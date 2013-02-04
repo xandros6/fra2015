@@ -299,8 +299,10 @@
                 url: './admin/create-users.html'
             });
             t.bind('load', function( el ){
-                
-                
+                      
+                /*
+                 *  open filter window
+                 */
                 el.find('#filterBtn').click(function(){
                     var win = el.find('#filterWindow');
                     var filter = {};
@@ -309,108 +311,230 @@
                     filter.country= win.find('countries');
                     filter.email= win.find('email');
                     filter.role= win.find('role');
+                // TODO
                 });
                 
-                
-                var addCountryHandler = function(){
-                    var value = el.find( "#countries" ).val();
-                    el.find( "#countries" ).val('');
-                    el.find( "#selectedCountries" )
-                    .append( createCountryLabel(value))
-                    .append( '&nbsp;&nbsp;');
-                      
-                    var countries = el.find('#ccountries').val();  
-                    if ( countries.length>0){
-                        countries += ', ' + value;
-                    } else {
-                        countries = value;
-                    }
-                    el.find('#ccountries').val( countries );
-                    
-                    
-                    var role = el.find('#roleComboBox').val();
-                    if ( role !== 'reviewer'){
-                        el.find( "#addCountryBtn" ).off('click');
-                        el.find( "#addCountryBtn" ).addClass('disabled');
-                    }
-                    
-                    return false;
-                };
-                    
-                    
-                function createCountryLabel( name ){
-                    var label = $('<span class="label label-info"></span>');
-                    var closeBtn = $('<button type="button" class="close" data-dismiss="alert">&times;</button></span>');
-                    label.append(name)
-                    .append('&nbsp;')
-                    .append(closeBtn);
-                    closeBtn.click(function(){
-                        var countries = el.find('#ccountries').val( ).split(', ');
-                        var text = '';
-                        $.each( countries, function(id, el){
-                            if ( el !== name ){
-                                if ( text.length > 0 ){
-                                    text += ', ';
-                                }
-                                text += el;  
-                            }
-                           
-                        });
-                        el.find('#ccountries').val( text );
-                        if ( countries.length == 1){ 
-                            el.find( "#addCountryBtn" ).on('click', addCountryHandler);
-                            el.find( "#addCountryBtn" ).removeClass('disabled');
-                        }
-                        
-                    });
-                    return label;
-                };
-                
-                el.find( "#countries" ).autocomplete({
-                    source: countries
+                /*
+                 * open create/edit user window
+                 */ 
+                el.find( "#createBtn" ).click(function(){
+                    var win = EditUserWindow.instance();
+                    win.reset();
+                    win.open();
                 });
-               
-                
-                el.find( "#addCountryBtn" ).click( addCountryHandler );
-
-                var addRow = function( index, user ){
-                    
-                    var link = $('<a>Edit</a>');
-                    link.addClass('btn');
-                    link.click( function(){
-                        // open a window with pre-filled fields
-                        var win = el.find('#createUserWindow');
-                        win.find('#cid').val( user.id );
-                        win.find('#cname').val( user.name );
-                        win.find('#roleComboBox').val( user.role );
-                        win.find('#cusername').val( user.username );
-                        win.find('#cemail').val( user.email );
-                        win.find( "#saveBtn" ).text('Update');
-                        win.find( "#saveBtn" ).removeClass('disabled');
-                        
-                        el.find( "#selectedCountries" ).empty();
-                        win.find( "#ccountries" ).val(user.countries);
-                        
-                        if ( user.countries && user.countries > 0 ){
-                            var array = user.countries.split(', ');
-                            win.find( "#countries" ).val('');
-                            $.each( array, function(id, country){
-                                el.find( "#selectedCountries" )
-                                .append( createCountryLabel(country))
-                                .append( '&nbsp;&nbsp;');
-                      
-                            });        
+          
+                /*
+                 * Error panel   
+                 *        
+                 */                
+                var ErrorPanel = {
+                    instance: function(){
+                        var panel = el.find('#errorPanel');
+                        return {
                             
-                            if ( user.role !== 'reviewer' ){
+                            display: function( msg ){
+                                panel.append( '<div class="alert alert-error">' + msg + '</div>' );
+                            }
+                            
+                        };
+                    }
+                };
+                
+             
+                var EditUserWindow = {
+                    
+                    instance: function(){
+                        /*
+                         * defines country label appearance
+                         */
+                        function createCountryLabel( name ){
+                            var label = $('<span class="label label-info"></span>');
+                            label.append(name);
+                            return label;
+                        };
+                        /*
+                         *  this handler add a country to the list of selected countries
+                         */
+                        var addCountryHandler = function(){
+                            var value = el.find("#selectedCountry").val();
+                            el.find("#selectedCountry").empty();
+                            el.find( "#countries" ).val('');  
+                            el.find( "#selectedCountries" )
+                            .append( createCountryLabel(value))
+                            .append( '&nbsp;&nbsp;');
+                      
+                            var countries = el.find('#ccountries').val();  
+                            if ( countries.length>0){
+                                countries += ', ' + value;
+                            } else {
+                                countries = value;
+                            }
+                            el.find('#ccountries').val( countries );
+                    
+                    
+                            var role = el.find('#roleComboBox').val();
+                            if ( role !== 'reviewer'){
                                 el.find( "#addCountryBtn" ).off('click');
                                 el.find( "#addCountryBtn" ).addClass('disabled');
                             }
-                        }
+                    
+                            return false;
+                        };
+                        var win = el.find('#createUserWindow');
+                        
+                        win.find( "#addCountryBtn" ).off('click').click( addCountryHandler );
+                        el.find('form :input').off('change').change(function() {
+                            if ( $("#createUserForm").valid() ){
+                                el.find( "#saveBtn" ).removeClass('disabled');
+                                el.find( "#saveBtn" ).off('click').on('click', function(){
+                            
+                                    el.find('#errorPanel').empty();
 
+                                    if ( $("#createUserForm").valid()  ){
+                                
+                                        var role = el.find('#roleComboBox').val();
+                                        var countries = el.find('#ccountries').val();  
+                                        if ( countries.split(', ').length > 1 && role != 'reviewer'){
+                                            return;
+                                        }
+                                
+                                        var obj = {};
+                                        obj.name = el.find('#cname').val();
+                                        obj.newPassword = el.find('#cpassword').val();
+                                        obj.role = el.find('#roleComboBox').val();
+                                        obj.username = el.find('#cusername').val();
+                                        obj.email = el.find('#cemail').val();
+                                        obj.countries = countries; 
+
+                                        var id = el.find('#cid').val();
+                                
+
+                                        if ( ! id ){
+                                            resource.create( obj )
+                                            .onSuccess(function(){
+                                                loadItems();
+                                            })
+                                            .onFailure(function( response ){
+                                                console.error( response );
+                                                var msg = 'Cannot save user. ' + response.statusText;
+                                                el.find('#errorPanel').empty();
+                                                el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                                            }).execute();
+                                        } else {
+                                    
+                                            if ( obj.role !== 'reviewer' && obj.role !== 'editor'){
+                                                delete obj.countries;
+                                            }
+                                    
+                                            resource.update( id, obj )
+                                            .onSuccess(function(){
+                                                loadItems();
+                                                el.find( "#saveBtn" ).text('Save');
+                                            })
+                                            .onFailure(function( response ){
+                                                console.error( response );
+                                                var msg = 'Cannot update user. ' + response.statusText;
+                                                el.find('#errorPanel').empty();
+                                                el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                                                el.find( "#saveBtn" ).text('Save');
+                                            }).execute();
+                                        }
+                                
+
+                                        // close window
+                                        el.find('#createUserWindow').modal('hide');
+                                    } else {
+                                        console.error('invalid form.');
+                                    }
+
+                                });
+                            } else {
+                                el.find( "#saveBtn" ).addClass('disabled');
+                                el.find( "#saveBtn" ).off('click');
                         
-                   
+                                el.find( "#addCountryBtn" ).off('click').on('click', addCountryHandler);
+                                el.find( "#addCountryBtn" ).removeClass('disabled');
+                            }
+                        });
                         
-                        win.modal('show');
+                        return {
+                            /*
+                             * clean the content in user window
+                             * 
+                             * @param user, object to fill the window, if null, user will be created
+                             * 
+                             */
+                            reset: function( user ){
+                                
+                                
+                                // fill in fields
+                                win.find('#cid').val( user? user.id : null);
+                                win.find('#cname').val( user? user.name : '');
+                                win.find('#roleComboBox').val( user? user.role : '' );
+                                win.find('#cpassword').val( '');
+                                win.find('#cusername').val( user? user.username : '');
+                                win.find('#cemail').val( user? user.email : '');
+                                
+                                el.find( "#selectedCountries" ).empty();
+                                win.find( "#ccountries" ).val( user? user.countries: '');
+                                win.find( "#countries" ).val('');
+               
+                                if (user){
+                                    
+                                    if ( user.countries && user.countries.length > 0 ){
+                                        var array = user.countries.split(', ');
+                                        win.find( "#countries" ).val('');
+                                        $.each( array, function(id, country){
+                                            el.find( "#selectedCountries" )
+                                            .append( createCountryLabel(country))
+                                            .append( '&nbsp;&nbsp;');
+                      
+                                        });        
+                            
+                                        if ( user.role !== 'reviewer' && user.role !== 'editor'){
+                                            el.find( "#addCountryBtn" ).off('click');
+                                            el.find( "#addCountryBtn" ).addClass('disabled');
+                                        }
+                                    }
+                                    
+                                    // user role cannot be modified
+                                    win.find('#roleComboBox').prop('disabled', 'disabled');
+                                } else {
+                                    
+                                    win.find('#roleComboBox').prop('disabled', false);
+                                }
+                                
+                                win.find( "#saveBtn" ).text(user ? 'Update' : 'Save');
+                                win.find( "#saveBtn" ).removeClass('disabled');
+                        
+  
+                        
+                            },
+                            /*
+                             * open this window
+                             */
+                            open: function(){
+                                win.modal('show');
+                            }
+                           
+                        };
+                    }
+                  
+                };
+                
+
+                // TODO create an object UserTable
+                /*
+                 *  add a row to the user table
+                 */
+                var addRow = function( index, user ){
+    
+                    var link = $('<a>Edit</a>');
+                    link.addClass('btn');
+                    link.click( function editBtnHandler(){
+                        var win = EditUserWindow.instance();
+                        win.reset(user);
+                        win.open();
                     });
                     
                     var row = $('<tr class="rowItem"></tr>');
@@ -423,6 +547,9 @@
                     .append( row );
                 };
 
+                /*
+                 * add items to table
+                 */
                 var loadItems = function(){
                     resource.find()
                     .onSuccess( function( result ){
@@ -435,118 +562,26 @@
 
                     })
                     .onFailure( function( response ){
-                        var msg = 'Cannot load users';
-                        // display error message
-                        el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                        ErrorPanel.instance().display( 'Cannot load users' );     
                     }).execute();
                 };
 
-
-
+                // load items
                 loadItems();
 
-                el.find( '#applyFilterBtn' ).click( function(){
-                    el.find('#filterWindow').modal('show');
-                });
 
-                el.find( "#createBtn" ).click(function(){
-                    
-                    var win = el.find('#createUserWindow');
-                    win.find('#cid').val( null );
-                    win.find('#cname').val( '' );
-                    win.find('#roleComboBox').val( '' );
-                    win.find('#cpassword').val( '');
-                    win.find('#cusername').val( '');
-                    win.find('#cemail').val( '' );
-                    win.find( "#saveBtn" ).text('Save');
-                    win.find( "#saveBtn" ).removeClass('disabled');
-                        
-                    el.find( "#selectedCountries" ).empty();
-                    win.find( "#ccountries" ).val('');
-                    
-                    win.modal('show');
-                });
-
+                /*
+                 * binds the textfield to autocomplete jquery plugin
+                 */
                 el.find( "#countries" ).autocomplete({
-                    source: countries
-                });
-                el.find('#item')
-                .click(function(){
-                    el.find('#createUserWindow').modal('show');
-                });
-                el.find('#editBtn')
-                .click(function(){
-                    el.find('#createUserWindow').modal('show');
-                });
-                el.find( "#saveBtn" ).addClass('disabled');
-                el.find('form :input').change(function() {
-                    if ( $("#createUserForm").valid() ){
-                        el.find( "#saveBtn" ).removeClass('disabled');
-                        el.find( "#saveBtn" ).off('click').on('click', function(){
-                            
-                            el.find('#errorPanel').empty();
-
-                            if ( $("#createUserForm").valid()  ){
-                                
-                                var role = el.find('#roleComboBox').val();
-                                var countries = el.find('#ccountries').val();  
-                                if ( countries.split(', ').length > 1 && role != 'reviewer'){
-                                    return;
-                                }
-                                
-                                var obj = {};
-                                obj.name = el.find('#cname').val();
-                                obj.newPassword = el.find('#cpassword').val();
-                                obj.role = el.find('#roleComboBox').val();
-                                obj.username = el.find('#cusername').val();
-                                obj.email = el.find('#cemail').val();
-                                obj.countries = countries; 
-
-                                var id = el.find('#cid').val();
-                                
-
-                                if ( ! id ){
-                                    resource.create( obj )
-                                    .onSuccess(function(){
-                                        loadItems();
-                                    })
-                                    .onFailure(function( response ){
-                                        console.error( response );
-                                        var msg = 'Cannot save user. ' + response.statusText;
-                                        el.find('#errorPanel').empty();
-                                        el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
-                                    }).execute();
-                                } else {
-                                    resource.update( id, obj )
-                                    .onSuccess(function(){
-                                        loadItems();
-                                        el.find( "#saveBtn" ).text('Save');
-                                    })
-                                    .onFailure(function( response ){
-                                        console.error( response );
-                                        var msg = 'Cannot update user. ' + response.statusText;
-                                        el.find('#errorPanel').empty();
-                                        el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
-                                        el.find( "#saveBtn" ).text('Save');
-                                    }).execute();
-                                }
-                                
-
-                                // close window
-                                el.find('#createUserWindow').modal('hide');
-                            } else {
-                                console.error('invalid form.');
-                            }
-
-                        });
-                    } else {
-                        el.find( "#saveBtn" ).addClass('disabled');
-                        el.find( "#saveBtn" ).off('click');
-                        
-                        el.find( "#addCountryBtn" ).on('click');
-                        el.find( "#addCountryBtn" ).removeClass('disabled');
+                    source: countries,
+                    select: function(event, ui) { 
+                        el.find("#selectedCountry").val(ui.item.value);
+                        return false;
                     }
                 });
+                
+                
             });
             return t;
         },
