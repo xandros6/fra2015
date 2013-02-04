@@ -903,7 +903,7 @@
                             cell.removeClass("editable"); 
                             cell.addClass("editing");
                             var text = cell.html();
-                            cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                            cell.html('<input style="width:80%"  class="celleditor" type="text" value="'+text+'"/>');
                             cell.find('.celleditor').blur( function(){
                                 if ( cell.hasClass('editing') ){
                                     cell.removeClass("editing");
@@ -975,7 +975,7 @@
                         cell.removeClass("editable");
                         cell.addClass("editing");
                         var text = cell.html();
-                        cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                        cell.html('<input style="width:80%" class="celleditor" type="text" value="'+text+'"/>');
                         cell.find('.celleditor').blur( function(){
                             if ( cell.hasClass('editing') ){
                                 cell.removeClass("editing");
