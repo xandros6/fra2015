@@ -877,8 +877,8 @@
                     // add button to remove row
                     // add extra column
                     var c = table.find('tr:first td').length;
-                    table.find('tr:first').append('<td></td>');
-                    table.find('tr:gt(0)').append('<td><a href="#" class="btn delete-btn">Delete</a></td>');
+                    table.find('tr:first').append('<td width="80px"></td>');
+                    table.find('tr:gt(0)').append('<td width="80px"><a href="#" class="btn delete-btn">Delete</a></td>');
                 }
                 
                 if ( !table.hasClass("editable") ){
@@ -964,31 +964,33 @@
                
                 return false;
             });
-
-            this.el.find('.entry-item')
-            .css('backgroundColor', '#CEF6D8')
-            .attr('entry-id', this.options.id)
-            .click(function(){
-                var cell = $(this);
-                if ( cell.hasClass('editable') ){
-                    cell.removeClass("editable");
-                    cell.addClass("editing");
-                    var text = cell.html();
-                    cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
-                    cell.find('.celleditor').blur( function(){
-                        if ( cell.hasClass('editing') ){
-                            cell.removeClass("editing");
-                            cell.addClass("editable");
-                            var text = cell.find(".celleditor").attr('value');
-                            cell.html( text );
-                        }
-                        return false;
-                    });
-                    cell.find('.celleditor').focus();
-                }
-                return false;
-            });
             
+            if ( App.user.check('canEdit') ){
+                this.el.find('.entry-item')
+                .css('backgroundColor', '#CEF6D8')
+                .attr('entry-id', this.options.id)
+                .click(function(){
+                    var cell = $(this);
+                    if ( cell.hasClass('editable') ){
+                        cell.removeClass("editable");
+                        cell.addClass("editing");
+                        var text = cell.html();
+                        cell.html('<input class="celleditor" type="text" value="'+text+'"/>');
+                        cell.find('.celleditor').blur( function(){
+                            if ( cell.hasClass('editing') ){
+                                cell.removeClass("editing");
+                                cell.addClass("editable");
+                                var text = cell.find(".celleditor").attr('value');
+                                cell.html( text );
+                            }
+                            return false;
+                        });
+                        cell.find('.celleditor').focus();
+                    }
+                    return false;
+                });
+                         
+            }
             var self = this;
             $.each( this.el.find('.entry-item'), function(index, entry){
                 var cell = $(this);
@@ -1001,7 +1003,8 @@
                 } else {
                     cell.append('&nbsp;');
                 }
-            });
+            });  
+  
 
         }
     });
