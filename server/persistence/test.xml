@@ -384,7 +384,38 @@
                                     <type>table</type>
                                     <title>Tier criteria</title>
                                     <template>
-                                                 <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td><td rownumber="0" columnnumber="2">Tier for reported trend</td></tr><tr><td rownumber="1" columnnumber="0">Forest    Other  wooded land    Afforestation    Reforestation  Natural expansion of forest     Deforestation</td><td rownumber="1" columnnumber="1">Tier  3 Data sources Either recent  10 years ago National Forest  Inventory or remote sensing with ground truthing or programme for repeated  compatible NFIs        Tier  2 Data sources Full cover mappingremote sensing or old NFI 10 years  ago        Tier  1 Other</td><td rownumber="1" columnnumber="2">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Tier for reported trend
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Forest Other wooded land <br/>Afforestation <br/>Reforestation<br/> Natural expansion of forest<br/> Deforestation
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 Data sources Either recent 10 years ago National Forest Inventory or remote sensing with ground truthing or programme for repeated compatible NFIs<br/>
+                                Tier 2 Data sources Full cover mappingremote sensing or old NFI 10 years ago <br/>
+                                Tier 1 Other
+			</td>
+			<td rownumber="1" columnnumber="2">
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status<br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status<br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
@@ -3639,7 +3670,38 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td><td rownumber="0" columnnumber="2">Tier for reported trend</td></tr><tr><td rownumber="1" columnnumber="0">Invasive  species</td><td rownumber="1" columnnumber="1">Tier  3 Systematic assessment in forest inventory or other survey e g by  conservation department within the last 5 years        Tier  2 Systematic assessment in forest inventory or other survey e g by  conservation department conducted more than 5 years ago        Tier  1 Other</td><td rownumber="1" columnnumber="2">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Tier for reported trend
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Invasive species
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 Systematic assessment in forest inventory or other survey e g by conservation department within the last 5 years<br/> 
+                                Tier 2 Systematic assessment in forest inventory or other survey e g by conservation department conducted more than 5 years ago <br/>
+                                Tier 1 Other
+			</td>
+			<td rownumber="1" columnnumber="2">
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status<br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status<br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+ ]]> 
                                     </template>
                                 </entry>					
                             </Elements>
