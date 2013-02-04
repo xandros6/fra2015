@@ -1051,21 +1051,19 @@
         },
         createTitle: function( title, depth ){
             var html;
-            switch (depth){
+            var num = this.options.parent + '.' +(this.options.number+1) + ' ';
+            switch (this.options.depth){
                 case 1:
-                    html = $('<div class="page-header"><h1>'+ title +'</h1></div>');
+                    html = $('<h2>'+ num + title +'</h2>');
                     break;
                 case 2:
-                    html = $('<h2>'+ title +'</h2>');
+                    html = $('<h3>'+ num + title + '</h3>');
                     break;
                 case 3:
-                    html = $('<h3>'+ title + '</h3>');
-                    break;
-                case 4:
-                    html = $('<h4>'+title+'</h4>');
+                    html = $('<h4>'+ num + title+'</h4>');
                     break;
                 default:
-                    html = $('<h4>'+title+'</h4>');
+                    html = $('<h4>'+ num + title+'</h4>');
             }
             return html;
         },
@@ -1094,8 +1092,8 @@
 
         createTitle: function( title ){
             var html = null;
-            if ( this.number ){
-                html = $('<div class="page-header"><h1>'+ this.number +'.'+ this.options.title + '</h1></div>');
+            if ( this.options.number ){
+                html = $('<div class="page-header"><h1>'+ this.options.number+'.'+ this.options.title + '</h1></div>');
             } else {
                 html = $('<div class="page-header"><h1>'+ this.options.title + '</h1></div>');
             }
@@ -1148,6 +1146,9 @@
             // text.append( (qnum+1) + '. '  );
             // qnum++;
             
+            if ( question.options.number ){
+                text.append(question.options.number +'. ');
+            }
             text.append(question.options.title);
             a.append( text );
     
@@ -1270,6 +1271,9 @@
             return this.survey===undefined || this.survey===null;
         },
         
+        /*
+         * stores locally an answer to the survey
+         */
         set: function(entryId, row, col, value){     
             this.values[ entryId+',' + row + ',' + col ] = {
                 entryId: entryId,
@@ -1279,6 +1283,10 @@
             };
         },
 
+        /*
+         * sends stored answers to remote db
+         *
+         */
         save: function(){
             var req = '<Updates>';
             for (var key in this.values){
@@ -1315,7 +1323,9 @@
             
         },
        
-        
+        /*
+         * load a survey from remote db
+         */
         load: function(){
             if ( this.isEmpty() ){
                 var model = this;
@@ -1358,6 +1368,9 @@
         createSurvey: function(){
             var context = this.context;
             var builder = this;
+            var questionNumber = 0;
+            var sectionDepth = 0;
+            var parent = '';
             return builder.createView( this.survey, {
                 'survey': function( obj, handlers){
                     var survey = new SurveyView;
@@ -1383,25 +1396,38 @@
                     });
                 },
                 'question': function(obj, handlers){
+                    
                     var elements = [].concat( obj.Elements.question );
+                    
                     return $.map( elements, function( question ){
+                        sectionDepth = 1;
+                        parent = questionNumber+1;
                         var items = builder.createView( question, handlers );
+                        sectionDepth = 1;
+                        
                         var view = new Question({
                             type: 'question',
                             title: question.title,
                             description: question.description,
                             helpLink: question.helpLink,
                             tooltip: question.tooltip,
-                            noCount: question.noCount,
+                            number: question.noCount ? null: ++questionNumber,
                             items: items
                         });
                         return view;
                     });
                 },
                 'section': function(obj, handlers){
+                    
                     var elements = [].concat( obj.Elements.session );
-                    return $.map( elements , function( session){
+                    
+                    return $.map( elements , function( session, index){
+                        var sectionParent = parent;
+                        sectionDepth += 1;
+                        parent = sectionParent + '.' + (index+1);
                         var items = builder.createView( session, handlers );
+                        parent = sectionParent;
+                        sectionDepth -= 1;
                         var view = new Section({
                             type:'section',
                             title: session.title,
@@ -1409,7 +1435,10 @@
                             helpLink: session.helpLink,
                             tooltip: session.tooltip,
                             noCount: session.noCount,
-                            items: items
+                            items: items,
+                            depth: sectionDepth,
+                            number: index,
+                            parent: sectionParent
                         });
                         return view;
                     });   
