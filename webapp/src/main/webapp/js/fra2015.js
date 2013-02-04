@@ -333,6 +333,7 @@
                         return {
                             
                             display: function( msg ){
+                                panel.empty();
                                 panel.append( '<div class="alert alert-error">' + msg + '</div>' );
                             }
                             
@@ -373,7 +374,7 @@
                     
                     
                             var role = el.find('#roleComboBox').val();
-                            if ( role !== 'reviewer'){
+                            if ( role !== 'reviewer' && role !== 'editor'){
                                 el.find( "#addCountryBtn" ).off('click');
                                 el.find( "#addCountryBtn" ).addClass('disabled');
                             }
@@ -387,14 +388,14 @@
                             if ( $("#createUserForm").valid() ){
                                 el.find( "#saveBtn" ).removeClass('disabled');
                                 el.find( "#saveBtn" ).off('click').on('click', function(){
-                            
-                                    el.find('#errorPanel').empty();
-
+ 
                                     if ( $("#createUserForm").valid()  ){
                                 
                                         var role = el.find('#roleComboBox').val();
                                         var countries = el.find('#ccountries').val();  
-                                        if ( countries.split(', ').length > 1 && role != 'reviewer'){
+                                        if ( countries.split(', ').length > 1 && role != 'reviewer' && role !='editor'){
+                                            ErrorPanel.instance()
+                                                .display( 'Users with role ' + role + ' cannot have more than one country' );
                                             return;
                                         }
                                 
@@ -409,22 +410,22 @@
                                         var id = el.find('#cid').val();
                                 
 
-                                        if ( ! id ){
+                                        if ( ! id ){ // create
                                             resource.create( obj )
                                             .onSuccess(function(){
                                                 loadItems();
                                             })
                                             .onFailure(function( response ){
                                                 console.error( response );
-                                                var msg = 'Cannot save user. ' + response.statusText;
-                                                el.find('#errorPanel').empty();
-                                                el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
+                                                ErrorPanel.instance().display( 'Cannot save user. Username ' + obj.username + ' already in use.' );   
                                             }).execute();
-                                        } else {
+                                        } else { // update
                                     
                                             if ( obj.role !== 'reviewer' && obj.role !== 'editor'){
                                                 delete obj.countries;
                                             }
+                                            
+                                            // console.log( obj );
                                     
                                             resource.update( id, obj )
                                             .onSuccess(function(){
@@ -433,10 +434,7 @@
                                             })
                                             .onFailure(function( response ){
                                                 console.error( response );
-                                                var msg = 'Cannot update user. ' + response.statusText;
-                                                el.find('#errorPanel').empty();
-                                                el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
-                                                el.find( "#saveBtn" ).text('Save');
+                                                ErrorPanel.instance().display( 'Cannot update user. ' + response.statusText ); 
                                             }).execute();
                                         }
                                 
@@ -483,7 +481,6 @@
                                     
                                     if ( user.countries && user.countries.length > 0 ){
                                         var array = user.countries.split(', ');
-                                        win.find( "#countries" ).val('');
                                         $.each( array, function(id, country){
                                             el.find( "#selectedCountries" )
                                             .append( createCountryLabel(country))
@@ -577,7 +574,7 @@
                     source: countries,
                     select: function(event, ui) { 
                         el.find("#selectedCountry").val(ui.item.value);
-                        return false;
+                        // return false;
                     }
                 });
                 

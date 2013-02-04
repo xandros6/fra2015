@@ -86,6 +86,10 @@ public class UserServiceImpl implements UserService {
             // TODO encode password
             user.setPassword( password );
         }
+        if ( user.getCountries() == null || user.getCountries().isEmpty()){
+            user.setCountries(orig.getCountries());
+        }
+        
         
         userDAO.merge(user);
 
