@@ -359,12 +359,22 @@
                         var addCountryHandler = function(){
                             var value = el.find("#selectedCountry").val();
                             el.find("#selectedCountry").empty();
-                            el.find( "#countries" ).val('');  
+                            el.find( "#countries" ).empty();  
+                            
+                            // check if this country is already selected
+                            var countries = el.find('#ccountries').val();
+                            
+                            if ( countries.indexOf( value ) !== -1 ){
+                                // country already in list
+                                // ignore
+                                return false;
+                            }
+                            
                             el.find( "#selectedCountries" )
                             .append( createCountryLabel(value))
                             .append( '&nbsp;&nbsp;');
                       
-                            var countries = el.find('#ccountries').val();  
+                              
                             if ( countries.length>0){
                                 countries += ', ' + value;
                             } else {
@@ -572,8 +582,13 @@
                  */
                 el.find( "#countries" ).autocomplete({
                     source: countries,
-                    select: function(event, ui) { 
+                    select: function(event, ui) {
+                        var field = $(this);
                         el.find("#selectedCountry").val(ui.item.value);
+                        setTimeout(
+                        function(){
+                            field.val('');
+                         },1000); // 1 sec
                         // return false;
                     }
                 });
