@@ -297,7 +297,7 @@
                                                             <td class="entry-item editable text" rownumber="2" columnnumber="8"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2" class="entry-item editable text" rownumber="3" columnnumber="0">Reforestation</td>
+                                                            <td colspan="2"  rownumber="3" columnnumber="0">Reforestation</td>
                                                             <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
                                                             <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
                                                             <td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -444,7 +444,7 @@
                                                  <![CDATA[ 
                                                 <table class="editable"><tbody>
                                                     <tr>
-                                                        <td class="entry-item editable text" rownumber="0" columnnumber="0">Other  general comments to the table</td>
+                                                        <td rownumber="0" columnnumber="0">Other  general comments to the table</td>
                                                     </tr>
                                                     <tr>
                                                        <td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
@@ -788,7 +788,8 @@
                                             <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
                                             <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
                                         </tr><tr>
-                                            <td rownumber="3" columnnumber="0">Planted  forest</td><td rownumber="3" columnnumber="1"></td>
+                                            <td rownumber="3" columnnumber="0">Planted  forest</td>
+                                            <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
                                             <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
                                         </tr><tr>
                                             <td rownumber="4" columnnumber="0">Mangroves</td>

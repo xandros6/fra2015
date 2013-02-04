@@ -943,6 +943,7 @@
             });
 
             this.el.find('.entry-item')
+            .css('backgroundColor', '#CEF6D8')
             .attr('entry-id', this.options.id)
             .click(function(){
                 var cell = $(this);
