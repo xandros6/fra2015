@@ -51,7 +51,7 @@ import org.hibernate.annotations.Index;
  */
 @Entity(name = "User")
 @Table(name = "fra_user", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"name"})})
+    @UniqueConstraint(columnNames = {"username"})})
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "gs_user")
 @XmlRootElement(name = "User")
 public class User implements Serializable {
@@ -66,7 +66,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = false, updatable = false, length = 20)
+    @Column(nullable = false, updatable = true, length = 20)
     @Index(name = "idx_user_name")
     private String name;
 
@@ -84,7 +84,7 @@ public class User implements Serializable {
     @Column(nullable = true, updatable = true)
     private String countries;
     
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = true)
     private String role;
 
     @Enumerated

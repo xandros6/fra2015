@@ -104,8 +104,8 @@
         render:function( $super ){
             $super();
             this.el.find('.logout').bind('click', function(){
-                App.notify('logout');
-            });
+                // App.notify('logout');
+                });
         }
 
     });
@@ -390,19 +390,25 @@
                         
                         el.find( "#selectedCountries" ).empty();
                         win.find( "#ccountries" ).val(user.countries);
-                        var array = user.countries.split(', ');
-                        win.find( "#countries" ).val('');
-                        $.each( array, function(id, country){
-                            el.find( "#selectedCountries" )
-                            .append( createCountryLabel(country))
-                            .append( '&nbsp;&nbsp;');
-                      
-                        });
                         
-                        if ( user.role !== 'reviewer' && array.length>=1){
-                            el.find( "#addCountryBtn" ).off('click');
-                            el.find( "#addCountryBtn" ).addClass('disabled');
+                        if ( user.countries && user.countries > 0 ){
+                            var array = user.countries.split(', ');
+                            win.find( "#countries" ).val('');
+                            $.each( array, function(id, country){
+                                el.find( "#selectedCountries" )
+                                .append( createCountryLabel(country))
+                                .append( '&nbsp;&nbsp;');
+                      
+                            });        
+                            
+                            if ( user.role !== 'reviewer' ){
+                                el.find( "#addCountryBtn" ).off('click');
+                                el.find( "#addCountryBtn" ).addClass('disabled');
+                            }
                         }
+
+                        
+                   
                         
                         win.modal('show');
                     });
@@ -444,7 +450,21 @@
                 });
 
                 el.find( "#createBtn" ).click(function(){
-                    el.find('#createUserWindow').modal('show');
+                    
+                    var win = el.find('#createUserWindow');
+                    win.find('#cid').val( null );
+                    win.find('#cname').val( '' );
+                    win.find('#roleComboBox').val( '' );
+                    win.find('#cpassword').val( '');
+                    win.find('#cusername').val( '');
+                    win.find('#cemail').val( '' );
+                    win.find( "#saveBtn" ).text('Save');
+                    win.find( "#saveBtn" ).removeClass('disabled');
+                        
+                    el.find( "#selectedCountries" ).empty();
+                    win.find( "#ccountries" ).val('');
+                    
+                    win.modal('show');
                 });
 
                 el.find( "#countries" ).autocomplete({
@@ -462,7 +482,9 @@
                 el.find('form :input').change(function() {
                     if ( $("#createUserForm").valid() ){
                         el.find( "#saveBtn" ).removeClass('disabled');
-                        el.find( "#saveBtn" ).on('click', function(){
+                        el.find( "#saveBtn" ).off('click').on('click', function(){
+                            
+                            el.find('#errorPanel').empty();
 
                             if ( $("#createUserForm").valid()  ){
                                 
@@ -490,7 +512,8 @@
                                     })
                                     .onFailure(function( response ){
                                         console.error( response );
-                                        var msg = 'cannot save user';
+                                        var msg = 'Cannot save user. ' + response.statusText;
+                                        el.find('#errorPanel').empty();
                                         el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
                                     }).execute();
                                 } else {
@@ -501,7 +524,8 @@
                                     })
                                     .onFailure(function( response ){
                                         console.error( response );
-                                        var msg = 'cannot update user';
+                                        var msg = 'Cannot update user. ' + response.statusText;
+                                        el.find('#errorPanel').empty();
                                         el.find('#errorPanel').append( '<div class="alert alert-error">' + msg + '</div>' );
                                         el.find( "#saveBtn" ).text('Save');
                                     }).execute();
@@ -1443,7 +1467,6 @@
                             } else {
                                 model.set( entryId, 0, 0, '');
                             }
-                            console.log( entryId );
                         });
                         
                         // save model

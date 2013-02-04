@@ -115,7 +115,7 @@
                                 cursor.failureHandler.call(this, 'cannot parse response: ' + e);
                             }
                         },
-                        failure: function( data ){
+                        error: function( data ){
                             cursor.failureHandler.call(this, data);
                         }
                     });
@@ -141,7 +141,7 @@
                         success: function( data ){
                             cursor.successHandler.call(this, data);
                         },
-                        failure: function( data ){
+                        error: function( data ){
                             cursor.failureHandler.call(this, data);
                         }
                     });
@@ -173,7 +173,7 @@
                                 cursor.failureHandler.call(this, 'cannot parse response: ' + e);
                             }
                         },
-                        failure: function( data ){
+                        error: function( data ){
                             cursor.failureHandler.call(this, data);
                         }
                     });
