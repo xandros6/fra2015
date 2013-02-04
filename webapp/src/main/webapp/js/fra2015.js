@@ -405,7 +405,7 @@
                                         var countries = el.find('#ccountries').val();  
                                         if ( countries.split(', ').length > 1 && role != 'reviewer' && role !='editor'){
                                             ErrorPanel.instance()
-                                                .display( 'Users with role ' + role + ' cannot have more than one country' );
+                                            .display( 'Users with role ' + role + ' cannot have more than one country' );
                                             return;
                                         }
                                 
@@ -586,10 +586,10 @@
                         var field = $(this);
                         el.find("#selectedCountry").val(ui.item.value);
                         setTimeout(
-                        function(){
-                            field.val('');
-                         },1000); // 1 sec
-                        // return false;
+                            function(){
+                                field.val('');
+                            },1000); // 1 sec
+                    // return false;
                     }
                 });
                 
@@ -874,6 +874,11 @@
                     addBtn.attr('href', '#');
                     addBtn.attr('class', 'btn btn-mini');
                     this.el.find('.control').append( addBtn );
+                    // add button to remove row
+                    // add extra column
+                    var c = table.find('tr:first td').length;
+                    table.find('tr:first').append('<td></td>');
+                    table.find('tr:gt(0)').append('<td><a href="#" class="btn delete-btn">Delete</a></td>');
                 }
                 
                 if ( !table.hasClass("editable") ){
@@ -889,8 +894,8 @@
                         cell.attr('rowNumber', parseInt(cell.attr('rowNumber'))+1);
                     });
                     
-                    row.find('td')
-                    .addClass('editable entry-item')
+                    row.find('entry-item')
+                    // .addClass('editable entry-item')
                     .attr('entry-id', this.options.id)
                     .click(function(){
                         var cell = $(this); 
@@ -916,6 +921,15 @@
                     .empty().append('&nbsp;');
                     row.appendTo(table); 
 
+                    row.find('.delete-btn').click(function(e){
+                        var result = window.confirm('Are you sure you want to delete these data?');
+                        if ( result ){
+                            alert('Delete! Mock up method.');  
+                        }
+               
+                        return false;
+                    });
+
                     return row;
                 };
                 
@@ -939,6 +953,15 @@
             }); */
             this.el.find('#addBtn').click(function(evt){
                 table.addEmptyRow();
+                return false;
+            });
+            
+            this.el.find('.delete-btn').click(function(e){
+                var result = window.confirm('Are you sure you want to delete these data?');
+                if ( result ){
+                    alert('Delete! Mock up method.');  
+                }
+               
                 return false;
             });
 
