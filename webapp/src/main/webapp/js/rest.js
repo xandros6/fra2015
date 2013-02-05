@@ -103,6 +103,7 @@
                     $super();
                     $.ajax({
                         url: uri.toString(),
+                        cache:false,
                         type:'POST',
                         contentType:'text/xml',
                         dataType:'json',
@@ -137,6 +138,7 @@
                     $super();
                     $.ajax({
                         url: uri.toString(),
+                        cache:false,
                         dataType:'json',
                         success: function( data ){
                             cursor.successHandler.call(this, data);
@@ -162,6 +164,7 @@
                     $.ajax({
                         url: uri.toString(),
                         type:'PUT',
+                        cache:false,
                         contentType:'text/xml',
                         dataType:'json',
                         data: data,
