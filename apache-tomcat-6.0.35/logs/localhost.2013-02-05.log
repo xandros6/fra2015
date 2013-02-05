@@ -1,0 +1,8 @@
+Feb 5, 2013 6:52:52 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Feb 5, 2013 6:52:52 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Feb 5, 2013 6:53:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Set web app root system property: 'webapp.root' = [/Users/marco/Work/GeoSolutions/fra2015/apache-tomcat-6.0.35/webapps/fra2015/]
+Feb 5, 2013 6:53:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext

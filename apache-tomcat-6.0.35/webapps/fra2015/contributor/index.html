@@ -1,0 +1,32 @@
+<!-- header -->
+<div class="container">
+    <img src="./img/frabanner.png">
+</div> <!-- end header -->
+
+<!-- tabbed header -->
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li class="active"><a href="#" class="tab" data-i18n="toolbar_survey">Survey</a></li>
+                <li><a href="#" class="tab" data-i18n="toolbar_check">Check and submit</a></li>
+                <li><a href="#" class="tab" data-i18n="toolbar_summary">Summary</a></li>
+                <li><a href="#" class="tab" data-i18n="toolbar_export">Export</a></li>
+            </ul>
+
+            <div class="navbar-form pull-right">
+                
+                <button type="submit" class="logout btn">
+                    <i class="icon-off"></i>&nbsp; <span id="userField"></span> </button>
+                <select id="languageSelector" class="language input-small">
+                    <option value="en-US">English</option>
+                    <option value="fr-FR">French</option>
+                    <option value="es-ES">Spanish</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- active tab content -->
+<div id="tabContent"></div>

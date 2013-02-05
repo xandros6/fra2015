@@ -1,0 +1,1752 @@
+{
+    "version":"0.2",
+    "type":"survey",
+    "language":"es-ES",
+    "items":[
+    {
+        "type":"section",
+        "title":"(ES) Report preparation and contact persons",
+        "items":[
+        {
+            "type":"question",
+            "nocount":true,
+            "title":"(ES) Report preparation and contact persons",
+            "description":"(ES) Introduction",
+            "items":[
+            {
+                "type":"table",
+                "title":"(ES) Contact persons",
+                "description":"(ES) The present report was prepared by the following person(s)",
+                "columns":[
+                "(ES) First name", "(ES) Last name", "(ES) Institution", "(ES) Email"
+                ]
+            },
+            {
+                "title":"(ES) Introductory text",
+                "description":"(ES) Place an introductory text on the content of this report",
+                "type":"textarea",
+                "feedbacks":[
+                {
+                    "reviewer":"reviewer 1",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                }
+                ]
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "type":"section",
+        "title":"Forest area and characteristics",
+        "items":[
+        {
+            "type": "question",
+            "title":"Forest area and characteristics",
+            "description":"What is the area of forest and other wooded land and how has it changed over time?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title": "Legend",
+                    "header":[ "Category", "Definition"],
+                    "data": [
+                    [ "Forest", "Land spanning more than 0.5 hecatrs with trees higher than 5 meters anda a canopy cover of more than 10%, or trees able to reach threshold in situ. It does not include land tha is predominantly under agricultural or urban land use." ],
+                    [ "Other wooded land", "Land not classified as \"Forest\" etc etc etc"],
+                    [ "Other land", "All land is not classified as \"Forest\" or \"Other wooded land\"."]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },{
+                    "title":"Original data",
+                    "type":"textarea"
+                }
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+
+                {
+                    "title":"Adjustiment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea",
+                    "feedbacks":[
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    }
+                    ]
+                },
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea",
+                    "feedbacks":[
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    },
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    }
+                    ]
+                }
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+
+                {
+                  "type":"table",
+                  "title":"Table 1a",
+                  "description":"Area (1000 hectares)",
+                  "columns": [ "1990", "2000", "2005", "2010", "2015" ],
+                  "rows":[
+                      "Forest", "Other wooded land", "Other land", "of which with tree cover", "Inland body water"
+                  ],
+                  "unit":"1000 ha",
+                  "id":"1a",
+                  "rowIds":[ "1.1", "1.2", "1.3", "1.3.1", "1.4", "1.5"]
+                },
+
+                {
+                  "type":"table",
+                  "title":"Table 1b",
+                  "description":"Annual forest establishment/loss",
+                  "columns": [ "1990", "2000", "2005", "2010", "2015" ],
+                  "rows":[
+                      "Forest expansion", "... of which afforestation", "... of which natural expansion of forest", 
+                      "Deforestation", "... of which human induced",
+                      "Reforestation", "... of which artificial"
+                  ],
+                  "unit":"1000 ha",
+                  "id":"1b",
+                  "rowIds":[ "1.6", "1.6.1", "1.6.2", "1.7", "1.7.1", "1.8", "1.8.1" ]
+                },
+
+                {
+                  "type":"table",
+                  "title":"Table 1c",
+                  "description":"... of which of introduced species)",
+                  "columns": [ "1990", "2000", "2005", "2010", "2015" ],
+                  "rows":[
+                      "Forest expansion", "... of which afforestation", "... of which natural expansion of forest", 
+                      "Deforestation", "... of which human induced",
+                      "Reforestation", "... of which artificial"
+                  ],
+                  "unit":"1000 ha",
+                  "id":"1c",
+                  "rowIds":[ "1.6", "1.6.1", "1.6.2", "1.7", "1.7.1", "1.8", "1.8.1" ]
+                },
+                {
+                  "type":"table",
+                  "title":"Tiers",
+                  "columns":[ "Tier for status", "Tier for reported trend"],
+                  "rows":[
+                      "Forest", "Other wooded land", "Forest expansion", "Deforestation", "Reforestation"
+                  ]
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Category", "Tier for status", "Tier for reported trend"],
+                    "data":[
+                        [
+                            "Forest<br/>Other wooded land<br/>Forest expansion<br/>Deforestation<br/>Reforestation",
+                            "",
+                            ""
+                        ]
+                    ]
+                }
+
+
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                  {
+                    "type":"table",
+                    "title":"Comments on reported data",
+                    "columns":[
+                    "Comments related to data, definitions, etc.", "Comments on reported status and trends"
+                    ],
+                    "rows":[
+                    "Forest", "Other wooded land", "Other land", 
+                    "Other land with tree cover", "Inland water bodies", 
+                    "Forest expansion", "Reforestation", 
+                    "Deforestation"
+                    ]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other general comments to the table"
+                },
+                {
+                    "type":"table",
+                    "title":"Expected year for completion of ongoing/planned national forest inventory and/or RS survey / mapping or other effort to assess forest area",
+                    "columns":[
+                    "Year"
+                    ],
+                    "rows":[
+                    "National forest inventory", "Remote sensing survey / mapping", "Other efforts"
+                    ]
+                }                  
+                ]
+            }
+            ]
+        },
+        {
+            "type":"question",
+            "title":"Forest area and characteristics",
+            "description":"What is the area of natural and planted forest and how has it changed over time?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Legend 1",
+                    "header":[ "terms", "definition"],
+                    "data":[
+                    [ "Naturally regenerated forest", "Forest predominantly composed of trees established through natural regeneration."],
+                    [ "Introducied species", "A species, subspecies or lower taxon, occurring outside its natural range (past or present) and dispersal potential (i.e. outside the range it occupies naturally or could occupy without direct or indirect introduction or care by humans)."]
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Legend 2",
+                    "header":[ "category", "definition"],
+                    "data":[
+                    [ "Primary forest", "Naturally regenerated forest of native species, where there are no clearly vinamfsible indications of human activities and the ecological processes are not significantly disturbed."],
+                    [ "Other naturally regenerated forest", "Naturally regenerated forest where there are clearly visible indications of human activities."],
+                    [ "…of which of introduced species (sub-category)", "Other naturally regenerated forest where the trees are predominantly of introduced species."],
+                    ["Planted forest", "Forest predominantly composed of trees established through planting and/or deliberate seeding."],
+                    ["…of which of introduced species (sub-category)", "Planted forest, where the planted/seeded trees are predominantly of introduced species."],
+                    ["Mangroves", "Area of forest and other wooded land with mangrove vegetation."]
+                    ]                          
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },{
+                    "title":"Original data",
+                    "type":"textarea"
+                }
+
+                ]
+            },        
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+
+                {
+                    "title":"Adjustiment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea",
+                    "feedbacks":[
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    }
+                    ]
+                },
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea",
+                    "feedbacks":[
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    },
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    }
+                    ]
+                }
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 2a",
+                    "description":"Forest area (000 hectares)",
+                    "columns":["1990", "2000", "2005", "2010", "2015"],
+                    "rows":[ "Primary forest", "Other naturally regenerated forest", "…of which of introduced species (sub-category)", "Planted forest", "…of which of introduced species (sub-category)", "TOTAL"]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 2b - 1990-2000",
+                    "description":"Primary forest converted to (000 ha)",
+                    "columns":["Other natural regeneration", "Planted", "Other land"]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 2b - 2000-2010",
+                    "description":"Primary forest converted to (000 ha)",
+                    "columns":["Other natural regeneration", "Planted", "Other land"]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 2b - 2000-2015",
+                    "description":"Primary forest converted to (000 ha)",
+                    "columns":["Other natural regeneration", "Planted", "Other land"]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 2c",
+                    "description":"Area (000 hectares)",
+                    "columns":["1990", "2000", "2005", "2010", "2015"],
+                    "rows":[ "Mangroves",  "…of which planted"]
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns":["Tier for status", "Tier for reported trend"],
+                    "rows":[ "Primary forest",  "Other naturally regenerated forest", "Planted forest", "Mangroves"]
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Category", "Tier for status", "Tier for reported trend"],
+                    "data":[
+                    [ "Primary forest Other naturally regenerated forest Planted forest",
+                    "", ""]
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Comments on reported data",
+                    "columns":["Comments related to data, definitions, etc.", "Comments on reported status and trends"],
+                    "rows":[ "Primary forest",  "Other naturally regenerated forest", "Planted forest", "Mangroves"]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other general comments to the table"
+                }
+                ]
+            }
+            
+            
+
+            ]
+        }
+        ]
+    },
+
+    {
+        "type":"section",
+        "title":"Production",
+        "items":[
+        {
+            "type":"question",
+            "title":"Production",
+            "description":"What are the stocks and growth rates of the forests and how have they changed?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Legend",
+                    "header":[ "Category", "Definition" ],
+                    "data":[
+                    [ "Growing stock", "Volume over bark of all living trees with a minimum diameter of 10 cm at breast height (or above buttress if these are higher). Includes the stem from ground level up to a top diameter of 0 cm, excluding branches."],
+                    [ "Net annual increment (NAI)", "Average annual volume of gross increment over the given reference period less that of natural losses on all trees, measured to minimum diameters as defined for “Growing stock”."],
+                    [ "Above-ground biomass", "All living biomass above the soil including stem, stump, branches, bark, seeds, and foliage."],
+                    [ "Below-ground biomass", "All biomass of live roots. Fine roots of less than 2mm diameter are excluded because these often cannot be distinguished empirically from soil organic matter or litter."],
+                    [ "Dead wood", "All non-living woody biomass not contained in the litter, either standing, lying on the ground, or in the soil. Dead wood includes wood lying on the surface, dead roots, and stumps larger than or equal to 10 cm in diameter or any other diameter used by the country."],
+                    [ "Above-ground biomass", "All living biomass above the soil including stem, stump, branches, bark, seeds, and foliage."],
+                    [ "Below-ground biomass", "All biomass of live roots. Fine roots of less than 2mm diameter are excluded because these often cannot be distinguished empirically from soil organic matter or litter."],
+                    [ "Carbon in dead wood", "Carbon in all non-living woody biomass not contained in the litter, either standing, lying on the ground, or in the soil. Dead wood includes wood lying on the surface, dead roots, and stumps larger than or equal to 10 cm in diameter or any other diameter used by the country."],
+                    [ "Carbon in litter", "Carbon in all non-living biomass with a diameter less than the minimum diameter for dead wood (e.g. 10 cm), lying dead in various states of decomposition above the mineral or organic soil."],
+                    [ "Soil carbon", "Organic carbon in mineral and organic soils (including peat) to a specified depth chosen by the country and applied consistently through the time series."]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+         
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },{
+                    "title":"Original data",
+                    "type":"textarea"
+                }           
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustiment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }                 
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 3a - Forest",
+                    "description":"Growing stock volume (million cubic meters over bark)",
+                    "columns": [ "1990", "2000", "2005", "2010", "2015"],
+                    "rows":[
+                    "Total growing stock", "...of which coniferous", "...of which broadleaved"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 3a - Other wooded land",
+                    "description":"Growing stock volume (million cubic meters over bark)",
+                    "columns": [ "1990", "2000", "2005", "2010", "2015"],
+                    "rows":[
+                    "Total growing stock", "...of which coniferous", "...of which broadleaved"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"THE PRE-FILLED VALUES FOR GROWING STOCK REFER TO THE FOLLOWING THRESHOLD VALUES",
+                    "columns": [ "Value", "Complementary information"],
+                    "rows":[
+                    "Minimum diameter (cm) at breast height1 of trees included in growing stock (X)", 
+                    "Minimum diameter (cm) at the top end of stem for calculation of growing stock (Y)",
+                    "resource data.tableprefilled.items.mindiameter.branch is missing",
+                    "Volume refers to “above ground” (AG) or “above stump” (AS)"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Table 3b - Other wooded land",
+                    "description":"Growing stock in forest (million cubic meters)",
+                    "columns": [ "Rank", "Scientific name","Common name", "1990", "2000", "2005", "2010", "2015"],
+                    "rows":[
+                    "1st", "2nd", "3rd", "4th","5th","6th","7th","8th","9th","10th","Remaining", "Total"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Table 3c",
+                    "description":"Mean annual increment (cubic meters per hectare and year)",
+                    "columns": [ "1990", "2000","2005", "2010", "2015"],
+                    "rows":[
+                    "Net annual increment (NAI)",
+                    "...of which coniferous",
+                    "...of which broadleaved"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Table 3d - Forest",
+                    "description":"Biomass (million metric tonnes oven-dry weight)",
+                    "columns": [ "1990", "2000","2005", "2010", "2015"],
+                    "rows":[
+                    "Above-ground biomass",
+                    "Below-ground biomass",
+                    "Dead wood",
+                    "Total"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Table 3d - Other wooded land",
+                    "description":"Biomass (million metric tonnes oven-dry weight)",
+                    "columns": [ "1990", "2000","2005", "2010", "2015"],
+                    "rows":[
+                    "Above-ground biomass",
+                    "Below-ground biomass",
+                    "Dead wood",
+                    "Total"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Table 3e - Forest",
+                    "description":"Carbon (million metric tonnes)",
+                    "columns": [ "1990", "2000","2005", "2010", "2015"],
+                    "rows":[
+                    "Carbon in above-ground biomass",
+                    "Carbon in below-ground biomass",
+                    "Sub-total: Living biomass",
+                    "Carbon in dead wood",
+                    "Carbon in litter",
+                    "Soil carbon",
+                    "TOTAL"
+                    ]                      
+                },  
+                {
+                    "type":"table",
+                    "title":"Table 3e - Other wooded land",
+                    "description":"Carbon (million metric tonnes)",
+                    "columns": [ "1990", "2000","2005", "2010", "2015"],
+                    "rows":[
+                    "Carbon in above-ground biomass",
+                    "Carbon in below-ground biomass",
+                    "Sub-total: Living biomass",
+                    "Carbon in dead wood",
+                    "Carbon in litter",
+                    "Soil carbon",
+                    "TOTAL"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns": [ "Tier for status", "Tier for trend"],
+                    "rows":[
+                    "Total growing stock",
+                    "Net annual increment",
+                    "Above ground biomass",
+                    "Below ground biomass",
+                    "Dead wood",
+                    "Carbon in above-ground biomass",
+                    "Carbon in above-ground biomass",
+                    "Carbon in below-ground biomass",
+                    "Carbon in dead wood and litter",
+                    "Soil carbon"
+                    ]                      
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Category", "Tier for status", "Tier for reported trend"],
+                    "data":[
+                    [ "Total growing stock", "", ""],
+                    [ "Net annual increment", "", ""],
+                    [ "Biomass", "", ""],
+                    [ "Carbon in above-ground biomass<br/>Carbon in below-ground biomass<br/>Carbon in dead wood and litter<br/>Soil carbon", ""]
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Comments",
+                    "columns": [ "Comments related to data, definitions, etc", "Comments on the reported trend"],
+                    "rows":[
+                    "Total growing stock",
+                    "Growing stock of broadleaved / coniferous",
+                    "Growing stock composition",
+                    "Net annual increment (NAI)",
+                    "Above-ground biomass",
+                    "Below-ground biomass",
+                    "Dead wood",
+                    "Carbon in above-ground biomass",
+                    "Carbon in below-ground biomass",
+                    "Carbon in dead wood",
+                    "Carbon in litter",
+                    "Soil carbon"
+                    ]                      
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other general comments to the table"
+                }                    
+                ]
+            }
+            ]
+        },
+        {
+            "type":"question",
+            "title":"Production",
+            "description":"What is the status of forest production and how has it changed over time?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Legend 1",
+                    "header":["Terms", "Definition"],
+                    "data":[
+                    [ "Primary designated function",
+                    "The primary function or management objective assigned to a management unit either by legal prescription, documented decision of the landowner/manager, or evidence provided by documented studies of forest management practices and customary use."
+                    ],
+                    [ "Non wood forest product (NWFP)",
+                    "Goods derived from forests that are tangible and physical objects of biological origin other than wood."
+                    ],
+                    [ "Commercial value of NWFP",
+                    "For the purpose of this table, value is defined as the commercial market value at the forest gate."
+                    ]
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Legend 2",
+                    "header":["Category", "Definition"],
+                    "data":[
+                    [ "Production forest",
+                    "Forest area designated primarily for production of wood, fibre, bio-energy and/or non-wood forest products."
+                    ],
+                    [ "Multiple use forest",
+                    "Forest area designated for more than one purpose and where none of these alone is considered as the predominant designated function." 
+                    ],
+                    [ "??",
+                    "??"
+                    ]
+                    ]
+                }                
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+  
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },{
+                    "title":"Original data",
+                    "type":"textarea"
+                }                  
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustiment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }                     
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 4a",
+                    "description":"Forest area (000 hectares)",
+                    "columns":[ "1990", "2000", "2005", "2010", "2015" ],
+                    "rows":[ "Production forest", "Multiple use forest", "Forest area available for wood supply" ]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 4b",
+                    "columns":[ "Name of Product", "Key species", "Commercial value of NWFP removals in 2010 (value 1000 local currency)", "NWFP category" ],
+                    "rows":[ "1st", "2nd", "3rd", "4th","5th","6th","7th","8th","9th","10th", "TOTAL"]
+                },
+                {
+                    "type":"table",
+                    "title":"Name of local currency",
+                    "columns":[ "2010" ],
+                    "rows":[ "Name of local currency"]
+                },
+                {
+                    "type":"table",
+                    "title":"Plant products / raw materials",
+                    "header":["Category"],
+                    "data":[
+                    ["1.Food"],
+                    ["2.Fodder"],
+                    ["3.Raw material for medicine and aromatic producs"],
+                    ["4.Raw material for colorants and dyes"],
+                    ["5.Raw material for utensils, handicrafts & construction"],
+                    ["6.Ornamental plants"],
+                    ["7.Exudates"],
+                    ["8.Other plant products"]
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Animal products / raw materia",
+                    "header":["Category"],
+                    "data":[
+                    ["1.Living animals"],
+                    ["2.Hides, skins and trophies"],
+                    ["3.Wild honey and bee-wax"],
+                    ["4.Wild meat"],
+                    ["5.Raw material for medicine"],
+                    ["6.Raw material for colorants"],
+                    ["7.Other edible animal products"],
+                    ["8.Other non-edible animal products"]
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns":[ "Tier for status", "Tier for reported trend"],
+                    "rows":[ "Production forest", "Multiple use forest", "Forest area available for wood supply"]
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Category", "Tier for status", "Tier for reported trend"],
+                    "data":[
+                    ["Production forest<br/>Multiple use forest<br/>Forest area available for wood supply", "", ""],
+                    ["Commercial value of NWFP removals", "", ""]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Comments",
+                    "columns":[
+                    "Comments"
+                    ],
+                    "rows":[
+                    "Production forest",
+                    "Multiple use forest",
+                    "Forest area available for wood supply",
+                    "Commercial value of NWFP"
+                    ]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other general comments to the table"
+                }
+                ]
+            }
+            ]
+        }
+
+        ]
+    },{
+        "type":"section",
+        "title":"Protective functions and selected ecosystem services",
+        "items":[
+        {
+            "type":"question",
+            "title":"Protective functions and selected ecosystem services",
+            "description":"How much forest area is managed for protection of soil and water and ecosystem services?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Legend",
+                    "header":[ "Category", "Definition" ],
+                    "data":[
+                    [ "Protection of soil and water", "Forest area designated or managed for protection of soil and water."],
+                    [ "…of which production of clean water", "Forest area primarily designated or managed for water production, where most human uses are excluded or heavily modified to protect water quality."],
+                    [ "…of which coastal stabilization", "Forest area primarily designated or managed for coastal stabilization."],
+                    [ "…of which desertification control", "Forest area primarily designated or managed for desertification control"],
+                    [ "…of which avalanche control", "Forest area primarily designated or managed to prevent the development or impact of avalanches on human life, assets or infrastructure."],
+                    [ "…of which erosion, flood protection or reducing flood risk", "Forest area primarily designated or managed for protecting communities or assets from the impacts or: erosion, riparian floods and landslides, or for providing flood plain services."],
+                    [ "…of which other", "Forest area primarily designated or managed for other protective functions."],
+                    [ "Ecosystem services, cultural or spiritual values", "Forest area designated or managed for selected ecosystem services or cultural or spiritual values."],
+                    [ "…of which public recreation", "Forest area designated or managed for public recreation."],
+                    [ "…of which carbon storage or sequestration", "Forest area designated or managed for carbon storage or sequestration."],
+                    [ "…of which spiritual or cultural services", "Forest area designated or managed for spiritual or cultural services."],
+                    [ "…of which other", "Forest area designated or managed for other ecosystem services."]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },{
+                    "title":"Original data",
+                    "type":"textarea"
+                }                         
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustiment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }                           
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 5a",
+                    "description":"Forest area (1000 hectares)",
+                    "columns":[ "1990", "2000", "2005", "2010", "2015"],
+                    "rows":[
+                    "Protection of soil and water(1)",
+                    "…of which production of clean water",
+                    "…of which coastal stabilization",
+                    "…of which desertification control",
+                    "…of which avalanche control",
+                    "…of which erosion, flood protection or reducing flood risk",
+                    "…of which other (please specify in comments below the table)"
+                    ]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other"
+                },
+                {
+                    "type":"table",
+                    "title":"Table 5a",
+                    "description":"Forest area (1000 hectares)",
+                    "columns":[ "1990", "2000", "2005", "2010", "2015"],
+                    "rows":[
+                    "Ecosystem services, cultural or spiritual values",
+                    "…of which public recreation",
+                    "…of which carbon storage or sequestration",
+                    "…of which spiritual or cultural services",
+                    "…of which other (please specify in comments below the table)"
+                    ]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other"
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns":["Tier for status", "Tier for reported trend"],
+                    "row":["Protection of soil and water", "Ecosystem services, cultural or spiritual values"]
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Tier for status", "Tier for reported trend"],
+                    "data":[
+                    ["Protection of soil and water" , "", ""],
+                    ["Cultural or spiritual values<br/>Public recreation<br/>Spiritual or cultural services<br/>Carbon storage or sequestration<br/>Other" , "", ""]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Comments",
+                    "columns":[
+                    "Comments related to data, definitions, etc.", "Category"
+                    ],
+                    "rows":[
+                    "Protection of soil and water",
+                    "Production of soil and water",
+                    "Coastal stabilization",
+                    "Desertification control",
+                    "Avalanche control",
+                    "Erosion, flood protection or reducing flood risk",
+                    "Other protective functions",
+                    "Ecosystem services, cultural or spiritual values",
+                    "Public recreation",
+                    "Spiritual or cultural services",
+                    "Other ecosystem services"
+                    ]
+                },
+                {
+                    "type":"textarea",
+                    "title":"Other general comments to the table"
+                }                       
+                ]
+            }                
+            ]
+        }
+        ]
+    },{
+        "type":"section",
+        "title":"Biodiversity/Conservation",
+
+        "items":[
+
+        {
+            "type":"question",
+            "title":"Biodiversity/Conservation",
+            "description":"How much forest area is protected and designated for the conservation of biodiversity and how has it changed over time?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Legend",
+                    "header":["Category", "Definition"],
+                    "data":[
+                    [ "Conservation of biodiversity", "Forest area designated primarily for conservation of biological diversity. Includes but is not limited to areas designated for biodiversity conservation within the protected areas."],
+                    [ "Forest area within protected areas", "Forest area within protected areas"]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Definition", "Variable"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition", "Year", "Comments"
+                    ]
+                },
+                {
+                    "title":"Original data",
+                    "type":"textarea"
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+
+                {
+                    "type":"table",
+                    "title":"Table 6",
+                    "description":"Forest area (000 hectares)",
+                    "columns":[
+                    "1990", "2000", "2005", "2010", "2015"
+                    ],
+                    "rows":[
+                    "Conservation of biodiversity",
+                    "Forest area within protected areas"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns":[
+                    "Tier for status", "Tier for reported trend"
+                    ],
+                    "rows":[
+                    "Protection of soil and water",
+                    "Ecosystem services, cultural or spiritual values"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Category", "Tier for status", "Tier for reported trend"],
+                    "data":[
+                    [ "Protection of soil and water<br/>Ecosystem services, cultural or spiritual values", "", ""]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"",
+                    "columns":[
+                    "Comments related to data, definitions, etc.", "Category"
+                    ],
+                    "rows":[
+                    "Conservation of biodiversity",
+                    "Forest area within protected areas"
+                    ]
+                },
+                {
+                    "title":"Other comments to the table",
+                    "type":"textarea"
+                }
+                ]
+            }
+            ]
+        },
+        {
+            "type":"question",
+            "title":"Biodiversity/Conservation",
+            "description":"What is the area of forest affected by woody invasive species?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Legend",
+                    "header":["Category", "Definition"],
+                    "data":[
+                    [ "Invasive species", "Species that are non-native to a particular ecosystem and whose introduction and spread cause, or are likely to cause, socio-cultural, economic or environmental harm or harm to human health."]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Definition", "Variable"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition", "Year", "Comments"
+                    ]
+                },
+                {
+                    "title":"Original data",
+                    "type":"textarea"
+                }                        
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }
+                       
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 7",
+                    "description":"Forest area affected (000 ha)",
+                    "columns":[
+                    "2005", "2010"
+                    ],
+                    "rows":[
+                    "1st", "2nd", "3rd", "4th","5th","6th","7th","8th","9th","10th","TOTAL"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns":["Tier for status", "Tier for reported trend"],
+                    "row":["Invasive species"]
+                },
+                {
+                    "type":"table",
+                    "title":"Tier criteria",
+                    "header":[ "Tier for status", "Tier for reported trend"],
+                    "data":[
+                    ["Invasive species" , "", ""]
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"",
+                    "columns":[
+                    "Comments related to data, definitions, etc.", "Category"
+                    ],
+                    "rows":[
+                    "Invasive species"
+                    ]
+                },
+                {
+                    "title":"Other comments to the table",
+                    "type":"textarea"
+                }                       
+                ]
+            }               
+            ]
+        }
+
+
+        ]
+    },{
+        "type":"section",
+        "title":"Disturbance and forest degradation",
+        "items":[
+
+        {
+            "type":"question",
+            "title":"Disturbance and forest degradation",
+            "description":"How much forest area is damaged each year?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },
+                {
+                    "title":"Original data",
+                    "type":"textarea"
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"section",
+                    "title":"Table 8a (Pre-filled data from remote sensing)",
+                    "items":[
+                    {
+                        "type":"table",
+                        "title":"000 ha and number of fires",
+                        "columns":[
+                        "2003", "2004", "2005", "2006", "2007"
+                        ],
+                        "rows":[
+                        "Total land area burned by fire",
+                        "... of which forest area burned"
+                        ]
+                    },
+                    {
+                        "type":"table",
+                        "title":"000 ha and number of fires",
+                        "columns":[
+                        "2008", "2009", "2010", "2011", "2012"
+                        ],
+                        "rows":[
+                        "Total land area burned by fire",
+                        "... of which forest area burned"
+                        ]
+                    }
+                    ]
+                },
+                {
+                    "type":"section",
+                    "title":"Table 8b",
+                    "items":[
+                    {
+                        "type":"table",
+                        "title":"",
+                        "columns":[
+                        "Outbreak category", "Description/name", "Area damaged (000 hectares)", "Comments"
+                        ]
+                    }
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"",
+                    "columns":[
+                    "Comments related to data, definitions, etc.", "Comments on the reported trend"
+                    ],
+                    "rows":[
+                    "Area affected by fire",
+                    "Insects",
+                    "Diseases",
+                    "Severe weather events"
+                    ]
+                },
+                {
+                    "title":"Other comments to the table",
+                    "type":"textarea"
+                }
+                ]
+            }
+            ]
+        } ,
+{
+            "type":"question",
+            "title":"Disturbance and forest degradation",
+            "description":"What is the forest area with reduced canopy cover?",
+            "items":[
+
+        ]
+        }
+
+
+        ]
+    },{
+        "type":"section",
+        "title":"Measuring progress towards SFM",
+        "items":[
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"What forest policy and regulatory framework exists to support implementation of sustainable forest management (SFM)?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },
+                {
+                    "title":"Original data",
+                    "type":"textarea"
+                }
+
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 10",
+                    "columns":[
+                    "National", "Regional", "Provincial/State", "Local"
+                    ],
+                    "rows":[
+                    "Policies supporting sustainable management of forests",
+                    "... of which, in publicly owned forests",
+                    "... of which, in publicly owned forests",
+                    "Legislation and regulations supporting sustainable management of forests",
+                    "... of which, in publicly owned forests",
+                    "... of which, in publicly owned forests"
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"",
+                    "columns":[
+                    "Comments"
+                    ],
+                    "rows":[
+                    "Policies supporting sustainable management of forests",
+                    "Legislation and regulations supporting sustainable management of forests"
+                    ]
+                }
+                ]
+            }
+            ]
+        },
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"Is there a national platform that promotes stakeholder participation in forest policy development?",
+            "items":[
+
+        ]
+        },
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"What is the forest area intended to be in permanent forest land use and how has it changed over time?",
+            "items":[
+
+        ]
+        },
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"How does your country measure and report progress towards SFM at the national level?",
+            "items":[
+
+        ]
+        },
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"What is the area of forest under a forest management plan and how is this monitored?",
+            "items":[
+
+        ]
+        },
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"How are stakeholders involved in the management decision making for publicly owned forests?",
+            "items":[
+
+        ]
+        },
+        {
+            "type":"question",
+            "title":"Measuring progress towards SFM",
+            "description":"What is the area of forest under an independently verified forest certification scheme?",
+            "items":[
+
+        ]
+        }
+        ]
+    },{
+        "type":"section",
+        "title":"Economics/Livelihoods",
+
+        "items":[
+        {
+            "type":"question",
+            "title":"Economics/Livelihoods",
+            "description":"Who owns and manages the forests and how has this changed?",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Classification and definitions",
+                    "columns":[
+                    "#", "National class", "Definition"
+                    ]
+                },
+                {
+                    "title":"Original data",
+                    "type":"textarea"
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Analysis and processing of national data",
+                "items":[
+                {
+                    "title":"Adjustment",
+                    "type":"textarea"
+                },
+                {
+                    "title":"Estimation and forecasting",
+                    "type":"textarea"
+                },
+
+                {
+                    "title":"Reclassification into FRA2015 categories",
+                    "type":"textarea"
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Table 18a",
+                    "description":"Forest area (1000 hectares)",
+                    "columns":[
+                    "1990", "2000", "2005", "2010"
+                    ],
+                    "rows":[
+                    "Public ownership",
+                    "…of which owned by the state at national scale",
+                    "…of which owned by the state at the sub-national government scale",
+                    "Private ownership",
+                    "...of which owned by individuals",
+                    "...of which owned by private business entities and institutions",
+                    "...of which owned by local, tribal and indigenous communities",
+                    "Unknown ownership",
+                    "TOTAL"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Tiers",
+                    "columns":[
+                    "Tier for status", "Tier for reported trend"
+                    ],
+                    "rows":[
+                    "Public ownership",
+                    "Private ownership",
+                    "Unknown ownership"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 18b - Holder of management rights of public forests",
+                    "description":"Forest area (000 hectares)",
+                    "columns":[
+                    "1990", "2000", "2005", "2010"
+                    ],
+                    "rows":[
+                    "Public Administration",
+                    "Individuals",
+                    "Private companies",
+                    "Communities",
+                    "Other",
+                    "TOTAL"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"",
+                    "columns":[
+                    "Tier for status", "Tier for reported trend"
+                    ],
+                    "rows":[
+                    "Public Administration",
+                    "Individuals",
+                    "Private companies",
+                    "Communities",
+                    "Other"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Comments",
+                    "columns":[
+                    "Comments related to data, definitions, etc.", "Comments on the reported trend"
+                    ],
+                    "rows":[
+                    "Public ownership",
+                    "Unknown ownership",
+                    "Unknown ownership",
+                    "Management rights"
+                    ]
+                },
+                {
+                    "title":"Other general comments to the table",
+                    "type":"textarea"
+                }
+
+                ]
+            }
+            ]
+        },
+        {
+            "type":"question",
+            "title":"Economics/Livelihoods",
+            "description":"How many people are directly employed in forestry?",
+            "items":[
+
+        ]
+        },
+        {
+            "type":"question",
+            "title":"Economics/Livelihoods",
+            "description":"What is the contribution of forestry to Gross Domestic Product (GDP)?",
+            "items":[
+
+        ]
+        }
+
+        ]
+    },{
+        "type":"section",
+        "title":"Looking forward",
+
+        "items":[
+        {
+            "type":"question",
+            "title":"Looking forward",
+            "description":"What is forest area likely to be in the future",
+            "items":[
+            {
+                "type":"section",
+                "title":"FRA2015 Categories and definitions",
+                "items":[
+
+            ]
+            },
+            {
+                "type":"section",
+                "title":"National data",
+                "items":[
+
+                {
+                    "type":"table",
+                    "title":"Data sources",
+                    "columns":[
+                    "#", "Reference", "Variable", "Year", "Comments"
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Data",
+                "items":[
+
+                {
+                    "type":"table",
+                    "title":"Table 21a",
+                    "description":"Forest area (000 ha)",
+                    "columns":[
+                    "2020", "2030"
+                    ],
+                    "rows":[
+                    "Government target/aspiration for forest area"
+                    ]
+                },
+                {
+                    "type":"table",
+                    "title":"Table 21a",
+                    "description":"Forest area (000 ha)",
+                    "columns":[
+                    "2013"
+                    ],
+                    "rows":[
+                    "Forests earmarked for conversion"
+                    ],
+                    "feedbacks":[
+                    {
+                        "reviewer":"reviewer 1",
+                        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    }
+                    ]
+                }
+                ]
+            },
+            {
+                "type":"section",
+                "title":"Comments",
+                "items":[
+                {
+                    "type":"table",
+                    "title":"Comments",
+                    "columns":[
+                    "Comments"
+                    ],
+                    "rows":[
+                    "Government target/aspiration for forest area",
+                    "Forests earmarked for conversion"
+                    ]
+                }
+                ]
+            }
+            ]
+        }
+
+        ]
+    }
+    ]
+
+}

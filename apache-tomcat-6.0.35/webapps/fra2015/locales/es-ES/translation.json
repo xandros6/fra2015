@@ -1,0 +1,18 @@
+{           
+    "login_signin":"(ES) Sign in",
+    "login_select":"(ES) Select your language",
+    "login_title":"(ES) Please sign in",
+     
+    "toolbar_survey":"(ES) Survey",
+    "toolbar_check":"(ES) Check and submit",
+    "toolbar_summary":"(ES) Summary",
+    "toolbar_export":"(ES) Export",
+    "toolbar_logout":"(ES) Logout",
+    "toolbar_activity_log":"(ES) Activity Log",
+    "toolbar_create_users":"(ES) Create users",
+    "toolbar_surveys":"(ES) Surveys",
+
+    "save":"(ES) Save",
+    "add_row":"(ES) Add row",
+    "add_feedback":"(ES) Add feedback"
+}
