@@ -1,3 +1,5 @@
+var baseUrl = 'http://192.168.1.160:9191/fra2015';
+
 var countries = [
 "AF|Afghanistan","AL|Albania","DZ|Algeria","AS|American Samoa",
 "AD|Andorra","AO|Angola","AI|Anguilla","AQ|Antarctica","AG|Antigua And Barbuda",

@@ -1,3 +1,6 @@
+
+
+
 (function($) {
 
 
@@ -283,7 +286,8 @@
         'admin/create-users': function(){
 
             var resource = new Resource({
-                base:'http://localhost:9191/fra2015/rest', // TODO externalise
+                base: baseUrl + '/rest', // TODO externalise
+                // base:'/fra2015/rest',
                 endpoint:'users',
                 type:'User',
                 api:{
@@ -847,9 +851,9 @@
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
                 if ( value ){
-                    cell.append( value.content );  
+                    cell.empty().append( value.content );  
                 } else {
-                    cell.append('&nbsp;');
+                    cell.empty().append('&nbsp;');
                 }
             });
 
@@ -1003,9 +1007,9 @@
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
                 if ( value ){
-                    cell.append( value.content );  
+                    cell.empty().append( value.content );  
                 } else {
-                    cell.append('&nbsp;');
+                    cell.empty().append('&nbsp;');
                 }
             }); 
             
@@ -1042,6 +1046,7 @@
                     value: 'Tier 3', 
                     text: 'Tier 3'
                 }).attr('selected', content === 'Tier 3'? true : false).appendTo(s);
+                cell.empty();
                 s.appendTo(cell);
                 if ( ! App.user.check('canEdit') ){
                     s.prop('disabled', 'disabled');
@@ -1357,9 +1362,12 @@
             $.ajax({
                 type:'POST',
                 contentType:'text/xml',
+                cache: false,
                 data: req,
                 // TODO externalize
-                url:'http://localhost:9191/fra2015/rest/survey/updateValues',
+                url:baseUrl + '/rest/survey/updateValues',
+                // url:'/fra2015/rest/survey/updateValues',
+                //crossDomain: false,
                 success: function(data){
                     console.log( data );
                 },
@@ -1380,9 +1388,12 @@
                 $.ajax({
                     type:'GET',
                     dataType:'json',
+                    cache: false,
                     // TODO externalize
                     // url:'http://localhost:9191/fra2015/rest/survey/FRA2015',
-                    url:'http://localhost:9191/fra2015/rest/survey/?country=IT&name=FRA2015',
+                    url: baseUrl+'/rest/survey/?country=IT&name=FRA2015',
+                    // url:'/fra2015/rest/survey/?country=IT&name=FRA2015',
+                    // crossDomain: false,
                     // url:'./resources/'+ $.i18n.lng() +'/survey.json',
                     success: function(data){
                         model.survey = data.ExtendedSurvey;

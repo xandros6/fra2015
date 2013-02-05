@@ -1,8 +1,8 @@
 (function($) {
     
     Core.define('auth', ['loginOk', 'loginKo', 'logoutOk', 'logoutKo'], function(context) {
-        var loginUrl = 'http://localhost:9191/fra2015/rest/auth/login';
-        var logoutUrl = 'http://localhost:9191/fra2015/rest/auth/invalidate';
+        var loginUrl = baseUrl + '/rest/auth/login';
+        var logoutUrl = baseUrl + '/rest/auth/invalidate';
         var username = null;
         var role = null;
         var token = null;
