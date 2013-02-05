@@ -991,7 +991,11 @@
                 });
                          
             }
+            
+            
             var self = this;
+            
+            
             $.each( this.el.find('.entry-item'), function(index, entry){
                 var cell = $(this);
                 var value = self.options.context[ 
@@ -1003,7 +1007,48 @@
                 } else {
                     cell.append('&nbsp;');
                 }
-            });  
+            }); 
+            
+            $.each( this.el.find('.tier'), function(index, entry){
+                var cell = $(this);
+                
+                var value = self.options.context[ 
+                self.options.id + ',' 
+                + cell.attr('rowNumber') + ','
+                + cell.attr('columnNumber')];
+                
+                var content = value? value.content: false;
+                
+                cell.addClass('entry-item');
+                cell.attr('entry-id', self.options.id)
+                
+                var s = $("<select />");
+                s.addClass('celleditor');
+                s.attr('rowNumber', cell.attr('rowNumber'));
+                s.attr('cellNumber', cell.attr('cellNumber'));
+                $("<option />", {
+                    value: null, 
+                    text: '---'
+                }).attr('selected', value ? false : true).appendTo(s);
+                $("<option />", {
+                    value: 'Tier 1', 
+                    text: 'Tier 1'
+                }).attr('selected', content === 'Tier 1'? true : false).appendTo(s);
+                $("<option />", {
+                    value: 'Tier 2', 
+                    text: 'Tier 2'
+                }).attr('selected', content === 'Tier 2'? true : false).appendTo(s);
+                $("<option />", {
+                    value: 'Tier 3', 
+                    text: 'Tier 3'
+                }).attr('selected', content === 'Tier 3'? true : false).appendTo(s);
+                s.appendTo(cell);
+                if ( ! App.user.check('canEdit') ){
+                    s.prop('disabled', 'disabled');
+                }
+            });
+              
+             
   
 
         }
@@ -1341,7 +1386,7 @@
                     // url:'./resources/'+ $.i18n.lng() +'/survey.json',
                     success: function(data){
                         model.survey = data.ExtendedSurvey;
-                        model.initContext( data.ExtendedSurvey.Values.value );
+                        model.initContext( [].concat( data.ExtendedSurvey.Values.value || []) );
                         model.trigger('load');
                     }
                 });

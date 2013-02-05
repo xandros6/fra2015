@@ -350,33 +350,34 @@
                                                        </tr>
                                                        <tr>
                                                             <td rownumber="1" columnnumber="0">Forest</td>
-                                                            <td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-                                                            <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+                                                            <td class="tier" rownumber="1" columnnumber="1">
+                                                            </td>
+                                                            <td class="tier" rownumber="1" columnnumber="2"></td>
                                                        </tr>
                                                        <tr>
                                                             <td rownumber="2" columnnumber="0">Other  wooded land</td>
-                                                            <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-                                                            <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+                                                            <td class="tier" rownumber="2" columnnumber="1"></td>
+                                                            <td class="tier" rownumber="2" columnnumber="2"></td>
                                                        </tr>
                                                        <tr>
                                                             <td rownumber="3" columnnumber="0">Afforestation</td>
-                                                            <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-                                                            <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+                                                            <td class="tier" rownumber="3" columnnumber="1"></td>
+                                                            <td class="tier" rownumber="3" columnnumber="2"></td>
                                                        </tr>
                                                        <tr>
                                                             <td rownumber="4" columnnumber="0">Reforestation</td>
-                                                            <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-                                                            <td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+                                                            <td class="tier" rownumber="4" columnnumber="1"></td>
+                                                            <td class="tier" rownumber="4" columnnumber="2"></td>
                                                        </tr>
                                                        <tr>
                                                             <td rownumber="5" columnnumber="0">Natural  expansion of forest</td>
-                                                            <td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-                                                            <td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
+                                                            <td class="tier" rownumber="5" columnnumber="1"></td>
+                                                            <td class="tier" rownumber="5" columnnumber="2"></td>
                                                        </tr>
                                                        <tr>
                                                             <td rownumber="6" columnnumber="0">Deforestation</td>
-                                                            <td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-                                                            <td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
+                                                            <td class="tier" rownumber="6" columnnumber="1"></td>
+                                                            <td class="tier" rownumber="6" columnnumber="2"></td>
                                                        </tr></tbody></table> ]]> 
                                     </template>
                                 </entry>
@@ -785,20 +786,20 @@
                                                 <td rownumber="0" columnnumber="2">Tier for reported trend</td>
                                             </tr><tr>
                                                 <td rownumber="1" columnnumber="0">Primary  forest</td>
-                                                <td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+                                                <td class="tier" rownumber="1" columnnumber="1"></td>
+                                                <td class="tier" rownumber="1" columnnumber="2"></td>
                                             </tr><tr>
                                                 <td rownumber="2" columnnumber="0">Other  naturally regenerated forest</td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+                                                <td class="tier" rownumber="2" columnnumber="1"></td>
+                                                <td class="tier" rownumber="2" columnnumber="2"></td>
                                             </tr><tr>
                                                 <td rownumber="3" columnnumber="0">Planted  forest</td>
-                                                <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+                                                <td class="tier" rownumber="3" columnnumber="1"></td>
+                                                <td class="tier" rownumber="3" columnnumber="2"></td>
                                             </tr><tr>
                                                 <td rownumber="4" columnnumber="0">Mangroves</td>
-                                                <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+                                                <td class="tier" rownumber="4" columnnumber="1"></td>
+                                                <td class="tier" rownumber="4" columnnumber="2"></td>
                                             </tr></tbody></table> ]]> 
                                     </template>
                                 </entry>
@@ -2224,22 +2225,22 @@
 					<td rownumber="1" columnnumber="0">
 						Production forest
 					</td>
-					<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+					<td class="tier" rownumber="1" columnnumber="1"></td>
+					<td class="tier" rownumber="1" columnnumber="2"></td>
 				</tr>
 				<tr>
 					<td rownumber="2" columnnumber="0">
 						Multiple use forest
 					</td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+					<td class="tier" rownumber="2" columnnumber="1"></td>
+					<td class="tier" rownumber="2" columnnumber="2"></td>
 				</tr>
 				<tr>
 					<td rownumber="3" columnnumber="0">
 						Forest area available for wood supply
 					</td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+					<td class="tier" rownumber="3" columnnumber="1"></td>
+					<td class="tier" rownumber="3" columnnumber="2"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -2688,8 +2689,8 @@
 			<td rownumber="1" columnnumber="0">
 				Protection of soil and water
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+			<td class="tier" rownumber="1" columnnumber="2"></td>
 		</tr>
 	</tbody>
 </table>
@@ -3080,7 +3081,7 @@
 			<td rownumber="1" columnnumber="0">
 				Ecosystem services cultural or spiritual values
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
 		</tr>
 	</tbody>
 </table>]]> 
@@ -3420,15 +3421,15 @@
 			<td rownumber="1" columnnumber="0">
 				Conservation of biodiversity
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+			<td class="tier" rownumber="1" columnnumber="2"></td>
 		</tr>
 		<tr>
 			<td rownumber="2" columnnumber="0">
 				Forest area within protected areas
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="tier" rownumber="2" columnnumber="1"></td>
+			<td class="tier" rownumber="2" columnnumber="2"></td>
 		</tr>
 	</tbody>
 </table>
