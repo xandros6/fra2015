@@ -5528,9 +5528,10 @@
                                         </entry>
                                         <entry>
                                             <type>table</type>
+                                            <title>Table 15a</title>
                                             <template>
 <![CDATA[ 
-<table class="editable extensible">
+<table class="editable">
 	<tbody>
 		<tr>
 			<td rownumber="0" columnnumber="0">
@@ -5565,6 +5566,7 @@
                                         </entry>
                                         <entry>
                                             <type>table</type>
+                                            <title>Table 15b</title>
                                             <template>
 <![CDATA[ 
 <table class="editable">
@@ -5605,20 +5607,92 @@
                             <Elements>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 15c</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">Monitoring of  forest management plans monitored annually</td><td rownumber="0" columnnumber="1"></td><td rownumber="0" columnnumber="2">Yes</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1">No</td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td colspan="2" rownumber="0" columnnumber="0">
+				Percent of area under forest management plan that is monitored annually
+			</td>
+			<td class="entry-item editable number" rownumber="0" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Tiers</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Forest area with  management plan</td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0">Percent of area  under forest management plan that is monitored annually</td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Forest area with management plan
+			</td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Percent of area under forest management plan that is monitored annually
+			</td>
+			<td class="tier" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Tier criteria</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Forest area with  management plan</td><td rownumber="1" columnnumber="1">Tier 3 Reports that describe national records 5  years old or less that contain longterm forest monitoring plans        Tier 2 Industry or other records indicating the  presence of a longterm forest management plan         Tier 1 Other</td></tr><tr><td rownumber="2" columnnumber="0">Percent of area  under forest management plan that is monitored annually</td><td rownumber="2" columnnumber="1">Tier 3 Government  documentation of monitoring extent        Tier 2 Reports from forest managers or other  documental sources        Tier 1 Other</td></tr></tbody></table> ]]> 
+<![CDATA[
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Forest area with management plan
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 Reports that describe national records 5 years old or less that contain longterm forest monitoring plans <br/>
+                                Tier 2 Industry or other records indicating the presence of a longterm forest management plan <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Percent of area under forest management plan that is monitored annually
+			</td>
+			<td rownumber="2" columnnumber="1">
+				Tier 3 Government documentation of monitoring extent <br/>
+                                Tier 2 Reports from forest managers or other documental sources<br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>							
                             </Elements>
@@ -5629,7 +5703,32 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0"></td><td rownumber="2" columnnumber="1"></td></tr><tr><td rownumber="3" columnnumber="0"></td><td rownumber="3" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="2" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="3" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>							
                             </Elements>
@@ -5650,20 +5749,92 @@
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 16</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="3" rownumber="0" columnnumber="0">P lease indicate the type of stakeholder involvement  in forest management decision making required  in your country</td></tr><tr><td colspan="2" rownumber="1" columnnumber="0">1 Planning phase</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2">Yes</td></tr><tr><td rownumber="2" columnnumber="0"></td><td rownumber="2" columnnumber="1">No</td></tr><tr><td colspan="2" rownumber="3" columnnumber="0">2 Operations phase</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2">Yes</td></tr><tr><td rownumber="4" columnnumber="0"></td><td rownumber="4" columnnumber="1">No</td></tr><tr><td colspan="2" rownumber="5" columnnumber="0">3 Review of operations</td><td rownumber="5" columnnumber="1"></td><td rownumber="5" columnnumber="2">Yes</td></tr><tr><td rownumber="6" columnnumber="0"></td><td rownumber="6" columnnumber="1">No</td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td colspan="3" rownumber="0" columnnumber="0">
+				Please indicate the type of stakeholder involvement in forest management decision making required in your country
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" rownumber="1" columnnumber="0">
+				1 Planning phase
+			</td>
+			<td class="entry-item editable boolean" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td colspan="2" rownumber="3" columnnumber="0">
+				2 Operations phase
+			</td>
+			<td class="entry-item editable boolean" rownumber="3" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td colspan="2" rownumber="5" columnnumber="0">
+				3 Review of operations
+			</td>
+			<td class="entry-item editable boolean" rownumber="5" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Tiers</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Type of  stakeholder inputs</td><td rownumber="1" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Type of stakeholder inputs
+			</td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Tier criteria</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Type of  stakeholder inputs</td><td rownumber="1" columnnumber="1">Tier 3 Government national or subnational  documentation of stakeholder inputs        Tier 2  Government national or subnational requirement but stakeholder inputs not  documented        Tier 1 Other</td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Type of stakeholder inputs
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 Government national or subnational documentation of stakeholder inputs <br/>
+                                Tier 2 Government national or subnational requirement but stakeholder inputs not documented <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>							
                             </Elements>
@@ -5674,7 +5845,32 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0"></td><td rownumber="2" columnnumber="1"></td></tr><tr><td rownumber="3" columnnumber="0"></td><td rownumber="3" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="2" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="3" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>							
                             </Elements>
@@ -5704,7 +5900,54 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0"></td><td rownumber="0" columnnumber="1">References to  sources of information</td><td rownumber="0" columnnumber="2">Variables</td><td rownumber="0" columnnumber="3">Years</td><td rownumber="0" columnnumber="4">Additional  comments</td></tr><tr><td rownumber="1" columnnumber="0">1</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td><td rownumber="1" columnnumber="3"></td><td rownumber="1" columnnumber="4"></td></tr><tr><td rownumber="2" columnnumber="0">2</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td><td rownumber="2" columnnumber="4"></td></tr><tr><td rownumber="3" columnnumber="0">3</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td><td rownumber="3" columnnumber="4"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable extensible">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0"></td>
+			<td rownumber="0" columnnumber="1">
+				References to sources of information
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Variables
+			</td>
+			<td rownumber="0" columnnumber="3">
+				Years
+			</td>
+			<td rownumber="0" columnnumber="4">
+				Additional comments
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				1
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				2
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				3
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>								
                                     </Elements>
@@ -5715,7 +5958,32 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">National  class</td><td rownumber="0" columnnumber="1">Definition</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0"></td><td rownumber="2" columnnumber="1"></td></tr><tr><td rownumber="3" columnnumber="0"></td><td rownumber="3" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				National class
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Definition
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="2" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="3" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>								
                                     </Elements>
@@ -5735,20 +6003,142 @@
                             <Elements>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 17</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Total forest  area certified under</td><td rownumber="0" columnnumber="1">Forest area 2010 000 ha</td></tr><tr><td rownumber="1" columnnumber="0">International   forest management certification</td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0">of which for  FSC</td><td rownumber="2" columnnumber="1"></td></tr><tr><td rownumber="3" columnnumber="0">of which PEFC</td><td rownumber="3" columnnumber="1"></td></tr><tr><td rownumber="4" columnnumber="0">Domestic  forest management certification</td><td rownumber="4" columnnumber="1"></td></tr><tr><td rownumber="5" columnnumber="0">of which List  domestic   forest management certification schemes and forest area covered by each</td><td rownumber="5" columnnumber="1"></td></tr><tr><td rownumber="6" columnnumber="0">1</td><td rownumber="6" columnnumber="1"></td></tr><tr><td rownumber="7" columnnumber="0">2</td><td rownumber="7" columnnumber="1"></td></tr><tr><td rownumber="8" columnnumber="0">3</td><td rownumber="8" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Total forest area certified under
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Forest area 2010 000 ha
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				International forest management certification
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				of which for FSC
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				of which PEFC
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="4" columnnumber="0">
+				Domestic forest management certification
+			</td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="5" columnnumber="0">
+				of which List domestic forest management certification schemes and forest area covered by each
+			</td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="6" columnnumber="0">
+				1
+			</td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="7" columnnumber="0">
+				2
+			</td>
+			<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="8" columnnumber="0">
+				3
+			</td>
+			<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Tier criteria</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">International  forest management certification</td><td rownumber="1" columnnumber="1">Tier 3  International forest management scheme records maintained by the certifying  organization for the reporting year        Tier 2  International forest management scheme records reported by the certifying  organization for a period  2 years prior to the reporting year        Tier 1 Other</td></tr><tr><td rownumber="2" columnnumber="0">Domestic forest  management certification</td><td rownumber="2" columnnumber="1">Tier 3 National  registry reports for domestic forest management certification maintained by  the certifying organization for the reporting year        Tier 2 Domestic  forest management scheme records reported by the certifying organization for  a period  2 years prior to the reporting year        Tier 1 Other</td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table >
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				International forest management certification
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 International forest management scheme records maintained by the certifying organization for the reporting year <br/>
+                                Tier 2 International forest management scheme records reported by the certifying organization for a period 2 years prior to the reporting year <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Domestic forest management certification
+			</td>
+			<td rownumber="2" columnnumber="1">
+				Tier 3 National registry reports for domestic forest management certification maintained by the certifying organization for the reporting year <br/>
+                                Tier 2 Domestic forest management scheme records reported by the certifying organization for a period 2 years prior to the reporting year <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Tiers</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">International  forest management certification</td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0">Domestic forest  management certification</td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				International forest management certification
+			</td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Domestic forest management certification
+			</td>
+			<td class="tier" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>							
                             </Elements>
@@ -5759,7 +6149,32 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments  related to data definitions etc</td></tr><tr><td rownumber="1" columnnumber="0">Certified forest  area using an international forest management certification scheme</td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0">Domestic forest  management certification</td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments related to data definitions etc
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Certified forest area using an international forest management certification scheme
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Domestic forest management certification
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>							
                             </Elements>
@@ -5783,7 +6198,47 @@
                         <entry>
                             <type>table</type>
                             <template>
-                                <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">FRA 2015  category</td><td colspan="3" rownumber="0" columnnumber="1">Revenues expenditures 000 local  currency</td></tr><tr><td rownumber="1" columnnumber="0">2000</td><td rownumber="1" columnnumber="1">2005</td><td rownumber="1" columnnumber="2">2010</td></tr><tr><td rownumber="2" columnnumber="0">Forest revenue</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td></tr><tr><td rownumber="3" columnnumber="0">Public  expenditure on forestry</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td colspan="2" rownumber="0" columnnumber="0">
+				FRA 2015 category
+			</td>
+			<td colspan="3" rownumber="0" columnnumber="1">
+				Revenues expenditures 000 local currency
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				2000
+			</td>
+			<td rownumber="1" columnnumber="1">
+				2005
+			</td>
+			<td rownumber="1" columnnumber="2">
+				2010
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Forest revenue
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				Public expenditure on forestry
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                             </template>
                         </entry>
                         <session>
@@ -5792,7 +6247,32 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments  related to data definitions etc</td></tr><tr><td rownumber="1" columnnumber="0">Forest revenue</td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0">Public  expenditure on forestry</td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments related to data definitions etc
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Forest revenue
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Public expenditure on forestry
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -5822,7 +6302,54 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0"></td><td rownumber="0" columnnumber="1">References  to sources of information</td><td rownumber="0" columnnumber="2">Variables</td><td rownumber="0" columnnumber="3">Years</td><td rownumber="0" columnnumber="4">Additional  comments</td></tr><tr><td rownumber="1" columnnumber="0">1</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td><td rownumber="1" columnnumber="3"></td><td rownumber="1" columnnumber="4"></td></tr><tr><td rownumber="2" columnnumber="0">2</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td><td rownumber="2" columnnumber="4"></td></tr><tr><td rownumber="3" columnnumber="0">3</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td><td rownumber="3" columnnumber="4"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable extensible">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0"></td>
+			<td rownumber="0" columnnumber="1">
+				References to sources of information
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Variables
+			</td>
+			<td rownumber="0" columnnumber="3">
+				Years
+			</td>
+			<td rownumber="0" columnnumber="4">
+				Additional comments
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				1
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				2
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				3
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>						
                                     </Elements>
@@ -5833,7 +6360,32 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">National  class</td><td rownumber="0" columnnumber="1">Definition</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0"></td><td rownumber="2" columnnumber="1"></td></tr><tr><td rownumber="3" columnnumber="0"></td><td rownumber="3" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable extensible">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				National class
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Definition
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="2" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="3" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>						
                                     </Elements>
@@ -5882,32 +6434,344 @@
                             <Elements>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 19a</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">FRA  2015 Categories</td><td colspan="4" rownumber="0" columnnumber="1">Forest area 1000  hectares</td></tr><tr><td rownumber="1" columnnumber="0">1990</td><td rownumber="1" columnnumber="1">2000</td><td rownumber="1" columnnumber="2">2005</td><td rownumber="1" columnnumber="3">2010</td></tr><tr><td rownumber="2" columnnumber="0">Public  ownership</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td><td rownumber="2" columnnumber="4"></td></tr><tr><td rownumber="3" columnnumber="0">of which owned by the state at  national scale</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td><td rownumber="3" columnnumber="4"></td></tr><tr><td rownumber="4" columnnumber="0">of which owned by the state at the  subnational government scale</td><td rownumber="4" columnnumber="1"></td><td rownumber="4" columnnumber="2"></td><td rownumber="4" columnnumber="3"></td><td rownumber="4" columnnumber="4"></td></tr><tr><td rownumber="5" columnnumber="0">Private  ownership</td><td rownumber="5" columnnumber="1"></td><td rownumber="5" columnnumber="2"></td><td rownumber="5" columnnumber="3"></td><td rownumber="5" columnnumber="4"></td></tr><tr><td rownumber="6" columnnumber="0">of which owned by individuals</td><td rownumber="6" columnnumber="1"></td><td rownumber="6" columnnumber="2"></td><td rownumber="6" columnnumber="3"></td><td rownumber="6" columnnumber="4"></td></tr><tr><td rownumber="7" columnnumber="0">of which owned by private  business entities and institutions</td><td rownumber="7" columnnumber="1"></td><td rownumber="7" columnnumber="2"></td><td rownumber="7" columnnumber="3"></td><td rownumber="7" columnnumber="4"></td></tr><tr><td rownumber="8" columnnumber="0">of which owned by local tribal  and indigenous communities</td><td rownumber="8" columnnumber="1"></td><td rownumber="8" columnnumber="2"></td><td rownumber="8" columnnumber="3"></td><td rownumber="8" columnnumber="4"></td></tr><tr><td rownumber="9" columnnumber="0">Unknown  ownership</td><td rownumber="9" columnnumber="1"></td><td rownumber="9" columnnumber="2"></td><td rownumber="9" columnnumber="3"></td><td rownumber="9" columnnumber="4"></td></tr><tr><td rownumber="10" columnnumber="0">TOTAL</td><td rownumber="10" columnnumber="1"></td><td rownumber="10" columnnumber="2"></td><td rownumber="10" columnnumber="3"></td><td rownumber="10" columnnumber="4"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rowspan="2" rownumber="0" columnnumber="0">
+				FRA 2015 Categories
+			</td>
+			<td colspan="4" rownumber="0" columnnumber="1">
+				Forest area 1000 hectares
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				1990
+			</td>
+			<td rownumber="1" columnnumber="1">
+				2000
+			</td>
+			<td rownumber="1" columnnumber="2">
+				2005
+			</td>
+			<td rownumber="1" columnnumber="3">
+				2010
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Public ownership
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				of which owned by the state at national scale
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="4" columnnumber="0">
+				of which owned by the state at the subnational government scale
+			</td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="5" columnnumber="0">
+				Private ownership
+			</td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="6" columnnumber="0">
+				of which owned by individuals
+			</td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="7" columnnumber="0">
+				of which owned by private business entities and institutions
+			</td>
+			<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="7" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="7" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="7" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="8" columnnumber="0">
+				of which owned by local tribal and indigenous communities
+			</td>
+			<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="8" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="8" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="8" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="9" columnnumber="0">
+				Unknown ownership
+			</td>
+			<td class="entry-item editable text" rownumber="9" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="9" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="9" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="9" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="10" columnnumber="0">
+				TOTAL
+			</td>
+			<td rownumber="10" columnnumber="1"></td>
+			<td rownumber="10" columnnumber="2"></td>
+			<td rownumber="10" columnnumber="3"></td>
+			<td rownumber="10" columnnumber="4"></td>
+		</tr>
+	</tbody>
+</table>
+ ]]> 
+                                    </template>
+                                </entry>
+                                <entry>
+                                    <type>table</type>
+                                    <title>Tiers</title>
+                                    <template>
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for reported trend
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Public ownership
+			</td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+			<td class="tier" rownumber="1" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Private ownership
+			</td>
+			<td class="tier" rownumber="2" columnnumber="1"></td>
+			<td class="tier" rownumber="2" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				Unknown ownership
+			</td>
+			<td class="tier" rownumber="3" columnnumber="1"></td>
+			<td class="tier" rownumber="3" columnnumber="2"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
+                                    </template>
+                                </entry>
+                                <entry>
+                                    <type>table</type>
+                                    <title>Tier criteria</title>
+                                    <template>
+<![CDATA[
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for reported trend
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Ownership
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status <br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status <br/>
+                                Tier 1 Other
+			</td>
+			<td rownumber="1" columnnumber="2">
+				Tier 3 National forestry statisticsregisters of land titles or maps on land ownership or all forest area under one ownership category that is five years old or less Tier 2 <br/>
+                                Tier 2 National forestry statisticsregisters of land titles or maps on land ownership or questionnaires that are more than five years old <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
+                                    </template>
+                                </entry>
+                                <entry>
+                                    <type>table</type>
+                                    <title>Table 18b - Holder of management rights of public forests</title>
+                                    <template>
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rowspan="2" rownumber="0" columnnumber="0">
+				FRA 2015 Categories
+			</td>
+			<td colspan="4" rownumber="0" columnnumber="1">
+				Forest area 000 hectares
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				1990
+			</td>
+			<td rownumber="1" columnnumber="1">
+				2000
+			</td>
+			<td rownumber="1" columnnumber="2">
+				2005
+			</td>
+			<td rownumber="1" columnnumber="3">
+				2010
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Public Administration
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				Individuals
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="4" columnnumber="0">
+				Private corporations and institutions
+			</td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="5" columnnumber="0">
+				Communities
+			</td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="6" columnnumber="0">
+				Other
+			</td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="7" columnnumber="0">
+				TOTAL
+			</td>
+			<td rownumber="7" columnnumber="1"></td>
+			<td rownumber="7" columnnumber="2"></td>
+			<td rownumber="7" columnnumber="3"></td>
+			<td rownumber="7" columnnumber="4"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for reported trend</td><td rownumber="0" columnnumber="2">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Public  ownership</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td></tr><tr><td rownumber="2" columnnumber="0">Private  ownership</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td></tr><tr><td rownumber="3" columnnumber="0">Unknown  ownership</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td></tr></tbody></table> ]]> 
-                                    </template>
-                                </entry>
-                                <entry>
-                                    <type>table</type>
-                                    <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for reported trend</td><td rownumber="0" columnnumber="2">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Ownership</td><td rownumber="1" columnnumber="1">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td><td rownumber="1" columnnumber="2">Tier  3 National forestry statisticsregisters of land titles or maps on land  ownership or all forest area under one ownership category that is five years  old or less        Tier 2 Tier 2  National forestry statisticsregisters of land titles or maps on land  ownership or questionnaires that are more than five years old        Tier  1 Other</td></tr></tbody></table> ]]> 
-                                    </template>
-                                </entry>
-                                <entry>
-                                    <type>table</type>
-                                    <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">FRA  2015 Categories</td><td colspan="4" rownumber="0" columnnumber="1">Forest area 000  hectares</td></tr><tr><td rownumber="1" columnnumber="0">1990</td><td rownumber="1" columnnumber="1">2000</td><td rownumber="1" columnnumber="2">2005</td><td rownumber="1" columnnumber="3">2010</td></tr><tr><td rownumber="2" columnnumber="0">Public  Administration</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td><td rownumber="2" columnnumber="4"></td></tr><tr><td rownumber="3" columnnumber="0">Individuals</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td><td rownumber="3" columnnumber="4"></td></tr><tr><td rownumber="4" columnnumber="0">Private  corporations and institutions</td><td rownumber="4" columnnumber="1"></td><td rownumber="4" columnnumber="2"></td><td rownumber="4" columnnumber="3"></td><td rownumber="4" columnnumber="4"></td></tr><tr><td rownumber="5" columnnumber="0">Communities</td><td rownumber="5" columnnumber="1"></td><td rownumber="5" columnnumber="2"></td><td rownumber="5" columnnumber="3"></td><td rownumber="5" columnnumber="4"></td></tr><tr><td rownumber="6" columnnumber="0">Other</td><td rownumber="6" columnnumber="1"></td><td rownumber="6" columnnumber="2"></td><td rownumber="6" columnnumber="3"></td><td rownumber="6" columnnumber="4"></td></tr><tr><td rownumber="7" columnnumber="0">TOTAL</td><td rownumber="7" columnnumber="1"></td><td rownumber="7" columnnumber="2"></td><td rownumber="7" columnnumber="3"></td><td rownumber="7" columnnumber="4"></td></tr></tbody></table> ]]> 
-                                    </template>
-                                </entry>
-                                <entry>
-                                    <type>table</type>
-                                    <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for reported trend</td><td rownumber="0" columnnumber="2">Tier for status</td></tr><tr><td rownumber="1" columnnumber="0">Public  Administration</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td></tr><tr><td rownumber="2" columnnumber="0">Individuals</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td></tr><tr><td rownumber="3" columnnumber="0">Private  corporations and institutions</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td></tr><tr><td rownumber="4" columnnumber="0">Communities</td><td rownumber="4" columnnumber="1"></td><td rownumber="4" columnnumber="2"></td></tr><tr><td rownumber="5" columnnumber="0">Other</td><td rownumber="5" columnnumber="1"></td><td rownumber="5" columnnumber="2"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for reported trend
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Tier for status
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Public Administration
+			</td>
+			<td class="tier" rownumber="1" columnnumber="1"></td>
+			<td class="tier" rownumber="1" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Individuals
+			</td>
+			<td class="tier" rownumber="2" columnnumber="1"></td>
+			<td class="tier" rownumber="2" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				Private corporations and institutions
+			</td>
+			<td class="tier" rownumber="3" columnnumber="1"></td>
+			<td class="tier" rownumber="3" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="4" columnnumber="0">
+				Communities
+			</td>
+			<td class="tier" rownumber="4" columnnumber="1"></td>
+			<td class="tier" rownumber="4" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="5" columnnumber="0">
+				Other
+			</td>
+			<td class="tier" rownumber="5" columnnumber="1"></td>
+			<td class="tier" rownumber="5" columnnumber="2"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -5918,7 +6782,51 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments  related to data definitions etc</td><td rownumber="0" columnnumber="2">Comments  on the reported trend</td></tr><tr><td rownumber="1" columnnumber="0">Public  ownership</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td></tr><tr><td rownumber="2" columnnumber="0">Private  ownership</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td></tr><tr><td rownumber="3" columnnumber="0">Other  types of ownership</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td></tr><tr><td rownumber="4" columnnumber="0">Management  rights</td><td rownumber="4" columnnumber="1"></td><td rownumber="4" columnnumber="2"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments related to data definitions etc
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Comments on the reported trend
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Public ownership
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td rclass="entry-item editable text" ownumber="1" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Private ownership
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				Other types of ownership
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+		</tr>
+		<tr>
+			<td rownumber="4" columnnumber="0">
+				Management rights
+			</td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -5948,7 +6856,30 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0"></td><td rownumber="0" columnnumber="1">References to  sources of information</td><td rownumber="0" columnnumber="2">Years</td><td rownumber="0" columnnumber="3">Additional  comments</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td><td rownumber="1" columnnumber="3"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable extensible">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0"></td>
+			<td rownumber="0" columnnumber="1">
+				References to sources of information
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Years
+			</td>
+			<td rownumber="0" columnnumber="3">
+				Additional comments
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>						
                                     </Elements>
@@ -5959,7 +6890,28 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">National  class</td><td rownumber="0" columnnumber="1">Definition</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0"></td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable extensible">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				National class
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Definition
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="2" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>						
                                     </Elements>
@@ -5971,8 +6923,54 @@
                             <Elements>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 20</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">FRA 2015  Category</td><td colspan="4" rownumber="0" columnnumber="1">Employment 000 years FTE</td></tr><tr><td rownumber="1" columnnumber="0">1990</td><td rownumber="1" columnnumber="1">2000</td><td rownumber="1" columnnumber="2">2005</td><td rownumber="1" columnnumber="3">2010</td></tr><tr><td rownumber="2" columnnumber="0">Employment in forestry  and related workers</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td><td rownumber="2" columnnumber="3"></td><td rownumber="2" columnnumber="4"></td></tr><tr><td rownumber="3" columnnumber="0">of which female</td><td rownumber="3" columnnumber="1"></td><td rownumber="3" columnnumber="2"></td><td rownumber="3" columnnumber="3"></td><td rownumber="3" columnnumber="4"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rowspan="2" rownumber="0" columnnumber="0">
+				FRA 2015 Category
+			</td>
+			<td colspan="4" rownumber="0" columnnumber="1">
+				Employment 000 years FTE
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				1990
+			</td>
+			<td rownumber="1" columnnumber="1">
+				2000
+			</td>
+			<td rownumber="1" columnnumber="2">
+				2005
+			</td>
+			<td rownumber="1" columnnumber="3">
+				2010
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Employment in forestry and related workers
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				of which female
+			</td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -5983,7 +6981,30 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments  related to data definitions etc</td><td rownumber="0" columnnumber="2">Comments  on the reported trend</td></tr><tr><td rownumber="1" columnnumber="0">Employment in  forestry and related workers</td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments related to data definitions etc
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Comments on the reported trend
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Employment in forestry and related workers
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -5995,14 +7016,35 @@
                     <Elements>
                         <entry>
                             <type>table</type>
+                            <title>FRA 2015 Categories and definitions</title>
                             <template>
                                 <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Definition</td></tr><tr><td rownumber="1" columnnumber="0">Forestry contribution to Gross Domestic Product</td><td rownumber="1" columnnumber="1">A measure of the contribution of forestry to the  value of total production in a country in a given year</td></tr></tbody></table> ]]> 
                             </template>
                         </entry>
                         <entry>
                             <type>table</type>
+                            <title>Table 20 (Pre-filled data from UNdata/EUROSTAT)</title>
                             <template>
-                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">FRA  2015 category</td><td rownumber="0" columnnumber="1">Million USD</td></tr><tr><td rownumber="1" columnnumber="0">Forestry  contribution to GDP</td><td rownumber="1" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				FRA 2015 category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Million USD
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Forestry contribution to GDP
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                             </template>
                         </entry>				
                     </Elements>
@@ -6012,7 +7054,24 @@
                             <entry>
                                 <type>table</type>
                                 <template>
-                                    <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                 </template>
                             </entry>					
                         </Elements>
@@ -6046,7 +7105,30 @@
                                         <entry>
                                             <type>table</type>
                                             <template>
-                                                <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0"></td><td rownumber="0" columnnumber="1">References to  sources of information</td><td rownumber="0" columnnumber="2">Years</td><td rownumber="0" columnnumber="3">Additional  comments</td></tr><tr><td rownumber="1" columnnumber="0"></td><td rownumber="1" columnnumber="1"></td><td rownumber="1" columnnumber="2"></td><td rownumber="1" columnnumber="3"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0"></td>
+			<td rownumber="0" columnnumber="1">
+				References to sources of information
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Years
+			</td>
+			<td rownumber="0" columnnumber="3">
+				Additional comments
+			</td>
+		</tr>
+		<tr>
+			<td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                             </template>
                                         </entry>						
                                     </Elements>
@@ -6058,14 +7140,67 @@
                             <Elements>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 22a</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">FRA 2015  Category</td><td colspan="2" rownumber="0" columnnumber="1">Forest area 000 ha</td></tr><tr><td rownumber="1" columnnumber="0">2020</td><td rownumber="1" columnnumber="1">2030</td></tr><tr><td rownumber="2" columnnumber="0">Government  targetaspiration for forest area</td><td rownumber="2" columnnumber="1"></td><td rownumber="2" columnnumber="2"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rowspan="2" rownumber="0" columnnumber="0">
+				FRA 2015 Category
+			</td>
+			<td colspan="2" rownumber="0" columnnumber="1">
+				Forest area 000 ha
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				2020
+			</td>
+			<td rownumber="1" columnnumber="1">
+				2030
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Government targetaspiration for forest area
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>Table 22b</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td colspan="2" rownumber="0" columnnumber="0">FRA 2015  Category</td><td rownumber="0" columnnumber="1">Forest area 000 ha</td></tr><tr><td rownumber="1" columnnumber="0">2013</td></tr><tr><td rownumber="2" columnnumber="0">Forests  earmarked for conversion</td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[ 
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rowspan="2" rownumber="0" columnnumber="0">
+				FRA 2015 Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Forest area 000 ha
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				2013
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Forests earmarked for conversion
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -6076,7 +7211,32 @@
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Comments</td></tr><tr><td rownumber="1" columnnumber="0">Government  targetaspiration for forest area</td><td rownumber="1" columnnumber="1"></td></tr><tr><td rownumber="2" columnnumber="0">Forests  earmarked for conversion</td><td rownumber="2" columnnumber="1"></td></tr></tbody></table> ]]> 
+<![CDATA[
+<table class="editable">
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Comments
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Government targetaspiration for forest area
+			</td>
+			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Forests earmarked for conversion
+			</td>
+			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
