@@ -1101,7 +1101,7 @@
 				</tr>
 				<tr>
 					<td rownumber="1" columnnumber="0">
-						Rank
+						Rank {{}}
 					</td>
 					<td rownumber="1" columnnumber="1">
 						Scientific name
@@ -1270,7 +1270,7 @@
                                                         <td>Complementary information</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Minimum diameter (cm) at breast height1 of
+                                                        <td>Minimum diameter (cm) at breast height {{}} of
 trees included in growing stock (X)</td>
                                                         <td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
                                                         <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
@@ -2485,7 +2485,7 @@ in growing stock (W)</td>
             <title>PROTECTIVE FUNCTIONS AND SELECTED ECOSYSTEM SERVICES</title>
             <Elements>
                 <question>
-                    <title>How much forest area is managed for protection of soil and water</title>
+                    <title>How much forest area is managed for protection of soil and water and ecosystem services?</title>
                     <Elements>
                         <session>
                             <title>FRA 2015 Categories and definitions</title>
@@ -2506,7 +2506,7 @@ in growing stock (W)</td>
 				</tr>
 				<tr>
 					<td rownumber="1" columnnumber="0">
-						Protection of soil and water
+						Protection of soil and water {{}}
 					</td>
 					<td rownumber="1" columnnumber="1">
 						Forest area designated or managed for protection of soil and water
@@ -3520,7 +3520,7 @@ in growing stock (W)</td>
             <title>DISTURBANCE AND FOREST DEGRADATION</title>
             <Elements>
                 <question>
-                    <title>What is the area of forest affected by woody invasive species</title>
+                    <title>What is the area of forest affected by woody invasive species?</title>
                     <Elements>
                         <session>
                             <title>FRA 2015 Categories and definitions</title>
@@ -3768,7 +3768,7 @@ in growing stock (W)</td>
 		</tr>
 		<tr>
 			<td rownumber="12" columnnumber="0">
-				Total
+				Total {{}}
 			</td>
 			<td rownumber="12" columnnumber="1"></td>
 			<td rownumber="12" columnnumber="2"></td>
@@ -4217,7 +4217,7 @@ in growing stock (W)</td>
 				Year
 			</td>
 			<td rownumber="0" columnnumber="3">
-				Area damaged 000 hectares
+				Area damaged 000 hectares {{}}
 			</td>
 		</tr>
 		<tr>
@@ -4713,10 +4713,10 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td  rownumber="3" columnnumber="0">
 				Policies supporting sustainable management of publicly owned forests
 			</td>
-			<td class="entry-item editable boolean" rownumber="3" columnnumber="1"></td>
-			<td class="entry-item editable boolean" rownumber="3" columnnumber="3"></td>
-			<td class="entry-item editable boolean" rownumber="3" columnnumber="5"></td>
-			<td class="entry-item editable boolean" rownumber="3" columnnumber="7"></td>
+			<td class="entry-item boolean" rownumber="3" columnnumber="1"></td>
+			<td class="entry-item boolean" rownumber="3" columnnumber="3"></td>
+			<td class="entry-item boolean" rownumber="3" columnnumber="5"></td>
+			<td class="entry-item boolean" rownumber="3" columnnumber="7"></td>
 		</tr>
 		<tr>
 			<td  rownumber="5" columnnumber="0">

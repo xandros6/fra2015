@@ -295,6 +295,7 @@
                         
                     });
                     
+                    
                     /*for (var i in CKEDITOR.instances) {
                         CKEDITOR.instances[i].on('change', function() {
                             alert('test 1 2 3')

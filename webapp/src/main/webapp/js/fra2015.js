@@ -991,9 +991,19 @@
                 return false;
             });
             
+            $.each(this.el.find('td'), function(index, entry){
+                var cell = $(this);
+                var value = cell.text();
+                if ( value.indexOf('{{}}') !== -1 ){
+                    value = value.replace('{{}}', '<i class="icon-question-sign"></i>');
+                    cell.empty().append( value );
+                }
+                
+            });
+            
             if ( App.user.check('canEdit') ){
                 this.el.find('.entry-item')
-                .css('backgroundColor', '#CEF6D8')
+                .css('backgroundColor', '#F2F5A9')
                 .attr('entry-id', this.options.id)
                 .click(function(){
                     var cell = $(this);
@@ -1074,8 +1084,34 @@
                     s.prop('disabled', 'disabled');
                 }
             });
+            
+           
               
-             
+            /* $.each(this.el.find('.boolean'), function(index, entry){
+                var cell = $(this);
+                cell.attr('entry-id', self.options.id);
+                
+                var yesBtn = $('<input type="checkbox"> Yes');
+                var noBtn = $('<input type="checkbox"> No');
+                
+                yesBtn.click(function () {
+                    var checkedState = $(this).attr('checked');
+                    noBtn.each(function () {
+                        $(this).attr('checked', false);
+                    });
+                    $(this).attr('checked', checkedState);
+                });
+                
+                var radio=$('<div></div>');
+                radio.append( yesBtn );
+                radio.append( noBtn );
+                
+                cell.empty();
+                cell.append( radio );
+                if ( ! App.user.check('canEdit') ){
+                // s.prop('disabled', 'disabled');
+                }
+            });*/
   
 
         }
