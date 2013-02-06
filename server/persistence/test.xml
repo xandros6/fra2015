@@ -421,6 +421,7 @@
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <title>1.5 Comments</title>
                                     <template>
                                                  <![CDATA[ 
                                                 <table class="editable">

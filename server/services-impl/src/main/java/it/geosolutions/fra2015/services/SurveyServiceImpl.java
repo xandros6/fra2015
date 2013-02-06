@@ -215,7 +215,7 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public Entry updateValues(Long entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
+    public Entry updateValues(String country, Long entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
 
 
@@ -244,12 +244,12 @@ public class SurveyServiceImpl implements SurveyService {
             }
             // retrieve previous value if it is an update
             ValueDAO valueDAO = map.get(item.getType());
-            Value dbValue = valueDAO.read(item.getId(), "IT"); // TODO
+            Value dbValue = valueDAO.read(item.getId(), country); 
             if (dbValue == null) {
                 // create a new value
                 dbValue = new Value();
                 dbValue.setEntryItem(item);
-                dbValue.setCountry("IT"); // TODO
+                dbValue.setCountry(country); 
                 // set value
                 dbValue.setContent(value);
                 valueDAO.persist(dbValue);

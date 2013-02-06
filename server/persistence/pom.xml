@@ -49,6 +49,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
             <artifactId>hsqldb</artifactId>
             <version>2.0.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
 
         <!-- ================================================================-->
         <!-- APACHE COMMONS -->

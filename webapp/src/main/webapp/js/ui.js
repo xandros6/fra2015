@@ -6,6 +6,7 @@
         var username = null;
         var role = null;
         var token = null;
+        var countries = null;
         return {
             login: function( username, password ){
                 $(document).find('#progressbar').modal('hide');
@@ -17,8 +18,9 @@
                         username = result.user.username;
                         token = result.token;
                         role =  result.user.role;
-                        App.setUser(username, role, token);
-                        context.trigger('loginOk', username, role, token);
+                        countries = result.user.countries;
+                        App.setUser(username, role, token, countries);
+                        context.trigger('loginOk', username, role, token, countries);
                     },
                     error: function(response){
                         // $(document).find('#progressbar').modal('show');

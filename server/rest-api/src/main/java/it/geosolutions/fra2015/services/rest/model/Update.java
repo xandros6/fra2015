@@ -18,6 +18,7 @@ public class Update implements Serializable{
     private Integer row;
     private Integer column;
     private String value;
+    private String country;
 
     public Long getEntryId() {
         return entryId;
@@ -49,6 +50,14 @@ public class Update implements Serializable{
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
     
     

@@ -6,10 +6,11 @@
 
     var User = Class.create({
 
-        initialize: function(username, role, token){
+        initialize: function(username, role, token, countries){
             this.username = username;
             this.token = token;
             this.role = role;
+            this.countries = countries;
             
             this.actions = {
                 'canAddFeedback': function(user){
@@ -41,8 +42,8 @@
             this.user = new User;
         },
         
-        setUser: function(username, role, token){
-            this.user = new User(username, role, token);
+        setUser: function(username, role, token, countries){
+            this.user = new User(username, role, token, countries);
         }
 
 
@@ -653,24 +654,45 @@
             return t;
         },
         'reviewer/surveys': function(){
-            // TODO use template vars
+            
             var t = new Template({
                 url: './reviewer/surveys.html'
             });
             t.bind('load', function( el ){
-                el.find('#viewBtn').click(function(){
-                    // TODO refactor, better paging system
-                    el.empty();
-                    var model = new Survey;
-                    var survey = new SurveyPage({
-                        model:model
+                
+                
+                var countries = App.user.countries.split(',');
+                if ( countries ){
+                    var table = el.find('#surveyListTable').find('tbody');
+                    $.each( countries, function(index, country){
+                        var model = new Survey({
+                            country: country
+                        });
+                        var survey = new SurveyPage({
+                            model:model
+                        });
+                        
+                        var link = $('<a href="#" class="btn">View</a>');
+                        link.click( function(){
+                            el.empty();
+                            survey.bind('load', function( ){
+                                el.append( survey.el );
+                            });
+                            survey.render();
+                        });
+                        
+                        var row = $('<tr></tr>');
+                        row.append('<td>'+ country +'</td>');
+                        row.append('<td></td>');
+                        row.append('<td></td>');
+                        row.append( $('<td></td>').append( link ));
+                        table.append( row );
                     });
-
-                    survey.bind('load', function( ){
-                        el.append( survey.el );
-                    });
-                    survey.render();
-                });
+                } else {
+                    throw 'Cannot create surveys page: no country associated to this user';
+                }
+                    
+                
             });
             return t;
         },
@@ -1316,8 +1338,9 @@
         // entry_item_id -> entry_item_value
         values:{},
 
-        initialize: function($super){
+        initialize: function($super, options){
             $super();
+            this.country = options.country;
         },
 
         isEmpty: function(){
@@ -1347,6 +1370,7 @@
                 var content = value.value;
                 if ( content && content.length > 0 ){              
                     req += '<update>';
+                    req += '<country>'+ this.country +'</country>';
                     req += '<entryId>'+ value.entryId +'</entryId>';
                     req += '<row>'+ value.row +'</row>';
                     req += '<column>'+ value.col +'</column>'; 
@@ -1382,7 +1406,12 @@
         /*
          * load a survey from remote db
          */
-        load: function(){
+        load: function(  ){
+            
+            if (! this.country ){
+                throw 'Survey model is not correctly initialized: missing country.';
+            }
+            
             if ( this.isEmpty() ){
                 var model = this;
                 $.ajax({
@@ -1391,7 +1420,7 @@
                     cache: false,
                     // TODO externalize
                     // url:'http://localhost:9191/fra2015/rest/survey/FRA2015',
-                    url: baseUrl+'/rest/survey/?country=IT&name=FRA2015',
+                    url: baseUrl+'/rest/survey/?name=FRA2015&country=' + model.country,
                     // url:'/fra2015/rest/survey/?country=IT&name=FRA2015',
                     // crossDomain: false,
                     // url:'./resources/'+ $.i18n.lng() +'/survey.json',
@@ -1764,7 +1793,18 @@
     this.ContributorPage = Class.create(TabPage, {
         initialize:function( $super ){
 
-            var model = new Survey;
+            var countries = App.user.countries.split(',');
+            if ( countries.length > 1){
+                console.log( countries );
+                throw 'Cannot create contributor page: too many countries associated to the current user ' + App.user.username;
+            } else if ( countries.length === 0 ){
+                console.log( countries );
+                throw 'Cannot create contributor page: no country associated to the current user ' + App.user.username;                
+            }
+
+            var model = new Survey({
+                country: countries[0]
+            });
             var page = this;
             var survey = new SurveyPage({
                 model:model

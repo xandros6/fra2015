@@ -139,6 +139,7 @@ public class SurveyServiceImpl implements SurveyService {
             if (updates.getUpdates() != null) {
                 for (Update update : updates.getUpdates()) {
                     Entry entry = surveyService.updateValues(
+                            update.getCountry(),
                             update.getEntryId(),
                             update.getRow(),
                             update.getColumn(),
@@ -163,6 +164,9 @@ public class SurveyServiceImpl implements SurveyService {
 
         if (countryId == null) {
             throw new BadRequestServiceEx("Missing parameter country");
+        }
+        if (name == null) {
+            throw new BadRequestServiceEx("Missing parameter name");
         }
 
         try {
