@@ -6286,7 +6286,7 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 <table class="editable">
 	<tbody>
 		<tr>
-			<td colspan="2" rownumber="0" columnnumber="0">
+			<td rowspan="2" rownumber="0" columnnumber="0">
 				FRA 2015 category
 			</td>
 			<td colspan="3" rownumber="0" columnnumber="1">
@@ -7038,7 +7038,15 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
                                             </template>
                                         </entry>						
                                     </Elements>
-                                </session>                            
+                                </session>
+                                <session>
+                                    <title>Original data</title>
+                                    <Elements>
+                                        <entry>
+                                            <type>textarea</type>
+                                        </entry>
+                                    </Elements>					
+                                </session>                             
                             </Elements>
                         </session>
                         <session>
@@ -7166,7 +7174,7 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
                             <Elements>
                         <entry>
                             <type>table</type>
-                            <title>Table 20 (Pre-filled data from UNdata/EUROSTAT)</title>
+                            <title>Table 20</title>
                             <template>
 <![CDATA[ 
 <table class="editable">
@@ -7190,9 +7198,9 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 				Gross value added from
                                 forestry (at basic prices)
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-                        <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
-                        <td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
+			<td class="prefilled" rownumber="1" columnnumber="1"></td>
+                        <td class="prefilled" rownumber="1" columnnumber="2"></td>
+                        <td class="prefilled" rownumber="1" columnnumber="3"></td>
 		</tr>
 	</tbody>
 </table>
