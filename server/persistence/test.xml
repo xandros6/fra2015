@@ -1719,7 +1719,83 @@ in growing stock (W)</td>
                                     <type>table</type>
                                     <title>Tier criteria</title>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Tier for status</td><td rownumber="0" columnnumber="2">Tier for reported trend</td></tr><tr><td rownumber="1" columnnumber="0">Total  growing stock</td><td rownumber="1" columnnumber="1">Tier  3 Data sources Recent  10 years National Forest Inventory or remote  sensing with ground truthing or programme for repeated compatible NFI  10  years Domestic volume functions         Tier  2 Data sourcesregisters and statistics modelling or old NFI 10 years  or partial field inventory        Tier  1 Other data sources</td><td rownumber="1" columnnumber="2">Tier  3 Estimate based on repeated compatible tiers 3 tier for status    Domestic  growth functions        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td></tr><tr><td rownumber="2" columnnumber="0">Mean  annual increment</td><td rownumber="2" columnnumber="1">Tier  3 Scientificically tested national volume and growth functions        Tier  2 Selection of volume and growth functions as relevant as possible        Tier  1 Other</td><td rownumber="2" columnnumber="2">Tier  3 Confirmationadjustment of functions used through scientific work        Tier  2 Review work done to seekt aalternative functions        Tier  1 Other</td></tr><tr><td rownumber="3" columnnumber="0">Biomass</td><td rownumber="3" columnnumber="1">Tier  3 Countryspecific national or subnational biomass conversion expansion  factors applied or other domestic or otherwise nationally relevant biomass  studies        Tier  2 Application of country specific national or subnational biomass conversion  factors form from other country with similar climatic conditions and forest  types        Tier  1 Internationalregional default biomass expansion factors applied</td><td rownumber="3" columnnumber="2">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td></tr><tr><td rownumber="4" columnnumber="0">Carbon  in above ground biomass        Carbon  in below ground biomass        Carbon  in dead wood and litter        Soil  carbon</td><td rownumber="4" columnnumber="1">Tier  3 Countryspecific national or subnational biomass conversion expansion  factors applied        Tier  2 Application of country specific national or subnational biomass  conversion factors form from other country with similar climatic conditions  and forest types        Tier  1 Internationalregional default biomass expansion factors applied</td><td rownumber="4" columnnumber="2">Tier  3 Estimate based on repeated compatible tiers 3 tier for status        Tier  2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2  or 1 tier for status        Tier  1 Other</td></tr></tbody></table> ]]> 
+                                        <![CDATA[ 
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for status
+			</td>
+			<td rownumber="0" columnnumber="2">
+				Tier for reported trend
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Total growing stock
+			</td>
+			<td rownumber="1" columnnumber="1">
+				Tier 3 Data sources Recent 10 years National Forest Inventory or remote sensing with ground truthing or programme for repeated compatible NFI 10 years Domestic volume functions <br/>
+                                Tier 2 Data sourcesregisters and statistics modelling or old NFI 10 years or partial field inventory <br/>
+                                Tier 1 Other data sources
+			</td>
+			<td rownumber="1" columnnumber="2">
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status Domestic growth functions <br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Mean annual increment
+			</td>
+			<td rownumber="2" columnnumber="1">
+				Tier 3 Scientificically tested national volume and growth functions<br/>
+                                Tier 2 Selection of volume and growth functions as relevant as possible <br/>
+                                Tier 1 Other
+			</td>
+			<td rownumber="2" columnnumber="2">
+				Tier 3 Confirmationadjustment of functions used through scientific work <br/>
+                                Tier 2 Review work done to seekt aalternative functions <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="3" columnnumber="0">
+				Biomass
+			</td>
+			<td rownumber="3" columnnumber="1">
+				Tier 3 Countryspecific national or subnational biomass conversion expansion factors applied or other domestic or otherwise nationally relevant biomass studies <br/>
+                                Tier 2 Application of country specific national or subnational biomass conversion factors form from other country with similar climatic conditions and forest types<br/>
+                                Tier 1 Internationalregional default biomass expansion factors applied
+			</td>
+			<td rownumber="3" columnnumber="2">
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status <br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status <br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="4" columnnumber="0">
+				Carbon in above ground biomass Carbon in below ground biomass Carbon in dead wood and litter Soil carbon
+			</td>
+			<td rownumber="4" columnnumber="1">
+				Tier 3 Countryspecific national or subnational biomass conversion expansion factors applied <br/>
+                                Tier 2 Application of country specific national or subnational biomass conversion factors form from other country with similar climatic conditions and forest types <br/>
+                                Tier 1 Internationalregional default biomass expansion factors applied
+			</td>
+			<td rownumber="4" columnnumber="2">
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status <br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status<br/>
+                                Tier 1 Other
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
@@ -7261,8 +7337,8 @@ basic prices)</td>
 ]]> 
                                     </template>
                                 </entry>					
-                            </Elements>
-                        </session>                       
+                            </Elements> 
+                       </session>                       
                     </Elements>
                 </question>				
             </Elements>
