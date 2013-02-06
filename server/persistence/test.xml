@@ -3801,14 +3801,10 @@ in growing stock (W)</td>
 	</tbody>
 </table>]]> 
                                     </template>
-                                </entry>					
-                            </Elements>
-                        </session>
-                        <session>
-                            <title>Tier Criteria</title>
-                            <Elements>
-                                <entry>
+                                </entry>
+                               <entry>
                                     <type>table</type>
+                                    <title>Tier Criteria</title>
                                     <template>
 <![CDATA[ 
 <table>
@@ -3843,7 +3839,7 @@ in growing stock (W)</td>
 </table>
  ]]> 
                                     </template>
-                                </entry>					
+                                </entry>	                                					
                             </Elements>
                         </session>
                         <session>
