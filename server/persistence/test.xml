@@ -1260,6 +1260,46 @@
                                 </entry>
                                 <entry>
                                     <type>table</type>
+                                    <template>
+                                        <![CDATA[
+                                            <table class="editable">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Item</td>
+                                                        <td>Value</td>
+                                                        <td>Complementary information</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Minimum diameter (cm) at breast height1 of
+trees included in growing stock (X)</td>
+                                                        <td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+                                                        <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Minimum diameter (cm) at the top end of
+stem for calculation of growing stock (Y)</td>
+                                                        <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+                                                        <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Minimum diameter (cm) of branches included
+in growing stock (W)</td>
+                                                        <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+                                                        <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td>Volume refers to “above ground” (AG) or
+“above stump” (AS)</td>
+                                                        <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
+                                                        <td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+                                                    </tr>                                                                                                       
+                                                </tbody>
+                                            </table>
+                                        ]]> 
+                                    </template>
+                                </entry>                        
+                                <entry>
+                                    <type>table</type>
                                     <title>Table 3c</title>
                                     <template>
                                         <![CDATA[ 
