@@ -5421,10 +5421,10 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="6"></td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="7"></td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="8"></td>
+			<td  rownumber="4" columnnumber="5"></td>
+			<td  rownumber="4" columnnumber="6"></td>
+			<td  rownumber="4" columnnumber="7"></td>
+			<td  rownumber="4" columnnumber="8"></td>
 		</tr>
 		<tr>
 			<td rownumber="5" columnnumber="0">
@@ -5432,12 +5432,12 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			</td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="6"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="7"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="8"></td>
+			<td  rownumber="5" columnnumber="3"></td>
+			<td  rownumber="5" columnnumber="4"></td>
+			<td  rownumber="5" columnnumber="5"></td>
+			<td  rownumber="5" columnnumber="6"></td>
+			<td  rownumber="5" columnnumber="7"></td>
+			<td  rownumber="5" columnnumber="8"></td>
 		</tr>
 	</tbody>
 </table>
