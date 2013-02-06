@@ -999,7 +999,6 @@
                     value = value.replace('{{}}', '<i class="icon-question-sign"></i>');
                     cell.empty().append( value );
                 }
-                
             });
             
             if ( App.user.check('canEdit') ){

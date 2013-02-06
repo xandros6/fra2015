@@ -2215,9 +2215,9 @@ in growing stock (W)</td>
 					<td colspan="2" rownumber="12" columnnumber="0">
 						TOTAL
 					</td>
-					<td rownumber="12" columnnumber="1"></td>
+					<td class="noneditable" rownumber="12" columnnumber="1"></td>
 					<td rownumber="12" columnnumber="2"></td>
-					<td rownumber="12" columnnumber="3"></td>
+					<td class="noneditable" rownumber="12" columnnumber="3"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -2428,6 +2428,25 @@ in growing stock (W)</td>
                                 Tier 1 Other
 			</td>
 		</tr>
+                <tr>
+                    <td>
+                        Commercial value of NWFP removals
+                    </td>
+                    <td>
+                        Tier 3: National or sum of subnational reporting 
+                        on the value of commercial NWFP at the forest gate <br/>
+
+                        Tier 2: Local or regional studies
+                        with market values calculated for
+                        removals transported to the forest
+                        gate <br/>
+
+                        Tier 1: Other
+                    </td>
+                    <td class="noneditable">
+                    
+                    </td>
+                </tr>
 	</tbody>
 </table>]]> 
                                             </template>
@@ -5421,10 +5440,10 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
-			<td  rownumber="4" columnnumber="5"></td>
-			<td  rownumber="4" columnnumber="6"></td>
-			<td  rownumber="4" columnnumber="7"></td>
-			<td  rownumber="4" columnnumber="8"></td>
+			<td class="noneditable" rownumber="4" columnnumber="5"></td>
+			<td class="noneditable"  rownumber="4" columnnumber="6"></td>
+			<td class="noneditable" rownumber="4" columnnumber="7"></td>
+			<td class="noneditable"  rownumber="4" columnnumber="8"></td>
 		</tr>
 		<tr>
 			<td rownumber="5" columnnumber="0">
@@ -5432,12 +5451,12 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			</td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-			<td  rownumber="5" columnnumber="3"></td>
-			<td  rownumber="5" columnnumber="4"></td>
-			<td  rownumber="5" columnnumber="5"></td>
-			<td  rownumber="5" columnnumber="6"></td>
-			<td  rownumber="5" columnnumber="7"></td>
-			<td  rownumber="5" columnnumber="8"></td>
+			<td class="noneditable"  rownumber="5" columnnumber="3"></td>
+			<td class="noneditable"  rownumber="5" columnnumber="4"></td>
+			<td class="noneditable"  rownumber="5" columnnumber="5"></td>
+			<td class="noneditable"  rownumber="5" columnnumber="6"></td>
+			<td class="noneditable"  rownumber="5" columnnumber="7"></td>
+			<td class="noneditable"  rownumber="5" columnnumber="8"></td>
 		</tr>
 	</tbody>
 </table>

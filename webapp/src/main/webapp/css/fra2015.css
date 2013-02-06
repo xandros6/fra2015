@@ -17,6 +17,10 @@ td.prefilled {
     background-color: #F6CECE !important; 
 }
 
+td.noneditable {
+    background-color: #D8D8D8 !important; 
+}
+
 .form-signin {
     max-width: 300px;
     padding: 19px 29px 29px;
