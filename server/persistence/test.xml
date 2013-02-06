@@ -220,42 +220,42 @@
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" rownumber="2" columnnumber="0">Forest</td>
-                                                                <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-                                                                <td class="entry-item editable text"  rownumber="2" columnnumber="2"></td>
-                                                                <td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-                                                                <td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+                                                                <td class="prefilled" rownumber="2" columnnumber="1"></td>
+                                                                <td class="prefilled"  rownumber="2" columnnumber="2"></td>
+                                                                <td class="prefilled" rownumber="2" columnnumber="3"></td>
+                                                                <td class="prefilled" rownumber="2" columnnumber="4"></td>
                                                                 <td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" rownumber="3" columnnumber="0">Other  wooded land</td>
-                                                                <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-                                                                <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-                                                                <td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-                                                                <td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+                                                                <td class="prefilled" rownumber="3" columnnumber="1"></td>
+                                                                <td class="prefilled" rownumber="3" columnnumber="2"></td>
+                                                                <td class="prefilled" rownumber="3" columnnumber="3"></td>
+                                                                <td class="prefilled" rownumber="3" columnnumber="4"></td>
                                                                 <td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" rownumber="4" columnnumber="0">Other  land</td>
-                                                                <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-                                                                <td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
-                                                                <td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
-                                                                <td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+                                                                <td class="prefilled" rownumber="4" columnnumber="1"></td>
+                                                                <td class="prefilled" rownumber="4" columnnumber="2"></td>
+                                                                <td class="prefilled" rownumber="4" columnnumber="3"></td>
+                                                                <td class="prefilled" rownumber="4" columnnumber="4"></td>
                                                                 <td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" rownumber="5" columnnumber="0">of which with tree cover</td>
-                                                                <td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-                                                                <td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-                                                                <td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-                                                                <td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+                                                                <td class="prefilled" rownumber="5" columnnumber="1"></td>
+                                                                <td class="prefilled" rownumber="5" columnnumber="2"></td>
+                                                                <td class="prefilled" rownumber="5" columnnumber="3"></td>
+                                                                <td class="prefilled" rownumber="5" columnnumber="4"></td>
                                                                 <td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" rownumber="6" columnnumber="0">Inland  water bodies</td>
-                                                                <td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-                                                                <td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
-                                                                <td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
-                                                                <td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
+                                                                <td class="prefilled" rownumber="6" columnnumber="1"></td>
+                                                                <td class="prefilled" rownumber="6" columnnumber="2"></td>
+                                                                <td class="prefilled" rownumber="6" columnnumber="3"></td>
+                                                                <td class="prefilled" rownumber="6" columnnumber="4"></td>
                                                                 <td class="entry-item editable text" rownumber="6" columnnumber="5"></td>
                                                             </tr>
                                                             <tr>
@@ -277,8 +277,8 @@
                                                     <tbody>
                                                         <tr>
                                                             <td rowspan="2" colspan="2" rownumber="0" columnnumber="0">FRA  2015 Categories</td>
-                                                            <td colspan="4" rownumber="0" columnnumber="1">Annual forest  establishmentloss 000 hectares per year</td>
-                                                            <td colspan="4" rownumber="0" columnnumber="2">of which of introduced  species  1    000 hectares per year</td>
+                                                            <td colspan="4" rownumber="0" columnnumber="1">Annual forest  establishmentloss 000 hectares per year {{}}</td>
+                                                            <td colspan="4" rownumber="0" columnnumber="2">of which of introduced  species  1    000 hectares per year {{}}</td>
                                                         </tr>
                                                         <tr>
                                                             <td rownumber="1" columnnumber="0">1990</td>
@@ -670,42 +670,42 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2" rownumber="2" columnnumber="0">Primary  forest</td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="1"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="2"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="3"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="4"></td>
                                                 <td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" rownumber="3" columnnumber="0">Other  naturally regenerated forest</td>
-                                                <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-                                                <td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-                                                <td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+                                                <td class="prefilled" rownumber="3" columnnumber="1"></td>
+                                                <td class="prefilled" rownumber="3" columnnumber="2"></td>
+                                                <td class="prefilled" rownumber="3" columnnumber="3"></td>
+                                                <td class="prefilled" rownumber="3" columnnumber="4"></td>
                                                 <td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" rownumber="4" columnnumber="0">of  which of introduced species</td>
-                                                <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
-                                                <td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
-                                                <td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+                                                <td class="prefilled" rownumber="4" columnnumber="1"></td>
+                                                <td class="prefilled" rownumber="4" columnnumber="2"></td>
+                                                <td class="prefilled" rownumber="4" columnnumber="3"></td>
+                                                <td class="prefilled" rownumber="4" columnnumber="4"></td>
                                                 <td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" rownumber="5" columnnumber="0">Planted  forest</td>
-                                                <td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-                                                <td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-                                                <td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+                                                <td class="prefilled" rownumber="5" columnnumber="1"></td>
+                                                <td class="prefilled" rownumber="5" columnnumber="2"></td>
+                                                <td class="prefilled" rownumber="5" columnnumber="3"></td>
+                                                <td class="prefilled" rownumber="5" columnnumber="4"></td>
                                                 <td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" rownumber="6" columnnumber="0">of  which of introduced species</td>
-                                                <td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
-                                                <td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
-                                                <td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
+                                                <td class="prefilled" rownumber="6" columnnumber="1"></td>
+                                                <td class="prefilled" rownumber="6" columnnumber="2"></td>
+                                                <td class="prefilled" rownumber="6" columnnumber="3"></td>
+                                                <td class="prefilled" rownumber="6" columnnumber="4"></td>
                                                 <td class="entry-item editable text" rownumber="6" columnnumber="5"></td>
                                             </tr>
                                             <tr>
@@ -767,11 +767,11 @@
                                                 <td rownumber="1" columnnumber="4">2015</td>
                                             </tr><tr>
                                                 <td colspan="2" rownumber="2" columnnumber="0">Mangroves  Forest and OWL</td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
-                                                <td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="1"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="2"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="3"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="4"></td>
+                                                <td class="prefilled" rownumber="2" columnnumber="5"></td>
                                             </tr></tbody></table> ]]> 
                                     </template>
                                 </entry>
@@ -1046,39 +1046,39 @@
                                             <td rownumber="2" columnnumber="9">2015</td>
                                         </tr><tr>
                                             <td rownumber="3" columnnumber="0">Total  growing stock</td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-                                            <td class="entry-item editable text" colspan="2" rownumber="3" columnnumber="2"></td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="1"></td>
+                                            <td class="prefilled" colspan="2" rownumber="3" columnnumber="2"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="3"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="4"></td>
                                             <td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="6"></td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="7"></td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="8"></td>
-                                            <td class="entry-item editable text" rownumber="3" columnnumber="9"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="6"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="7"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="8"></td>
+                                            <td class="prefilled" rownumber="3" columnnumber="9"></td>
                                             <td class="entry-item editable text" rownumber="3" columnnumber="10"></td>
                                         </tr><tr>
                                             <td rownumber="4" columnnumber="0">of which coniferous</td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-                                            <td class="entry-item editable text" colspan="2" rownumber="4" columnnumber="2"></td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="1"></td>
+                                            <td class="prefilled" colspan="2" rownumber="4" columnnumber="2"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="3"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="4"></td>
                                             <td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="6"></td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="7"></td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="8"></td>
-                                            <td class="entry-item editable text" rownumber="4" columnnumber="9"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="6"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="7"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="8"></td>
+                                            <td class="prefilled" rownumber="4" columnnumber="9"></td>
                                             <td class="entry-item editable text" rownumber="4" columnnumber="10"></td>
                                         </tr><tr>
                                             <td rownumber="5" columnnumber="0">of which broadleaved</td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-                                            <td class="entry-item editable text" colspan="2" rownumber="5" columnnumber="2"></td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="1"></td>
+                                            <td class="prefilled" colspan="2" rownumber="5" columnnumber="2"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="3"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="4"></td>
                                             <td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="6"></td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="7"></td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="8"></td>
-                                            <td class="entry-item editable text" rownumber="5" columnnumber="9"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="6"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="7"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="8"></td>
+                                            <td class="prefilled" rownumber="5" columnnumber="9"></td>
                                             <td class="entry-item editable text" rownumber="5" columnnumber="10"></td>
                                         </tr>
                                         </tbody></table> ]]> 
@@ -1126,110 +1126,110 @@
 					<td rownumber="2" columnnumber="0">
 						1 st
 					</td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
+					<td class="prefilled" rownumber="2" columnnumber="1"></td>
+					<td class="prefilled" rownumber="2" columnnumber="2"></td>
+					<td class="prefilled" rownumber="2" columnnumber="3"></td>
+					<td class="prefilled" rownumber="2" columnnumber="4"></td>
+					<td class="prefilled" rownumber="2" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="2" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="3" columnnumber="0">
 						2 nd
 					</td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
+					<td class="prefilled" rownumber="3" columnnumber="1"></td>
+					<td class="prefilled" rownumber="3" columnnumber="2"></td>
+					<td class="prefilled" rownumber="3" columnnumber="3"></td>
+					<td class="prefilled" rownumber="3" columnnumber="4"></td>
+					<td class="prefilled" rownumber="3" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="3" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="4" columnnumber="0">
 						3 rd
 					</td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
+					<td class="prefilled" rownumber="4" columnnumber="1"></td>
+					<td class="prefilled" rownumber="4" columnnumber="2"></td>
+					<td class="prefilled" rownumber="4" columnnumber="3"></td>
+					<td class="prefilled" rownumber="4" columnnumber="4"></td>
+					<td class="prefilled" rownumber="4" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="4" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="5" columnnumber="0">
 						4 th
 					</td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
+					<td class="prefilled" rownumber="5" columnnumber="1"></td>
+					<td class="prefilled" rownumber="5" columnnumber="2"></td>
+					<td class="prefilled" rownumber="5" columnnumber="3"></td>
+					<td class="prefilled" rownumber="5" columnnumber="4"></td>
+					<td class="prefilled" rownumber="5" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="5" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="6" columnnumber="0">
 						5 th
 					</td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="5"></td>
+					<td class="prefilled" rownumber="6" columnnumber="1"></td>
+					<td class="prefilled" rownumber="6" columnnumber="2"></td>
+					<td class="prefilled" rownumber="6" columnnumber="3"></td>
+					<td class="prefilled" rownumber="6" columnnumber="4"></td>
+					<td class="prefilled" rownumber="6" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="6" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="7" columnnumber="0">
 						6 th
 					</td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="5"></td>
+					<td class="prefilled" rownumber="7" columnnumber="1"></td>
+					<td class="prefilled" rownumber="7" columnnumber="2"></td>
+					<td class="prefilled" rownumber="7" columnnumber="3"></td>
+					<td class="prefilled" rownumber="7" columnnumber="4"></td>
+					<td class="prefilled" rownumber="7" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="7" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="8" columnnumber="0">
 						7 th
 					</td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="5"></td>
+					<td class="prefilled" rownumber="8" columnnumber="1"></td>
+					<td class="prefilled" rownumber="8" columnnumber="2"></td>
+					<td class="prefilled" rownumber="8" columnnumber="3"></td>
+					<td class="prefilled" rownumber="8" columnnumber="4"></td>
+					<td class="prefilled" rownumber="8" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="8" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="9" columnnumber="0">
 						8 th
 					</td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="5"></td>
+					<td class="prefilled" rownumber="9" columnnumber="1"></td>
+					<td class="prefilled" rownumber="9" columnnumber="2"></td>
+					<td class="prefilled" rownumber="9" columnnumber="3"></td>
+					<td class="prefilled" rownumber="9" columnnumber="4"></td>
+					<td class="prefilled" rownumber="9" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="9" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="10" columnnumber="0">
 						9 th
 					</td>
-					<td class="entry-item editable text" rownumber="10" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="10" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="10" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="10" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="10" columnnumber="5"></td>
+					<td class="prefilled" rownumber="10" columnnumber="1"></td>
+					<td class="prefilled" rownumber="10" columnnumber="2"></td>
+					<td class="prefilled" rownumber="10" columnnumber="3"></td>
+					<td class="prefilled" rownumber="10" columnnumber="4"></td>
+					<td class="prefilled" rownumber="10" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="10" columnnumber="6"></td>
 				</tr>
 				<tr>
 					<td rownumber="11" columnnumber="0">
 						10 th
 					</td>
-					<td class="entry-item editable text" rownumber="11" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="11" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="11" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="11" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="11" columnnumber="5"></td>
+					<td class="prefilled" rownumber="11" columnnumber="1"></td>
+					<td class="prefilled" rownumber="11" columnnumber="2"></td>
+					<td class="prefilled" rownumber="11" columnnumber="3"></td>
+					<td class="prefilled" rownumber="11" columnnumber="4"></td>
+					<td class="prefilled" rownumber="11" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="11" columnnumber="6"></td>
 				</tr>
 				<tr>
@@ -1238,9 +1238,9 @@
 					</td>
 					<td class="entry-item editable text" rownumber="12" columnnumber="1"></td>
 					<td class="entry-item editable text" rownumber="12" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="12" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="12" columnnumber="4"></td>
-					<td class="entry-item editable text" rownumber="12" columnnumber="5"></td>
+					<td class="prefilled" rownumber="12" columnnumber="3"></td>
+					<td class="prefilled" rownumber="12" columnnumber="4"></td>
+					<td class="prefilled" rownumber="12" columnnumber="5"></td>
 					<td class="entry-item editable text" rownumber="12" columnnumber="6"></td>
 				</tr>
 				<tr>
@@ -1272,26 +1272,26 @@
                                                     <tr>
                                                         <td>Minimum diameter (cm) at breast height {{}} of
 trees included in growing stock (X)</td>
-                                                        <td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
-                                                        <td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
+                                                        <td class="prefilled" rownumber="1" columnnumber="1"></td>
+                                                        <td class="prefilled" rownumber="1" columnnumber="2"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Minimum diameter (cm) at the top end of
 stem for calculation of growing stock (Y)</td>
-                                                        <td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-                                                        <td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+                                                        <td class="prefilled" rownumber="2" columnnumber="1"></td>
+                                                        <td class="prefilled" rownumber="2" columnnumber="2"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Minimum diameter (cm) of branches included
 in growing stock (W)</td>
-                                                        <td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-                                                        <td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+                                                        <td class="prefilled" rownumber="3" columnnumber="1"></td>
+                                                        <td class="prefilled" rownumber="3" columnnumber="2"></td>
                                                     </tr>  
                                                     <tr>
                                                         <td>Volume refers to “above ground” (AG) or
 “above stump” (AS)</td>
-                                                        <td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-                                                        <td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
+                                                        <td class="prefilled" rownumber="4" columnnumber="1"></td>
+                                                        <td class="prefilled" rownumber="4" columnnumber="2"></td>
                                                     </tr>                                                                                                       
                                                 </tbody>
                                             </table>
@@ -1429,45 +1429,45 @@ in growing stock (W)</td>
 					<td rownumber="3" columnnumber="0">
 						Aboveground biomass
 					</td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-					<td class="entry-item editable text" colspan="2" rownumber="3" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+					<td class="prefilled" rownumber="3" columnnumber="1"></td>
+					<td class="prefilled" colspan="2" rownumber="3" columnnumber="2"></td>
+					<td class="prefilled" rownumber="3" columnnumber="3"></td>
+					<td class="prefilled" rownumber="3" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="9"></td>
+					<td class="prefilled" rownumber="3" columnnumber="6"></td>
+					<td class="prefilled" rownumber="3" columnnumber="7"></td>
+					<td class="prefilled" rownumber="3" columnnumber="8"></td>
+					<td class="prefilled" rownumber="3" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="3" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="4" columnnumber="0">
 						Belowground biomass
 					</td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-					<td class="entry-item editable text" colspan="2" rownumber="4" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+					<td class="prefilled" rownumber="4" columnnumber="1"></td>
+					<td class="prefilled" colspan="2" rownumber="4" columnnumber="2"></td>
+					<td class="prefilled" rownumber="4" columnnumber="3"></td>
+					<td class="prefilled" rownumber="4" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="9"></td>
+					<td class="prefilled" rownumber="4" columnnumber="6"></td>
+					<td class="prefilled" rownumber="4" columnnumber="7"></td>
+					<td class="prefilled" rownumber="4" columnnumber="8"></td>
+					<td class="prefilled" rownumber="4" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="4" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="5" columnnumber="0">
 						Dead wood
 					</td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-					<td class="entry-item editable text" colspan="2" rownumber="5" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+					<td class="prefilled" rownumber="5" columnnumber="1"></td>
+					<td class="prefilled" colspan="2" rownumber="5" columnnumber="2"></td>
+					<td class="prefilled" rownumber="5" columnnumber="3"></td>
+					<td class="prefilled" rownumber="5" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="9"></td>
+					<td class="prefilled" rownumber="5" columnnumber="6"></td>
+					<td class="prefilled" rownumber="5" columnnumber="7"></td>
+					<td class="prefilled" rownumber="5" columnnumber="8"></td>
+					<td class="prefilled" rownumber="5" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="5" columnnumber="10"></td>
 				</tr>
 				<tr>
@@ -1548,105 +1548,105 @@ in growing stock (W)</td>
 					<td rownumber="3" columnnumber="0">
 						Carbon in aboveground biomass
 					</td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+					<td class="prefilled" rownumber="3" columnnumber="1"></td>
+					<td class="prefilled" rownumber="3" columnnumber="2"></td>
+					<td class="prefilled" rownumber="3" columnnumber="3"></td>
+					<td class="prefilled" rownumber="3" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="9"></td>
+					<td class="prefilled" rownumber="3" columnnumber="6"></td>
+					<td class="prefilled" rownumber="3" columnnumber="7"></td>
+					<td class="prefilled" rownumber="3" columnnumber="8"></td>
+					<td class="prefilled" rownumber="3" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="3" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="4" columnnumber="0">
 						Carbon in belowground biomass
 					</td>
-					<td class="entry-item editable text"  rownumber="4" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
+					<td class="prefilled"  rownumber="4" columnnumber="1"></td>
+					<td class="prefilled" rownumber="4" columnnumber="2"></td>
+					<td class="prefilled" rownumber="4" columnnumber="3"></td>
+					<td class="prefilled" rownumber="4" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="4" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="4" columnnumber="9"></td>
+					<td class="prefilled" rownumber="4" columnnumber="6"></td>
+					<td class="prefilled" rownumber="4" columnnumber="7"></td>
+					<td class="prefilled" rownumber="4" columnnumber="8"></td>
+					<td class="prefilled" rownumber="4" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="4" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="5" columnnumber="0">
 						Subtotal Living biomass
 					</td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
+					<td class="prefilled" rownumber="5" columnnumber="1"></td>
+					<td class="prefilled" rownumber="5" columnnumber="2"></td>
+					<td class="prefilled" rownumber="5" columnnumber="3"></td>
+					<td class="prefilled" rownumber="5" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="5" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="5" columnnumber="9"></td>
+					<td class="prefilled" rownumber="5" columnnumber="6"></td>
+					<td class="prefilled" rownumber="5" columnnumber="7"></td>
+					<td class="prefilled" rownumber="5" columnnumber="8"></td>
+					<td class="prefilled" rownumber="5" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="5" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="6" columnnumber="0">
 						Carbon in dead wood
 					</td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
+					<td class="prefilled" rownumber="6" columnnumber="1"></td>
+					<td class="prefilled" rownumber="6" columnnumber="2"></td>
+					<td class="prefilled" rownumber="6" columnnumber="3"></td>
+					<td class="prefilled" rownumber="6" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="6" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="6" columnnumber="9"></td>
+					<td class="prefilled" rownumber="6" columnnumber="6"></td>
+					<td class="prefilled" rownumber="6" columnnumber="7"></td>
+					<td class="prefilled" rownumber="6" columnnumber="8"></td>
+					<td class="prefilled" rownumber="6" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="6" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="7" columnnumber="0">
 						Carbon in litter
 					</td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="4"></td>
+					<td class="prefilled" rownumber="7" columnnumber="1"></td>
+					<td class="prefilled" rownumber="7" columnnumber="2"></td>
+					<td class="prefilled" rownumber="7" columnnumber="3"></td>
+					<td class="prefilled" rownumber="7" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="7" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="7" columnnumber="9"></td>
+					<td class="prefilled" rownumber="7" columnnumber="6"></td>
+					<td class="prefilled" rownumber="7" columnnumber="7"></td>
+					<td class="prefilled" rownumber="7" columnnumber="8"></td>
+					<td class="prefilled" rownumber="7" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="7" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="8" columnnumber="0">
 						Subtotal Dead wood and litter
 					</td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="4"></td>
+					<td class="prefilled" rownumber="8" columnnumber="1"></td>
+					<td class="prefilled" rownumber="8" columnnumber="2"></td>
+					<td class="prefilled" rownumber="8" columnnumber="3"></td>
+					<td class="prefilled" rownumber="8" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="8" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="8" columnnumber="9"></td>
+					<td class="prefilled" rownumber="8" columnnumber="6"></td>
+					<td class="prefilled" rownumber="8" columnnumber="7"></td>
+					<td class="prefilled" rownumber="8" columnnumber="8"></td>
+					<td class="prefilled" rownumber="8" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="8" columnnumber="10"></td>
 				</tr>
 				<tr>
 					<td rownumber="9" columnnumber="0">
 						Soil carbon
 					</td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="4"></td>
+					<td class="prefilled" rownumber="9" columnnumber="1"></td>
+					<td class="prefilled" rownumber="9" columnnumber="2"></td>
+					<td class="prefilled" rownumber="9" columnnumber="3"></td>
+					<td class="prefilled" rownumber="9" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="9" columnnumber="5"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="6"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="7"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="8"></td>
-					<td class="entry-item editable text" rownumber="9" columnnumber="9"></td>
+					<td class="prefilled" rownumber="9" columnnumber="6"></td>
+					<td class="prefilled" rownumber="9" columnnumber="7"></td>
+					<td class="prefilled" rownumber="9" columnnumber="8"></td>
+					<td class="prefilled" rownumber="9" columnnumber="9"></td>
 					<td class="entry-item editable text" rownumber="9" columnnumber="10"></td>
 				</tr>
 				<tr>
@@ -2066,20 +2066,20 @@ in growing stock (W)</td>
 					<td rownumber="2" columnnumber="0">
 						Production forest
 					</td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+					<td class="prefilled" rownumber="2" columnnumber="1"></td>
+					<td class="prefilled" rownumber="2" columnnumber="2"></td>
+					<td class="prefilled" rownumber="2" columnnumber="3"></td>
+					<td class="prefilled" rownumber="2" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
 				</tr>
 				<tr>
 					<td rownumber="3" columnnumber="0">
 						Multiple use forest
 					</td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-					<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+					<td class="prefilled" rownumber="3" columnnumber="1"></td>
+					<td class="prefilled" rownumber="3" columnnumber="2"></td>
+					<td class="prefilled" rownumber="3" columnnumber="3"></td>
+					<td class="prefilled" rownumber="3" columnnumber="4"></td>
 					<td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
 				</tr>
 				<tr>
@@ -2784,10 +2784,10 @@ in growing stock (W)</td>
 			<td rownumber="2" columnnumber="0">
 				Protection of soil and water
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+			<td class="prefilled" rownumber="2" columnnumber="1"></td>
+			<td class="prefilled" rownumber="2" columnnumber="2"></td>
+			<td class="prefilled" rownumber="2" columnnumber="3"></td>
+			<td class="prefilled" rownumber="2" columnnumber="4"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
 		</tr>
 		<tr>
@@ -3364,20 +3364,20 @@ in growing stock (W)</td>
 			<td rownumber="2" columnnumber="0">
 				Conservation of biodiversity
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
+			<td class="prefilled" rownumber="2" columnnumber="1"></td>
+			<td class="prefilled" rownumber="2" columnnumber="2"></td>
+			<td class="prefilled" rownumber="2" columnnumber="3"></td>
+			<td class="prefilled" rownumber="2" columnnumber="4"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="5"></td>
 		</tr>
 		<tr>
 			<td rownumber="3" columnnumber="0">
 				Forest area within protected areas
 			</td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
+			<td class="prefilled" rownumber="3" columnnumber="1"></td>
+			<td class="prefilled" rownumber="3" columnnumber="2"></td>
+			<td class="prefilled" rownumber="3" columnnumber="3"></td>
+			<td class="prefilled" rownumber="3" columnnumber="4"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="5"></td>
 		</tr>
 	</tbody>
@@ -3697,73 +3697,73 @@ in growing stock (W)</td>
 			</td>
 		</tr>
 		<tr>
-			<td rownumber="2" columnnumber="0">
+			<td class="prefilled" rownumber="2" columnnumber="0">
 				1
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="3" columnnumber="0">
+			<td class="prefilled" rownumber="3" columnnumber="0">
 				2
 			</td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="4" columnnumber="0">
+			<td class="prefilled" rownumber="4" columnnumber="0">
 				3
 			</td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="4" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="5" columnnumber="0">
+			<td class="prefilled" rownumber="5" columnnumber="0">
 				4
 			</td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="6" columnnumber="0">
+			<td class="prefilled" rownumber="6" columnnumber="0">
 				5
 			</td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="7" columnnumber="0">
+			<td class="prefilled" rownumber="7" columnnumber="0">
 				6
 			</td>
-			<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="7" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="8" columnnumber="0">
+			<td class="prefilled" rownumber="8" columnnumber="0">
 				7
 			</td>
-			<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="8" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="9" columnnumber="0">
+			<td class="prefilled" rownumber="9" columnnumber="0">
 				8
 			</td>
-			<td class="entry-item editable text" rownumber="9" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="9" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="9" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="10" columnnumber="0">
+			<td class="prefilled" rownumber="10" columnnumber="0">
 				9
 			</td>
-			<td class="entry-item editable text" rownumber="10" columnnumber="1"></td>
+			<td class="prefilled" rownumber="10" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="10" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="11" columnnumber="0">
+			<td class="prefilled" rownumber="11" columnnumber="0">
 				10
 			</td>
-			<td class="entry-item editable text" rownumber="11" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="11" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="11" columnnumber="2"></td>
 		</tr>
 		<tr>
@@ -4489,7 +4489,7 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
                         </entry>
                         <entry>
                             <type>table</type>
-                            <title>Table 9 (Pre-filled data from remote sensing)</title>
+                            <title>Table 9 </title>
                             <template>
 <![CDATA[ 
 <table class="editable">
@@ -4506,7 +4506,7 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="1" columnnumber="0">
 				Reduction in canopy cover
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="1" columnnumber="1"></td>
 		</tr>
 	</tbody>
 </table>
@@ -5106,7 +5106,7 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="2" columnnumber="0">
 				of which permanent forest estate
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="1"></td>
 		</tr>
 	</tbody>
 </table>
@@ -5636,7 +5636,7 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="1" columnnumber="0">
 				Forest area with management plan
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="1" columnnumber="1"></td>
 		</tr>
 		<tr>
 			<td rownumber="2" columnnumber="0">
@@ -5997,19 +5997,19 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="1" columnnumber="0">
 				International forest management certification
 			</td>
-			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="1" columnnumber="1"></td>
 		</tr>
 		<tr>
 			<td rownumber="2" columnnumber="0">
 				of which for FSC
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="1"></td>
 		</tr>
 		<tr>
 			<td rownumber="3" columnnumber="0">
 				of which PEFC
 			</td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="1"></td>
 		</tr>
 		<tr>
 			<td rownumber="4" columnnumber="0">
@@ -6308,16 +6308,16 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="2" columnnumber="0">
 				Forest revenue
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
 		</tr>
 		<tr>
 			<td rownumber="3" columnnumber="0">
 				Public expenditure on forestry
 			</td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
 		</tr>
 	</tbody>
@@ -6339,8 +6339,8 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
                 </tr>
 		<tr>
                     <td>Name of Local Currency</td>
-                    <td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
-                    <td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
+                    <td class="prefilled"  rownumber="1" columnnumber="0"></td>
+                    <td class="prefilled"  rownumber="1" columnnumber="0"></td>
                     <td class="entry-item editable text" rownumber="1" columnnumber="0"></td>
                 </tr>                                               
 	</tbody>
@@ -6575,9 +6575,9 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="2" columnnumber="0">
 				Public ownership
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
 		</tr>
 		<tr>
@@ -6602,45 +6602,45 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="5" columnnumber="0">
 				Private ownership
 			</td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="6" columnnumber="0">
 				of which owned by individuals
 			</td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="7" columnnumber="0">
 				of which owned by private business entities and institutions
 			</td>
-			<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="7" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="7" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="7" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="7" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="7" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="8" columnnumber="0">
 				of which owned by local tribal and indigenous communities
 			</td>
-			<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="8" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="8" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="8" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="8" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="8" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="9" columnnumber="0">
 				Unknown ownership
 			</td>
-			<td class="entry-item editable text" rownumber="9" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="9" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="9" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="9" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="9" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="9" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="9" columnnumber="4"></td>
 		</tr>
 		<tr>
@@ -6772,45 +6772,45 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="2" columnnumber="0">
 				Public Administration
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="3" columnnumber="0">
 				Individuals
 			</td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="3" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="4" columnnumber="0">
 				Private corporations and institutions
 			</td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="4" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="4" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="4" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="5" columnnumber="0">
 				Communities
 			</td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="5" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
 		</tr>
 		<tr>
 			<td rownumber="6" columnnumber="0">
 				Other
 			</td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="6" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
 		</tr>
 		<tr>
@@ -7085,9 +7085,9 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="2" columnnumber="0">
 				Employment in forestry and related workers
 			</td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
-			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="1"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="2"></td>
+			<td class="prefilled"  rownumber="2" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
 		</tr>
 		<tr>
