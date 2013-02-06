@@ -920,9 +920,10 @@
                         cell.attr('rowNumber', parseInt(cell.attr('rowNumber'))+1);
                     });
                     
-                    row.find('entry-item')
+                    row.find('.entry-item')
                     // .addClass('editable entry-item')
                     .attr('entry-id', this.options.id)
+                    // .off('click')
                     .click(function(){
                         var cell = $(this); 
                         if ( cell.hasClass('editable') ){
