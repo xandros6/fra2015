@@ -590,10 +590,10 @@
                     select: function(event, ui) {
                         var field = $(this);
                         el.find("#selectedCountry").val(ui.item.value);
-                        setTimeout(
+                        /* setTimeout(
                             function(){
                                 field.val('');
-                            },1000); // 1 sec
+                            },1000);*/ // 1 sec
                     // return false;
                     }
                 });
