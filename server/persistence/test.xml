@@ -1268,6 +1268,14 @@
                                     </template>
                                 </entry>
                                 <entry>
+                                    <type>text</type>
+                                    <template>
+<![CDATA[ 
+<strong>THE PRE-FILLED VALUES FOR GROWING STOCK REFER TO THE FOLLOWING THRESHOLD VALUES (SEE TABLE BELOW)</strong>
+]]> 
+                                    </template>
+                                </entry>
+                                <entry>
                                     <type>table</type>
                                     <template>
                                         <![CDATA[
@@ -1306,7 +1314,18 @@ in growing stock (W)</td>
                                             </table>
                                         ]]> 
                                     </template>
-                                </entry>                        
+                                </entry>      
+                                <entry>
+                                    <type>text</type>
+                                    <template>
+<![CDATA[ 
+<strong>PLEASE NOTE THAT THE DEFINITION OF GROWING STOCK HAS
+CHANGED AND SHOULD BE REPORTED AS GROWING STOCK DBH 10 CM
+INCLUDING THE STEM FROM GROUND LEVEL UP TO A DIAMATER OF 0 CM,
+EXCLUDING BRANCHES.</strong>
+]]> 
+                                    </template>
+                                </entry>                                                  
                                 <entry>
                                     <type>table</type>
                                     <title>Table 3c</title>

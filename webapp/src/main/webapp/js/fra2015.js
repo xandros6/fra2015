@@ -821,7 +821,29 @@
             this.el.append('<br/><br/>');
         }
     });
+    
+    /*
+     * simple non editable html text
+     */
+    var Text = Class.create(Entry, {
+        initialize:function( $super, options ){
+            $super( options );
+            this.type = 'text';
+            var text = $('<p></p>');
+            text.append( options.template.replace("<![CDATA[", "").replace("]]>", "") )
+            this.el.find('.btn-save-survey').remove();
+            this.el.find('.entry').append( text );
+        },
+        render: function($super){
+            $super();
+            this.trigger('load');
+            return this;
+        }
+    });
 
+    /*
+     * a ckeditor text area
+     */
     var TextArea = Class.create(Entry, {
         initialize:function( $super, options ){
             $super( options );
@@ -1522,6 +1544,15 @@
                         context: context
                     });
                 },
+                'text': function(obj, handlers){
+                    var template = obj.template || '';
+                    return new Text({
+                        id: obj.id,
+                        title: obj.title,
+                        description: obj.description,
+                        template: template.trim()
+                    });
+                },
                 'question': function(obj, handlers){
                     
                     var elements = [].concat( obj.Elements.question );
@@ -1596,7 +1627,7 @@
                     handler = handlers[ 'entry' ];
                 }
                 
-            } else if ( obj.type === 'table' || obj.type === 'textarea'){
+            } else if ( obj.type === 'table' || obj.type === 'textarea' || obj.type === 'text'){
                 handler = handlers[ obj.type ];
             }
             
