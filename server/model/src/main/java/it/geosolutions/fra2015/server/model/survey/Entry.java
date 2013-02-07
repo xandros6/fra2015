@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -48,6 +49,7 @@ public class Entry extends Element {
     private List<EntryItem> entryItems;
     
     @Column(nullable = true, updatable = false)
+    @Lob
     private String template;
 
 

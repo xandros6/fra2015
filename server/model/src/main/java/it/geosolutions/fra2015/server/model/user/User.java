@@ -66,7 +66,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = false, updatable = true, length = 20)
+    @Column(nullable = false, updatable = true, length = 128)
     @Index(name = "idx_user_name")
     private String name;
 

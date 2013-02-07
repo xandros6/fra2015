@@ -33,7 +33,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public abstract class BaseDAOTest extends TestCase {
 
     protected final static Logger log = Logger.getLogger(BaseDAOTest.class);
+
     protected static UserDAO userDAO;
+    protected static EntryDAO entryDAO;
+
     protected static ClassPathXmlApplicationContext ctx = null;
 
     public BaseDAOTest() {
@@ -46,6 +49,7 @@ public abstract class BaseDAOTest extends TestCase {
                 ctx = new ClassPathXmlApplicationContext(paths);
 
                 userDAO = (UserDAO) ctx.getBean("userDAO");
+                entryDAO = (EntryDAO) ctx.getBean("entryDAO");
             }
         }
     }
