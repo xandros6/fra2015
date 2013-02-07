@@ -32,7 +32,7 @@ public class Token implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = false, updatable = false, length = 20)
+    @Column(nullable = false, updatable = false, length = 60)
     private String token;
     
     @Column(nullable = false, updatable = true)

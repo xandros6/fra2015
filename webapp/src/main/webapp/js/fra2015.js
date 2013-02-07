@@ -1444,6 +1444,9 @@
          */
         load: function(  ){
             
+            // empty previous environment
+            this.values = {};
+            
             if (! this.country ){
                 throw 'Survey model is not correctly initialized: missing country.';
             }
