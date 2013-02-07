@@ -6715,11 +6715,11 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="0" columnnumber="0">
 				Category
 			</td>
-			<td rownumber="0" columnnumber="1">
-				Tier for reported trend
-			</td>
 			<td rownumber="0" columnnumber="2">
 				Tier for status
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for reported trend
 			</td>
 		</tr>
 		<tr>
@@ -6759,25 +6759,26 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
 			<td rownumber="0" columnnumber="0">
 				Category
 			</td>
-			<td rownumber="0" columnnumber="1">
-				Tier for reported trend
-			</td>
 			<td rownumber="0" columnnumber="2">
 				Tier for status
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Tier for reported trend
 			</td>
 		</tr>
 		<tr>
 			<td rownumber="1" columnnumber="0">
 				Ownership
 			</td>
+                        
 			<td rownumber="1" columnnumber="1">
-				Tier 3 Estimate based on repeated compatible tiers 3 tier for status <br/>
-                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status <br/>
+				Tier 3 National forestry statisticsregisters of land titles or maps on land ownership or all forest area under one ownership category that is five years old or less Tier 2 <br/>
+                                Tier 2 National forestry statisticsregisters of land titles or maps on land ownership or questionnaires that are more than five years old <br/>
                                 Tier 1 Other
 			</td>
 			<td rownumber="1" columnnumber="2">
-				Tier 3 National forestry statisticsregisters of land titles or maps on land ownership or all forest area under one ownership category that is five years old or less Tier 2 <br/>
-                                Tier 2 National forestry statisticsregisters of land titles or maps on land ownership or questionnaires that are more than five years old <br/>
+				Tier 3 Estimate based on repeated compatible tiers 3 tier for status <br/>
+                                Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status <br/>
                                 Tier 1 Other
 			</td>
 		</tr>
