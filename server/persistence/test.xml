@@ -7012,7 +7012,38 @@ detected by the MODIS VCF sensor.</td></tr></tbody></table> ]]>
                                 <entry>
                                     <type>table</type>
                                     <template>
-                                        <![CDATA[ <table><tbody><tr><td rownumber="0" columnnumber="0">Category</td><td rownumber="0" columnnumber="1">Definition</td></tr><tr><td rownumber="1" columnnumber="0">Fulltime  equivalents FTE</td><td rownumber="1" columnnumber="1">A measurement  equal to one person working fulltime during a specified reference period</td></tr><tr><td rownumber="2" columnnumber="0">Employment</td><td rownumber="2" columnnumber="1">Includes all  persons in paid employment</td></tr></tbody></table> ]]> 
+<![CDATA[
+<table>
+	<tbody>
+		<tr>
+			<td rownumber="0" columnnumber="0">
+				Category
+			</td>
+			<td rownumber="0" columnnumber="1">
+				Definition
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="1" columnnumber="0">
+				Fulltime equivalents (FTE)
+			</td>
+			<td rownumber="1" columnnumber="1">
+				A measurement equal to one person working fulltime during a specified reference period
+			</td>
+		</tr>
+		<tr>
+			<td rownumber="2" columnnumber="0">
+				Employment
+			</td>
+			<td rownumber="2" columnnumber="1">
+				Employment in activities related to production of goods derived from forests.
+This category corresponds to the ISIC/NACE Rev. 4 activity A02 (Forestry,
+logging and related service activities).
+			</td>
+		</tr>
+	</tbody>
+</table>
+]]> 
                                     </template>
                                 </entry>					
                             </Elements>
