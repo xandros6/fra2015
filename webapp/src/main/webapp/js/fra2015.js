@@ -1109,29 +1109,32 @@
             
            
               
-            /* $.each(this.el.find('.boolean'), function(index, entry){
+             /* $.each(this.el.find('.boolean'), function(index, entry){
                 var cell = $(this);
                 cell.attr('entry-id', self.options.id);
+                cell.click('off');
                 
-                var yesBtn = $('<input type="checkbox"> Yes');
-                var noBtn = $('<input type="checkbox"> No');
+                var yesBtn = $('<input class="radio-boolean" type="checkbox">');
+                var noBtn = $('<input class="radio-boolean" type="checkbox">');
+                var radio=$('<div></div>');
+                radio.append( yesBtn )
+                     .append( 'Yes<br/>');
+                radio.append( noBtn )
+                     .append( 'No');
                 
-                yesBtn.click(function () {
+                radio.find('.radio-boolean').off('click').click(function () {
                     var checkedState = $(this).attr('checked');
-                    noBtn.each(function () {
+                    radio.find('.radio-boolean:checked').each(function () {
                         $(this).attr('checked', false);
                     });
                     $(this).attr('checked', checkedState);
+                    return false;
                 });
-                
-                var radio=$('<div></div>');
-                radio.append( yesBtn );
-                radio.append( noBtn );
-                
+           
                 cell.empty();
                 cell.append( radio );
                 if ( ! App.user.check('canEdit') ){
-                // s.prop('disabled', 'disabled');
+                    radio.find('input').prop('disabled', 'disabled');
                 }
             });*/
   
