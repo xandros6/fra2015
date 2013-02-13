@@ -96,10 +96,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <!--                </exclusion>-->
         <!--            </exclusions>-->
         <!--        </dependency>-->
-        <dependency>
+<!--        <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
