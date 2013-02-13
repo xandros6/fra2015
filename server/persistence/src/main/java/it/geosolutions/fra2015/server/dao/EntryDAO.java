@@ -11,5 +11,7 @@ import it.geosolutions.fra2015.server.model.survey.Entry;
  * @author marco
  */
 public interface EntryDAO extends RestrictedGenericDAO<Entry>{
+
+    public Entry findByName(String entryId);
     
 }

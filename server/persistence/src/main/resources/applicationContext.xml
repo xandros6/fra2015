@@ -45,10 +45,6 @@
         <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
     
-    <bean id="surveyDAO" class="it.geosolutions.fra2015.server.dao.impl.SurveyDAOImpl" >
-        <property name="searchProcessor" ref="fra2015SearchProcessor" />
-    </bean>
-    
     <bean id="entryDAO" class="it.geosolutions.fra2015.server.dao.impl.EntryDAOImpl" >
         <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
@@ -62,6 +58,10 @@
     </bean>
     
     <bean id="numberValueDAO" class="it.geosolutions.fra2015.server.dao.impl.NumberValueDAOImpl" >
+         <property name="searchProcessor" ref="fra2015SearchProcessor" />
+    </bean>
+    
+    <bean id="countryDAO" class="it.geosolutions.fra2015.server.dao.impl.CountryDAOImpl" >
          <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
 	

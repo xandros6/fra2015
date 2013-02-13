@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <Survey>
-	<NAME>FRA2015</NAME>
+	<name>FRA2015</name>
 	<Elements>
 		<session>
 			<title><![CDATA[ <label ref="0" /> ]]></title>
 			<Elements>
 				<question>
 					<title><![CDATA[ <label ref="1" /> ]]></title>
-					<NOCOUNT>true</NOCOUNT>
+					<noCount>true</noCount>
 					<Elements>
 						<entry>
 							<title><![CDATA[ <label ref="2" /> ]]></title>
-							<DESCRIPTION><![CDATA[ <label ref="3" /> ]]></DESCRIPTION>
+							<description><![CDATA[ <label ref="3" /> ]]></description>
 							<type>table</type>
 							<template><![CDATA[
                                     <table class="editable extensible">
@@ -58,7 +58,7 @@
 						</entry>
 						<entry>
 							<title><![CDATA[ <label ref="8" /> ]]></title>
-							<DESCRIPTION><![CDATA[ <label ref="9" /> ]]></DESCRIPTION>
+							<description><![CDATA[ <label ref="9" /> ]]></description>
 							<type>textarea</type>
 							<EntryItems>
 								<entryItem>

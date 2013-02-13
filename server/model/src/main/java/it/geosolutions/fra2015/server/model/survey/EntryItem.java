@@ -35,7 +35,12 @@ public class EntryItem implements Serializable {
     @JoinColumn(name="entry_id", referencedColumnName="id")
     private Entry entry;
     
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = true, updatable = false)
+    private String rowName;
+    @Column(nullable = true, updatable = false)
+    private String columnName;
+    
+    @Column(nullable = true, updatable = false)
     String type;
     
     public Long getId() {
@@ -77,6 +82,22 @@ public class EntryItem implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getRowName() {
+        return rowName;
+    }
+
+    public void setRowName(String rowName) {
+        this.rowName = rowName;
+    }
+
+    public String getColumnName() {
+        return columnName;
+    }
+
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
     }
     
     

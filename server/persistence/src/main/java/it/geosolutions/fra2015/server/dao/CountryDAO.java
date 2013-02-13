@@ -4,12 +4,12 @@
  */
 package it.geosolutions.fra2015.server.dao;
 
-import it.geosolutions.fra2015.server.model.survey.Survey;
+import it.geosolutions.fra2015.server.model.survey.Country;
 
 /**
  *
  * @author marco
  */
-public interface SurveyDAO extends RestrictedGenericDAO<Survey>{
+public interface CountryDAO  extends RestrictedGenericDAO<Country>{
     
 }

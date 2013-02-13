@@ -5,6 +5,7 @@
 package it.geosolutions.fra2015.server.dao.impl;
 
 import com.googlecode.genericdao.search.ISearch;
+import com.googlecode.genericdao.search.Search;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import java.util.List;
@@ -40,6 +41,17 @@ public class EntryDAOImpl extends BaseDAO<Entry, Long> implements EntryDAO{
     @Override
     public boolean removeById(Long id) {
         return super.removeById(id);
+    }
+
+    @Override
+    public Entry findByName(String variable) {
+         Search searchCriteria = new Search(Entry.class);
+         searchCriteria.addFilterEqual("variable", variable);
+         List<Entry> entries = this.search(searchCriteria);
+         if ( entries.size() > 0){
+             return entries.get(0);
+         }
+         return null;
     }
     
 }

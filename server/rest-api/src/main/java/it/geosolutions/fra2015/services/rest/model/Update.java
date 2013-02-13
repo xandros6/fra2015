@@ -14,20 +14,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Update")
 public class Update implements Serializable{
     
-    private Long entryId;
+    private String variable;
     private Integer row;
     private Integer column;
     private String value;
     private String country;
 
-    public Long getEntryId() {
-        return entryId;
+    public String getVariable() {
+        return variable;
     }
 
-    public void setEntryId(Long entryId) {
-        this.entryId = entryId;
+    public void setVariable(String variable) {
+        this.variable = variable;
     }
-
+    
     public Integer getRow() {
         return row;
     }

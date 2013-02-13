@@ -8,9 +8,9 @@ import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Element;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Session;
 import it.geosolutions.fra2015.server.model.survey.Survey;
-import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.SurveyService;
@@ -19,9 +19,14 @@ import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
 import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
 import it.geosolutions.fra2015.services.rest.model.Update;
 import it.geosolutions.fra2015.services.rest.model.Updates;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import javax.ws.rs.core.SecurityContext;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 
 /**
@@ -38,101 +43,6 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public Survey create(SecurityContext sc, Survey survey) throws BadRequestServiceEx, NotFoundServiceEx {
-        try {
-            // TODO refactor using JAXB
-            // it is better to create a custom JAXB unmarshaller
-            // which sets survey correctly
-            // this is needed in order to create proper foreign keys
-            for (Element el : survey.getElements()) {
-                el.setSurvey(survey);
-                backtrace(el);
-            }
-
-
-            return surveyService.create(survey);
-        } catch (BadRequestServiceEx ex) {
-            throw new BadRequestWebEx(ex.getMessage());
-        } catch (NotFoundServiceEx ex) {
-            throw new NotFoundWebEx(ex.getMessage());
-        }
-    }
-
-    @Override
-    public List<Survey> getAll(SecurityContext sc, Integer page, Integer entries) throws BadRequestWebEx {
-        try {
-            return surveyService.getAll();
-        } catch (BadRequestServiceEx ex) {
-            throw new BadRequestWebEx(ex.getMessage());
-        } catch (NotFoundServiceEx ex) {
-            throw new NotFoundWebEx(ex.getMessage());
-        }
-    }
-
-    @Override
-    public Entry addValue(SecurityContext sc, Long itemId, Value value) {
-        try {
-            return surveyService.addValue(itemId, value);
-        } catch (BadRequestServiceEx ex) {
-            throw new BadRequestWebEx(ex.getMessage());
-        } catch (NotFoundServiceEx ex) {
-            throw new NotFoundWebEx(ex.getMessage());
-        }
-    }
-
-    @Override
-    public List<Value> getEntryValues(SecurityContext sc, Long itemId, String countryId) throws BadRequestServiceEx, NotFoundServiceEx {
-
-        if (countryId == null) {
-            throw new BadRequestServiceEx("Missing parameter countryId");
-        }
-
-        try {
-            return surveyService.getEntryValues(itemId, countryId);
-        } catch (BadRequestServiceEx ex) {
-            throw new BadRequestWebEx(ex.getMessage());
-        } catch (NotFoundServiceEx ex) {
-            throw new NotFoundWebEx(ex.getMessage());
-        }
-    }
-
-    private void backtrace(Element el) {
-
-        if (el instanceof Session) {
-            Session s = (Session) el;
-            List<Element> els = s.getElements();
-            if (els != null) {
-                for (Element e : els) {
-                    e.setParent(el);
-                    backtrace(e);
-                }
-            }
-
-        } else if (el instanceof Entry) {
-            Entry entry = (Entry) el;
-            List<EntryItem> items = entry.getEntryItems();
-            if (items != null) {
-                for (EntryItem item : items) {
-                    item.setEntry(entry);
-                }
-            }
-
-        }
-
-    }
-
-    @Override
-    public Survey get(SecurityContext sc, String name) {
-        try {
-            return surveyService.read(name);
-        } catch (BadRequestServiceEx ex) {
-            throw new BadRequestWebEx(ex.getMessage());
-        } catch (NotFoundServiceEx ex) {
-            throw new NotFoundWebEx(ex.getMessage());
-        }
-    }
-
-    @Override
     public List<Entry> updateValues(SecurityContext sc, Updates updates) {
         try {
             List<Entry> result = new ArrayList<Entry>();
@@ -140,7 +50,7 @@ public class SurveyServiceImpl implements SurveyService {
                 for (Update update : updates.getUpdates()) {
                     Entry entry = surveyService.updateValues(
                             update.getCountry(),
-                            update.getEntryId(),
+                            update.getVariable(),
                             update.getRow(),
                             update.getColumn(),
                             update.getValue());
@@ -160,28 +70,70 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public ExtendedSurvey getSurveyAndValues(SecurityContext sc, String name, String countryId) throws BadRequestServiceEx, NotFoundServiceEx{
+    public ExtendedSurvey getSurveyAndValues(SecurityContext sc, String countryId) throws BadRequestServiceEx, NotFoundServiceEx {
 
         if (countryId == null) {
             throw new BadRequestServiceEx("Missing parameter country");
         }
-        if (name == null) {
-            throw new BadRequestServiceEx("Missing parameter name");
-        }
 
         try {
 
+            // create a survey from template
+            Survey survey = null;
+            try {
+                JAXBContext jc = JAXBContext.newInstance(
+                        Survey.class, Element.class, Session.class,
+                        Question.class, Entry.class, EntryItem.class);
+                Unmarshaller unmarshaller = jc.createUnmarshaller();
+                File xml = new File("template.xml");
+                survey = (Survey) unmarshaller.unmarshal(xml);
+            } catch (JAXBException ex) {
+                java.util.logging.Logger.getLogger(SurveyServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            // returns a survey schema with along values
             ExtendedSurvey ext = new ExtendedSurvey();
-            Survey survey = surveyService.read(name);
             ext.setSurvey(survey);
             List<CompactValue> values = surveyService.getAllValues(countryId);
             ext.setValues(values);
             return ext;
-            
+
         } catch (BadRequestServiceEx ex) {
             throw new BadRequestWebEx(ex.getMessage());
         } catch (NotFoundServiceEx ex) {
             throw new NotFoundWebEx(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Survey create(SecurityContext sc, Survey survey) {
+        try {
+            // save or update entries in this survey
+            save(survey.getElements());
+            return survey;
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        }
+    }
+
+    private void save(Object obj) throws BadRequestServiceEx, NotFoundServiceEx {
+
+        if (obj == null) {
+            return;
+        }
+
+        if (obj instanceof List) {
+            List<Element> elements = (List<Element>) obj;
+            for (Element e : elements) {
+                save(e);
+            }
+        } else if (obj instanceof Session) {
+            Session s = (Session) obj;
+            save(s.getElements());
+        } else if (obj instanceof Entry) {
+            surveyService.upsert((Entry) obj);
         }
     }
 }

@@ -5,16 +5,16 @@
 package it.geosolutions.fra2015.services;
 
 import com.googlecode.genericdao.search.Search;
+import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.dao.NumberValueDAO;
-import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.dao.TextValueDAO;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
-import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -26,8 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import org.apache.log4j.Logger;
 
 /**
@@ -40,22 +38,20 @@ public class SurveyServiceImpl implements SurveyService {
 
         public abstract void persist(Value value);
 
-        public abstract Value read(Long itemId, String countryId);
+        public abstract Value read(Long itemId, Country country);
 
         public abstract void merge(Value dbValue);
     }
     private static final Logger LOGGER = Logger.getLogger(SurveyServiceImpl.class);
-    @PersistenceContext(unitName = "fra2015EntityManagerFactory")
-    private EntityManager entityManager;
-    private SurveyDAO surveyDAO;
+    private CountryDAO countryDAO;
     private EntryDAO entryDAO;
     private EntryItemDAO entryItemDAO;
     private TextValueDAO textValueDAO;
     private NumberValueDAO numberValueDAO;
     private Map<String, ValueDAO> map = new HashMap<String, ValueDAO>();
 
-    public void setSurveyDAO(SurveyDAO surveyDAO) {
-        this.surveyDAO = surveyDAO;
+    public void setCountryDAO(CountryDAO countryDAO) {
+        this.countryDAO = countryDAO;
     }
 
     public void setEntryDAO(EntryDAO entryDAO) {
@@ -87,15 +83,15 @@ public class SurveyServiceImpl implements SurveyService {
             }
 
             @Override
-            public Value read(Long itemId, String countryId) {
+            public Value read(Long itemId, Country country) {
                 Search searchCriteria = new Search(TextValue.class);
                 searchCriteria.addFilterEqual("entryItem.id", itemId);
-                searchCriteria.addFilterEqual("country", countryId);
+                searchCriteria.addFilterEqual("country.id", country.getId());
                 // TODO add unique constraint to TextValue
                 List<TextValue> textValues = textValueDAO.search(searchCriteria);
                 if (textValues.size() > 0) {
                     TextValue textValue = textValues.get(0);
-                    textValue.setContent( textValue.getValue() );
+                    textValue.setContent(textValue.getValue());
                     return textValue;
                 }
                 return null;
@@ -126,10 +122,10 @@ public class SurveyServiceImpl implements SurveyService {
             }
 
             @Override
-            public Value read(Long itemId, String countryId) {
+            public Value read(Long itemId, Country country) {
                 Search searchCriteria = new Search(NumberValue.class);
                 searchCriteria.addFilterEqual("entryItem.id", itemId);
-                searchCriteria.addFilterEqual("country", countryId);
+                searchCriteria.addFilterEqual("country.id", country.getId());
                 // TODO add unique constraint to NumberValue
                 List<NumberValue> numberValues = numberValueDAO.search(searchCriteria);
                 if (numberValues.size() > 0) {
@@ -156,75 +152,14 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public Survey create(Survey survey) throws BadRequestServiceEx, NotFoundServiceEx {
+    public Entry updateValues(String countryName, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
-        surveyDAO.persist(survey);
-        return survey;
-    }
-
-    @Override
-    public Survey read(String name) throws BadRequestServiceEx, NotFoundServiceEx {
-        Search searchCriteria = new Search(Survey.class);
-        searchCriteria.addFilterEqual("name", name);
-        List<Survey> surveys = surveyDAO.search(searchCriteria);
-        if (surveys.size() > 0) {
-            return surveys.get(0);
-        }
-        return null;
-    }
-
-    @Override
-    public List<Survey> getAll() throws BadRequestServiceEx, NotFoundServiceEx {
-        Search searchCriteria = new Search(Survey.class);
-        List<Survey> surveys = surveyDAO.search(searchCriteria);
-        return surveys;
-    }
-
-    @Override
-    public Entry addValue(Long itemId, Value value) throws BadRequestServiceEx, NotFoundServiceEx {
-        EntryItem item = entryItemDAO.find(itemId);
-        if (item != null) {
-            value.setEntryItem(item);
-            ValueDAO valueDAO = map.get(item.getType());
-            if (valueDAO != null) {
-                valueDAO.persist(value);
-                return item.getEntry();
-            }
-        }
-        throw new BadRequestServiceEx("Item " + itemId + " not found.");
-    }
-
-    @Override
-    public List<Value> getEntryValues(Long entryId, String countryId) throws BadRequestServiceEx, NotFoundServiceEx {
-        Entry entry = entryDAO.find(entryId);
-        if (entry != null) {
-            List<Value> values = new ArrayList<Value>();
-            if (!entry.getEntryItems().isEmpty()) {
-                for (EntryItem item : entry.getEntryItems()) {
-                    String type = item.getType();
-                    ValueDAO valueDAO = map.get(type);
-                    Value value = valueDAO.read(item.getId(), countryId);
-                    if (value != null) {
-                        values.add(value);
-                    }
-                }
-            }
-            return values;
-        }
-        throw new BadRequestServiceEx("Entry " + entryId + " not found.");
-    }
-
-    @Override
-    public Entry updateValues(String country, Long entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
-
-
-
-        Entry entry = entryDAO.find(entryId);
+        Entry entry = entryDAO.findByName(entryId);
         if (entry != null) {
             Search searchCriteria = new Search(EntryItem.class);
             searchCriteria.addFilterEqual("rowNumber", row);
             searchCriteria.addFilterEqual("columnNumber", col);
-            searchCriteria.addFilterEqual("entry.id", entryId);
+            searchCriteria.addFilterEqual("entry.id", entry.getId());
             List<EntryItem> items = entryItemDAO.search(searchCriteria);
             EntryItem item = null;
             if (items.isEmpty()) {
@@ -242,14 +177,21 @@ public class SurveyServiceImpl implements SurveyService {
             } else {
                 item = items.get(0);
             }
+
+            // find a country with the given name
+            Country country = findCountry(countryName);
+            if (country == null) {
+                throw new BadRequestServiceEx("Country with name " + countryName + " does not exist.");
+            }
+
             // retrieve previous value if it is an update
             ValueDAO valueDAO = map.get(item.getType());
-            Value dbValue = valueDAO.read(item.getId(), country); 
+            Value dbValue = valueDAO.read(item.getId(), country);
             if (dbValue == null) {
                 // create a new value
                 dbValue = new Value();
                 dbValue.setEntryItem(item);
-                dbValue.setCountry(country); 
+                dbValue.setCountry(country);
                 // set value
                 dbValue.setContent(value);
                 valueDAO.persist(dbValue);
@@ -265,7 +207,13 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public List<CompactValue> getAllValues(String countryId) throws BadRequestServiceEx, NotFoundServiceEx {
+    public List<CompactValue> getAllValues(String countryName) throws BadRequestServiceEx, NotFoundServiceEx {
+
+        // find a country with the given name
+        Country country = findCountry(countryName);
+        if (country == null) {
+            throw new BadRequestServiceEx("Country with name " + countryName + " does not exist.");
+        }
 
         List<CompactValue> values = new ArrayList<CompactValue>();
         List<Entry> entries = entryDAO.findAll();
@@ -275,20 +223,54 @@ public class SurveyServiceImpl implements SurveyService {
                     for (EntryItem item : entry.getEntryItems()) {
                         String type = item.getType();
                         ValueDAO valueDAO = map.get(type);
-                        Value value = valueDAO.read(item.getId(), countryId);
-                        if (value != null) {
-                            CompactValue compact = new CompactValue(
-                                    item.getEntry().getId(), 
-                                    item.getRowNumber(), 
-                                    item.getColumnNumber(),
-                                    value.getContent());
-                            values.add(compact);
+                        if (valueDAO != null) {
+                            Value value = valueDAO.read(item.getId(), country);
+                            if (value != null) {
+                                CompactValue compact = new CompactValue(
+                                        item.getEntry().getVariable(),
+                                        item.getRowNumber(),
+                                        item.getColumnNumber(),
+                                        value.getContent());
+                                values.add(compact);
+                            }
                         }
+
                     }
                 }
             }
         }
         return values;
 
+    }
+
+    @Override
+    public void upsert(Entry entry) throws BadRequestServiceEx, NotFoundServiceEx {
+
+
+
+        List<EntryItem> items = entry.getEntryItems();
+        if (items != null) {
+            for (EntryItem item : items) {
+                item.setEntry(entry);
+                // entryItemDAO.persist(item);
+            }
+        }
+        entryDAO.persist(entry);
+    }
+
+    /**
+     * retuns a country with the given name, null otherwise
+     *
+     * @param countryName
+     * @return
+     */
+    private Country findCountry(String name) {
+        Search searchCriteria = new Search(Country.class);
+        searchCriteria.addFilterEqual("name", name);
+        List<Country> countries = countryDAO.search(searchCriteria);
+        if (countries.size() > 0) {
+            return countries.get(0);
+        }
+        return null;
     }
 }

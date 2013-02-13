@@ -15,13 +15,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Value")
 public class CompactValue implements Serializable {
     
-    private Long entryId;
+    private String variable;
     private Integer rowNumber;
     private Integer columnNumber;
     private String content;
 
-    public CompactValue(Long entryId, Integer rowNumber, Integer columnNumber, String content) {
-        this.entryId = entryId;
+    public CompactValue(String variable, Integer rowNumber, Integer columnNumber, String content) {
+        this.variable = variable;
         this.rowNumber = rowNumber;
         this.columnNumber = columnNumber;
         this.content = content;
@@ -30,17 +30,17 @@ public class CompactValue implements Serializable {
     public CompactValue() {
     }
 
-    
-    
-    
-    public Long getEntryId() {
-        return entryId;
+    public String getVariable() {
+        return variable;
     }
 
-    public void setEntryId(Long entryId) {
-        this.entryId = entryId;
+    public void setVariable(String variable) {
+        this.variable = variable;
     }
 
+    
+    
+ 
     public Integer getRowNumber() {
         return rowNumber;
     }

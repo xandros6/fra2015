@@ -7,6 +7,7 @@ var $ = require('jquery');
 var tag = null;
 var type = null;
 var content = null;
+var myvar = 0;
 
 var db = 
 	bw.open ("populateDb.xml")
@@ -16,7 +17,7 @@ var db =
 
 
 
-fs.readFile('universalTemplate.xml', 'utf8', function (err,data) {
+fs.readFile('template.xml', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
   }
@@ -29,41 +30,77 @@ fs.readFile('universalTemplate.xml', 'utf8', function (err,data) {
 	
 	// e.g. textarea, table, text
 	var type = e.find('> type').text(); 
-	var id = null;
+	var variable = e.find('> variable').text(); ;
 
 	switch( type ){
 		case 'textarea':
 			db.write( '<entry>');
 			db.write( '<type>' + type + '</type>'); 
-			db.write( '<id>' + id + '</id>');
+			if ( variable ){
+				db.write( '<variable>' + variable + '</variable>');
+			} else {
+				db.write( '<variable>' + myvar++ + '</variable>');
+			}
+			
 			
 			db.write( '</entry>');
 			break;
 		case 'table':
 			db.write( '<entry>');
 			db.write( '<type>' + type + '</type>'); 
-			db.write( '<id>' + id + '</id>');
+			if ( variable ){
+				db.write( '<variable>' + variable + '</variable>');
+			} else {
+				db.write( '<variable>' + myvar ++ + '</variable>');
+			}
+			
 			db.write('<EntryItems>');
-				e.find('> template')
-				 .find('td.entry-item')
+			
+				var template = e.find('> template'); //.replace("<![CDATA[", "").replace("]]>", "");
+				
+				template.find('td')
 				 .each( function(index, elem){
 					var cell = $(elem);
-					var type = null;
+					
+					if ( cell.hasClass('entry-item') || cell.hasClass('prefilled')){
+						
 
-					if ( cell.hasClass('text') ){
-						type = 'String';
-					} else if ( cell.hasClass('number') ){
-						type = 'Number';
-					} else if ( cell.hasClass('boolean')){
-						type = 'Boolean';
+
+			
+						db.write('<entryItem>');
+
+						var rowName = cell.parent().attr('rowName');
+						var colName = cell.attr('columnName');
+
+						if ( rowName ){
+							db.write('<rowName>'+ rowName +'</rowName>');
+						}
+						if ( colName ){
+							db.write('<columnName>'+ colName +'</columnName>');
+						}
+
+						db.write('<rowNumber>'+ cell.attr('rowNumber') +'</rowNumber>');
+						db.write('<columnNumber>'+ cell.attr('columnNumber') +'</columnNumber>');	
+						
+									var type = null;
+									if ( cell.hasClass('text') ){
+										type = 'String';
+									} else if ( cell.hasClass('number') ){
+										type = 'Number';
+									} else if ( cell.hasClass('boolean')){
+										type = 'Boolean';
+									}
+
+									if ( type ){
+										db.write('<type>' + type + '</type>');
+									}
+						
+						
+						
+						db.write('</entryItem>');						
 					}
+					
 
-					db.write('<entryItem>');
-					db.write('<id></id>')
-					db.write('<rowNumber>'+ cell.attr('rowNumber') +'</rowNumber>');
-					db.write('<columnNumber>'+ cell.attr('columnNumber') +'</columnNumber>');	
-					db.write('<type>' + type + '</type>');
-					db.write('</entryItem>');
 				 });
 			db.write('</EntryItems>');
 			db.write( '</entry>');

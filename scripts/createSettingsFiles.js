@@ -7,6 +7,9 @@ var cheerio = require('cheerio');
 var skip = ['FRA2015', 'textarea', 'table', 'text', 'String', 'Number', 'true'];
 var locale = 0;
 var keywords = {};
+var isVariable = false;
+var count = 9000;
+var hasVariable = false;
 
 /*
  * clean a word from extra chars
@@ -44,6 +47,14 @@ saxStream.on("opentag", function (node) {
 			localization.write('<locale>')
 						.write('<language>EN-us</language>')
 						.write('<version>0.1</version>');
+			break;
+		case 'VARIABLE':
+			isVariable = true;
+			hasVariable = true;
+			break;
+		case 'ENTRY':
+			hasVariable = false;
+			break;
 		default:
 			break;
 	}
@@ -70,7 +81,7 @@ saxStream.on("cdata", function ( text ) {
 								.write( '</label>');
 				}
 
-				uTemplate.write( '<label ref="'+ label +'" />'  );					
+				uTemplate.write( '<![CDATA[ <label ref="'+ label +'" /> ]]>'  );					
 			}
 		}		
 	} else {
@@ -95,14 +106,15 @@ saxStream.on("cdata", function ( text ) {
 				}
 			}		
 		});	
-		uTemplate.write( $.html() );	
+		uTemplate.write(  '<![CDATA[' + $.html() + ' ]]>'  );	
 	}
 
 });
 
 saxStream.on("text", function ( text ) {
+
 	var value = clean( text );
-	if (value && value.length>0 ){
+	if (value && value.length>0 && !isVariable){
 		if ( _.indexOf(skip, value) === -1){
 			var label;
 			if ( keywords[value] ){ // already present
@@ -116,21 +128,36 @@ saxStream.on("text", function ( text ) {
 			}
 			
 			
-			uTemplate.write( '<label ref="'+ label +'" />' );			
+			uTemplate.write( '<![CDATA[ <label ref="'+ label +'" /> ]]>' );			
 		} else {
 			uTemplate.write( value );
 		}
+	} else {
+		uTemplate.write( value );
 	}
 });
 
 saxStream.on("closetag", function (name) {
-		uTemplate.write( '</' + name + '>');
+		
 		switch( name ){
 			case 'SURVEY':
+				uTemplate.write( '</' + name + '>');
 				localization.write('</locale>');
 				uTemplate.close();
 				localization.close();
+				break;
+			case 'VARIABLE':
+				uTemplate.write( '</' + name + '>');
+				isVariable = false;
+				break;
+			case 'ENTRY':
+				if ( !hasVariable ){
+					uTemplate.write( '<variable>' + count++ + '</variable>');
+				}
+				uTemplate.write( '</' + name + '>');
+				break;
 			default:
+				uTemplate.write( '</' + name + '>');
 				break;
 		}
 });

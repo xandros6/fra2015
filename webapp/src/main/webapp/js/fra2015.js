@@ -791,15 +791,15 @@
             this.options = options;
  
             if ( options.title ){
-                this.el.append('<h4>' + options.title + '</h4>');
+                this.el.append('<h4>' + L(options.title) + '</h4>');
             }
             
 
             if (options.tooltip){
-                this.el.append('<div class="alert alert-info">'+ options.tooltip +'</div>');
+                this.el.append('<div class="alert alert-info">'+ L(options.tooltip) +'</div>');
             }
             if ( options.description ){
-                this.el.append( '<p>' + options.description + '</p>');
+                this.el.append( '<p>' + L(options.description) + '</p>');
             }
             
             // feedback list
@@ -830,7 +830,7 @@
             $super( options );
             this.type = 'text';
             var text = $('<p></p>');
-            text.append( options.template.replace("<![CDATA[", "").replace("]]>", "") )
+            text.append( L(options.template) )
             this.el.find('.btn-save-survey').remove();
             this.el.find('.entry').append( text );
         },
@@ -869,7 +869,7 @@
             text.attr('rowNumber', 0);
             text.attr('columnNumber', 0);
             
-            var value = options.context[ options.id +',0,0'  ];
+            var value = options.context[ options.variable +',0,0'  ];
             if ( value ){
                 text.val( value.content.replace("<![CDATA[", "").replace("]]>", "") );  
             }
@@ -885,13 +885,13 @@
         },
         addEvents: function(){
             this.el.find('.entry-item')
-            .attr('entry-id', this.options.id);
+            .attr('entry-id', this.options.variable); // ?
             
             var self = this;
             $.each( this.el.find('.entry-item'), function(index, entry){
                 var cell = $(this);
                 var value = self.options.context[ 
-                self.options.id + ',' 
+                self.options.variable + ',' 
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
                 if ( value ){
@@ -944,7 +944,7 @@
                     
                     row.find('.entry-item')
                     // .addClass('editable entry-item')
-                    .attr('entry-id', this.options.id)
+                    .attr('entry-id', this.options.variable) // ?
                     // .off('click')
                     .click(function(){
                         var cell = $(this); 
@@ -1014,9 +1014,16 @@
                 return false;
             });
             
+            this.el.find('label').each( function(i, l){
+               var label = $(l);
+               var cell = label.parent();
+               cell.empty().append( L( label ) );
+            });
+            
             $.each(this.el.find('td'), function(index, entry){
                 var cell = $(this);
                 var value = cell.text();
+                
                 if ( value.indexOf('{{}}') !== -1 ){
                     value = value.replace('{{}}', '<i class="icon-question-sign"></i>');
                     cell.empty().append( value );
@@ -1026,7 +1033,7 @@
             if ( App.user.check('canEdit') ){
                 this.el.find('.entry-item')
                 .css('backgroundColor', '#F2F5A9')
-                .attr('entry-id', this.options.id)
+                .attr('entry-id', this.options.variable) // ?
                 .click(function(){
                     var cell = $(this);
                     if ( cell.hasClass('editable') ){
@@ -1057,7 +1064,7 @@
             $.each( this.el.find('.entry-item'), function(index, entry){
                 var cell = $(this);
                 var value = self.options.context[ 
-                self.options.id + ',' 
+                self.options.variable + ',' 
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
                 if ( value ){
@@ -1071,14 +1078,14 @@
                 var cell = $(this);
                 
                 var value = self.options.context[ 
-                self.options.id + ',' 
+                self.options.variable + ',' 
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
                 
                 var content = value? value.content: false;
                 
                 cell.addClass('entry-item');
-                cell.attr('entry-id', self.options.id)
+                cell.attr('entry-id', self.options.variable)
                 
                 var s = $("<select />");
                 s.addClass('celleditor');
@@ -1149,13 +1156,13 @@
             this.options = options;
             
             this.el = $('<section></section>');
-            this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
+            // this.el.attr('id', options.title.replace(/\s/g, "-").toLowerCase());
 
             var depth = 2; // TOFIX
 
-            this.el.append( this.createTitle(this.options.title, depth) );
+            this.el.append( this.createTitle( L(this.options.title), depth) );
             if ( this.options.description ){
-                this.el.append( this.createDescription(this.options.description, depth));
+                this.el.append( this.createDescription(L(this.options.description), depth));
             }
 
             var count = 0, length = this.options.items.length;
@@ -1229,9 +1236,9 @@
         createTitle: function( title ){
             var html = null;
             if ( this.options.number ){
-                html = $('<div class="page-header"><h1>'+ this.options.number+'.'+ this.options.title + '</h1></div>');
+                html = $('<div class="page-header"><h1>'+ this.options.number+'.'+ L(this.options.title) + '</h1></div>');
             } else {
-                html = $('<div class="page-header"><h1>'+ this.options.title + '</h1></div>');
+                html = $('<div class="page-header"><h1>'+ L(this.options.title) + '</h1></div>');
             }
             if ( this.options.link ){
                 html.append('<div class="well"><p> Click the button to download question documentation. </p> <a href="#" class="btn btn-large btn-primary">Download Documentation</a></div>');
@@ -1265,7 +1272,7 @@
             var li = $('<li></li>');
             this.list.append( li );
             li.addClass('nav-header');
-            li.append( section.options.title );
+            li.append( L(section.options.title) );
         },
         
         addQuestion: function( question ){
@@ -1285,7 +1292,7 @@
             if ( question.options.number ){
                 text.append(question.options.number +'. ');
             }
-            text.append(question.options.title);
+            text.append(L(question.options.title));
             a.append( text );
     
         }
@@ -1411,9 +1418,9 @@
         /*
          * stores locally an answer to the survey
          */
-        set: function(entryId, row, col, value){     
-            this.values[ entryId+',' + row + ',' + col ] = {
-                entryId: entryId,
+        set: function(variable, row, col, value){     
+            this.values[ variable+',' + row + ',' + col ] = {
+                variable: variable,
                 row: row,
                 col: col,
                 value: value
@@ -1432,7 +1439,7 @@
                 if ( content && content.length > 0 ){              
                     req += '<update>';
                     req += '<country>'+ this.country +'</country>';
-                    req += '<entryId>'+ value.entryId +'</entryId>';
+                    req += '<variable>'+ value.variable +'</variable>';
                     req += '<row>'+ value.row +'</row>';
                     req += '<column>'+ value.col +'</column>'; 
                     req += '<value>'+ value.value +'</value>'; 
@@ -1482,9 +1489,8 @@
                     type:'GET',
                     dataType:'json',
                     cache: false,
-                    // TODO externalize
                     // url:'http://localhost:9191/fra2015/rest/survey/FRA2015',
-                    url: baseUrl+'/rest/survey/?name=FRA2015&country=' + model.country,
+                    url: baseUrl+'/rest/survey/?country=' + model.country,
                     // url:'/fra2015/rest/survey/?country=IT&name=FRA2015',
                     // crossDomain: false,
                     // url:'./resources/'+ $.i18n.lng() +'/survey.json',
@@ -1507,7 +1513,7 @@
             var context = {};
             if ( values ){
                 $.each( values, function(index, value){
-                    context[ value.entryId + ',' + value.rowNumber + ','+ value.columnNumber] = value;
+                    context[ value.variable + ',' + value.rowNumber + ','+ value.columnNumber] = value;
                 });
             }
             console.log( context );
@@ -1531,7 +1537,7 @@
                 },
                 'textarea': function(obj, handlers){
                     return new TextArea({
-                        id: obj.id,
+                        variable: obj.variable,
                         title: obj.title,
                         description: obj.description,
                         context: context
@@ -1540,7 +1546,7 @@
                 'table': function(obj, handlers){
                     var template = obj.template || '';
                     return new Table({
-                        id: obj.id,
+                        variable: obj.variable,
                         title: obj.title,
                         description: obj.description,
                         template: template.trim(),
@@ -1550,7 +1556,7 @@
                 'text': function(obj, handlers){
                     var template = obj.template || '';
                     return new Text({
-                        id: obj.id,
+                        variable: obj.variable,
                         title: obj.title,
                         description: obj.description,
                         template: template.trim()

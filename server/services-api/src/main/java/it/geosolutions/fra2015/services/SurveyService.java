@@ -6,8 +6,6 @@ package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
-import it.geosolutions.fra2015.server.model.survey.Survey;
-import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
@@ -18,17 +16,16 @@ import java.util.List;
  */
 public interface SurveyService {
     
-    public Survey create(Survey survey) throws BadRequestServiceEx, NotFoundServiceEx;
 
-    public List<Survey> getAll() throws BadRequestServiceEx, NotFoundServiceEx;
-
-    public Entry addValue(Long itemId, Value value) throws BadRequestServiceEx, NotFoundServiceEx;
-
-    public List<Value> getEntryValues(Long itemId, String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
-
-    public Survey read(String name) throws BadRequestServiceEx, NotFoundServiceEx;
-
-    public Entry updateValues(String country, Long entryId, Integer row, Integer row0, String value) throws BadRequestServiceEx, NotFoundServiceEx;
+    public Entry updateValues(String country, String variable, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx;
 
     public List<CompactValue> getAllValues(String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
+
+    /**
+     * update or insert an entry
+     * @param entry
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx 
+     */
+    public void upsert(Entry entry) throws BadRequestServiceEx, NotFoundServiceEx;
 }

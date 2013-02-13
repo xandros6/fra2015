@@ -62,12 +62,46 @@
     });
     
     Core.define('i18n', [], function(context) {
-        // load internationalization options
+        // load ui translations
         $.i18n.init({
             lng:'en-US',
             resGetPath: 'locales/__lng__/__ns__.json'
         }).done(function(){
             $(document).i18n();
+        });
+                    
+        // load survey translation
+        
+        $.ajax({
+           url:'./locale_en-us.xml',
+           cache:false,
+           dataType:'xml',
+           success: function(data){
+               var map = {};
+               var locale = $(data);
+               locale.find('label')
+                     .each(function(index, item){
+                         var label = $(this);
+                         map[label.attr('ref')] = label.text();
+                     });
+              /**
+               *  global function which translate from <label ref="1"/> to the correct value
+               */
+              L = function( label ){
+                  
+                  if ( label.jquery ){
+                      return map[ label.attr('ref') ];
+                  }
+                  
+                  var re = /ref="(.*)"/;
+                  var id = label.match(re)[1];
+                  return map[id];
+              };
+           },
+           error: function(data){
+               console.error( data );
+           }
+             
         });
                     
         return {

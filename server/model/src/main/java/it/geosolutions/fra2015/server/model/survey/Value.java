@@ -31,8 +31,8 @@ public class Value implements Serializable {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     
-    @Column(nullable = false, updatable = false)
-    private String country;
+    @ManyToOne
+    private Country country;
     
     @Transient
     private String content;
@@ -51,13 +51,15 @@ public class Value implements Serializable {
         this.id = id;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
+
+
 
     public EntryItem getEntryItem() {
         return entryItem;
