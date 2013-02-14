@@ -30,8 +30,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
 
     <groupId>it.geosolutions.fra2015</groupId>
     <artifactId>fra2015-services-impl</artifactId>
+
     <packaging>jar</packaging>
+
     <name>FRA2015 - Server - Services implementation</name>
+
+
     <dependencies>
 
         <!-- =========================================================== -->
@@ -41,22 +45,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-model</artifactId>
-            <version>1.2-SNAPSHOT</version>
-            <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-persistence</artifactId>
-            <type>jar</type>
-            <version>1.2-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-services-api</artifactId>
-            <type>jar</type>
-            <version>1.2-SNAPSHOT</version>
         </dependency>
 
         <!-- =========================================================== -->
@@ -104,10 +102,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <!-- =========================================================== -->
         <!-- MISC -->
 
-        <dependency>
+<!--        <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>log4j</groupId>

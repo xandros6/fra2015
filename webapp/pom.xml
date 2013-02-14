@@ -10,10 +10,10 @@
 
     <groupId>it.geosolutions.fra2015</groupId>
     <artifactId>fra2015-webapp</artifactId>
-    <version>1.2-SNAPSHOT</version>
+
     <packaging>war</packaging>
 
-    <name>fra2015</name>
+    <name>FRA2015 webapp</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -24,28 +24,25 @@
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-persistence</artifactId>
-            <version>1.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-rest-api</artifactId>
-            <version>1.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-rest-impl</artifactId>
-            <version>1.2-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-model</artifactId>
-            <version>${project.version}</version>
         </dependency>
         
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -134,7 +131,7 @@
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.20</version>
+                <version>6.1.26</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/fra2015</contextPath>
