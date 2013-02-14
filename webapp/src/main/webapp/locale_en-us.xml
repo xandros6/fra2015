@@ -201,10 +201,10 @@
 		<value>FRA 2015 Categories</value>
 	</label>
 	<label ref="66">
-		<value>Annual forest establishmentloss 000 hectares per year {{}}</value>
+		<value>Annual forest establishmentloss 000 hectares per year {{Figures for the reporting years refer to the average for the 5-year periods 1988-1992, 1988-2002, 2003-2007 and 2008-2012 respectively.}}</value>
 	</label>
 	<label ref="67">
-		<value>of which of introduced species 1 000 hectares per year {{}}</value>
+		<value>of which of introduced species 1 000 hectares per year {{A species, subspecies or lower taxon, occurring outside its natural range (past or present) and dispersal potential i.e. outside the range it occupies naturally or could occupy without direct or indirect introduction or care by humans).}}</value>
 	</label>
 	<label ref="68">
 		<value>Forest expantion</value>
@@ -486,7 +486,9 @@
 		<value>Growing stock in forest million cubic meters</value>
 	</label>
 	<label ref="161">
-		<value>Rank {{}}</value>
+		<value>
+Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1st is the species with the highest growing stock. Year 2000 is the reference year for defining the species list and the order of the species.}}
+                </value>
 	</label>
 	<label ref="162">
 		<value>Scientific name</value>
@@ -542,7 +544,8 @@
 		<value>Complementary information</value>
 	</label>
 	<label ref="179">
-		<value>Minimum diameter (cm) at breast height {{}} of trees included in growing stock (X)</value>
+		<value>Minimum diameter (cm) at breast height {{Diameter at breast height (DBH) refers to diameter over bark measured at a height of 1.30 m above ground
+		level or 30 cm above buttresses if these are higher than 1 m.}} of trees included in growing stock (X)</value>
 	</label>
 	<label ref="180">
 		<value>Minimum diameter (cm) at the top end of stem for calculation of growing stock (Y)</value>
@@ -787,7 +790,8 @@
 		<value>How much forest area is managed for protection of soil and water and ecosystem services?</value>
 	</label>
 	<label ref="260">
-		<value>Protection of soil and water {{}}</value>
+		<value>Protection of soil and water {{Under this reporting category all areas designated for protection of soil and water should be reported, regardless
+		whether they are primarily designated or not.}}</value>
 	</label>
 	<label ref="261">
 		<value>Forest area designated or managed for protection of soil and water</value>
@@ -1003,7 +1007,7 @@
 		<value>10</value>
 	</label>
 	<label ref="332">
-		<value>Total {{}}</value>
+		<value>Total {{The total forest area affected by woody invasive species is not necessary the sum of the values above, as these may be overlapping.}}</value>
 	</label>
 	<label ref="333">
 		<value>Tier 3 Systematic assessment in forest inventory or other survey e g by conservation department within the last 5 years Tier 2 Systematic assessment in forest inventory or other survey e g by conservation department conducted more than 5 years ago Tier 1 Other</value>
@@ -1093,7 +1097,7 @@
 		<value>Year</value>
 	</label>
 	<label ref="362">
-		<value>Area damaged 000 hectares {{}}</value>
+		<value>Area damaged 000 hectares {{Area affected refers to the total area affected during the outbreak.}}</value>
 	</label>
 	<label ref="363">
 		<value>1 Insects</value>

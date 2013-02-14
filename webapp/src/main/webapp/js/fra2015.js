@@ -590,7 +590,7 @@
                     select: function(event, ui) {
                         var field = $(this);
                         el.find("#selectedCountry").val(ui.item.value);
-                        /* setTimeout(
+                    /* setTimeout(
                             function(){
                                 field.val('');
                             },1000);*/ // 1 sec
@@ -925,8 +925,8 @@
                     // add button to remove row
                     // add extra column
                     var c = table.find('tr:first td').length;
-                    table.find('tr:first').append('<td width="80px"></td>');
-                    table.find('tr:gt(0)').append('<td width="80px"><a href="#" class="btn delete-btn">Delete</a></td>');
+                    table.find('tr:first').append('<td class="action-column" width="80px"></td>');
+                    table.find('tr:gt(0)').append('<td class="action-column" width="80px"><a href="#" class="btn delete-btn">Delete</a></td>');
                 }
                 
                 if ( !table.hasClass("editable") ){
@@ -996,10 +996,8 @@
         addEvents: function(){
 
             var table = this;
-            /*this.el.find('#saveBtn').click(function(evt){
-                alert('Saved!');
-                return false;
-            }); */
+            
+            // bind events to buttons
             this.el.find('#addBtn').click(function(evt){
                 table.addEmptyRow();
                 return false;
@@ -1014,73 +1012,153 @@
                 return false;
             });
             
+            // replace labels with translated text
             this.el.find('label').each( function(i, l){
-               var label = $(l);
-               var cell = label.parent();
-               cell.empty().append( L( label ) );
+                var label = $(l);
+                var cell = label.parent();
+                cell.empty().append( L( label ) );
             });
             
-            $.each(this.el.find('td'), function(index, entry){
+            // replace placemarks with tooltips
+            this.el.find('td').each( function(index, entry){
                 var cell = $(this);
+                
+                
+                if ( cell.hasClass('action-column')){
+                    return;
+                }
+                
                 var value = cell.text();
                 
-                if ( value.indexOf('{{}}') !== -1 ){
-                    value = value.replace('{{}}', '<i class="icon-question-sign"></i>');
-                    cell.empty().append( value );
-                }
+                // create tooltip
+                value = value.replace(/{{(.*?)}}/g, '<i class="icon-question-sign" title="$1"></i>');
+                cell.empty().append( value );
+                // enable tooltips
+                cell.find('i').tooltip();
+                
             });
-            
-            if ( App.user.check('canEdit') ){
-                this.el.find('.entry-item')
-                .css('backgroundColor', '#F2F5A9')
-                .attr('entry-id', this.options.variable) // ?
-                .click(function(){
-                    var cell = $(this);
-                    if ( cell.hasClass('editable') ){
-                        cell.removeClass("editable");
-                        cell.addClass("editing");
-                        var text = cell.html();
-                        cell.html('<input style="width:80%" class="celleditor" type="text" value="'+text+'"/>');
-                        cell.find('.celleditor').blur( function(){
-                            if ( cell.hasClass('editing') ){
-                                cell.removeClass("editing");
-                                cell.addClass("editable");
-                                var text = cell.find(".celleditor").attr('value');
-                                cell.html( text );
-                            }
-                            return false;
-                        });
-                        cell.find('.celleditor').focus();
-                    }
-                    return false;
-                });
-                         
-            }
-            
-            
+         
             var self = this;
             
-            
-            $.each( this.el.find('.entry-item'), function(index, entry){
+            // create entry item cells
+            this.el.find('.entry-item').each( function(index, entry){
                 var cell = $(this);
+                cell.empty();
+                
+                // get previous value from context
                 var value = self.options.context[ 
                 self.options.variable + ',' 
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
+        
+                // remember value
+                var hidden = $('<input class="entry-item-value" type="hidden">');
+                // add visible content
+                var div = $('<div></div>');
+                div.attr('id', 'cell-content');
                 if ( value ){
-                    cell.empty().append( value.content );  
+                    div.append( value.content );
+                    hidden.val(value.content);
                 } else {
-                    cell.empty().append('&nbsp;');
+                    div.append( '&nbsp;');
                 }
+                
+                cell.append( hidden );
+                cell.append(div);
+                
+                if ( App.user.check('canEdit') ){
+                    
+                    cell.css('backgroundColor', '#F2F5A9')
+                    .attr('entry-id', self.options.variable) 
+                    .click(function(){
+                        var cell = $(this);
+                        if ( cell.hasClass('editable') ){
+                            cell.removeClass("editable");
+                            cell.addClass("editing");
+                            var text = cell.find('#cell-content').html();
+                            cell.find('#cell-content').html('<input style="width:80%" class="celleditor" type="text" value="'+text+'"/>');
+                            cell.find('.celleditor').blur( function(){
+                                if ( cell.hasClass('editing') ){
+                                    cell.removeClass("editing");
+                                    cell.addClass("editable");
+                                    var text = cell.find(".celleditor").attr('value');
+                                    cell.find('#cell-content').html( text );
+                                    hidden.val( text ).trigger('change');
+                                }
+                                return false;
+                            });
+                            cell.find('.celleditor').focus();
+                        }
+                        return false;
+                    });
+                         
+                } 
+                
             }); 
             
-            $.each( this.el.find('.tier'), function(index, entry){
+            // create mutually exclusive checkboxes
+            this.el.find('.boolean').each( function(index, entry){
                 var cell = $(this);
+                cell.attr('entry-id', self.options.id);
+                cell.off('click');
+                
+                var yesBtn = $('<input name="yes" class="radio-boolean" type="checkbox">');
+                var noBtn = $('<input name="no" class="radio-boolean" type="checkbox">');
+                var radio=$('<div></div>');
+                radio.append( yesBtn ).append( 'Yes<br/>');
+                radio.append( noBtn ).append( 'No');
+                
+                var value = cell.find('.entry-item-value').val();
+                radio.find('.radio-boolean').each( function(index, item){
+                    var checkbox = $(this);
+                    if ( checkbox.attr('name') === value ){
+                        checkbox.attr('checked', true);
+                    } 
+                });
+                
+                radio.find('.radio-boolean').off('click').click(function () {
+                    var checkedState = $(this).attr('checked');
+                    radio.find('.radio-boolean:checked').each(function () {
+                        $(this).attr('checked', false);
+                    });
+                    $(this).attr('checked', checkedState);
+                    // hidden does not trigger automatically
+                    // http://stackoverflow.com/questions/6533087/jquery-detect-value-change-on-hidden-input-field
+                    cell.find('.entry-item-value')
+                    .val( $(this).attr('name') )
+                    .trigger('change');
+                    ;
+                    return true;
+                });
+           
+                // cell.empty();
+                cell.find('#cell-content').empty().append( radio );
+                if ( ! App.user.check('canEdit') ){
+                    radio.find('input').prop('disabled', 'disabled');
+                }
+            });
+            
+            // create tier
+            this.el.find('.tier').each( function(index, entry){
+                var cell = $(this);
+                cell.empty();
                 
                 var value = self.options.context[ 
                 self.options.variable + ',' 
                 + cell.attr('rowNumber') + ','
                 + cell.attr('columnNumber')];
+        
+                // remember value
+                var hidden = $('<input class="entry-item-value" type="hidden">');
+                // add visible content
+                var div = $('<div></div>');
+                div.attr('id', 'cell-content');
+                if ( value ){
+                    hidden.val(value.content);
+                } 
+                
+                cell.append( hidden );
+                cell.append(div);
                 
                 var content = value? value.content: false;
                 
@@ -1088,7 +1166,7 @@
                 cell.attr('entry-id', self.options.variable)
                 
                 var s = $("<select />");
-                s.addClass('celleditor');
+                // s.addClass('celleditor');
                 s.attr('rowNumber', cell.attr('rowNumber'));
                 s.attr('cellNumber', cell.attr('cellNumber'));
                 $("<option />", {
@@ -1107,44 +1185,17 @@
                     value: 'Tier 3', 
                     text: 'Tier 3'
                 }).attr('selected', content === 'Tier 3'? true : false).appendTo(s);
-                cell.empty();
-                s.appendTo(cell);
+                // cell.empty();
+                
+                s.change( function(){
+                    hidden.val( s.val() ).trigger('change');
+                });
+                
+                div.append( s );
                 if ( ! App.user.check('canEdit') ){
                     s.prop('disabled', 'disabled');
                 }
             });
-            
-           
-              
-             /* $.each(this.el.find('.boolean'), function(index, entry){
-                var cell = $(this);
-                cell.attr('entry-id', self.options.id);
-                cell.click('off');
-                
-                var yesBtn = $('<input class="radio-boolean" type="checkbox">');
-                var noBtn = $('<input class="radio-boolean" type="checkbox">');
-                var radio=$('<div></div>');
-                radio.append( yesBtn )
-                     .append( 'Yes<br/>');
-                radio.append( noBtn )
-                     .append( 'No');
-                
-                radio.find('.radio-boolean').off('click').click(function () {
-                    var checkedState = $(this).attr('checked');
-                    radio.find('.radio-boolean:checked').each(function () {
-                        $(this).attr('checked', false);
-                    });
-                    $(this).attr('checked', checkedState);
-                    return false;
-                });
-           
-                cell.empty();
-                cell.append( radio );
-                if ( ! App.user.check('canEdit') ){
-                    radio.find('input').prop('disabled', 'disabled');
-                }
-            });*/
-  
 
         }
     });
@@ -1432,6 +1483,8 @@
          *
          */
         save: function(){
+            
+            
             var req = '<Updates>';
             for (var key in this.values){
                 var value = this.values[key];
@@ -1450,25 +1503,73 @@
             req += '</Updates>';
             req = '<BatchUpdate>'+ req +'</BatchUpdate>'
             
-           
-            $.ajax({
-                type:'POST',
-                contentType:'text/xml',
-                cache: false,
-                data: req,
-                // TODO externalize
-                url:baseUrl + '/rest/survey/updateValues',
-                // url:'/fra2015/rest/survey/updateValues',
-                //crossDomain: false,
-                success: function(data){
-                    console.log( data );
-                },
-                error: function(data){
-                    console.log( data );
-                }
+            // save confirm dialog
+            $("#saveSurveyDialog").on("show", function() {  
+                
+                
+                
+                $("#saveSurveyDialog").find('#saveBtn').on("click", function(e) {
+                    
+                    $.ajax({
+                        type:'POST',
+                        contentType:'text/xml',
+                        cache: false,
+                        data: req,
+                        // TODO externalize
+                        url:baseUrl + '/rest/survey/updateValues',
+                        // url:'/fra2015/rest/survey/updateValues',
+                        //crossDomain: false,
+                        success: function(data){
+                            $("#saveSurveyDialog").find('#messageBox')
+                            .empty()
+                            .addClass('alert alert-info')
+                            .append('Data saved successfully');
+                            $("#saveSurveyDialog").find('#saveBtn')
+                            .addClass('disabled')
+                            .off("click");
+                        },
+                        error: function(data){
+                            console.error( data );
+                            $("#saveSurveyDialog").find('#messageBox')
+                            .empty()
+                            .addClass('alert alert-error')
+                            .append('Cannot save data. Unknown error.');
+                            $("#saveSurveyDialog").find('#saveBtn')
+                            .addClass('disabled')
+                            .off("click");
+                        }
+                    });
+                    
+                         
+                });
             });
-        
             
+            $("#saveSurveyDialog").on("shown", function() {  
+                // reset position of the dialog box
+                $("#saveSurveyDialog").css("top", 400);
+            });
+ 
+            $("#saveSurveyDialog").on("hide", function() {    
+                $("#saveSurveyDialog").find('#saveBtn')
+                .removeClass('disabled')
+                .off("click");
+                
+                $("#saveSurveyDialog").find('#messageBox')
+                .empty()
+                .removeClass('alert alert-info')
+                .append('All changes will be saved. Are you sure?');
+            });
+    
+            $("#saveSurveyDialog").on("hidden", function() {  
+                // do nothing
+                });
+    
+            $("#saveSurveyDialog").modal({                   
+                // "backdrop"  : "static",
+                "keyboard"  : true,
+                "show"      : true                     
+            });
+       
         },
        
         /*
@@ -1710,9 +1811,11 @@
                     page.trigger('load', el);
                 });
                 tabPage.bind('change', function(el){
-                    el.find('.entry-item').change(function(){
-                        var cell = $(this);
-                        var value = cell.find('.celleditor').val();
+                    el.find('.entry-item-value').change(function(){
+                        var hidden = $(this);
+                        var cell = hidden.parent();
+                        // var value = cell.find('.celleditor').val();
+                        var value = hidden.val();
                         var entryId = cell.attr('entry-id');
                         var rowNo  = cell.attr('rowNumber');
                         var cellNo = cell.attr('columnNumber');

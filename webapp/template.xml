@@ -298,10 +298,12 @@
 			<td rownumber="1" columnnumber="1"><label ref="54"></label></td>
 			<td rownumber="1" columnnumber="2"><label ref="55"></label></td>
 			<td rownumber="1" columnnumber="3"><label ref="56"></label></td>
+                        <td rownumber="1" columnnumber="3"><label ref="57"></label></td>
 			<td rownumber="1" columnnumber="4"><label ref="53"></label></td>
 			<td rownumber="1" columnnumber="5"><label ref="54"></label></td>
 			<td rownumber="1" columnnumber="6"><label ref="55"></label></td>
 			<td rownumber="1" columnnumber="7"><label ref="56"></label></td>
+                        <td rownumber="1" columnnumber="3"><label ref="57"></label></td>
 		</tr>
 		<tr rowName="1.6" unit="1000 ha">
 			<td colspan="2" rownumber="6" columnnumber="0"><label ref="68"></label></td>
@@ -799,11 +801,14 @@
 		</tr>
 		
 		<tr rowName="2.4">
-			<td colspan="2" rownumber="7" columnnumber="0"><label ref="119"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
 			<td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
 			<td columnName="2015" class="entry-item editable text" rownumber="7" columnnumber="5"></td>
 		</tr>	
 

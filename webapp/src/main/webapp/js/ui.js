@@ -73,34 +73,34 @@
         // load survey translation
         
         $.ajax({
-           url:'./locale_en-us.xml',
-           cache:false,
-           dataType:'xml',
-           success: function(data){
-               var map = {};
-               var locale = $(data);
-               locale.find('label')
-                     .each(function(index, item){
-                         var label = $(this);
-                         map[label.attr('ref')] = label.text();
-                     });
-              /**
-               *  global function which translate from <label ref="1"/> to the correct value
-               */
-              L = function( label ){
+            url:'./locale_en-us.xml',
+            cache:false,
+            dataType:'xml',
+            success: function(data){
+                var map = {};
+                var locale = $(data);
+                locale.find('label')
+                .each(function(index, item){
+                    var label = $(this);
+                    map[label.attr('ref')] = label.text();
+                });
+                /**
+                 *  global function which translate from <label ref="1"/> to the correct value
+                 */
+                L = function( label ){
                   
-                  if ( label.jquery ){
-                      return map[ label.attr('ref') ];
-                  }
+                    if ( label.jquery ){
+                        return map[ label.attr('ref') ];
+                    }
                   
-                  var re = /ref="(.*)"/;
-                  var id = label.match(re)[1];
-                  return map[id];
-              };
-           },
-           error: function(data){
-               console.error( data );
-           }
+                    var re = /ref="(.*)"/;
+                    var id = label.match(re)[1];
+                    return map[id];
+                };
+            },
+            error: function(data){
+                console.error( data );
+            }
              
         });
                     
@@ -144,6 +144,17 @@
                 el.find('#bar').progressbar({
                     value: 0
                 });
+                el.find('#passwordTextField')
+                .keypress( function( event ){
+                    if ( event.which == 13){
+                        var username = el.find('#usernameTextField').val();
+                        var password = el.find('#passwordTextField').val();
+                        el.find('#usernameTextField').val('');
+                        el.find('#passwordTextField').val('');
+                        context.trigger('login', username, password );
+                    }
+              
+                });
                 // I am ready, notify context
                 context.trigger('ready', el);
             },
@@ -171,7 +182,7 @@
 
        
         return {
-            'page:contributor': function(username, role){
+            'page:contributor': function(username, role, countries){
                 var page = new ContributorPage;
                 page.bind('load', function(el){
                     // bind events
@@ -189,7 +200,10 @@
                         context.trigger('lang', lang);
                     }); 
                     // LOGOUT button text value
-                    page.el.find('#userField').text(username+' ('+role+')');
+                    page.el.find('#userField').text( username +'(' + role + ',' + countries +')');
+                    
+                    
+                    
                     context.trigger('ready', el); 
 
                 });
@@ -295,10 +309,10 @@
             };
         
             return {
-                loginOk: function( username, role, token ){
+                loginOk: function( username, role, token, countries ){
                     console.log('authenticated ' + username + ' with role ' + role);
                     token = token;
-                    context.trigger('page:'+role, username, role);
+                    context.trigger('page:'+role, username, role, countries);
                 },
                 loginKo: function( msg ){
                     context.trigger('error', msg);
@@ -330,7 +344,7 @@
                     });
                     
                     
-                    /*for (var i in CKEDITOR.instances) {
+                /*for (var i in CKEDITOR.instances) {
                         CKEDITOR.instances[i].on('change', function() {
                             alert('test 1 2 3')
                         });
