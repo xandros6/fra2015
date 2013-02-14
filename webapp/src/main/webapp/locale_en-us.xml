@@ -201,7 +201,7 @@
 		<value>FRA 2015 Categories</value>
 	</label>
 	<label ref="66">
-		<value>Annual forest establishmentloss 000 hectares per year {{Figures for the reporting years refer to the average for the 5-year periods 1988-1992, 1988-2002, 2003-2007 and 2008-2012 respectively.}}</value>
+		<value><![CDATA[Annual forest establishmentloss 000 hectares per year {{Figures for <b>the reporting</b> <br/>years refer to the average for the 5-year periods 1988-1992, 1988-2002, 2003-2007 and 2008-2012 respectively.}}]]></value>
 	</label>
 	<label ref="67">
 		<value>of which of introduced species 1 000 hectares per year {{A species, subspecies or lower taxon, occurring outside its natural range (past or present) and dispersal potential i.e. outside the range it occupies naturally or could occupy without direct or indirect introduction or care by humans).}}</value>

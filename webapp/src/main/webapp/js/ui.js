@@ -82,7 +82,7 @@
                 locale.find('label')
                 .each(function(index, item){
                     var label = $(this);
-                    map[label.attr('ref')] = label.text();
+                    map[label.attr('ref')] = label.text().replace("<![CDATA[", "").replace("]]>", "");
                 });
                 /**
                  *  global function which translate from <label ref="1"/> to the correct value

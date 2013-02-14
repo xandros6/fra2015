@@ -1028,13 +1028,25 @@
                     return;
                 }
                 
-                var value = cell.text();
+                var value = cell.html();
                 
                 // create tooltip
-                value = value.replace(/{{(.*?)}}/g, '<i class="icon-question-sign" title="$1"></i>');
+                var re = /{{(.*)}}/;
+                var match = value.match( re );
+                value = value.replace( re, '<i class="icon-question-sign"></i>');
+                
                 cell.empty().append( value );
-                // enable tooltips
-                cell.find('i').tooltip();
+                
+                if ( match ){
+                    console.log( match );
+                    // enable tooltips
+                    cell.find('i').popover({
+                        title: 'Note',
+                        html: true,
+                        content: match[1]
+                    }); 
+                }
+                
                 
             });
          
@@ -1317,13 +1329,17 @@
             ul.attr('class', 'nav nav-list');
             this.el.append( ul );
             this.list = ul;
+            
+            this.el.attr('id', 'navbar-accordion');
         },
         
         addSection: function( section ){
             var li = $('<li></li>');
             this.list.append( li );
             li.addClass('nav-header');
-            li.append( L(section.options.title) );
+            // li.append( '<a href="#" data-parent="navbar-accordion" data-toggle="collapse">' + L(section.options.title) + '</a>' );
+            li.append(  L(section.options.title) );
+  
         },
         
         addQuestion: function( question ){
