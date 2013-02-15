@@ -84,7 +84,7 @@
 		<value>Establishment of forest through planting andor deliberate seeding on land that until then was not classified as forest</value>
 	</label>
 	<label ref="27">
-		<value>Reforestation</value>
+		<value><![CDATA[ <small>Reforestation</small> ]]></value>
 	</label>
 	<label ref="28">
 		<value>Reestablishment of forest through planting andor deliberate seeding on land classified as forest</value>
@@ -96,7 +96,7 @@
 		<value>Expansion of forests through natural succession on land that until then was under another land use egforest succession on land previously used for agriculture</value>
 	</label>
 	<label ref="31">
-		<value>Deforestation</value>
+		<value><![CDATA[ <small>Deforestation</small> ]]></value>
 	</label>
 	<label ref="32">
 		<value>The conversion of forest to other land use or the longterm reduction of the tree canopy cover below the minimum 10 percent threshold</value>
@@ -215,19 +215,21 @@
 	</label>	
 	
 	<label ref="68">
-		<value>Forest expantion</value>
+            <value>
+                <![CDATA[ <small>Forest expantion</small> ]]>
+            </value>
 	</label>
 	<label ref="69">
-		<value>... of which afforestation</value>
+		<value><![CDATA[ <small>... of which afforestation</small> ]]></value>
 	</label>
 	<label ref="70">
-		<value>... of which natural expansion of forest</value>
+		<value><![CDATA[ <small>... of which natural expansion of forest</small> ]]></value>
 	</label>
 	<label ref="71">
-		<value>... of which human induced</value>
+		<value><![CDATA[ <small>... of which human induced</small> ]]></value>
 	</label>
 	<label ref="72">
-		<value>... of which artificial</value>
+		<value><![CDATA[ <small>... of which artificial</small> ]]></value>
 	</label>
 	<label ref="73">
 		<value>Tiers</value>

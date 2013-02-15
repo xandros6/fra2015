@@ -6,6 +6,11 @@
         custom css for FRA 2015
 */
 
+.cfrq-logo { 
+   width: 20px !important; 
+   max-width: 20px !important; 
+}
+
 .control-panel {
    background-color: #fff; 
    /* position: fixed; */
