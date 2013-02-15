@@ -1442,47 +1442,7 @@
 
     
         }
-        
-    /* initialize: function($super){
-            $super();
-            var ul = $('<ul></ul>');
-            ul.attr('class', 'nav nav-list');
-            this.el.append( ul );
-            this.list = ul;
-            
-            this.el.attr('id', 'navbar-accordion');
-        },
-        
-        addSection: function( section ){
-            var li = $('<li></li>');
-            this.list.append( li );
-            li.addClass('nav-header');
-            // li.append( '<a href="#" data-parent="navbar-accordion" data-toggle="collapse">' + L(section.options.title) + '</a>' );
-            li.append(  L(section.options.title) );
-  
-        },
-        
-        addQuestion: function( question ){
-            var li = $('<li></li>');
-            this.list.append( li );
-
-            var a = $('<a></a>');
-            a.attr('href', '#');
-            a.addClass('tab');
-            li.append( a );
-
-            var text = $('<div></div>');
-            // 
-            // text.append( (qnum+1) + '. '  );
-            // qnum++;
-            
-            if ( question.options.number ){
-                text.append(question.options.number +'. ');
-            }
-            text.append(L(question.options.title));
-            a.append( text );
-    
-        }*/        
+     
         
     });
 
@@ -1903,14 +1863,35 @@
 
             var row = $('<div></div>');
             row.attr('class', 'row');
+            
+            
+            
+            var hide = $('<a>Hide menu</a>');
+            hide.attr('href', '#');
+ 
+            row.append( $('<div class="span12"></div>').append(hide) );
 
             var left =  $('<div></div>');
-            left.attr('class', 'span4');
+            left.addClass('span4 in');
 
 
             var right =  $('<div></div>');
             right.attr('class', 'span8');
             right.attr('id', 'tabContent');
+
+           hide.click(function(){
+                if ( !left.hasClass('in')){
+                    left.addClass('in');
+                    left.css('display', 'block');
+                    right.removeClass('span12').addClass('span8');
+                    hide.text('Hide menu');
+                } else {
+                    left.removeClass('in');
+                    left.css('display', 'none');
+                    right.removeClass('span8').addClass('span12');
+                    hide.text('Show menu');
+                }
+            });         
 
             row.append(left);
             row.append(right);
@@ -1937,6 +1918,9 @@
                 // add nav bar to tab page
                 var nav = s.getNavbar();
                 left.empty();
+                
+                
+                
                 left.append( nav.el );
                 nav.bind('click', function( el, index ){
                     tabPage.select( index );
