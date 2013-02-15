@@ -1866,7 +1866,7 @@
             
             var control = $('<div></div>');
             control.attr('data-spy', 'affix');
-            control.attr('data-offset-top', '200');
+            control.attr('data-offset-top', '500');
             control.addClass('control-panel span3');
             var button = $('<a href="#" class="btn btn-primary btn-large btn-save-survey">Save all</a>');
             control.append( button );
@@ -1876,7 +1876,7 @@
             hide.attr('href', '#');
  
             var outerLeft = $('<div class="span4"></div>');
-            outerLeft.append( control );
+            // outerLeft.append( control );
             outerLeft.append( hide );
 
             var left =  $('<div></div>');
@@ -1904,7 +1904,7 @@
             row.append( outerLeft );
             row.append(right);
             container.append( row );
-
+            container.append( control );
 
             this.loading = function(  ){
 
