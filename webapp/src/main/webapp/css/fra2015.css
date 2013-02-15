@@ -6,6 +6,9 @@
         custom css for FRA 2015
 */
 
+.accordion-toggle {
+   background-color: #fff; 
+}
 
 body {
     padding-top: 40px;

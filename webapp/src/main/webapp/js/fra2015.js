@@ -1030,56 +1030,56 @@
                 
                 var value = cell.html();
 		
-		// etj startDate
+                // etj startDate
                 var re = /{{([^}])*}}/g;
                 var matchArr = value.match( re );
                 value = value.replace( re, '<i class="icon-question-sign"></i>');
                 cell.empty().append( value );
 		
 
-		if(matchArr) {
-                    console.log( "value " + value );
+                if(matchArr) {
+                    // console.log( "value " + value );
 		
-		  cell.find('i').each( function(index2, entry2){
-		      console.log( "entry " + matchArr[index2] + " #"+index2 );
-		      var labelId = matchArr[index2].substr(2,matchArr[index2].length-4)
-		      console.log( "labelid ->" + labelId + "<-" );
-		      var tooltip = Lref( labelId );
+                    cell.find('i').each( function(index2, entry2){
+                        // console.log( "entry " + matchArr[index2] + " #"+index2 );
+                        var labelId = matchArr[index2].substr(2,matchArr[index2].length-4)
+                        // console.log( "labelid ->" + labelId + "<-" );
+                        var tooltip = Lref( labelId );
 		      
-		      if (tooltip) {
-			  $(entry2).popover({
-			      title: 'Note',
-			      html: true,
-			      content: tooltip
-			  });
-		      } else {
-			alert("Bad tooltip # " + labelId);
-		      }
+                        if (tooltip) {
+                            $(entry2).popover({
+                                title: 'Note',
+                                html: true,
+                                content: tooltip
+                            });
+                        } else {
+                            alert("Bad tooltip # " + labelId);
+                        }
 		      
-		  });
-		}
+                    });
+                }
 		
-		//etj end
+            //etj end
 		
                 
-                // create tooltip
-//                var re = /{{(.*)}}/;
-//                var match = value.match( re );
-//                value = value.replace( re, '<i class="icon-question-sign"></i>');
+            // create tooltip
+            //                var re = /{{(.*)}}/;
+            //                var match = value.match( re );
+            //                value = value.replace( re, '<i class="icon-question-sign"></i>');
                 
-//                cell.empty().append( value );
+            //                cell.empty().append( value );
 
 		
 		
-//                if ( match ){
-//                    console.log( match );
-                    // enable tooltips
-//                    cell.find('i').popover({
-//                        title: 'Note',
-//                        html: true,
-//                        content: match[1]
-//                    }); 
-//                }
+            //                if ( match ){
+            //                    console.log( match );
+            // enable tooltips
+            //                    cell.find('i').popover({
+            //                        title: 'Note',
+            //                        html: true,
+            //                        content: match[1]
+            //                    }); 
+            //                }
                 
                 
             });
@@ -1359,6 +1359,92 @@
         
         initialize: function($super){
             $super();
+            
+            this.el.attr('id', 'navbar-accordion');
+            this.el.addClass('accordion');
+            this.group = null;
+            
+        },
+        
+        addSection: function( section ){
+            
+            var group = $('<div></div>');
+            group.addClass('accordion-group');
+            
+            
+            var id = 'groupid_' + Math.random().toString(36).substring(7);
+            
+            var title = $('<a></a>');
+            title.addClass('accordion-toggle');
+            title.attr('href', '#' + id);
+            title.attr('data-parent', '#navbar-accordion');
+            title.attr('data-toggle', 'collapse');
+            title.append( L(section.options.title).toUpperCase() );
+            
+            var header = $('<div></div>');
+            header.addClass('accordion-heading');
+            header.append( title );
+            
+            var collapsable = $('<div></div>');
+            collapsable.attr('id', id);
+            collapsable.addClass('accordion-body collapse');
+            collapsable.append( '<div class="accordion-inner"></div>' );
+  
+           
+            // TOFIX 
+            // in theory bootstrap should work also without these lines
+            // for some reason it does not
+            // for the moment I use this temporary trick
+            title.click(function(){
+                
+                if ( !collapsable.hasClass('in')){
+                    collapsable.addClass('in');
+                    collapsable.css('display', 'block');
+                } else {
+                    collapsable.removeClass('in');
+                    collapsable.css('display', 'none');
+                }
+                return false;
+            });
+            
+  
+            group.append(header).append(collapsable);
+  
+            this.group = group;
+            this.el.append( group );
+        },
+        
+        addQuestion: function( question ){
+            
+            if ( this.group ){
+                
+                var p = $('<p></p>');
+                var a = $('<a></a>');
+                a.attr('href', '#');
+                a.addClass('tab');
+                p.append( a );
+                var text = $('<div></div>');
+                if ( question.options.number ){
+                    text.append(question.options.number +'. ');
+                }
+                text.append(L(question.options.title));
+                a.append( text );
+
+                
+                
+                this.group.find('.accordion-inner').append( p );
+                
+            } else {
+                console.error('Questions must be within a section.');
+            }
+            
+           
+
+    
+        }
+        
+    /* initialize: function($super){
+            $super();
             var ul = $('<ul></ul>');
             ul.attr('class', 'nav nav-list');
             this.el.append( ul );
@@ -1396,7 +1482,7 @@
             text.append(L(question.options.title));
             a.append( text );
     
-        }
+        }*/        
         
     });
 
