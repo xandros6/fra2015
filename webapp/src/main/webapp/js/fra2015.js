@@ -809,12 +809,12 @@
 
             var control = $('<div class="control"></div>');
             control.addClass( 'pull-right');
-            if ( App.user.check('canSave')){
+            /*if ( App.user.check('canSave')){
                 var saveBtn = $('<a>'+ $.t('save') +'</a>');
                 saveBtn.attr('href', '#');
                 saveBtn.addClass( 'btn btn-mini btn-primary btn-save-survey');
                 control.append( saveBtn ); 
-            }
+            }*/
             
             this.el.append( '<div class="entry"></div>');
             this.el.append( control );
@@ -1864,16 +1864,24 @@
             var row = $('<div></div>');
             row.attr('class', 'row');
             
-            
+            var control = $('<div></div>');
+            control.attr('data-spy', 'affix');
+            control.attr('data-offset-top', '200');
+            control.addClass('control-panel span3');
+            var button = $('<a href="#" class="btn btn-primary btn-large btn-save-survey">Save all</a>');
+            control.append( button );
+            control.affix();
             
             var hide = $('<a>Hide menu</a>');
             hide.attr('href', '#');
  
-            row.append( $('<div class="span12"></div>').append(hide) );
+            var outerLeft = $('<div class="span4"></div>');
+            outerLeft.append( control );
+            outerLeft.append( hide );
 
             var left =  $('<div></div>');
-            left.addClass('span4 in');
-
+            left.addClass('in');
+            outerLeft.append( left );
 
             var right =  $('<div></div>');
             right.attr('class', 'span8');
@@ -1893,7 +1901,7 @@
                 }
             });         
 
-            row.append(left);
+            row.append( outerLeft );
             row.append(right);
             container.append( row );
 
@@ -1942,7 +1950,7 @@
                         model.set( entryId, rowNo, cellNo, value);
              
                     });
-                    el.find('.btn-save-survey').click( function(e){
+                     el.find('.btn-save-survey').click( function(e){
                         e.preventDefault();
                         // TOFIX 
                         // It seems hard to bind a change event to CKEDITOR
