@@ -1029,23 +1029,57 @@
                 }
                 
                 var value = cell.html();
+		
+		// etj startDate
+                var re = /{{([^}])*}}/g;
+                var matchArr = value.match( re );
+                value = value.replace( re, '<i class="icon-question-sign"></i>');
+                cell.empty().append( value );
+		
+
+		if(matchArr) {
+                    console.log( "value " + value );
+		
+		  cell.find('i').each( function(index2, entry2){
+		      console.log( "entry " + matchArr[index2] + " #"+index2 );
+		      var labelId = matchArr[index2].substr(2,matchArr[index2].length-4)
+		      console.log( "labelid ->" + labelId + "<-" );
+		      var tooltip = Lref( labelId );
+		      
+		      if (tooltip) {
+			  $(entry2).popover({
+			      title: 'Note',
+			      html: true,
+			      content: tooltip
+			  });
+		      } else {
+			alert("Bad tooltip # " + labelId);
+		      }
+		      
+		  });
+		}
+		
+		//etj end
+		
                 
                 // create tooltip
-                var re = /{{(.*)}}/;
-                var match = value.match( re );
-                value = value.replace( re, '<i class="icon-question-sign"></i>');
+//                var re = /{{(.*)}}/;
+//                var match = value.match( re );
+//                value = value.replace( re, '<i class="icon-question-sign"></i>');
                 
-                cell.empty().append( value );
-                
-                if ( match ){
-                    console.log( match );
+//                cell.empty().append( value );
+
+		
+		
+//                if ( match ){
+//                    console.log( match );
                     // enable tooltips
-                    cell.find('i').popover({
-                        title: 'Note',
-                        html: true,
-                        content: match[1]
-                    }); 
-                }
+//                    cell.find('i').popover({
+//                        title: 'Note',
+//                        html: true,
+//                        content: match[1]
+//                    }); 
+//                }
                 
                 
             });

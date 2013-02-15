@@ -201,11 +201,19 @@
 		<value>FRA 2015 Categories</value>
 	</label>
 	<label ref="66">
-		<value><![CDATA[Annual forest establishmentloss 000 hectares per year {{Figures for <b>the reporting</b> <br/>years refer to the average for the 5-year periods 1988-1992, 1988-2002, 2003-2007 and 2008-2012 respectively.}}]]></value>
+		<value>Annual forest establishment loss (000 hectares per year) {{66_tt}}</value>
 	</label>
+	<label ref="66_tt">
+		<value>Figures for the reporting years refer to the average for the 5-year periods 1988-1992, 1988-2002, 2003-2007 and 2008-2012 respectively.</value>
+	</label>
+		
 	<label ref="67">
-		<value>of which of introduced species 1 000 hectares per year {{A species, subspecies or lower taxon, occurring outside its natural range (past or present) and dispersal potential i.e. outside the range it occupies naturally or could occupy without direct or indirect introduction or care by humans).}}</value>
+		<value>...of which of introduced species (000 hectares per year) {{67_tt}}</value>
 	</label>
+	<label ref="67_tt">
+		<value>A species, subspecies or lower taxon, occurring outside its natural range (past or present) and dispersal potential i.e. outside the range it occupies naturally or could occupy without direct or indirect introduction or care by humans)</value>
+	</label>	
+	
 	<label ref="68">
 		<value>Forest expantion</value>
 	</label>
@@ -240,7 +248,9 @@
 		<value>Tier 3 Data sources Either recent 10 years ago National Forest Inventory or remote sensing with ground truthing or programme for repeated compatible NFIs Tier 2 Data sources Full cover mappingremote sensing or old NFI 10 years ago Tier 1 Other</value>
 	</label>
 	<label ref="79">
-		<value>Tier 3 Estimate based on repeated compatible tiers 3 tier for status Tier 2 Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status Tier 1 Other</value>
+		<value><![CDATA[<b>Tier 3</b>: Estimate based on repeated compatible tiers 3 tier for status <br/>
+		                <b>Tier 2</b>: Estimate based on repeated compatible tier 2 or combination tier 3 and 2 or 1 tier for status<br/> 
+		                <b>Tier 1</b>: Other]]></value>
 	</label>
 	<label ref="80">
 		<value>1.5 Comments</value>
@@ -486,10 +496,13 @@
 		<value>Growing stock in forest million cubic meters</value>
 	</label>
 	<label ref="161">
-		<value>
-Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1st is the species with the highest growing stock. Year 2000 is the reference year for defining the species list and the order of the species.}}
-                </value>
+		<value>Rank {{161_tt}}</value>
 	</label>
+	<label ref="161_tt">
+		<value>Rank refers to the order of importance in terms of growing stock, i.e. 1st is the species with the highest growing stock. 
+		       Year 2000 is the reference year for defining the species list and the order of the species.</value>
+	</label>
+
 	<label ref="162">
 		<value>Scientific name</value>
 	</label>
@@ -544,9 +557,13 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>Complementary information</value>
 	</label>
 	<label ref="179">
-		<value>Minimum diameter (cm) at breast height {{Diameter at breast height (DBH) refers to diameter over bark measured at a height of 1.30 m above ground
-		level or 30 cm above buttresses if these are higher than 1 m.}} of trees included in growing stock (X)</value>
+		<value>Minimum diameter (cm) at breast height {{179_tt}} of trees included in growing stock (X)</value>
 	</label>
+	<label ref="179_tt">
+		<value>Diameter at breast height (DBH) refers to diameter over bark measured at a height of 1.30 m above ground
+		level or 30 cm above buttresses if these are higher than 1 m.</value>
+	</label>
+	
 	<label ref="180">
 		<value>Minimum diameter (cm) at the top end of stem for calculation of growing stock (Y)</value>
 	</label>
@@ -790,8 +807,11 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>How much forest area is managed for protection of soil and water and ecosystem services?</value>
 	</label>
 	<label ref="260">
-		<value>Protection of soil and water {{Under this reporting category all areas designated for protection of soil and water should be reported, regardless
-		whether they are primarily designated or not.}}</value>
+		<value>Protection of soil and water {{260_tt}}</value>
+	</label>
+	<label ref="260_tt">
+		<value>Under this reporting category all areas designated for protection of soil and water should be reported, regardless
+		whether they are primarily designated or not.</value>
 	</label>
 	<label ref="261">
 		<value>Forest area designated or managed for protection of soil and water</value>
@@ -1007,10 +1027,13 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>10</value>
 	</label>
 	<label ref="332">
-		<value>Total {{The total forest area affected by woody invasive species is not necessary the sum of the values above, as these may be overlapping.}}</value>
+		<value>Total {{332_tt}}</value>
+	</label>
+	<label ref="332_tt">
+		<value>The total forest area affected by woody invasive species is not necessary the sum of the values above, as these may be overlapping.</value>
 	</label>
 	<label ref="333">
-		<value>Tier 3 Systematic assessment in forest inventory or other survey e g by conservation department within the last 5 years Tier 2 Systematic assessment in forest inventory or other survey e g by conservation department conducted more than 5 years ago Tier 1 Other</value>
+		<value>Tier 3 Systematic assessment in forest inventory or other survey (e.g. by conservation department) within the last 5 years Tier 2 Systematic assessment in forest inventory or other survey e g by conservation department conducted more than 5 years ago Tier 1 Other</value>
 	</label>
 	<label ref="334">
 		<value>How much forest area is damaged each year?</value>
@@ -1022,8 +1045,15 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>Number of fires per year</value>
 	</label>
 	<label ref="337">
-		<value>Area affected by fire</value>
+		<value><b>Area</b> affected by fire</value>
 	</label>
+
+	<label ref="337_tiers">
+		<value><![CDATA[Area affected by fire 
+		(<sub>status</sub> {{367}}) 
+		(<sub>trend</sub> {{79}})]]></value>
+	</label> 
+		         		         
 	<label ref="338">
 		<value>Area damaged by fire per year</value>
 	</label>
@@ -1037,7 +1067,7 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>Outbreaks of diseases</value>
 	</label>
 	<label ref="342">
-		<value>Damaged caused by severe outbreaks of diseases attributable to pathogens such as bacteria fungi phytoplasma or virus</value>
+		<value><![CDATA[Damaged caused by severe outbreaks of diseases attributable to pathogens such as <i>bacteria fungi phytoplasma</i> or virus]]></value>
 	</label>
 	<label ref="343">
 		<value>Severe weather events</value>
@@ -1084,6 +1114,9 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 	<label ref="357">
 		<value>2012</value>
 	</label>
+	
+	<!-- ======================================= -->
+	
 	<label ref="358">
 		<value>Table 8b</value>
 	</label>
@@ -1091,13 +1124,16 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>Outbreak category</value>
 	</label>
 	<label ref="360">
-		<value>Outbreakevent</value>
+		<value>Outbreak event</value>
 	</label>
 	<label ref="361">
 		<value>Year</value>
 	</label>
 	<label ref="362">
-		<value>Area damaged 000 hectares {{Area affected refers to the total area affected during the outbreak.}}</value>
+		<value>Area damaged (000 hectares) {{362_tt}}</value>
+	</label>
+	<label ref="362_tt">
+		<value>Area affected refers to the total area affected during the outbreak.</value>
 	</label>
 	<label ref="363">
 		<value>1 Insects</value>
@@ -1109,13 +1145,23 @@ Rank {{Rank refers to the order of importance in terms of growing stock, i.e. 1s
 		<value>3 Severe weather events</value>
 	</label>
 	<label ref="366">
-		<value>Insects Diseases Severe weather events</value>
+		<value><![CDATA[ <ul><li>Insects</li><li>Diseases</li><li>Severe weather events</li></ul>]]></value>
+	</label>
+	<label ref="366_tiers">
+		<value><![CDATA[ <ul><li>Insects</li><li>Diseases</li><li>Severe weather events</li></ul>
+		(<sub>status</sub> {{368}}) 
+		(<sub>trend</sub> {{79}})
+		]]></value>
 	</label>
 	<label ref="367">
-		<value>Tier 3 National fire monitoring routines Tier 2 Remote sensing surveys Tier 1 Other</value>
+		<value><![CDATA[<b>Tier 3</b>: National fire monitoring routines<br/> 
+		                <b>Tier 2</b>: Remote sensing surveys <br/>
+		                <b>Tier 1</b>: Other]]></value>
 	</label>
 	<label ref="368">
-		<value>Tier 3 Systematic survey eg via inventory or aerial damage assessment Tier 2 Management records Tier 1 Other</value>
+		<value><![CDATA[<b>Tier 3</b>: Systematic survey (e.g. via inventory or aerial damage assessment) <br/>
+		                <b>Tier 2</b>: Management records <br/>
+		                <b>Tier 1</b>: Other]]></value>
 	</label>
 	<label ref="369">
 		<value>Insects</value>

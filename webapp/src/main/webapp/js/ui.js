@@ -97,6 +97,9 @@
                     var id = label.match(re)[1];
                     return map[id];
                 };
+                Lref = function( ref ){
+                    return map[ref];
+                };
             },
             error: function(data){
                 console.error( data );
