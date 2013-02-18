@@ -1753,4 +1753,10 @@
 	<label ref="564">
 		<value>2013</value>
 	</label>
+        
+        
+        <label ref="test">
+		<value><![CDATA[ Download FAQs for this question <a href="#">here</a>. ]]></value>
+	</label>
+        
 </locale>

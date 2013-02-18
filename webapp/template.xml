@@ -75,7 +75,8 @@
 			<title><![CDATA[ <label ref="10" /> ]]></title>
 			<Elements>
 				<question>
-					<title><![CDATA[ <label ref="11" /> ]]></title>
+					<title><![CDATA[ <label ref="11" /> ]]></title>    
+                                        <description><![CDATA[ <label ref="test" /> ]]></description>
 					<Elements>
 						<session>
 							<title><![CDATA[ <label ref="12" /> ]]></title>

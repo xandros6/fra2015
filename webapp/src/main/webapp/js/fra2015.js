@@ -1343,11 +1343,11 @@
             return html;
         },
         createDescription: function(description ){
-            /*var html = $('<p></p>');
+            var html = $('<p></p>');
             html.attr('class', 'lead');
             html.append( description );
-            return html;*/
-            return '';
+            return html;
+            return html;
         }
 
     });
