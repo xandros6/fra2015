@@ -1122,7 +1122,20 @@
                             cell.removeClass("editable");
                             cell.addClass("editing");
                             var text = cell.find('#cell-content').html();
-                            cell.find('#cell-content').html('<input style="width:80%" class="celleditor" type="text" value="'+text+'"/>');
+                            var input = $('<input style="width:80%" class="celleditor" type="text" value="'+text+'"/>');
+                            if (cell.hasClass('number')){
+                                // on keydown verify if the key is a number
+                                input.keydown(function(evt){
+                                    var e = evt || window.event; 
+                                    var charCode = e.which || e.keyCode;                        
+                                    if (charCode > 31 && (charCode < 47 || charCode > 57))
+                                        return false;
+                                    if (e.shiftKey) return false;
+                                    return true;
+                                });                               
+                            }
+
+                            cell.find('#cell-content').html( input );
                             cell.find('.celleditor').blur( function(){
                                 if ( cell.hasClass('editing') ){
                                     cell.removeClass("editing");
@@ -1887,7 +1900,7 @@
             right.attr('class', 'span8');
             right.attr('id', 'tabContent');
 
-           hide.click(function(){
+            hide.click(function(){
                 if ( !left.hasClass('in')){
                     left.addClass('in');
                     left.css('display', 'block');
@@ -1950,7 +1963,7 @@
                         model.set( entryId, rowNo, cellNo, value);
              
                     });
-                     el.find('.btn-save-survey').click( function(e){
+                    el.find('.btn-save-survey').click( function(e){
                         e.preventDefault();
                         // TOFIX 
                         // It seems hard to bind a change event to CKEDITOR
