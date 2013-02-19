@@ -49,18 +49,18 @@ public class UserServiceImpl implements UserService {
      * @see it.geosolutions.fra2015.services.UserService#insert(it.geosolutions.fra2015.server.model.user.User)
      */
     @Override
-    public User insert(User user) throws BadRequestServiceEx, NotFoundServiceEx {
+    public User insert(User user) throws BadRequestServiceEx {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Persisting User ... ");
         }
 
         if (user == null) {
-            throw new BadRequestServiceEx("User type must be specified !");
+            throw new BadRequestServiceEx("Missing user info");
         }
 
         String password = "" + user.getNewPassword();
         if ( password != null ){
-            // TODO encode password
+            // TODO encode password: user @prepersist in model bean
             user.setPassword( password );
         }
         

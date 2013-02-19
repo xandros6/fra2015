@@ -47,7 +47,7 @@ public interface UserService {
      * @throws BadRequestServiceEx
      * @throws NotFoundServiceEx
      */
-    public User insert(User user) throws BadRequestServiceEx, NotFoundServiceEx;
+    public User insert(User user) throws BadRequestServiceEx;
 
     /**
      * @param user

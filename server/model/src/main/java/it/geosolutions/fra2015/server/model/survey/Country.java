@@ -54,4 +54,11 @@ public class Country implements Serializable {
         this.iso3 = iso3;
     }
 
+    @Override
+    public String toString() {
+        return "Country[" + iso3 + ":" + id + ":" + name + ']';
+    }
+
+    
+    
 }

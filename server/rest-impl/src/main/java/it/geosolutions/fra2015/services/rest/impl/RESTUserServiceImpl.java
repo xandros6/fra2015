@@ -75,8 +75,6 @@ public class RESTUserServiceImpl implements RESTUserService {
 
             return userService.insert(user);
 
-        } catch (NotFoundServiceEx e) {
-            throw new NotFoundWebEx(e.getMessage());
         } catch (BadRequestServiceEx e) {
             throw new BadRequestWebEx(e.getMessage());
         }

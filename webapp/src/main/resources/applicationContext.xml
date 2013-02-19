@@ -19,6 +19,7 @@
     <bean id="fra2015Initializer" class="it.geosolutions.fra2015.init.FRA2015Init" lazy-init="false"> 
          <!--Site specific initialization. Please specify a path in the ovr file--> 
         <property name="countryDAO" ref="countryDAO"/>
+        <property name="restSurveyService" ref="restSurvey"/>
     </bean> 
 
 </beans>
