@@ -152,7 +152,7 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public Entry updateValues(String countryName, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
+    public Entry updateValues(String iso3, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
         Entry entry = entryDAO.findByName(entryId);
         if (entry != null) {
@@ -179,9 +179,9 @@ public class SurveyServiceImpl implements SurveyService {
             }
 
             // find a country with the given name
-            Country country = findCountry(countryName);
+            Country country = findCountryByISO3(iso3);
             if (country == null) {
-                throw new BadRequestServiceEx("Country with name " + countryName + " does not exist.");
+                throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
             }
 
             // retrieve previous value if it is an update
@@ -207,12 +207,12 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public List<CompactValue> getAllValues(String countryName) throws BadRequestServiceEx, NotFoundServiceEx {
+    public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx, NotFoundServiceEx {
 
         // find a country with the given name
-        Country country = findCountry(countryName);
+        Country country = findCountryByISO3(iso3);
         if (country == null) {
-            throw new BadRequestServiceEx("Country with name " + countryName + " does not exist.");
+            throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
         }
 
         List<CompactValue> values = new ArrayList<CompactValue>();
@@ -264,9 +264,18 @@ public class SurveyServiceImpl implements SurveyService {
      * @param countryName
      * @return
      */
-    private Country findCountry(String name) {
+    private Country findCountryByName(String name) {
         Search searchCriteria = new Search(Country.class);
         searchCriteria.addFilterEqual("name", name);
+        List<Country> countries = countryDAO.search(searchCriteria);
+        if (countries.size() > 0) {
+            return countries.get(0);
+        }
+        return null;
+    }
+    private Country findCountryByISO3(String iso3) {
+        Search searchCriteria = new Search(Country.class);
+        searchCriteria.addFilterEqual("iso3", iso3);
         List<Country> countries = countryDAO.search(searchCriteria);
         if (countries.size() > 0) {
             return countries.get(0);

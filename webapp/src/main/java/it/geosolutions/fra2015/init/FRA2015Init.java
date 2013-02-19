@@ -65,6 +65,8 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
             insertAdmin();
             insertSampleUsers();                    
         }
+        
+        LOGGER.info(userService.getCount() + " users found in DB.");
     }
 
     private void insertAdmin() throws BadRequestServiceEx {
@@ -104,8 +106,7 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
             } catch (Exception ex) {
                 LOGGER.error("Error creating user for country" + country);
             }
-        }            
-
+        }                
     }
     
     private void checkAndInsertCountries() throws IOException {
@@ -119,9 +120,12 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
             CountryList list = JAXB.unmarshal(countriesFile, CountryList.class);
             LOGGER.info("Persisting " + list.getCountries().size() + " countries");
             for (Country country : list) {
+//                LOGGER.info("Persisting " + country);
                 countryDAO.persist(country);
             }            
         }
+        
+        LOGGER.info(countryDAO.count(null) + " countries found in DB.");        
     }
     
     private void checkAndInsertSurvey() throws IOException {
