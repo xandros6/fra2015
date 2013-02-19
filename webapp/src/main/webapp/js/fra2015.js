@@ -1613,10 +1613,11 @@
                 data: data,
                 url:baseUrl + '/rest/survey/changeStatus',
                 success: function(data){
-                    console.error( data );
+                    Widgets.createToast( $('#popupPanel') ).open('Updated status: ' + data);
                 },
                 error: function(data){
                     console.error( data );
+                    Widgets.createToast( $('#popupPanel') ).error('Cannot update status.');
                 }
             });
         },
@@ -1656,7 +1657,7 @@
                 },
                 error: function(data){
                     console.error( data );
-                    Widgets.createToast( $('#popupPanel') ).open('Cannot save data. Unknown error.');
+                    Widgets.createToast( $('#popupPanel') ).error('Cannot save data. Unknown error.');
                 }
             });
             

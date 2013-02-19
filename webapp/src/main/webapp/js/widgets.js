@@ -13,23 +13,31 @@
                 ext:'.html'
             }).render();
             el.append( html );
+            container.append( el );
         
             var toast = el.find('#toast');
+            
+            function display(){
+                toast.modal({ 
+                    "show": true                     
+                });
+                // set timeout for closing
+                setTimeout(function(){
+                    toast.modal('hide');
+                }, 3000);
+            };
         
             return {
             
                 open: function( msg ){
-                    
-                    container.append( el );
-                    
                     toast.find('#content').empty().append(msg);
-                    toast.modal({ 
-                        "show": true                     
-                    });
-                    // set timeout for closing
-                    setTimeout(function(){
-                        toast.modal('hide');
-                    }, 3000);
+                    display();
+                },
+                
+                error: function( msg ){
+                    toast.find('#content').empty()
+                         .append( $('<div class="alert alert-error"></div>').append(msg));
+                         
                 }
             };
         }
