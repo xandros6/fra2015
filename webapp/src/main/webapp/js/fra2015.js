@@ -1910,7 +1910,7 @@
             
             var control = $('<div></div>');
             control.attr('style', 'position:fixed;right:0;bottom:0');
-            
+            control.attr('class', 'control-panel');
             
             var button = $('<a href="#" class="btn btn-primary btn-large btn-save-survey">Save all</a>');
             control.append( button );
