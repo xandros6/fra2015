@@ -17,9 +17,9 @@ import java.util.List;
 public interface SurveyService {
     
 
-    public Entry updateValues(String country, String variable, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx;
+    public Entry updateValues(String iso3, String variable, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx;
 
-    public List<CompactValue> getAllValues(String countryId) throws BadRequestServiceEx, NotFoundServiceEx;
+    public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx, NotFoundServiceEx;
 
     /**
      * update or insert an entry

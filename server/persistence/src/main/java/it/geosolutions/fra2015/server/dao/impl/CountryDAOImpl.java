@@ -8,11 +8,13 @@ import com.googlecode.genericdao.search.ISearch;
 import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author marco
  */
+@Transactional(value = "fra2015TransactionManager")
 public class CountryDAOImpl extends BaseDAO<Country, Long> implements CountryDAO {
 
     @Override

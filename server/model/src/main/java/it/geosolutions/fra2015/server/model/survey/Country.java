@@ -7,7 +7,6 @@ package it.geosolutions.fra2015.server.model.survey;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,13 +18,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity(name = "Country")
 @Table(name = "fra_country" )
-@XmlRootElement(name = "Country")
+@XmlRootElement(name = "country")
 public class Country implements Serializable {
     
     @Id
-    @GeneratedValue
-    @XmlElement
     private Long id;
+    
+    @Column(unique=true, length=3)
+    private String iso3;
     
     @Column(name = "name",unique=true)
     private String name;
@@ -45,7 +45,20 @@ public class Country implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    public String getIso3() {
+        return iso3;
+    }
+
+    public void setIso3(String iso3) {
+        this.iso3 = iso3;
+    }
+
+    @Override
+    public String toString() {
+        return "Country[" + iso3 + ":" + id + ":" + name + ']';
+    }
+
     
     
 }
