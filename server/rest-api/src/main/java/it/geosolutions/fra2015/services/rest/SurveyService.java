@@ -9,7 +9,7 @@ import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
-import it.geosolutions.fra2015.services.rest.model.Status;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.services.rest.model.Updates;
 import java.util.List;
 import javax.ws.rs.Consumes;

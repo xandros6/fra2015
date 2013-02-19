@@ -10,6 +10,7 @@ import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Session;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
@@ -19,7 +20,6 @@ import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
 import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
 import it.geosolutions.fra2015.services.rest.model.Update;
 import it.geosolutions.fra2015.services.rest.model.Updates;
-import it.geosolutions.fra2015.services.rest.model.Status;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,6 @@ import javax.ws.rs.core.SecurityContext;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import org.apache.log4j.Logger;
 
 /**
@@ -122,7 +121,13 @@ public class SurveyServiceImpl implements SurveyService {
     
     @Override
     public String changeStatus(SecurityContext sc, Status status){
-        return null;
+        try {
+            return surveyService.changeStatus( status );
+        } catch (BadRequestServiceEx ex) {
+            throw new BadRequestWebEx(ex.getMessage());
+        } catch (NotFoundServiceEx ex) {
+            throw new NotFoundWebEx(ex.getMessage());
+        }
     }
 
     private void save(Object obj) throws BadRequestServiceEx, NotFoundServiceEx {

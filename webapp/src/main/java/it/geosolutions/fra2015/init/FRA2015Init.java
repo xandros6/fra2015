@@ -5,8 +5,11 @@ package it.geosolutions.fra2015.init;
 import it.geosolutions.fra2015.init.model.CountryList;
 import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
+import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -31,6 +34,7 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
     
     private CountryDAO countryDAO;
     private EntryDAO entryDAO;
+    private SurveyDAO surveyDAO;
     
     private UserService userService;
     private SurveyService restSurveyService;
@@ -122,6 +126,11 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
             for (Country country : list) {
 //                LOGGER.info("Persisting " + country);
                 countryDAO.persist(country);
+                // create an empty survey instance for each country
+                SurveyInstance survey = new SurveyInstance();
+                survey.setCountry(country);
+                survey.setStatus(new Status("empty"));
+                surveyDAO.persist(survey);
             }            
         }
         
@@ -151,6 +160,9 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
 
     public void setEntryDAO(EntryDAO entryDAO) {
         this.entryDAO = entryDAO;
+    }
+    public void setSurveyDAO(SurveyDAO surveyDAO) {
+        this.surveyDAO = surveyDAO;
     }
 
     @Override

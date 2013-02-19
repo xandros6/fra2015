@@ -6,6 +6,7 @@ package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
@@ -28,4 +29,15 @@ public interface SurveyService {
      * @throws NotFoundServiceEx 
      */
     public void upsert(Entry entry) throws BadRequestServiceEx, NotFoundServiceEx;
+
+    /**
+     * change the status of the survey associated to a given country
+     * @param country
+     * @param status
+     * @param message additional information about the status
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx 
+     * @return the new status
+     */
+    public String changeStatus(Status status) throws BadRequestServiceEx, NotFoundServiceEx;
 }

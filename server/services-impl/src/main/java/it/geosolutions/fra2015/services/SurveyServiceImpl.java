@@ -9,12 +9,15 @@ import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.dao.NumberValueDAO;
+import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.dao.TextValueDAO;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.Status;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -48,8 +51,17 @@ public class SurveyServiceImpl implements SurveyService {
     private EntryItemDAO entryItemDAO;
     private TextValueDAO textValueDAO;
     private NumberValueDAO numberValueDAO;
+    private SurveyDAO surveyDAO;
+    
+    
     private Map<String, ValueDAO> map = new HashMap<String, ValueDAO>();
 
+    public void setSurveyDAO(SurveyDAO surveyDAO) {
+        this.surveyDAO = surveyDAO;
+    }
+
+    
+    
     public void setCountryDAO(CountryDAO countryDAO) {
         this.countryDAO = countryDAO;
     }
@@ -258,6 +270,18 @@ public class SurveyServiceImpl implements SurveyService {
         entryDAO.persist(entry);
     }
 
+    @Override
+    public String changeStatus(Status status) throws BadRequestServiceEx, NotFoundServiceEx {
+        SurveyInstance survey = surveyDAO.findByCountry( status.getCountry() );
+        if ( survey != null ){
+            survey.getStatus().setMessage( status.getMessage() );
+            survey.getStatus().setStatus( status.getStatus() );
+            surveyDAO.merge(survey);
+            return survey.getStatus().getStatus();
+        }
+        return null;
+    }
+
     /**
      * retuns a country with the given name, null otherwise
      *
@@ -273,6 +297,7 @@ public class SurveyServiceImpl implements SurveyService {
         }
         return null;
     }
+
     private Country findCountryByISO3(String iso3) {
         Search searchCriteria = new Search(Country.class);
         searchCriteria.addFilterEqual("iso3", iso3);

@@ -1600,16 +1600,18 @@
          * @msg, contributor message if survey is not valid
          */
         submit: function(valid, msg){
-            var data = {
-                status: 'submitted',
-                message: msg
-            };
+            var data = '<Status>' +
+                           '<status>submitted</status>' +
+                           '<message>' + msg + '</message>' +
+                           '<country>' +  this.country + '</country>' +
+                       '</Status>';
+          
             $.ajax({
                 type:'PUT',
                 contentType:'text/xml',
                 cache: false,
-                data: JSON.stringify( data ),
-                url:baseUrl + '/rest/survey/status',
+                data: data,
+                url:baseUrl + '/rest/survey/changeStatus',
                 success: function(data){
                     console.error( data );
                 },
