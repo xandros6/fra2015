@@ -19,6 +19,7 @@ import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
 import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
 import it.geosolutions.fra2015.services.rest.model.Update;
 import it.geosolutions.fra2015.services.rest.model.Updates;
+import it.geosolutions.fra2015.services.rest.model.Status;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import org.apache.log4j.Logger;
 
 /**
@@ -117,6 +119,11 @@ public class SurveyServiceImpl implements SurveyService {
             throw new NotFoundWebEx(ex.getMessage());
         }
     }
+    
+    @Override
+    public String changeStatus(SecurityContext sc, Status status){
+        return null;
+    }
 
     private void save(Object obj) throws BadRequestServiceEx, NotFoundServiceEx {
 
@@ -136,4 +143,6 @@ public class SurveyServiceImpl implements SurveyService {
             surveyService.upsert((Entry) obj);
         }
     }
+
+
 }

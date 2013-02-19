@@ -1586,14 +1586,45 @@
                 value: value
             };
         },
+        
+        /*
+         * gets locally stored data
+         */
+        get: function(variable, row, col){
+            return this.values[ variable+',' + row + ',' + col ];
+        },
+        
+        /**
+         *
+         * @valid, boolean, true if the survey passed validation
+         * @msg, contributor message if survey is not valid
+         */
+        submit: function(valid, msg){
+            var data = {
+                status: 'submitted',
+                message: msg
+            };
+            $.ajax({
+                type:'PUT',
+                contentType:'text/xml',
+                cache: false,
+                data: JSON.stringify( data ),
+                url:baseUrl + '/rest/survey/status',
+                success: function(data){
+                    console.error( data );
+                },
+                error: function(data){
+                    console.error( data );
+                }
+            });
+        },
 
         /*
          * sends stored answers to remote db
          *
          */
         save: function(){
-            
-            
+          
             var req = '<Updates>';
             for (var key in this.values){
                 var value = this.values[key];
@@ -2003,6 +2034,82 @@
         }
     });
 
+    /*
+     * this view represent the check and submit page
+     */
+    var CheckAndSubmit = Class.create(View, {
+        
+        initialize:function( $super, options){
+            $super();
+            this.model = options.model;
+            
+            var el = this.el;
+            var self = this;
+            
+            this.loading = function(){
+                
+                var template = Templates.build('contributor/check');
+                template.bind('load', function(childEl){
+                    el.empty().append( childEl );
+                    
+                    var page = el.find('.check-page');
+                    // create a validator for this model
+                    var validator = Validator.create( self.model );
+                
+                    validator.validate(function(errors){
+                        if (errors.length > 0){
+                            var ul = $('<ul></ul>');
+                            page.find('#messagePanel')
+                            .addClass('alert alert-error')
+                            .empty()
+                            .append('The survey violates some constraints:')
+                            .append( ul );
+                            $.each( errors, function(index, error){
+                                ul.append('<li>' + L(error) + '</li>');
+                            });
+                            var text = $('<textarea></textarea>');
+                            text.attr('cols', 300);
+                            text.keypress(function(){
+                                page.find('#submitButton')
+                                .removeClass('disabled')
+                                .off('click')
+                                .click(function(){
+                                    self.model.submit(false, text.val());
+                                });
+                            });
+                            page.find('#textPanel')
+                            .append('<p>If you want to submit it anyway, please add a text note</p>')
+                            .append( text );
+                            page.find('#submitButton').off('click').addClass('disabled');
+                        } else {
+                            page.find('#messagePanel')
+                            .removeClass('alert alert-error')
+                            .empty()
+                            .addClass('alert alert-info')
+                            .append('The survey is validated.');
+                            page.find('#submitButton')
+                            .removeClass('disabled')
+                            .off('click')
+                            .click(function(){
+                                self.model.submit( true );
+                            });
+                        }
+                    });
+                    
+                    self.trigger('load');
+                });
+                template.render();
+            
+               
+            }
+        },
+        
+        render: function($super){
+            $super();
+            this.model.bind('load', this.loading);
+            this.model.load();
+        }
+    });
 
     var Summary = Class.create(View, {
         initialize:function( $super, options){
@@ -2028,8 +2135,6 @@
                 trow.append('<th>2015</th>');
                 table.append( thead );
                 var breadcrumbs = new Array;
-                var section = null;
-
                 var builder = function(index, obj){
 
                     var parent = '';
@@ -2139,11 +2244,16 @@
             var summary = new Summary({
                 model:model
             });
+            
+            var check = new CheckAndSubmit({
+                model:model
+            });
+            
             $super( {
                 container: Templates.build('contributor/index'),
                 tabs:[
                 survey,
-                Templates.build('contributor/check'),
+                check,
                 summary,
                 Templates.build('contributor/export')
                 ]

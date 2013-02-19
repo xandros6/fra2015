@@ -4,16 +4,18 @@
  */
 package it.geosolutions.fra2015.services.rest;
 
-import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
-import it.geosolutions.fra2015.services.rest.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
+import it.geosolutions.fra2015.services.rest.model.Status;
+import it.geosolutions.fra2015.services.rest.model.Updates;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -46,5 +48,11 @@ public interface SurveyService {
     @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_XML})
     @Produces({MediaType.TEXT_PLAIN, MediaType.TEXT_XML, MediaType.APPLICATION_JSON})
     public Survey create(@Context SecurityContext sc, @Multipart("survey") Survey survey);
+    
+    @PUT
+    @Path("/changeStatus")
+    @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_XML})
+    @Produces({MediaType.TEXT_PLAIN, MediaType.TEXT_XML, MediaType.APPLICATION_JSON})
+    public String changeStatus(@Context SecurityContext sc, @Multipart("status") Status status);
 
 }
