@@ -1759,4 +1759,8 @@
 		<value><![CDATA[ Download FAQs for this question <a href="#">here</a>. ]]></value>
 	</label>
         
+        <label ref="ref_to_error_message">
+		<value>Custom message for error in survey validation.</value>
+	</label>
+        
 </locale>
