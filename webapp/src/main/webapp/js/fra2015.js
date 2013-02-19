@@ -1878,12 +1878,12 @@
             row.attr('class', 'row');
             
             var control = $('<div></div>');
-            control.attr('data-spy', 'affix');
-            control.attr('data-offset-top', '500');
-            control.addClass('control-panel span3');
+            control.attr('style', 'position:fixed;right:0;bottom:0');
+            
+            
             var button = $('<a href="#" class="btn btn-primary btn-large btn-save-survey">Save all</a>');
             control.append( button );
-            control.affix();
+            
             
             var hide = $('<a>Hide menu</a>');
             hide.attr('href', '#');
