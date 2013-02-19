@@ -1601,10 +1601,10 @@
          */
         submit: function(valid, msg){
             var data = '<Status>' +
-                           '<status>submitted</status>' +
-                           '<message>' + msg + '</message>' +
-                           '<country>' +  this.country + '</country>' +
-                       '</Status>';
+            '<status>submitted</status>' +
+            '<message>' + msg + '</message>' +
+            '<country>' +  this.country + '</country>' +
+            '</Status>';
           
             $.ajax({
                 type:'PUT',
@@ -1645,72 +1645,22 @@
             req += '</Updates>';
             req = '<BatchUpdate>'+ req +'</BatchUpdate>'
             
-            // save confirm dialog
-            $("#saveSurveyDialog").on("show", function() {  
-                
-                
-                
-                $("#saveSurveyDialog").find('#saveBtn').on("click", function(e) {
-                    
-                    $.ajax({
-                        type:'POST',
-                        contentType:'text/xml',
-                        cache: false,
-                        data: req,
-                        // TODO externalize
-                        url:baseUrl + '/rest/survey/updateValues',
-                        // url:'/fra2015/rest/survey/updateValues',
-                        //crossDomain: false,
-                        success: function(data){
-                            $("#saveSurveyDialog").find('#messageBox')
-                            .empty()
-                            .addClass('alert alert-info')
-                            .append('Data saved successfully');
-                            $("#saveSurveyDialog").find('#saveBtn')
-                            .addClass('disabled')
-                            .off("click");
-                        },
-                        error: function(data){
-                            console.error( data );
-                            $("#saveSurveyDialog").find('#messageBox')
-                            .empty()
-                            .addClass('alert alert-error')
-                            .append('Cannot save data. Unknown error.');
-                            $("#saveSurveyDialog").find('#saveBtn')
-                            .addClass('disabled')
-                            .off("click");
-                        }
-                    });
-                    
-                         
-                });
+            $.ajax({
+                type:'POST',
+                contentType:'text/xml',
+                cache: false,
+                data: req,
+                url:baseUrl + '/rest/survey/updateValues',
+                success: function(data){
+                    Widgets.createToast( $('#popupPanel') ).open('Data saved successfully.');
+                },
+                error: function(data){
+                    console.error( data );
+                    Widgets.createToast( $('#popupPanel') ).open('Cannot save data. Unknown error.');
+                }
             });
             
-            $("#saveSurveyDialog").on("shown", function() {  
-                // reset position of the dialog box
-                $("#saveSurveyDialog").css("top", 400);
-            });
- 
-            $("#saveSurveyDialog").on("hide", function() {    
-                $("#saveSurveyDialog").find('#saveBtn')
-                .removeClass('disabled')
-                .off("click");
-                
-                $("#saveSurveyDialog").find('#messageBox')
-                .empty()
-                .removeClass('alert alert-info')
-                .append('All changes will be saved. Are you sure?');
-            });
-    
-            $("#saveSurveyDialog").on("hidden", function() {  
-                // do nothing
-                });
-    
-            $("#saveSurveyDialog").modal({                   
-                // "backdrop"  : "static",
-                "keyboard"  : true,
-                "show"      : true                     
-            });
+            
        
         },
        
