@@ -84,7 +84,7 @@
 		<value>Establishment of forest through planting andor deliberate seeding on land that until then was not classified as forest</value>
 	</label>
 	<label ref="27">
-		<value><![CDATA[ <small>Reforestation</small> ]]></value>
+		<value><![CDATA[ Reforestation ]]></value>
 	</label>
 	<label ref="28">
 		<value>Reestablishment of forest through planting andor deliberate seeding on land classified as forest</value>
@@ -96,7 +96,7 @@
 		<value>Expansion of forests through natural succession on land that until then was under another land use egforest succession on land previously used for agriculture</value>
 	</label>
 	<label ref="31">
-		<value><![CDATA[ <small>Deforestation</small> ]]></value>
+		<value><![CDATA[ Deforestation]]></value>
 	</label>
 	<label ref="32">
 		<value>The conversion of forest to other land use or the longterm reduction of the tree canopy cover below the minimum 10 percent threshold</value>
