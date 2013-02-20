@@ -2087,69 +2087,91 @@
                 trow.append('<th>2010</th>');
                 trow.append('<th>2015</th>');
                 table.append( thead );
+                // this variable is a trace for the depth of the survey
                 var breadcrumbs = new Array;
                 var builder = function(index, obj){
+                    
+                    function createMainRow( entryId, itemCount ){
+                        var row = $('<tr></tr>');
+                        row.append( $('<td rowspan="'+ (itemCount + 1) +'">'+ entryId +'</td>') );
+                        return row;
+                    };
+                    
+                    function createRow( itemId, unit, values ){
+                        var row = $('<tr></tr>');
+                        row.append( $('<td>'+ itemId +'</td>') );
+                        row.append( $('<td>'+ unit +'</td>') );
+                        row.append('<td>'+ values[0]+ '</td>');
+                        row.append('<td>'+ values[1]+ '</td>');
+                        row.append('<td>'+ values[2]+ '</td>');
+                        row.append('<td>'+ values[3]+ '</td>');
+                        row.append('<td>'+ values[4]+ '</td>');
+                        return row;
+                    };
+                    
+                    function createHeader( title ){
+                        return '<tr><td></td><td colspan="7"><strong>' + title +'</strong></td></tr>';
+                    };
 
-                    var parent = '';
-                    $.each( breadcrumbs, function(id, item){
-                        if (id>0){
-                            parent += '.';
-                        }
-                        parent += item;
-                    });
-
-                    switch( obj.type ){
-                        case 'textarea':
-                            break;
-                        case 'table':
-                            if ( obj.rows && obj.rowIds ){
-
-
-
-                                $.each( obj.rows, function(id, title ){
-                                    var row = $('<tr></tr>');
-                                    if (id===0){
-                                        row.append('<td rowspan="' + obj.rows.length +'">'+ obj.id +'</td>');
+                    
+                    if ( obj.survey ){
+                        
+                        builder(0, obj.survey.Elements);
+                        
+                    } else if ( obj.session  ) {
+                        
+                       
+                        var sessions = [].concat( obj.session );
+                        breadcrumbs.push( (index+1) );
+                        $.each( sessions, function(index, session){
+                            if (breadcrumbs.length===1 && index > 0){ // top level sections and skip intro
+                                table.append( createHeader( L(session.title).toUpperCase() ) );
+                            }
+                            builder(index, session.Elements); 
+                        });
+                        breadcrumbs.pop();
+                    } else if (  obj.question ) {
+                        
+                        var questions = [].concat( obj.question );
+                        $.each( questions, function(index, question){
+                            builder(index, question.Elements); 
+                        });
+                        
+                    } else if ( obj.entry ){
+                        
+                        var entries = [].concat( obj.entry );
+                        $.each( entries, function(index, entry){
+                            switch ( entry.type ){
+                                case 'table':
+                                    var template = $( entry.template.replace("<![CDATA[", "").replace("]]>", "") );
+                                    
+                                    var rows = template.find('[rowName]').map( function(index, row){
+                                        var values = $(row).find('td').map( function(index, cell){
+                                           return options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')]; 
+                                        });
+                                        return {
+                                            name: $(row).attr('rowName'),
+                                            unit: $(row).attr('unit'),
+                                            values: values
+                                        };
+                                    });
+                                    
+                                    if ( rows.length > 0 ){
+                                        var head = createMainRow(entry.variable, rows.length);
+                                        table.append(head);
+                                        $.each( rows, function(index, r){
+                                            var row = createRow( r.name, r.unit, r.values);
+                                            table.append( row );
+                                        }) 
                                     }
-
-                                    row.append( $('<td>'+ obj.rowIds[id] + '. ' + title +'</td>') );
-                                    row.append( $('<td>'+ obj.unit +'</td>') );
-                                    row.append('<td></td>');
-                                    row.append('<td></td>');
-                                    row.append('<td></td>');
-                                    row.append('<td></td>');
-                                    row.append('<td></td>');
-
-                                    table.append(row);
-                                });
-
-
-
-                            }
-
-                            break;
-                        case 'survey':
-                            $.each( obj.items, builder );
-                            break;
-                        case 'section':
-                            if (breadcrumbs.length===0 && index > 0){ // top level sections and skip intro
-                                section = obj.title;
-                                table.append('<tr><td></td><td colspan="7"><strong>' + obj.title +'</strong></td></tr>');
-                            }
-                            breadcrumbs.push( (index+1) );
-                            $.each( obj.items, builder );
-                            breadcrumbs.pop( );
-                            break;
-                        case 'question':
-                            /*var row = $('<tr></tr>');
-                            row.append('<td>' + parent + '.'+ (index+1) + '</td>');
-                            row.append('<td>' + obj.description + '</td>');
-                            row.append('<td> '+ Math.floor(Math.random()*101) +'% completed</td>'); // TODO
-                            table.append(row);*/
-                            $.each( obj.items, builder );
-                            break;
-                        default:
-                            throw "parsing error: " + obj.type + " is not a valid type.";
+                                    
+                                    
+                                    break;
+                                default:
+                                    break;
+                            } 
+                        });
+                        
                     }
 
                 };
