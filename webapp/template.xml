@@ -318,7 +318,7 @@
 		</tr>
 		<tr rowName="1.6" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                            
-			<td colspan="2" rownumber="6" columnnumber="0"><label ref="68"></label></td>
+			<td class="title" colspan="2" rownumber="6" columnnumber="0"><label ref="68"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -332,7 +332,7 @@
 		</tr>		
 		<tr rowName="1.6.1" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                         
-			<td colspan="2" rownumber="3" columnnumber="0"><label ref="69"></label></td>
+			<td class="title" colspan="2" rownumber="3" columnnumber="0"><label ref="69"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -346,7 +346,7 @@
 		</tr>	
 		<tr rowName="1.6.2" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                         
-			<td colspan="2" rownumber="4" columnnumber="0"><label ref="70"></label></td>
+			<td class="title" colspan="2" rownumber="4" columnnumber="0"><label ref="70"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -360,7 +360,7 @@
 		</tr>		
 		<tr rowName="1.7" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                         
-			<td colspan="2" rownumber="5" columnnumber="0"><label ref="31"></label></td>
+			<td class="title" colspan="2" rownumber="5" columnnumber="0"><label ref="31"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -374,7 +374,7 @@
 		</tr>		
 		<tr rowName="1.7.1" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                         
-			<td colspan="2" rownumber="6" columnnumber="0"><label ref="71"></label></td>
+			<td class="title" colspan="2" rownumber="6" columnnumber="0"><label ref="71"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -388,7 +388,7 @@
 		</tr>	
 		<tr rowName="1.8" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                         
-			<td colspan="2" rownumber="7" columnnumber="0"><label ref="27"></label></td>
+			<td class="title" colspan="2" rownumber="7" columnnumber="0"><label ref="27"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
@@ -402,7 +402,7 @@
 		</tr>
 		<tr rowName="1.8.1" unit="1000 ha">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                         
-			<td colspan="2" rownumber="8" columnnumber="0"><label ref="72"></label></td>
+			<td class="title" colspan="2" rownumber="8" columnnumber="0"><label ref="72"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="8" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="3"></td>
@@ -732,7 +732,7 @@
 		</tr>
 		<tr rowName="2.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td colspan="2" rownumber="2" columnnumber="0"><label ref="95"></label></td>
+			<td class="title" colspan="2" rownumber="2" columnnumber="0"><label ref="95"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -741,7 +741,7 @@
 		</tr>
 		<tr rowName="2.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td colspan="2" rownumber="3" columnnumber="0"><label ref="97"></label></td>
+			<td class="title" colspan="2" rownumber="3" columnnumber="0"><label ref="97"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -750,7 +750,7 @@
 		</tr>
 		<tr rowName="2.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td colspan="2" rownumber="4" columnnumber="0"><label ref="110"></label></td>
+			<td class="title" colspan="2" rownumber="4" columnnumber="0"><label ref="110"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -759,7 +759,7 @@
 		</tr>
 		<tr rowName="2.1.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td colspan="2" rownumber="4" columnnumber="0"><label ref="111"></label></td>
+			<td class="title" colspan="2" rownumber="4" columnnumber="0"><label ref="111"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -768,7 +768,7 @@
 		</tr>		
 		<tr rowName="2.3">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td colspan="2" rownumber="5" columnnumber="0"><label ref="101"></label></td>
+			<td class="title" colspan="2" rownumber="5" columnnumber="0"><label ref="101"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -777,7 +777,7 @@
 		</tr>
 		<tr rowName="2.3.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td colspan="2" rownumber="6" columnnumber="0"><label ref="110"></label></td>
+			<td class="title" colspan="2" rownumber="6" columnnumber="0"><label ref="110"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -860,7 +860,7 @@
 			<td rownumber="1" columnnumber="4"><label ref="57"></label></td>
 		</tr>
 		<tr rowName="2.5">
-			<td colspan="2" rownumber="2" columnnumber="0"><label ref="121"></label></td>
+			<td class="title" colspan="2" rownumber="2" columnnumber="0"><label ref="121"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -868,7 +868,7 @@
 			<td columnName="2015" class="entry-item editable text" rownumber="2" columnnumber="5"></td>
 		</tr>	
 		<tr rowName="2.5.1">
-			<td colspan="2" rownumber="3" columnnumber="0"><label ref="122"></label></td>
+			<td class="title" colspan="2" rownumber="3" columnnumber="0"><label ref="122"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -1136,7 +1136,7 @@
 		</tr>
 		<tr rowName="3.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="154"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="154"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -1150,7 +1150,7 @@
 		</tr>
 		<tr rowName="3.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="155"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="155"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -1164,7 +1164,7 @@
 		</tr>
 		<tr rowName="3.1.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="156"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="156"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -1178,7 +1178,7 @@
 		</tr>
 		<tr rowName="3.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="6" columnnumber="0"><label ref="157"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="157"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -1192,7 +1192,7 @@
 		</tr>
 		<tr rowName="3.2.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="7" columnnumber="0"><label ref="155"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="155"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
@@ -1206,7 +1206,7 @@
 		</tr>	
 		<tr rowName="3.2.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="8" columnnumber="0"><label ref="156"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="156"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="8" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="3"></td>
@@ -1244,7 +1244,7 @@
 			<td rownumber="1" columnnumber="6"><label ref="56"></label></td>
 		</tr>
 		<tr>
-			<td rownumber="2" columnnumber="0"><label ref="164"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="164"></label></td>
 			<td class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -1253,7 +1253,7 @@
 			<td class="entry-item editable text" rownumber="2" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="3" columnnumber="0"><label ref="165"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="165"></label></td>
 			<td class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -1262,7 +1262,7 @@
 			<td class="entry-item editable text" rownumber="3" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="4" columnnumber="0"><label ref="166"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="166"></label></td>
 			<td class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -1271,7 +1271,7 @@
 			<td class="entry-item editable text" rownumber="4" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="5" columnnumber="0"><label ref="167"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="167"></label></td>
 			<td class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td class="prefilled" rownumber="5" columnnumber="2"></td>
 			<td class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -1280,7 +1280,7 @@
 			<td class="entry-item editable text" rownumber="5" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="6" columnnumber="0"><label ref="168"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="168"></label></td>
 			<td class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td class="prefilled" rownumber="6" columnnumber="2"></td>
 			<td class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -1289,7 +1289,7 @@
 			<td class="entry-item editable text" rownumber="6" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="7" columnnumber="0"><label ref="169"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="169"></label></td>
 			<td class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td class="prefilled" rownumber="7" columnnumber="2"></td>
 			<td class="prefilled" rownumber="7" columnnumber="3"></td>
@@ -1298,7 +1298,7 @@
 			<td class="entry-item editable text" rownumber="7" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="8" columnnumber="0"><label ref="170"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="170"></label></td>
 			<td class="prefilled" rownumber="8" columnnumber="1"></td>
 			<td class="prefilled" rownumber="8" columnnumber="2"></td>
 			<td class="prefilled" rownumber="8" columnnumber="3"></td>
@@ -1307,7 +1307,7 @@
 			<td class="entry-item editable text" rownumber="8" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="9" columnnumber="0"><label ref="171"></label></td>
+			<td class="title" rownumber="9" columnnumber="0"><label ref="171"></label></td>
 			<td class="prefilled" rownumber="9" columnnumber="1"></td>
 			<td class="prefilled" rownumber="9" columnnumber="2"></td>
 			<td class="prefilled" rownumber="9" columnnumber="3"></td>
@@ -1316,7 +1316,7 @@
 			<td class="entry-item editable text" rownumber="9" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="10" columnnumber="0"><label ref="172"></label></td>
+			<td class="title" rownumber="10" columnnumber="0"><label ref="172"></label></td>
 			<td class="prefilled" rownumber="10" columnnumber="1"></td>
 			<td class="prefilled" rownumber="10" columnnumber="2"></td>
 			<td class="prefilled" rownumber="10" columnnumber="3"></td>
@@ -1325,7 +1325,7 @@
 			<td class="entry-item editable text" rownumber="10" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="11" columnnumber="0"><label ref="173"></label></td>
+			<td class="title" rownumber="11" columnnumber="0"><label ref="173"></label></td>
 			<td class="prefilled" rownumber="11" columnnumber="1"></td>
 			<td class="prefilled" rownumber="11" columnnumber="2"></td>
 			<td class="prefilled" rownumber="11" columnnumber="3"></td>
@@ -1334,7 +1334,7 @@
 			<td class="entry-item editable text" rownumber="11" columnnumber="6"></td>
 		</tr>
 		<tr>
-			<td rownumber="12" columnnumber="0"><label ref="174"></label></td>
+			<td class="title" rownumber="12" columnnumber="0"><label ref="174"></label></td>
 			<td class="entry-item editable text" rownumber="12" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="12" columnnumber="2"></td>
 			<td class="prefilled" rownumber="12" columnnumber="3"></td>
@@ -1424,7 +1424,7 @@
 		</tr>
 		<tr rowName="3.4">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="186"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="186"></label></td>
 			<td columnName="1990" class="entry-item editable text" colspan="2" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -1433,7 +1433,7 @@
 		</tr>
 		<tr rowName="3.4.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="155"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="155"></label></td>
 			<td columnName="1990" class="entry-item editable text" colspan="2" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="4" columnnumber="3"></td>
@@ -1442,7 +1442,7 @@
 		</tr>
 		<tr rowName="3.4.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="156"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="156"></label></td>
 			<td columnName="1990" class="entry-item editable text" colspan="2" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="5" columnnumber="3"></td>
@@ -1484,7 +1484,7 @@
 		</tr>
 		<tr rowName="3.5">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="189"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="189"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -1498,7 +1498,7 @@
 		</tr>
 		<tr rowName="3.6">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="190"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="190"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -1512,7 +1512,7 @@
 		</tr>
 		<tr rowName="3.7">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="139"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="139"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" colspan="2" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -1571,7 +1571,7 @@
 		</tr>
 		<tr rowName="3.8">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="194"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="194"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -1585,7 +1585,7 @@
 		</tr>
 		<tr rowName="3.9">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="195"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="195"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -1599,7 +1599,7 @@
 		</tr>
 		<tr>
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="196"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="196"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -1613,7 +1613,7 @@
 		</tr>
 		<tr rowName="3.10">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="6" columnnumber="0"><label ref="145"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="145"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -1627,7 +1627,7 @@
 		</tr>
 		<tr rowName="3.11">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="7" columnnumber="0"><label ref="147"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="147"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
@@ -1641,7 +1641,7 @@
 		</tr>
 		<tr>
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="8" columnnumber="0"><label ref="197"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="197"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="8" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="3"></td>
@@ -1655,7 +1655,7 @@
 		</tr>
 		<tr rowName="3.12">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="9" columnnumber="0"><label ref="149"></label></td>
+			<td class="title" rownumber="9" columnnumber="0"><label ref="149"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="9" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="9" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="9" columnnumber="3"></td>
@@ -1999,7 +1999,7 @@
 		</tr>
 		<tr rowName="4.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="218"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="218"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -2008,7 +2008,7 @@
 		</tr>
 		<tr rowName="4.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="220"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="220"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -2017,7 +2017,7 @@
 		</tr>
 		<tr rowName="4.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="222"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="222"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="4" columnnumber="3"></td>
@@ -2045,70 +2045,70 @@
 			<td rownumber="0" columnnumber="4"><label ref="232"></label></td>
 		</tr>
 		<tr>
-			<td rownumber="2" columnnumber="0"><label ref="164"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="164"></label></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="3" columnnumber="0"><label ref="165"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="165"></label></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="4" columnnumber="0"><label ref="166"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="166"></label></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="5" columnnumber="0"><label ref="167"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="167"></label></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="6" columnnumber="0"><label ref="168"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="168"></label></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="7" columnnumber="0"><label ref="169"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="169"></label></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="8" columnnumber="0"><label ref="170"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="170"></label></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="9" columnnumber="0"><label ref="171"></label></td>
+			<td class="title" rownumber="9" columnnumber="0"><label ref="171"></label></td>
 			<td class="entry-item editable text" rownumber="9" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="9" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="9" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="9" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="10" columnnumber="0"><label ref="172"></label></td>
+			<td class="title" rownumber="10" columnnumber="0"><label ref="172"></label></td>
 			<td class="entry-item editable text" rownumber="10" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="10" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="10" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="10" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="11" columnnumber="0"><label ref="173"></label></td>
+			<td class="title" rownumber="11" columnnumber="0"><label ref="173"></label></td>
 			<td class="entry-item editable text" rownumber="11" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="11" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="11" columnnumber="3"></td>
@@ -2530,7 +2530,7 @@
 		</tr>
 		<tr rowName="5.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="285"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="285"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -2539,7 +2539,7 @@
 		</tr>
 		<tr rowName="5.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="286"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="286"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -2548,7 +2548,7 @@
 		</tr>
 		<tr rowName="5.1.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="287"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="287"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="4" columnnumber="3"></td>
@@ -2557,7 +2557,7 @@
 		</tr>
 		<tr rowName="5.1.3">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="288"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="288"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="5" columnnumber="3"></td>
@@ -2566,7 +2566,7 @@
 		</tr>
 		<tr rowName="5.1.4">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="6" columnnumber="0"><label ref="289"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="289"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="6" columnnumber="3"></td>
@@ -2575,7 +2575,7 @@
 		</tr>
 		<tr rowName="5.1.5">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="7" columnnumber="0"><label ref="290"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="290"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="7" columnnumber="3"></td>
@@ -2584,7 +2584,7 @@
 		</tr>
 		<tr rowName="5.1.6">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="8" columnnumber="0"><label ref="291"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="291"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="8" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="8" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="8" columnnumber="3"></td>
@@ -2621,7 +2621,7 @@
 			<td rownumber="1" columnnumber="4"><label ref="57"></label></td>
 		</tr>
 		<tr rowName="5.2">
-			<td rownumber="2" columnnumber="0"><label ref="274"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="274"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="2" columnnumber="3"></td>
@@ -2629,7 +2629,7 @@
 			<td columnName="2015" class="entry-item editable text" rownumber="2" columnnumber="5"></td>
 		</tr>
 		<tr rowName="5.2.1">
-			<td rownumber="3" columnnumber="0"><label ref="276"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="276"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -2637,7 +2637,7 @@
 			<td columnName="2015" class="entry-item editable text" rownumber="3" columnnumber="5"></td>
 		</tr>
 		<tr rowName="5.2.2">
-			<td rownumber="4" columnnumber="0"><label ref="278"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="278"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="4" columnnumber="3"></td>
@@ -2645,7 +2645,7 @@
 			<td columnName="2015" class="entry-item editable text" rownumber="4" columnnumber="5"></td>
 		</tr>
 		<tr rowName="5.2.3">
-			<td rownumber="5" columnnumber="0"><label ref="280"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="280"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="5" columnnumber="3"></td>
@@ -2653,7 +2653,7 @@
 			<td columnName="2015" class="entry-item editable text" rownumber="5" columnnumber="5"></td>
 		</tr>
 		<tr rowName="5.2.4">
-			<td rownumber="6" columnnumber="0"><label ref="294"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="294"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="6" columnnumber="3"></td>
@@ -2970,7 +2970,7 @@
 		</tr>
 		<tr rowName="6.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="311"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="311"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -2979,7 +2979,7 @@
 		</tr>
 		<tr rowName="6.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="313"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="313"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -3535,7 +3535,7 @@
 		</tr>
 		<tr rowName="8.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="352"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="352"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
@@ -3549,7 +3549,7 @@
 		</tr>
 		<tr rowName="8.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="353"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="353"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
@@ -3583,7 +3583,7 @@
 		</tr>
 		<tr rowName="8.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="7" columnnumber="0"><label ref="352"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="352"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
@@ -3597,7 +3597,7 @@
 		</tr>
 		<tr rowName="8.2.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="8" columnnumber="0"><label ref="353"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="353"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="8" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="3"></td>
@@ -3906,21 +3906,21 @@
 			<td rownumber="0" columnnumber="4"><label ref="38"></label></td>
 		</tr>
 		<tr>
-			<td rownumber="1" columnnumber="0"><label ref="39"></label></td>
+			<td class="title" rownumber="1" columnnumber="0"><label ref="39"></label></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="2" columnnumber="0"><label ref="40"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="40"></label></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="4"></td>
 		</tr>
 		<tr>
-			<td rownumber="3" columnnumber="0"><label ref="41"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="41"></label></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -4001,42 +4001,42 @@
 			<td colspan="1" rownumber="2" columnnumber="3"><label ref="387"></label></td>
 		</tr>
 		<tr rowName="10.1">
-			<td rownumber="3" columnnumber="0"><label ref="388"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="388"></label></td>
 			<td class="entry-item boolean" rownumber="3" columnnumber="1"></td>
 			<td class="entry-item boolean" rownumber="3" columnnumber="3"></td>
 			<td class="entry-item boolean" rownumber="3" columnnumber="5"></td>
 			<td class="entry-item boolean" rownumber="3" columnnumber="7"></td>
 		</tr>
 		<tr rowName="10.1.1">
-			<td rownumber="5" columnnumber="0"><label ref="389"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="389"></label></td>
 			<td class="entry-item editable boolean" rownumber="5" columnnumber="1"></td>
 			<td class="entry-item editable boolean" rownumber="5" columnnumber="3"></td>
 			<td class="entry-item editable boolean" rownumber="5" columnnumber="5"></td>
 			<td class="entry-item editable boolean" rownumber="5" columnnumber="7"></td>
 		</tr>
 		<tr rowName="10.1.2">
-			<td rownumber="7" columnnumber="0"><label ref="390"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="390"></label></td>
 			<td class="entry-item editable boolean" rownumber="7" columnnumber="1"></td>
 			<td class="entry-item editable boolean" rownumber="7" columnnumber="3"></td>
 			<td class="entry-item editable boolean" rownumber="7" columnnumber="5"></td>
 			<td class="entry-item editable boolean" rownumber="7" columnnumber="7"></td>
 		</tr>
 		<tr rowName="10.2">
-			<td rownumber="9" columnnumber="0"><label ref="380"></label></td>
+			<td class="title" rownumber="9" columnnumber="0"><label ref="380"></label></td>
 			<td class="entry-item editable boolean" rownumber="9" columnnumber="1"></td>
 			<td class="entry-item editable boolean" rownumber="9" columnnumber="3"></td>
 			<td class="entry-item editable boolean" rownumber="9" columnnumber="5"></td>
 			<td class="entry-item editable boolean" rownumber="9" columnnumber="7"></td>
 		</tr>
 		<tr rowName="10.2.1">
-			<td rownumber="10" columnnumber="0"><label ref="389"></label></td>
+			<td class="title" rownumber="10" columnnumber="0"><label ref="389"></label></td>
 			<td class="entry-item editable boolean" rownumber="10" columnnumber="1"></td>
 			<td class="entry-item editable boolean" rownumber="10" columnnumber="3"></td>
 			<td class="entry-item editable boolean" rownumber="10" columnnumber="5"></td>
 			<td class="entry-item editable boolean" rownumber="10" columnnumber="7"></td>
 		</tr>
 		<tr rowName="10.1.2">
-			<td rownumber="11" columnnumber="0"><label ref="390"></label></td>
+			<td class="title" rownumber="11" columnnumber="0"><label ref="390"></label></td>
 			<td class="entry-item editable boolean" rownumber="11" columnnumber="1"></td>
 			<td class="entry-item editable boolean" rownumber="11" columnnumber="3"></td>
 			<td class="entry-item editable boolean" rownumber="11" columnnumber="5"></td>
@@ -4107,19 +4107,19 @@
 			<td rownumber="0" columnnumber="3"><label ref="38"></label></td>
 		</tr>
 		<tr>
-			<td rownumber="1" columnnumber="0"><label ref="39"></label></td>
+			<td class="title" rownumber="1" columnnumber="0"><label ref="39"></label></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="3"></td>
 		</tr>
 		<tr>
-			<td rownumber="2" columnnumber="0"><label ref="40"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="40"></label></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="3"></td>
 		</tr>
 		<tr>
-			<td rownumber="3" columnnumber="0"><label ref="41"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="41"></label></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -4322,12 +4322,12 @@
 		</tr>
 		<tr rowName="12.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="1" columnnumber="0"><label ref="398"></label></td>
+			<td class="title" rownumber="1" columnnumber="0"><label ref="398"></label></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
 		</tr>
 		<tr rowName="12.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="404"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="404"></label></td>
 			<td class="prefilled" rownumber="2" columnnumber="1"></td>
 		</tr>
 	</tbody>
@@ -4396,12 +4396,12 @@
 			<td rownumber="0" columnnumber="2"><label ref="212"></label></td>
 		</tr>
 		<tr>
-			<td rownumber="1" columnnumber="0"><label ref="398"></label></td>
+			<td class="title" rownumber="1" columnnumber="0"><label ref="398"></label></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="1" columnnumber="2"></td>
 		</tr>
 		<tr>
-			<td rownumber="2" columnnumber="0"><label ref="405"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="405"></label></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 		</tr>
@@ -5001,42 +5001,42 @@
 		</tr>
 		<tr rowName="16.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="1" columnnumber="0"><label ref="479"></label></td>
+			<td class="title" rownumber="1" columnnumber="0"><label ref="479"></label></td>
 			<td class="prefilled" rownumber="1" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="480"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="480"></label></td>
 			<td class="prefilled" rownumber="2" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.1.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="481"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="481"></label></td>
 			<td class="prefilled" rownumber="3" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="482"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="482"></label></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.2.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="483"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="483"></label></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.2.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td class="entry-item editable text" rownumber="6" columnnumber="0"><label ref="39"></label></td>
+			<td class="title" class="entry-item editable text" rownumber="6" columnnumber="0"><label ref="39"></label></td>
 			<td class="entry-item editable text" rownumber="6" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.2.1.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td class="entry-item editable text" rownumber="7" columnnumber="0"><label ref="40"></label></td>
+			<td class="title" class="entry-item editable text" rownumber="7" columnnumber="0"><label ref="40"></label></td>
 			<td class="entry-item editable text" rownumber="7" columnnumber="1"></td>
 		</tr>
 		<tr rowName="16.2.1.3">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td class="entry-item editable text" rownumber="8" columnnumber="0"><label ref="41"></label></td>
+			<td class="title" class="entry-item editable text" rownumber="8" columnnumber="0"><label ref="41"></label></td>
 			<td class="entry-item editable text" rownumber="8" columnnumber="1"></td>
 		</tr>
 	</tbody>
@@ -5224,13 +5224,13 @@
 			<td rownumber="1" columnnumber="2"><label ref="56"></label></td>
 		</tr>
 		<tr rowName="17.1">
-			<td rownumber="2" columnnumber="0"><label ref="488"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="488"></label></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2010" class="entry-item editable text" rownumber="2" columnnumber="3"></td>
 		</tr>
 		<tr rowName="17.2">
-			<td rownumber="3" columnnumber="0"><label ref="490"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="490"></label></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2010" class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -5447,7 +5447,7 @@
 		</tr>
 		<tr rowName="18.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="496"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="496"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -5455,7 +5455,7 @@
 		</tr>
 		<tr rowName="18.1.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="524"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="524"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -5463,7 +5463,7 @@
 		</tr>
 		<tr rowName="18.1.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="4" columnnumber="0"><label ref="525"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="525"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="4" columnnumber="3"></td>
@@ -5471,7 +5471,7 @@
 		</tr>
 		<tr rowName="18.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="5" columnnumber="0"><label ref="502"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="502"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
@@ -5479,7 +5479,7 @@
 		</tr>
 		<tr rowName="18.2.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="6" columnnumber="0"><label ref="526"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="526"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -5487,7 +5487,7 @@
 		</tr>
 		<tr rowName="18.2.2">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="7" columnnumber="0"><label ref="527"></label></td>
+			<td class="title" rownumber="7" columnnumber="0"><label ref="527"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
@@ -5495,7 +5495,7 @@
 		</tr>
 		<tr rowName="18.2.3">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="8" columnnumber="0"><label ref="528"></label></td>
+			<td class="title" rownumber="8" columnnumber="0"><label ref="528"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="8" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="3"></td>
@@ -5503,7 +5503,7 @@
 		</tr>
 		<tr rowName="18.3">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="9" columnnumber="0"><label ref="510"></label></td>
+			<td class="title" rownumber="9" columnnumber="0"><label ref="510"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="9" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="9" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="9" columnnumber="3"></td>
@@ -5591,35 +5591,35 @@
 			<td rownumber="1" columnnumber="3"><label ref="56"></label></td>
 		</tr>
 		<tr rowName="18.4">
-			<td rownumber="2" columnnumber="0"><label ref="513"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="513"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
 			<td columnName="2010" class="entry-item editable text" rownumber="2" columnnumber="4"></td>
 		</tr>
 		<tr rowName="18.5">
-			<td rownumber="3" columnnumber="0"><label ref="532"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="532"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
 			<td columnName="2010" class="entry-item editable text" rownumber="3" columnnumber="4"></td>
 		</tr>
 		<tr rowName="18.6">
-			<td rownumber="4" columnnumber="0"><label ref="533"></label></td>
+			<td class="title" rownumber="4" columnnumber="0"><label ref="533"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
 			<td columnName="2010" class="entry-item editable text" rownumber="4" columnnumber="4"></td>
 		</tr>
 		<tr rowName="18.7">
-			<td rownumber="5" columnnumber="0"><label ref="519"></label></td>
+			<td class="title" rownumber="5" columnnumber="0"><label ref="519"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="5" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="5" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="5" columnnumber="3"></td>
 			<td columnName="2010" class="entry-item editable text" rownumber="5" columnnumber="4"></td>
 		</tr>
 		<tr rowName="18.8">
-			<td rownumber="6" columnnumber="0"><label ref="292"></label></td>
+			<td class="title" rownumber="6" columnnumber="0"><label ref="292"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="6" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="6" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="6" columnnumber="3"></td>
@@ -5852,7 +5852,7 @@
 		</tr>
 		<tr rowName="19.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="2" columnnumber="0"><label ref="543"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="543"></label></td>
 			<td columnName="1990" class="prefilled" rownumber="2" columnnumber="1"></td>
 			<td columnName="2000" class="prefilled" rownumber="2" columnnumber="2"></td>
 			<td columnName="2005" class="prefilled" rownumber="2" columnnumber="3"></td>
@@ -5860,7 +5860,7 @@
 		</tr>
 		<tr rowName="19.1">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
-			<td rownumber="3" columnnumber="0"><label ref="544"></label></td>
+			<td class="title" rownumber="3" columnnumber="0"><label ref="544"></label></td>
 			<td columnName="1990" class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td columnName="2000" class="entry-item editable text" rownumber="3" columnnumber="2"></td>
 			<td columnName="2005" class="entry-item editable text" rownumber="3" columnnumber="3"></td>
@@ -6046,7 +6046,7 @@
 			<td rownumber="1" columnnumber="1"><label ref="562"></label></td>
 		</tr>
 		<tr rowName="21.1">
-			<td rownumber="2" columnnumber="0"><label ref="555"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="555"></label></td>
 			<td columnName="2020" class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td columnName="2030" class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 		</tr>
@@ -6069,7 +6069,7 @@
 			<td rownumber="1" columnnumber="0"><label ref="564"></label></td>
 		</tr>
 		<tr rowName="21.2">
-			<td rownumber="2" columnnumber="0"><label ref="557"></label></td>
+			<td class="title" rownumber="2" columnnumber="0"><label ref="557"></label></td>
 			<td columnName="2013" class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 		</tr>
 	</tbody>
