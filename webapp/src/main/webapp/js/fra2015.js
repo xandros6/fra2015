@@ -2101,19 +2101,37 @@
                         return row;
                     };
                     
-                    function createRow( itemId, title, unit, values ){
+                    function createRow( itemId, title, unit, type, values ){
                         function prettyPrint( value ){
-                          return value? value : '';  
+                            return value? value : '';  
                         };
+                        
                         var row = $('<tr></tr>');
                         var name = itemId + ' ' + ( typeof title === 'string' ? L(title): '');
                         row.append( $('<td>'+ name +'</td>') );
                         row.append( $('<td>'+ unit +'</td>') );
-                        row.append('<td>'+ prettyPrint(values['1990'])+ '</td>');
-                        row.append('<td>'+ prettyPrint(values['2000'])+ '</td>');
-                        row.append('<td>'+ prettyPrint(values['2005'])+ '</td>');
-                        row.append('<td>'+ prettyPrint(values['2010'])+ '</td>');
-                        row.append('<td>'+ prettyPrint(values['2015'])+ '</td>');
+                        
+                        switch( type ){
+                            case 'summary-aggregated-2003-2012':
+                                row.append('<td colspan="5">'+ prettyPrint(values['2003-2012'])+ '</td>');
+                                break;                            
+                            case 'summary-aggregated':
+                                row.append('<td>'+ prettyPrint(values['1990-2000'])+ '</td>');
+                                row.append('<td colspan="2">'+ prettyPrint(values['2000-2010'])+ '</td>');
+                                row.append('<td colspan="2">'+ prettyPrint(values['2010-2015'])+ '</td>');
+                                break;
+                            case 'summary-na':
+                                row.append('<td colspan="5" class="noneditable">NA</td>');
+                                break;
+                            default:  
+                                row.append('<td>'+ prettyPrint(values['1990'])+ '</td>');
+                                row.append('<td>'+ prettyPrint(values['2000'])+ '</td>');
+                                row.append('<td>'+ prettyPrint(values['2005'])+ '</td>');
+                                row.append('<td>'+ prettyPrint(values['2010'])+ '</td>');
+                                row.append('<td>'+ prettyPrint(values['2015'])+ '</td>');
+                                break;
+                        }
+                        
                         return row;
                     };
                     
@@ -2160,12 +2178,18 @@
                                         $(row).find('[columnName]').each( function(index, cell){
                                             var value = options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')];
                                             var colName = $(cell).attr('columnName');
-                                            values[ colName ] = value ? value.content : undefined;
+                                            if ( values [colName] ){
+                                                values[ colName ] += ',' + value ? value.content : undefined;
+                                            } else {
+                                                values[ colName ] = value ? value.content : undefined;
+                                            }
+                                            
                                         });
                                         var title = $(row).find('.title').html();
                                         return {
                                             name: $(row).attr('rowName'),
                                             unit: $(row).attr('unit'),
+                                            type: $(row).attr('class'),
                                             title: title,
                                             values: values
                                         };
@@ -2175,7 +2199,7 @@
                                         var head = createMainRow(entry.variable, rows.length);
                                         table.append(head);
                                         $.each( rows, function(index, r){
-                                            var row = createRow( r.name, r.title, r.unit, r.values);
+                                            var row = createRow( r.name, r.title, r.unit, r.type, r.values);
                                             table.append( row );
                                         }) 
                                     }

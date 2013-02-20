@@ -824,16 +824,16 @@
 			<td rownumber="2" columnnumber="8"><label ref="19"></label></td>
 		</tr>
 		
-		<tr rowName="2.4"  unit="1000 ha">
-			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
-			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
-			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
-			<td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
-			<td columnName="2015" class="entry-item editable text" rownumber="7" columnnumber="5"></td>
+		<tr rowName="2.4" class="summary-aggregated" unit="1000 ha">
+			<td columnName="1990-2000" class="prefilled" rownumber="7" columnnumber="1"></td>
+			<td columnName="1990-2000" class="prefilled" rownumber="7" columnnumber="2"></td>
+			<td columnName="1990-2000" class="prefilled" rownumber="7" columnnumber="3"></td>
+			<td columnName="2000-2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2000-2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2000-2010" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2010-2015" class="prefilled" rownumber="7" columnnumber="4"></td>
+                        <td columnName="2010-2015" class="prefilled" rownumber="7" columnnumber="4"></td>
+			<td columnName="2010-2015" class="entry-item editable text" rownumber="7" columnnumber="5"></td>
 		</tr>	
 
 	</tbody>
@@ -3533,33 +3533,33 @@
 			<td rownumber="2" columnnumber="8"><label ref="351"></label></td>
 			<td rownumber="2" columnnumber="9">#</td>
 		</tr>
-		<tr rowName="8.1" unit="1000 ha">
+		<tr rowName="8.1" unit="1000 ha" class="summary-aggregated-2003-2012">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
 			<td class="title" rownumber="3" columnnumber="0"><label ref="352"></label></td>
-			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="1"></td>
-			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="2"></td>
-			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="3"></td>
-			<td columnName="2010" class="prefilled" rownumber="3" columnnumber="4"></td>
-			<td columnName="2015" class="prefilled" rownumber="3" columnnumber="5"></td>
-			<td columnName="1990" class="prefilled" rownumber="3" columnnumber="6"></td>
-			<td columnName="2000" class="prefilled" rownumber="3" columnnumber="7"></td>
-			<td columnName="2005" class="prefilled" rownumber="3" columnnumber="8"></td>
-			<td columnName="2010" class="prefilled" rownumber="3" columnnumber="9"></td>
-			<td columnName="2015" class="prefilled" rownumber="3" columnnumber="10"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="1"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="2"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="3"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="4"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="5"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="6"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="7"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="8"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="9"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="3" columnnumber="10"></td>
 		</tr>
-		<tr rowName="8.1.1" unit="1000 ha">
+		<tr rowName="8.1.1" unit="1000 ha" class="summary-aggregated-2003-2012">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
 			<td class="title" rownumber="4" columnnumber="0"><label ref="353"></label></td>
-			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="1"></td>
-			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="2"></td>
-			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="3"></td>
-			<td columnName="2010" class="prefilled" rownumber="4" columnnumber="4"></td>
-			<td columnName="2015" class="prefilled" rownumber="4" columnnumber="5"></td>
-			<td columnName="1990" class="prefilled" rownumber="4" columnnumber="6"></td>
-			<td columnName="2000" class="prefilled" rownumber="4" columnnumber="7"></td>
-			<td columnName="2005" class="prefilled" rownumber="4" columnnumber="8"></td>
-			<td columnName="2010" class="prefilled" rownumber="4" columnnumber="9"></td>
-			<td columnName="2015" class="prefilled" rownumber="4" columnnumber="10"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="1"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="2"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="3"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="4"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="5"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="6"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="7"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="8"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="9"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="4" columnnumber="10"></td>
 		</tr>
 		<tr>
 			<td colspan="2" rowspan="2" rownumber="5" columnnumber="0"><label ref="152"></label></td>
@@ -3581,33 +3581,33 @@
 			<td rownumber="6" columnnumber="8"><label ref="351"></label></td>
 			<td rownumber="6" columnnumber="9">#</td>
 		</tr>
-		<tr rowName="8.2" unit="1000 ha">
+		<tr rowName="8.2" unit="Number"  class="summary-aggregated-2003-2012">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
 			<td class="title" rownumber="7" columnnumber="0"><label ref="352"></label></td>
-			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="1"></td>
-			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="2"></td>
-			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="3"></td>
-			<td columnName="2010" class="prefilled" rownumber="7" columnnumber="4"></td>
-			<td columnName="2015" class="prefilled" rownumber="7" columnnumber="5"></td>
-			<td columnName="1990" class="prefilled" rownumber="7" columnnumber="6"></td>
-			<td columnName="2000" class="prefilled" rownumber="7" columnnumber="7"></td>
-			<td columnName="2005" class="prefilled" rownumber="7" columnnumber="8"></td>
-			<td columnName="2010" class="prefilled" rownumber="7" columnnumber="9"></td>
-			<td columnName="2015" class="prefilled" rownumber="7" columnnumber="10"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="1"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="2"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="3"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="4"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="5"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="6"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="7"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="8"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="9"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="10"></td>
 		</tr>
-		<tr rowName="8.2.1" unit="1000 ha">
+		<tr rowName="8.2.1" unit="Number"  class="summary-aggregated-2003-2012">
                         <td> <img class="cfrq-logo" src="./img/CFRQbutton.png"> </td>                                                     
 			<td class="title" rownumber="8" columnnumber="0"><label ref="353"></label></td>
-			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="1"></td>
-			<td columnName="2000" class="prefilled" rownumber="8" columnnumber="2"></td>
-			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="3"></td>
-			<td columnName="2010" class="prefilled" rownumber="8" columnnumber="4"></td>
-			<td columnName="2015" class="prefilled" rownumber="8" columnnumber="5"></td>
-			<td columnName="1990" class="prefilled" rownumber="8" columnnumber="6"></td>
-			<td columnName="2000" class="prefilled" rownumber="8" columnnumber="7"></td>
-			<td columnName="2005" class="prefilled" rownumber="8" columnnumber="8"></td>
-			<td columnName="2010" class="prefilled" rownumber="8" columnnumber="9"></td>
-			<td columnName="2015" class="prefilled" rownumber="8" columnnumber="10"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="1"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="2"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="3"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="4"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="5"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="6"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="7"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="8"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="9"></td>
+			<td columnName="2003-2012" class="prefilled" rownumber="8" columnnumber="10"></td>
 		</tr>
 	</tbody>
 </table>
@@ -4530,7 +4530,7 @@
 			<td rownumber="1" columnnumber="4"><label ref="421"></label></td>
 			<td rownumber="1" columnnumber="5"><label ref="422"></label></td>
 		</tr>
-		<tr rowName="13.1" unit="%,year,checkbox">
+		<tr rowName="13.1" unit="%,year,checkbox" class="summary-na">
 			<td class="title" rownumber="2" columnnumber="0"><label ref="423"></label></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="2"></td>
@@ -4541,7 +4541,7 @@
 			<td class="entry-item editable text" rownumber="2" columnnumber="7"></td>
 			<td class="entry-item editable text" rownumber="2" columnnumber="8"></td>
 		</tr>
-		<tr rowName="13.2" unit="%,year,checkbox">
+		<tr rowName="13.2" unit="%,year,checkbox" class="summary-na">
 			<td class="title" rownumber="3" columnnumber="0"><label ref="424"></label></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="2"></td>
@@ -4552,7 +4552,7 @@
 			<td class="entry-item editable text" rownumber="3" columnnumber="7"></td>
 			<td class="entry-item editable text" rownumber="3" columnnumber="8"></td>
 		</tr>
-		<tr rowName="13.3" unit="%,year,checkbox">
+		<tr rowName="13.3" unit="%,year,checkbox" class="summary-na">
 			<td class="title" rownumber="4" columnnumber="0"><label ref="425"></label></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="4" columnnumber="2"></td>
@@ -4563,7 +4563,7 @@
 			<td class="noneditable" rownumber="4" columnnumber="7"></td>
 			<td class="noneditable" rownumber="4" columnnumber="8"></td>
 		</tr>
-		<tr rowName="13.4" unit="%,year,checkbox">
+		<tr rowName="13.4" unit="%,year,checkbox" class="summary-na">
 			<td class="title" rownumber="5" columnnumber="0"><label ref="426"></label></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="1"></td>
 			<td class="entry-item editable text" rownumber="5" columnnumber="2"></td>
@@ -4883,15 +4883,15 @@
 		<tr rowName="15.1" unit="Boolean">
 			<td class="title" colspan="3" rownumber="0" columnnumber="0"><label ref="461"></label></td>
 		</tr>
-		<tr rowName="15.1.1" unit="Boolean">
+		<tr rowName="15.1.1" unit="Boolean" class="summary-na">
 			<td class="title" style="width:60%" colspan="2" rownumber="1" columnnumber="0"><label ref="462"></label></td>
 			<td class="entry-item editable boolean" rownumber="1" columnnumber="1"></td>
 		</tr>
-		<tr rowName="15.1.2" unit="Boolean">
+		<tr rowName="15.1.2" unit="Boolean" class="summary-na">
 			<td class="title" style="width:60%" colspan="2" rownumber="3" columnnumber="0"><label ref="463"></label></td>
 			<td class="entry-item editable boolean" rownumber="3" columnnumber="1"></td>
 		</tr>
-		<tr rowName="15.1.3" unit="Boolean">
+		<tr rowName="15.1.3" unit="Boolean" class="summary-na">
 			<td class="title" style="width:60%" colspan="2" rownumber="5" columnnumber="0"><label ref="464"></label></td>
 			<td class="entry-item editable boolean" rownumber="5" columnnumber="1"></td>
 		</tr>
