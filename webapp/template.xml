@@ -3591,7 +3591,7 @@
 			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="5"></td>
 			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="6"></td>
 			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="7"></td>
-			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="8"></td>
+			<td columnName="2003-2102" class="prefilled" rownumber="7" columnnumber="8"></td>
 			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="9"></td>
 			<td columnName="2003-2012" class="prefilled" rownumber="7" columnnumber="10"></td>
 		</tr>
@@ -3836,7 +3836,7 @@
 			<td rownumber="0" columnnumber="0"><label ref="152"></label></td>
 			<td rownumber="0" columnnumber="1"><label ref="375"></label></td>
 		</tr>
-		<tr rowName="9.1"  unit="% canopy cover">
+		<tr rowName="9.1"  unit="% canopy cover" class="summary-aggregated-2000-2010">
 			<td class="title" rownumber="1" columnnumber="0"><label ref="372"></label></td>
 			<td columnName="2000-2010" class="prefilled" rownumber="1" columnnumber="1"></td>
 		</tr>
@@ -6045,10 +6045,10 @@
 			<td rownumber="1" columnnumber="0"><label ref="561"></label></td>
 			<td rownumber="1" columnnumber="1"><label ref="562"></label></td>
 		</tr>
-		<tr rowName="21.1" unit="1000 ha">
+		<tr rowName="21.1" unit="1000 ha" class="summary-aggregated-2020-2030">
 			<td class="title" rownumber="2" columnnumber="0"><label ref="555"></label></td>
-			<td columnName="2020" class="entry-item editable text" rownumber="2" columnnumber="1"></td>
-			<td columnName="2030" class="entry-item editable text" rownumber="2" columnnumber="2"></td>
+			<td columnName="2020-2030" class="entry-item editable text" rownumber="2" columnnumber="1"></td>
+			<td columnName="2020-2030" class="entry-item editable text" rownumber="2" columnnumber="2"></td>
 		</tr>
 	</tbody>
 </table>
@@ -6068,7 +6068,7 @@
 		<tr>
 			<td rownumber="1" columnnumber="0"><label ref="564"></label></td>
 		</tr>
-		<tr rowName="21.2" unit="1000 ha">
+		<tr rowName="21.2" unit="1000 ha" class="summary-aggregated-2013">
 			<td class="title" rownumber="2" columnnumber="0"><label ref="557"></label></td>
 			<td columnName="2013" class="entry-item editable text" rownumber="2" columnnumber="1"></td>
 		</tr>

@@ -2112,6 +2112,15 @@
                         row.append( $('<td>'+ unit +'</td>') );
                         
                         switch( type ){
+                             case 'summary-aggregated-2013':
+                                row.append('<td colspan="5">'+ prettyPrint(values['2013'])+ '</td>');
+                                break;
+                            case 'summary-aggregated-2020-2030':
+                                row.append('<td colspan="5">'+ prettyPrint(values['2020-2030'])+ '</td>');
+                                break;
+                            case 'summary-aggregated-2000-2010':
+                                row.append('<td colspan="5">'+ prettyPrint(values['2000-2010'])+ '</td>');
+                                break;
                             case 'summary-aggregated-2003-2012':
                                 row.append('<td colspan="5">'+ prettyPrint(values['2003-2012'])+ '</td>');
                                 break;                            
