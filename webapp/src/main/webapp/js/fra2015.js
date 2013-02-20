@@ -6,11 +6,15 @@
 
     var User = Class.create({
 
-        initialize: function(username, role, token, countries){
-            this.username = username;
-            this.token = token;
-            this.role = role;
-            this.countries = countries;
+        initialize: function(user, token){
+            
+            if (user){
+                this.username = user.username;
+                this.token = token;
+                this.role = user.role;
+                this.countries = user.countries; 
+            }
+            
             
             this.actions = {
                 'canAddFeedback': function(user){
@@ -42,8 +46,8 @@
             this.user = new User;
         },
         
-        setUser: function(username, role, token, countries){
-            this.user = new User(username, role, token, countries);
+        setUser: function(user, token){
+            this.user = new User(user, token);
         }
 
 
@@ -2148,7 +2152,7 @@
                                     
                                     var rows = template.find('[rowName]').map( function(index, row){
                                         var values = $(row).find('[columnName]').map( function(index, cell){
-                                           return options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')]; 
+                                            return options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')]; 
                                         });
                                         var title = $(row).find('.title').html();
                                         return {

@@ -15,12 +15,9 @@
                     dataType:'json',
                     success: function( data ){
                         var result = data.Token;
-                        username = result.user.username;
                         token = result.token;
-                        role =  result.user.role;
-                        countries = result.user.countries;
-                        App.setUser(username, role, token, countries);
-                        context.trigger('loginOk', username, role, token, countries);
+                        App.setUser(result.user, token);
+                        context.trigger('loginOk', result.user, token);
                     },
                     error: function(response){
                         // $(document).find('#progressbar').modal('show');
@@ -185,7 +182,7 @@
 
        
         return {
-            'page:contributor': function(username, role, countries){
+            'page:contributor': function(user, token){
                 var page = new ContributorPage;
                 page.bind('load', function(el){
                     // bind events
@@ -203,7 +200,7 @@
                         context.trigger('lang', lang);
                     }); 
                     // LOGOUT button text value
-                    page.el.find('#userField').text( username +'(' + role + ',' + countries +')');
+                    page.el.find('#userField').text( user.name +'('  + user.countries +')');
                     
                     
                     
@@ -312,10 +309,10 @@
             };
         
             return {
-                loginOk: function( username, role, token, countries ){
-                    console.log('authenticated ' + username + ' with role ' + role);
+                loginOk: function( user, token ){
+                    console.log('authenticated ' + user.username + ' with role ' + user.role);
                     token = token;
-                    context.trigger('page:'+role, username, role, countries);
+                    context.trigger('page:'+user.role, user);
                 },
                 loginKo: function( msg ){
                     context.trigger('error', msg);

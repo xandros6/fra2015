@@ -216,20 +216,20 @@
 	
 	<label ref="68">
             <value>
-                <![CDATA[ <small>Forest expantion</small> ]]>
+                <![CDATA[ Forest expantion ]]>
             </value>
 	</label>
 	<label ref="69">
-		<value><![CDATA[ <small>... of which afforestation</small> ]]></value>
+		<value><![CDATA[... of which afforestation ]]></value>
 	</label>
 	<label ref="70">
-		<value><![CDATA[ <small>... of which natural expansion of forest</small> ]]></value>
+		<value><![CDATA[ ... of which natural expansion of forest ]]></value>
 	</label>
 	<label ref="71">
-		<value><![CDATA[ <small>... of which human induced</small> ]]></value>
+		<value><![CDATA[ ... of which human induced ]]></value>
 	</label>
 	<label ref="72">
-		<value><![CDATA[ <small>... of which artificial</small> ]]></value>
+		<value><![CDATA[ ... of which artificial ]]></value>
 	</label>
 	<label ref="73">
 		<value>Tiers</value>
