@@ -2097,9 +2097,10 @@
                         return row;
                     };
                     
-                    function createRow( itemId, unit, values ){
+                    function createRow( itemId, title, unit, values ){
                         var row = $('<tr></tr>');
-                        row.append( $('<td>'+ itemId +'</td>') );
+                        var name = itemId + ' ' + ( title? L(title): '');
+                        row.append( $('<td>'+ name +'</td>') );
                         row.append( $('<td>'+ unit +'</td>') );
                         row.append('<td>'+ values[0]+ '</td>');
                         row.append('<td>'+ values[1]+ '</td>');
@@ -2146,12 +2147,14 @@
                                     var template = $( entry.template.replace("<![CDATA[", "").replace("]]>", "") );
                                     
                                     var rows = template.find('[rowName]').map( function(index, row){
-                                        var values = $(row).find('td').map( function(index, cell){
+                                        var values = $(row).find('[columnName]').map( function(index, cell){
                                            return options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')]; 
                                         });
+                                        var title = $(row).find('.title').html();
                                         return {
                                             name: $(row).attr('rowName'),
                                             unit: $(row).attr('unit'),
+                                            title: title,
                                             values: values
                                         };
                                     });
@@ -2160,7 +2163,7 @@
                                         var head = createMainRow(entry.variable, rows.length);
                                         table.append(head);
                                         $.each( rows, function(index, r){
-                                            var row = createRow( r.name, r.unit, r.values);
+                                            var row = createRow( r.name, r.title, r.unit, r.values);
                                             table.append( row );
                                         }) 
                                     }
