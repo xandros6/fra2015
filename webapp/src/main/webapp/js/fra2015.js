@@ -2152,7 +2152,11 @@
                                     
                                     var rows = template.find('[rowName]').map( function(index, row){
                                         var values = $(row).find('[columnName]').map( function(index, cell){
-                                            return options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')]; 
+                                            var value = options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')];
+                                            if ( value ){
+                                                return value.content;
+                                            }
+                                            return undefined; 
                                         });
                                         var title = $(row).find('.title').html();
                                         return {
