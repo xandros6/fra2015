@@ -2102,15 +2102,18 @@
                     };
                     
                     function createRow( itemId, title, unit, values ){
+                        function prettyPrint( value ){
+                          return value? value : '';  
+                        };
                         var row = $('<tr></tr>');
-                        var name = itemId + ' ' + ( title? L(title): '');
+                        var name = itemId + ' ' + ( typeof title === 'string' ? L(title): '');
                         row.append( $('<td>'+ name +'</td>') );
                         row.append( $('<td>'+ unit +'</td>') );
-                        row.append('<td>'+ values[0]+ '</td>');
-                        row.append('<td>'+ values[1]+ '</td>');
-                        row.append('<td>'+ values[2]+ '</td>');
-                        row.append('<td>'+ values[3]+ '</td>');
-                        row.append('<td>'+ values[4]+ '</td>');
+                        row.append('<td>'+ prettyPrint(values['1990'])+ '</td>');
+                        row.append('<td>'+ prettyPrint(values['2000'])+ '</td>');
+                        row.append('<td>'+ prettyPrint(values['2005'])+ '</td>');
+                        row.append('<td>'+ prettyPrint(values['2010'])+ '</td>');
+                        row.append('<td>'+ prettyPrint(values['2015'])+ '</td>');
                         return row;
                     };
                     
@@ -2150,13 +2153,14 @@
                                 case 'table':
                                     var template = $( entry.template.replace("<![CDATA[", "").replace("]]>", "") );
                                     
+                                    
                                     var rows = template.find('[rowName]').map( function(index, row){
-                                        var values = $(row).find('[columnName]').map( function(index, cell){
+                                        var values = {}
+                                        
+                                        $(row).find('[columnName]').each( function(index, cell){
                                             var value = options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')];
-                                            if ( value ){
-                                                return value.content;
-                                            }
-                                            return undefined; 
+                                            var colName = $(cell).attr('columnName');
+                                            values[ colName ] = value ? value.content : undefined;
                                         });
                                         var title = $(row).find('.title').html();
                                         return {
