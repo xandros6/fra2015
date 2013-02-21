@@ -17,7 +17,18 @@
                         var result = data.Token;
                         token = result.token;
                         App.setUser(result.user, token);
-                        context.trigger('loginOk', result.user, token);
+                        
+                        /*$.ajax({
+                            url:baseUrl+'/locale?lang=EN&text=' + result.user.countries,
+                            cache:false,
+                            dataType:'xml',
+                            success: function(data){
+                                L.reload(data);
+                                context.trigger('loginOk', result.user, token);
+                            }
+                        });*/
+                        
+                      context.trigger('loginOk', result.user, token);
                     },
                     error: function(response){
                         // $(document).find('#progressbar').modal('show');
@@ -85,6 +96,7 @@
                  *  global function which translate from <label ref="1"/> to the correct value
                  */
                 L = function( label ){
+                   
                   
                     if ( label.jquery ){
                         return map[ label.attr('ref') ];

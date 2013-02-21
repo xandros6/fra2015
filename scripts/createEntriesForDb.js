@@ -89,6 +89,8 @@ fs.readFile('template.xml', 'utf8', function (err,data) {
 										type = 'Number';
 									} else if ( cell.hasClass('boolean')){
 										type = 'Boolean';
+									} else {
+										type = 'String';
 									}
 
 									if ( type ){
