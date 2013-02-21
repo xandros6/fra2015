@@ -3,29 +3,39 @@
  */
 
 ( function(root, $){
+    
+    
+    var toastHtml = new EJS({
+        url: './commons/toast.html',
+        ext:'.html'
+    }).render();
+    
+    var el = $('<div></div>');
+    el.append( toastHtml );
+    
+        
+    var toast = el.find('#toast');
+            
+    var timeoutID;
+    var hide = function(){
+        window.clearTimeout( timeoutID );
+        toast.modal('hide'); 
+    };
+            
+    function display(){
+        toast.modal({ 
+            "show": true                     
+        });
+        // set timeout for closing
+        timeoutID = setTimeout(hide, 3000);
+    };
+    
     root.Widgets = {
   
         createToast: function( container ){
         
-            var el = $('<div></div>');
-            var html = new EJS({
-                url: './commons/toast.html',
-                ext:'.html'
-            }).render();
-            el.append( html );
             container.append( el );
-        
-            var toast = el.find('#toast');
-            
-            function display(){
-                toast.modal({ 
-                    "show": true                     
-                });
-                // set timeout for closing
-                setTimeout(function(){
-                    toast.modal('hide');
-                }, 3000);
-            };
+
         
             return {
             
@@ -36,8 +46,8 @@
                 
                 error: function( msg ){
                     toast.find('#content').empty()
-                         .append( $('<div class="alert alert-error"></div>').append(msg));
-                         
+                    .append( $('<div class="alert alert-error"></div>').append(msg) );
+                    display();     
                 }
             };
         }

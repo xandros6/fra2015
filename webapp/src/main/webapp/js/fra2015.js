@@ -1657,11 +1657,11 @@
                 data: req,
                 url:baseUrl + '/rest/survey/updateValues',
                 success: function(data){
-                    Widgets.createToast( $('#popupPanel') ).open('Data saved successfully.');
+                   Widgets.createToast( $('#popupPanel') ).open('Data saved successfully.');
                 },
                 error: function(data){
                     console.error( data );
-                    Widgets.createToast( $('#popupPanel') ).error('Cannot save data. Unknown error.');
+                   Widgets.createToast( $('#popupPanel') ).error('Cannot save data. Unknown error.');
                 }
             });
             
