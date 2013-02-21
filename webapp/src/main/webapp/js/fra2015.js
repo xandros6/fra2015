@@ -2188,9 +2188,9 @@
                                             var value = options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')];
                                             var colName = $(cell).attr('columnName');
                                             if ( values [colName] ){
-                                                values[ colName ] += ',' + value ? value.content : undefined;
+                                                values[ colName ] = values[ colName ]  + ( value ? ',' + value.content : '');
                                             } else {
-                                                values[ colName ] = value ? value.content : undefined;
+                                                values[ colName ] = value ? value.content : '';
                                             }
                                             
                                         });

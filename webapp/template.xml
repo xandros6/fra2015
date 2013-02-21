@@ -829,11 +829,11 @@
 			<td columnName="1990-2000" class="prefilled entry-item editable text" rownumber="7" columnnumber="2"></td>
 			<td columnName="1990-2000" class="prefilled entry-item editable text" rownumber="7" columnnumber="3"></td>
 			<td columnName="2000-2010" class="prefilled entry-item editable text" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2000-2010" class="prefilled entry-item editable text" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2000-2010" class="prefilled entry-item editable text" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2010-2015" class="prefilled entry-item editable text" rownumber="7" columnnumber="4"></td>
-                        <td columnName="2010-2015" class="prefilled entry-item editable text" rownumber="7" columnnumber="4"></td>
-			<td columnName="2010-2015" class="entry-item editable text" rownumber="7" columnnumber="5"></td>
+                        <td columnName="2000-2010" class="prefilled entry-item editable text" rownumber="7" columnnumber="5"></td>
+                        <td columnName="2000-2010" class="prefilled entry-item editable text" rownumber="7" columnnumber="6"></td>
+                        <td columnName="2010-2015" class="prefilled entry-item editable text" rownumber="7" columnnumber="7"></td>
+                        <td columnName="2010-2015" class="prefilled entry-item editable text" rownumber="7" columnnumber="8"></td>
+			<td columnName="2010-2015" class="entry-item editable text" rownumber="7" columnnumber="9"></td>
 		</tr>	
 
 	</tbody>
