@@ -1657,11 +1657,11 @@
                 data: req,
                 url:baseUrl + '/rest/survey/updateValues',
                 success: function(data){
-                    Widgets.createToast( $('#popupPanel') ).open('Data saved successfully.');
+                   Widgets.createToast( $('#popupPanel') ).open('Data saved successfully.');
                 },
                 error: function(data){
                     console.error( data );
-                    Widgets.createToast( $('#popupPanel') ).error('Cannot save data. Unknown error.');
+                   Widgets.createToast( $('#popupPanel') ).error('Cannot save data. Unknown error.');
                 }
             });
             
@@ -2188,9 +2188,9 @@
                                             var value = options.model.context[ entry.variable +','+ $(cell).attr('rowNumber')+','+$(cell).attr('columnNumber')];
                                             var colName = $(cell).attr('columnName');
                                             if ( values [colName] ){
-                                                values[ colName ] += ',' + value ? value.content : undefined;
+                                                values[ colName ] = values[ colName ]  + ( value ? ',' + value.content : '');
                                             } else {
-                                                values[ colName ] = value ? value.content : undefined;
+                                                values[ colName ] = value ? value.content : '';
                                             }
                                             
                                         });

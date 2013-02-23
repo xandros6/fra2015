@@ -16,6 +16,7 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.SurveyService;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
+import it.geosolutions.fra2015.services.rest.exception.InternalErrorWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
 import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
 import it.geosolutions.fra2015.services.rest.model.Update;
@@ -29,6 +30,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
+import org.springframework.core.io.Resource;
 
 /**
  *
@@ -38,6 +40,8 @@ public class SurveyServiceImpl implements SurveyService {
 
     private final static Logger LOGGER = Logger.getLogger(SurveyServiceImpl.class);
     private it.geosolutions.fra2015.services.SurveyService surveyService;
+
+    private Resource templateResource; // quick fix by etj on 20130221. This file will be injected in webapp. Needs to be injected in tests too.
 
     public void setSurveyService(it.geosolutions.fra2015.services.SurveyService surveyService) {
         this.surveyService = surveyService;
@@ -77,6 +81,10 @@ public class SurveyServiceImpl implements SurveyService {
             throw new BadRequestServiceEx("Missing parameter country");
         }
 
+        if (templateResource == null) {
+            throw new InternalErrorWebEx("Template not initialized");
+        }
+        
         try {
 
             // create a survey from template
@@ -86,10 +94,10 @@ public class SurveyServiceImpl implements SurveyService {
                         Survey.class, Element.class, Session.class,
                         Question.class, Entry.class, EntryItem.class);
                 Unmarshaller unmarshaller = jc.createUnmarshaller();
-                File xml = new File("template.xml");
-                survey = (Survey) unmarshaller.unmarshal(xml);
-            } catch (JAXBException ex) {
-                java.util.logging.Logger.getLogger(SurveyServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+//                File xml = new File("template.xml");
+                survey = (Survey) unmarshaller.unmarshal(templateResource.getFile());
+            } catch (Exception ex) {
+                LOGGER.error("Error handling template file: " + ex.getMessage(), ex);
             }
 
             // returns a survey schema with along values
@@ -147,6 +155,10 @@ public class SurveyServiceImpl implements SurveyService {
         } else if (obj instanceof Entry) {
             surveyService.upsert((Entry) obj);
         }
+    }
+
+    public void setTemplateResource(Resource templateResource) {
+        this.templateResource = templateResource;
     }
 
 
