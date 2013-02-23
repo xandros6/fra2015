@@ -9,3 +9,7 @@ server/persistence/hsql
 server/services-impl/hsql
 webapp/hsql
 apache-tomcat-6.0.35
+.classpath
+.project
+.settings/
+target/
