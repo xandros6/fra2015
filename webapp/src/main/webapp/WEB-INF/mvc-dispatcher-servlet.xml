@@ -29,16 +29,37 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
+ 	<!-- Package where spring search for controllers (annotated classes @Controller) -->
 	<context:component-scan base-package="it.geosolutions.fra2015.mvc.controller" />
 	
+	<!-- Validators: declare here all form validators -->
 	<bean class="it.geosolutions.fra2015.mvc.validator.DummyFormValidator" />
  	
- 	<!-- Register the Customer.properties -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="it.geosolutions.fra2015.mvc.Dummyprop" />
+ 	<!-- Locale stuff, default locale, interceptor and message source setup  -->
+ 	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en" />
+	</bean>
+ 	
+ 	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
 	</bean>
  
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
+		<property name="interceptors">
+		   <list>
+			<ref bean="localeChangeInterceptor" />
+		    </list>
+		</property>
+	</bean>
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="it.geosolutions.fra2015.i18n.messages" />
+	</bean>
+ 
+ 	<!-- How and where the framework search for the JSPs-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
