@@ -164,6 +164,11 @@
         <dependencies>
             <dependency>
                 <groupId>it.geosolutions.fra2015</groupId>
+                <artifactId>fra2015-mvc-controller</artifactId>
+                <version>${fra2015.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>it.geosolutions.fra2015</groupId>
                 <artifactId>fra2015-model</artifactId>
                 <version>${fra2015.version}</version>
             </dependency>
@@ -192,7 +197,6 @@
                 <artifactId>fra2015-services-impl</artifactId>
                 <version>${fra2015.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>it.geosolutions.fra2015</groupId>
                 <artifactId>fra2015-webapp</artifactId>
@@ -408,25 +412,26 @@
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring-version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
                 <version>${spring-version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
                 <version>${spring-version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring-version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-remoting</artifactId>
@@ -448,13 +453,11 @@
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-core</artifactId>
                 <version>${spring-security-version}</version>
-                <!--                <scope>provided</scope>-->
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-taglibs</artifactId>
                 <version>${spring-security-version}</version>
-                <!--                <scope>provided</scope>-->
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>

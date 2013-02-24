@@ -41,7 +41,7 @@
         <module>services-impl</module>
         <module>rest-api</module>
         <module>rest-impl</module>
-<!--        <module>test</module> -->
+        <module>mvc-controller</module>
     </modules>
 
     <properties>
