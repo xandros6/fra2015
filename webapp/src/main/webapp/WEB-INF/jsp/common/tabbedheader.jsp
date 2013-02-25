@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="navbar">
 		<div class="navbar-inner">
-			<jsp:include page="../survey/contributor/menu.jsp" />
+			<jsp:include page="contributor/menu.jsp" />
 			<div class="navbar-form pull-right">
 				<button type="submit" class="logout btn">
 				<i class="icon-off"></i>  Logout </button>
