@@ -56,7 +56,12 @@
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="it.geosolutions.fra2015.i18n.messages" />
+		<property name="basenames">
+			<list>
+				<value>it.geosolutions.fra2015.i18n.messages</value>
+				<value>it.geosolutions.fra2015.i18n.locale</value>
+			</list>
+		</property>
 	</bean>
  
  	<!-- How and where the framework search for the JSPs-->
