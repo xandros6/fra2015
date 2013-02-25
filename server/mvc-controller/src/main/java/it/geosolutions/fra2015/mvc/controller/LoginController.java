@@ -18,7 +18,7 @@ import java.util.Map;
 @RequestMapping("login")
 public class LoginController {
         @RequestMapping(method = RequestMethod.GET)
-        public String showForm(Map model) {
+        public String showForm(Map<String,User> model) {
         		User user = new User();
                 model.put("user", user);
 
@@ -43,7 +43,7 @@ public class LoginController {
                 */
                 //model.put("loginForm", loginForm);
                 System.out.println(user.toString());
-                return "redirect:survey";
+                return "redirect:survey/0";
         }
 
 }

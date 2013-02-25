@@ -2,9 +2,9 @@
 	<div class="container">
 		<div class="row">
 			<jsp:include page="leftmenu.jsp" ></jsp:include>
-			
-			<jsp:include page="questions/q1.jsp" />
-		</div>
+			<div class="span8" id="survey-content">
+				<jsp:include page="questions/q${question}.jsp" />
+			</div>
 		<jsp:include page="../common/saveall.jsp"></jsp:include>
 	
 	</div>

@@ -22,7 +22,9 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,13 +33,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller
-@RequestMapping("/survey")
+@RequestMapping("/survey/{question}")
 public class SurveyController {
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
+    @RequestMapping(value= "/survey/{question}",method = RequestMethod.GET)
+    public String printWelcome(Model model,@PathVariable(value = "question") String question) {
 
             //model.addAttribute("message", "Spring 3 MVC dummy example");
+    		model.addAttribute("question", question);
+    		model.addAttribute("context", "survey");
+    		//TODO user in session model.addAttribute("user",user);
             return "index";
 
     }
