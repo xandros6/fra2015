@@ -122,8 +122,13 @@ td.noneditable {
 .nav-list > li > a {
 padding: 0px 15px;
 }
-
-
+.accordion-heading a.accordion-toggle  {
+	font-weight:bold;
+}
+.accordion-heading  a.accordion-toggle:hover,.accordion-heading  a.accordion-toggle:active  {
+	text-decoration:none;
+	
+}
 /*.bs-docs-sidenav {
   width: 228px;
   margin: 30px 0 0;
