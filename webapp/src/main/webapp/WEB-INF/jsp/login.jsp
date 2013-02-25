@@ -43,7 +43,7 @@
 <input id="usernameTextField" type="text" class="input-block-level" name="user.username" placeholder="Username">
 <input id="passwordTextField" type="password" class="input-block-level" name="user.password"  placeholder="Password">
 <label>
-<span data-i18n="login_select">Select your language</span>: <br>
+<span data-i18n="login_select"><spring:message code="login.select" /></span>: <br>
 <select id="languageSelector" class="input-block-level">
 <option value="en-US">English</option>
 <option value="fr-FR">Français</option>
@@ -51,7 +51,7 @@
 </select>
 </label>
 
-<button type="submit" id="loginBtn" class="btn btn-large btn-primary" data-i18n="login_signin">Sign in</button>
+<button type="submit" id="loginBtn" class="btn btn-large btn-primary" data-i18n="login_signin"><spring:message code="login.signin" /></button>
 </form>
 </div>
 </div>
@@ -59,7 +59,7 @@
 </div>
 
 <div class="row">
-<div id="errorPanel"></div>
+<div id="errorPanel"><!-- TODO add error messages here --></div>
 </div>
 
 
