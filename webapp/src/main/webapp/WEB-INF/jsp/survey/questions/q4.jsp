@@ -123,7 +123,7 @@
 									name="_variable_40[1][4]">
 								<div id="cell-content">${_variable_40[1][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td rownumber="2" columnnumber="0"><spring:message
@@ -153,7 +153,7 @@
 									name="_variable_40[2][4]">
 								<div id="cell-content">${_variable_40[2][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td rownumber="3" columnnumber="0"><spring:message
@@ -183,13 +183,13 @@
 									name="_variable_40[3][4]">
 								<div id="cell-content">${_variable_40[3][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>
@@ -227,7 +227,7 @@
 									name="_variable_41[1][1]">
 								<div id="cell-content">${_variable_41[1][1]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td class="entry-item editable text" rownumber="2"
@@ -243,7 +243,7 @@
 									name="_variable_41[2][1]">
 								<div id="cell-content">${_variable_41[2][1]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td class="entry-item editable text" rownumber="3"
@@ -259,13 +259,13 @@
 									name="_variable_41[3][1]">
 								<div id="cell-content">${_variable_41[3][1]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>

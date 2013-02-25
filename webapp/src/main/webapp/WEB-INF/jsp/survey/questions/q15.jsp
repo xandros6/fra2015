@@ -59,8 +59,8 @@
 								name="_variable_130[1][1]">
 							<div id="cell-content">
 									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
+										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
+										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
 									</div>
 								</div></td>
 						</tr>
@@ -74,8 +74,8 @@
 								name="_variable_130[3][1]">
 							<div id="cell-content">
 									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
+										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
+										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
 									</div>
 								</div></td>
 						</tr>
@@ -89,8 +89,8 @@
 								name="_variable_130[5][1]">
 							<div id="cell-content">
 									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
+										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
+										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
 									</div>
 								</div></td>
 						</tr>

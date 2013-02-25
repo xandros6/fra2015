@@ -28,27 +28,27 @@ Tables
 <td rownumber="1" columnnumber="1" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content" contenteditable="true"> </div></td>
 <td rownumber="1" columnnumber="2" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content" contenteditable="true"> </div></td>
 <td rownumber="1" columnnumber="3" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content" contenteditable="true"> </div></td>
-<td class="action-column" width="80px"><a href="#" class="btn delete-btn">Delete</a></td></tr>
+<td class="action-column" width="80px"><a href="#" class="btn delete-btn"><spring:message code="delete" /></a></td></tr>
 <tr>
 <td rownumber="2" columnnumber="0" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="2" columnnumber="1" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="2" columnnumber="2" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="2" columnnumber="3" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
-<td class="action-column" width="80px"><a href="#" class="btn delete-btn">Delete</a></td></tr>
+<td class="action-column" width="80px"><a href="#" class="btn delete-btn"><spring:message code="delete" /></a></td></tr>
 <tr>
 <td rownumber="3" columnnumber="0" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="3" columnnumber="1" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="3" columnnumber="2" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="3" columnnumber="3" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
-<td class="action-column" width="80px"><a href="#" class="btn delete-btn">Delete</a></td></tr> 
+<td class="action-column" width="80px"><a href="#" class="btn delete-btn"><spring:message code="delete" /></a></td></tr> 
 <tr>
 <td rownumber="4" columnnumber="0" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content" contentEditable="true"> </div></td>
 <td rownumber="4" columnnumber="1" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="4" columnnumber="2" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
 <td rownumber="4" columnnumber="3" class="entry-item editable text" style="background-color: rgb(242, 245, 169); " entry-id="0"><input class="entry-item-value" type="hidden"><div id="cell-content"> </div></td>
-<td class="action-column" width="80px"><a href="#" class="btn delete-btn">Delete</a></td></tr> 
+<td class="action-column" width="80px"><a href="#" class="btn delete-btn"><spring:message code="delete" /></a></td></tr> 
 </tbody>
-</table></div><div class="control pull-right"><a id="addBtn" href="#" class="btn btn-mini">Add row</a></div><br><br></div><div><h4>
+</table></div><div class="control pull-right"><a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a></div><br><br></div><div><h4>
 Introductory Text
 </h4><p>
 Place an introductory text on the content of this report

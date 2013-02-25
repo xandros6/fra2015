@@ -140,7 +140,7 @@
 									value="${_variable_3[1][4]}" name="_variable_3[1][4]">
 								<div id="cell-content">${_variable_3[1][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td rownumber="2" columnnumber="0"><spring:message
@@ -166,7 +166,7 @@
 									value="${_variable_3[2][4]}" name="_variable_3[2][4]">
 								<div id="cell-content">${_variable_3[2][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td rownumber="3" columnnumber="0"><spring:message
@@ -192,13 +192,13 @@
 									value="${_variable_3[3][4]}" name="_variable_3[3][4]">
 								<div id="cell-content">${_variable_3[3][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>
@@ -234,7 +234,7 @@
 									value="${_variable_4[1][1]}" name="_variable_4[1][1]">
 								<div id="cell-content">${_variable_4[1][1]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td class="entry-item editable text" rownumber="2"
@@ -248,13 +248,13 @@
 									value="${_variable_4[2][1]}" name="_variable_4[2][1]">
 								<div id="cell-content">${_variable_4[2][1]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>

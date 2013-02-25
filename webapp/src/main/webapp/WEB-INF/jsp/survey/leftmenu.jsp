@@ -1,18 +1,18 @@
 <%@ include file="../common/includes/taglibs.jsp" %>
 <!--  TODO: remove collapse item for the selected question -->
 <div class="span4">
-	<a href="#"id ="hide-menu">Hide menu</a>
+	<a href="#"id ="hide-menu"><spring:message code="left.hidemenu"></spring:message></a>
 	<div class="in" id="left-menu">
 		<div id="navbar-accordion" class="accordion">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_6cn3etp4x6r"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref0"></spring:message></a>
 				</div>
-				<div id="groupid_6cn3etp4x6r" class="accordion-body ${question == 0 ? "" : "collapse"}">
+				<div id="groupid_6cn3etp4x6r" class="accordion-body ${question == 0 ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
-						<p class="active">
+						<p>
 							<a href="0" class="tab"><div>
 									<spring:message code="ref1"></spring:message>
 								</div></a>
@@ -23,10 +23,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_27medwbfbt9"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref10"></spring:message></a>
 				</div>
-				<div id="groupid_27medwbfbt9" class="accordion-body ${1<= question && question <=2  ? "" : "collapse"}"">
+				<div id="groupid_27medwbfbt9" class="accordion-body ${1<= question && question <=2  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="1" class="tab"><div>
@@ -46,10 +46,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_0bftx6o5hfr"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref129"></spring:message></a>
 				</div>
-				<div id="groupid_0bftx6o5hfr" class="accordion-body ${3<= question && question <=4  ? "" : "collapse"}"">
+				<div id="groupid_0bftx6o5hfr" class="accordion-body ${3<= question && question <=4  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="3" class="tab"><div>
@@ -69,10 +69,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_bzh13gzaor"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref258"></spring:message></a>
 				</div>
-				<div id="groupid_bzh13gzaor" class="accordion-body ${ question ==5  ? "" : "collapse"}"">
+				<div id="groupid_bzh13gzaor" class="accordion-body ${ question ==5  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="5" class="tab"><div>
@@ -86,10 +86,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_1zxhjiz4cxr"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref309"></spring:message></a>
 				</div>
-				<div id="groupid_1zxhjiz4cxr" class="accordion-body ${ question ==6  ? "" : "collapse"}"">
+				<div id="groupid_1zxhjiz4cxr" class="accordion-body ${ question ==6  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="6" class="tab"><div>
@@ -103,10 +103,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_5gsauivn29"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref318"></spring:message></a>
 				</div>
-				<div id="groupid_5gsauivn29" class="accordion-body ${7<= question && question <=9  ? "" : "collapse"}"">
+				<div id="groupid_5gsauivn29" class="accordion-body ${7<= question && question <=9  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="7" class="tab"><div>
@@ -132,10 +132,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_3gd86w29"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref376"></spring:message></a>
 				</div>
-				<div id="groupid_3gd86w29" class="accordion-body  ${10<= question && question <=16  ? "" : "collapse"}"">
+				<div id="groupid_3gd86w29" class="accordion-body  ${10<= question && question <=16  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="10" class="tab"><div>
@@ -185,10 +185,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_r87gsowp14i"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref486"></spring:message></a>
 				</div>
-				<div id="groupid_r87gsowp14i" class="accordion-body  ${17<= question && question <=20  ? "" : "collapse"}"">
+				<div id="groupid_r87gsowp14i" class="accordion-body  ${17<= question && question <=20  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="17" class="tab"><div>
@@ -220,10 +220,10 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_6hisy2b7qfr"
-						data-parent="#navbar-accordion" data-toggle="collapse"><spring:message
+						 data-toggle="collapse"><spring:message
 							code="ref553"></spring:message></a>
 				</div>
-				<div id="groupid_6hisy2b7qfr" class="accordion-body ${ question ==6  ? "" : "collapse"}"">
+				<div id="groupid_6hisy2b7qfr" class="accordion-body ${ question ==21  ? "collapse in" : "collapse"}"">
 					<div class="accordion-inner">
 						<p>
 							<a href="21" class="tab"><div>

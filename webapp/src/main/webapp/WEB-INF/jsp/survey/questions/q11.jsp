@@ -86,7 +86,7 @@
 									name="_variable_107[1][undefined]">
 								<div id="cell-content">${_variable_107[1][undefined]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td class="title" rownumber="2" columnnumber="0"><spring:message
@@ -110,7 +110,7 @@
 									name="_variable_107[2][3]">
 								<div id="cell-content">${_variable_107[2][3]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td class="title" rownumber="3" columnnumber="0"><spring:message
@@ -134,13 +134,13 @@
 									name="_variable_107[3][3]">
 								<div id="cell-content">${_variable_107[3][3]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn">Delete</a></td>
+									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>
@@ -164,8 +164,8 @@
 									name="_variable_11[0][1]">
 								<div id="cell-content">
 										<div>
-											<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-											<input name="no" class="radio-boolean" type="checkbox">No
+											<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
+											<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
 										</div>
 									</div></td>
 							</tr>
