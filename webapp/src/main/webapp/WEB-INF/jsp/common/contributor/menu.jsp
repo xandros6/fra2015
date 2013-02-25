@@ -1,6 +1,11 @@
+<%@ include file="../includes/taglibs.jsp"%>
 <ul class="nav">
-	<li class="active"><a href="#" class="tab" data-i18n="toolbar_survey">Survey</a></li>
-	<li><a href="#" class="tab" data-i18n="toolbar_check">Check and submit</a></li>
-	<li><a href="#" class="tab" data-i18n="toolbar_summary">Summary</a></li>
-	<li><a href="#" class="tab" data-i18n="toolbar_export">Export</a></li>
+	<li class="${context=="survey" ? "active" : "" }" active"><a
+		href="#" class="tab"><spring:message code="toolbar.survey" /></a></li>
+	<li class="${context=="check" ? "active" : "" }"><a href="${pageContext.request.contextPath}/check"
+		class="tab"><spring:message code="toolbar.check" /></a></li>
+	<li class="${context=="summary" ? "active" : "" }"><a href="${pageContext.request.contextPath}/summary"
+		class="tab"><spring:message code="toolbar.summary" /></a></li>
+	<li class="${context=="export" ? "active" : "" }"><a href="${pageContext.request.contextPath}/export"
+		class="tab"><spring:message code="toolbar.export" /></a></li>
 </ul>
