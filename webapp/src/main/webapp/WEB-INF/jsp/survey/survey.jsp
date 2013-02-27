@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<jsp:include page="leftmenu.jsp"></jsp:include>
-			<form method="POST" action="q${question}.jsp">
+			<form method="POST" action="${question}">
 				<div class="span8" id="survey-content">
 
 					<jsp:include page="questions/q${question}.jsp" />
