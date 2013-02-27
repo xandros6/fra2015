@@ -225,7 +225,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
+					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>
@@ -301,7 +301,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini"><spring:message code="add.row" /></a>
+					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 				</div>
 				<br>
 				<br>

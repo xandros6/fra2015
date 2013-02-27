@@ -207,7 +207,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a  href="#" class="btn btn-mini addBtn">Add row</a>
 				</div>
 				<br>
 				<br>
@@ -283,7 +283,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a id="addBtn" href="#" class="btn btn-mini">Add row</a>
+					<a  href="#" class="btn btn-mini addBtn">Add row</a>
 				</div>
 				<br>
 				<br>
