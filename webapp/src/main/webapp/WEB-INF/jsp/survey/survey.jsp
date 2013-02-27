@@ -2,15 +2,17 @@
 <div>
 	<div class="container">
 		<div class="row">
-			<jsp:include page="leftmenu.jsp" ></jsp:include>
-			<div class="span8" id="survey-content">
-				<jsp:include page="questions/q${question}.jsp" />
-			</div>
-		<jsp:include page="../common/saveall.jsp"></jsp:include>
-	
+			<jsp:include page="leftmenu.jsp"></jsp:include>
+			<form method="POST" action="questions/q${question}.jsp">
+				<div class="span8" id="survey-content">
+
+					<jsp:include page="questions/q${question}.jsp" />
+				</div>
+				<jsp:include page="../common/saveall.jsp"></jsp:include>
+			</form>
+		</div>
 	</div>
-</div>
-<script>
+	<script>
 $(function(){
 	//hide menu
 	var $hide= $('#hide-menu');
