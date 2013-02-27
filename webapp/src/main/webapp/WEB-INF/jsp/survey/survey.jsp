@@ -12,7 +12,20 @@
 			</form>
 		</div>
 	</div>
+	
 	<script>
+
+<c:if test="${message == 'success'}">  
+$(function(){
+Widgets.createToast( $('#popupPanel') ).open('<spring:message code="datasavedsuccesfully"');
+});	
+</c:if>  
+<c:if test="${message == 'error'}">  
+$(function(){
+Widgets.createToast( $('#popupPanel') ).open(<spring:message code="${errorMessage})");
+});	
+</c:if>  
+	
 $(function(){
 	//hide menu
 	var $hide= $('#hide-menu');
@@ -32,6 +45,9 @@ $(function(){
             $hide.text('Show menu');
         }
     });
+	
+	
+	//ckeditor enabling
     jQuery('textarea.texteditor').each( function() {                       
                         
   		var id = $(this).attr('id');
