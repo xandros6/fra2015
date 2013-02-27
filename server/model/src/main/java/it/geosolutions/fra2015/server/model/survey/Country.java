@@ -7,9 +7,10 @@ package it.geosolutions.fra2015.server.model.survey;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -20,15 +21,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "fra_country" )
 @XmlRootElement(name = "country")
 public class Country implements Serializable {
-    
+
+    public static enum Type {
+        FRA,
+        CFRQ;
+    }
+
     @Id
     private Long id;
     
-    @Column(unique=true, length=3)
+    @Column(unique=true, length=3, nullable=false)
     private String iso3;
     
-    @Column(name = "name",unique=true)
+    @Column(name = "name",unique=true, nullable=false)
     private String name;
+
+    @Column(name = "ctype", nullable=false)
+    @Enumerated(EnumType.STRING)
+    private Type type;
 
     public Long getId() {
         return id;
@@ -52,6 +62,14 @@ public class Country implements Serializable {
 
     public void setIso3(String iso3) {
         this.iso3 = iso3;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     @Override
