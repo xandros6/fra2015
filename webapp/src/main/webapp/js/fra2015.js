@@ -1,6 +1,9 @@
 
-
-
+if(typeof String.prototype.trim !== 'function') {
+  String.prototype.trim = function() {
+    return this.replace(/^\s+|\s+$/g, ''); 
+  }
+}
 (function($) {
 
 
@@ -435,7 +438,7 @@
                                                 loadItems();
                                             })
                                             .onFailure(function( response ){
-                                                console.error( response );
+                                               // console.error( response );
                                                 ErrorPanel.instance().display( 'Cannot save user. Username ' + obj.username + ' already in use.' );   
                                             }).execute();
                                         } else { // update
@@ -452,7 +455,7 @@
                                                 el.find( "#saveBtn" ).text('Save');
                                             })
                                             .onFailure(function( response ){
-                                                console.error( response );
+                                                //console.error( response );
                                                 ErrorPanel.instance().display( 'Cannot update user. ' + response.statusText ); 
                                             }).execute();
                                         }
@@ -461,7 +464,7 @@
                                         // close window
                                         el.find('#createUserWindow').modal('hide');
                                     } else {
-                                        console.error('invalid form.');
+                                        //console.error('invalid form.');
                                     }
 
                                 });
@@ -1452,7 +1455,7 @@
                 this.group.find('.accordion-inner').append( p );
                 
             } else {
-                console.error('Questions must be within a section.');
+                //console.error('Questions must be within a section.');
             }
             
            
@@ -1620,7 +1623,7 @@
                     Widgets.createToast( $('#popupPanel') ).open('Updated status: ' + data);
                 },
                 error: function(data){
-                    console.error( data );
+                    //console.error( data );
                     Widgets.createToast( $('#popupPanel') ).error('Cannot update status.');
                 }
             });
@@ -1660,7 +1663,7 @@
                    Widgets.createToast( $('#popupPanel') ).open('Data saved successfully.');
                 },
                 error: function(data){
-                    console.error( data );
+                    //console.error( data );
                    Widgets.createToast( $('#popupPanel') ).error('Cannot save data. Unknown error.');
                 }
             });
@@ -1714,7 +1717,7 @@
                     context[ value.variable + ',' + value.rowNumber + ','+ value.columnNumber] = value;
                 });
             }
-            console.log( context );
+            //console.log( context );
             this.context = context;
         },
 
@@ -1839,7 +1842,7 @@
             }
             
             if ( ! handler ){
-                console.log( obj );
+                //console.log( obj );
                 throw 'wrong format in json file';
             }
             
@@ -2246,10 +2249,10 @@
 
             var countries = App.user.countries.split(',');
             if ( countries.length > 1){
-                console.log( countries );
+               // console.log( countries );
                 throw 'Cannot create contributor page: too many countries associated to the current user ' + App.user.username;
             } else if ( countries.length === 0 ){
-                console.log( countries );
+                //console.log( countries );
                 throw 'Cannot create contributor page: no country associated to the current user ' + App.user.username;                
             }
 
