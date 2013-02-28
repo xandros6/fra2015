@@ -52,91 +52,61 @@ $(function(){
 		});
 	});
     //editable tables
-    $('td.editable').click(function(){
-        var cell = $(this);
-        if ( cell.hasClass('editable') ){
-            cell.removeClass("editable");
-            cell.addClass("editing");
-            var text = cell.find('#cell-content').html();
-            var hidden =cell.find('input');
-            var input = $('<input style="width:80%" name'+hidden.attr('name') +' class="celleditor" type="text" value="'+text+'"/>');
-            input.val(text);
-            if (cell.hasClass('number')){
-                // on keydown verify if the key is a number
-                input.keydown(function(evt){
-                    var e = evt || window.event; 
-                    var charCode = e.which || e.keyCode;                        
-                    if (charCode > 31 && (charCode < 47 || charCode > 57))
-                        return false;
-                    if (e.shiftKey) return false;
-                    return true;
-                });                               
-            }
-
-            cell.find('#cell-content').html( input );
-            cell.find('.celleditor').blur( function(){
-                if ( cell.hasClass('editing') ){
-                    cell.removeClass("editing");
-                    cell.addClass("editable");
-                    var text = cell.find(".celleditor").attr('value');
-                    cell.find('#cell-content').html( text );
-                    hidden.val( text ).trigger('change');
-                }
-                return false;
-            });
-            cell.find('.celleditor').focus();
-        }
-        return false;
-    });
-    /* TODO add row
-    $('#addBtn').each(function(){
-    	var table = $(this).closest("entry").find('table.extensible');
+    $('td.editable').click(fra.editRow);
+    //Delete buttons inizialization
+    $('.btn.delete-btn').click(fra.deleteRow);
+    
+    
+    // add row functionality to proper buttons
+    $('.addBtn').each(function(){
+    	var entry =$(this).parent().parent().find(".entry");
+    	
+    	var table = entry.find('table.extensible');
     	var addEmptyRow = function(){
             var last = table.find('tr:last');
             var row = last.clone(); 
-            
+            //change rowNumber 
             $.each(row.find('td'), function(index, item){
                 var cell = $(this);
                 cell.attr('rowNumber', parseInt(cell.attr('rowNumber'))+1);
             });
-            
-            row.find('.entry-item')
-            // .addClass('editable entry-item')
-            //.attr('entry-id', this.options.variable) // ?
-       		//TODO add name to the input
-            // .off('click')
-            .click(function(){
-                var cell = $(this); 
-                if ( cell.hasClass('editable') ){
-                    cell.removeClass("editable"); 
-                    cell.addClass("editing");
-                    var text = cell.html();
-                    cell.html('<input style="width:80%" name="" class="celleditor" type="text" value="'+text+'"/>');
-                    cell.find('.celleditor').blur( function(){
-                        if ( cell.hasClass('editing') ){
-                            cell.removeClass("editing");
-                            cell.addClass("editable");
-                            var text = cell.find(".celleditor").attr('value');
-                            cell.html( text );
-                        }
-                        return false;
-                    });
-                    cell.find('.celleditor').focus();
+            // replace input name
+            $.each(row.find('td'), function(index, item){
+                var cell = $(this);
+                var hidden =cell.find('input');
+                var name = hidden.attr('name');
+                
+                var myRegexp = /([A-Za-z0-9_]*\[)([0-9]*)(\].*)/;
+                var match = myRegexp.exec(name);
+                if (match && match.length >2){
+	                var rowNumber = parseInt(match[2]) + 1; // row number
+	                
+	                var newName = name.replace(myRegexp,"$1"+ rowNumber + "$3");
+	               
+	                hidden.attr('name',newName);
                 }
-                return false;
-            }
-            )
-            .empty().append('&nbsp;');
+                
+                
+            });
+         	// change number of the row 
+ 	    	row.find('td').each(function(){
+ 	    		if(!$(this).hasClass('entry-item')){
+ 	    			var content = $(this).html();
+ 	    			try{
+ 	    				var x = parseInt(content)+1;
+ 	    				if (x){$(this).html(x);}
+ 	    			}catch(e){}
+ 	    			
+ 	    		}
+ 	    		
+ 	    	});
+            row.find('.entry-item').click(fra.editRow);
+            row.find('.entry-item').find('input').attr('value',"");
+            row.find('.entry-item').find('div').html();
+            
             row.appendTo(table); 
 
-            row.find('.delete-btn').click(function(e){
-                var result = window.confirm('Are you sure you want to delete these data?');
-                if ( result ){
-                    alert('Delete! Mock up method.');  
-                }
-       
-                return false;
-            });
+            row.find('.delete-btn').click(fra.deleteRow);
 
             return row;
         };
@@ -145,7 +115,7 @@ $(function(){
             return false;
         });
     });
-	*/    
+	    
      
 }); 
 </script>
