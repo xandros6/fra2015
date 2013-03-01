@@ -1869,16 +1869,16 @@ if(typeof String.prototype.trim !== 'function') {
             row.attr('class', 'row');
             
             var control = $('<div></div>');
-            control.attr('style', 'position:fixed;right:0;bottom:0');
+            control.attr('style', 'position:fixed;right:0;bottom:0');	
             control.attr('class', 'control-panel');
             
-            var button = $('<a href="#" class="btn btn-primary btn-large btn-save-survey">Save all</a>');
+            var button = $('<a href="#" class="btn btn-danger btn-large btn-save-survey">Save all</a>');
             control.append( button );
             
             
             var hide = $('<a>Hide menu</a>');
             hide.attr('href', '#');
- 
+			$('#footer  .container').append('<div style:"width:940px"><img id="topBanner2" src="./img/footer.jpg"></div>');
             var outerLeft = $('<div class="span4"></div>');
             // outerLeft.append( control );
             outerLeft.append( hide );

@@ -1,4 +1,4 @@
-var baseUrl = 'http://192.168.1.160:9191/fra2015';
+var baseUrl = 'http://localhost:9191/fra2015';
 
 
 var countries = [
