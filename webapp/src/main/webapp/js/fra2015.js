@@ -1878,8 +1878,10 @@ if(typeof String.prototype.trim !== 'function') {
             
             var hide = $('<a>Hide menu</a>');
             hide.attr('href', '#');
-			$('#footer  .container').append('<div style:"width:940px"><img id="topBanner2" src="./img/footer.jpg"></div>');
-            var outerLeft = $('<div class="span4"></div>');
+			if(!$('#topBanner2').length == 1){
+				$('#footer  .container').append('<div style:"width:940px"><img id="topBanner2" src="./img/footer.jpg"></div>');
+            }
+			var outerLeft = $('<div class="span4"></div>');
             // outerLeft.append( control );
             outerLeft.append( hide );
 
