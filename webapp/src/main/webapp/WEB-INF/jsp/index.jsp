@@ -12,14 +12,38 @@
 		<div id="main">
 			<div>
 				<div>
-					<jsp:include page="common/header.jsp" />
+					<jsp:include page="common/banner.jsp" />
+					<div class="container">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<%
+									//TODO change this with user menu when user in session
+								%>
+								
+								<jsp:include page="common/contributor/menu.jsp" />
+								
+								<div class="navbar-form pull-right">
+									<button type="submit" class="logout btn">
+										<i class="icon-off"></i>
+										<spring:message code="toolbar.logout" />
+									</button>
+									<select id="languageSelector" class="language input-small">
+										<option value="en-US">English</option>
+										<option value="fr-FR">Français</option>
+										<option value="es-ES">Español</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<jsp:include page="common/userbar.jsp" />
+					</div>
 					<!-- active tab content -->
 					<div id="tabContent">
-					<%
-								//Survey contributor
-							%>
+						<%
+							//Survey contributor
+						%>
 						<c:choose>
-							
+
 							<c:when test="${context=='survey'}">
 								<jsp:include page="survey/survey.jsp" />
 							</c:when>
