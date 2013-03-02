@@ -1,4 +1,4 @@
-<%@ include file="../includes/taglibs.jsp"%>
+<%@ include file="../common/includes/taglibs.jsp"%>
 <ul class="nav">
 	<li class="${context=='survey' ? 'active' : '' }"><a
 		href="survey/0" class="tab"><spring:message code="toolbar.survey" /></a></li>

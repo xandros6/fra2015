@@ -20,7 +20,7 @@
 									//TODO change this with user menu when user in session
 								%>
 								
-								<jsp:include page="common/contributor/menu.jsp" />
+								<jsp:include page="contributor/menu.jsp" />
 								
 								<div class="navbar-form pull-right">
 									<button type="submit" class="logout btn">
