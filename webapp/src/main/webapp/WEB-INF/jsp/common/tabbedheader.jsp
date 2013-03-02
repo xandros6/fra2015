@@ -2,7 +2,12 @@
 <div class="container">
 	<div class="navbar">
 		<div class="navbar-inner">
-			<jsp:include page="contributor/menu.jsp" />
+			<% //TODO change this with user menu when user in session %>
+			<c:choose>
+				<c:when test="${1==1}">
+				<jsp:include page="contributor/menu.jsp" />
+				</c:when>
+			</c:choose>
 			<div class="navbar-form pull-right">
 				<button type="submit" class="logout btn">
 					<i class="icon-off"></i>

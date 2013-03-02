@@ -1,3 +1,4 @@
+<%@ include file="../common/includes/taglibs.jsp"%>
 <div>
 	<div>
 		<div class="container">
@@ -5,7 +6,7 @@
 
 
 				<div id="messagePanel" class="alert alert-error">
-					<spring:message code="error.violateconstraints"></spring:message>The survey violates some constraints:
+					<spring:message code="error.violateconstraints"></spring:message>
 					<ul>
 						<li><spring:message code="refrule_error_1"></spring:message></li>
 						<li><spring:message code="refrule_error_2"></spring:message></li>
@@ -45,7 +46,7 @@
 
 				<div id="textPanel">
 
-					<p>If you want to submit it anyway, please add a text note</p>
+					<p><spring:message code="submit.addnote"/></p>
 					<textarea cols="300"></textarea>
 				</div>
 
