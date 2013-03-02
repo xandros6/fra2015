@@ -5,6 +5,11 @@
 <%@ include file="common/includes/css.jsp"%>
 <!-- javascripts -->
 <%@ include file="common/includes/javascript.jsp"%>
+<c:choose>
+	<c:when test="${context=='survey'}">
+		<script src="${pageContext.request.contextPath}/js/tableeditor.js"></script>
+	</c:when>
+</c:choose>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
@@ -19,9 +24,9 @@
 								<%
 									//TODO change this with user menu when user in session
 								%>
-								
+
 								<jsp:include page="contributor/menu.jsp" />
-								
+
 								<div class="navbar-form pull-right">
 									<button type="submit" class="logout btn">
 										<i class="icon-off"></i>
