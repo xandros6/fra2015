@@ -20,11 +20,20 @@ $(function() {
 						cell.attr('rowNumber',
 								parseInt(cell.attr('rowNumber')) + 1);
 					});
-					// replace input name
+					// replace input name if present
 					$.each(row.find('td'), function(index, item) {
 						var cell = $(this);
 						var hidden = cell.find('input');
-						var name = hidden.attr('name');
+						var name="";
+						//create the input anyway (the new row is an information too,so we have to commit)
+						 if(hidden.length <=0){
+			            	placeholder= cell.find('.entry_item_placeholder');
+			            	if(placeholder.length<=0){return}
+			            	name = placeholder.attr('id');
+			            	hidden=$('<input type="hidden" style="width:80%" name="'+ name +'" type="text" value=""/>');
+			            	placeholder.replaceWith(hidden);
+					    }
+						name = hidden.attr('name');
 
 						var myRegexp = /([A-Za-z0-9_]*\[)([0-9]*)(\].*)/;
 						var match = myRegexp.exec(name);

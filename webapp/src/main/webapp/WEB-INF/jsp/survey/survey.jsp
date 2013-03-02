@@ -16,7 +16,7 @@
 	<script>
 
 //prevent submit on enter 
-$("form").bind("keypress", function (e) {
+$("input[text]").bind("keypress", function (e) {
     if (e.keyCode == 13) {
         return false;
     }

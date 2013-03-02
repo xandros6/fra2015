@@ -33,13 +33,31 @@ fra = {
 	         return false;
 	    },
 	    editRow: function(){
+    		var type='textarea';
 	        var cell = $(this);
+	        if(cell.hasClass('number')){type='input';}
 	        if ( cell.hasClass('editable') ){
 	            cell.removeClass("editable");
 	            cell.addClass("editing");
 	            var text = cell.find('#cell-content').html();
-	            var hidden =cell.find('input');
-	            var input = $('<input style="width:80%" name'+hidden.attr('name') +' class="celleditor" type="text" value="'+text+'"/>');
+	            var hidden =cell.find(type);
+	            var name= "";
+	            var placeholder;
+	            
+	            //fist editing
+	            if(hidden.length <=0){
+	            	placeholder= cell.find('.entry_item_placeholder');
+	            	name = placeholder.attr('id');
+	            	hidden=$('<input type="hidden" style="width:80%" name="'+ name +'" type="text" value="'+text+'"/>');
+	            	placeholder.replaceWith(hidden);
+            	//already edited
+	            }else{
+	            	name = hidden.attr("name");
+	            	
+	            	placeholder=hidden;
+	            }
+	            
+	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
 	            input.val(text);
 	            if (cell.hasClass('number')){
 	                // on keydown verify if the key is a number
@@ -52,15 +70,15 @@ fra = {
 	                    return true;
 	                });                               
 	            }
-
 	            cell.find('#cell-content').html( input );
-	            cell.find('.celleditor').blur( function(){
+	            cell.find('.celleditor').blur( function(){  	
 	                if ( cell.hasClass('editing') ){
 	                    cell.removeClass("editing");
 	                    cell.addClass("editable");
 	                    var text = cell.find(".celleditor").attr('value');
 	                    cell.find('#cell-content').html( text );
 	                    hidden.val( text ).trigger('change');
+	                    
 	                }
 	                return false;
 	            });

@@ -88,27 +88,19 @@
 										code="ref39"></spring:message></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[1][1]}"
-									name="_variable_125[1][1]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[1][1]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[1][1]}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[1][2]}"
-									name="_variable_125[1][2]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[1][2]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[1][2]}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[1][3]}"
-									name="_variable_125[1][3]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[1][3]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[1][3]}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[1][4]}"
-									name="_variable_125[1][4]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[1][4]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[1][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
@@ -118,27 +110,19 @@
 										code="ref40"></spring:message></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[2][1]}"
-									name="_variable_125[2][1]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[2][1]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[2][1]}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[2][2]}"
-									name="_variable_125[2][2]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[2][2]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[2][2]}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[2][3]}"
-									name="_variable_125[2][3]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[2][3]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[2][3]}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[2][4]}"
-									name="_variable_125[2][4]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[2][4]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[2][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
@@ -148,27 +132,19 @@
 										code="ref41"></spring:message></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[3][1]}"
-									name="_variable_125[3][1]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[3][1]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[3][1]}</div></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[3][2]}"
-									name="_variable_125[3][2]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[3][2]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[3][2]}</div></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[3][3]}"
-									name="_variable_125[3][3]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[3][3]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[3][3]}</div></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><input class="entry-item-value"
-									type="hidden" value="${_variable_125[3][4]}"
-									name="_variable_125[3][4]">
+									entry-id="125"><span class="entry_item_placeholder" id="_variable_125[3][4]">&nbsp;</span>
 								<div id="cell-content">${_variable_125[3][4]}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
@@ -209,8 +185,7 @@
 									code="ref436"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14"><input class="entry-item-value" type="hidden"
-								value="${_variable_14[1][1]}" name="_variable_14[1][1]">
+								entry-id="14"><span class="entry_item_placeholder" id="_variable_14[1][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_14[1][1]}</div></td>
 						</tr>
 						<tr rowname="14.1.1" unit="1000 ha">
@@ -218,8 +193,7 @@
 									code="ref446"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14"><input class="entry-item-value" type="hidden"
-								value="${_variable_14[2][1]}" name="_variable_14[2][1]">
+								entry-id="14"><span class="entry_item_placeholder" id="_variable_14[2][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_14[2][1]}</div></td>
 						</tr>
 						<tr rowname="14.1.2" unit="1000 ha">
@@ -227,8 +201,7 @@
 									code="ref447"></spring:message></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14"><input class="entry-item-value" type="hidden"
-								value="${_variable_14[3][1]}" name="_variable_14[3][1]">
+								entry-id="14"><span class="entry_item_placeholder" id="_variable_14[3][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_14[3][1]}</div></td>
 						</tr>
 					</tbody>
@@ -256,9 +229,7 @@
 									code="ref450"></spring:message></td>
 							<td class="entry-item editable boolean" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14b"><input class="entry-item-value"
-								type="hidden" value="${_variable_14b[1][1]}"
-								name="_variable_14b[1][1]">
+								entry-id="14b"><span class="entry_item_placeholder" id="_variable_14b[1][1]">&nbsp;</span>
 							<div id="cell-content">
 									<div>
 										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
@@ -271,9 +242,7 @@
 									code="ref451"></spring:message></td>
 							<td class="entry-item editable boolean" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14b"><input class="entry-item-value"
-								type="hidden" value="${_variable_14b[3][1]}"
-								name="_variable_14b[3][1]">
+								entry-id="14b"><span class="entry_item_placeholder" id="_variable_14b[3][1]">&nbsp;</span>
 							<div id="cell-content">
 									<div>
 										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
@@ -286,9 +255,7 @@
 									code="ref452"></spring:message></td>
 							<td class="entry-item editable boolean" rownumber="5"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14b"><input class="entry-item-value"
-								type="hidden" value="${_variable_14b[5][1]}"
-								name="_variable_14b[5][1]">
+								entry-id="14b"><span class="entry_item_placeholder" id="_variable_14b[5][1]">&nbsp;</span>
 							<div id="cell-content">
 									<div>
 										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
@@ -317,9 +284,7 @@
 								columnnumber="0"><spring:message code="ref454"></spring:message></td>
 							<td class="entry-item editable number" rownumber="0"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14c"><input class="entry-item-value"
-								type="hidden" value="${_variable_14c[0][1]}"
-								name="_variable_14c[0][1]">
+								entry-id="14c"><span class="entry_item_placeholder" id="_variable_14c[0][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_14c[0][1]}</div></td>
 						</tr>
 					</tbody>
@@ -432,43 +397,31 @@
 						<tr>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="128"><input class="entry-item-value"
-								type="hidden" value="${_variable_128[1][0]}"
-								name="_variable_128[1][0]">
+								entry-id="128"><span class="entry_item_placeholder" id="_variable_128[1][0]">&nbsp;</span>
 							<div id="cell-content">${_variable_128[1][0]}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="128"><input class="entry-item-value"
-								type="hidden" value="${_variable_128[1][1]}"
-								name="_variable_128[1][1]">
+								entry-id="128"><span class="entry_item_placeholder" id="_variable_128[1][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_128[1][1]}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="128"><input class="entry-item-value"
-								type="hidden" value="${_variable_128[2][0]}"
-								name="_variable_128[2][0]">
+								entry-id="128"><span class="entry_item_placeholder" id="_variable_128[2][0]">&nbsp;</span>
 							<div id="cell-content">${_variable_128[2][0]}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="128"><input class="entry-item-value"
-								type="hidden" value="${_variable_128[2][1]}"
-								name="_variable_128[2][1]">
+								entry-id="128"><span class="entry_item_placeholder" id="_variable_128[2][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_128[2][1]}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="128"><input class="entry-item-value"
-								type="hidden" value="${_variable_128[3][0]}"
-								name="_variable_128[3][0]">
+								entry-id="128"><span class="entry_item_placeholder" id="_variable_128[3][0]">&nbsp;</span>
 							<div id="cell-content">${_variable_128[3][0]}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="128"><input class="entry-item-value"
-								type="hidden" value="${_variable_128[3][1]}"
-								name="_variable_128[3][1]">
+								entry-id="128"><span class="entry_item_placeholder" id="_variable_128[3][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_128[3][1]}</div></td>
 						</tr>
 					</tbody>
