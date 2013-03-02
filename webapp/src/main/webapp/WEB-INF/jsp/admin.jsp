@@ -47,14 +47,11 @@
 							<c:when test="${context=='activitylog'}">
 								<jsp:include page="admin/activitylog.jsp" />
 							</c:when>
-							<c:when test="${context=='admin'}">
-								<jsp:include page="admin/userlist.jsp" />
-							</c:when>
-							<c:when test="${context=='summary'}">
-								<jsp:include page="contributor/summary.jsp" />
+							<c:when test="${context=='users'}">
+								<jsp:include page="admin/users.jsp" />
 							</c:when>
 							<c:when test="${context=='export'}">
-								<jsp:include page="contributor/export.jsp" />
+								<jsp:include page="admin/adminexport.jsp" />
 							</c:when>
 						</c:choose>
 
