@@ -26,6 +26,9 @@
 							<c:when test="${context=='check'}">
 								<jsp:include page="contributor/check-submit.jsp" />
 							</c:when>
+							<c:when test="${context=='summary'}">
+								<jsp:include page="contributor/summary.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>

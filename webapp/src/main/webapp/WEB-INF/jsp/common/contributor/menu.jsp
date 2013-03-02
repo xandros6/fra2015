@@ -1,6 +1,6 @@
 <%@ include file="../includes/taglibs.jsp"%>
 <ul class="nav">
-	<li class="${context=="survey" ? "active" : "" }" active"><a
+	<li class="${context=='survey' ? 'active' : '' }"><a
 		href="survey/0" class="tab"><spring:message code="toolbar.survey" /></a></li>
 	<li class="${context=="check" ? "active" : "" }"><a href="${pageContext.request.contextPath}/check"
 		class="tab"><spring:message code="toolbar.check" /></a></li>
