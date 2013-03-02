@@ -1,7 +1,7 @@
 <div>
 	<div id="filterWindow" class="modal hide fade span8">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
+			<button type="button" class="close" data-dismiss="modal" 
 				aria-hidden="true">×</button>
 			<h3>Set filter</h3>
 		</div>
@@ -48,10 +48,11 @@
 
 	<div id="createUserWindow" class="modal hide fade span8">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
+			<button type="button" class="close" data-dismiss="modal" 
 				aria-hidden="true">×</button>
 			<h3>Create user</h3>
 		</div>
+		
 		<div class="modal-body">
 
 			<input id="cid" name="id" type="hidden">
@@ -114,8 +115,8 @@
 
 		<div class="row">
 			<p class="pull-right">
-				<a href="#" id="createBtn" class="btn"> Create user </a> <a href="#"
-					id="applyFilterBtn" class="btn btn-primary">Apply filter</a>
+				<a href="#" id="createBtn" class="btn" data-toggle="modal" data-target="#createUserWindow" > Create user </a> <a href="#"
+					id="applyFilterBtn" class="btn btn-primary" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
 			</p>
 		</div>
 
