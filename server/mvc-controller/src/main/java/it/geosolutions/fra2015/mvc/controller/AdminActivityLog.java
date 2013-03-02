@@ -31,14 +31,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller
-@RequestMapping("/check")
-public class CheckController {
+@RequestMapping("/adminactivitylog")
+public class AdminActivityLog {
     
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-    		model.addAttribute("context", "check");
+    		model.addAttribute("context", "activitylog");
             //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "index";
+            return "admin";
 
     }
 }

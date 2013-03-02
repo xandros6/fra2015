@@ -31,14 +31,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller
-@RequestMapping("/check")
-public class CheckController {
+@RequestMapping("/surveylist")
+public class SurveyListController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-    		model.addAttribute("context", "check");
+    		model.addAttribute("context", "surveylist");
             //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "index";
+            return "reviewer";
 
     }
 }

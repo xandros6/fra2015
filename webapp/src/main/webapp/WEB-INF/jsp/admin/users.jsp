@@ -32,9 +32,8 @@
 					<p>
 						<label class="control-label" for="countryComboBox">Countries:</label>
 						<input id="countries" size="20"
-							class="input-block-level ui-autocomplete-input"
-							autocomplete="off"><span role="status" aria-live="polite"
-							class="ui-helper-hidden-accessible"></span>
+							class="input-block-level"
+							data-provide="typeahead" data-source="['ciao','come,'stai']">
 					</p>
 				</fieldset>
 			</form>
@@ -89,9 +88,7 @@
 					</p>
 					<p>
 						<label class="control-label" for="countryComboBox">Countries:</label>
-						<input id="countries" size="20" class="ui-autocomplete-input"
-							autocomplete="off"><span role="status" aria-live="polite"
-							class="ui-helper-hidden-accessible"></span> <a id="addCountryBtn"
+						<input id="countries" size="20"> <a id="addCountryBtn"
 							href="#" class="btn">Add</a> <input type="hidden" id="ccountries"
 							class=""> <input type="hidden" id="selectedCountry"
 							class="">

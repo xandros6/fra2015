@@ -27,18 +27,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * @author DamianoG
+ * @author Lorenzo Natali
  *
  */
 @Controller
-@RequestMapping("/activitylog")
-public class ActivityLog {
+@RequestMapping("/revieweractivitylog")
+public class ReviewerActivityLog {
     
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
     		model.addAttribute("context", "activitylog");
             //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "admin";
+            return "reviewer";
 
     }
 }
