@@ -95,7 +95,7 @@ public class SurveyController {
         SessionUser su = (SessionUser) session.getAttribute("sessionUser");
         CountryValues es = null;
         try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountry(), Integer.parseInt(question));
+            es = surveyService.getCountryAndQuestionValues(su.getCountry(), Integer.parseInt(question+1));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
         }
