@@ -37,7 +37,7 @@ public class VariableNameUtils {
     public static String buildVariableAsText(CompactValue variable) {
 
         StringBuilder sb = new StringBuilder();
-        sb.append("_variable_");
+        sb.append("_fraVariable_");
         sb.append(variable.getVariable());
         if (!(variable.getRowNumber() == 0 && variable.getColumnNumber() == 0)) {
             sb.append("_");
@@ -53,34 +53,24 @@ public class VariableNameUtils {
 
         VariableNameUtils vnu = new VariableNameUtils();
         VariableNameUtils.VariableName var = vnu.new VariableName();
-        Pattern p = Pattern.compile("(?<=\\[)(\\d+)(?=\\])");
+        Pattern p = Pattern.compile("(?<=\\_)((\\p{Alnum})*?)(?=\\_)");
         Matcher m = p.matcher(param);
-
-        String patternForVariableName = "(?<=\\_variable_)(\\d+)(?=\\[)";
-
+        
         boolean skip = false;
-        if (m.find()) {
-            var.row = Integer.valueOf(m.group(0));
-        } else {
-            skip = true;
-            patternForVariableName = "(?<=\\_variable_)(\\d+)";
-            // Logger
-            // exception
-        }
-        if (m.find() && !skip) {
-            var.col = Integer.valueOf(m.group(0));
-        } else {
-            // Logger
-            // exception
-        }
-        p = Pattern.compile(patternForVariableName);
-        m = p.matcher(param);
-        if (m.find()) {
-            var.variableName = m.group(0);
-        } else {
-            // Logger
-            // exception
-        }
+        for (int i =0; m.find(); i++) {
+            switch(i){
+                case 0 : 
+                break;
+                case 1 : var.variableName = m.group(0);
+                break;
+                case 2 : var.row = Integer.valueOf(m.group(0));
+                break;
+                case 3 : var.col = Integer.valueOf(m.group(0));
+                break;
+                default:
+                return null;
+            }
+        } 
         var.value = value;
 
         return var;

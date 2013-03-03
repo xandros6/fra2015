@@ -60,7 +60,8 @@ public class ActivityLogUtils {
             String oldVariable = el.getVariable();
             
             String oldContent = el.getContent();
-            String newContent = newSet.get(oldVariable)[0];
+            String[] set = newSet.get(VariableNameUtils.buildVariableAsText(el));
+            String newContent = (set!=null)?set[0]:null;
             if(newContent == null){
                 activityLog(Changes.DELETED);
                 removedSet.add(oldVariable);
