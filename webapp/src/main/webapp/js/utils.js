@@ -1,21 +1,25 @@
+
 fra = {
+
+
 		deleteRow:function(){
 	    	var row = $(this).closest("tr");
 	    	var table = $(this).closest("table");
 	    	var rows = table.find("tr");
-	    	//at least 2 rows containing inputs
+	    	// at least 2 rows containing inputs
 	    	var entries =0;
 	    	for (var i = 0;i<rows.length && entries <2; i++){
 	    		$(rows[i]).find('.entry-item').length >0 ?entries++ : entries;
 	    	}
 	    	if (entries<2){
-    			alert("You can not delete this"); //TODO i18n
+    			alert("You can not delete this"); // TODO i18n
 				 return false;
 	    	}
 	    	
-	    	 var result = window.confirm('Are you sure you want to delete these data?');//TODO i18n
+	    	 var result = window.confirm('Are you sure you want to delete these data?');// TODO
+																						// i18n
 	         if ( result ){
-	        	// change number of the row 
+	        	// change number of the row
 	 	    	row.nextAll().find('td').each(function(){
 	 	    		if(!$(this).hasClass('entry-item')){
 	 	    			var content = $(this).html();
@@ -44,13 +48,13 @@ fra = {
 	            var name= "";
 	            var placeholder;
 	            
-	            //fist editing
+	            // fist editing
 	            if(hidden.length <=0){
 	            	placeholder= cell.find('.entry_item_placeholder');
 	            	name = placeholder.attr('id');
 	            	hidden=$('<input type="hidden" style="width:80%" name="'+ name +'" type="text" value="'+text+'"/>');
 	            	placeholder.replaceWith(hidden);
-            	//already edited
+            	// already edited
 	            }else{
 	            	name = hidden.attr("name");
 	            	
