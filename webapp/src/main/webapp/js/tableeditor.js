@@ -78,4 +78,14 @@ $(function() {
 					return false;
 				});
 			});
+	$('td.boolean').each(
+			function() {
+				radio = $(this);
+				var chks = $(this).find("input.radio-boolean").click(function(){
+					chks.not(this).attr('checked', false);
+				});
+                    
+                 
+				
+	});
 })
