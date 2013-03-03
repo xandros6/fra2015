@@ -39,6 +39,7 @@ fra = {
 	    editRow: function(){
     		var type='textarea';
 	        var cell = $(this);
+	        
 	        if(cell.hasClass('number')){type='input';}
 	        if ( cell.hasClass('editable') ){
 	            cell.removeClass("editable");
@@ -60,7 +61,10 @@ fra = {
 	            	
 	            	placeholder=hidden;
 	            }
-	            
+	            var myRegexp = /_fraVariable_([0-9]*[A-Za-z]+)_(.*)(_.*_)/;
+				var match = myRegexp.exec(name);
+				if( match ) {cell.addClass('number');}
+				if(cell.hasClass('number')){type='input';}
 	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
 	            input.val(text);
 	            if (cell.hasClass('number')){
@@ -87,6 +91,9 @@ fra = {
 	                return false;
 	            });
 	            cell.find('.celleditor').focus();
+	            $('input').bind('keypress keydown keyup', function(e){
+	                if(e.keyCode == 13) { e.preventDefault(); }
+	             });
 	        }
 	        return false;
 	    }
