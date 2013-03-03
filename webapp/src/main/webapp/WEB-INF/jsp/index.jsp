@@ -28,7 +28,7 @@
 								<jsp:include page="contributor/menu.jsp" />
 
 								<div class="navbar-form pull-right">
-									<button type="submit" class="logout btn">
+									<button type="button" class="logout btn" onClick="location.href='<c:url value="/j_spring_security_logout" />'">
 										<i class="icon-off"></i>
 										<spring:message code="toolbar.logout" />
 									</button>

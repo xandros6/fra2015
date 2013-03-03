@@ -13,6 +13,7 @@
 	<!-- Package where spring search for controllers (annotated classes @Controller) -->
 	<context:component-scan base-package="it.geosolutions.fra2015.mvc.controller" />
 
+	<!-- example of spring validator, but not yet used in this app... -->
 	<bean class="it.geosolutions.fra2015.mvc.validator.DummyFormValidator" />
 
 	<bean id="localeResolver"
@@ -25,14 +26,14 @@
 		<property name="paramName" value="lang" />
 	</bean>
 
-	<bean
+	<!-- <bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
 		<property name="interceptors">
 			<list>
 				<ref bean="localeChangeInterceptor" />
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
