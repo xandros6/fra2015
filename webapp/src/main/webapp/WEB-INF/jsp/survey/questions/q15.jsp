@@ -87,7 +87,7 @@
 									code="ref465"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="131"><div id="cell-content">
-									<select name="_variable_131[1][1]" rownumber="1"><option
+									<select name="_fraVariable_131_1_1_" rownumber="1"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -150,32 +150,32 @@
 						<tr>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="133"><span class="entry_item_placeholder" id="_variable_133[1][0]">&nbsp;</span>
-							<div id="cell-content">${_variable_133[1][0]}</div></td>
+								entry-id="133"><span class="entry_item_placeholder" id="_fraVariable_133_1_0_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_133_1_0_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="133"><span class="entry_item_placeholder" id="_variable_133[1][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_133[1][1]}</div></td>
+								entry-id="133"><span class="entry_item_placeholder" id="_fraVariable_133_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_133_1_1_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="133"><span class="entry_item_placeholder" id="_variable_133[2][0]">&nbsp;</span>
-							<div id="cell-content">${_variable_133[2][0]}</div></td>
+								entry-id="133"><span class="entry_item_placeholder" id="_fraVariable_133_2_0_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_133_2_0_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="133"><span class="entry_item_placeholder" id="_variable_133[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_133[2][1]}</div></td>
+								entry-id="133"><span class="entry_item_placeholder" id="_fraVariable_133_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_133_2_1_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="133"><span class="entry_item_placeholder" id="_variable_133[3][0]">&nbsp;</span>
-							<div id="cell-content">${_variable_133[3][0]}</div></td>
+								entry-id="133"><span class="entry_item_placeholder" id="_fraVariable_133_3_0_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_133_3_0_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="133"><span class="entry_item_placeholder" id="_variable_133[3][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_133[3][1]}</div></td>
+								entry-id="133"><span class="entry_item_placeholder" id="_fraVariable_133_3_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_133_3_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>

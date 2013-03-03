@@ -53,8 +53,8 @@
 						<td columnname="2000-2010"
 							class="prefilled entry-item editable text" rownumber="1"
 							columnnumber="1" style="background-color: rgb(242, 245, 169);"
-							entry-id="9"><span class="entry_item_placeholder" id="_variable_9[1][1]">&nbsp;</span>
-						<div id="cell-content">${_variable_9[1][1]}</div></td>
+							entry-id="9"><span class="entry_item_placeholder" id="_fraVariable_9_1_1_">&nbsp;</span>
+						<div id="cell-content">${_fraVariable_9_1_1_}</div></td>
 					</tr>
 				</tbody>
 			</table>

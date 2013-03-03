@@ -71,20 +71,20 @@
 							<tr>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_variable_163[1][0]">&nbsp;</span>
-								<div id="cell-content">${_variable_163[1][0]}</div></td>
+									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_0_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_163_1_0_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_variable_163[1][1]">&nbsp;</span>
-								<div id="cell-content">${_variable_163[1][1]}</div></td>
+									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_1_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_163_1_1_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_variable_163[1][2]">&nbsp;</span>
-								<div id="cell-content">${_variable_163[1][2]}</div></td>
+									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_2_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_163_1_2_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_variable_163[1][3]">&nbsp;</span>
-								<div id="cell-content">${_variable_163[1][3]}</div></td>
+									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_3_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_163_1_3_}</div></td>
 							</tr>
 						</tbody>
 					</table>
@@ -127,12 +127,12 @@
 									code="ref555"></spring:message></td>
 							<td columnname="2020-2030" class="entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_variable_21a[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_21a[2][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21_a[2][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_21_a[2][1]}</div></td>
 							<td columnname="2020-2030" class="entry-item editable text"
 								rownumber="2" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_variable_21a[2][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_21a[2][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21_a[2][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_21_a[2][2]}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -165,8 +165,8 @@
 									code="ref557"></spring:message></td>
 							<td columnname="2013" class="entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="21b"><span class="entry_item_placeholder" id="_variable_21b[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_21b[2][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="21b"><span class="entry_item_placeholder" id="_fraVariable_21_b[2][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_21_b[2][1]}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -198,16 +198,16 @@
 									code="ref555"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="164"><span class="entry_item_placeholder" id="_variable_164[1][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_164[1][1]}</div></td>
+								entry-id="164"><span class="entry_item_placeholder" id="_fraVariable_164_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_164_1_1_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref557"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="164"><span class="entry_item_placeholder" id="_variable_164[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_164[2][1]}</div></td>
+								entry-id="164"><span class="entry_item_placeholder" id="_fraVariable_164_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_164_2_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>

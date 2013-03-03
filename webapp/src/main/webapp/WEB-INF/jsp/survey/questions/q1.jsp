@@ -121,20 +121,20 @@
 										code="ref39"></spring:message></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[1][1]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[1][1]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_1_1_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_1_1_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[1][2]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[1][2]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_1_2_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_1_2_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[1][3]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[1][3]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_1_3_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_1_3_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[1][4]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[1][4]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_1_4_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_1_4_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
@@ -143,20 +143,20 @@
 										code="ref40"></spring:message></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[2][1]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[2][1]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_2_1_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_2_1_}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[2][2]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[2][2]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_2_2_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_2_2_}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[2][3]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[2][3]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_2_3_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_2_3_}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[2][4]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[2][4]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_2_4_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_2_4_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
@@ -165,20 +165,20 @@
 										code="ref41"></spring:message></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[3][1]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[3][1]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_3_1_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_3_1_}</div></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[3][2]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[3][2]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_3_2_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_3_2_}</div></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[3][3]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[3][3]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_3_3_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_3_3_}</div></td>
 								<td class="entry-item editable text" rownumber="3"
 									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="3"><span class="entry_item_placeholder" id="_variable_3[3][4]">&nbsp;</span>
-								<div id="cell-content">${_variable_3[3][4]}</div></td>
+									entry-id="3"><span class="entry_item_placeholder" id="_fraVariable_3_3_4_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_3_3_4_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
@@ -213,24 +213,24 @@
 							<tr>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="4"><span class="entry_item_placeholder" id="_variable_4[1][0]">&nbsp;</span>
-								<div id="cell-content">${_variable_4[1][0]}</div></td>
+									entry-id="4"><span class="entry_item_placeholder" id="_fraVariable_4_1_0_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_4_1_0_}</div></td>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="4"><span class="entry_item_placeholder" id="_variable_4[1][1]">&nbsp;</span>
-								<div id="cell-content">${_variable_4[1][1]}</div></td>
+									entry-id="4"><span class="entry_item_placeholder" id="_fraVariable_4_1_1_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_4_1_1_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
 							<tr>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="4"><span class="entry_item_placeholder" id="_variable_4[2][0]">&nbsp;</span>
-								<div id="cell-content">${_variable_4[2][0]}</div></td>
+									entry-id="4"><span class="entry_item_placeholder" id="_fraVariable_4_2_0_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_4_2_0_}</div></td>
 								<td class="entry-item editable text" rownumber="2"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="4"><span class="entry_item_placeholder" id="_variable_4[2][1]">&nbsp;</span>
-								<div id="cell-content">${_variable_4[2][1]}</div></td>
+									entry-id="4"><span class="entry_item_placeholder" id="_fraVariable_4_2_1_">&nbsp;</span>
+								<div id="cell-content">${_fraVariable_4_2_1_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
 							</tr>
@@ -253,7 +253,7 @@
 				<div></div>
 				<div class="entry">
 					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="b1odan61or" name="_variable_5"
+						cols="160" rows="10" id="b1odan61or" name="_fraVariable_5_"
 						rownumber="0" columnnumber="0" entry-id="5"> </textarea>
 				</div>
 				<div class="control pull-right"></div>
@@ -276,7 +276,7 @@
 				<div></div>
 				<div class="entry">
 					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="6qcdfv42t9" name="_variable_6"
+						cols="160" rows="10" id="6qcdfv42t9" name="_fraVariable_6_"
 						rownumber="0" columnnumber="0" entry-id="6"> </textarea>
 				</div>
 				<div class="control pull-right"></div>
@@ -293,7 +293,7 @@
 				<div></div>
 				<div class="entry">
 					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="vmwys9yhkt9" name="_variable_7"
+						cols="160" rows="10" id="vmwys9yhkt9" name="_fraVariable_7_"
 						rownumber="0" columnnumber="0" entry-id="7"> </textarea>
 				</div>
 				<div class="control pull-right"></div>
@@ -310,7 +310,7 @@
 				<div></div>
 				<div class="entry">
 					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="x198dbfn7b9" name="_variable_8"
+						cols="160" rows="10" id="x198dbfn7b9" name="_fraVariable_8_"
 						rownumber="0" columnnumber="0" entry-id="8"> </textarea>
 				</div>
 				<div class="control pull-right"></div>
@@ -359,24 +359,24 @@
 									code="ref58"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[2][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[2][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[2][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[2][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[2][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[2][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[2][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[2][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[2][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[2][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[2][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[2][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[2][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[2][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[2][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="2" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[2][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[2][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[2][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[2][5]}</div></td>
 						</tr>
 						<tr rowname="1.2" unit="1000 ha">
 							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
@@ -384,24 +384,24 @@
 									code="ref59"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[3][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[3][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[3][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[3][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[3][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[3][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[3][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[3][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[3][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[3][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[3][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[3][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[3][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[3][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[3][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[3][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="3" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[3][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[3][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[3][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[3][5]}</div></td>
 						</tr>
 						<tr rowname="1.3" unit="1000 ha">
 							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
@@ -409,24 +409,24 @@
 									code="ref60"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[4][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[4][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[4][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[4][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[4][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[4][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[4][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[4][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[4][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[4][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[4][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[4][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[4][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[4][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[4][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[4][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="4" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[4][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[4][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[4][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[4][5]}</div></td>
 						</tr>
 						<tr rowname="1.3.1" unit="1000 ha">
 							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
@@ -434,24 +434,24 @@
 									code="ref61"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[5][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[5][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[5][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[5][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[5][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[5][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[5][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[5][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[5][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[5][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[5][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[5][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[5][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[5][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[5][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[5][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="5" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[5][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[5][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[5][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[5][5]}</div></td>
 						</tr>
 						<tr rowname="1.4" unit="1000 ha">
 							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
@@ -459,24 +459,24 @@
 									code="ref23"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[6][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[6][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[6][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[6][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[6][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[6][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[6][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[6][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[6][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[6][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[6][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[6][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[6][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[6][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[6][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[6][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="6" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[6][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[6][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[6][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[6][5]}</div></td>
 						</tr>
 						<tr rowname="1.5" unit="1000 ha">
 							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
@@ -484,24 +484,24 @@
 									code="ref62"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[7][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[7][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[7][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[7][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[7][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[7][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[7][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[7][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[7][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[7][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[7][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[7][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[7][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[7][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[7][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[7][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="7" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_variable_1a[7][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1a[7][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1_a[7][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_a[7][5]}</div></td>
 						</tr>
 						<tr>
 							<td></td>
@@ -567,44 +567,44 @@
 									code="ref68"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="2" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="2" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[2][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[2][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[2][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[2][10]}</div></td>
 						</tr>
 						<tr rowname="1.6.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -613,44 +613,44 @@
 									code="ref69"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="3" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="3" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[3][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[3][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[3][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[3][10]}</div></td>
 						</tr>
 						<tr rowname="1.6.2" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -659,44 +659,44 @@
 									code="ref70"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="4" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="4" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="4" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[4][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[4][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[4][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[4][10]}</div></td>
 						</tr>
 						<tr rowname="1.7" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -705,44 +705,44 @@
 									code="ref31"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="5" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="5" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[5][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[5][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[5][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[5][10]}</div></td>
 						</tr>
 						<tr rowname="1.7.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -751,44 +751,44 @@
 									code="ref71"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="6" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="6" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[6][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[6][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[6][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[6][10]}</div></td>
 						</tr>
 						<tr rowname="1.8" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -797,44 +797,44 @@
 									code="ref27"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="7" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="7" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="7" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[7][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[7][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[7][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[7][10]}</div></td>
 						</tr>
 						<tr rowname="1.8.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -843,44 +843,44 @@
 									code="ref72"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][1]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][1]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][2]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][2]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][3]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][3]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][3]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][3]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][4]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][4]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][4]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][4]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="8" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][5]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][5]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][5]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][5]}</div></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="6"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][6]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][6]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][6]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][6]}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][7]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][7]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][7]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][7]}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="8"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][8]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][8]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][8]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][8]}</div></td>
 							<td columnname="2010" class="prefilled entry-item editable text"
 								rownumber="8" columnnumber="9"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][9]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][9]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][9]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][9]}</div></td>
 							<td columnname="2015" class="entry-item editable text"
 								rownumber="8" columnnumber="10"
-								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_variable_1b[8][10]">&nbsp;</span>
-							<div id="cell-content">${_variable_1b[8][10]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="1b"><span class="entry_item_placeholder" id="_fraVariable_1_b[8][10]">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_1_b[8][10]}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -911,7 +911,7 @@
 									code="ref15"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[1][1]" rownumber="1"><option
+									<select name="_fraVariable_9_1_1_" rownumber="1"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -919,7 +919,7 @@
 								</div></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[1][2]" rownumber="1"><option
+									<select name="_fraVariable_9_1_2_" rownumber="1"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -931,7 +931,7 @@
 									code="ref17"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[2][1]" rownumber="2"><option
+									<select name="_fraVariable_9_2_1_" rownumber="2"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -939,7 +939,7 @@
 								</div></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="2"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[2][2]" rownumber="2"><option
+									<select name="_fraVariable_9_2_2_" rownumber="2"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -951,7 +951,7 @@
 									code="ref25"></spring:message></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[3][1]" rownumber="3"><option
+									<select name="_fraVariable_9_3_1_" rownumber="3"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -959,7 +959,7 @@
 								</div></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="2"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[3][2]" rownumber="3"><option
+									<select name="_fraVariable_9_3_2_" rownumber="3"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -971,7 +971,7 @@
 									code="ref27"></spring:message></td>
 							<td class="tier entry-item" rownumber="4" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[4][1]" rownumber="4"><option
+									<select name="_fraVariable_9_4_1_" rownumber="4"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -979,7 +979,7 @@
 								</div></td>
 							<td class="tier entry-item" rownumber="4" columnnumber="2"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[4][2]" rownumber="4"><option
+									<select name="_fraVariable_9_4_2_" rownumber="4"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -991,7 +991,7 @@
 									code="ref29"></spring:message></td>
 							<td class="tier entry-item" rownumber="5" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[5][1]" rownumber="5"><option
+									<select name="_fraVariable_9_5_1_" rownumber="5"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -999,7 +999,7 @@
 								</div></td>
 							<td class="tier entry-item" rownumber="5" columnnumber="2"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[5][2]" rownumber="5"><option
+									<select name="_fraVariable_9_5_2_" rownumber="5"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -1011,7 +1011,7 @@
 									code="ref31"></spring:message></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[6][1]" rownumber="6"><option
+									<select name="_fraVariable_9_6_1_" rownumber="6"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -1019,7 +1019,7 @@
 								</div></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="2"
 								entry-id="9"><div id="cell-content">
-									<select name="_variable_9[6][2]" rownumber="6"><option
+									<select name="_fraVariable_9_6_2_" rownumber="6"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -1087,108 +1087,108 @@
 									code="ref15"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[1][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[1][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_1_1_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[1][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[1][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_1_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_1_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref17"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[2][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_2_1_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[2][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[2][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_2_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_2_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="3" columnnumber="0"><spring:message
 									code="ref19"></spring:message></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[3][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[3][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_3_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_3_1_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[3][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[3][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_3_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_3_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="4" columnnumber="0"><spring:message
 									code="ref83"></spring:message></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[4][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[4][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_4_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_4_1_}</div></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[4][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[4][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_4_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_4_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="5" columnnumber="0"><spring:message
 									code="ref23"></spring:message></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[5][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[5][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_5_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_5_1_}</div></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[5][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[5][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_5_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_5_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="6" columnnumber="0"><spring:message
 									code="ref25"></spring:message></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[6][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[6][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_6_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_6_1_}</div></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[6][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[6][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_6_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_6_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="7" columnnumber="0"><spring:message
 									code="ref27"></spring:message></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[7][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[7][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_7_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_7_1_}</div></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[7][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[7][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_7_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_7_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="8" columnnumber="0"><spring:message
 									code="ref29"></spring:message></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[8][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[8][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_8_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_8_1_}</div></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[8][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[8][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_8_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_8_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="9" columnnumber="0"><spring:message
 									code="ref31"></spring:message></td>
 							<td class="entry-item editable text" rownumber="9"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[9][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[9][1]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_9_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_9_1_}</div></td>
 							<td class="entry-item editable text" rownumber="9"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_variable_11[9][2]">&nbsp;</span>
-							<div id="cell-content">${_variable_11[9][2]}</div></td>
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11_9_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_11_9_2_}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -1210,8 +1210,8 @@
 						<tr>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="12"><span class="entry_item_placeholder" id="_variable_12[1][0]">&nbsp;</span>
-							<div id="cell-content">${_variable_12[1][0]}</div></td>
+								entry-id="12"><span class="entry_item_placeholder" id="_fraVariable_12_1_0_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_12_1_0_}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -1235,24 +1235,24 @@
 									code="ref86"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13"><span class="entry_item_placeholder" id="_variable_13[1][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_13[1][1]}</div></td>
+								entry-id="13"><span class="entry_item_placeholder" id="_fraVariable_13_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_13_1_1_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref87"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13"><span class="entry_item_placeholder" id="_variable_13[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_13[2][1]}</div></td>
+								entry-id="13"><span class="entry_item_placeholder" id="_fraVariable_13_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_13_2_1_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="3" columnnumber="0"><spring:message
 									code="ref88"></spring:message></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13"><span class="entry_item_placeholder" id="_variable_13[3][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_13[3][1]}</div></td>
+								entry-id="13"><span class="entry_item_placeholder" id="_fraVariable_13_3_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_13_3_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>

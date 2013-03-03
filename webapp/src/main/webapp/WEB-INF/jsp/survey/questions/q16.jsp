@@ -82,8 +82,8 @@
 									code="ref479"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[1][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[1][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_1_1_}</div></td>
 						</tr>
 						<tr rowname="16.1.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -92,8 +92,8 @@
 									code="ref480"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[2][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_2_1_}</div></td>
 						</tr>
 						<tr rowname="16.1.2" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -102,8 +102,8 @@
 									code="ref481"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[3][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[3][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_3_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_3_1_}</div></td>
 						</tr>
 						<tr rowname="16.2" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -112,8 +112,8 @@
 									code="ref482"></spring:message></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[4][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[4][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_4_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_4_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -122,8 +122,8 @@
 									code="ref483"></spring:message></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[5][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[5][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_5_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_5_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -132,8 +132,8 @@
 									code="ref39"></spring:message></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[6][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[6][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_6_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_6_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.2" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -142,8 +142,8 @@
 									code="ref40"></spring:message></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[7][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[7][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_7_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_7_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.3" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
@@ -152,8 +152,8 @@
 									code="ref41"></spring:message></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_variable_16[8][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_16[8][1]}</div></td>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_8_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_16_8_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -216,7 +216,7 @@
 									code="ref479"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="136"><div id="cell-content">
-									<select name="_variable_136[1][1]" rownumber="1"><option
+									<select name="_fraVariable_136_1_1_" rownumber="1"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -228,7 +228,7 @@
 									code="ref482"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
 								entry-id="136"><div id="cell-content">
-									<select name="_variable_136[2][1]" rownumber="2"><option
+									<select name="_fraVariable_136_2_1_" rownumber="2"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
@@ -265,16 +265,16 @@
 									code="ref469"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="137"><span class="entry_item_placeholder" id="_variable_137[1][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_137[1][1]}</div></td>
+								entry-id="137"><span class="entry_item_placeholder" id="_fraVariable_137_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_137_1_1_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref482"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="137"><span class="entry_item_placeholder" id="_variable_137[2][1]">&nbsp;</span>
-							<div id="cell-content">${_variable_137[2][1]}</div></td>
+								entry-id="137"><span class="entry_item_placeholder" id="_fraVariable_137_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_137_2_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>
