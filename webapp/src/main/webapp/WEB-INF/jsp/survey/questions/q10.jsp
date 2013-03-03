@@ -528,9 +528,7 @@
 									code="ref378"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="105"><input class="entry-item-value"
-								type="hidden" value="${_variable_105[1][1]}"c
-								name="_variable_105[1][1]">
+								entry-id="105"><span class="entry_item_placeholder" id="_variable_105[1][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_105[1][1]}</div></td>
 						</tr>
 						<tr>
