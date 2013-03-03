@@ -25,56 +25,56 @@
 			<tr>
 				<td>1.1 <spring:message code="ref58"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1a[2][1]}</td>
-				<td>${variable_1a[2][2]}</td>
-				<td>${variable_1a[2][3]}</td>
-				<td>${variable_1a[2][4]}</td>
-				<td>${variable_1a[2][5]}</td>
+				<td>${_fraVariable_1a_2_1_}</td>
+				<td>${_fraVariable_1a_2_2_}</td>
+				<td>${_fraVariable_1a_2_3_}</td>
+				<td>${_fraVariable_1a_2_4_}</td>
+				<td>${_fraVariable_1a_2_5_}</td>
 			</tr>
 			<tr>
 				<td>1.2 <spring:message code="ref59"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1a[3][1]}</td>
-				<td>${variable_1a[3][2]}</td>
-				<td>${variable_1a[3][3]}</td>
-				<td>${variable_1a[3][4]}</td>
-				<td>${variable_1a[3][5]}</td>
+				<td>${_fraVariable_1a_3_1_}</td>
+				<td>${_fraVariable_1a_3_2_}</td>
+				<td>${_fraVariable_1a_3_3_}</td>
+				<td>${_fraVariable_1a_3_4_}</td>
+				<td>${_fraVariable_1a_3_5_}</td>
 			</tr>
 			<tr>
 				<td>1.3 <spring:message code="ref60"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1a[4][1]}</td>
-				<td>${variable_1a[4][2]}</td>
-				<td>${variable_1a[4][3]}</td>
-				<td>${variable_1a[4][4]}</td>
-				<td>${variable_1a[4][5]}</td>
+				<td>${_fraVariable_1a_4_1_}</td>
+				<td>${_fraVariable_1a_4_2_}</td>
+				<td>${_fraVariable_1a_4_3_}</td>
+				<td>${_fraVariable_1a_4_4_}</td>
+				<td>${_fraVariable_1a_4_5_}</td>
 			</tr>
 			<tr>
 				<td>1.3.1 <spring:message code="ref61"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1a[5][1]}</td>
-				<td>${variable_1a[5][2]}</td>
-				<td>${variable_1a[5][3]}</td>
-				<td>${variable_1a[5][4]}</td>
-				<td>${variable_1a[5][5]}</td>
+				<td>${_fraVariable_1a_5_1_}</td>
+				<td>${_fraVariable_1a_5_2_}</td>
+				<td>${_fraVariable_1a_5_3_}</td>
+				<td>${_fraVariable_1a_5_4_}</td>
+				<td>${_fraVariable_1a_5_5_}</td>
 			</tr>
 			<tr>
 				<td>1.4 <spring:message code="ref23"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1a[6][1]}</td>
-				<td>${variable_1a[6][2]}</td>
-				<td>${variable_1a[6][3]}</td>
-				<td>${variable_1a[6][4]}</td>
-				<td>${variable_1a[6][5]}</td>
+				<td>${_fraVariable_1a_6_1_}</td>
+				<td>${_fraVariable_1a_6_2_}</td>
+				<td>${_fraVariable_1a_6_3_}</td>
+				<td>${_fraVariable_1a_6_4_}</td>
+				<td>${_fraVariable_1a_6_5_}</td>
 			</tr>
 			<tr>
 				<td>1.5 <spring:message code="ref62"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1a[7][1]}</td>
-				<td>${variable_1a[7][2]}</td>
-				<td>${variable_1a[7][3]}</td>
-				<td>${variable_1a[7][4]}</td>
-				<td>${variable_1a[7][5]}</td>
+				<td>${_fraVariable_1a_7_1_}</td>
+				<td>${_fraVariable_1a_7_2_}</td>
+				<td>${_fraVariable_1a_7_3_}</td>
+				<td>${_fraVariable_1a_7_4_}</td>
+				<td>${_fraVariable_1a_7_5_}</td>
 			</tr>
 			<tr>
 				<td rowspan="8">1b</td>
@@ -82,65 +82,65 @@
 			<tr>
 				<td>1.6 <spring:message code="ref68"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[2][1]},${variable_1b[2][6]}</td>
-				<td>${variable_1b[2][2]},${variable_1b[2][7]}</td>
-				<td>${variable_1b[2][3]},${variable_1b[2][8]}</td>
-				<td>${variable_1b[2][4]},${variable_1b[2][9]}</td>
-				<td>${variable_1b[2][5]},${variable_1b[2][10]}</td>
+				<td>${_fraVariable_1b_2_1_},${_fraVariable_1b_2_6_}</td>
+				<td>${_fraVariable_1b_2_2_},${_fraVariable_1b_2_7_}</td>
+				<td>${_fraVariable_1b_2_3_},${_fraVariable_1b_2_8_}</td>
+				<td>${_fraVariable_1b_2_4_},${_fraVariable_1b_2_9_}</td>
+				<td>${_fraVariable_1b_2_5_},${_fraVariable_1b_2_10_}</td>
 			</tr>
 			<tr>
 				<td>1.6.1 <spring:message code="ref69"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[3][1]},${variable_1b[3][6]}</td>
-				<td>${variable_1b[3][2]},${variable_1b[3][7]}</td>
-				<td>${variable_1b[3][3]},${variable_1b[3][8]}</td>
-				<td>${variable_1b[3][4]},${variable_1b[3][9]}</td>
-				<td>${variable_1b[3][5]},${variable_1b[3][10]}</td>
+				<td>${_fraVariable_1b_3_1_},${_fraVariable_1b_3_6_}</td>
+				<td>${_fraVariable_1b_3_2_},${_fraVariable_1b_3_7_}</td>
+				<td>${_fraVariable_1b_3_3_},${_fraVariable_1b_3_8_}</td>
+				<td>${_fraVariable_1b_3_4_},${_fraVariable_1b_3_9_}</td>
+				<td>${_fraVariable_1b_3_5_},${_fraVariable_1b_3_10_}</td>
 			</tr>
 			<tr>
 				<td>1.6.2 <spring:message code="ref70"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[4][1]},${variable_1b[4][6]}</td>
-				<td>${variable_1b[4][2]},${variable_1b[4][7]}</td>
-				<td>${variable_1b[4][3]},${variable_1b[4][8]}</td>
-				<td>${variable_1b[4][4]},${variable_1b[4][9]}</td>
-				<td>${variable_1b[4][5]},${variable_1b[4][10]}</td>
+				<td>${_fraVariable_1b_4_1_},${_fraVariable_1b_4_6_}</td>
+				<td>${_fraVariable_1b_4_2_},${_fraVariable_1b_4_7_}</td>
+				<td>${_fraVariable_1b_4_3_},${_fraVariable_1b_4_8_}</td>
+				<td>${_fraVariable_1b_4_4_},${_fraVariable_1b_4_9_}</td>
+				<td>${_fraVariable_1b_4_5_},${_fraVariable_1b_4_10_}</td>
 			</tr>
 			<tr>
 				<td>1.7 <spring:message code="ref31"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[5][1]},${variable_1b[5][6]}</td>
-				<td>${variable_1b[5][2]},${variable_1b[5][7]}</td>
-				<td>${variable_1b[5][3]},${variable_1b[5][8]}</td>
-				<td>${variable_1b[5][4]},${variable_1b[5][9]}</td>
-				<td>${variable_1b[5][5]},${variable_1b[5][10]}</td>
+				<td>${_fraVariable_1b_5_1_},${_fraVariable_1b_5_6_}</td>
+				<td>${_fraVariable_1b_5_2_},${_fraVariable_1b_5_7_}</td>
+				<td>${_fraVariable_1b_5_3_},${_fraVariable_1b_5_8_}</td>
+				<td>${_fraVariable_1b_5_4_},${_fraVariable_1b_5_9_}</td>
+				<td>${_fraVariable_1b_5_5_},${_fraVariable_1b_5_10_}</td>
 			</tr>
 			<tr>
 				<td>1.7.1 <spring:message code="ref71"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[6][1]},${variable_1b[6][6]}</td>
-				<td>${variable_1b[6][2]},${variable_1b[6][7]}</td>
-				<td>${variable_1b[6][3]},${variable_1b[6][8]}</td>
-				<td>${variable_1b[6][4]},${variable_1b[6][9]}</td>
-				<td>${variable_1b[6][5]},${variable_1b[6][10]}</td>
+				<td>${_fraVariable_1b_6_1_},${_fraVariable_1b_6_6_}</td>
+				<td>${_fraVariable_1b_6_2_},${_fraVariable_1b_6_7_}</td>
+				<td>${_fraVariable_1b_6_3_},${_fraVariable_1b_6_8_}</td>
+				<td>${_fraVariable_1b_6_4_},${_fraVariable_1b_6_9_}</td>
+				<td>${_fraVariable_1b_6_5_},${_fraVariable_1b_6_10_}</td>
 			</tr>
 			<tr>
 				<td>1.8 <spring:message code="ref27"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[7][1]},${variable_1b[7][6]}</td>
-				<td>${variable_1b[7][2]},${variable_1b[7][7]}</td>
-				<td>${variable_1b[7][3]},${variable_1b[7][8]}</td>
-				<td>${variable_1b[7][4]},${variable_1b[7][9]}</td>
-				<td>${variable_1b[7][5]},${variable_1b[7][10]}</td>
+				<td>${_fraVariable_1b_7_1_},${_fraVariable_1b_7_6_}</td>
+				<td>${_fraVariable_1b_7_2_},${_fraVariable_1b_7_7_}</td>
+				<td>${_fraVariable_1b_7_3_},${_fraVariable_1b_7_8_}</td>
+				<td>${_fraVariable_1b_7_4_},${_fraVariable_1b_7_9_}</td>
+				<td>${_fraVariable_1b_7_5_},${_fraVariable_1b_7_10_}</td>
 			</tr>
 			<tr>
 				<td>1.8.1 <spring:message code="ref72"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_1b[8][1]},${variable_1b[8][6]}</td>
-				<td>${variable_1b[8][2]},${variable_1b[8][7]}</td>
-				<td>${variable_1b[8][3]},${variable_1b[8][8]}</td>
-				<td>${variable_1b[8][4]},${variable_1b[8][9]}</td>
-				<td>${variable_1b[8][5]},${variable_1b[8][10]}</td>
+				<td>${_fraVariable_1b_8_1_},${_fraVariable_1b_8_6_}</td>
+				<td>${_fraVariable_1b_8_2_},${_fraVariable_1b_8_7_}</td>
+				<td>${_fraVariable_1b_8_3_},${_fraVariable_1b_8_8_}</td>
+				<td>${_fraVariable_1b_8_4_},${_fraVariable_1b_8_9_}</td>
+				<td>${_fraVariable_1b_8_5_},${_fraVariable_1b_8_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="7">2a</td>
@@ -148,56 +148,56 @@
 			<tr>
 				<td>2.1 <spring:message code="ref95"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2a[2][1]}</td>
-				<td>${variable_2a[2][2]}</td>
-				<td>${variable_2a[2][3]}</td>
-				<td>${variable_2a[2][4]}</td>
-				<td>${variable_2a[2][5]}</td>
+				<td>${_fraVariable_2a_2_1_}</td>
+				<td>${_fraVariable_2a_2_2_}</td>
+				<td>${_fraVariable_2a_2_3_}</td>
+				<td>${_fraVariable_2a_2_4_}</td>
+				<td>${_fraVariable_2a_2_5_}</td>
 			</tr>
 			<tr>
 				<td>2.2 <spring:message code="ref97"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2a[3][1]}</td>
-				<td>${variable_2a[3][2]}</td>
-				<td>${variable_2a[3][3]}</td>
-				<td>${variable_2a[3][4]}</td>
-				<td>${variable_2a[3][5]}</td>
+				<td>${_fraVariable_2a_3_1_}</td>
+				<td>${_fraVariable_2a_3_2_}</td>
+				<td>${_fraVariable_2a_3_3_}</td>
+				<td>${_fraVariable_2a_3_4_}</td>
+				<td>${_fraVariable_2a_3_5_}</td>
 			</tr>
 			<tr>
 				<td>2.1.1 <spring:message code="ref110"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2a[4][1]}</td>
-				<td>${variable_2a[4][2]}</td>
-				<td>${variable_2a[4][3]}</td>
-				<td>${variable_2a[4][4]}</td>
-				<td>${variable_2a[4][5]}</td>
+				<td>${_fraVariable_2a_4_1_}</td>
+				<td>${_fraVariable_2a_4_2_}</td>
+				<td>${_fraVariable_2a_4_3_}</td>
+				<td>${_fraVariable_2a_4_4_}</td>
+				<td>${_fraVariable_2a_4_5_}</td>
 			</tr>
 			<tr>
 				<td>2.1.1.1 <spring:message code="ref111"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2a[4][1]}</td>
-				<td>${variable_2a[4][2]}</td>
-				<td>${variable_2a[4][3]}</td>
-				<td>${variable_2a[4][4]}</td>
-				<td>${variable_2a[4][5]}</td>
+				<td>${_fraVariable_2a_4_1_}</td>
+				<td>${_fraVariable_2a_4_2_}</td>
+				<td>${_fraVariable_2a_4_3_}</td>
+				<td>${_fraVariable_2a_4_4_}</td>
+				<td>${_fraVariable_2a_4_5_}</td>
 			</tr>
 			<tr>
 				<td>2.3 <spring:message code="ref101"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2a[5][1]}</td>
-				<td>${variable_2a[5][2]}</td>
-				<td>${variable_2a[5][3]}</td>
-				<td>${variable_2a[5][4]}</td>
-				<td>${variable_2a[5][5]}</td>
+				<td>${_fraVariable_2a_5_1_}</td>
+				<td>${_fraVariable_2a_5_2_}</td>
+				<td>${_fraVariable_2a_5_3_}</td>
+				<td>${_fraVariable_2a_5_4_}</td>
+				<td>${_fraVariable_2a_5_5_}</td>
 			</tr>
 			<tr>
 				<td>2.3.1 <spring:message code="ref110"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2a[6][1]}</td>
-				<td>${variable_2a[6][2]}</td>
-				<td>${variable_2a[6][3]}</td>
-				<td>${variable_2a[6][4]}</td>
-				<td>${variable_2a[6][5]}</td>
+				<td>${_fraVariable_2a_6_1_}</td>
+				<td>${_fraVariable_2a_6_2_}</td>
+				<td>${_fraVariable_2a_6_3_}</td>
+				<td>${_fraVariable_2a_6_4_}</td>
+				<td>${_fraVariable_2a_6_5_}</td>
 			</tr>
 			<tr>
 				<td rowspan="2">2b</td>
@@ -205,9 +205,9 @@
 			<tr>
 				<td>2.4</td>
 				<td>1000 ha</td>
-				<td>${variable_2b[7][1]},${variable_2b[7][2]},${variable_2b[7][3]}</td>
-				<td colspan="2">${variable_2b[7][4]},${variable_2b[7][5]},${variable_2b[7][6]}</td>
-				<td colspan="2">${variable_2b[7][7]},${variable_2b[7][8]},${variable_2b[7][9]}</td>
+				<td>${_fraVariable_2b_7_1_},${_fraVariable_2b_7_2_},${_fraVariable_2b_7_3_}</td>
+				<td colspan="2">${_fraVariable_2b_7_4_},${_fraVariable_2b_7_5_},${_fraVariable_2b_7_6_}</td>
+				<td colspan="2">${_fraVariable_2b_7_7_},${_fraVariable_2b_7_8_},${_fraVariable_2b_7_9_}</td>
 			</tr>
 			<tr>
 				<td rowspan="3">2c</td>
@@ -215,20 +215,20 @@
 			<tr>
 				<td>2.5 <spring:message code="ref121"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2c[2][1]}</td>
-				<td>${variable_2c[2][2]}</td>
-				<td>${variable_2c[2][3]}</td>
-				<td>${variable_2c[2][4]}</td>
-				<td>${variable_2c[2][5]}</td>
+				<td>${_fraVariable_2c_2_1_}</td>
+				<td>${_fraVariable_2c_2_2_}</td>
+				<td>${_fraVariable_2c_2_3_}</td>
+				<td>${_fraVariable_2c_2_4_}</td>
+				<td>${_fraVariable_2c_2_5_}</td>
 			</tr>
 			<tr>
 				<td>2.5.1 <spring:message code="ref122"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_2c[3][1]}</td>
-				<td>${variable_2c[3][2]}</td>
-				<td>${variable_2c[3][3]}</td>
-				<td>${variable_2c[3][4]}</td>
-				<td>${variable_2c[3][5]}</td>
+				<td>${_fraVariable_2c_3_1_}</td>
+				<td>${_fraVariable_2c_3_2_}</td>
+				<td>${_fraVariable_2c_3_3_}</td>
+				<td>${_fraVariable_2c_3_4_}</td>
+				<td>${_fraVariable_2c_3_5_}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -240,56 +240,56 @@
 			<tr>
 				<td>3.1 <spring:message code="ref154"></spring:message></td>
 				<td>million m3</td>
-				<td>${variable_3a[3][1]},${variable_3a[3][6]}</td>
-				<td>${variable_3a[3][2]},${variable_3a[3][7]}</td>
-				<td>${variable_3a[3][3]},${variable_3a[3][8]}</td>
-				<td>${variable_3a[3][4]},${variable_3a[3][9]}</td>
-				<td>${variable_3a[3][5]},${variable_3a[3][10]}</td>
+				<td>${_fraVariable_3a_3_1_},${_fraVariable_3a_3_6_}</td>
+				<td>${_fraVariable_3a_3_2_},${_fraVariable_3a_3_7_}</td>
+				<td>${_fraVariable_3a_3_3_},${_fraVariable_3a_3_8_}</td>
+				<td>${_fraVariable_3a_3_4_},${_fraVariable_3a_3_9_}</td>
+				<td>${_fraVariable_3a_3_5_},${_fraVariable_3a_3_10_}</td>
 			</tr>
 			<tr>
 				<td>3.1.1 <spring:message code="ref155"></spring:message></td>
 				<td>million m3</td>
-				<td>${variable_3a[4][1]},${variable_3a[4][6]}</td>
-				<td>${variable_3a[4][2]},${variable_3a[4][7]}</td>
-				<td>${variable_3a[4][3]},${variable_3a[4][8]}</td>
-				<td>${variable_3a[4][4]},${variable_3a[4][9]}</td>
-				<td>${variable_3a[4][5]},${variable_3a[4][10]}</td>
+				<td>${_fraVariable_3a_4_1_},${_fraVariable_3a_4_6_}</td>
+				<td>${_fraVariable_3a_4_2_},${_fraVariable_3a_4_7_}</td>
+				<td>${_fraVariable_3a_4_3_},${_fraVariable_3a_4_8_}</td>
+				<td>${_fraVariable_3a_4_4_},${_fraVariable_3a_4_9_}</td>
+				<td>${_fraVariable_3a_4_5_},${_fraVariable_3a_4_10_}</td>
 			</tr>
 			<tr>
 				<td>3.1.2 <spring:message code="ref156"></spring:message></td>
 				<td>million m3</td>
-				<td>${variable_3a[5][1]},${variable_3a[5][6]}</td>
-				<td>${variable_3a[5][2]},${variable_3a[5][7]}</td>
-				<td>${variable_3a[5][3]},${variable_3a[5][8]}</td>
-				<td>${variable_3a[5][4]},${variable_3a[5][9]}</td>
-				<td>${variable_3a[5][5]},${variable_3a[5][10]}</td>
+				<td>${_fraVariable_3a_5_1_},${_fraVariable_3a_5_6_}</td>
+				<td>${_fraVariable_3a_5_2_},${_fraVariable_3a_5_7_}</td>
+				<td>${_fraVariable_3a_5_3_},${_fraVariable_3a_5_8_}</td>
+				<td>${_fraVariable_3a_5_4_},${_fraVariable_3a_5_9_}</td>
+				<td>${_fraVariable_3a_5_5_},${_fraVariable_3a_5_10_}</td>
 			</tr>
 			<tr>
 				<td>3.2 <spring:message code="ref157"></spring:message></td>
 				<td>million m3</td>
-				<td>${variable_3a[6][1]},${variable_3a[6][6]}</td>
-				<td>${variable_3a[6][2]},${variable_3a[6][7]}</td>
-				<td>${variable_3a[6][3]},${variable_3a[6][8]}</td>
-				<td>${variable_3a[6][4]},${variable_3a[6][9]}</td>
-				<td>${variable_3a[6][5]},${variable_3a[6][10]}</td>
+				<td>${_fraVariable_3a_6_1_},${_fraVariable_3a_6_6_}</td>
+				<td>${_fraVariable_3a_6_2_},${_fraVariable_3a_6_7_}</td>
+				<td>${_fraVariable_3a_6_3_},${_fraVariable_3a_6_8_}</td>
+				<td>${_fraVariable_3a_6_4_},${_fraVariable_3a_6_9_}</td>
+				<td>${_fraVariable_3a_6_5_},${_fraVariable_3a_6_10_}</td>
 			</tr>
 			<tr>
 				<td>3.2.1 <spring:message code="ref155"></spring:message></td>
 				<td>million m3</td>
-				<td>${variable_3a[7][1]},${variable_3a[7][6]}</td>
-				<td>${variable_3a[7][2]},${variable_3a[7][7]}</td>
-				<td>${variable_3a[7][3]},${variable_3a[7][8]}</td>
-				<td>${variable_3a[7][4]},${variable_3a[7][9]}</td>
-				<td>${variable_3a[7][5]},${variable_3a[7][10]}</td>
+				<td>${_fraVariable_3a_7_1_},${_fraVariable_3a_7_6_}</td>
+				<td>${_fraVariable_3a_7_2_},${_fraVariable_3a_7_7_}</td>
+				<td>${_fraVariable_3a_7_3_},${_fraVariable_3a_7_8_}</td>
+				<td>${_fraVariable_3a_7_4_},${_fraVariable_3a_7_9_}</td>
+				<td>${_fraVariable_3a_7_5_},${_fraVariable_3a_7_10_}</td>
 			</tr>
 			<tr>
 				<td>3.2.2 <spring:message code="ref156"></spring:message></td>
 				<td>million m3</td>
-				<td>${variable_3a[8][1]},${variable_3a[8][6]}</td>
-				<td>${variable_3a[8][2]},${variable_3a[8][7]}</td>
-				<td>${variable_3a[8][3]},${variable_3a[8][8]}</td>
-				<td>${variable_3a[8][4]},${variable_3a[8][9]}</td>
-				<td>${variable_3a[8][5]},${variable_3a[8][10]}</td>
+				<td>${_fraVariable_3a_8_1_},${_fraVariable_3a_8_6_}</td>
+				<td>${_fraVariable_3a_8_2_},${_fraVariable_3a_8_7_}</td>
+				<td>${_fraVariable_3a_8_3_},${_fraVariable_3a_8_8_}</td>
+				<td>${_fraVariable_3a_8_4_},${_fraVariable_3a_8_9_}</td>
+				<td>${_fraVariable_3a_8_5_},${_fraVariable_3a_8_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="4">3c</td>
@@ -297,29 +297,29 @@
 			<tr>
 				<td>3.4 <spring:message code="ref186"></spring:message></td>
 				<td>m3/ha/yr</td>
-				<td>${variable_3c[3][1]}</td>
-				<td>${variable_3c[3][2]}</td>
-				<td>${variable_3c[3][3]}</td>
-				<td>${variable_3c[3][4]}</td>
-				<td>${variable_3c[3][5]}</td>
+				<td>${_fraVariable_3c_3_1_}</td>
+				<td>${_fraVariable_3c_3_2_}</td>
+				<td>${_fraVariable_3c_3_3_}</td>
+				<td>${_fraVariable_3c_3_4_}</td>
+				<td>${_fraVariable_3c_3_5_}</td>
 			</tr>
 			<tr>
 				<td>3.4.1 <spring:message code="ref155"></spring:message></td>
 				<td>m3/ha/yr</td>
-				<td>${variable_3c[4][1]}</td>
-				<td>${variable_3c[4][2]}</td>
-				<td>${variable_3c[4][3]}</td>
-				<td>${variable_3c[4][4]}</td>
-				<td>${variable_3c[4][5]}</td>
+				<td>${_fraVariable_3c_4_1_}</td>
+				<td>${_fraVariable_3c_4_2_}</td>
+				<td>${_fraVariable_3c_4_3_}</td>
+				<td>${_fraVariable_3c_4_4_}</td>
+				<td>${_fraVariable_3c_4_5_}</td>
 			</tr>
 			<tr>
 				<td>3.4.2 <spring:message code="ref156"></spring:message></td>
 				<td>m3/ha/yr</td>
-				<td>${variable_3c[5][1]}</td>
-				<td>${variable_3c[5][2]}</td>
-				<td>${variable_3c[5][3]}</td>
-				<td>${variable_3c[5][4]}</td>
-				<td>${variable_3c[5][5]}</td>
+				<td>${_fraVariable_3c_5_1_}</td>
+				<td>${_fraVariable_3c_5_2_}</td>
+				<td>${_fraVariable_3c_5_3_}</td>
+				<td>${_fraVariable_3c_5_4_}</td>
+				<td>${_fraVariable_3c_5_5_}</td>
 			</tr>
 			<tr>
 				<td rowspan="4">3d</td>
@@ -327,29 +327,29 @@
 			<tr>
 				<td>3.5 <spring:message code="ref189"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3d[3][1]},${variable_3d[3][6]}</td>
-				<td>${variable_3d[3][2]},${variable_3d[3][7]}</td>
-				<td>${variable_3d[3][3]},${variable_3d[3][8]}</td>
-				<td>${variable_3d[3][4]},${variable_3d[3][9]}</td>
-				<td>${variable_3d[3][5]},${variable_3d[3][10]}</td>
+				<td>${_fraVariable_3d_3_1_},${_fraVariable_3d_3_6_}</td>
+				<td>${_fraVariable_3d_3_2_},${_fraVariable_3d_3_7_}</td>
+				<td>${_fraVariable_3d_3_3_},${_fraVariable_3d_3_8_}</td>
+				<td>${_fraVariable_3d_3_4_},${_fraVariable_3d_3_9_}</td>
+				<td>${_fraVariable_3d_3_5_},${_fraVariable_3d_3_10_}</td>
 			</tr>
 			<tr>
 				<td>3.6 <spring:message code="ref190"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3d[4][1]},${variable_3d[4][6]}</td>
-				<td>${variable_3d[4][2]},${variable_3d[4][7]}</td>
-				<td>${variable_3d[4][3]},${variable_3d[4][8]}</td>
-				<td>${variable_3d[4][4]},${variable_3d[4][9]}</td>
-				<td>${variable_3d[4][5]},${variable_3d[4][10]}</td>
+				<td>${_fraVariable_3d_4_1_},${_fraVariable_3d_4_6_}</td>
+				<td>${_fraVariable_3d_4_2_},${_fraVariable_3d_4_7_}</td>
+				<td>${_fraVariable_3d_4_3_},${_fraVariable_3d_4_8_}</td>
+				<td>${_fraVariable_3d_4_4_},${_fraVariable_3d_4_9_}</td>
+				<td>${_fraVariable_3d_4_5_},${_fraVariable_3d_4_10_}</td>
 			</tr>
 			<tr>
 				<td>3.7 <spring:message code="ref139"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3d[5][1]},${variable_3d[5][6]}</td>
-				<td>${variable_3d[5][2]},${variable_3d[5][7]}</td>
-				<td>${variable_3d[5][3]},${variable_3d[5][8]}</td>
-				<td>${variable_3d[5][4]},${variable_3d[5][9]}</td>
-				<td>${variable_3d[5][5]},${variable_3d[5][10]}</td>
+				<td>${_fraVariable_3d_5_1_},${_fraVariable_3d_5_6_}</td>
+				<td>${_fraVariable_3d_5_2_},${_fraVariable_3d_5_7_}</td>
+				<td>${_fraVariable_3d_5_3_},${_fraVariable_3d_5_8_}</td>
+				<td>${_fraVariable_3d_5_4_},${_fraVariable_3d_5_9_}</td>
+				<td>${_fraVariable_3d_5_5_},${_fraVariable_3d_5_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="6">3e</td>
@@ -357,47 +357,47 @@
 			<tr>
 				<td>3.8 <spring:message code="ref194"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3e[3][1]},${variable_3e[3][6]}</td>
-				<td>${variable_3e[3][2]},${variable_3e[3][7]}</td>
-				<td>${variable_3e[3][3]},${variable_3e[3][8]}</td>
-				<td>${variable_3e[3][4]},${variable_3e[3][9]}</td>
-				<td>${variable_3e[3][5]},${variable_3e[3][10]}</td>
+				<td>${_fraVariable_3e_3_1_},${_fraVariable_3e_3_6_}</td>
+				<td>${_fraVariable_3e_3_2_},${_fraVariable_3e_3_7_}</td>
+				<td>${_fraVariable_3e_3_3_},${_fraVariable_3e_3_8_}</td>
+				<td>${_fraVariable_3e_3_4_},${_fraVariable_3e_3_9_}</td>
+				<td>${_fraVariable_3e_3_5_},${_fraVariable_3e_3_10_}</td>
 			</tr>
 			<tr>
 				<td>3.9 <spring:message code="ref195"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3e[4][1]},${variable_3e[4][6]}</td>
-				<td>${variable_3e[4][2]},${variable_3e[4][7]}</td>
-				<td>${variable_3e[4][3]},${variable_3e[4][8]}</td>
-				<td>${variable_3e[4][4]},${variable_3e[4][9]}</td>
-				<td>${variable_3e[4][5]},${variable_3e[4][10]}</td>
+				<td>${_fraVariable_3e_4_1_},${_fraVariable_3e_4_6_}</td>
+				<td>${_fraVariable_3e_4_2_},${_fraVariable_3e_4_7_}</td>
+				<td>${_fraVariable_3e_4_3_},${_fraVariable_3e_4_8_}</td>
+				<td>${_fraVariable_3e_4_4_},${_fraVariable_3e_4_9_}</td>
+				<td>${_fraVariable_3e_4_5_},${_fraVariable_3e_4_10_}</td>
 			</tr>
 			<tr>
 				<td>3.10 <spring:message code="ref145"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3e[6][1]},${variable_3e[6][6]}</td>
-				<td>${variable_3e[6][2]},${variable_3e[6][7]}</td>
-				<td>${variable_3e[6][3]},${variable_3e[6][8]}</td>
-				<td>${variable_3e[6][4]},${variable_3e[6][9]}</td>
-				<td>${variable_3e[6][5]},${variable_3e[6][10]}</td>
+				<td>${_fraVariable_3e_6_1_},${_fraVariable_3e_6_6_}</td>
+				<td>${_fraVariable_3e_6_2_},${_fraVariable_3e_6_7_}</td>
+				<td>${_fraVariable_3e_6_3_},${_fraVariable_3e_6_8_}</td>
+				<td>${_fraVariable_3e_6_4_},${_fraVariable_3e_6_9_}</td>
+				<td>${_fraVariable_3e_6_5_},${_fraVariable_3e_6_10_}</td>
 			</tr>
 			<tr>
 				<td>3.11 <spring:message code="ref147"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3e[7][1]},${variable_3e[7][6]}</td>
-				<td>${variable_3e[7][2]},${variable_3e[7][7]}</td>
-				<td>${variable_3e[7][3]},${variable_3e[7][8]}</td>
-				<td>${variable_3e[7][4]},${variable_3e[7][9]}</td>
-				<td>${variable_3e[7][5]},${variable_3e[7][10]}</td>
+				<td>${_fraVariable_3e_7_1_},${_fraVariable_3e_7_6_}</td>
+				<td>${_fraVariable_3e_7_2_},${_fraVariable_3e_7_7_}</td>
+				<td>${_fraVariable_3e_7_3_},${_fraVariable_3e_7_8_}</td>
+				<td>${_fraVariable_3e_7_4_},${_fraVariable_3e_7_9_}</td>
+				<td>${_fraVariable_3e_7_5_},${_fraVariable_3e_7_10_}</td>
 			</tr>
 			<tr>
 				<td>3.12 <spring:message code="ref149"></spring:message></td>
 				<td>million tonnes</td>
-				<td>${variable_3e[9][1]},${variable_3e[9][6]}</td>
-				<td>${variable_3e[9][2]},${variable_3e[9][7]}</td>
-				<td>${variable_3e[9][3]},${variable_3e[9][8]}</td>
-				<td>${variable_3e[9][4]},${variable_3e[9][9]}</td>
-				<td>${variable_3e[9][5]},${variable_3e[9][10]}</td>
+				<td>${_fraVariable_3e_9_1_},${_fraVariable_3e_9_6_}</td>
+				<td>${_fraVariable_3e_9_2_},${_fraVariable_3e_9_7_}</td>
+				<td>${_fraVariable_3e_9_3_},${_fraVariable_3e_9_8_}</td>
+				<td>${_fraVariable_3e_9_4_},${_fraVariable_3e_9_9_}</td>
+				<td>${_fraVariable_3e_9_5_},${_fraVariable_3e_9_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="4">4a</td>
@@ -405,29 +405,29 @@
 			<tr>
 				<td>4.1 <spring:message code="ref218"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_4a[2][1]}</td>
-				<td>${variable_4a[2][2]}</td>
-				<td>${variable_4a[2][3]}</td>
-				<td>${variable_4a[2][4]}</td>
-				<td>${variable_4a[2][5]}</td>
+				<td>${_fraVariable_4a_2_1_}</td>
+				<td>${_fraVariable_4a_2_2_}</td>
+				<td>${_fraVariable_4a_2_3_}</td>
+				<td>${_fraVariable_4a_2_4_}</td>
+				<td>${_fraVariable_4a_2_5_}</td>
 			</tr>
 			<tr>
 				<td>4.2 <spring:message code="ref220"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_4a[3][1]}</td>
-				<td>${variable_4a[3][2]}</td>
-				<td>${variable_4a[3][3]}</td>
-				<td>${variable_4a[3][4]}</td>
-				<td>${variable_4a[3][5]}</td>
+				<td>${_fraVariable_4a_3_1_}</td>
+				<td>${_fraVariable_4a_3_2_}</td>
+				<td>${_fraVariable_4a_3_3_}</td>
+				<td>${_fraVariable_4a_3_4_}</td>
+				<td>${_fraVariable_4a_3_5_}</td>
 			</tr>
 			<tr>
 				<td>4.2 <spring:message code="ref222"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_4a[4][1]}</td>
-				<td>${variable_4a[4][2]}</td>
-				<td>${variable_4a[4][3]}</td>
-				<td>${variable_4a[4][4]}</td>
-				<td>${variable_4a[4][5]}</td>
+				<td>${_fraVariable_4a_4_1_}</td>
+				<td>${_fraVariable_4a_4_2_}</td>
+				<td>${_fraVariable_4a_4_3_}</td>
+				<td>${_fraVariable_4a_4_4_}</td>
+				<td>${_fraVariable_4a_4_5_}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -439,65 +439,65 @@
 			<tr>
 				<td>5.1 <spring:message code="ref285"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[2][1]}</td>
-				<td>${variable_5a[2][2]}</td>
-				<td>${variable_5a[2][3]}</td>
-				<td>${variable_5a[2][4]}</td>
-				<td>${variable_5a[2][5]}</td>
+				<td>${_fraVariable_5a_2_1_}</td>
+				<td>${_fraVariable_5a_2_2_}</td>
+				<td>${_fraVariable_5a_2_3_}</td>
+				<td>${_fraVariable_5a_2_4_}</td>
+				<td>${_fraVariable_5a_2_5_}</td>
 			</tr>
 			<tr>
 				<td>5.1.1 <spring:message code="ref286"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[3][1]}</td>
-				<td>${variable_5a[3][2]}</td>
-				<td>${variable_5a[3][3]}</td>
-				<td>${variable_5a[3][4]}</td>
-				<td>${variable_5a[3][5]}</td>
+				<td>${_fraVariable_5a_3_1_}</td>
+				<td>${_fraVariable_5a_3_2_}</td>
+				<td>${_fraVariable_5a_3_3_}</td>
+				<td>${_fraVariable_5a_3_4_}</td>
+				<td>${_fraVariable_5a_3_5_}</td>
 			</tr>
 			<tr>
 				<td>5.1.2 <spring:message code="ref287"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[4][1]}</td>
-				<td>${variable_5a[4][2]}</td>
-				<td>${variable_5a[4][3]}</td>
-				<td>${variable_5a[4][4]}</td>
-				<td>${variable_5a[4][5]}</td>
+				<td>${_fraVariable_5a_4_1_}</td>
+				<td>${_fraVariable_5a_4_2_}</td>
+				<td>${_fraVariable_5a_4_3_}</td>
+				<td>${_fraVariable_5a_4_4_}</td>
+				<td>${_fraVariable_5a_4_5_}</td>
 			</tr>
 			<tr>
 				<td>5.1.3 <spring:message code="ref288"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[5][1]}</td>
-				<td>${variable_5a[5][2]}</td>
-				<td>${variable_5a[5][3]}</td>
-				<td>${variable_5a[5][4]}</td>
-				<td>${variable_5a[5][5]}</td>
+				<td>${_fraVariable_5a_5_1_}</td>
+				<td>${_fraVariable_5a_5_2_}</td>
+				<td>${_fraVariable_5a_5_3_}</td>
+				<td>${_fraVariable_5a_5_4_}</td>
+				<td>${_fraVariable_5a_5_5_}</td>
 			</tr>
 			<tr>
 				<td>5.1.4 <spring:message code="ref289"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[6][1]}</td>
-				<td>${variable_5a[6][2]}</td>
-				<td>${variable_5a[6][3]}</td>
-				<td>${variable_5a[6][4]}</td>
-				<td>${variable_5a[6][5]}</td>
+				<td>${_fraVariable_5a_6_1_}</td>
+				<td>${_fraVariable_5a_6_2_}</td>
+				<td>${_fraVariable_5a_6_3_}</td>
+				<td>${_fraVariable_5a_6_4_}</td>
+				<td>${_fraVariable_5a_6_5_}</td>
 			</tr>
 			<tr>
 				<td>5.1.5 <spring:message code="ref290"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[7][1]}</td>
-				<td>${variable_5a[7][2]}</td>
-				<td>${variable_5a[7][3]}</td>
-				<td>${variable_5a[7][4]}</td>
-				<td>${variable_5a[7][5]}</td>
+				<td>${_fraVariable_5a_7_1_}</td>
+				<td>${_fraVariable_5a_7_2_}</td>
+				<td>${_fraVariable_5a_7_3_}</td>
+				<td>${_fraVariable_5a_7_4_}</td>
+				<td>${_fraVariable_5a_7_5_}</td>
 			</tr>
 			<tr>
 				<td>5.1.6 <spring:message code="ref291"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5a[8][1]}</td>
-				<td>${variable_5a[8][2]}</td>
-				<td>${variable_5a[8][3]}</td>
-				<td>${variable_5a[8][4]}</td>
-				<td>${variable_5a[8][5]}</td>
+				<td>${_fraVariable_5a_8_1_}</td>
+				<td>${_fraVariable_5a_8_2_}</td>
+				<td>${_fraVariable_5a_8_3_}</td>
+				<td>${_fraVariable_5a_8_4_}</td>
+				<td>${_fraVariable_5a_8_5_}</td>
 			</tr>
 			<tr>
 				<td rowspan="6">5b</td>
@@ -505,47 +505,47 @@
 			<tr>
 				<td>5.2 <spring:message code="ref274"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5b[2][1]}</td>
-				<td>${variable_5b[2][2]}</td>
-				<td>${variable_5b[2][3]}</td>
-				<td>${variable_5b[2][4]}</td>
-				<td>${variable_5b[2][5]}</td>
+				<td>${_fraVariable_5b_2_1_}</td>
+				<td>${_fraVariable_5b_2_2_}</td>
+				<td>${_fraVariable_5b_2_3_}</td>
+				<td>${_fraVariable_5b_2_4_}</td>
+				<td>${_fraVariable_5b_2_5_}</td>
 			</tr>
 			<tr>
 				<td>5.2.1 <spring:message code="ref276"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5b[3][1]}</td>
-				<td>${variable_5b[3][2]}</td>
-				<td>${variable_5b[3][3]}</td>
-				<td>${variable_5b[3][4]}</td>
-				<td>${variable_5b[3][5]}</td>
+				<td>${_fraVariable_5b_3_1_}</td>
+				<td>${_fraVariable_5b_3_2_}</td>
+				<td>${_fraVariable_5b_3_3_}</td>
+				<td>${_fraVariable_5b_3_4_}</td>
+				<td>${_fraVariable_5b_3_5_}</td>
 			</tr>
 			<tr>
 				<td>5.2.2 <spring:message code="ref278"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5b[4][1]}</td>
-				<td>${variable_5b[4][2]}</td>
-				<td>${variable_5b[4][3]}</td>
-				<td>${variable_5b[4][4]}</td>
-				<td>${variable_5b[4][5]}</td>
+				<td>${_fraVariable_5b_4_1_}</td>
+				<td>${_fraVariable_5b_4_2_}</td>
+				<td>${_fraVariable_5b_4_3_}</td>
+				<td>${_fraVariable_5b_4_4_}</td>
+				<td>${_fraVariable_5b_4_5_}</td>
 			</tr>
 			<tr>
 				<td>5.2.3 <spring:message code="ref280"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5b[5][1]}</td>
-				<td>${variable_5b[5][2]}</td>
-				<td>${variable_5b[5][3]}</td>
-				<td>${variable_5b[5][4]}</td>
-				<td>${variable_5b[5][5]}</td>
+				<td>${_fraVariable_5b_5_1_}</td>
+				<td>${_fraVariable_5b_5_2_}</td>
+				<td>${_fraVariable_5b_5_3_}</td>
+				<td>${_fraVariable_5b_5_4_}</td>
+				<td>${_fraVariable_5b_5_5_}</td>
 			</tr>
 			<tr>
 				<td>5.2.4 <spring:message code="ref294"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_5b[6][1]}</td>
-				<td>${variable_5b[6][2]}</td>
-				<td>${variable_5b[6][3]}</td>
-				<td>${variable_5b[6][4]}</td>
-				<td>${variable_5b[6][5]}</td>
+				<td>${_fraVariable_5b_6_1_}</td>
+				<td>${_fraVariable_5b_6_2_}</td>
+				<td>${_fraVariable_5b_6_3_}</td>
+				<td>${_fraVariable_5b_6_4_}</td>
+				<td>${_fraVariable_5b_6_5_}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -557,20 +557,20 @@
 			<tr>
 				<td>6.1 <spring:message code="ref311"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_6[2][1]}</td>
-				<td>${variable_6[2][2]}</td>
-				<td>${variable_6[2][3]}</td>
-				<td>${variable_6[2][4]}</td>
-				<td>${variable_6[2][5]}</td>
+				<td>${_fraVariable_6_2_1_}</td>
+				<td>${_fraVariable_6_2_2_}</td>
+				<td>${_fraVariable_6_2_3_}</td>
+				<td>${_fraVariable_6_2_4_}</td>
+				<td>${_fraVariable_6_2_5_}</td>
 			</tr>
 			<tr>
 				<td>6.2 <spring:message code="ref313"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_6[3][1]}</td>
-				<td>${variable_6[3][2]}</td>
-				<td>${variable_6[3][3]}</td>
-				<td>${variable_6[3][4]}</td>
-				<td>${variable_6[3][5]}</td>
+				<td>${_fraVariable_6_3_1_}</td>
+				<td>${_fraVariable_6_3_2_}</td>
+				<td>${_fraVariable_6_3_3_}</td>
+				<td>${_fraVariable_6_3_4_}</td>
+				<td>${_fraVariable_6_3_5_}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -594,22 +594,22 @@
 			<tr>
 				<td>8.1 <spring:message code="ref352"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${variable_8a[3][1]},${variable_8a[3][2]},${variable_8a[3][3]},${variable_8a[3][4]},${variable_8a[3][5]},${variable_8a[3][6]},${variable_8a[3][7]},${variable_8a[3][8]},${variable_8a[3][9]},${variable_8a[3][10]}</td>
+				<td colspan="5">${_fraVariable_8a_3_1_},${_fraVariable_8a_3_2_},${_fraVariable_8a_3_3_},${_fraVariable_8a_3_4_},${_fraVariable_8a_3_5_},${_fraVariable_8a_3_6_},${_fraVariable_8a_3_7_},${_fraVariable_8a_3_8_},${_fraVariable_8a_3_9_},${_fraVariable_8a_3_10_}</td>
 			</tr>
 			<tr>
 				<td>8.1.1 <spring:message code="ref353"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${variable_8a[4][1]},${variable_8a[4][2]},${variable_8a[4][3]},${variable_8a[4][4]},${variable_8a[4][5]},${variable_8a[4][6]},${variable_8a[4][7]},${variable_8a[4][8]},${variable_8a[4][9]},${variable_8a[4][10]}</td>
+				<td colspan="5">${_fraVariable_8a_4_1_},${_fraVariable_8a_4_2_},${_fraVariable_8a_4_3_},${_fraVariable_8a_4_4_},${_fraVariable_8a_4_5_},${_fraVariable_8a_4_6_},${_fraVariable_8a_4_7_},${_fraVariable_8a_4_8_},${_fraVariable_8a_4_9_},${_fraVariable_8a_4_10_}</td>
 			</tr>
 			<tr>
 				<td>8.2 <spring:message code="ref352"></spring:message></td>
 				<td>Number</td>
-				<td colspan="5">${variable_8a[7][1]},${variable_8a[7][2]},${variable_8a[7][3]},${variable_8a[7][4]},${variable_8a[7][5]},${variable_8a[7][6]},${variable_8a[7][7]},${variable_8a[7][9]},${variable_8a[7][10]}</td>
+				<td colspan="5">${_fraVariable_8a_7_1_},${_fraVariable_8a_7_2_},${_fraVariable_8a_7_3_},${_fraVariable_8a_7_4_},${_fraVariable_8a_7_5_},${_fraVariable_8a_7_6_},${_fraVariable_8a_7_7_},${_fraVariable_8a_7_9_},${_fraVariable_8a_7_10_}</td>
 			</tr>
 			<tr>
 				<td>8.2.1 <spring:message code="ref353"></spring:message></td>
 				<td>Number</td>
-				<td colspan="5">${variable_8a[8][1]},${variable_8a[8][2]},${variable_8a[8][3]},${variable_8a[8][4]},${variable_8a[8][5]},${variable_8a[8][6]},${variable_8a[8][7]},${variable_8a[8][8]},${variable_8a[8][9]},${variable_8a[8][10]}</td>
+				<td colspan="5">${_fraVariable_8a_8_1_},${_fraVariable_8a_8_2_},${_fraVariable_8a_8_3_},${_fraVariable_8a_8_4_},${_fraVariable_8a_8_5_},${_fraVariable_8a_8_6_},${_fraVariable_8a_8_7_},${_fraVariable_8a_8_8_},${_fraVariable_8a_8_9_},${_fraVariable_8a_8_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="2">9</td>
@@ -617,7 +617,7 @@
 			<tr>
 				<td>9.1 <spring:message code="ref372"></spring:message></td>
 				<td>% canopy cover</td>
-				<td colspan="5">${variable_9[1][1]}</td>
+				<td colspan="5">${_fraVariable_9_1_1_}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -978,18 +978,18 @@
 				<td>17.1 <spring:message code="ref488"></spring:message></td>
 				<td>1000 local currency</td>
 				<td></td>
-				<td>${variable_17[2][1]}</td>
-				<td>${variable_17[2][2]}</td>
-				<td>${variable_17[2][3]}</td>
+				<td>${_fraVariable_17_2_1_}</td>
+				<td>${_fraVariable_17_2_2_}</td>
+				<td>${_fraVariable_17_2_3_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>17.2 <spring:message code="ref490"></spring:message></td>
 				<td>1000 local currency</td>
 				<td></td>
-				<td>${variable_17[3][1]}</td>
-				<td>${variable_17[3][2]}</td>
-				<td>${variable_17[3][3]}</td>
+				<td>${_fraVariable_17_3_1_}</td>
+				<td>${_fraVariable_17_3_2_}</td>
+				<td>${_fraVariable_17_3_3_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -998,73 +998,73 @@
 			<tr>
 				<td>18.1 <spring:message code="ref496"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[2][1]}</td>
-				<td>${variable_18a[2][2]}</td>
-				<td>${variable_18a[2][3]}</td>
-				<td>${variable_18a[2][4]}</td>
+				<td>${_fraVariable_18a_2_1_}</td>
+				<td>${_fraVariable_18a_2_2_}</td>
+				<td>${_fraVariable_18a_2_3_}</td>
+				<td>${_fraVariable_18a_2_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.1.1 <spring:message code="ref524"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[3][1]}</td>
-				<td>${variable_18a[3][2]}</td>
-				<td>${variable_18a[3][3]}</td>
-				<td>${variable_18a[3][4]}</td>
+				<td>${_fraVariable_18a_3_1_}</td>
+				<td>${_fraVariable_18a_3_2_}</td>
+				<td>${_fraVariable_18a_3_3_}</td>
+				<td>${_fraVariable_18a_3_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.1.2 <spring:message code="ref525"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[4][1]}</td>
-				<td>${variable_18a[4][2]}</td>
-				<td>${variable_18a[4][3]}</td>
-				<td>${variable_18a[4][4]}</td>
+				<td>${_fraVariable_18a_4_1_}</td>
+				<td>${_fraVariable_18a_4_2_}</td>
+				<td>${_fraVariable_18a_4_3_}</td>
+				<td>${_fraVariable_18a_4_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.2 <spring:message code="ref502"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[5][1]}</td>
-				<td>${variable_18a[5][2]}</td>
-				<td>${variable_18a[5][3]}</td>
-				<td>${variable_18a[5][4]}</td>
+				<td>${_fraVariable_18a_5_1_}</td>
+				<td>${_fraVariable_18a_5_2_}</td>
+				<td>${_fraVariable_18a_5_3_}</td>
+				<td>${_fraVariable_18a_5_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.2.1 <spring:message code="ref526"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[6][1]}</td>
-				<td>${variable_18a[6][2]}</td>
-				<td>${variable_18a[6][3]}</td>
-				<td>${variable_18a[6][4]}</td>
+				<td>${_fraVariable_18a_6_1_}</td>
+				<td>${_fraVariable_18a_6_2_}</td>
+				<td>${_fraVariable_18a_6_3_}</td>
+				<td>${_fraVariable_18a_6_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.2.2 <spring:message code="ref527"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[7][1]}</td>
-				<td>${variable_18a[7][2]}</td>
-				<td>${variable_18a[7][3]}</td>
-				<td>${variable_18a[7][4]}</td>
+				<td>${_fraVariable_18a_7_1_}</td>
+				<td>${_fraVariable_18a_7_2_}</td>
+				<td>${_fraVariable_18a_7_3_}</td>
+				<td>${_fraVariable_18a_7_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.2.3 <spring:message code="ref528"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[8][1]}</td>
-				<td>${variable_18a[8][2]}</td>
-				<td>${variable_18a[8][3]}</td>
-				<td>${variable_18a[8][4]}</td>
+				<td>${_fraVariable_18a_8_1_}</td>
+				<td>${_fraVariable_18a_8_2_}</td>
+				<td>${_fraVariable_18a_8_3_}</td>
+				<td>${_fraVariable_18a_8_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.3 <spring:message code="ref510"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18a[9][1]}</td>
-				<td>${variable_18a[9][2]}</td>
-				<td>${variable_18a[9][3]}</td>
-				<td>${variable_18a[9][4]}</td>
+				<td>${_fraVariable_18a_9_1_}</td>
+				<td>${_fraVariable_18a_9_2_}</td>
+				<td>${_fraVariable_18a_9_3_}</td>
+				<td>${_fraVariable_18a_9_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -1073,46 +1073,46 @@
 			<tr>
 				<td>18.4 <spring:message code="ref513"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18b[2][1]}</td>
-				<td>${variable_18b[2][2]}</td>
-				<td>${variable_18b[2][3]}</td>
-				<td>${variable_18b[2][4]}</td>
+				<td>${_fraVariable_18b_2_1_}</td>
+				<td>${_fraVariable_18b_2_2_}</td>
+				<td>${_fraVariable_18b_2_3_}</td>
+				<td>${_fraVariable_18b_2_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.5 <spring:message code="ref532"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18b[3][1]}</td>
-				<td>${variable_18b[3][2]}</td>
-				<td>${variable_18b[3][3]}</td>
-				<td>${variable_18b[3][4]}</td>
+				<td>${_fraVariable_18b_3_1_}</td>
+				<td>${_fraVariable_18b_3_2_}</td>
+				<td>${_fraVariable_18b_3_3_}</td>
+				<td>${_fraVariable_18b_3_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.6 <spring:message code="ref533"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18b[4][1]}</td>
-				<td>${variable_18b[4][2]}</td>
-				<td>${variable_18b[4][3]}</td>
-				<td>${variable_18b[4][4]}</td>
+				<td>${_fraVariable_18b_4_1_}</td>
+				<td>${_fraVariable_18b_4_2_}</td>
+				<td>${_fraVariable_18b_4_3_}</td>
+				<td>${_fraVariable_18b_4_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.7 <spring:message code="ref519"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18b[5][1]}</td>
-				<td>${variable_18b[5][2]}</td>
-				<td>${variable_18b[5][3]}</td>
-				<td>${variable_18b[5][4]}</td>
+				<td>${_fraVariable_18b_5_1_}</td>
+				<td>${_fraVariable_18b_5_2_}</td>
+				<td>${_fraVariable_18b_5_3_}</td>
+				<td>${_fraVariable_18b_5_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>18.8 <spring:message code="ref292"></spring:message></td>
 				<td>1000 ha</td>
-				<td>${variable_18b[6][1]}</td>
-				<td>${variable_18b[6][2]}</td>
-				<td>${variable_18b[6][3]}</td>
-				<td>${variable_18b[6][4]}</td>
+				<td>${_fraVariable_18b_6_1_}</td>
+				<td>${_fraVariable_18b_6_2_}</td>
+				<td>${_fraVariable_18b_6_3_}</td>
+				<td>${_fraVariable_18b_6_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -1121,19 +1121,19 @@
 			<tr>
 				<td>19.1 <spring:message code="ref543"></spring:message></td>
 				<td>1000 FTE</td>
-				<td>${variable_19[2][1]}</td>
-				<td>${variable_19[2][2]}</td>
-				<td>${variable_19[2][3]}</td>
-				<td>${variable_19[2][4]}</td>
+				<td>${_fraVariable_19_2_1_}</td>
+				<td>${_fraVariable_19_2_2_}</td>
+				<td>${_fraVariable_19_2_3_}</td>
+				<td>${_fraVariable_19_2_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>19.1 <spring:message code="ref544"></spring:message></td>
 				<td>1000 FTE</td>
-				<td>${variable_19[3][1]}</td>
-				<td>${variable_19[3][2]}</td>
-				<td>${variable_19[3][3]}</td>
-				<td>${variable_19[3][4]}</td>
+				<td>${_fraVariable_19_3_1_}</td>
+				<td>${_fraVariable_19_3_2_}</td>
+				<td>${_fraVariable_19_3_3_}</td>
+				<td>${_fraVariable_19_3_4_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -1158,7 +1158,7 @@
 			<tr>
 				<td>21.1 <spring:message code="ref555"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${variable_21a[2][1]},${variable_21a[2][2]}</td>
+				<td colspan="5">${_fraVariable_21a_2_1_},${_fraVariable_21a_2_2_}</td>
 			</tr>
 			<tr>
 				<td rowspan="2">21b</td>
@@ -1166,7 +1166,7 @@
 			<tr>
 				<td>21.2 <spring:message code="ref557"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${variable_21b[2][1]}</td>
+				<td colspan="5">${_fraVariable_21b_2_1_}</td>
 			</tr>
 		</tbody>
 	</table>

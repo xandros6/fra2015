@@ -35,7 +35,7 @@ $(function() {
 					    }
 						name = hidden.attr('name');
 
-						var myRegexp = /([A-Za-z0-9_]*\[)([0-9]*)(\].*)/;
+						var myRegexp = /(_fraVariable_[0-9A-Za-z]*_)(.*)(_.*_)/;
 						var match = myRegexp.exec(name);
 						if (match && match.length > 2) {
 							var rowNumber = parseInt(match[2]) + 1; // row
