@@ -37,79 +37,81 @@
 						<div class="modal-footer"></div>
 					</div>
 
-					<div class="row" style="margin-top:5px">
+					<div class="row" style="margin-top: 5px">
 						<div class="span6">
 							<img src="${pageContext.request.contextPath}/img/fra2015logo.jpg">
-							
-								<div class="form-signin">
-									<h2 class="form-signin-heading" data-i18n="login_title">
-											<spring:message code="login.title" />
-										</h2>
-									<form action="<c:url value='j_spring_security_check' />" method="post" class="row-fluid"
-										style="margin-bottom: 2px">
-										
 
-										<label class="span6"> <span
-											style="font-weight:bold;font-size:18px" class="form-signin-heading" data-i18n="User">User</span>: <br />
-											<input id="usernameTextField" type="text"
-											 name='j_username'
-											placeholder="Username">
-										</label> <label class="span5" > <span
-											style="font-weight: bold; font-size: 18px"
-											data-i18n="Password">Password</span>: <br /> <input
-											id="passwordTextField" type="password"
-											 name="j_password"
-											placeholder="Password">
-										</label> <label class="span7" style="position:relative;left:-10px;top:-10px;"> <span style="font-weight:bold;font-size:18px" data-i18n="login_select"><spring:message
-													code="login.select" /></span>: <br> <select
-											id="languageSelector" class="input-block-level">
-												<option value="en-US">English</option>
-												<option value="fr-FR">Français</option>
-												<option value="es-ES">Español</option>
-										</select>
-										</label>
-										
-										<c:if test="${not empty error}">
-											<div class="errorblock">
-												Your login attempt was not successful, try again.<br /> Caused :
-												${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-											</div>
-										</c:if>
-										
-										<button type="submit" id="loginBtn"
-											class="btn btn-large btn-primary pull-right" data-i18n="login_signin">
-											<spring:message code="login.signin" />
-										</button>
-									</form>
-								</div>
-							
-							
+							<div class="form-signin">
+								<h2 class="form-signin-heading" data-i18n="login_title">
+									<spring:message code="login.title" />
+								</h2>
+								<form action="<c:url value='j_spring_security_check' />"
+									method="post" class="row-fluid" style="margin-bottom: 2px">
+
+
+									<label class="span6"> <span
+										style="font-weight: bold; font-size: 18px"
+										class="form-signin-heading" data-i18n="User">User</span>: <br />
+										<input id="usernameTextField" type="text" name='j_username'
+										placeholder="Username">
+									</label> <label class="span5"> <span
+										style="font-weight: bold; font-size: 18px"
+										data-i18n="Password">Password</span>: <br /> <input
+										id="passwordTextField" type="password" name="j_password"
+										placeholder="Password">
+									</label> <label class="span7"
+										style="position: relative; left: -10px; top: -10px;">
+										<span style="font-weight: bold; font-size: 18px"
+										data-i18n="login_select"><spring:message
+												code="login.select" /></span>: <br> <select
+										id="languageSelector" class="input-block-level">
+											<option value="en-US">English</option>
+											<option value="fr-FR">Français</option>
+											<option value="es-ES">Español</option>
+									</select>
+									</label>
+
+
+
+									<button type="submit" id="loginBtn"
+										class="btn btn-large btn-primary pull-right"
+										data-i18n="login_signin">
+										<spring:message code="login.signin" />
+									</button>
+								</form>
+							</div>
+
+
 
 
 
 						</div>
 						<div class="span6">
-								<img src="img/cfrqlogin.jpg" />
-								<div class="alert alert-error" style="margin-top: 6px">
-									<strong>Warning.</strong> This is a demo version.
-								</div>
-							</div>
-						<div class="row">
-							<div id="errorPanel">
-								<!-- TODO add error messages here -->
+							<img src="img/cfrqlogin.jpg" />
+							<div class="alert alert-error" style="margin-top: 6px">
+								<strong>Warning.</strong> This is a demo version.
 							</div>
 						</div>
 					</div>
-
-
-
-					
+						
+					<div id="errorPanel">
+							<c:if test="${not empty error}">
+								<div class="errorblock alert alert-error">
+									<spring:message code="login.fail"></spring:message>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+								</div>
+							</c:if>
+						</div>
 				</div>
-				<!-- /container -->
+
+
+
+
 			</div>
+			<!-- /container -->
 		</div>
-		<div id="push"></div>
 	</div>
+	<div id="push"></div>
+	
 	<%@ include file="common/loginfooter.jsp"%>
 
 
