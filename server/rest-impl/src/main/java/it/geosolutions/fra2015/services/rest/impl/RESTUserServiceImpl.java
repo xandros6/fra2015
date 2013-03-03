@@ -35,14 +35,13 @@ import it.geosolutions.fra2015.services.rest.RESTUserService;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
 import it.geosolutions.fra2015.services.rest.exception.InternalErrorWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
-import it.geosolutions.fra2015.services.rest.model.RESTUser;
-import it.geosolutions.fra2015.services.rest.model.UserList;
 import it.geosolutions.fra2015.services.rest.utils.Fra2015Principal;
+
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import javax.ws.rs.core.SecurityContext;
+
 import org.apache.log4j.Logger;
 
 /**

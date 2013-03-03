@@ -1,25 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
- 
+
 	<http auto-config="true">
 		<intercept-url pattern="/" access="ROLE_USER" />
 		<form-login login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />
 		<logout logout-success-url="/logout" />
 	</http>
- 
+
+	<!-- <authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="DZA" password="4" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager> -->
+
+	
+	<beans:bean id="assembler" class="it.geosolutions.fra2015.security.Assembler" />
+
+	<beans:bean id="userDetailsService" class="it.geosolutions.fra2015.security.UserDetailsServiceImpl" >
+		<beans:property name="userDao" ref="userDAO" />
+		<beans:property name="assembler" ref="assembler" />
+	</beans:bean>
+
+	<beans:bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userDetailsService" />
+	</beans:bean>
+
+	<beans:bean id="authenticationManager"
+		class="org.springframework.security.authentication.ProviderManager">
+		<beans:property name="providers">
+			<beans:list>
+				<beans:ref local="daoAuthenticationProvider" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
 	<authentication-manager>
-	  <authentication-provider>
-		<user-service>
-			<user name="DZA" password="4" authorities="ROLE_USER" />
-		</user-service>
-	  </authentication-provider>
+		<authentication-provider user-service-ref="userDetailsService">
+			<!-- <password-encoder hash="md5" /> -->
+		</authentication-provider>
 	</authentication-manager>
- 
+
 </beans:beans>
