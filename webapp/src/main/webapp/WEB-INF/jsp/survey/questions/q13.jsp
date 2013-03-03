@@ -380,65 +380,27 @@
 				<table
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr rowname="13.5" unit="%,year,checkbox">
-							<td class="title" rownumber="0" columnnumber="0"><spring:message
-									code="ref428"></spring:message></td>
-							<td rownumber="0" columnnumber="1"><spring:message
-									code="ref429"></spring:message></td>
-						</tr>
-						<tr rowname="13.5.1" unit="%,year,checkbox">
-							<td class="title" rownumber="1" columnnumber="0"><spring:message
-									code="ref430"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="1"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13b"><span class="entry_item_placeholder" id="_variable_13b[1][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
-										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="13.5.2" unit="%,year,checkbox">
-							<td class="title" rownumber="3" columnnumber="0"><spring:message
-									code="ref431"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="3"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13b"><span class="entry_item_placeholder" id="_variable_13b[3][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
-										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="13.5.3" unit="%,year,checkbox">
-							<td class="title" rownumber="5" columnnumber="0"><spring:message
-									code="ref432"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="5"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13b"><span class="entry_item_placeholder" id="_variable_13b[5][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
-										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="13.5.4" unit="%,year,checkbox">
-							<td class="title" rownumber="7" columnnumber="0"><spring:message
-									code="ref433"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="7"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13b"><span class="entry_item_placeholder" id="_variable_13b[7][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox"><spring:message code="chk.yes" /><br>
-										<input name="no" class="radio-boolean" type="checkbox"><spring:message code="chk.no" />
-									</div>
-								</div></td>
-						</tr>
-					</tbody>
+<tr rowname="13.5" unit="%,year,checkbox">
+<td class="title" rownumber="0" columnnumber="0"><spring:message code="ref428"></spring:message></td>
+<td rownumber="0" columnnumber="1"><spring:message code="ref429"></spring:message></td>
+</tr>
+<tr rowname="13.5.1" unit="%,year,checkbox">
+<td class="title" rownumber="1" columnnumber="0"><spring:message code="ref430"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="1" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="13b"><div id="cell-content"><div><input value="yes" name="variable_13b[1][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_13b[1][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="13.5.2" unit="%,year,checkbox">
+<td class="title" rownumber="3" columnnumber="0"><spring:message code="ref431"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="13b"><div id="cell-content"><div><input value="yes" name="variable_13b[3][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_13b[3][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="13.5.3" unit="%,year,checkbox">
+<td class="title" rownumber="5" columnnumber="0"><spring:message code="ref432"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="5" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="13b"><div id="cell-content"><div><input value="yes" name="variable_13b[5][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_13b[5][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="13.5.4" unit="%,year,checkbox">
+<td class="title" rownumber="7" columnnumber="0"><spring:message code="ref433"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="7" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="13b"><div id="cell-content"><div><input value="yes" name="variable_13b[7][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_13b[7][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+</tbody>
 				</table>
 			</div>
 			<div class="control pull-right"></div>

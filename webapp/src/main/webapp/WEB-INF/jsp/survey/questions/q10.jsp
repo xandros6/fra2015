@@ -243,262 +243,64 @@
 				<table
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr>
-							<td rowspan="3" rownumber="0" columnnumber="1"><spring:message
-									code="ref152"></spring:message></td>
-							<td colspan="4" rownumber="0" columnnumber="2"></td>
-						</tr>
-						<tr>
-							<td rowspan="2" rownumber="1" columnnumber="1"><spring:message
-									code="ref383"></spring:message></td>
-							<td colspan="3" rownumber="1" columnnumber="2"><spring:message
-									code="ref384"></spring:message></td>
-						</tr>
-						<tr>
-							<td colspan="1" rownumber="2" columnnumber="1"><spring:message
-									code="ref385"></spring:message></td>
-							<td colspan="1" rownumber="2" columnnumber="2"><spring:message
-									code="ref386"></spring:message></td>
-							<td colspan="1" rownumber="2" columnnumber="3"><spring:message
-									code="ref387"></spring:message></td>
-						</tr>
-						<tr rowname="10.1" unit="Boolean">
-							<td class="title" rownumber="3" columnnumber="0"><spring:message
-									code="ref388"></spring:message></td>
-							<td class="entry-item boolean" rownumber="3" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="10"><span class="entry_item_placeholder" id="_variable_10[3][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item boolean" rownumber="3" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="10"><span class="entry_item_placeholder" id="_variable_10[3][3]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item boolean" rownumber="3" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="10"><span class="entry_item_placeholder" id="_variable_10[3][5]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item boolean" rownumber="3" columnnumber="7"
-								style="background-color: rgb(242, 245, 169);" entry-id="10"><span class="entry_item_placeholder" id="_variable_10[3][7]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="10.1.1" unit="Boolean">
-							<td class="title" rownumber="5" columnnumber="0"><spring:message
-									code="ref389"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="5"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[5][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="5"
-								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[5][3]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="5"
-								columnnumber="5" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[5][5]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="5"
-								columnnumber="7" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[5][7]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="10.1.2" unit="Boolean">
-							<td class="title" rownumber="7" columnnumber="0"><spring:message
-									code="ref390"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="7"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[7][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="7"
-								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[7][3]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="7"
-								columnnumber="5" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[7][5]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="7"
-								columnnumber="7" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[7][7]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="10.2" unit="Boolean">
-							<td class="title" rownumber="9" columnnumber="0"><spring:message
-									code="ref380"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="9"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[9][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="9"
-								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[9][3]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="9"
-								columnnumber="5" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[9][5]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="9"
-								columnnumber="7" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[9][7]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="10.2.1" unit="Boolean">
-							<td class="title" rownumber="10" columnnumber="0"><spring:message
-									code="ref389"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="10"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[10][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="10"
-								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[10][3]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="10"
-								columnnumber="5" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[10][5]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="10"
-								columnnumber="7" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[10][7]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-						</tr>
-						<tr rowname="10.1.2" unit="Boolean">
-							<td class="title" rownumber="11" columnnumber="0"><spring:message
-									code="ref390"></spring:message></td>
-							<td class="entry-item editable boolean" rownumber="11"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[11][1]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="11"
-								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[11][3]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="11"
-								columnnumber="5" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[11][5]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-							<td class="entry-item editable boolean" rownumber="11"
-								columnnumber="7" style="background-color: rgb(242, 245, 169);"
-								entry-id="10"><span class="entry_item_placeholder" id="_variable_10[11][7]">&nbsp;</span>
-							<div id="cell-content">
-									<div>
-										<input name="yes" class="radio-boolean" type="checkbox">Yes<br>
-										<input name="no" class="radio-boolean" type="checkbox">No
-									</div>
-								</div></td>
-						</tr>
-					</tbody>
+<tr>
+<td rowspan="3" rownumber="0" columnnumber="1"><spring:message code="ref152"></spring:message></td>
+<td colspan="4" rownumber="0" columnnumber="2">
+
+</td>
+</tr>
+<tr>
+<td rowspan="2" rownumber="1" columnnumber="1"><spring:message code="ref383"></spring:message></td>
+<td colspan="3" rownumber="1" columnnumber="2"><spring:message code="ref384"></spring:message></td>
+</tr>
+<tr>
+<td colspan="1" rownumber="2" columnnumber="1"><spring:message code="ref385"></spring:message></td>
+<td colspan="1" rownumber="2" columnnumber="2"><spring:message code="ref386"></spring:message></td>
+<td colspan="1" rownumber="2" columnnumber="3"><spring:message code="ref387"></spring:message></td>
+</tr>
+<tr rowname="10.1" unit="Boolean">
+<td class="title" rownumber="3" columnnumber="0"><spring:message code="ref388"></spring:message></td>
+<td class="entry-item boolean" rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[3][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[3][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item boolean" rownumber="3" columnnumber="3" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[3][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[3][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item boolean" rownumber="3" columnnumber="5" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[3][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[3][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item boolean" rownumber="3" columnnumber="7" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[3][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[3][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="10.1.1" unit="Boolean">
+<td class="title" rownumber="5" columnnumber="0"><spring:message code="ref389"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="5" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[5][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[5][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="5" columnnumber="3" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[5][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[5][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="5" columnnumber="5" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[5][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[5][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="5" columnnumber="7" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[5][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[5][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="10.1.2" unit="Boolean">
+<td class="title" rownumber="7" columnnumber="0"><spring:message code="ref390"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="7" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[7][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[7][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="7" columnnumber="3" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[7][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[7][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="7" columnnumber="5" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[7][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[7][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="7" columnnumber="7" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[7][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[7][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="10.2" unit="Boolean">
+<td class="title" rownumber="9" columnnumber="0"><spring:message code="ref380"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="9" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[9][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[9][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="9" columnnumber="3" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[9][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[9][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="9" columnnumber="5" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[9][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[9][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="9" columnnumber="7" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[9][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[9][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="10.2.1" unit="Boolean">
+<td class="title" rownumber="10" columnnumber="0"><spring:message code="ref389"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="10" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[10][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[10][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="10" columnnumber="3" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[10][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[10][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="10" columnnumber="5" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[10][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[10][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="10" columnnumber="7" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[10][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[10][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr>
+<tr rowname="10.1.2" unit="Boolean">
+<td class="title" rownumber="11" columnnumber="0"><spring:message code="ref390"></spring:message></td>
+<td class="entry-item editable boolean" rownumber="11" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[11][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[11][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="11" columnnumber="3" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[11][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[11][3]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="11" columnnumber="5" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[11][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[11][5]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<td class="entry-item editable boolean" rownumber="11" columnnumber="7" style="background-color: rgb(242, 245, 169); " entry-id="10"><div id="cell-content"><div><input value="yes" name="variable_10[11][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_10[11][7]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+</tr> 
+</tbody>
 				</table>
 			</div>
 			<div class="control pull-right"></div>
