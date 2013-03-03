@@ -765,17 +765,17 @@
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref285"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
-								entry-id="60"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="60"><div id="cell-content">
+									<select name="_variable_60[1][1]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
-								entry-id="60"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="60"><div id="cell-content">
+									<select name="_variable_60[1][2]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -785,17 +785,17 @@
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref295"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
-								entry-id="60"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="60"><div id="cell-content">
+									<select name="_variable_60[2][1]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="2"
-								entry-id="60"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="60"><div id="cell-content">
+									<select name="_variable_60[2][2]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>

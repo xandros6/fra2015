@@ -800,19 +800,17 @@
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref218"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
-								entry-id="48" style="background-color: rgb(242, 245, 169);"><input
-								class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="48"><div id="cell-content">
+									<select name="_variable_48[1][1]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
-								entry-id="48" style="background-color: rgb(242, 245, 169);"><input
-								class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="48"><div id="cell-content">
+									<select name="_variable_48[1][2]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -822,19 +820,17 @@
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref220"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
-								entry-id="48" style="background-color: rgb(242, 245, 169);"><input
-								class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="48"><div id="cell-content">
+									<select name="_variable_48[2][1]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="2"
-								entry-id="48" style="background-color: rgb(242, 245, 169);"><input
-								class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="48"><div id="cell-content">
+									<select name="_variable_48[2][2]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -844,19 +840,17 @@
 							<td rownumber="3" columnnumber="0"><spring:message
 									code="ref222"></spring:message></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="1"
-								entry-id="48" style="background-color: rgb(242, 245, 169);"><input
-								class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="3"><option selected="selected">---</option>
+								entry-id="48"><div id="cell-content">
+									<select name="_variable_48[3][1]" rownumber="3"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="2"
-								entry-id="48" style="background-color: rgb(242, 245, 169);"><input
-								class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="3"><option selected="selected">---</option>
+								entry-id="48"><div id="cell-content">
+									<select name="_variable_48[3][2]" rownumber="3"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>

@@ -910,17 +910,17 @@
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref15"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[1][1]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[1][2]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -930,17 +930,17 @@
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref17"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[2][1]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="2"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[2][2]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -950,17 +950,17 @@
 							<td rownumber="3" columnnumber="0"><spring:message
 									code="ref25"></spring:message></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="1"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="3"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[3][1]" rownumber="3"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="2"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="3"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[3][2]" rownumber="3"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -970,17 +970,17 @@
 							<td rownumber="4" columnnumber="0"><spring:message
 									code="ref27"></spring:message></td>
 							<td class="tier entry-item" rownumber="4" columnnumber="1"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="4"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[4][1]" rownumber="4"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="4" columnnumber="2"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="4"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[4][2]" rownumber="4"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -990,17 +990,17 @@
 							<td rownumber="5" columnnumber="0"><spring:message
 									code="ref29"></spring:message></td>
 							<td class="tier entry-item" rownumber="5" columnnumber="1"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="5"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[5][1]" rownumber="5"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="5" columnnumber="2"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="5"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[5][2]" rownumber="5"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -1010,17 +1010,17 @@
 							<td rownumber="6" columnnumber="0"><spring:message
 									code="ref31"></spring:message></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="1"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="6"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[6][1]" rownumber="6"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
 								</div></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="2"
-								entry-id="9"><input class="entry-item-value" type="hidden">
-							<div id="cell-content">
-									<select rownumber="6"><option selected="selected">---</option>
+								entry-id="9"><div id="cell-content">
+									<select name="_variable_9[6][2]" rownumber="6"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>

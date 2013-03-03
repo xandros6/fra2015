@@ -285,10 +285,9 @@
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref436"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
-								entry-id="126"><input class="entry-item-value"
-								type="hidden">
-							<div id="cell-content">
-									<select rownumber="1"><option selected="selected">---</option>
+								entry-id="126"><div id="cell-content">
+									<select name="_variable_126[1][1]" rownumber="1"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
@@ -298,10 +297,9 @@
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref454"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
-								entry-id="126"><input class="entry-item-value"
-								type="hidden">
-							<div id="cell-content">
-									<select rownumber="2"><option selected="selected">---</option>
+								entry-id="126"><div id="cell-content">
+									<select name="_variable_126[2][1]" rownumber="2"><option
+											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></select>
