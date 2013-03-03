@@ -256,8 +256,8 @@
 								columnnumber="0"><spring:message code="ref454"></spring:message></td>
 							<td class="entry-item editable number" rownumber="0"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="14c"><span class="entry_item_placeholder" id="_fraVariable_14_c[0][1]">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_14_c[0][1]}</div></td>
+								entry-id="14c"><span class="entry_item_placeholder" id="_fraVariable_14c_0_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_14c_0_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>

@@ -127,12 +127,12 @@
 									code="ref555"></spring:message></td>
 							<td columnname="2020-2030" class="entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21_a[2][1]">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_21_a[2][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21a_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_21a_2_1_}</div></td>
 							<td columnname="2020-2030" class="entry-item editable text"
 								rownumber="2" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21_a[2][2]">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_21_a[2][2]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21a_2_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_21a_2_2_}</div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -165,8 +165,8 @@
 									code="ref557"></spring:message></td>
 							<td columnname="2013" class="entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="21b"><span class="entry_item_placeholder" id="_fraVariable_21_b[2][1]">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_21_b[2][1]}</div></td>
+								style="background-color: rgb(242, 245, 169);" entry-id="21b"><span class="entry_item_placeholder" id="_fraVariable_21b_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_21b_2_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>
