@@ -37,6 +37,12 @@
         <!-- ================================================================-->
         <!-- fra2015 modules -->
         <!-- ================================================================-->
+		
+		<dependency>
+			<groupId>it.geosolutions.fra2015</groupId>
+		    <artifactId>fra2015-rest-impl</artifactId>
+            <version>1.2-SNAPSHOT</version>
+	    </dependency>
 
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>

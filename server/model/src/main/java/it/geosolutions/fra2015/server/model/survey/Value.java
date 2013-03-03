@@ -42,6 +42,12 @@ public class Value implements Serializable {
     private EntryItem entryItem;
     @Column(nullable = true, updatable = false)
     private Integer rowNumber;
+    
+    /**
+     * The id of a question is the concatenation of Country(in the iso3 form) and The question number
+     */
+    @Column(nullable = true, updatable = false)
+    private String questionId;
 
     public Long getId() {
         return id;
@@ -58,8 +64,6 @@ public class Value implements Serializable {
     public void setCountry(Country country) {
         this.country = country;
     }
-
-
 
     public EntryItem getEntryItem() {
         return entryItem;
@@ -84,6 +88,15 @@ public class Value implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getQuestionNumber() {
+        return questionId;
+    }
+
+    public void setQuestionNumber(String questionId) {
+        this.questionId = questionId;
+    }
+    
     
     
 }

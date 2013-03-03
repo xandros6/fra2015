@@ -169,7 +169,7 @@
         </jaxrs:inInterceptors>      -->
     </jaxrs:server>
     
-       <jaxrs:server id="fra2015RESTSurvey" address="/survey">
+       <!-- <jaxrs:server id="fra2015RESTSurvey" address="/survey">
         <jaxrs:serviceBeans>
           <ref bean="restSurvey"/>
         </jaxrs:serviceBeans>
@@ -183,13 +183,13 @@
            <ref bean="jsonProvider"/>
         </jaxrs:providers>    
         
-<!--        <jaxrs:inInterceptors>
+       <jaxrs:inInterceptors>
             <ref bean="fra2015AuthInterceptor"/>
             <bean class="org.apache.cxf.interceptor.security.SecureAnnotationsInterceptor">
                <property name="securedObject" ref="restUserService"/>
             </bean>
-        </jaxrs:inInterceptors>      -->
-    </jaxrs:server>
+        </jaxrs:inInterceptors>
+    </jaxrs:server> -->
 
 <!--    <jaxrs:server id="fra2015RESTMisc" address="/misc">
         <jaxrs:serviceBeans>

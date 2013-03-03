@@ -21,6 +21,7 @@
 	</properties>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>it.geosolutions.fra2015</groupId>
 			<artifactId>fra2015-persistence</artifactId>
@@ -33,6 +34,14 @@
 			<groupId>it.geosolutions.fra2015</groupId>
 			<artifactId>fra2015-rest-impl</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>it.geosolutions.fra2015</groupId>
+			<artifactId>fra2015-services-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.geosolutions.fra2015</groupId>
+			<artifactId>fra2015-services-impl</artifactId>
+		</dependency>		
 		<dependency>
 			<groupId>it.geosolutions.fra2015</groupId>
 			<artifactId>fra2015-model</artifactId>

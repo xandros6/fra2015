@@ -13,10 +13,10 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd"
 >
 
-    <!-- ====================================================================-->
-    <!-- Property config files -->
-    <!-- Any customization should go in the property file -->
-    <!-- ====================================================================-->
+    <!-- ====================================================================
+    Property config files
+    Any customization should go in the property file
+    ==================================================================== -->
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="0"/>
@@ -40,7 +40,7 @@
         </property>
     </bean>
 
-    <!-- ====================================================================-->
+    <!-- ==================================================================== -->
 
     <bean id="fra2015DataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbc.JDBCDriver" />
@@ -65,6 +65,7 @@
                 <entry key="hibernate.connection.autocommit" value="true"/>
                 <entry key="hibernate.generate_statistics" value="false"/>
                 <entry key="hibernate.default_schema" value="public" />
+                <entry key="hibernate.hbm2ddl.auto" value="validate" />
             </map>
         </property>
     </bean>
@@ -85,5 +86,3 @@
     <tx:annotation-driven />
 
 </beans>
-
-

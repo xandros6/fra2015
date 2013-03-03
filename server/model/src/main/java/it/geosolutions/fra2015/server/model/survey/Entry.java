@@ -49,6 +49,10 @@ public class Entry extends Element {
     @Column(nullable = false, updatable = false)
     private String type;
     
+    // This field should became another persistance entity in the future...
+    @Column(nullable = false, updatable = false)
+    private String questionNumber;
+    
     @OneToMany(mappedBy = "entry", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="entry_id", referencedColumnName="id")
@@ -132,7 +136,15 @@ public class Entry extends Element {
         this.variable = variable;
     }
 
-  
+    public String getQuestionNumber() {
+        return questionNumber;
+    }
+
+    public void setQuestionNumber(String questionNumber) {
+        this.questionNumber = questionNumber;
+    }
+
+   
     
     
 }

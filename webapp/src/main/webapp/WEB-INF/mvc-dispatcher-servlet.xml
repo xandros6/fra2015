@@ -1,59 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
- *  fra2015
- *  https://github.com/geosolutions-it/fra2015
- *  Copyright (C) 2007-2013 GeoSolutions S.A.S.
- *  http://www.geo-solutions.it
- *
- *  GPLv3 + Classpath exception
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
- 
- 	<!-- Package where spring search for controllers (annotated classes @Controller) -->
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<!-- Package where spring search for controllers (annotated classes @Controller) -->
 	<context:component-scan base-package="it.geosolutions.fra2015.mvc.controller" />
-	
-	<!-- Validators: declare here all form validators -->
+
 	<bean class="it.geosolutions.fra2015.mvc.validator.DummyFormValidator" />
- 	
- 	<!-- Locale stuff, default locale, interceptor and message source setup  -->
- 	<bean id="localeResolver"
+
+	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
 		<property name="defaultLocale" value="en" />
 	</bean>
- 	
- 	<bean id="localeChangeInterceptor"
+
+	<bean id="localeChangeInterceptor"
 		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 		<property name="paramName" value="lang" />
 	</bean>
- 
-	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
+
+	<bean
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
 		<property name="interceptors">
-		   <list>
-			<ref bean="localeChangeInterceptor" />
-		    </list>
+			<list>
+				<ref bean="localeChangeInterceptor" />
+			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
@@ -63,9 +43,10 @@
 			</list>
 		</property>
 	</bean>
- 
- 	<!-- How and where the framework search for the JSPs-->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+	<!-- How and where the framework search for the JSPs -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
 		</property>
@@ -73,5 +54,6 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
- 
+
+	
 </beans>

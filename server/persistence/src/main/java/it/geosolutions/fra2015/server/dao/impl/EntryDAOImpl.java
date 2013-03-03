@@ -53,5 +53,4 @@ public class EntryDAOImpl extends BaseDAO<Entry, Long> implements EntryDAO{
          }
          return null;
     }
-    
 }

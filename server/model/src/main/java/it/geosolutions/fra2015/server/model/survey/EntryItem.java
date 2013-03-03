@@ -7,6 +7,7 @@ package it.geosolutions.fra2015.server.model.survey;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -31,7 +32,7 @@ public class EntryItem implements Serializable {
     private Integer rowNumber;
     @Column(nullable = true, updatable = true)
     private Integer columnNumber;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="entry_id", referencedColumnName="id")
     private Entry entry;
     

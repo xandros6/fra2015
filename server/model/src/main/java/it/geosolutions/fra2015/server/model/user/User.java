@@ -44,10 +44,10 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Index;
 
 /**
- * Class User.
+ * Class User, models a FRA2015 User. 
+ * The roles of an User are: CONTRIBUTOR, REVIEWER, REVIEWEREDITOR, COUNTRYACCEPTANCE, ADMIN
  *
- * @author Tobia di Pisa (tobia.dipisa at geo-solutions.it)
- * @author Emanuele Tajariol (etj at geo-solutions.it)
+ * @author DamianoG
  */
 @Entity(name = "User")
 @Table(name = "fra_user", uniqueConstraints = {

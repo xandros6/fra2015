@@ -21,6 +21,8 @@
  */
 package it.geosolutions.fra2015.mvc.model;
 
+import java.util.Map;
+
 /**
  * @author DamianoG
  *
@@ -53,6 +55,9 @@ public class DummyFormModel {
     
     //hidden value
     String secretValue;
+    
+    //table
+    Map<String, String> table;
 
     /**
      * @return the textbox
@@ -206,6 +211,20 @@ public class DummyFormModel {
      */
     public void setSecretValue(String secretValue) {
         this.secretValue = secretValue;
+    }
+
+    /**
+     * @return the table
+     */
+    public Map<String, String> getTable() {
+        return table;
+    }
+
+    /**
+     * @param table the table to set
+     */
+    public void setTable(Map<String, String> table) {
+        this.table = table;
     }
 
     

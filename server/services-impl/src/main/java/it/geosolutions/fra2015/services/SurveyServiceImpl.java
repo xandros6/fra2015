@@ -44,6 +44,8 @@ public class SurveyServiceImpl implements SurveyService {
         public abstract Value read(Long itemId, Country country);
 
         public abstract void merge(Value dbValue);
+        
+        public abstract void remove(Value dbValue);
     }
     private static final Logger LOGGER = Logger.getLogger(SurveyServiceImpl.class);
     private CountryDAO countryDAO;
@@ -52,6 +54,17 @@ public class SurveyServiceImpl implements SurveyService {
     private TextValueDAO textValueDAO;
     private NumberValueDAO numberValueDAO;
     private SurveyDAO surveyDAO;
+    
+    private SurveyCatalog surveyCatalog;
+    
+
+    /**
+     * @param surveyCatalog the surveyCatalog to set
+     */
+    public void setSurveyCatalog(SurveyCatalog surveyCatalog) {
+        this.surveyCatalog = surveyCatalog;
+    }
+
     
     
     private Map<String, ValueDAO> map = new HashMap<String, ValueDAO>();
@@ -116,6 +129,14 @@ public class SurveyServiceImpl implements SurveyService {
                 textValue.setValue(value.getContent());
                 textValueDAO.merge(textValue);
             }
+
+            @Override
+            public void remove(Value value) {
+                TextValue textValue = (TextValue) value;
+                textValue.setValue(value.getContent());
+                textValueDAO.remove(textValue);
+                
+            }
         });
         map.put("Number", new ValueDAO() {
             @Override
@@ -156,6 +177,19 @@ public class SurveyServiceImpl implements SurveyService {
                     Number number = format.parse(value.getContent());
                     numberValue.setValue(number);
                     numberValueDAO.merge(numberValue);
+                } catch (ParseException ex) {
+                    throw new IllegalArgumentException("Value of item " + value.getEntryItem().getId() + "must be numeric.");
+                }
+            }
+
+            @Override
+            public void remove(Value value) {
+                try {
+                    NumberValue numberValue = (NumberValue) value;
+                    NumberFormat format = NumberFormat.getInstance(Locale.US);
+                    Number number = format.parse(value.getContent());
+                    numberValue.setValue(number);
+                    numberValueDAO.remove(numberValue);
                 } catch (ParseException ex) {
                     throw new IllegalArgumentException("Value of item " + value.getEntryItem().getId() + "must be numeric.");
                 }
@@ -217,42 +251,60 @@ public class SurveyServiceImpl implements SurveyService {
         }
         throw new BadRequestServiceEx("Entry " + entryId + " not found.");
     }
+    
+    /**
+     * UNTESTED
+     */
+    // TODO untested!
+    @Override
+    public boolean removeValues(String iso3, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
+
+        Entry entry = entryDAO.findByName(entryId);
+        if (entry != null) {
+            Search searchCriteria = new Search(EntryItem.class);
+            searchCriteria.addFilterEqual("rowNumber", row);
+            searchCriteria.addFilterEqual("columnNumber", col);
+            searchCriteria.addFilterEqual("entry.id", entry.getId());
+            List<EntryItem> items = entryItemDAO.search(searchCriteria);
+            EntryItem item = null;
+            if (items.isEmpty()) {
+                return false;
+            } else {
+                item = items.get(0);
+            }
+
+            // find a country with the given name
+            Country country = findCountryByISO3(iso3);
+            if (country == null) {
+                throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+            }
+
+            // retrieve previous value if it is an update
+            ValueDAO valueDAO = map.get(item.getType());
+            Value dbValue = valueDAO.read(item.getId(), country);
+            if (dbValue == null) {
+                return false;
+            } else {
+                // update values
+                dbValue.setContent(value);
+                valueDAO.remove(dbValue);
+            }
+
+            return true;
+        }
+        throw new BadRequestServiceEx("Entry " + entryId + " not found.");
+    }
+    
+    @Override
+    public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionId) throws BadRequestServiceEx {
+
+        return getValuesInternal(iso3, questionId);
+    }
 
     @Override
     public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx, NotFoundServiceEx {
 
-        // find a country with the given name
-        Country country = findCountryByISO3(iso3);
-        if (country == null) {
-            throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
-        }
-
-        List<CompactValue> values = new ArrayList<CompactValue>();
-        List<Entry> entries = entryDAO.findAll();
-        if (entries != null) {
-            for (Entry entry : entries) {
-                if (!entry.getEntryItems().isEmpty()) {
-                    for (EntryItem item : entry.getEntryItems()) {
-                        String type = item.getType();
-                        ValueDAO valueDAO = map.get(type);
-                        if (valueDAO != null) {
-                            Value value = valueDAO.read(item.getId(), country);
-                            if (value != null) {
-                                CompactValue compact = new CompactValue(
-                                        item.getEntry().getVariable(),
-                                        item.getRowNumber(),
-                                        item.getColumnNumber(),
-                                        value.getContent());
-                                values.add(compact);
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-        return values;
-
+        return getValuesInternal(iso3, null);
     }
 
     @Override
@@ -306,5 +358,48 @@ public class SurveyServiceImpl implements SurveyService {
             return countries.get(0);
         }
         return null;
+    }
+    
+    private List<CompactValue> getValuesInternal(String iso3, Integer questionNumber) throws BadRequestServiceEx{
+        
+        // find a country with the given name
+        Country country = findCountryByISO3(iso3);
+        if (country == null) {
+            throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+        }
+
+        List<CompactValue> values = new ArrayList<CompactValue>();
+        
+        List<Entry> entries = new ArrayList<Entry>();
+        if(questionNumber == null){
+            entries = surveyCatalog.getCatalog();
+        }
+        else{
+            entries = surveyCatalog.getCatalogForQuestion(questionNumber);
+        }
+//        List<Entry> entries = entryDAO.findAll();
+        if (entries != null) {
+            for (Entry entry : entries) {
+                if (!entry.getEntryItems().isEmpty()) {
+                    for (EntryItem item : entry.getEntryItems()) {
+                        String type = item.getType();
+                        ValueDAO valueDAO = map.get(type);
+                        if (valueDAO != null) {
+                            Value value = valueDAO.read(item.getId(), country);
+                            if (value != null) {
+                                CompactValue compact = new CompactValue(
+                                        item.getEntry().getVariable(),
+                                        item.getRowNumber(),
+                                        item.getColumnNumber(),
+                                        value.getContent());
+                                values.add(compact);
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        return values;
     }
 }

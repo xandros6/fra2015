@@ -40,4 +40,26 @@ public interface SurveyService {
      * @return the new status
      */
     public String changeStatus(Status status) throws BadRequestServiceEx, NotFoundServiceEx;
+
+    /**
+     * @param iso3
+     * @param questionNumber
+     * @return
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx
+     */
+    public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
+
+    /**
+     * @param iso3
+     * @param entryId
+     * @param row
+     * @param col
+     * @param value
+     * @return
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx
+     */
+    boolean removeValues(String iso3, String entryId, Integer row, Integer col, String value)
+            throws BadRequestServiceEx, NotFoundServiceEx;
 }

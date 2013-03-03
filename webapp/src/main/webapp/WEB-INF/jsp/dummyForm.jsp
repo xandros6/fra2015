@@ -40,8 +40,8 @@
 </head>
 <body>
 	<h2>Dummy form</h2>
-
-	<form:form method="POST" commandName="dForm">
+	<!--  -->
+	<form:form method="POST" commandName="dForm" >
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>
 			<tr>
@@ -106,6 +106,7 @@
 				<td colspan="3"><input type="submit" /></td>
 			</tr>
 		</table>
+		
 	</form:form>
 
 </body>

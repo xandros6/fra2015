@@ -2,6 +2,7 @@
  */
 package it.geosolutions.fra2015.init;
 
+import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.init.model.CountryList;
 import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
@@ -13,7 +14,6 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
-import it.geosolutions.fra2015.services.rest.SurveyService;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.bind.JAXB;
@@ -37,14 +37,14 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
     private SurveyDAO surveyDAO;
     
     private UserService userService;
-    private SurveyService restSurveyService;
+    private SurveyServiceEntryPoint restSurveyService;
     
     private ApplicationContext applicationContext; 
     
     private File countriesFile;
     private File surveyFile;
 
-    public void setRestSurveyService(SurveyService restSurveyService) {
+    public void setRestSurveyService(SurveyServiceEntryPoint restSurveyService) {
         this.restSurveyService = restSurveyService;
     }
     
@@ -150,7 +150,7 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         }
 
         Survey survey = JAXB.unmarshal(surveyFile, Survey.class);
-        restSurveyService.create(null, survey);
+        restSurveyService.create(survey);
     }
     
     
