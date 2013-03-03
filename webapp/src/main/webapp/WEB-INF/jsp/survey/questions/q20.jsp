@@ -66,18 +66,15 @@
 									code="ref552"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="20"><input class="entry-item-value" type="hidden"
-								value="${_variable_20[1][1]}" name="_variable_20[1][1]">
+								entry-id="20"><span class="entry_item_placeholder" id="_variable_20[1][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_20[1][1]}</div></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="20"><input class="entry-item-value" type="hidden"
-								value="${_variable_20[1][2]}" name="_variable_20[1][2]">
+								entry-id="20"><span class="entry_item_placeholder" id="_variable_20[1][2]">&nbsp;</span>
 							<div id="cell-content">${_variable_20[1][2]}</div></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="20"><input class="entry-item-value" type="hidden"
-								value="${_variable_20[1][3]}" name="_variable_20[1][3]">
+								entry-id="20"><span class="entry_item_placeholder" id="_variable_20[1][3]">&nbsp;</span>
 							<div id="cell-content">${_variable_20[1][3]}</div></td>
 						</tr>
 					</tbody>
@@ -108,15 +105,11 @@
 						<tr>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="161"><input class="entry-item-value"
-								type="hidden" value="${_variable_161[1][0]}"
-								name="_variable_161[1][0]">
+								entry-id="161"><span class="entry_item_placeholder" id="_variable_161[1][0]">&nbsp;</span>
 							<div id="cell-content">${_variable_161[1][0]}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="161"><input class="entry-item-value"
-								type="hidden" value="${_variable_161[1][1]}"
-								name="_variable_161[1][1]">
+								entry-id="161"><span class="entry_item_placeholder" id="_variable_161[1][1]">&nbsp;</span>
 							<div id="cell-content">${_variable_161[1][1]}</div></td>
 						</tr>
 					</tbody>

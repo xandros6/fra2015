@@ -5,11 +5,6 @@
 <%@ include file="common/includes/css.jsp"%>
 <!-- javascripts -->
 <%@ include file="common/includes/javascript.jsp"%>
-<c:choose>
-	<c:when test="${context=='survey'}">
-		<script src="${pageContext.request.contextPath}/js/tableeditor.js"></script>
-	</c:when>
-</c:choose>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
@@ -24,9 +19,9 @@
 								<%
 									//TODO change this with user menu when user in session
 								%>
-
-								<jsp:include page="contributor/menu.jsp" />
-
+								
+								<jsp:include page="admin/menu.jsp" />
+								
 								<div class="navbar-form pull-right">
 									<button type="submit" class="logout btn">
 										<i class="icon-off"></i>
@@ -49,17 +44,14 @@
 						%>
 						<c:choose>
 
-							<c:when test="${context=='survey'}">
-								<jsp:include page="survey/survey.jsp" />
+							<c:when test="${context=='activitylog'}">
+								<jsp:include page="admin/activitylog.jsp" />
 							</c:when>
-							<c:when test="${context=='check'}">
-								<jsp:include page="contributor/check-submit.jsp" />
-							</c:when>
-							<c:when test="${context=='summary'}">
-								<jsp:include page="contributor/summary.jsp" />
+							<c:when test="${context=='users'}">
+								<jsp:include page="admin/users.jsp" />
 							</c:when>
 							<c:when test="${context=='export'}">
-								<jsp:include page="contributor/export.jsp" />
+								<jsp:include page="admin/adminexport.jsp" />
 							</c:when>
 						</c:choose>
 

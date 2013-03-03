@@ -1,4 +1,4 @@
-<!-- 
+/*
  *  fra2015
  *  https://github.com/geosolutions-it/fra2015
  *  Copyright (C) 2007-2013 GeoSolutions S.A.S.
@@ -19,17 +19,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- -->
+package it.geosolutions.fra2015.mvc.controller;
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MVC Dummy example</title>
-</head>
-<body>
-	<h1>dummy page says: ${message}</h1>
-</body>
-</html>
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+/**
+ * @author Lorenzo Natali
+ *
+ */
+@Controller
+@RequestMapping("/check")
+public class CheckController {
+    
+    @RequestMapping(method = RequestMethod.GET)
+    public String printWelcome(ModelMap model) {
+    		model.addAttribute("context", "check");
+            //model.addAttribute("message", "Spring 3 MVC dummy example");
+            return "index";
+
+    }
+}

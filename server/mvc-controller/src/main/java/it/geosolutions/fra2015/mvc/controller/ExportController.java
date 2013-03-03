@@ -27,18 +27,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * @author DamianoG
+ * @author Lorenzo Natali
  *
  */
 @Controller
-@RequestMapping("/dummy")
-public class DummyController {
+@RequestMapping("/export")
+public class ExportController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-
-            model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "dummy";
+    		model.addAttribute("context", "export");
+            //model.addAttribute("message", "Spring 3 MVC dummy example");
+            return "index";
 
     }
 }
