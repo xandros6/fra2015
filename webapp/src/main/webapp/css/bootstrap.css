@@ -679,7 +679,7 @@ h3 {
 }
 
 h1 {
-  font-size: 38.5px;
+  font-size: 34px; /* etj: was 38.5 */
 }
 
 h2 {
