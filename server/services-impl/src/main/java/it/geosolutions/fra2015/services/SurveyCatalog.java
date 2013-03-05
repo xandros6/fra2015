@@ -23,8 +23,10 @@ package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.EntryItemDAO;
+import it.geosolutions.fra2015.server.dao.QuestionDAO;
 import it.geosolutions.fra2015.server.dao.impl.EntryItemDAOImpl;
 import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.Question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,7 @@ import java.util.List;
 public class SurveyCatalog {
 
     private EntryDAO entryDAO;
+    private QuestionDAO questionDAO;
     private EntryItemDAO entryItemDAO;
     private List<Entry> catalog;
     
@@ -49,6 +52,9 @@ public class SurveyCatalog {
         this.entryDAO = entryDAO;
     }
 
+    public void setQuestionDAO(QuestionDAO questionDAO) {
+		this.questionDAO = questionDAO;
+	}
     
 
     /**
@@ -69,16 +75,8 @@ public class SurveyCatalog {
      * @return
      */
     public List<Entry> getCatalogForQuestion(Integer questionNumber) {
-        
-        List<Entry> questionEntryList = new ArrayList<Entry>();
-        List<Entry> catalog = getCatalog();
-        for(Entry el : catalog){
-            if(el.getQuestionNumber()!=null){
-                if(questionNumber.equals(Integer.parseInt(el.getQuestionNumber()))){
-                    questionEntryList.add(el);
-                }
-            }
-        }
+    	Question question = questionDAO.find(questionNumber.longValue());
+    	List<Entry> questionEntryList = question.getEntries();
         return questionEntryList;
     }
 

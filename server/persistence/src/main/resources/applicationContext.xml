@@ -49,6 +49,10 @@
         <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
     
+    <bean id="questionDAO" class="it.geosolutions.fra2015.server.dao.impl.QuestionDAOImpl" >
+        <property name="searchProcessor" ref="fra2015SearchProcessor" />
+    </bean>
+    
     <bean id="entryItemDAO" class="it.geosolutions.fra2015.server.dao.impl.EntryItemDAOImpl" >
         <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>

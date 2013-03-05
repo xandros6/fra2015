@@ -155,6 +155,8 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
             for (Element e : elements) {
                 save(e);
             }
+        } else if (obj instanceof Question) {
+        	 surveyService.upsert((Question) obj);
         } else if (obj instanceof Session) {
             Session s = (Session) obj;
             save(s.getElements());
