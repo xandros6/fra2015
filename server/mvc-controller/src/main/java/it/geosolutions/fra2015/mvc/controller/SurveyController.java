@@ -32,10 +32,9 @@ import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -78,10 +77,31 @@ public class SurveyController {
             LOGGER.error(e.getMessage(), e);
         }
 
+        Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
         for (CompactValue el : es.getValues()) {
+            // Hack for handle dynamicTables: the jsp must know how many row are present.
+            // so count them for each table and put it in the model
+            if(el.getRowNumber() > 0){
+                Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"+el.getVariable());
+                Integer newRowCounter = (oldRowCounter != null)?oldRowCounter+1:1;
+                Integer numCol = tableRowsCounter.remove("numCols"+el.getVariable());
+                if(numCol == null || numCol<el.getColumnNumber()){
+                    tableRowsCounter.put("tableColsCounter"+el.getVariable(),el.getColumnNumber());
+                }
+                else{
+                    tableRowsCounter.put("tableColsCounter"+el.getVariable(),numCol);
+                }
+                tableRowsCounter.put("tableRowsCounter"+el.getVariable(),newRowCounter);
+            }
             model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());
         }
-
+        // Put in the model the counters
+        for (String el : tableRowsCounter.keySet()) {
+            if(el.startsWith("tableRowsCounter")){
+                String name = el.substring(16);
+                model.addAttribute(el, tableRowsCounter.get(el)/tableRowsCounter.get("tableColsCounter"+name)+1);
+            }
+        }
         // TODO user in session model.addAttribute("user",user);
         return "index";
 
@@ -89,13 +109,17 @@ public class SurveyController {
 
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.POST)
     public String handlePost(HttpServletRequest request,
-            @PathVariable(value = "question") String question, HttpSession session) {
+            @PathVariable(value = "question") String question, HttpSession session, Model model) {
 
+        model.addAttribute("question", question);
+        model.addAttribute("context", "survey");
+        
         // Retrieve the stored value in order to compare them with the new submitted values
         SessionUser su = (SessionUser) session.getAttribute("sessionUser");
         CountryValues es = null;
         try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountry(), Integer.parseInt(question+1));
+            es = surveyService.getCountryAndQuestionValues(su.getCountry(),
+                    Integer.parseInt(question + 1));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -133,7 +157,5 @@ public class SurveyController {
         return "index";
 
     }
-
-    
 
 }
