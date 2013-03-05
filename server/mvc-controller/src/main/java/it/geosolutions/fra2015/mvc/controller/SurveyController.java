@@ -27,8 +27,8 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.controller.utils.ActivityLogUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
-import it.geosolutions.fra2015.mvc.model.SessionUser;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
@@ -68,11 +68,11 @@ public class SurveyController {
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
 
-        SessionUser su = (SessionUser) session.getAttribute("sessionUser");
+        User su = (User) session.getAttribute("sessionUser");
         CountryValues es = null;
         try {
             // awesome workaround... I don't wanna live on this planet anymore...
-            es = surveyService.getCountryAndQuestionValues(su.getCountry(), Integer.parseInt(question+1));
+            es = surveyService.getCountryAndQuestionValues(su.getCountries(), Integer.parseInt(question+1));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -115,10 +115,10 @@ public class SurveyController {
         model.addAttribute("context", "survey");
         
         // Retrieve the stored value in order to compare them with the new submitted values
-        SessionUser su = (SessionUser) session.getAttribute("sessionUser");
+        User su = (User) session.getAttribute("sessionUser");
         CountryValues es = null;
         try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountry(),
+            es = surveyService.getCountryAndQuestionValues(su.getCountries(),
                     Integer.parseInt(question + 1));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
@@ -128,7 +128,7 @@ public class SurveyController {
         ActivityLogUtils.compareValueSet(reqParams, es.getValues());
 
         List<Update> updateList = new ArrayList<Update>();
-        SessionUser se = (SessionUser) session.getAttribute("sessionUser");
+        User se = (User) session.getAttribute("sessionUser");
 
         for (String el : reqParams.keySet()) {
             String s = reqParams.get(el)[0];
@@ -140,7 +140,7 @@ public class SurveyController {
             Update update = new Update();
             update.setColumn(var.col);
             update.setRow(var.row);
-            update.setCountry(se.getCountry());
+            update.setCountry(se.getCountries());
             update.setValue(var.value);
             update.setVariable(var.variableName);
             updateList.add(update);
