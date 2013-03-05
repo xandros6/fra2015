@@ -1,7 +1,8 @@
+<%@ include file="../common/includes/taglibs.jsp"%>
 <div>
 	<div id="filterWindow" class="modal hide fade span8">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" 
+			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
 			<h3>Set filter</h3>
 		</div>
@@ -31,8 +32,7 @@
 					</p>
 					<p>
 						<label class="control-label" for="countryComboBox">Countries:</label>
-						<input id="countries" size="20"
-							class="input-block-level"
+						<input id="countries" size="20" class="input-block-level"
 							data-provide="typeahead" data-source="['ciao','come,'stai']">
 					</p>
 				</fieldset>
@@ -47,11 +47,11 @@
 
 	<div id="createUserWindow" class="modal hide fade span8">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" 
+			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
 			<h3>Create user</h3>
 		</div>
-		
+
 		<div class="modal-body">
 
 			<input id="cid" name="id" type="hidden">
@@ -112,8 +112,10 @@
 
 		<div class="row">
 			<p class="pull-right">
-				<a href="#" id="createBtn" class="btn" data-toggle="modal" data-target="#createUserWindow" > Create user </a> <a href="#"
-					id="applyFilterBtn" class="btn btn-primary" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
+				<a href="#" id="createBtn" class="btn" data-toggle="modal"
+					data-target="#createUserWindow"> Create user </a> <a href="#"
+					id="applyFilterBtn" class="btn btn-primary" data-toggle="modal"
+					data-target="#filterWindow">Apply filter</a>
 			</p>
 		</div>
 
@@ -131,42 +133,28 @@
 							<th></th>
 						</tr>
 					</thead>
+
 					<tbody>
-
-						<tr class="rowItem">
-							<td>User Afghanistan</td>
-							<td>AFG</td>
-							<td>contributor</td>
-							<td>AFG</td>
-							<td><a class="btn">Edit</a></td>
-						</tr>
-						<tr class="rowItem">
-							<td>User Albania</td>
-							<td>ALB</td>
-							<td>contributor</td>
-							<td>ALB</td>
-							<td><a class="btn">Edit</a></td>
-						</tr>
-						<tr class="rowItem">
-							<td>User Algeria</td>
-							<td>DZA</td>
-							<td>contributor</td>
-							<td>DZA</td>
-							<td><a class="btn">Edit</a></td>
-						</tr>
-						<tr class="rowItem">
-							<td>User American Samoa</td>
-							<td>ASM</td>
-							<td>contributor</td>
-							<td>ASM</td>
-							<td><a class="btn">Edit</a></td>
-						</tr>
-
+						 <c:forEach items='${users}' var='user' varStatus='rowItem'>
+							<tr class="rowItem">
+								
+								<td>${user.name}</td>
+								<td>${user.username}</td>
+								<td>${user.role}</td>
+								<td>${user.countries}</td>
+								<td><a class="btn edit">Edit</a></td>
+							</tr>
+						</c:forEach>	
+							
 					</tbody>
 				</table>
 				<ul class="pager pull-right">
-					<li class="disabled"><a href="#">Prev</a></li>
-					<li class="disabled"><a href="#">Next</a></li>
+					<c:if test="${ prev>=0}">
+					<li class="eanabled"><a href="${prev}">Prev</a></li>
+					</c:if>
+					<c:if test="${next>0}">
+					<li><a href="${next}">Next</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
