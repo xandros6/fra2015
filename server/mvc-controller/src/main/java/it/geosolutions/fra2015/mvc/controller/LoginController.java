@@ -21,12 +21,10 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import it.geosolutions.fra2015.mvc.model.SessionUser;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
-import java.security.Principal;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -34,6 +32,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -54,28 +56,26 @@ public class LoginController {
     public String processForm(@ModelAttribute("login") User user, BindingResult result, Map model,
             HttpSession session) {
 
-        User storedUser = null;
-
-        try {
-            storedUser = userService.get("User Algeria");
-        } catch (NotFoundServiceEx e) {
-            // TODO Auto-generated catch block
-            LOGGER.error(e.getMessage(), e);
+        // Retrieve the UserDetails from SecurityContext
+        UserDetails userDetails = null;
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
+             userDetails = (UserDetails) auth.getPrincipal();
         }
-
-        SessionUser us = new SessionUser();
-        us.setCountry(storedUser.getCountries());
-        session.setAttribute("sessionUser", us);
-
+        // Retrieve the user userDetails.getUsername() from DB
+        User storedUser = null;
+        try {
+            storedUser = userService.get(userDetails.getUsername());
+        } catch (NotFoundServiceEx e) {
+            LOGGER.error(e.getMessage(), e);
+            return "login";
+        }
         if (result.hasErrors()) {
             return "login";
         }
-        user = (User) model.get("user");
-
-        // check usr
-
-        // model.put("loginForm", loginForm);
-
+        // Store the User in session
+        session.setAttribute("sessionUser", storedUser);
+        
         return "redirect:survey/0";
     }
 
