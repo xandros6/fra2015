@@ -76,7 +76,7 @@ public class LoginController {
         // Store the User in session
         session.setAttribute("sessionUser", storedUser);
         
-        return "redirect:survey/0";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
