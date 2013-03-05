@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -19,6 +20,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * This class represents a whole table or a text area or a non editable text.
@@ -49,11 +52,12 @@ public class Entry extends Element {
     @Column(nullable = false, updatable = false)
     private String type;
     
-    // This field should became another persistance entity in the future...
-    @Column(nullable = false, updatable = false)
-    private String questionNumber;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="question_id", referencedColumnName="id")
+    private Question question;
     
     @OneToMany(mappedBy = "entry", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @Fetch(value=FetchMode.JOIN)
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="entry_id", referencedColumnName="id")
     // see http://www.intertech.com/Blog/Post/Hibernate-Why-Are-there-nulls-in-my-collection.aspx
@@ -136,15 +140,13 @@ public class Entry extends Element {
         this.variable = variable;
     }
 
-    public String getQuestionNumber() {
-        return questionNumber;
-    }
+	public Question getQuestion() {
+		return question;
+	}
 
-    public void setQuestionNumber(String questionNumber) {
-        this.questionNumber = questionNumber;
-    }
-
-   
+	public void setQuestion(Question question) {
+		this.question = question;
+	} 
     
     
 }

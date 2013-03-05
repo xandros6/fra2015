@@ -20,6 +20,7 @@
     
     <bean id="surveyCatalog" class="it.geosolutions.fra2015.services.SurveyCatalog" depends-on="entryDAO,entryItemDAO">
     	<property name="entryDAO" ref="entryDAO" />
+    	<property name="questionDAO" ref="questionDAO" />    	
     	<!-- <property name="entryItemDAO" ref="entryItemDAO" /> -->
     </bean>
     
