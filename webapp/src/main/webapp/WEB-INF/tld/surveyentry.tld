@@ -35,5 +35,20 @@ jsptaglibrary_2_0.xsd"
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 		</tag>
+		<tag>
+			<name>DynamicTableTag</name>
+			<tag-class>it.geosolutions.fra2015.tags.DynamicTableTag</tag-class>
+			<body-content>JSP</body-content>
+			<attribute>
+				<name>entryItemName</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>colNumber</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		</tag>
 	
 </taglib> 

@@ -73,39 +73,9 @@ public class SurveyController {
         model.addAttribute("context", "survey");
 
         User su = (User) session.getAttribute("sessionUser");
-        CountryValues es = null;
-        try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountries(), Integer.parseInt(question));
-        } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
-        }
+        retrieveValues(question, su);
 
-        Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
-        List<Entry> questionCatalog = catalog.getCatalogForQuestion(Integer.parseInt(question));
-        for(Entry el : questionCatalog){
-            if(el!=null && el.getType().equalsIgnoreCase("table")){
-                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), 4);
-            }
-        }
-        
-        for (CompactValue el : es.getValues()) {
-            // Hack for handle dynamicTables: the jsp must know how many row are present.
-            // so count them for each table and put it in the model
-            if(catalog.getEntry(el.getVariable()).getType().equals("table")){
-                Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"+el.getVariable());
-                Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
-                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), newRowCounter);
-            }
-            model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());
-        }
-        
-        // Put in the model the counters
-        for (String el : tableRowsCounter.keySet()) {
-            if(el.startsWith("tableRowsCounter")){
-                String name = el.substring(16);
-                model.addAttribute(el, tableRowsCounter.get(el));
-            }
-        }
+        prepareHTTPRequest(model, question, retrieveValues(question, su));
         
         return "index";
 
@@ -117,16 +87,12 @@ public class SurveyController {
 
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
-        
-        // Retrieve the stored value in order to compare them with the new submitted values
+
         User su = (User) session.getAttribute("sessionUser");
-        CountryValues es = null;
-        try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountries(),
-                    Integer.parseInt(question));
-        } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
-        }
+
+        // Retrieve the stored value in order to compare them with the new submitted values
+        CountryValues es = retrieveValues(question, su);
+
         Map<String, String[]> reqParams = request.getParameterMap();
 
         ActivityLogUtils.compareValueSet(reqParams, es.getValues());
@@ -158,9 +124,53 @@ public class SurveyController {
         updates.setUpdates(updateList);
         surveyService.updateValues(updates);
         
+        // Another time???? WTF???
+        prepareHTTPRequest(model, question, retrieveValues(question, su));
+        
+        return "index";
 
-        return printWelcome(question,model,session);
-
+    }
+    
+    private CountryValues retrieveValues(String question, User su){
+        
+        CountryValues es = null;
+        try {
+            es = surveyService.getCountryAndQuestionValues(su.getCountries(),
+                    Integer.parseInt(question));
+        } catch (BadRequestServiceEx e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+        return es;
+    }
+    
+    private void prepareHTTPRequest(Model model, String question, CountryValues values){
+        
+        Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
+        List<Entry> questionCatalog = catalog.getCatalogForQuestion(Integer.parseInt(question));
+        for(Entry el : questionCatalog){
+            if(el!=null && el.getType().equalsIgnoreCase("table")){
+                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), 4);
+            }
+        }
+        
+        for (CompactValue el : values.getValues()) {
+            // Hack for handle dynamicTables: the jsp must know how many row are present.
+            // so count them for each table and put it in the model
+            if(catalog.getEntry(el.getVariable()).getType().equals("table")){
+                Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"+el.getVariable());
+                Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
+                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), newRowCounter);
+            }
+            model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());
+        }
+        
+        // Put in the model the counters
+        for (String el : tableRowsCounter.keySet()) {
+            if(el.startsWith("tableRowsCounter")){
+                String name = el.substring(16);
+                model.addAttribute(el, tableRowsCounter.get(el));
+            }
+        }
     }
 
 }

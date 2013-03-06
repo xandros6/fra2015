@@ -24,7 +24,8 @@
 					<td rownumber="0" columnnumber="3"><spring:message code="ref7"></spring:message></td>
 					<td class="action-column" width="80px"></td>
 				</tr>
-				<c:forEach var="row" begin="1" end="${tableRowsCounter0}" >
+				<fra:DynamicTableTag entryItemName="0" colNumber="4"/>
+				<%-- <c:forEach var="row" begin="1" end="${tableRowsCounter0}" >
 					<c:set var="entryItemName" value="0" />
 					<c:set var="value1" value="_fraVariable_${entryItemName}_${row}_0_" />
 					<c:set var="value2" value="_fraVariable_${entryItemName}_${row}_1_" />
@@ -54,12 +55,10 @@
 						<td class="action-column" width="80px"><a href="#"
 							class="btn delete-btn"><spring:message code="delete" /></a></td>
 					</tr>
-				</c:forEach>
+				</c:forEach> --%>
 			</tbody>
 		</table>
 		</div>
-
-
 
 		<%-- <div class="entry">
 			<table
