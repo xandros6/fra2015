@@ -13,7 +13,7 @@
 			<spring:message code="ref3"></spring:message>
 		</p>
 		<div></div>
-	
+		<div class="entry">
 		<table
 			class="editable extensible table table-bordered table-hover table-condensed table-striped">
 			<tbody>
@@ -57,7 +57,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+		</div>
 
 
 
@@ -176,9 +176,7 @@
 		</p>
 		<div></div>
 		<div class="entry">
-			<textarea class="texteditor entry-item" entry-item-id="0" cols="160"
-				rows="10" id="srmxf450zfr" name="_fraVariable_1_" rownumber="0"
-				columnnumber="0" entry-id="1">${_fraVariable_1_}</textarea>
+			<fra:richtextentry  name="_fraVariable_1_"></fra:richtextentry>
 		</div>
 		<div class="control pull-right"></div>
 		<br>

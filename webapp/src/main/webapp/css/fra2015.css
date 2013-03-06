@@ -45,6 +45,18 @@ td.noneditable {
     background-color: #D8D8D8 !important; 
 }
 
+td.entry-item{
+	padding:0 auto;
+}
+.entry_item_placeholder{
+	display:none;
+	
+}
+#cell-content{
+	min-height:15px;
+
+}
+
 .form-signin {
    
     padding: 5px 20px;
