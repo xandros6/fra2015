@@ -60,6 +60,8 @@ $(function() {
 							} catch (e) {
 							}
 
+						}else{
+							$(this).find('#cell-content').empty();
 						}
 
 					});

@@ -6,8 +6,8 @@ jsptaglibrary_2_0.xsd"
 		<tlib-version>1.0</tlib-version>
 		<short-name>fra</short-name>
 		<tag>
-			<name>RichTextEntry</name>
-			<tag-class>it.geosolutions.fra2015.tags.RichTextTag</tag-class>
+			<name>richtextentry</name>
+			<tag-class>it.geosolutions.fra2015.tags.RichTextEntry</tag-class>
 			<body-content>JSP</body-content>
 			<attribute>
 				<name>name</name>
@@ -15,7 +15,26 @@ jsptaglibrary_2_0.xsd"
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 		</tag>
-		
+		<tag>
+			<name>yesno</name>
+			<tag-class>it.geosolutions.fra2015.tags.YesNoEntry</tag-class>
+			<body-content>JSP</body-content>
+			<attribute>
+				<name>name</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		</tag>
+		<tag>
+			<name>tiers</name>
+			<tag-class>it.geosolutions.fra2015.tags.TiersEntry</tag-class>
+			<body-content>JSP</body-content>
+			<attribute>
+				<name>name</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		</tag>
 		<tag>
 			<name>DynamicTableTag</name>
 			<tag-class>it.geosolutions.fra2015.tags.DynamicTableTag</tag-class>

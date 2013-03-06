@@ -911,11 +911,11 @@
 									code="ref15"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="9"><div id="cell-content">
-									<select name="_fraVariable_9_1_1_" rownumber="1"><option
+									<fra:tiers name="_fraVariable_9_1_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
 								entry-id="9"><div id="cell-content">

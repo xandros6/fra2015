@@ -73,12 +73,7 @@ public class SurveyController {
         model.addAttribute("context", "survey");
 
         User su = (User) session.getAttribute("sessionUser");
-        CountryValues es = null;
-        try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountries(), Integer.parseInt(question));
-        } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
-        }
+        retrieveValues(question, su);
 
         prepareHTTPRequest(model, question, retrieveValues(question, su));
         
@@ -128,7 +123,6 @@ public class SurveyController {
         Updates updates = new Updates();
         updates.setUpdates(updateList);
         surveyService.updateValues(updates);
-
         
         // Another time???? WTF???
         prepareHTTPRequest(model, question, retrieveValues(question, su));

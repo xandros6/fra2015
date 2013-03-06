@@ -17,12 +17,18 @@ import org.apache.log4j.Logger;
  * @author Lorenzo Natali
  * 
  */
+/*
+ * <select name="_fraVariable_9_1_1_" rownumber="1"><option
+ * selected="selected">---</option> <option value="Tier 1">Tier 1</option>
+ * <option value="Tier 2">Tier 2</option> <option value="Tier 3">Tier
+ * 3</option></select> </div></td>
+ */
 @SuppressWarnings("serial")
-public class RichTextTag extends TagSupport {
+public class TiersEntry extends TagSupport {
 	Logger LOGGER = Logger.getLogger(this.getClass());
-	private static String editorStart = "<textarea class='texteditor entry-item' cols='160' rows='10' name='";
+	private static String editorStart = "<select name='";
 	private static String readerStart = "<div>";
-	private static String editorEnd = "</textarea>";
+	private static String editorEnd = "</select>";
 	private static String readerend = "</div>";
 
 	private String editor = "contributor";
@@ -42,9 +48,26 @@ public class RichTextTag extends TagSupport {
 			this.isEditor = editor.equals(user.getRole());
 			
 			String value = pageContext.getAttribute(this.name) !=null? (String) pageContext.getAttribute(this.name):"";
+			int index = 0;
+			if("Tier 1".equals(value)) index= 1;
+			if("Tier 2".equals(value)) index= 2;
+			if("Tier 3".equals(value)) index= 3;
 			//print start tag
 			if (this.isEditor) {
-				out.print(editorStart + this.name + "'>" + value);
+				out.print(editorStart + this.name + "'>");
+			String[] options ={
+						" >---</option>",
+						" value='Tier 1'>Tier 1</option>",
+						" value='Tier 2'>Tier 2</option>",
+						" value='Tier 3'>Tier 3</option>" 
+			};
+							
+			String optionstring = "";
+			for(int i=0; i<options.length;i++){
+				optionstring+= "<option " + (index==i? " selected='selected '":"") + options[i];
+			}
+			out.print(optionstring);
+			
 			} else {
 				out.print(readerStart + value);
 				
@@ -59,14 +82,14 @@ public class RichTextTag extends TagSupport {
 	}
 
 	public int doEndTag() throws JspException {
-		
+
 		try {
-			
+
 			JspWriter out = pageContext.getOut();
-			if(this.isEditor){
-				out.print(RichTextTag.editorEnd);
-			}else{
-				out.print(RichTextTag.readerend);
+			if (this.isEditor) {
+				out.print(TiersEntry.editorEnd);
+			} else {
+				out.print(TiersEntry.readerend);
 			}
 
 		} catch (IOException ioe) {
