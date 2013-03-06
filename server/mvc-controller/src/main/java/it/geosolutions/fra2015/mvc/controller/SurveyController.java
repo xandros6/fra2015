@@ -157,8 +157,9 @@ public class SurveyController {
         Updates updates = new Updates();
         updates.setUpdates(updateList);
         surveyService.updateValues(updates);
+        
 
-        return "index";
+        return printWelcome(question,model,session);
 
     }
 
