@@ -123,7 +123,7 @@ public class SurveyController {
         CountryValues es = null;
         try {
             es = surveyService.getCountryAndQuestionValues(su.getCountries(),
-                    Integer.parseInt(question + 1));
+                    Integer.parseInt(question));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -132,6 +132,7 @@ public class SurveyController {
         ActivityLogUtils.compareValueSet(reqParams, es.getValues());
 
         List<Update> updateList = new ArrayList<Update>();
+        User se = (User) session.getAttribute("sessionUser");
 
         for (String el : reqParams.keySet()) {
             String s = reqParams.get(el)[0];

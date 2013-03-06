@@ -23,15 +23,8 @@
 								<jsp:include page="admin/menu.jsp" />
 								
 								<div class="navbar-form pull-right">
-									<button type="submit" class="logout btn" onClick="location.href='<c:url value="/j_spring_security_logout" />'">
-										<i class="icon-off"></i>
-										<spring:message code="toolbar.logout" />
-									</button>
-									<select id="languageSelector" class="language input-small">
-										<option value="en-US">English</option>
-										<option value="fr-FR">Français</option>
-										<option value="es-ES">Español</option>
-									</select>
+									<jsp:include page="common/logoutbutton.jsp" />
+									<jsp:include page="common/languageselector.jsp" />	
 								</div>
 							</div>
 						</div>
