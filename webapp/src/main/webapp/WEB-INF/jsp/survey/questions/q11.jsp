@@ -150,10 +150,10 @@
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
 									entry-id="11"><div id="cell-content">
 										<div>
-											<input value="yes" name="variable_11[0][1]"
+											<input value="yes" name="_fraVariable_11_0_1_"
 												class="radio-boolean" type="checkbox">
 											<spring:message code="chk.yes"></spring:message>
-											<input value="no" name="variable_11[0][1]"
+											<input value="no" name="_fraVariable_11_0_1_"
 												class="radio-boolean" type="checkbox">
 											<spring:message code="chk.no"></spring:message>
 										</div>

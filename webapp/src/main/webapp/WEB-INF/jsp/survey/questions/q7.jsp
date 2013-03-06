@@ -230,9 +230,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="cf0q7zxgvi" name="_fraVariable_78_"
-						rownumber="0" columnnumber="0" entry-id="78"> </textarea>
+					<fra:richtextentry name="_fraVariable_78_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br> <br>
@@ -252,9 +250,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="c1vilw3766r" name="_fraVariable_79_"
-						rownumber="0" columnnumber="0" entry-id="79"> </textarea>
+					<fra:richtextentry name="_fraVariable_79_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br> <br>
@@ -268,9 +264,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="qyzq4kro1or" name="_fraVariable_80_"
-						rownumber="0" columnnumber="0" entry-id="80"> </textarea>
+					<fra:richtextentry name="_fraVariable_80_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br> <br>
@@ -284,9 +278,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="tg53n0fi529" name="_fraVariable_81_"
-						rownumber="0" columnnumber="0" entry-id="81"> </textarea>
+					<fra:richtextentry name="_fraVariable_81_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br> <br>
@@ -521,11 +513,11 @@
 									code="ref320"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="83"><div id="cell-content">
-									<select name="_fraVariable_83_1_1_" rownumber="1"><option
+									<fra:tiers name="_fraVariable_83_1_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 					</tbody>
