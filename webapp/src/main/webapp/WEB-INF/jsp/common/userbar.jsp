@@ -2,7 +2,7 @@
 <div class="pull-right">
 	<p>
 		<spring:message code="user.loggedas" />
-		<span id="userField">User Algeria(DZA)</span>
+		<span id="userField">${sessionUser.name }(${sessionUser.username })</span>
 		<!-- TODO user name + country -->
 	</p>
 
