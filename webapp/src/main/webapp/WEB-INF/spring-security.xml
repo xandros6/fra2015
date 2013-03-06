@@ -8,6 +8,11 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/users/*" access="ROLE_admin" />
+		<intercept-url pattern="/adminactivitylog*" access="ROLE_admin" />
+		<intercept-url pattern="/survey/*" access="ROLE_contributor" />
+		<intercept-url pattern="/surveylist*" access="ROLE_reviewer" />
+		<intercept-url pattern="/revieweractivitylog*" access="ROLE_reviewer" />
 		<form-login login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />
 		<logout logout-success-url="/logout" />
