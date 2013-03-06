@@ -27,8 +27,10 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.controller.utils.ActivityLogUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
-import it.geosolutions.fra2015.mvc.model.SessionUser;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
@@ -57,6 +59,8 @@ public class SurveyController {
 
     @Autowired
     private SurveyServiceEntryPoint surveyService;
+    @Autowired
+    private SurveyCatalog catalog;
 
     Logger LOGGER = Logger.getLogger(SurveyController.class);
 
@@ -68,41 +72,41 @@ public class SurveyController {
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
 
-        SessionUser su = (SessionUser) session.getAttribute("sessionUser");
+        User su = (User) session.getAttribute("sessionUser");
         CountryValues es = null;
         try {
-            // awesome workaround... I don't wanna live on this planet anymore...
-            es = surveyService.getCountryAndQuestionValues(su.getCountry(), Integer.parseInt(question+1));
+            es = surveyService.getCountryAndQuestionValues(su.getCountries(), Integer.parseInt(question));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
         }
 
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
+        List<Entry> questionCatalog = catalog.getCatalogForQuestion(Integer.parseInt(question));
+        for(Entry el : questionCatalog){
+            if(el!=null && el.getType().equalsIgnoreCase("table")){
+                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), 4);
+            }
+        }
+        
         for (CompactValue el : es.getValues()) {
             // Hack for handle dynamicTables: the jsp must know how many row are present.
             // so count them for each table and put it in the model
-            if(el.getRowNumber() > 0){
+            if(catalog.getEntry(el.getVariable()).getType().equals("table")){
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"+el.getVariable());
-                Integer newRowCounter = (oldRowCounter != null)?oldRowCounter+1:1;
-                Integer numCol = tableRowsCounter.remove("numCols"+el.getVariable());
-                if(numCol == null || numCol<el.getColumnNumber()){
-                    tableRowsCounter.put("tableColsCounter"+el.getVariable(),el.getColumnNumber());
-                }
-                else{
-                    tableRowsCounter.put("tableColsCounter"+el.getVariable(),numCol);
-                }
-                tableRowsCounter.put("tableRowsCounter"+el.getVariable(),newRowCounter);
+                Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
+                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), newRowCounter);
             }
             model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());
         }
+        
         // Put in the model the counters
         for (String el : tableRowsCounter.keySet()) {
             if(el.startsWith("tableRowsCounter")){
                 String name = el.substring(16);
-                model.addAttribute(el, tableRowsCounter.get(el)/tableRowsCounter.get("tableColsCounter"+name)+1);
+                model.addAttribute(el, tableRowsCounter.get(el));
             }
         }
-        // TODO user in session model.addAttribute("user",user);
+        
         return "index";
 
     }
@@ -115,10 +119,10 @@ public class SurveyController {
         model.addAttribute("context", "survey");
         
         // Retrieve the stored value in order to compare them with the new submitted values
-        SessionUser su = (SessionUser) session.getAttribute("sessionUser");
+        User su = (User) session.getAttribute("sessionUser");
         CountryValues es = null;
         try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountry(),
+            es = surveyService.getCountryAndQuestionValues(su.getCountries(),
                     Integer.parseInt(question + 1));
         } catch (BadRequestServiceEx e) {
             LOGGER.error(e.getMessage(), e);
@@ -128,7 +132,6 @@ public class SurveyController {
         ActivityLogUtils.compareValueSet(reqParams, es.getValues());
 
         List<Update> updateList = new ArrayList<Update>();
-        SessionUser se = (SessionUser) session.getAttribute("sessionUser");
 
         for (String el : reqParams.keySet()) {
             String s = reqParams.get(el)[0];
@@ -140,7 +143,7 @@ public class SurveyController {
             Update update = new Update();
             update.setColumn(var.col);
             update.setRow(var.row);
-            update.setCountry(se.getCountry());
+            update.setCountry(su.getCountries());
             update.setValue(var.value);
             update.setVariable(var.variableName);
             updateList.add(update);
