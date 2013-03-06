@@ -45,7 +45,7 @@ public class Assembler {
         boolean accountNonLocked = true;// userEntity.isActive();
 
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        authorities.add(new GrantedAuthorityImpl(userEntity.getRole()));
+        authorities.add(new GrantedAuthorityImpl("ROLE_"+ userEntity.getRole()));
 
         org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired,
                 accountNonLocked, authorities);
