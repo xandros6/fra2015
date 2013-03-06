@@ -24,27 +24,31 @@ package it.geosolutions.fra2015.services;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.dao.QuestionDAO;
-import it.geosolutions.fra2015.server.dao.impl.EntryItemDAOImpl;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author DamianoG
  * 
- * This class hold The whole Entry Set for the survey to avoid the need for load it everytime is needed. 
+ *         This class hold The whole Entry Set for the survey to avoid the need for load it everytime is needed.
  * 
  */
 public class SurveyCatalog {
 
     private EntryDAO entryDAO;
+
     private QuestionDAO questionDAO;
+
     private EntryItemDAO entryItemDAO;
+
     private List<Entry> catalog;
-    
-    
+
+    private Map<String, Entry> catalogMap;
+
     /**
      * @param surveyDAO the surveyDAO to set
      */
@@ -53,18 +57,15 @@ public class SurveyCatalog {
     }
 
     public void setQuestionDAO(QuestionDAO questionDAO) {
-		this.questionDAO = questionDAO;
-	}
-    
+        this.questionDAO = questionDAO;
+    }
 
     /**
      * @return the catalog
      */
     public List<Entry> getCatalog() {
-        if(catalog == null){
-//            entryItemDAO.findAll();
-            catalog = entryDAO.findAll();
-        }
+        // Load the catalog when th first access to it is performed
+        forceCatalogLoading();
         return catalog;
     }
 
@@ -75,11 +76,21 @@ public class SurveyCatalog {
      * @return
      */
     public List<Entry> getCatalogForQuestion(Integer questionNumber) {
-    	Question question = questionDAO.find(questionNumber.longValue());
-    	List<Entry> questionEntryList = question.getEntries();
+        forceCatalogLoading();
+        Question question = questionDAO.find(questionNumber.longValue());
+        List<Entry> questionEntryList = question.getEntries();
         return questionEntryList;
     }
 
+    /**
+     * Get the Entry stored in the catalog with entry.getVariable().equals(varName)
+     * 
+     * @param questionNumber
+     * @return
+     */
+    public Entry getEntry(String varName) {
+        return catalogMap.get(varName);
+    }
 
     /**
      * @param catalog the catalog to set
@@ -88,8 +99,6 @@ public class SurveyCatalog {
         this.catalog = catalog;
     }
 
-
-
     /**
      * @param entryItemDAO the entryItemDAO to set
      */
@@ -97,11 +106,20 @@ public class SurveyCatalog {
         this.entryItemDAO = entryItemDAO;
     }
 
-
-
-    public SurveyCatalog(){
-        
+    private void forceCatalogLoading() {
+        if (catalog == null) {
+            // entryItemDAO.findAll();
+            catalog = entryDAO.findAll();
+            // build the catalog as HashMap
+            catalogMap = new HashMap<String, Entry>();
+            for (Entry el : catalog) {
+                catalogMap.put(el.getVariable(), el);
+            }
+        }
     }
 
-    
+    public SurveyCatalog() {
+
+    }
+
 }
