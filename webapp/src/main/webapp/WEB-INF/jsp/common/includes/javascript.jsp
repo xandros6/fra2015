@@ -12,7 +12,7 @@
 
 <script src="${pageContext.request.contextPath}/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/js/utils.js"></script>
-<script src="${pageContext.request.contextPath}/js/fra2015mod.js"></script> 
+<script src="${pageContext.request.contextPath}/js/users.js"></script> 
 <!--  
 		<script src="${pageContext.request.contextPath}/js/constants.js"></script>
 		<script src="${pageContext.request.contextPath}/js/rest.js"></script>
@@ -37,7 +37,20 @@ fra.tooltips= {
 		ref79:'<spring:message code="ref79"></spring:message>'
 		
 };
-$(function(){
+
+function newAlert (type, message) {
+   
+}
+
+$(function(){	
+
+	contextPath = "${pageContext.request.contextPath}";
+	
+	<c:if test="${(not empty messageText) && (not empty messageType)}">
+	 	$("#alert-area").append($('<div class="alert alert-${messageType}" style="text-align:center"><strong>${messageText}</strong></div>'));
+	    $("#alert-area").delay(5000).fadeOut("slow", function () { $(this).remove(); });
+	</c:if>
+	
 	$(document).find('td').each( function(index, entry){
         var cell = $(this);
         
