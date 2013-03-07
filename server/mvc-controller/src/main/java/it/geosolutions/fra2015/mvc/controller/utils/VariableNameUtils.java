@@ -44,8 +44,8 @@ public class VariableNameUtils {
             sb.append(variable.getRowNumber());
             sb.append("_");
             sb.append(variable.getColumnNumber());
-            sb.append("_");
         }
+        sb.append("_");
         return sb.toString();
     }
 
