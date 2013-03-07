@@ -3,6 +3,7 @@ package it.geosolutions.fra2015.tags;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -40,8 +41,11 @@ public class RichTextEntry extends TagSupport {
 				return (SKIP_BODY);
 			}
 			this.isEditor = editor.equals(user.getRole());
+			String value = "";
 			
-			String value = pageContext.getAttribute(this.name) !=null? (String) pageContext.getAttribute(this.name):"";
+			if(pageContext.getRequest().getAttribute(this.name) !=null){
+				value =(String) pageContext.getRequest().getAttribute(this.name);
+			}
 			//print start tag
 			if (this.isEditor) {
 				out.print(editorStart + this.name + "'>" + value);
@@ -49,7 +53,7 @@ public class RichTextEntry extends TagSupport {
 				out.print(readerStart + value);
 				
 			}
-			LOGGER.info(user.getName());
+			
 
 		} catch (IOException ioe) {
 			LOGGER.error("Error in SimpleTag: " + ioe);
