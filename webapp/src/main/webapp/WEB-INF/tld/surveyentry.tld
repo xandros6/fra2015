@@ -45,8 +45,23 @@ jsptaglibrary_2_0.xsd"
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 			<attribute>
-				<name>colNumber</name>
+				<name>numOfColoumn</name>
 				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>operation</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>userProfile</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>numericColoumn</name>
+				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 		</tag>

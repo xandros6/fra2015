@@ -62,6 +62,8 @@ public class SurveyController {
     @Autowired
     private SurveyCatalog catalog;
 
+    public enum OperationWR {WRITE,READ}
+    
     Logger LOGGER = Logger.getLogger(SurveyController.class);
 
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.GET)
@@ -73,8 +75,11 @@ public class SurveyController {
         model.addAttribute("context", "survey");
 
         User su = (User) session.getAttribute("sessionUser");
+        
         retrieveValues(question, su);
-
+        
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("operationWR", OperationWR.WRITE.toString());
         prepareHTTPRequest(model, question, retrieveValues(question, su));
         
         return "index";
@@ -125,6 +130,8 @@ public class SurveyController {
         surveyService.updateValues(updates);
         
         // Another time???? WTF???
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("operationWR", OperationWR.WRITE.toString());
         prepareHTTPRequest(model, question, retrieveValues(question, su));
         
         return "index";
@@ -158,7 +165,8 @@ public class SurveyController {
             // so count them for each table and put it in the model
             if(catalog.getEntry(el.getVariable()).getType().equals("table")){
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"+el.getVariable());
-                Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
+                Integer newRowCounter = (el.getRowNumber() >=4 && el.getRowNumber() > oldRowCounter)?el.getRowNumber():4;
+//                Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
                 tableRowsCounter.put("tableRowsCounter"+el.getVariable(), newRowCounter);
             }
             model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());

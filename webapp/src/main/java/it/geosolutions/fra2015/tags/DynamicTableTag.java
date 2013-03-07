@@ -21,6 +21,7 @@
  */
 package it.geosolutions.fra2015.tags;
 
+import it.geosolutions.fra2015.mvc.controller.SurveyController.OperationWR;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
@@ -44,21 +45,66 @@ public class DynamicTableTag extends TagSupport {
 
     private String entryItemName;
 
-    private int colNumber;
+    private int numOfColoumn;
+    
+    /**
+     * if the entry are in Write or Read mode
+     */
+    private String operation;
+    
+    /**
+     * Use this field in order to set from outside the userProfile
+     */
+    private String userProfile;
+    
+    /**
+     * show or not the left numeric coloumn
+     */
+    private Boolean numericColoumn;
 
+//    private enum Operations {READ, WRITE}
+    
     public int doStartTag() {
 
         JspWriter out = null;
         try {
+            
+            if(numericColoumn == null){
+                numericColoumn = true;
+            }
+            // Check if the operation is valid
+            OperationWR op = validate(operation);
+            if(op == null){
+                out.print("operation '" + operation + "' isn't a valid operation");
+                return (SKIP_BODY);
+            }
+            boolean flagOp = op.compareTo(OperationWR.WRITE)==0;
+            
+            // Check the user profile
+            boolean deleteButton = true;
+            if(userProfile != null && !userProfile.isEmpty()){
+                deleteButton = userProfile.equals("contributor");
+            }
+            else{
+                User su = (User) pageContext.getSession().getAttribute("sessionUser");
+                deleteButton = su.getRole().equals("contributor");
+            }
+            deleteButton &= flagOp;
 
             out = pageContext.getOut();
-            User user = (User) pageContext.getSession().getAttribute("sessionUser");
             Integer rows = (Integer) pageContext.getRequest().getAttribute(
                     "tableRowsCounter" + entryItemName);
-
+            
+            
             for (int i = 1; i <= rows; i++) {
+                
                 out.print("<tr>");
-                for (int j = 0; j < colNumber; j++) {
+                if(numericColoumn){
+                    out.print("<td>" + i + "</td>");
+                }
+                
+                for (int j = 0; j < numOfColoumn; j++) {
+                    
                     String varName = "_fraVariable_" + entryItemName + "_" + i + "_" + j + "_";
                     String varValue = (String) pageContext.getRequest().getAttribute(varName);
                     String entryValue = (varValue == null || varValue.isEmpty()) ? "" : varValue;
@@ -72,8 +118,10 @@ public class DynamicTableTag extends TagSupport {
                     out.print("         <div id=\"cell-content\" class=\"cell-content\">" + entryValue + "</div>");
                     out.print(" </td>");
                 }
-                out.print(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">Delete</a></td>");
-                out.print("</tr>");
+                if(deleteButton){
+                    out.print(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">Delete</a></td>");
+                    out.print("</tr>");
+                }
             }
 
         } catch (IOException ioe) {
@@ -82,6 +130,21 @@ public class DynamicTableTag extends TagSupport {
 
         }
         return (SKIP_BODY);
+    }
+    
+    private OperationWR validate(String operation){
+        
+        OperationWR op = null;
+        if(operation == null || operation.isEmpty()){
+            return OperationWR.WRITE;
+        }
+        try{
+            op = OperationWR.valueOf(operation);
+        }
+        catch(Exception e){
+            return null;
+        }
+        return op;
     }
 
     /**
@@ -101,14 +164,60 @@ public class DynamicTableTag extends TagSupport {
     /**
      * @return the colNumber
      */
-    public int getColNumber() {
-        return colNumber;
+    public int getNumOfColoumn() {
+        return numOfColoumn;
     }
 
     /**
      * @param colNumber the colNumber to set
      */
-    public void setColNumber(int colNumber) {
-        this.colNumber = colNumber;
+    public void setNumOfColoumn(int colNumber) {
+        this.numOfColoumn = colNumber;
     }
+
+    /**
+     * @return the operation
+     */
+    public String getOperation() {
+        return operation;
+    }
+
+    /**
+     * @param operation the operation to set
+     */
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    /**
+     * @return the userProfile
+     */
+    public String getUserProfile() {
+        return userProfile;
+    }
+
+    /**
+     * @param userProfile the userProfile to set
+     */
+    public void setUserProfile(String userProfile) {
+        this.userProfile = userProfile;
+    }
+
+    /**
+     * @return the numericColoumn
+     */
+    public Boolean getNumericColoumn() {
+        return numericColoumn;
+    }
+
+    /**
+     * @param numericColoumn the numericColoumn to set
+     */
+    public void setNumericColoumn(Boolean numericColoumn) {
+        this.numericColoumn = numericColoumn;
+    }
+    
+    
+    
+    
 }

@@ -116,7 +116,8 @@
 										code="ref38"></spring:message></td>
 								<td class="action-column" width="80px"></td>
 							</tr>
-							<tr>
+							<fra:DynamicTableTag numOfColoumn="4" entryItemName="3" userProfile="" operation="${operationWR}" numericColoumn="true"/>
+							<%-- <tr>
 								<td rownumber="1" columnnumber="0"><spring:message
 										code="ref39"></spring:message></td>
 								<td class="entry-item editable text" rownumber="1"
@@ -181,7 +182,7 @@
 								<div id="cell-content">${_fraVariable_3_3_4_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
+							</tr> --%>
 						</tbody>
 					</table>
 				</div>
@@ -210,7 +211,8 @@
 										code="ref14"></spring:message></td>
 								<td class="action-column" width="80px"></td>
 							</tr>
-							<tr>
+							<fra:DynamicTableTag numOfColoumn="2" entryItemName="4" userProfile="" operation="${operationWR}" numericColoumn="false"/>
+							<%-- <tr>
 								<td class="entry-item editable text" rownumber="1"
 									columnnumber="0" style="background-color: rgb(242, 245, 169);"
 									entry-id="4"><span class="entry_item_placeholder" id="_fraVariable_4_1_0_">&nbsp;</span>
@@ -233,7 +235,7 @@
 								<div id="cell-content">${_fraVariable_4_2_1_}</div></td>
 								<td class="action-column" width="80px"><a href="#"
 									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
+							</tr> --%>
 						</tbody>
 					</table>
 				</div>
