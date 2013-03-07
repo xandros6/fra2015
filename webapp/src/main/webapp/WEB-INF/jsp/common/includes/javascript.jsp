@@ -12,6 +12,7 @@
 
 <script src="${pageContext.request.contextPath}/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/js/utils.js"></script>
+<script src="${pageContext.request.contextPath}/js/fra2015mod.js"></script> 
 <!--  
 		<script src="${pageContext.request.contextPath}/js/constants.js"></script>
 		<script src="${pageContext.request.contextPath}/js/rest.js"></script>
