@@ -5,6 +5,7 @@
 package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -15,6 +16,10 @@ import java.util.List;
 /**
  *
  * @author marco
+ */
+/**
+ * @author Xandros
+ *
  */
 public interface SurveyService {
     
@@ -71,6 +76,11 @@ public interface SurveyService {
      */
     boolean removeValues(String iso3, String entryId, Integer row, Integer col, String value)
             throws BadRequestServiceEx, NotFoundServiceEx;
+
+	/**
+	 * @return
+	 */
+	public List<Country> getCountries();
 
 
 }

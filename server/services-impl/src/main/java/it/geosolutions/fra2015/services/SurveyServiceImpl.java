@@ -369,6 +369,12 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return null;
 	}
+	
+	@Override
+	public List<Country> getCountries() {
+		List<Country> countries = countryDAO.findAll();
+		return countries;
+	}
 
 	private Country findCountryByISO3(String iso3) {
 		Search searchCriteria = new Search(Country.class);
