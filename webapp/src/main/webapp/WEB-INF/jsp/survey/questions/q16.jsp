@@ -216,11 +216,11 @@
 									code="ref479"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="136"><div id="cell-content">
-									<select name="_fraVariable_136_1_1_" rownumber="1"><option
+									<fra:tiers name="_fraVariable_136_1_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -228,11 +228,11 @@
 									code="ref482"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
 								entry-id="136"><div id="cell-content">
-									<select name="_fraVariable_136_2_1_" rownumber="2"><option
+									<fra:tiers name="_fraVariable_136_2_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 					</tbody>

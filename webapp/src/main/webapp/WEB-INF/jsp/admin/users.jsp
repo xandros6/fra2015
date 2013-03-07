@@ -32,8 +32,7 @@
 					</p>
 					<p>
 						<label class="control-label" for="countryComboBox">Countries:</label>
-						<input id="countries" size="20" class="input-block-level"
-							data-provide="typeahead" data-source="['ciao','come,'stai']">
+						<input id="countries_a" size="20" class="input-block-level" type="text" data-provide="typeahead" data-source="['AA','AB','CD']">
 					</p>
 				</fieldset>
 			</form>
@@ -52,54 +51,13 @@
 			<h3>Create user</h3>
 		</div>
 
-		<div class="modal-body">
+		<div id="modal-body" class="modal-body">
 
-			<input id="cid" name="id" type="hidden">
-			<form class="cmxform" id="createUserForm" method="get" action="">
-				<fieldset>
-					<p>
-						<label for="cname" class="control-label">Name</label> <input
-							id="cname" name="name" size="25"
-							class="required input-block-level">
-					</p>
-					<p>
-						<label for="cusername" class="control-label">Username</label> <input
-							id="cusername" name="username" size="25"
-							class="required input-block-level">
-					</p>
-					<p>
-						<label for="cpassword" class="control-label">Password</label> <input
-							id="cpassword" name="email" size="25" type="password"
-							class="required password input-block-level">
-					</p>
-					<p>
-						<label for="cemail" class="control-label">E-Mail</label> <input
-							id="cemail" name="email" size="25"
-							class="required email input-block-level">
-					</p>
-					<p>
-						<label class="control-label" for="roleComboBox">Role</label> <select
-							id="roleComboBox" class="input-block-level">
-							<option value="contributor">Contributor</option>
-							<option value="reviewer">Reviewer</option>
-							<option value="editor">Review Editor</option>
-							<option value="validator">Country Validator</option>
-						</select>
-					</p>
-					<p>
-						<label class="control-label" for="countryComboBox">Countries:</label>
-						<input id="countries" size="20"> <a id="addCountryBtn"
-							href="#" class="btn">Add</a> <input type="hidden" id="ccountries"
-							class=""> <input type="hidden" id="selectedCountry"
-							class="">
-					</p>
-					<p id="selectedCountries"></p>
-				</fieldset>
-			</form>
 		</div>
+		
 		<div class="modal-footer">
-			<a href="#" class="btn" data-dismiss="modal">Close</a> <a
-				id="saveBtn" href="#" class="btn btn-primary">Create</a>
+			<a href="#" class="btn" data-dismiss="modal">Close</a> 
+			<a id="saveBtn" href="#" class="btn btn-primary">Save</a>
 		</div>
 	</div>
 
@@ -112,10 +70,8 @@
 
 		<div class="row">
 			<p class="pull-right">
-				<a href="#" id="createBtn" class="btn" data-toggle="modal"
-					data-target="#createUserWindow"> Create user </a> <a href="#"
-					id="applyFilterBtn" class="btn btn-primary" data-toggle="modal"
-					data-target="#filterWindow">Apply filter</a>
+				<a href="${pageContext.request.contextPath}/users/editor/-1/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow"> Create user </a>
+				<a href="#" id="applyFilterBtn" class="btn btn-primary" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
 			</p>
 		</div>
 
@@ -136,13 +92,12 @@
 
 					<tbody>
 						 <c:forEach items='${users}' var='user' varStatus='rowItem'>
-							<tr class="rowItem">
-								
+							<tr class="rowItem">								
 								<td>${user.name}</td>
 								<td>${user.username}</td>
 								<td>${user.role}</td>
 								<td>${user.countries}</td>
-								<td><a class="btn edit">Edit</a></td>
+								<td><a href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow"> Edit </a></td>
 							</tr>
 						</c:forEach>	
 							

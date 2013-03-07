@@ -21,20 +21,28 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
+import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author Lorenzo Natali
@@ -43,8 +51,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/users")
 public class UsersController {
+	
+	protected static Logger logger = Logger.getLogger(UsersController.class);
+	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private SurveyService surveyService;
 
 	private int pagesize = 10;
 
@@ -58,16 +72,48 @@ public class UsersController {
 		boolean next = this.getPage(1).size() > 0;
 		model.addAttribute("next", next?1:-1);
 		model.addAttribute("prev", -1);
-		// TODO
-		// model.addAttribute("message", "Spring 3 MVC dummy example");
 		return "admin";
 
 	}
 	
+	@RequestMapping(value = "/save/{page}", method = RequestMethod.POST)
+	public String saveUser(@ModelAttribute("user") User user, @PathVariable(value = "page") Integer page, ModelMap model) {
+		model.addAttribute("page", page);
+		model.addAttribute("context", "users");
+		try{
+			if(user.getId() != null && userService.get(user.getId()) !=null){
+				userService.update(user);
+			}else{
+				userService.insert(user);
+			}
+		}catch (Exception e) {
+			logger.error(e.getMessage(),e);
+		}
+		return "redirect:/users/"+page;
+	}
+	
+	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
+	public String getUserEditor(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model){
+		//Add countries code to page model formatted as CSV string
+		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+		Collection<String> countriesIso3 = CollectionUtils.collect( surveyService.getCountries(), transformer );
+		String joined = "\"" + StringUtils.join(countriesIso3,"\",\"") + "\"";
+		model.addAttribute("countriesIso3", joined);
+		User user = new User();
+		//Retrive user informations
+		if(userId > -1){
+			user = userService.get(userId);			
+		}
+		model.addAttribute("command", user);
+		model.addAttribute("page", page);
+		return "admin/userEditor";
+	}
+			
+
 	@RequestMapping(value = "/{page}", method = RequestMethod.GET)
 	public String getUsersPage(@PathVariable(value = "page") int page,
 			ModelMap model) {
-		
+
 		if (page == 0) {
 			return getUsers(model);
 		}
@@ -84,8 +130,8 @@ public class UsersController {
 		model.addAttribute("next", next ? page + 1 : -1);
 		model.addAttribute("prev", previous ? page - 1 : -1);
 		model.addAttribute("users", users);
-		
-		
+
+
 		return "admin";
 
 	}
