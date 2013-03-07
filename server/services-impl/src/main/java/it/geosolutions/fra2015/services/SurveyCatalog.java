@@ -71,11 +71,15 @@ public class SurveyCatalog {
 
     /**
      * Provide to the caller the entries stored in the catalog that are related to a given question
+     * If questionNumber == null retrieve the full catalog
      * 
      * @param questionNumber
      * @return
      */
     public List<Entry> getCatalogForQuestion(Integer questionNumber) {
+        if(questionNumber == null){
+            return getCatalog();
+        }
         forceCatalogLoading();
         Question question = questionDAO.find(questionNumber.longValue());
         List<Entry> questionEntryList = question.getEntries();

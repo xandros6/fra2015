@@ -21,20 +21,15 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.controller.utils.ActivityLogUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
-import it.geosolutions.fra2015.server.model.survey.CompactValue;
-import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.user.User;
-import it.geosolutions.fra2015.services.SurveyCatalog;
-import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,9 +53,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SurveyController {
 
     @Autowired
-    private SurveyServiceEntryPoint surveyService;
-    @Autowired
-    private SurveyCatalog catalog;
+    private ControllerServices utils;
 
     public enum OperationWR {WRITE,READ}
     
@@ -76,11 +69,9 @@ public class SurveyController {
 
         User su = (User) session.getAttribute("sessionUser");
         
-        retrieveValues(question, su);
-        
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("operationWR", OperationWR.WRITE.toString());
-        prepareHTTPRequest(model, question, retrieveValues(question, su));
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su));
         
         return "index";
 
@@ -96,7 +87,7 @@ public class SurveyController {
         User su = (User) session.getAttribute("sessionUser");
 
         // Retrieve the stored value in order to compare them with the new submitted values
-        CountryValues es = retrieveValues(question, su);
+        CountryValues es = utils.retrieveValues(question, su);
 
         Map<String, String[]> reqParams = request.getParameterMap();
 
@@ -127,58 +118,14 @@ public class SurveyController {
 
         Updates updates = new Updates();
         updates.setUpdates(updateList);
-        surveyService.updateValues(updates);
+        utils.updateValuesService(updates);
         
         // Another time???? WTF???
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("operationWR", OperationWR.WRITE.toString());
-        prepareHTTPRequest(model, question, retrieveValues(question, su));
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su));
         
         return "index";
 
     }
-    
-    private CountryValues retrieveValues(String question, User su){
-        
-        CountryValues es = null;
-        try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountries(),
-                    Integer.parseInt(question));
-        } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
-        }
-        return es;
-    }
-    
-    private void prepareHTTPRequest(Model model, String question, CountryValues values){
-        
-        Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
-        List<Entry> questionCatalog = catalog.getCatalogForQuestion(Integer.parseInt(question));
-        for(Entry el : questionCatalog){
-            if(el!=null && el.getType().equalsIgnoreCase("table")){
-                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), 4);
-            }
-        }
-        
-        for (CompactValue el : values.getValues()) {
-            // Hack for handle dynamicTables: the jsp must know how many row are present.
-            // so count them for each table and put it in the model
-            if(catalog.getEntry(el.getVariable()).getType().equals("table")){
-                Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"+el.getVariable());
-                Integer newRowCounter = (el.getRowNumber() >=4 && el.getRowNumber() > oldRowCounter)?el.getRowNumber():4;
-//                Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
-                tableRowsCounter.put("tableRowsCounter"+el.getVariable(), newRowCounter);
-            }
-            model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());
-        }
-        
-        // Put in the model the counters
-        for (String el : tableRowsCounter.keySet()) {
-            if(el.startsWith("tableRowsCounter")){
-                String name = el.substring(16);
-                model.addAttribute(el, tableRowsCounter.get(el));
-            }
-        }
-    }
-
 }
