@@ -76,30 +76,41 @@ var addCountryHandler = function(){
 	if ( role !== 'reviewer' && role !== 'editor'){
 		el.find( "#addCountryBtn" ).off('click');
 		el.find( "#addCountryBtn" ).addClass('disabled');
+		$('#countries').attr('disabled', 'disabled');
 	}
 
 	return false;
 };
-function enableFunc(){  	
+function enableFunc(){  
+	$('#ccountries').val("");
+	$( "#selectedCountries" ).empty();
+	$('#addCountryBtn').on('click');
+	$('#addCountryBtn').click( addCountryHandler );
+	$('#addCountryBtn').removeClass('disabled');
+	$('#countries').removeAttr('disabled');
 	var role = $('#roleComboBox').val();
-	$('#addCountryBtn').off('click');
-	$('#addCountryBtn').addClass('disabled');
-	$('#countries').attr('disabled', 'disabled');
-	if ( role == 'reviewer' || role == 'editor'){
-		$('#addCountryBtn').on('click');
-		$('#addCountryBtn').click( addCountryHandler );
-		$('#addCountryBtn').removeClass('disabled');
-		$('#countries').removeAttr('disabled');
+	var countries = $('#ccountries').val();
+	if ( role != 'reviewer' && role != 'editor' && countries){
+		$('#addCountryBtn').off('click');
+		$('#addCountryBtn').addClass('disabled');
+		$('#countries').attr('disabled', 'disabled');
 	}
 }
 function initFunc(){ 
+	$('#addCountryBtn').click( addCountryHandler );
 	var id = $('#cid').val();
+	//If id is present user requires edit otherwise requires create new
 	if(id){
 		$('#roleComboBox').off('click');
 		$('#roleComboBox').attr('disabled', 'disabled');
+		var role = $('#roleComboBox').val();
+		if ( role != 'reviewer' && role != 'editor'){
+			$('#addCountryBtn').off('click');
+			$('#addCountryBtn').addClass('disabled');
+			$('#countries').attr('disabled', 'disabled');
+		}
 	}
 	$('#roleComboBox').change( enableFunc );
-	enableFunc();
 }
 initFunc();
 </script>

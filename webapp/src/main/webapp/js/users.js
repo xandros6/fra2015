@@ -8,6 +8,9 @@ $(function(){
 	});	
 
 	$('#saveBtn').on('click', function() {
+		
+		$("#createUserForm").validate();
+		
 		$('#createUserForm').submit();
 	});
 	
