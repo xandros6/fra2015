@@ -11,6 +11,11 @@ jsptaglibrary_2_0.xsd"
 			<body-content>JSP</body-content>
 			<attribute>
 				<name>name</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>operation</name>
 				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
@@ -21,6 +26,31 @@ jsptaglibrary_2_0.xsd"
 			<body-content>JSP</body-content>
 			<attribute>
 				<name>name</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>style</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>entryId</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>mod</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>rownumber</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>columnnumber</name>
 				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>

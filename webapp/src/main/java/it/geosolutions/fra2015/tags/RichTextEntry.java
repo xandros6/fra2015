@@ -3,7 +3,6 @@ package it.geosolutions.fra2015.tags;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -22,54 +21,64 @@ import org.apache.log4j.Logger;
 public class RichTextEntry extends TagSupport {
 	Logger LOGGER = Logger.getLogger(this.getClass());
 	private static String editorStart = "<textarea class='texteditor entry-item' cols='160' rows='10' name='";
-	private static String readerStart = "<div>";
+	private static String readerStart = "<div id='";
 	private static String editorEnd = "</textarea>";
 	private static String readerend = "</div>";
 
 	private String editor = "contributor";
 
-	private String reader;
+	private String operation;
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
 	private String name;
 	private boolean isEditor;
 
 	public int doStartTag() {
 		try {
 			JspWriter out = pageContext.getOut();
-			User user = (User) pageContext.getSession()
-					.getAttribute("sessionUser");
+			User user = (User) pageContext.getSession().getAttribute(
+					"sessionUser");
+
 			if (user == null) {
-				return (SKIP_BODY);
+				this.isEditor = false;
+			} else {
+				this.isEditor = editor.equals(user.getRole());
 			}
-			this.isEditor = editor.equals(user.getRole());
 			String value = "";
-			
-			if(pageContext.getRequest().getAttribute(this.name) !=null){
-				value =(String) pageContext.getRequest().getAttribute(this.name);
+
+			if (pageContext.getRequest().getAttribute(this.name) != null) {
+				value = (String) pageContext.getRequest().getAttribute(
+						this.name);
 			}
-			//print start tag
-			if (this.isEditor) {
+			// print start tag
+			if (this.isEditor || operation.equals("read")) {
 				out.print(editorStart + this.name + "'>" + value);
 			} else {
-				out.print(readerStart + value);
-				
+				out.print(readerStart + this.name + "'>" + value);
+
 			}
-			
 
 		} catch (IOException ioe) {
 			LOGGER.error("Error in SimpleTag: " + ioe);
-			
+
 		}
 		return (SKIP_BODY);
 	}
 
 	public int doEndTag() throws JspException {
-		
+
 		try {
-			
+
 			JspWriter out = pageContext.getOut();
-			if(this.isEditor){
+			if (this.isEditor || operation.equals("read")) {
 				out.print(RichTextEntry.editorEnd);
-			}else{
+			} else {
 				out.print(RichTextEntry.readerend);
 			}
 
