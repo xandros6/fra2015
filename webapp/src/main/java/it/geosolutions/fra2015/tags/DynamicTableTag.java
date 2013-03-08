@@ -73,7 +73,7 @@ public class DynamicTableTag extends TagSupport {
                 numericColoumn = true;
             }
             // Check if the operation is valid
-            OperationWR op = validate(operation);
+            OperationWR op = Utils.validateOperation(operation);
             if(op == null){
                 out.print("operation '" + operation + "' isn't a valid operation");
                 return (SKIP_BODY);
@@ -87,7 +87,12 @@ public class DynamicTableTag extends TagSupport {
             }
             else{
                 User su = (User) pageContext.getSession().getAttribute("sessionUser");
-                deleteButton = su.getRole().equals("contributor");
+                if(su== null){ 
+                	deleteButton=false;
+            	}else{
+            		deleteButton = su.getRole().equals("contributor");
+            
+            	}
             }
             deleteButton &= flagOp;
 
@@ -132,20 +137,7 @@ public class DynamicTableTag extends TagSupport {
         return (SKIP_BODY);
     }
     
-    private OperationWR validate(String operation){
-        
-        OperationWR op = null;
-        if(operation == null || operation.isEmpty()){
-            return OperationWR.WRITE;
-        }
-        try{
-            op = OperationWR.valueOf(operation);
-        }
-        catch(Exception e){
-            return null;
-        }
-        return op;
-    }
+    
 
     /**
      * @return the entryItemName

@@ -1,5 +1,6 @@
 package it.geosolutions.fra2015.tags;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.OperationWR;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class RichTextEntry extends TagSupport {
 	private String editor = "contributor";
 
 	private String operation;
+
 	public String getOperation() {
 		return operation;
 	}
@@ -50,18 +52,26 @@ public class RichTextEntry extends TagSupport {
 			} else {
 				this.isEditor = editor.equals(user.getRole());
 			}
-			String value = "";
-
+						
+			// Check if the operation is valid
+            OperationWR op = Utils.validateOperation(operation);
+            if(op == null){
+                out.print("operation '" + operation + "' isn't a valid operation");
+                return (SKIP_BODY);
+            }
+            boolean forceRead = op.compareTo(OperationWR.WRITE)==0;
+            
+            //get value
+            String value = "";
 			if (pageContext.getRequest().getAttribute(this.name) != null) {
 				value = (String) pageContext.getRequest().getAttribute(
 						this.name);
 			}
 			// print start tag
-			if (this.isEditor || operation.equals("read")) {
+			if (this.isEditor && !forceRead) {
 				out.print(editorStart + this.name + "'>" + value);
 			} else {
 				out.print(readerStart + this.name + "'>" + value);
-
 			}
 
 		} catch (IOException ioe) {
@@ -76,7 +86,7 @@ public class RichTextEntry extends TagSupport {
 		try {
 
 			JspWriter out = pageContext.getOut();
-			if (this.isEditor || operation.equals("read")) {
+			if (this.isEditor || "read".equals(operation)) {
 				out.print(RichTextEntry.editorEnd);
 			} else {
 				out.print(RichTextEntry.readerend);
