@@ -1,6 +1,6 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
 
-<form:form class="cmxform" id="createUserForm"  method="post" action="save/${page}">
+<form:form class="cmxform" id="createUserForm"  method="post" action="${pageContext.request.contextPath}/users/save/${page}">
 	<fieldset>
 		<form:input path="id" id="cid" name="id" type="hidden" value="${user.id}"/>
 		<p>
@@ -22,10 +22,7 @@
 		<p>
 			<form:label path="role" class="control-label" for="roleComboBox">Role</form:label> 
 			<form:select path="role" id="roleComboBox" class="input-block-level">
-				<option value="contributor" >Contributor</option>
-				<option value="reviewer">Reviewer</option>
-				<option value="editor">Review Editor</option>
-				<option value="validator">Country Validator</option>
+ 				<form:options items="${roles}" />
 			</form:select>
 		</p>
 		<p>
@@ -42,8 +39,67 @@
 	</fieldset>
 </form:form>
 <script type="text/javascript">
-function initFunc(){   		
-	$('#addCountryBtn').off('click').click( addCountryHandler );	
+var createCountryLabel = function( name ){
+	var label = $('<span class="label label-info"></span>');
+	label.append(name);
+	return label;
+};
+var addCountryHandler = function(){
+	var el = $('#createUserWindow');
+	var value = el.find("#countries").val();
+	el.find( "#countries" ).empty(); 
+	el.find("#countries").val('');
+
+	// check if this country is already selected
+	var countries = el.find('#ccountries').val();
+
+	if ( countries.indexOf( value ) !== -1 ){
+		// country already in list
+		// ignore
+		return false;
+	}
+
+	el.find( "#selectedCountries" )
+	.append( createCountryLabel(value))
+	.append( '&nbsp;&nbsp;');
+
+
+	if ( countries.length>0){
+		countries += ', ' + value;
+	} else {
+		countries = value;
+	}
+	el.find('#ccountries').val( countries );
+
+
+	var role = el.find('#roleComboBox').val();
+	if ( role !== 'reviewer' && role !== 'editor'){
+		el.find( "#addCountryBtn" ).off('click');
+		el.find( "#addCountryBtn" ).addClass('disabled');
+	}
+
+	return false;
+};
+function enableFunc(){  	
+	var role = $('#roleComboBox').val();
+	$('#addCountryBtn').off('click');
+	$('#addCountryBtn').addClass('disabled');
+	$('#countries').attr('disabled', 'disabled');
+	if ( role == 'reviewer' || role == 'editor'){
+		$('#addCountryBtn').on('click');
+		$('#addCountryBtn').click( addCountryHandler );
+		$('#addCountryBtn').removeClass('disabled');
+		$('#countries').removeAttr('disabled');
+	}
+}
+function initFunc(){ 
+	var id = $('#cid').val();
+	if(id){
+		$('#roleComboBox').off('click');
+		$('#roleComboBox').attr('disabled', 'disabled');
+	}
+	$('#roleComboBox').change( enableFunc );
+	enableFunc();
 }
 initFunc();
 </script>
