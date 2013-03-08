@@ -3,7 +3,7 @@
 	<div id="filterWindow" class="modal hide fade span8">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
+				aria-hidden="true">x</button>
 			<h3>Set filter</h3>
 		</div>
 		<div class="modal-body">
