@@ -54,7 +54,7 @@ public class PrintController {
         User su = (User) session.getAttribute("sessionUser");
 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("operationWR", SurveyController.OperationWR.READ.toString());
+        model.addAttribute("operationWR", ControllerServices.OperationWR.READ.toString());
         utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, su));
 
         return "survey/print";

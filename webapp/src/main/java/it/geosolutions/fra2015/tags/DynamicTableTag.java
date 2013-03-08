@@ -21,7 +21,7 @@
  */
 package it.geosolutions.fra2015.tags;
 
-import it.geosolutions.fra2015.mvc.controller.SurveyController.OperationWR;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.OperationWR;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
