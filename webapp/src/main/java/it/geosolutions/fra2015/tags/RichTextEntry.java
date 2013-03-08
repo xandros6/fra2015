@@ -1,10 +1,8 @@
 package it.geosolutions.fra2015.tags;
 
-import it.geosolutions.fra2015.mvc.controller.SurveyController.OperationWR;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -29,7 +27,15 @@ public class RichTextEntry extends TagSupport {
 
 	private String editor = "contributor";
 
-	private String reader;
+	private String operation;
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
 	private String name;
 	private boolean isEditor;
 
@@ -38,10 +44,10 @@ public class RichTextEntry extends TagSupport {
 			JspWriter out = pageContext.getOut();
 			User user = (User) pageContext.getSession().getAttribute(
 					"sessionUser");
-			
-			if(user==null){
-				this.isEditor=false;
-			}else{
+
+			if (user == null) {
+				this.isEditor = false;
+			} else {
 				this.isEditor = editor.equals(user.getRole());
 			}
 			String value = "";
@@ -51,7 +57,7 @@ public class RichTextEntry extends TagSupport {
 						this.name);
 			}
 			// print start tag
-			if (this.isEditor) {
+			if (this.isEditor || operation.equals("read")) {
 				out.print(editorStart + this.name + "'>" + value);
 			} else {
 				out.print(readerStart + this.name + "'>" + value);
@@ -70,7 +76,7 @@ public class RichTextEntry extends TagSupport {
 		try {
 
 			JspWriter out = pageContext.getOut();
-			if (this.isEditor) {
+			if (this.isEditor || operation.equals("read")) {
 				out.print(RichTextEntry.editorEnd);
 			} else {
 				out.print(RichTextEntry.readerend);
@@ -97,20 +103,5 @@ public class RichTextEntry extends TagSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	 private OperationWR validate(String operation){
-	        
-	        OperationWR op = null;
-	        if(operation == null || operation.isEmpty()){
-	            return OperationWR.WRITE;
-	        }
-	        try{
-	            op = OperationWR.valueOf(operation);
-	        }
-	        catch(Exception e){
-	            return null;
-	        }
-	        return op;
-	    }
 
 }
