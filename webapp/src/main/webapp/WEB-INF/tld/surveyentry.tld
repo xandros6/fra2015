@@ -11,6 +11,11 @@ jsptaglibrary_2_0.xsd"
 			<body-content>JSP</body-content>
 			<attribute>
 				<name>name</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>operation</name>
 				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
