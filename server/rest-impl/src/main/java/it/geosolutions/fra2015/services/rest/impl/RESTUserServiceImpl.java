@@ -163,7 +163,7 @@ public class RESTUserServiceImpl implements RESTUserService {
     @Override
     public List<User> getAll(SecurityContext sc, Integer page, Integer entries) throws BadRequestWebEx {
         try {
-            return userService.getAll(page, entries);
+            return userService.getAll(page, entries, null);
         } catch (BadRequestServiceEx ex) {
             throw new BadRequestWebEx(ex.getMessage());
         }

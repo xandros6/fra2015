@@ -7,39 +7,11 @@
 			<h3>Set filter</h3>
 		</div>
 		<div class="modal-body">
-			<form id="filterForm" method="get" action="">
-				<fieldset>
-					<p>
-						<label for="name" class="control-label">Name</label> <input
-							id="name" name="name" size="25" class="input-block-level">
-					</p>
-					<p>
-						<label for="username" class="control-label">Username</label> <input
-							id="username" name="username" size="25" class="input-block-level">
-					</p>
-					<p>
-						<label for="email" class="control-label">E-Mail</label> <input
-							id="email" name="email" size="25" class="input-block-level">
-					</p>
-					<p>
-						<label class="control-label" for="role">Role</label> <select
-							id="role" class="input-block-level">
-							<option value="contributor">Contributor</option>
-							<option value="reviewer">Reviewer</option>
-							<option value="editor">Review Editor</option>
-							<option value="validator">Country Validator</option>
-						</select>
-					</p>
-					<p>
-						<label class="control-label" for="countryComboBox">Countries:</label>
-						<input id="countries_a" size="20" class="input-block-level" type="text" data-provide="typeahead" data-source="['AA','AB','CD']">
-					</p>
-				</fieldset>
-			</form>
+
 		</div>
 		<div class="modal-footer">
-			<a href="#" class="btn" data-dismiss="modal">Close</a> <a
-				id="filterBtn" href="#" class="btn btn-primary">Apply</a>
+			<a href="#" class="btn" data-dismiss="modal">Close</a> 
+			<a id="filterBtn" href="#" class="btn btn-primary">Apply</a>
 		</div>
 	</div>
 
@@ -81,7 +53,7 @@
 		<div class="row">
 			<p class="pull-right">
 				<a href="${pageContext.request.contextPath}/users/editor/-1/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow"> Create user </a>
-				<a href="#" id="applyFilterBtn" class="btn btn-primary" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
+				<a href="${pageContext.request.contextPath}/users/filter/" class="btn <c:if test="${not empty userFilter}">btn-primary</c:if>" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
 			</p>
 		</div>
 
@@ -118,10 +90,10 @@
 				</table>
 				<ul class="pager pull-right">
 					<c:if test="${ prev>=0}">
-					<li class="eanabled"><a href="${prev}">Prev</a></li>
+					<li class="eanabled"><a href="${pageContext.request.contextPath}/users/${prev}">Prev</a></li>
 					</c:if>
 					<c:if test="${next>0}">
-					<li><a href="${next}">Next</a></li>
+					<li><a href="${pageContext.request.contextPath}/users/${next}">Next</a></li>
 					</c:if>
 				</ul>
 			</div>

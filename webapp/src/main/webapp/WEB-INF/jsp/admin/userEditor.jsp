@@ -83,7 +83,7 @@ var addCountryHandler = function(){
 };
 function enableFunc(){  
 	$('#ccountries').val("");
-	$( "#selectedCountries" ).empty();
+	$("#selectedCountries").empty();
 	$('#addCountryBtn').on('click');
 	$('#addCountryBtn').click( addCountryHandler );
 	$('#addCountryBtn').removeClass('disabled');

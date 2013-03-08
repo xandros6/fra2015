@@ -40,11 +40,16 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.HttpSessionRequiredException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Lorenzo Natali
@@ -52,18 +57,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/users")
+@SessionAttributes("userFilter")
 public class UsersController {
-	
+
 	protected static Logger logger = Logger.getLogger(UsersController.class);
-	
+
 	protected static final LinkedHashMap<String, String> roles = new LinkedHashMap<String, String>();
 	static{
+		roles.put("","");
 		roles.put("contributor","Contributor");
 		roles.put("reviewer","Reviewer");
 		roles.put("editor","Review Editor");
 		roles.put("validator","Country Validator");
 	}
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -74,18 +81,19 @@ public class UsersController {
 
 	Logger LOGGER = Logger.getLogger(UsersController.class);
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 	public String getUsers(ModelMap model) {
+		User userFilter = (User) model.get("userFilter");
 		model.addAttribute("page", 0);
 		model.addAttribute("context", "users");
-		model.addAttribute("users", this.getPage(0));
-		boolean next = this.getPage(1).size() > 0;
+		model.addAttribute("users", this.getPage(0,userFilter));
+		boolean next = this.getPage(1,userFilter).size() > 0;
 		model.addAttribute("next", next?1:-1);
 		model.addAttribute("prev", -1);
 		return "admin";
 
 	}
-	
+
 	@RequestMapping(value = "/save/{page}", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user, @PathVariable(value = "page") Integer page, ModelMap model) {
 		model.addAttribute("page", page);
@@ -105,7 +113,7 @@ public class UsersController {
 		}
 		return "forward:/users/"+page;
 	}
-	
+
 	@RequestMapping(value = "/delete/{userId}/{page}", method = RequestMethod.GET)
 	public String deleteUser(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model) {
 		model.addAttribute("page", page);
@@ -124,7 +132,29 @@ public class UsersController {
 		}
 		return "forward:/users/"+page;
 	}
-	
+
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public String getUserFilter(ModelMap model){
+		//Add countries code to page model formatted as CSV string
+		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+		Collection<String> countriesIso3 = CollectionUtils.collect( surveyService.getCountries(), transformer );
+		String joined = "\"" + StringUtils.join(countriesIso3,"\",\"") + "\"";
+		model.addAttribute("countriesIso3", joined);
+		model.addAttribute("roles", roles);
+		User userFilter = (model.get("userFilter")!=null ?  (User) model.get("userFilter") : new User());
+		model.addAttribute("formUserFilter", userFilter);
+		return "admin/userFilter";
+	}
+
+	@RequestMapping(value = "/updateFilter", method = RequestMethod.POST)
+	public String updateFilter(@ModelAttribute("formUserFilter") User formUserFilter, ModelMap model , SessionStatus sessionStatus) {
+		model.addAttribute("context", "users");
+		model.addAttribute("messageType", "success");
+		model.addAttribute("messageText", "User filter updated");
+		model.addAttribute("userFilter", formUserFilter);
+		return "forward:/users/";
+	}
+
 	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
 	public String getUserEditor(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model){
 		//Add countries code to page model formatted as CSV string
@@ -142,25 +172,25 @@ public class UsersController {
 		model.addAttribute("page", page);
 		return "admin/userEditor";
 	}
-			
+
 
 	@RequestMapping(value = "/{page}")
 	public String getUsersPage(@PathVariable(value = "page") int page,
 			ModelMap model) {
-
+		User userFilter = (User) model.get("userFilter");
 		if (page == 0) {
-			return getUsers(model);
+			return "forward:/users/";
 		}
 		//add context for view
 		model.addAttribute("context", "users");
-		List<User> users=this.getPage(page);
+		List<User> users=this.getPage(page, userFilter);
 		model.addAttribute("page", page);
 		//check prev and next pages presence
 		boolean next =false;
 		if(users !=null){
-			next =  users.size()<pagesize ? false : this.getPage(page + 1).size() > 0;
+			next =  users.size()<pagesize ? false : this.getPage(page + 1,userFilter).size() > 0;
 		}
-		boolean previous =this.getPage(page - 1).size() > 0;
+		boolean previous =this.getPage(page - 1, userFilter).size() > 0;
 		model.addAttribute("next", next ? page + 1 : -1);
 		model.addAttribute("prev", previous ? page - 1 : -1);
 		model.addAttribute("users", users);
@@ -186,13 +216,13 @@ public class UsersController {
 		this.pagesize = pagesize;
 	}
 
-	private List<User> getPage(int page) {
+	private List<User> getPage(int page, User userFilter) {
 		if (userService == null) {
 			return null;
 		}
 		try {
 			List<User> users= new ArrayList<User>();
-			for(User user : userService.getAll(page, pagesize)){
+			for(User user : userService.getAll(page, pagesize,userFilter)){
 				if("admin".equals(user.getRole())){//check admin
 					continue;
 				}
