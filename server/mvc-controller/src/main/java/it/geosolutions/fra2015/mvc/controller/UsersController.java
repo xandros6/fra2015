@@ -21,7 +21,9 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
@@ -54,6 +56,14 @@ public class UsersController {
 	
 	protected static Logger logger = Logger.getLogger(UsersController.class);
 	
+	protected static final LinkedHashMap<String, String> roles = new LinkedHashMap<String, String>();
+	static{
+		roles.put("contributor","Contributor");
+		roles.put("reviewer","Reviewer");
+		roles.put("editor","Review Editor");
+		roles.put("validator","Country Validator");
+	}
+	
 	@Autowired
 	private UserService userService;
 
@@ -80,6 +90,8 @@ public class UsersController {
 	public String saveUser(@ModelAttribute("user") User user, @PathVariable(value = "page") Integer page, ModelMap model) {
 		model.addAttribute("page", page);
 		model.addAttribute("context", "users");
+		model.addAttribute("messageType", "success");
+		model.addAttribute("messageText", "User saved successfully");
 		try{
 			if(user.getId() != null && userService.get(user.getId()) !=null){
 				userService.update(user);
@@ -88,8 +100,29 @@ public class UsersController {
 			}
 		}catch (Exception e) {
 			logger.error(e.getMessage(),e);
+			model.addAttribute("messageType", "error");
+			model.addAttribute("messageText", "Fails to save user");
 		}
-		return "redirect:/users/"+page;
+		return "forward:/users/"+page;
+	}
+	
+	@RequestMapping(value = "/delete/{userId}/{page}", method = RequestMethod.GET)
+	public String deleteUser(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model) {
+		model.addAttribute("page", page);
+		model.addAttribute("context", "users");
+		model.addAttribute("messageType", "success");
+		model.addAttribute("messageText", "User deleted successfully");
+		try{
+			if(userId != null){
+				User user = userService.get(userId);
+				userService.delete(user);
+			}
+		}catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			model.addAttribute("messageType", "error");
+			model.addAttribute("messageText", "Fails to delete user");
+		}
+		return "forward:/users/"+page;
 	}
 	
 	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
@@ -104,13 +137,14 @@ public class UsersController {
 		if(userId > -1){
 			user = userService.get(userId);			
 		}
+		model.addAttribute("roles", roles);
 		model.addAttribute("command", user);
 		model.addAttribute("page", page);
 		return "admin/userEditor";
 	}
 			
 
-	@RequestMapping(value = "/{page}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{page}")
 	public String getUsersPage(@PathVariable(value = "page") int page,
 			ModelMap model) {
 
@@ -157,13 +191,13 @@ public class UsersController {
 			return null;
 		}
 		try {
-			List<User> users= userService.getAll(page, pagesize);
-			for(User user : users){
+			List<User> users= new ArrayList<User>();
+			for(User user : userService.getAll(page, pagesize)){
 				if("admin".equals(user.getRole())){//check admin
-					users = userService.getAll(page, pagesize);
-					users.remove(user);
-					break;
+					continue;
 				}
+				user.setRole(roles.get(user.getRole()));
+				users.add(user);
 			}
 			return users;
 		} catch (BadRequestServiceEx e) {
