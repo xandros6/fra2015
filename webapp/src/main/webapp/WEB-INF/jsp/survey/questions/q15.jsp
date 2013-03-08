@@ -50,15 +50,15 @@
 </tr>
 <tr rowname="14.2.1" unit="Boolean">
 <td class="title" colspan="2" rownumber="1" columnnumber="0"><spring:message code="ref450"></spring:message></td>
-<td class="entry-item editable boolean" rownumber="1" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="14b"><div id="cell-content"><div><input value="yes" name="variable_14b[1][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_14b[1][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<fra:yesno mod=" editable " name="_fraVariable_14b_1_1_"  rownumber="1" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
 </tr>
 <tr rowname="14.2.2" unit="Boolean">
 <td class="title" colspan="2" rownumber="3" columnnumber="0"><spring:message code="ref451"></spring:message></td>
-<td class="entry-item editable boolean" rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="14b"><div id="cell-content"><div><input value="yes" name="variable_14b[3][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_14b[3][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<fra:yesno mod=" editable " name="_fraVariable_14b_3_1_"  rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
 </tr>
 <tr rowname="14.2.3" unit="Boolean">
 <td class="title" colspan="2" rownumber="5" columnnumber="0"><spring:message code="ref452"></spring:message></td>
-<td class="entry-item editable boolean" rownumber="5" columnnumber="1" style="background-color: rgb(242, 245, 169); " entry-id="14b"><div id="cell-content"><div><input value="yes" name="variable_14b[5][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.yes"></spring:message><input value="no" name="variable_14b[5][1]" class="radio-boolean" type="checkbox"><spring:message code="chk.no"></spring:message></div></div></td>
+<fra:yesno mod=" editable " name="_fraVariable_14b_5_1_"  rownumber="5" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
 </tr>
 </tbody>
 				</table>
@@ -87,11 +87,11 @@
 									code="ref465"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="131"><div id="cell-content">
-									<select name="_fraVariable_131_1_1_" rownumber="1"><option
+									<fra:tiers name="_fraVariable_131_1_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 					</tbody>

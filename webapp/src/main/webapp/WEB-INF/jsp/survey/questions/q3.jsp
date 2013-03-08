@@ -267,9 +267,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="17tvo14te29" name="_fraVariable_28_"
-						rownumber="0" columnnumber="0" entry-id="28"> </textarea>
+					<fra:richtextentry name="_fraVariable_28_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br>
@@ -290,9 +288,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="fmk8podpldi" name="_fraVariable_29_"
-						rownumber="0" columnnumber="0" entry-id="29"> </textarea>
+					<fra:richtextentry name="_fraVariable_29_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br>
@@ -307,9 +303,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="2otbila0pb9" name="_fraVariable_30_"
-						rownumber="0" columnnumber="0" entry-id="30"> </textarea>
+					<fra:richtextentry name="_fraVariable_30_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br>
@@ -324,9 +318,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="vqvqzdxi529" name="_fraVariable_31_"
-						rownumber="0" columnnumber="0" entry-id="31"> </textarea>
+					<fra:richtextentry name="_fraVariable_31_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br>
@@ -1837,19 +1829,19 @@
 									code="ref200"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_1_1_" rownumber="1"><option
+									<fra:tiers name="_fraVariable_35_1_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_1_2_" rownumber="1"><option
+									<fra:tiers name="_fraVariable_35_1_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1857,19 +1849,19 @@
 									code="ref201"></spring:message></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_2_1_" rownumber="2"><option
+									<fra:tiers name="_fraVariable_35_2_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_2_2_" rownumber="2"><option
+									<fra:tiers name="_fraVariable_35_2_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1877,19 +1869,19 @@
 									code="ref189"></spring:message></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_3_1_" rownumber="3"><option
+									<fra:tiers name="_fraVariable_35_3_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="3" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_3_2_" rownumber="3"><option
+									<fra:tiers name="_fraVariable_35_3_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1897,19 +1889,19 @@
 									code="ref190"></spring:message></td>
 							<td class="tier entry-item" rownumber="4" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_4_1_" rownumber="4"><option
+									<fra:tiers name="_fraVariable_35_4_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="4" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_4_2_" rownumber="4"><option
+									<fra:tiers name="_fraVariable_35_4_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1917,19 +1909,19 @@
 									code="ref139"></spring:message></td>
 							<td class="tier entry-item" rownumber="5" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_5_1_" rownumber="5"><option
+									<fra:tiers name="_fraVariable_35_5_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="5" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_5_2_" rownumber="5"><option
+									<fra:tiers name="_fraVariable_35_5_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1937,19 +1929,19 @@
 									code="ref141"></spring:message></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_6_1_" rownumber="6"><option
+									<fra:tiers name="_fraVariable_35_6_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_6_2_" rownumber="6"><option
+									<fra:tiers name="_fraVariable_35_6_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1957,19 +1949,19 @@
 									code="ref195"></spring:message></td>
 							<td class="tier entry-item" rownumber="7" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_7_1_" rownumber="7"><option
+									<fra:tiers name="_fraVariable_35_7_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="7" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_7_2_" rownumber="7"><option
+									<fra:tiers name="_fraVariable_35_7_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1977,19 +1969,19 @@
 									code="ref202"></spring:message></td>
 							<td class="tier entry-item" rownumber="8" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_8_1_" rownumber="8"><option
+									<fra:tiers name="_fraVariable_35_8_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="8" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_8_2_" rownumber="8"><option
+									<fra:tiers name="_fraVariable_35_8_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 						<tr>
@@ -1997,19 +1989,19 @@
 									code="ref149"></spring:message></td>
 							<td class="tier entry-item" rownumber="9" columnnumber="1"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_9_1_" rownumber="9"><option
+									<fra:tiers name="_fraVariable_35_9_1_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 							<td class="tier entry-item" rownumber="9" columnnumber="2"
 								entry-id="35"><div id="cell-content">
-									<select name="_fraVariable_35_9_2_" rownumber="9"><option
+									<fra:tiers name="_fraVariable_35_9_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></select>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
 					</tbody>

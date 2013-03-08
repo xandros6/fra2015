@@ -46,8 +46,8 @@ public class TiersEntry extends TagSupport {
 				return (SKIP_BODY);
 			}
 			this.isEditor = editor.equals(user.getRole());
-			
-			String value = pageContext.getAttribute(this.name) !=null? (String) pageContext.getAttribute(this.name):"";
+				
+			String value = pageContext.getRequest().getAttribute(this.name) !=null? (String) pageContext.getRequest().getAttribute(this.name):"";
 			int index = 0;
 			if("Tier 1".equals(value)) index= 1;
 			if("Tier 2".equals(value)) index= 2;
@@ -72,7 +72,7 @@ public class TiersEntry extends TagSupport {
 				out.print(readerStart + value);
 				
 			}
-			LOGGER.info(user.getName());
+			
 
 		} catch (IOException ioe) {
 			LOGGER.error("Error in SimpleTag: " + ioe);

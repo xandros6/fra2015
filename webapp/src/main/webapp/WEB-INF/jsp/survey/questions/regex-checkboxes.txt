@@ -1,0 +1,2 @@
+<td class="entry-item([^"]*)boolean"([^>]*)>(.*)name="([^"]*)"(.*)</td>
+<fra:yesno mod="\1" name="\4" \2></fra:yesno>

@@ -146,18 +146,9 @@
 							<tr rowname="11.1" unit="Boolean">
 								<td class="title" style="width: 60%" colspan="2" rownumber="0"
 									columnnumber="0"><spring:message code="ref396"></spring:message></td>
-								<td class="entry-item editable boolean" rownumber="0"
+								<fra:yesno name="_fraVariable_11_0_1_" class="entry-item editable boolean" rownumber="0"
 									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="11"><div id="cell-content">
-										<div>
-											<input value="yes" name="variable_11[0][1]"
-												class="radio-boolean" type="checkbox">
-											<spring:message code="chk.yes"></spring:message>
-											<input value="no" name="variable_11[0][1]"
-												class="radio-boolean" type="checkbox">
-											<spring:message code="chk.no"></spring:message>
-										</div>
-									</div></td>
+									entryId="11"></fra:yesno>
 							</tr>
 						</tbody>
 					</table>

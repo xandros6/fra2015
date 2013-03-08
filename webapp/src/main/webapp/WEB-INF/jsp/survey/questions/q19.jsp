@@ -159,9 +159,7 @@
 			<div>
 				<div></div>
 				<div class="entry">
-					<textarea class="texteditor entry-item" entry-item-id="0"
-						cols="160" rows="10" id="mde2gnidx6r" name="_fraVariable_157_"
-						rownumber="0" columnnumber="0" entry-id="157"> </textarea>
+					<fra:richtextentry name="_fraVariable_157_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
 				<br>

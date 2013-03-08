@@ -21,6 +21,31 @@ jsptaglibrary_2_0.xsd"
 			<body-content>JSP</body-content>
 			<attribute>
 				<name>name</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>style</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>entryId</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>mod</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>rownumber</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>columnnumber</name>
 				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
@@ -31,6 +56,36 @@ jsptaglibrary_2_0.xsd"
 			<body-content>JSP</body-content>
 			<attribute>
 				<name>name</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		</tag>
+		<tag>
+			<name>DynamicTableTag</name>
+			<tag-class>it.geosolutions.fra2015.tags.DynamicTableTag</tag-class>
+			<body-content>JSP</body-content>
+			<attribute>
+				<name>entryItemName</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>numOfColoumn</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>operation</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>userProfile</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>numericColoumn</name>
 				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>

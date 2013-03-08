@@ -31,7 +31,8 @@ fra = {
 	 	    		}
 	 	    		
 	 	    	});
-	             row.remove();
+	 	    	//remove row
+	            row.remove();
 	         }
 
 	         return false;
@@ -45,7 +46,7 @@ fra = {
 	            cell.removeClass("editable");
 	            cell.addClass("editing");
 	            var text = cell.find('#cell-content').html();
-	            var hidden =cell.find(type);
+	            var hidden =cell.find('input:hidden');
 	            var name= "";
 	            var placeholder;
 	            
