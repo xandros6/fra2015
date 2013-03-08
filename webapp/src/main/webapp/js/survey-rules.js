@@ -51,7 +51,7 @@
                         callback(null, rules);
                     },
                     error: function( data ){
-                        console.error(data);
+                        //console.error(data);
                         callback(data);
                     }
                 });                

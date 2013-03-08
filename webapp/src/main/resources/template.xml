@@ -978,7 +978,7 @@
 			</Elements>
 		</session>
 		<session>
-			<title><![CDATA[ <label ref="129" /> ]]></title>
+			<title><![CDATA[ <label ref="129" /> ]]></title> <!-- topic II -->
 			<Elements>
 				<question>
 					<title><![CDATA[ <label ref="130" /> ]]></title>
@@ -4651,7 +4651,13 @@
 						</session>
 					</Elements>
 				</question>
-				<question>
+    		</Elements>
+        </session>
+
+		<session>
+			<title><![CDATA[ <label ref="topic6b" /> ]]></title> 
+			<Elements>
+				<question> <!-- q14 -->
 					<title><![CDATA[ <label ref="435" /> ]]></title>
 					<Elements>
 						<session>

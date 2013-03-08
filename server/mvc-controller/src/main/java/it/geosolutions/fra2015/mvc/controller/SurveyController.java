@@ -58,18 +58,27 @@ public class SurveyController {
     Logger LOGGER = Logger.getLogger(SurveyController.class);
 
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.GET)
-    public String printWelcome(@PathVariable(value = "question") String question, Model model,
+    public String handleGet(@PathVariable(value = "question") String question, Model model,
             HttpSession session) {
 
-        // model.addAttribute("message", "Spring 3 MVC dummy example");
+        try{
+            Integer.parseInt(question);
+        }
+        catch(Exception e){
+            model.addAttribute("context", "survey");
+            model.addAttribute("question", 0);
+            session.invalidate();
+            return "login";
+        }
+        
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
-
+        
         User su = (User) session.getAttribute("sessionUser");
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su));
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
         
         return "index";
 
@@ -79,13 +88,24 @@ public class SurveyController {
     public String handlePost(HttpServletRequest request,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
 
+        
+        try{
+            Integer.parseInt(question);
+        }
+        catch(Exception e){
+            model.addAttribute("context", "survey");
+            model.addAttribute("question", 0);
+            session.invalidate();
+            return "login";
+        }
+        
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
 
         User su = (User) session.getAttribute("sessionUser");
 
         // Retrieve the stored value in order to compare them with the new submitted values
-        CountryValues es = utils.retrieveValues(question, su);
+        CountryValues es = utils.retrieveValues(question, su.getCountries());
 
         Map<String, String[]> reqParams = request.getParameterMap();
 
@@ -121,7 +141,7 @@ public class SurveyController {
         // Another time???? WTF???
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su));
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
         
         return "index";
 

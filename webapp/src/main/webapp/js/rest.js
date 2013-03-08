@@ -36,7 +36,7 @@
         toString: function(){
 		
             if ( !this.isLocal_(this.base) && ! this.proxy ){
-                console.error('You must specify a local proxy to call an external url: ' + this.base);
+                //console.error('You must specify a local proxy to call an external url: ' + this.base);
                 return null;
             } else {
                 var result = this.base + this.path;

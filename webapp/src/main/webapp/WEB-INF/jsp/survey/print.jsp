@@ -20,4 +20,4 @@
 <jsp:include page="questions/q18.jsp" />
 <jsp:include page="questions/q19.jsp" />
 <jsp:include page="questions/q20.jsp" />
-<jsp:include page="questions/21.jsp" />
+<jsp:include page="questions/q21.jsp" />

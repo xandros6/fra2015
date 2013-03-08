@@ -21,24 +21,42 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import javax.servlet.http.HttpSession;
+
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.server.model.user.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author Lorenzo Natali
- *
+ * 
  */
 @Controller
-@RequestMapping("/summary")
 public class SummaryController {
-    
-    @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
-    		model.addAttribute("context", "summary");
-            //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "index";
+
+    @Autowired
+    private ControllerServices utils;
+
+    @RequestMapping(value = "/summary", method = RequestMethod.GET)
+    public String handleGet(Model model, HttpSession session) {
+
+        model.addAttribute("context", "summary");
+
+        User su = (User) session.getAttribute("sessionUser");
+        String countryParam = su.getCountries();
+
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("operationWR", ControllerServices.OperationWR.READ.toString());
+        utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, countryParam), false);
+
+        return "index";
 
     }
 }
