@@ -54,8 +54,6 @@ public class SurveyController {
 
     @Autowired
     private ControllerServices utils;
-
-    public enum OperationWR {WRITE,READ}
     
     Logger LOGGER = Logger.getLogger(SurveyController.class);
 
@@ -70,7 +68,7 @@ public class SurveyController {
         User su = (User) session.getAttribute("sessionUser");
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("operationWR", OperationWR.WRITE.toString());
+        model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su));
         
         return "index";
@@ -122,7 +120,7 @@ public class SurveyController {
         
         // Another time???? WTF???
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("operationWR", OperationWR.WRITE.toString());
+        model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su));
         
         return "index";

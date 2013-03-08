@@ -49,6 +49,8 @@ public class ControllerServices {
     @Autowired
     private SurveyCatalog catalog;
     
+    public enum OperationWR {WRITE,READ}
+    
     public CountryValues retrieveValues(String question, User su) {
 
         Integer q = (question != null)?Integer.parseInt(question):null;
