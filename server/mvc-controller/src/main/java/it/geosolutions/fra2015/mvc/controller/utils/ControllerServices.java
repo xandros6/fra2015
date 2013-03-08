@@ -26,7 +26,6 @@ import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
-import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
@@ -44,6 +43,8 @@ import org.springframework.ui.Model;
  */
 public class ControllerServices {
     
+    Logger LOGGER = Logger.getLogger(ControllerServices.class);
+    
     @Autowired
     private SurveyServiceEntryPoint surveyService;
     @Autowired
@@ -51,20 +52,28 @@ public class ControllerServices {
     
     public enum OperationWR {WRITE,READ}
     
-    public CountryValues retrieveValues(String question, User su) {
+    /**
+     * Retrieve the survey value given a question and country code.
+     * If question == null the method loads all value from each question
+     * 
+     * @param question the id of the question.
+     * @param country the iso3 code of the country
+     * @return
+     */
+    public CountryValues retrieveValues(String question, String country) {
 
         Integer q = (question != null)?Integer.parseInt(question):null;
 
         CountryValues es = null;
         try {
-            es = surveyService.getCountryAndQuestionValues(su.getCountries(), q);
+            es = surveyService.getCountryAndQuestionValues(country, q);
         } catch (BadRequestServiceEx e) {
-            Logger LOGGER = Logger.getLogger(ControllerServices.class);
+            LOGGER.error(e.getLocalizedMessage());
         }
         return es;
     }
 
-    public void prepareHTTPRequest(Model model, String question, CountryValues values) {
+    public void prepareHTTPRequest(Model model, String question, CountryValues values, boolean printNameInsteadOfValue) {
 
         Integer q = (question != null)?Integer.parseInt(question):null;
         
@@ -87,7 +96,8 @@ public class ControllerServices {
                 // Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), newRowCounter);
             }
-            model.addAttribute(VariableNameUtils.buildVariableAsText(el), el.getContent());
+            String print = (printNameInsteadOfValue)?el.getVariable():el.getContent();
+            model.addAttribute(VariableNameUtils.buildVariableAsText(el), print);
         }
 
         // Put in the model the counters

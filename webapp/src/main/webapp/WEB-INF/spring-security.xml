@@ -13,20 +13,13 @@
 		<intercept-url pattern="/survey/*" access="ROLE_contributor" />
 		<intercept-url pattern="/surveylist*" access="ROLE_reviewer" />
 		<intercept-url pattern="/revieweractivitylog*" access="ROLE_reviewer" />
+		<intercept-url pattern="/summary*" access="ROLE_contributor" />
+		<intercept-url pattern="/print*" access="ROLE_admin" />
 		<form-login always-use-default-target="true"  login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />
 		<logout logout-success-url="/logout" />
 	</http>
-
-	<!-- <authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="DZA" password="4" authorities="ROLE_USER" />
-			</user-service>
-		</authentication-provider>
-	</authentication-manager> -->
-
-	
+		
 	<beans:bean id="assembler" class="it.geosolutions.fra2015.security.Assembler" />
 
 	<beans:bean id="userDetailsService" class="it.geosolutions.fra2015.security.UserDetailsServiceImpl" >

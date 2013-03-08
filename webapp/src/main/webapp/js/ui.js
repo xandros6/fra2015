@@ -32,7 +32,6 @@
                     },
                     error: function(response){
                         // $(document).find('#progressbar').modal('show');
-                        console.error( response );
                         switch( response.status ){
                             case 500:
                                 context.trigger('loginKo', 'Internal server error. ' + response.statusText);
@@ -55,13 +54,13 @@
                         if ( data === true ){
                             context.trigger('logoutOk');
                         } else {
-                            console.error('Cannot logout. Unknown reasons.');
+                            //console.error('Cannot logout. Unknown reasons.');
                             context.trigger('logoutKo');
                         }
                         
                     },
                     failure: function( data ){
-                        console.error('Cannot logout. ' + data);
+                        //console.error('Cannot logout. ' + data);
                         context.trigger('logoutKo');
                     } 
                 });               
@@ -111,7 +110,7 @@
                 };
             },
             error: function(data){
-                console.error( data );
+                //console.error( data );
             }
              
         });
@@ -184,7 +183,7 @@
             // context.trigger('ready', el);
             },
             error: function( msg ){
-                console.log( msg );
+                //console.log( msg );
             }
         };       
         
@@ -226,7 +225,7 @@
                 page.render();
             },
             error: function( msg ){
-                console.log( msg );
+                //console.log( msg );
             }
         };       
         
@@ -264,7 +263,7 @@
                 page.render();
             },
             error: function( msg ){
-                console.log( msg );
+                //console.log( msg );
             }
         };       
         
@@ -302,7 +301,7 @@
                 page.render();
             },
             error: function( msg ){
-                console.log( msg );
+                //console.log( msg );
             }
         };       
         
@@ -322,7 +321,7 @@
         
             return {
                 loginOk: function( user, token ){
-                    console.log('authenticated ' + user.username + ' with role ' + user.role);
+                    //console.log('authenticated ' + user.username + ' with role ' + user.role);
                     token = token;
                     context.trigger('page:'+user.role, user);
                 },

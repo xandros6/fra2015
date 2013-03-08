@@ -30,6 +30,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -45,17 +46,15 @@ public class PrintController {
 
     Logger LOGGER = Logger.getLogger(PrintController.class);
 
-    @RequestMapping(value = "/survey/print", method = RequestMethod.GET)
-    public String printWelcome(Model model,
+    @RequestMapping(value = "/survey/print/{country}/{onlyschema}", method = RequestMethod.GET)
+    public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "onlyschema") boolean onlyschema, Model model,
             HttpSession session) {
 
         model.addAttribute("context", "survey");
-
-        User su = (User) session.getAttribute("sessionUser");
-
+        
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("operationWR", ControllerServices.OperationWR.READ.toString());
-        utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, su));
+        utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), onlyschema);
 
         return "survey/print";
 
