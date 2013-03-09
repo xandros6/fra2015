@@ -53,7 +53,7 @@ public class PrintController {
         model.addAttribute("context", "survey");
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("operationWR", ControllerServices.OperationWR.READ.toString());
+        model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
         utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), onlyschema);
 
         return "survey/print";

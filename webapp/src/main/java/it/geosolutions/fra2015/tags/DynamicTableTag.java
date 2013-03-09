@@ -21,13 +21,11 @@
  */
 package it.geosolutions.fra2015.tags;
 
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.OperationWR;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
 
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.log4j.Logger;
 
@@ -39,7 +37,7 @@ import org.apache.log4j.Logger;
  * 
  */
 @SuppressWarnings("serial")
-public class DynamicTableTag extends TagSupport {
+public class DynamicTableTag extends SurveyEntry {
 
     private Logger LOGGER = Logger.getLogger(this.getClass());
 
@@ -72,29 +70,10 @@ public class DynamicTableTag extends TagSupport {
             if(numericColoumn == null){
                 numericColoumn = true;
             }
-            // Check if the operation is valid
-            OperationWR op = Utils.validateOperation(operation);
-            if(op == null){
-                out.print("operation '" + operation + "' isn't a valid operation");
-                return (SKIP_BODY);
-            }
-            boolean flagOp = op.compareTo(OperationWR.WRITE)==0;
-            
             // Check the user profile
+            this.chooseMode();
             boolean deleteButton = true;
-            if(userProfile != null && !userProfile.isEmpty()){
-                deleteButton = userProfile.equals("contributor");
-            }
-            else{
-                User su = (User) pageContext.getSession().getAttribute("sessionUser");
-                if(su== null){ 
-                	deleteButton=false;
-            	}else{
-            		deleteButton = su.getRole().equals("contributor");
-            
-            	}
-            }
-            deleteButton &= flagOp;
+            deleteButton &= this.edit;
 
             out = pageContext.getOut();
             Integer rows = (Integer) pageContext.getRequest().getAttribute(
@@ -137,9 +116,8 @@ public class DynamicTableTag extends TagSupport {
         return (SKIP_BODY);
     }
     
-    
 
-    /**
+	/**
      * @return the entryItemName
      */
     public String getEntryItemName() {

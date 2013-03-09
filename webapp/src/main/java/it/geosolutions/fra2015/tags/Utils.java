@@ -1,22 +1,27 @@
 package it.geosolutions.fra2015.tags;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+
 import javax.servlet.jsp.PageContext;
 
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.OperationWR;
-
 public class Utils {
-	static OperationWR validateOperation(String operation) {
+	static Profile validateProfile(String profile) {
 
-		OperationWR op = null;
-		if (operation == null || operation.isEmpty()) {
-			return OperationWR.WRITE;
+		Profile prof = null;
+		if (profile == null || profile.isEmpty()) {
+			return Profile.PRINT;
 		}
 		try {
-			op = OperationWR.valueOf(operation);
+			prof = Profile.valueOf(profile);
 		} catch (Exception e) {
 			return null;
 		}
-		return op;
+		return prof;
+	}
+	static Profile getProfile(PageContext pageContext){
+		String profstring = (String) pageContext.getRequest().getAttribute("profile");
+		return validateProfile(profstring);
+		
 	}
 	
 }

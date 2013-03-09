@@ -78,7 +78,7 @@ public class ReviewController {
         User su = (User) session.getAttribute("sessionUser");
         //TODO check access to provide accessible questions for menu and allow to 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("operationWR", ControllerServices.OperationWR.READ.toString());
+        model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
         
         return "reviewer";
