@@ -9,10 +9,12 @@ import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Element;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Session;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
@@ -143,6 +145,18 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
             throw new NotFoundWebEx(ex.getMessage());
         }
     }
+    
+    @Override
+    public QuestionRevision getQuestionRevisionNumber(Country country, Question questionNumber){
+        
+        return surveyService.findQuestionRevision(country, questionNumber);
+    }
+    
+    @Override
+    public boolean updateQuestionRevisionNumber(QuestionRevision revision){
+        
+        return surveyService.updateQuestionRevision(revision);
+    }
 
     private void save(Object obj) throws BadRequestServiceEx, NotFoundServiceEx {
 
@@ -167,6 +181,30 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
 
     public void setTemplateResource(Resource templateResource) {
         this.templateResource = templateResource;
+    }
+
+    /* (non-Javadoc)
+     * @see it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint#insertQuestionRevisionNumber(it.geosolutions.fra2015.server.model.survey.QuestionRevision)
+     */
+    @Override
+    public void insertQuestionRevisionNumber(QuestionRevision qr) {
+        surveyService.insertQuestionRevision(qr);
+    }
+
+    /* (non-Javadoc)
+     * @see it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint#find(java.lang.Long)
+     */
+    @Override
+    public Question findQuestion(Long questionNumber) {
+        return surveyService.findQuestion(questionNumber);
+    }
+
+    /* (non-Javadoc)
+     * @see it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint#search(java.lang.String)
+     */
+    @Override
+    public Country searchCountry(String iso3) {
+        return surveyService.searchCountry(iso3);
     }
 
 }

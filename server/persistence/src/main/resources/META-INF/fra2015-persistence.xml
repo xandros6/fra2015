@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <class>it.geosolutions.fra2015.server.model.user.User</class>
     <class>it.geosolutions.fra2015.server.model.user.Token</class>
     <class>it.geosolutions.fra2015.server.model.survey.Question</class>
+    <class>it.geosolutions.fra2015.server.model.survey.QuestionRevision</class>
     <class>it.geosolutions.fra2015.server.model.survey.Entry</class>
     <class>it.geosolutions.fra2015.server.model.survey.EntryItem</class>
     <class>it.geosolutions.fra2015.server.model.survey.NumberValue</class>

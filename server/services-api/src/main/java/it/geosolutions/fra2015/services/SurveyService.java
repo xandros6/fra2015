@@ -6,6 +6,7 @@ package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -19,38 +20,42 @@ import java.util.List;
  */
 /**
  * @author Xandros
- *
+ * 
  */
 public interface SurveyService {
-    
 
-    public Entry updateValues(String iso3, String variable, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx;
+    public Entry updateValues(String iso3, String variable, Integer row, Integer col, String value)
+            throws BadRequestServiceEx, NotFoundServiceEx;
 
-    public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx, NotFoundServiceEx;
+    public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx,
+            NotFoundServiceEx;
 
     /**
      * update or insert an entry
+     * 
      * @param entry
      * @throws BadRequestServiceEx
-     * @throws NotFoundServiceEx 
+     * @throws NotFoundServiceEx
      */
     public void upsert(Entry entry) throws BadRequestServiceEx, NotFoundServiceEx;
-    
+
     /**
      * update or insert a question
+     * 
      * @param question
      * @throws BadRequestServiceEx
-     * @throws NotFoundServiceEx 
+     * @throws NotFoundServiceEx
      */
     public void upsert(Question question) throws BadRequestServiceEx, NotFoundServiceEx;
 
     /**
      * change the status of the survey associated to a given country
+     * 
      * @param country
      * @param status
      * @param message additional information about the status
      * @throws BadRequestServiceEx
-     * @throws NotFoundServiceEx 
+     * @throws NotFoundServiceEx
      * @return the new status
      */
     public String changeStatus(Status status) throws BadRequestServiceEx, NotFoundServiceEx;
@@ -62,7 +67,8 @@ public interface SurveyService {
      * @throws BadRequestServiceEx
      * @throws NotFoundServiceEx
      */
-    public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
+    public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionNumber)
+            throws BadRequestServiceEx;
 
     /**
      * @param iso3
@@ -77,10 +83,34 @@ public interface SurveyService {
     boolean removeValues(String iso3, String entryId, Integer row, Integer col, String value)
             throws BadRequestServiceEx, NotFoundServiceEx;
 
-	/**
-	 * @return
-	 */
-	public List<Country> getCountries();
+    /**
+     * @return
+     */
+    public List<Country> getCountries();
 
+    /**
+     * @param revision
+     * @return
+     */
+    boolean updateQuestionRevision(QuestionRevision revision);
+
+    /**
+     * @param country
+     * @param questionNumber
+     * @return
+     */
+    QuestionRevision findQuestionRevision(Country country, Question questionNumber);
+    
+    /**
+     * 
+     * @param country
+     * @param questionNumber
+     * @return
+     */
+    void insertQuestionRevision(QuestionRevision questionRevision);
+    
+    Question findQuestion(Long questionNumber);
+    
+    Country searchCountry(String iso3);
 
 }
