@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
 public class RichTextEntry extends TagSupport {
 	Logger LOGGER = Logger.getLogger(this.getClass());
 	private static String editorStart = "<textarea class='texteditor entry-item' cols='160' rows='10' name='";
-	private static String readerStart = "<div id='";
+	private static String readerStart = "<div class='entry-item richtext richtext-read'id='";
 	private static String editorEnd = "</textarea>";
 	private static String readerend = "</div>";
 
@@ -39,28 +39,25 @@ public class RichTextEntry extends TagSupport {
 	}
 
 	private String name;
-	private boolean isEditor;
+	private boolean edit;
 
 	public int doStartTag() {
 		try {
 			JspWriter out = pageContext.getOut();
 			User user = (User) pageContext.getSession().getAttribute(
 					"sessionUser");
-
+			//check mode
 			if (user == null) {
-				this.isEditor = false;
+				this.edit = false;
 			} else {
-				this.isEditor = editor.equals(user.getRole());
+				if(operation==null){
+					this.edit = editor.equals(user.getRole());
+				}else{
+					OperationWR op = Utils.validateOperation(operation);
+					this.edit = op.compareTo(OperationWR.WRITE)==0;
+				}
 			}
 						
-			// Check if the operation is valid
-            OperationWR op = Utils.validateOperation(operation);
-            if(op == null){
-                out.print("operation '" + operation + "' isn't a valid operation");
-                return (SKIP_BODY);
-            }
-            boolean forceRead = op.compareTo(OperationWR.WRITE)==0;
-            
             //get value
             String value = "";
 			if (pageContext.getRequest().getAttribute(this.name) != null) {
@@ -68,7 +65,7 @@ public class RichTextEntry extends TagSupport {
 						this.name);
 			}
 			// print start tag
-			if (this.isEditor && !forceRead) {
+			if (this.edit ) {
 				out.print(editorStart + this.name + "'>" + value);
 			} else {
 				out.print(readerStart + this.name + "'>" + value);
@@ -86,7 +83,7 @@ public class RichTextEntry extends TagSupport {
 		try {
 
 			JspWriter out = pageContext.getOut();
-			if (this.isEditor || "read".equals(operation)) {
+			if (this.edit) {
 				out.print(RichTextEntry.editorEnd);
 			} else {
 				out.print(RichTextEntry.readerend);

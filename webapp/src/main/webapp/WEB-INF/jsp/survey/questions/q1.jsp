@@ -501,11 +501,11 @@
 							<td></td>
 							<td colspan="2" rownumber="8" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
-							<td rownumber="8" columnnumber="1"></td>
-							<td rownumber="8" columnnumber="2"></td>
-							<td rownumber="8" columnnumber="3"></td>
-							<td rownumber="8" columnnumber="4"></td>
-							<td rownumber="8" columnnumber="5"></td>
+							<td class="total" rownumber="8" columnnumber="1"></td>
+							<td class="total" rownumber="8" columnnumber="2"></td>
+							<td class="total" rownumber="8" columnnumber="3"></td>
+							<td class="total" rownumber="8" columnnumber="4"></td>
+							<td class="total" rownumber="8" columnnumber="5"></td>
 						</tr>
 					</tbody>
 				</table>

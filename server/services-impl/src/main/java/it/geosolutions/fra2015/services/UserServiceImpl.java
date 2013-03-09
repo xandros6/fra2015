@@ -19,7 +19,11 @@
  */
 package it.geosolutions.fra2015.services;
 
+import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
+import com.googlecode.genericdao.search.SearchFacade;
+import com.googlecode.genericdao.search.hibernate.HibernateSearchFacade;
+
 import it.geosolutions.fra2015.server.dao.UserDAO;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -142,14 +146,27 @@ public class UserServiceImpl implements UserService {
      * @see it.geosolutions.fra2015.services.UserService#getAll(java.lang.Integer, java.lang.Integer)
      */
     @Override
-    public List<User> getAll(Integer page, Integer entries) throws BadRequestServiceEx {
+    public List<User> getAll(Integer page, Integer entries, User userFilter) throws BadRequestServiceEx {
 
         if (((page != null) && (entries == null)) || ((page == null) && (entries != null))) {
             throw new BadRequestServiceEx("Page and entries params should be declared together.");
         }
 
-        Search searchCriteria = new Search(User.class);
-
+        Search searchCriteria = new Search(User.class);        
+        
+        if(userFilter != null){
+        	if(userFilter.getUsername() != null && !userFilter.getUsername().isEmpty())
+        		searchCriteria.addFilter(Filter.ilike("username", "%"+userFilter.getUsername()+"%"));
+        	if(userFilter.getName() != null && !userFilter.getName().isEmpty())
+        		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
+        	if(userFilter.getRole() != null && !userFilter.getRole().isEmpty())
+        		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));        	
+        	if(userFilter.getCountries() != null && !userFilter.getCountries().isEmpty())
+        		searchCriteria.addFilter(Filter.ilike("countries", "%"+userFilter.getCountries()+"%"));
+        	if(userFilter.getEmail() != null && !userFilter.getEmail().isEmpty())
+        		searchCriteria.addFilter(Filter.ilike("email", "%"+userFilter.getEmail()+"%"));
+        }
+        
         if (page != null) {
             searchCriteria.setMaxResults(entries);
             searchCriteria.setPage(page);

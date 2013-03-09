@@ -11,7 +11,7 @@
 			http://www.springframework.org/schema/aop 
 			http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
        default-autowire="byName">
-    
+        
     <bean id="userService" class="it.geosolutions.fra2015.services.UserServiceImpl">
     </bean>
     

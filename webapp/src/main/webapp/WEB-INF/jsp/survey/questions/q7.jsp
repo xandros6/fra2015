@@ -484,8 +484,8 @@
 						<tr>
 							<td rownumber="12" columnnumber="0"><spring:message
 									code="ref332"></spring:message></td>
-							<td rownumber="12" columnnumber="1"></td>
-							<td rownumber="12" columnnumber="2"></td>
+							<td class="total" rownumber="12" columnnumber="1"></td>
+							<td class="total" rownumber="12" columnnumber="2"></td>
 						</tr>
 					</tbody>
 				</table>
