@@ -55,6 +55,8 @@ public class SurveyListController {
 		String[] countries = su.getCountries().split(", ");
 		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
 		model.addAttribute("surveys",surveys);
+		
+		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
 		return "reviewer";
 
 	}
