@@ -1,5 +1,6 @@
 <%@ page isELIgnored="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="questions/q0.jsp" />
 <jsp:include page="questions/q1.jsp" />
 <jsp:include page="questions/q2.jsp" />
 <jsp:include page="questions/q3.jsp" />
