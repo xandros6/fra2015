@@ -19,11 +19,11 @@
 								<%
 									//TODO change this with user menu when user in session
 								%>
-								
+
 								<jsp:include page="reviewer/menu.jsp" />
-								
-								<jsp:include page="common/logoutbutton.jsp" />
-								<jsp:include page="common/languageselector.jsp" />	
+								<div class="navbar-form pull-right">
+									<jsp:include page="common/logoutbutton.jsp" />
+									<jsp:include page="common/languageselector.jsp" />
 								</div>
 							</div>
 						</div>
@@ -45,6 +45,9 @@
 							<c:when test="${context=='export'}">
 								<jsp:include page="reviewer/export.jsp" />
 							</c:when>
+							<c:when test="${context=='survey'}">
+								<jsp:include page="survey/survey.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>
@@ -53,7 +56,7 @@
 			</div>
 		</div>
 		<div id="push"></div>
-	</div>
-	<%@ include file="common/footer.jsp"%>
+
+		<%@ include file="common/footer.jsp"%>
 </body>
 </html>
