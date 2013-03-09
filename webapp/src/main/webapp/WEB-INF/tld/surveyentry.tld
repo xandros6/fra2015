@@ -95,5 +95,15 @@ jsptaglibrary_2_0.xsd"
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 		</tag>
+		<tag>
+			<name>feedback</name>
+			<tag-class>it.geosolutions.fra2015.tags.FeedbackEntryTag</tag-class>
+			<body-content>JSP</body-content>
+			<attribute>
+				<name>feedbackName</name>
+				<required>true</required>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		</tag>
 	
 </taglib> 

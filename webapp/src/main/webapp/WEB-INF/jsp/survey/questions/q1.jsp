@@ -189,6 +189,7 @@
 				<div class="control pull-right">
 					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 				</div>
+				<fra:feedback feedbackName="feedback"/>
 				<br>
 				<br>
 			</div>
