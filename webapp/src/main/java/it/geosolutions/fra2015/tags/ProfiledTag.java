@@ -8,5 +8,8 @@ public abstract class ProfiledTag extends TagSupport{
 	abstract protected void chooseMode(Profile op);
 	abstract protected void chooseMode();
 	
+	protected Profile getProfile() {
+	    return Utils.getProfile(pageContext);
+	}
 
 }
