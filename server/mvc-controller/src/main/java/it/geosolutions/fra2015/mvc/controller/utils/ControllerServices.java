@@ -26,9 +26,11 @@ import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,8 +109,13 @@ public class ControllerServices {
                 model.addAttribute(el, tableRowsCounter.get(el));
             }
         }
+        
     }
-    
+    public List<SurveyInstance> retriveSurveyListByCountries(String[] countryList,int page,int index){
+
+    	return surveyService.getSurveysByCountry(countryList,page,index);
+
+    }
     public void updateValuesService(Updates updates){
         surveyService.updateValues(updates);
     }

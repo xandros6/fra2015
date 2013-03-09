@@ -1,3 +1,4 @@
+<%@ include file="../common/includes/taglibs.jsp"%>
 <div>
 	<div class="container">
 		<table id="surveyListTable"
@@ -11,12 +12,20 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><a href="survey/0" class="btn">View</a></td>
-				</tr>
+
+
+
+				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
+					<tr class="rowItem">
+						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
+						<td>TODO</td>
+
+						<td>${survey.status.status}</td>
+						<%-- 								<td>${user.countries}</td> --%>
+						<td><a href="../survey/review/${survey.country.iso3}/0" class="btn">View</a></td>
+					</tr>
+				</c:forEach>
+
 			</tbody>
 		</table>
 		<ul class="pager pull-right">

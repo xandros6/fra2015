@@ -21,24 +21,41 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.user.User;
+
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author Lorenzo Natali
- *
+ * 
  */
 @Controller
-@RequestMapping("/surveylist")
 public class SurveyListController {
-    
-    @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
-    		model.addAttribute("context", "surveylist");
-            //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "reviewer";
+	@Autowired
+	private ControllerServices utils;
 
-    }
+	 @RequestMapping(value = "/surveylist/{page}", method = RequestMethod.GET)
+	public String printWelcome(@PathVariable(value = "page") int page,ModelMap model, HttpSession session) {
+		model.addAttribute("context", "surveylist");
+
+		User su = (User) session.getAttribute("sessionUser");
+		if (su==null)return "redirect:login";
+		String[] countries = su.getCountries().split(", ");
+		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
+		model.addAttribute("surveys",surveys);
+		return "reviewer";
+
+	}
 }

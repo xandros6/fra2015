@@ -48,9 +48,9 @@ public class LandingPageController {
     			
     			return "redirect:survey/0";
 
-    		}else if("contributor".equals(user.getRole())){
+    		}else if("reviewer".equals(user.getRole())){
     			
-    			return "redirect:activitylog";
+    			return "redirect:revieweractivitylog";
     		}else if("admin".equals(user.getRole())){
     			
     			return "redirect:users/";
