@@ -38,6 +38,12 @@ fra.tooltips= {
 		ref79:'<spring:message code="ref79"></spring:message>'
 		
 };
+fra.messages={
+		confirmsubmit:'<spring:message code="alert.survey.confirmsubmit"></spring:message>',
+		deleterowconfirm:'<spring:message code="alert.survey.deleterowconfirm"></spring:message>',
+		deleterowdenied:'<spring:message code="alert.survey.deleterowdenied"></spring:message>'
+		
+}
 
 function newAlert (type, message) {
    
