@@ -1,5 +1,6 @@
 package it.geosolutions.fra2015.tags;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ import org.apache.log4j.Logger;
  * 3</option></select> </div></td>
  */
 @SuppressWarnings("serial")
-public class TiersEntry extends TagSupport {
+public class TiersEntry extends SurveyEntry{
 	Logger LOGGER = Logger.getLogger(this.getClass());
 	private static String editorStart = "<select name='";
 	private static String readerStart = "<div>";
@@ -33,19 +34,14 @@ public class TiersEntry extends TagSupport {
 
 	private String editor = "contributor";
 
-	private String reader;
+	
 	private String name;
-	private boolean isEditor;
 
 	public int doStartTag() {
 		try {
 			JspWriter out = pageContext.getOut();
-			User user = (User) pageContext.getSession()
-					.getAttribute("sessionUser");
-			if (user == null) {
-				return (SKIP_BODY);
-			}
-			this.isEditor = editor.equals(user.getRole());
+			Profile profile = Utils.getProfile(pageContext);
+			this.chooseMode(profile);
 				
 			String value = pageContext.getRequest().getAttribute(this.name) !=null? (String) pageContext.getRequest().getAttribute(this.name):"";
 			int index = 0;
@@ -53,7 +49,7 @@ public class TiersEntry extends TagSupport {
 			if("Tier 2".equals(value)) index= 2;
 			if("Tier 3".equals(value)) index= 3;
 			//print start tag
-			if (this.isEditor) {
+			if (this.edit) {
 				out.print(editorStart + this.name + "'>");
 			String[] options ={
 						" >---</option>",
@@ -86,7 +82,7 @@ public class TiersEntry extends TagSupport {
 		try {
 
 			JspWriter out = pageContext.getOut();
-			if (this.isEditor) {
+			if (this.edit) {
 				out.print(TiersEntry.editorEnd);
 			} else {
 				out.print(TiersEntry.readerend);

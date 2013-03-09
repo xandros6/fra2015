@@ -1,12 +1,12 @@
 package it.geosolutions.fra2015.tags;
 
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.OperationWR;
-import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 
 import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.log4j.Logger;
@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  * 
  */
 @SuppressWarnings("serial")
-public class RichTextEntry extends TagSupport {
+public class RichTextEntry extends SurveyEntry {
 	Logger LOGGER = Logger.getLogger(this.getClass());
 	private static String editorStart = "<textarea class='texteditor entry-item' cols='160' rows='10' name='";
 	private static String readerStart = "<div class='entry-item richtext richtext-read'id='";
@@ -39,61 +39,40 @@ public class RichTextEntry extends TagSupport {
 	}
 
 	private String name;
-	private boolean edit;
 
 	public int doStartTag() {
+		JspWriter out = pageContext.getOut();
 		try {
-			JspWriter out = pageContext.getOut();
-			User user = (User) pageContext.getSession().getAttribute(
-					"sessionUser");
-			//check mode
-			if (user == null) {
-				this.edit = false;
-			} else {
-				if(operation==null){
-					this.edit = editor.equals(user.getRole());
-				}else{
-					OperationWR op = Utils.validateOperation(operation);
-					this.edit = op.compareTo(OperationWR.WRITE)==0;
-				}
-			}
-						
+			
+			this.chooseMode();
             //get value
-            String value = "";
-			if (pageContext.getRequest().getAttribute(this.name) != null) {
-				value = (String) pageContext.getRequest().getAttribute(
-						this.name);
-			}
+            String value = this.getValue(pageContext);
 			// print start tag
 			if (this.edit ) {
 				out.print(editorStart + this.name + "'>" + value);
-			} else {
-				out.print(readerStart + this.name + "'>" + value);
-			}
-
-		} catch (IOException ioe) {
-			LOGGER.error("Error in SimpleTag: " + ioe);
-
-		}
-		return (SKIP_BODY);
-	}
-
-	public int doEndTag() throws JspException {
-
-		try {
-
-			JspWriter out = pageContext.getOut();
-			if (this.edit) {
 				out.print(RichTextEntry.editorEnd);
 			} else {
+				out.print(readerStart + this.name + "'>" + value);
 				out.print(RichTextEntry.readerend);
 			}
+			
 
 		} catch (IOException ioe) {
-			LOGGER.error("Error in SimpleTag: " + ioe);
+			LOGGER.error("Error in RichEntryTag: " + ioe);
 		}
 		return (SKIP_BODY);
 	}
+
+	private String getValue(PageContext pageContext) {
+		if (pageContext.getRequest().getAttribute(this.name) != null) {
+			return  (String) pageContext.getRequest().getAttribute(
+					this.name);
+		}else{
+			return "";
+		}
+		
+	}
+
 
 	public String getEditor() {
 		return editor;

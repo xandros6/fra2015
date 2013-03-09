@@ -24,7 +24,7 @@ import org.springframework.web.servlet.LocaleResolver;
  * 
  */
 @SuppressWarnings("serial")
-public class YesNoEntry extends TagSupport {
+public class YesNoEntry extends SurveyEntry {
 	Logger LOGGER = Logger.getLogger(this.getClass());
 	private static String editorStart = "<td class=\"entry-item editable boolean\" rownumber=\"7\" columnnumber=\"1\" style=\"background-color: rgb(242, 245, 169); \" entry-id=\"10\"><div id=\"cell-content\"><div>";
 	private static String readerStart = "<td>";
@@ -81,7 +81,6 @@ public class YesNoEntry extends TagSupport {
 	LocaleResolver localeResolver;
 	private String reader;
 	private String name;
-	private boolean isEditor;
 	private WebApplicationContext springContext;
 
 	/**
@@ -90,20 +89,13 @@ public class YesNoEntry extends TagSupport {
 	public int doStartTag() {
 		try {
 			JspWriter out = pageContext.getOut();
-			User user = (User) pageContext.getSession().getAttribute(
-					"sessionUser");
-			// avoid null pointer exception
-			if (user == null) {
-				return (SKIP_BODY);
-			}
-			// check editor
-			this.isEditor = editor.equals(user.getRole());
+			this.chooseMode();
 			String yes = localize("chk.yes");
 			String no = localize("chk.no");
 			String value = getContent();
 
 			// print start tag
-			if (this.isEditor) {
+			if (this.edit) {
 				out.print(editorStart + printEditableContent(value));
 			} else {
 				out.print(readerStart + value);
@@ -157,7 +149,7 @@ public class YesNoEntry extends TagSupport {
 		try {
 
 			JspWriter out = pageContext.getOut();
-			if (this.isEditor) {
+			if (this.edit) {
 				out.print(YesNoEntry.editorEnd);
 			} else {
 				out.print(YesNoEntry.readerend);

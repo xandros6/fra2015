@@ -83,7 +83,7 @@ public class SurveyController extends IController{
         User su = (User) session.getAttribute("sessionUser");
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
+        model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
         
         return "index";
@@ -153,7 +153,7 @@ public class SurveyController extends IController{
         // Another time???? WTF???
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
-        model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
+        model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
         
         return "index";

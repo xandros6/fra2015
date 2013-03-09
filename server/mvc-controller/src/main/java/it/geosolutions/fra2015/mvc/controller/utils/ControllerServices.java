@@ -50,7 +50,7 @@ public class ControllerServices {
     @Autowired
     private SurveyCatalog catalog;
     
-    public enum OperationWR {WRITE,READ}
+    public enum Profile {CONTRIBUTOR,REIVIEWER,REVIEWEDITOR,PRINT,COUNTRYACCEPTANCE,ACCEPTED}
     
     /**
      * Retrieve the survey value given a question and country code.
