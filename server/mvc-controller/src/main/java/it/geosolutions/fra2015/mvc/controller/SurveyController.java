@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
+import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ActivityLogUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
@@ -50,10 +51,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/survey/{question}")
-public class SurveyController {
+public class SurveyController extends IController{ 
 
     @Autowired
     private ControllerServices utils;
+
+    @Autowired
+    private BasicConcurrencyHandler concurencyHandler;
     
     Logger LOGGER = Logger.getLogger(SurveyController.class);
 
@@ -61,6 +65,8 @@ public class SurveyController {
     public String handleGet(@PathVariable(value = "question") String question, Model model,
             HttpSession session) {
 
+        concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
+        
         try{
             Integer.parseInt(question);
         }
@@ -136,10 +142,17 @@ public class SurveyController {
 
         Updates updates = new Updates();
         updates.setUpdates(updateList);
-        utils.updateValuesService(updates);
+
+        if(concurencyHandler.updateQuestionRevision(session, Long.parseLong(question))){
+            utils.updateValuesService(updates);
+        }
+        else{
+            LOGGER.error("FATAL ERROR");
+        }
         
         // Another time???? WTF???
         // Set the parameter operationWR, the domain is "WRITE" "READ"
+        concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
         model.addAttribute("operationWR", ControllerServices.OperationWR.WRITE.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
         
