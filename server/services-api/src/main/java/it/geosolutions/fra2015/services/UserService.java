@@ -84,7 +84,7 @@ public interface UserService {
      * @return List<User>
      * @throws BadRequestServiceEx
      */
-    public List<User> getAll(Integer page, Integer entries) throws BadRequestServiceEx;
+    public List<User> getAll(Integer page, Integer entries, User filter) throws BadRequestServiceEx;
 
     /**
      * @param nameLike
@@ -92,5 +92,5 @@ public interface UserService {
      */
     public long getCount(String nameLike);
     public long getCount();
-    
+
 }

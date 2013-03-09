@@ -5,6 +5,10 @@
     Description:
         custom css for FRA 2015
 */
+label.error{
+	color: red;
+    font-style: italic;
+}
 .alertArea {
 	position: absolute; 
 	top: 0; 

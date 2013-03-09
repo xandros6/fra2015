@@ -8,9 +8,17 @@ $(function(){
 	});	
 
 	$('#saveBtn').on('click', function() {
+
+		$("#createUserForm").validate();
+
 		$('#createUserForm').submit();
 	});
+
+	$('#filterBtn').on('click', function() {
+		$('#filterUserForm').submit();
+	});
 	
+
 	$('#deleteBtn').on('click', function() {
 		var userId = $('#deleteWarningWindow').data('modal').options.userid;
 		var page = $('#deleteWarningWindow').data('modal').options.page;
