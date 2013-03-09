@@ -12,6 +12,7 @@
 			http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
        default-autowire="byName">
     
-    <bean id="controllerServices" class="it.geosolutions.fra2015.mvc.controller.utils.ControllerServices" />
-    
+		<bean id="basicConcurrencyHandler" class="it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler" />
+    	<bean id="controllerServices" class="it.geosolutions.fra2015.mvc.controller.utils.ControllerServices" />
+    	<aop:aspectj-autoproxy />
 </beans>

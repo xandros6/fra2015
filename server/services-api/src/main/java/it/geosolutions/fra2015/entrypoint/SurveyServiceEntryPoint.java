@@ -6,7 +6,10 @@ package it.geosolutions.fra2015.entrypoint;
 
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -70,5 +73,32 @@ public interface SurveyServiceEntryPoint {
      * @throws BadRequestServiceEx
      */
     public CountryValues getCountryAndQuestionValues(String countryId, Integer questionNumber) throws BadRequestServiceEx;
+        
+    /**
+     * @param revision
+     * @return
+     */
+    boolean updateQuestionRevisionNumber(QuestionRevision revision);
+
+
+    /**
+     * @param country
+     * @param questionNumber
+     * @return
+     */
+    QuestionRevision getQuestionRevisionNumber(Country country, Question questionNumber);
+    
+    /**
+     * 
+     * @param qr
+     * @return
+     */
+    void insertQuestionRevisionNumber(QuestionRevision qr);
+    
+    Question findQuestion(Long questionNumber);
+    
+    Country searchCountry(String iso3);
+    
+    
 
 }

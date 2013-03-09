@@ -9,6 +9,7 @@ import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.dao.NumberValueDAO;
 import it.geosolutions.fra2015.server.dao.QuestionDAO;
+import it.geosolutions.fra2015.server.dao.QuestionRevisionDAO;
 import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.dao.TextValueDAO;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
@@ -17,6 +18,7 @@ import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
@@ -60,6 +62,7 @@ public class SurveyServiceImpl implements SurveyService {
 	private TextValueDAO textValueDAO;
 	private NumberValueDAO numberValueDAO;
 	private SurveyDAO surveyDAO;
+	private QuestionRevisionDAO questionRevisionDAO;
 
 	private SurveyCatalog surveyCatalog;
 
@@ -105,7 +108,13 @@ public class SurveyServiceImpl implements SurveyService {
 		this.numberValueDAO = numberValueDAO;
 	}
 
-	public SurveyServiceImpl() {
+        public void setQuestionRevisionDAO(QuestionRevisionDAO countryRevisionDAO) {
+            this.questionRevisionDAO = countryRevisionDAO;
+        }
+
+
+
+    public SurveyServiceImpl() {
 		map.put("String", new ValueDAO() {
 			@Override
 			public void persist(Value value) {
@@ -375,6 +384,37 @@ public class SurveyServiceImpl implements SurveyService {
 		List<Country> countries = countryDAO.findAll();
 		return countries;
 	}
+	
+	@Override
+        public QuestionRevision findQuestionRevision(Country country, Question question) {
+            Search searchCriteria = new Search(QuestionRevision.class);
+            searchCriteria.addFilterEqual("country", country);
+            searchCriteria.addFilterEqual("question", question);
+            List<QuestionRevision> qr = questionRevisionDAO.search(searchCriteria);
+            if (qr.size() > 0) {
+                return qr.get(0);
+            }
+            return null;
+        }
+	
+        @Override
+        public boolean updateQuestionRevision(QuestionRevision revision) {
+        
+            QuestionRevision lastRevision = findQuestionRevision(revision.getCountry(),
+                    revision.getQuestion());
+            Long version = lastRevision.getVersion();
+            if (lastRevision.getVersion() <= revision.getVersion()) {
+                if (!questionRevisionDAO.remove(revision)) {
+                    return false;
+                }
+                else{
+                    lastRevision.setVersion(version+1);
+                    questionRevisionDAO.merge(lastRevision);
+                }
+            }
+        
+            return true;
+        }
 
 	private Country findCountryByISO3(String iso3) {
 		Search searchCriteria = new Search(Country.class);
@@ -431,4 +471,34 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return values;
 	}
+
+    @Override
+    public void insertQuestionRevision(QuestionRevision question) {
+        questionRevisionDAO.persist(question);
+    }
+
+
+
+    /* (non-Javadoc)
+     * @see it.geosolutions.fra2015.services.SurveyService#findQuestion(java.lang.Long)
+     */
+    @Override
+    public Question findQuestion(Long questionNumber) {
+       
+        return questionDAO.find(questionNumber);
+    }
+
+
+
+    /* (non-Javadoc)
+     * @see it.geosolutions.fra2015.services.SurveyService#searchCountry(java.lang.String)
+     */
+    @Override
+    public Country searchCountry(String iso3) {
+        
+        Search searchCriteria = new Search(Country.class);
+        searchCriteria.addFilterEqual("iso3", iso3);
+        return countryDAO.search(searchCriteria).get(0);
+    }
+
 }
