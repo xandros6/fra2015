@@ -13,7 +13,7 @@
 		</p>
 		<p>
 			<form:label path="password" class="control-label">Password</form:label> 
-			<form:input path="password" id="cpassword" name="password" size="25" type="password" class="required password input-block-level" />
+			<input id="newPassword" name="newPassword" size="25" type="password" value="${user.password}" class="required password input-block-level" />
 		</p>
 		<p>
 			<form:label path="email" class="control-label">E-Mail</form:label> 
