@@ -362,7 +362,10 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return null;
 	}
-
+	@Override
+	public List<SurveyInstance> getSurveysByCountry(String[] countries,int page,int entries){
+		return surveyDAO.findByCountries( countries,page,entries );
+	}
 	/**
 	 * retuns a country with the given name, null otherwise
 	 *

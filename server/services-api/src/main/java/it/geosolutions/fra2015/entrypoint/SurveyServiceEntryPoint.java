@@ -12,6 +12,7 @@ import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.List;
@@ -99,6 +100,6 @@ public interface SurveyServiceEntryPoint {
     
     Country searchCountry(String iso3);
     
-    
+    List<SurveyInstance> getSurveysByCountry(String[] countryList,int page, int index);
 
 }
