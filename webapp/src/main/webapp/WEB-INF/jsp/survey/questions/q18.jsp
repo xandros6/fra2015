@@ -560,9 +560,9 @@
 							<td rownumber="10" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
 							<td rownumber="10" columnnumber="1"></td>
-							<td rownumber="10" columnnumber="2"></td>
-							<td rownumber="10" columnnumber="3"></td>
-							<td rownumber="10" columnnumber="4"></td>
+							<td class="total" rownumber="10" columnnumber="2"></td>
+							<td class="total" rownumber="10" columnnumber="3"></td>
+							<td class="total" rownumber="10" columnnumber="4"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -817,9 +817,9 @@
 							<td rownumber="7" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
 							<td rownumber="7" columnnumber="1"></td>
-							<td rownumber="7" columnnumber="2"></td>
-							<td rownumber="7" columnnumber="3"></td>
-							<td rownumber="7" columnnumber="4"></td>
+							<td class="total" rownumber="7" columnnumber="2"></td>
+							<td class="total" rownumber="7" columnnumber="3"></td>
+							<td class="total" rownumber="7" columnnumber="4"></td>
 						</tr>
 					</tbody>
 				</table>

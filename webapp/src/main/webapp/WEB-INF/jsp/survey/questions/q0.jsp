@@ -48,7 +48,7 @@
 		</p>
 		<div></div>
 		<div class="entry">
-			<fra:richtextentry  name="_fraVariable_1_"></fra:richtextentry>
+			<fra:richtextentry operation="${operationWR}" name="_fraVariable_1_"></fra:richtextentry>
 		</div>
 		<div class="control pull-right"></div>
 		<br>
