@@ -38,8 +38,7 @@ fra = {
 	    editRow: function(){
     		var type='textarea';
 	        var cell = $(this);
-	        if(numericVariablelist.indexOf(name) ) {cell.addClass('number');}
-	        if(cell.hasClass('number')){type='input';}
+	        
 	        if ( cell.hasClass('editable') ){
 	            cell.removeClass("editable");
 	            cell.addClass("editing");
@@ -61,7 +60,8 @@ fra = {
 	            	placeholder=hidden;
 	            }
 	            
-				if(numericVariablelist.indexOf(name) ) {cell.addClass('number');}
+	            if(numericVariablelist.indexOf(name)>0 ) {cell.addClass('number');}
+		        
 				if(cell.hasClass('number')){type='input';}
 	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
 	            input.val(text);
