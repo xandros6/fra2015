@@ -43,18 +43,31 @@
 						<li><spring:message code="refref_to_error_message"></spring:message></li>
 					</ul>
 				</div>
-
+				<form method="POST" action="">
 				<div id="textPanel">
 
 					<p><spring:message code="submit.addnote"/></p>
-					<textarea cols="300"></textarea>
+					<textarea id="submitmessage" name="submitmessage" rows="5" class="span12"></textarea>
 				</div>
 
-				<div id="buttonPanel" class="">
-					<a href="#" id="submitButton" class="btn btn-large disabled">Submit</a>
+				<div id="buttonPanel" class="pull-right">
+					<button id="submitButton" class="btn btn-large btn-info disabled">Submit</button>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
-</div>
+
+<script type="text/javascript">
+$(function(){
+	$('#submitmessage').keyup(function(){
+		$('#submitButton').toggleClass('disabled',!$('#submitmessage').val()!="");
+			 
+	
+	})
+
+});
+
+
+</script>

@@ -21,6 +21,18 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.server.model.survey.Status;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,11 +45,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/check")
 public class CheckController {
+	@Autowired
+    private SurveyService surveyService;
     
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
     		model.addAttribute("context", "check");
-            //model.addAttribute("message", "Spring 3 MVC dummy example");
+            //TODO add values for validation
+            return "index";
+
+    }
+    @RequestMapping(method = RequestMethod.POST)
+    public String printWelcome(HttpServletRequest request,ModelMap model,HttpSession session) {
+    		User su = (User) session.getAttribute("sessionUser");
+    		Status status = new Status();
+    		status.setMessage((String) request.getAttribute("submitmessage"));
+    		status.setCountry(su.getCountries());
+    		status.setStatus("under review");
+    		try {
+				surveyService.changeStatus(status);
+			} catch (BadRequestServiceEx e) {
+				
+			} catch (NotFoundServiceEx e) {
+				
+			}
+            
             return "index";
 
     }
