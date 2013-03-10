@@ -1,4 +1,7 @@
-
+/**
+ * Sum all the values in the columns of wich some td has class 'total' only if
+ * all the fields are filled
+ */
 $(function(){
 	$('.total').each(function(){
 		var columnnumber =$(this).attr('columnnumber');
@@ -7,7 +10,7 @@ $(function(){
 		var colentries = table.find('[columnnumber="'+columnnumber+'"].text');
 		var update = function (){
 			var tot = 0;
-			
+			var allAvaliable=true;
 			colentries.each(function(){
 				if(totcel.is($(this))) return;
 				var container = $(this).find('#cell-content');
@@ -15,8 +18,12 @@ $(function(){
 				if ($.isNumeric(value)){
 					tot +=parseInt(value);
 				}
-				totcel.text(tot);
+				if(value.match(/^([\s\t\r\n]*)$/)){
+					allAvaliable=false;
+				}
+				
 			});
+			totcel.text(allAvaliable?tot:"");
 			
 			
 		};

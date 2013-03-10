@@ -51,7 +51,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/survey/{question}")
-public class SurveyController extends IController{ 
+public class SurveyController{ 
 
     @Autowired
     private ControllerServices utils;
@@ -148,6 +148,11 @@ public class SurveyController extends IController{
         }
         else{
             LOGGER.error("FATAL ERROR");
+            model.addAttribute("messageType","warning");
+            //model.addAttribute("messageType","alert");// red background
+            model.addAttribute("messageCode","alert.savefaliure");
+            model.addAttribute("messageTrailCode","message.cuncurrencyconflict");
+            model.addAttribute("messageTimeout",10000);
         }
         
         // Another time???? WTF???
@@ -155,6 +160,9 @@ public class SurveyController extends IController{
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
+        
+        model.addAttribute("messageType","success");
+        model.addAttribute("messageCode","alert.savesuccess");
         
         return "index";
 

@@ -2,18 +2,21 @@
 <script src="${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
 <script src="${pageContext.request.contextPath}/js/i18next-1.5.9.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-ui-1.9.2.custom.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.ui.timepicker.js"></script>
+<script
+	src="${pageContext.request.contextPath}/js/jquery-ui-1.9.2.custom.js"></script>
+<script
+	src="${pageContext.request.contextPath}/js/jquery.ui.timepicker.js"></script>
 <script src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
-<script src="${pageContext.request.contextPath}/ckeditor/adapters/jquery.js"></script>
+<script
+	src="${pageContext.request.contextPath}/ckeditor/adapters/jquery.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/ejs.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/js/utils.js"></script>
-<script src="${pageContext.request.contextPath}/js/users.js"></script> 
-<script src="${pageContext.request.contextPath}/js/total.js"></script> 
+<script src="${pageContext.request.contextPath}/js/users.js"></script>
+<script src="${pageContext.request.contextPath}/js/total.js"></script>
 <!--  
 		<script src="${pageContext.request.contextPath}/js/constants.js"></script>
 		<script src="${pageContext.request.contextPath}/js/rest.js"></script>
@@ -23,7 +26,22 @@
 		<script src="${pageContext.request.contextPath}/js/fra2015.js"></script> 
 		<script src="${pageContext.request.contextPath}/js/ui.js"></script>
 		-->
+
+
+<!-- Message utility -->
+<c:if test="${(not empty messageCode) && (not empty messageType)}">
+
 <script>
+$(function(){
+	$('#savemessage').modal();
+	var hide = function(){
+        window.clearTimeout( timeoutID );
+        $('#savemessage').modal('hide'); 
+    };
+    timeoutID = setTimeout(hide, ${ not empty messageTimeout ? messageTimeout : 2000});
+});
+</script>
+</c:if><script>
 fra.tooltips= {
 		ref66_tt:'<spring:message code="ref66_tt"></spring:message>',
 		ref67_tt:'<spring:message code="ref67_tt"></spring:message>',
@@ -41,7 +59,8 @@ fra.tooltips= {
 fra.messages={
 		confirmsubmit:'<spring:message code="alert.survey.confirmsubmit"></spring:message>',
 		deleterowconfirm:'<spring:message code="alert.survey.deleterowconfirm"></spring:message>',
-		deleterowdenied:'<spring:message code="alert.survey.deleterowdenied"></spring:message>'
+		deleterowdenied:'<spring:message code="alert.survey.deleterowdenied"></spring:message>',
+		savesuccess:'All data saved succefully!'
 		
 }
 
