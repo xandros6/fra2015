@@ -32,6 +32,38 @@ public class Updates implements Serializable {
         this.updates = updates;
     }
     
+    // need for Activitylog... do not persist
+    private transient String question;
+    private transient String username;
+
+    /**
+     * @return the question
+     */
+    public String getQuestion() {
+        return question;
+    }
+
+    /**
+     * @param question the question to set
+     */
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     
     
     

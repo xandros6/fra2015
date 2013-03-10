@@ -16,5 +16,6 @@
     <mapping class="it.geosolutions.fra2015.server.model.survey.Country"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.Question"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.QuestionRevision"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.ActivityLogEntry"/>
   </session-factory>
 </hibernate-configuration>

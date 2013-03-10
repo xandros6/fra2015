@@ -81,7 +81,7 @@ jsptaglibrary_2_0.xsd"
 			</attribute>
 			<attribute>
 				<name>operation</name>
-				<required>true</required>
+				<required>false</required>
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 			<attribute>

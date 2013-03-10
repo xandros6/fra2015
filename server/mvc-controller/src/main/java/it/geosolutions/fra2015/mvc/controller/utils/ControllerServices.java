@@ -30,7 +30,6 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,14 +108,52 @@ public class ControllerServices {
                 model.addAttribute(el, tableRowsCounter.get(el));
             }
         }
-        
     }
+    
+    /**
+     * Compares for changes a new values set retrieved from HTTP request with the set stored on DB (called oldSet because it will be updated)
+     * 
+     * @param newSet
+     * @param oldSet
+     * @return Map<String, String[]> representing the values that must be deleted from DB
+     */
+//    public List<String> compareValueSet(Map<String, String[]> newSet, List<CompactValue> oldSet){
+//        
+//        // The return set
+//        List<String> removedSet = new ArrayList<String>(); 
+//        
+//        //Iterate on the oldSet and search for updated values
+//        for(CompactValue el : oldSet){
+//            
+//            String oldVariable = el.getVariable();
+//            
+//            String oldContent = el.getCo ntent();
+//            String[] set = newSet.get(VariableNameUtils.buildVariableAsText(el));
+//            String newContent = (set!=null)?set[0]:null;
+//            if(newContent == null){
+//                removedSet.add(oldVariable);
+//            }
+////            if(!oldContent.equals(newContent)){
+////                activityLog(Changes.UPDATE);
+////            }
+//        }
+//        
+//        //Iterate on the remaining values of newSet log them as ADDED Values
+//        for(String el : newSet.keySet()){
+//            activityLog(Changes.NEW);
+//        }
+//        
+//        return removedSet;
+//        
+//    }
+    
     public List<SurveyInstance> retriveSurveyListByCountries(String[] countryList,int page,int index){
 
     	return surveyService.getSurveysByCountry(countryList,page,index);
-
     }
+    
     public void updateValuesService(Updates updates){
+        
         surveyService.updateValues(updates);
     }
     
