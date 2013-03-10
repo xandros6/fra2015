@@ -117,80 +117,22 @@
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
-								<td class="action-column" width="80px"></td>
+								<c:if test="${sessionUser.role == 'contributor'}">
+									<td class="action-column" width="80px"></td>
+								</c:if>
 							</tr>
-							<tr>
-								<td rownumber="1" columnnumber="0"><spring:message
-										code="ref39"></spring:message></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_1_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_1_1_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_1_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_1_2_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_1_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_1_3_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_1_4_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_1_4_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
-							<tr>
-								<td rownumber="2" columnnumber="0"><spring:message
-										code="ref40"></spring:message></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_2_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_2_1_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_2_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_2_2_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_2_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_2_3_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_2_4_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_2_4_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
-							<tr>
-								<td rownumber="3" columnnumber="0"><spring:message
-										code="ref41"></spring:message></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_3_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_3_1_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_3_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_3_2_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_3_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_3_3_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="26"><span class="entry_item_placeholder" id="_fraVariable_26_3_4_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_26_3_4_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
+							
+							<fra:DynamicTableTag numOfColoumn="4" entryItemName="26" numericColoumn="true"/>
+							
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					<c:if test="${sessionUser.role == 'contributor'}">
+						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					</c:if>
 				</div>
+				<fra:feedback feedbackName="_feedback_26_"/>
 				<br>
 				<br>
 			</div>
@@ -211,50 +153,22 @@
 										code="ref43"></spring:message></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref14"></spring:message></td>
-								<td class="action-column" width="80px"></td>
+								<c:if test="${sessionUser.role == 'contributor'}">
+									<td class="action-column" width="80px"></td>
+								</c:if>
 							</tr>
-							<tr>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="27"><span class="entry_item_placeholder" id="_fraVariable_27_1_0_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_27_1_0_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="27"><span class="entry_item_placeholder" id="_fraVariable_27_1_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_27_1_1_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
-							<tr>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="27"><span class="entry_item_placeholder" id="_fraVariable_27_2_0_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_27_2_0_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="27"><span class="entry_item_placeholder" id="_fraVariable_27_2_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_27_2_1_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
-							<tr>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="27"><span class="entry_item_placeholder" id="_fraVariable_27_3_0_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_27_3_0_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="27"><span class="entry_item_placeholder" id="_fraVariable_27_3_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_27_3_1_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
+							
+							<fra:DynamicTableTag numOfColoumn="2" entryItemName="27" numericColoumn="false"/>
+							
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					<c:if test="${sessionUser.role == 'contributor'}">
+						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					</c:if>
 				</div>
+				<fra:feedback feedbackName="_feedback_27_"/>
 				<br>
 				<br>
 			</div>
@@ -270,6 +184,7 @@
 					<fra:richtextentry name="_fraVariable_28_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
+				<fra:feedback feedbackName="_feedback_28_"/>
 				<br>
 				<br>
 			</div>
@@ -291,6 +206,7 @@
 					<fra:richtextentry name="_fraVariable_29_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
+				<fra:feedback feedbackName="_feedback_29_"/>
 				<br>
 				<br>
 			</div>
@@ -306,6 +222,7 @@
 					<fra:richtextentry name="_fraVariable_30_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
+				<fra:feedback feedbackName="_feedback_30_"/>
 				<br>
 				<br>
 			</div>
@@ -321,6 +238,7 @@
 					<fra:richtextentry name="_fraVariable_31_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
+				<fra:feedback feedbackName="_feedback_31_"/>
 				<br>
 				<br>
 			</div>
@@ -655,6 +573,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_3a_"/>
 			<br>
 			<br>
 		</div>
@@ -1012,6 +931,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_3b_"/>
 			<br>
 			<br>
 		</div>
@@ -1085,6 +1005,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_33_"/>
 			<br>
 			<br>
 		</div>
@@ -1213,6 +1134,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_3c_"/>
 			<br>
 			<br>
 		</div>
@@ -1417,6 +1339,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_3d_"/>
 			<br>
 			<br>
 		</div>
@@ -1804,6 +1727,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_3e_"/>
 			<br>
 			<br>
 		</div>
@@ -2008,6 +1932,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_35_"/>
 			<br>
 			<br>
 		</div>
@@ -2235,6 +2160,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_37_"/>
 			<br>
 			<br>
 		</div>
@@ -2258,6 +2184,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_38_"/>
 			<br>
 			<br>
 		</div>
