@@ -60,6 +60,7 @@
 			</table>
 		</div>
 		<div class="control pull-right"></div>
+		<fra:feedback feedbackName="_feedback_9_"/>
 		<br>
 		<br>
 	</div>

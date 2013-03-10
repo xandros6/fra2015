@@ -81,80 +81,22 @@
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
-								<td class="action-column" width="80px"></td>
+								<c:if test="${sessionUser.role == 'contributor'}">
+									<td class="action-column" width="80px"></td>
+								</c:if>
 							</tr>
-							<tr>
-								<td rownumber="1" columnnumber="0"><spring:message
-										code="ref39"></spring:message></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_1_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_1_1_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_1_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_1_2_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_1_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_1_3_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_1_4_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_1_4_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
-							<tr>
-								<td rownumber="2" columnnumber="0"><spring:message
-										code="ref40"></spring:message></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_2_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_2_1_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_2_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_2_2_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_2_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_2_3_}</div></td>
-								<td class="entry-item editable text" rownumber="2"
-									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_2_4_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_2_4_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
-							<tr>
-								<td rownumber="3" columnnumber="0"><spring:message
-										code="ref41"></spring:message></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_3_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_3_1_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_3_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_3_2_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_3_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_3_3_}</div></td>
-								<td class="entry-item editable text" rownumber="3"
-									columnnumber="4" style="background-color: rgb(242, 245, 169);"
-									entry-id="125"><span class="entry_item_placeholder" id="_fraVariable_125_3_4_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_125_3_4_}</div></td>
-								<td class="action-column" width="80px"><a href="#"
-									class="btn delete-btn"><spring:message code="delete" /></a></td>
-							</tr>
+							
+							<fra:DynamicTableTag numOfColoumn="4" entryItemName="125" numericColoumn="true"/>
+							
 						</tbody>
 					</table>
 				</div>
 				<div class="control pull-right">
-					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					<c:if test="${sessionUser.role == 'contributor'}">
+						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					</c:if>
 				</div>
+				<fra:feedback feedbackName="_feedback_125_"/>
 				<br>
 				<br>
 			</div>
@@ -208,6 +150,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_14_"/>
 			<br>
 			<br>
 		</div>
@@ -239,6 +182,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+				<fra:feedback feedbackName="_feedback_14b_"/>
 			<br>
 			<br>
 		</div>
@@ -263,6 +207,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_14c_"/>
 			<br>
 			<br>
 		</div>
@@ -309,6 +254,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_126_"/>
 			<br>
 			<br>
 		</div>
@@ -398,6 +344,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_128_"/>
 			<br>
 			<br>
 		</div>
