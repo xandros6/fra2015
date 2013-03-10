@@ -21,6 +21,12 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
+import it.geosolutions.fra2015.services.SurveyActivityLog;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,17 +34,45 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author Lorenzo Natali
- *
+ * 
  */
 @Controller
 @RequestMapping("/adminactivitylog")
 public class AdminActivityLog {
-    
+
+    @Autowired
+    private SurveyActivityLog sal;
+
     @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
-    		model.addAttribute("context", "activitylog");
-            //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "admin";
+    public String handleGet(ModelMap model) {
+        
+        model.addAttribute("context", "activitylog");
+        List<ActivityLogEntry> l = sal.findByEntryItemName("ALZ", "7", 1, 1);
+        model.addAttribute("activityLogList", l);
+        return "reviewer";
 
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String handlePost(ModelMap model) {
+        
+        model.addAttribute("context", "activitylog");
+        return "reviewer";
+
+    }
+
+    /**
+     * @return the sal
+     */
+    public SurveyActivityLog getSal() {
+        return sal;
+    }
+
+    /**
+     * @param sal the sal to set
+     */
+    public void setSal(SurveyActivityLog sal) {
+        this.sal = sal;
+    }
+
 }

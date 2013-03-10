@@ -1,3 +1,6 @@
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div id="tabContent">
 	<div>
 		<div class="container">
@@ -34,10 +37,52 @@
 
 </div> 
 </div>-->
+
+
+
 			<div class="span12">
-				<p class="pull-right">
-					<a href="#" class="btn btn-primary">Apply filter</a>
-				</p>
+				
+				<div id="filter">
+					<form action="revieweractivitylog" method="POST">
+						<table
+							class="table table-bordered table-hover table-condensed table-striped">
+							<thead>
+								<tr>
+									<th>Time Interval</th>
+									<th>Country Username Question</th>
+									<th>Country EntryItemName</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="span3">
+										<input type="text" class="input-small hasDatepicker" name="t1" id="startDate">
+										<input type="text" class="span1 hasTimepicker" id="startTime">
+										to <br> 
+										<input type="text" class="input-small hasDatepicker" name="t2" id="endDate" />
+										<input type="text" class="span1 hasTimepicker" id="endTime" />
+									</td>
+									<td>
+										<input id="country" name="country" class="input-small ui-autocomplete-input" type="text" autocomplete="off" />
+										<br>
+										<input id="username" name="username" class="input-small ui-autocomplete-input" type="text" autocomplete="off" />
+										<input id="question" name="question" class="input-small ui-autocomplete-input" type="text" autocomplete="off" />
+										<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+									</td>
+									<td>
+										<input id="country" name="country" class="input-small ui-autocomplete-input" type="text" autocomplete="off">
+										<br>
+										<input id="EntryItemName" name="entryItemName" class="input-small ui-autocomplete-input" type="text" autocomplete="off">
+										<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<input type="hidden" name="filter" value="f3">
+						<button type="submit" class="btn">ApplyFilter</button>
+					</form>
+				</div>
+
 				<table
 					class="table table-bordered table-hover table-condensed table-striped">
 					<thead>
@@ -50,88 +95,15 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="span3"><input type="text"
-								class="input-small" id="startDate"><input
-								type="text" class="span1" id="startTime">
-								to <br> <input type="text"
-								class="input-small" id="endDate"><input
-								type="text" class="span1" id="endTime"></td>
-							<td><input id="users"
-								class="input-small" type="text"
-								autocomplete="off"><span role="status"
-								aria-live="polite" ></span></td>
-							<td><input id="countries"
-								class="input-small" type="text"
-								data-provide="typeahead" autocomplete="off" data-source='[${countriesIso3}]'><span role="status"
-								aria-live="polite"></span></td>
-							<td><input class="input-small" type="text"></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>2012-12-07 10:10:00</td>
-							<td>user 1</td>
-							<td>country 1</td>
-							<td>1.2</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-06 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>2.9</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-06 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>3</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-01 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>3.1</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-01 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>3.1</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-01 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>3.1</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-01 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>3.1</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
-						<tr>
-							<td>2012-12-01 10:10:00</td>
-							<td>user 2</td>
-							<td>country 2</td>
-							<td>3.1</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit, sed do eiusmod tempor incididunt...</td>
-						</tr>
+						<c:forEach items="${activityLogList}" var="activityLogEntry">
+							<tr>
+								<td>${activityLogEntry.time}</td>
+								<td>${activityLogEntry.username}</td>
+								<td>${activityLogEntry.question_id}</td>
+								<td>${activityLogEntry.entryItemName}</td>
+								<td>${activityLogEntry.content}</td>
+							</tr>
+						</c:forEach>						
 					</tbody>
 				</table>
 				<ul class="pager pull-right">
@@ -140,19 +112,3 @@
 				</ul>
 			</div>
 		</div>
-		<script type="text/javascript">
-		$(function(){
-			$("#startTime").timepicker();
-			$( "#startDate" ).datepicker();
-			$( "#endDate" ).datepicker();
-			$( "#endTime" ).timepicker();
-			/*$( "#countries" ).autocomplete({
-			    source: countries
-			});
-			$( "#users" ).autocomplete({
-			    source: users
-			});*/
-			
-		})
-		
-		</script>
