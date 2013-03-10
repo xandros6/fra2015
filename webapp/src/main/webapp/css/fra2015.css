@@ -15,7 +15,9 @@ label.error{
 	left: 0; 
 	width: 100%;
 }
-
+td.boolean{
+	width:30px;
+}
 .cfrq-logo { 
    width: 20px !important; 
    max-width: 20px !important; 
