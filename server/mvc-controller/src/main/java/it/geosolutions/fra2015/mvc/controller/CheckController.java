@@ -22,12 +22,14 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.validation.Validator;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.validation.ValidationResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -47,11 +49,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CheckController {
 	@Autowired
     private SurveyService surveyService;
+	@Autowired
+	private Validator validator;
     
     @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
+    public String printWelcome(ModelMap model,HttpSession session) {
     		model.addAttribute("context", "check");
-            //TODO add values for validation
+    		User su = (User) session.getAttribute("sessionUser");
+    		if(su==null){
+    			return "redirect:/";
+    		}
+    		
+            ValidationResult v = validator.validate(su.getCountries());
+            if(v.getSuccess()){
+            	//TODO add context stuff 
+            }else{
+            	model.addAttribute("validationErrors",v);
+            }
             return "index";
 
     }

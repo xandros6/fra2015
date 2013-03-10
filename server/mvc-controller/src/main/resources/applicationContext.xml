@@ -14,5 +14,6 @@
     
 		<bean id="basicConcurrencyHandler" class="it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler" />
     	<bean id="controllerServices" class="it.geosolutions.fra2015.mvc.controller.utils.ControllerServices" />
+    	<bean id="validator" class="it.geosolutions.fra2015.mvc.validation.Validator" />
     	<aop:aspectj-autoproxy />
 </beans>

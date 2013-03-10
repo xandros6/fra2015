@@ -503,5 +503,33 @@ public class SurveyServiceImpl implements SurveyService {
         searchCriteria.addFilterEqual("iso3", iso3);
         return countryDAO.search(searchCriteria).get(0);
     }
+    
+    @Override
+    public List<Value> getEntryListByVariableName(List<String> names, String iso3) throws BadRequestServiceEx{
+    	
+    	Search searchCriteria = new Search(EntryItem.class);
+    	
+    	Country country = findCountryByISO3(iso3);
+		if (country == null) {
+			throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+		}
+    	searchCriteria.addFilterIn("rowName", names);
+    	List<Value> results = new ArrayList<Value>();
+    	List<EntryItem> items =  entryItemDAO.search(searchCriteria);
+    	for(EntryItem item : items){
+    		String type = item.getType();
+			ValueDAO valueDAO = map.get(type);
+			if (valueDAO != null) {
+				Value value = valueDAO.read(item.getId(), country);
+				if(value!=null){
+
+					results.add(value);
+				}
+			}
+    	}
+		return results;
+		
+    	
+    }
 
 }

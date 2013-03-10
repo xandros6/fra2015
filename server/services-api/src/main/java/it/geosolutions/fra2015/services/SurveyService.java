@@ -6,11 +6,13 @@ package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
@@ -121,5 +123,8 @@ public interface SurveyService {
      * @return
      */
     public List<SurveyInstance> getSurveysByCountry(String[] country, int page, int index);
+
+
+	List<Value> getEntryListByVariableName(List<String> vars, String country) throws BadRequestServiceEx;
 
 }
