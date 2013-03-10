@@ -21,17 +21,8 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import it.geosolutions.fra2015.entrypoint.model.CountryValues;
-import it.geosolutions.fra2015.entrypoint.model.Update;
-import it.geosolutions.fra2015.entrypoint.model.Updates;
-import it.geosolutions.fra2015.mvc.controller.utils.ActivityLogUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
-import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.user.User;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

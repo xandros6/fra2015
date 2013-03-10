@@ -21,8 +21,6 @@
  */
 package it.geosolutions.fra2015.tags;
 
-import it.geosolutions.fra2015.server.model.user.User;
-
 import java.io.IOException;
 
 import javax.servlet.jsp.JspWriter;

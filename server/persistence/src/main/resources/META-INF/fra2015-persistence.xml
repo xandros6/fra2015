@@ -32,5 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <class>it.geosolutions.fra2015.server.model.survey.Country</class>
     <class>it.geosolutions.fra2015.server.model.survey.Status</class>
     <class>it.geosolutions.fra2015.server.model.survey.SurveyInstance</class>
+    <class>it.geosolutions.fra2015.server.model.survey.ActivityLogEntry</class>
   </persistence-unit>
 </persistence>

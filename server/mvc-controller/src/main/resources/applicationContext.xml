@@ -14,6 +14,13 @@
     
 		<bean id="basicConcurrencyHandler" class="it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler" />
     	<bean id="controllerServices" class="it.geosolutions.fra2015.mvc.controller.utils.ControllerServices" />
+		<!-- *** Validator *** -->
     	<bean id="validator" class="it.geosolutions.fra2015.mvc.validation.Validator" />
+
+    	
+    	<!-- *** AOP *** -->
+		<bean id="logAspect" class="it.geosolutions.fra2015.mvc.aspect.LoggingAspect" lazy-init="true"/>
+    	<bean id="ActivityLogAspect" class="it.geosolutions.fra2015.mvc.aspect.ActivityLogAspect" lazy-init="true"/>
+
     	<aop:aspectj-autoproxy />
 </beans>

@@ -25,7 +25,6 @@ import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
-import it.geosolutions.fra2015.mvc.controller.utils.ActivityLogUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.user.User;
@@ -115,18 +114,13 @@ public class SurveyController{
 
         Map<String, String[]> reqParams = request.getParameterMap();
 
-        ActivityLogUtils.compareValueSet(reqParams, es.getValues());
-
         List<Update> updateList = new ArrayList<Update>();
         User se = (User) session.getAttribute("sessionUser");
 
         for (String el : reqParams.keySet()) {
+            
             String s = reqParams.get(el)[0];
             VariableNameUtils.VariableName var = VariableNameUtils.buildVariable(el, s);
-            if (LOGGER.isInfoEnabled()) {
-                LOGGER.info(var.toString());
-            }
-
             Update update = new Update();
             update.setColumn(var.col);
             update.setRow(var.row);
@@ -134,14 +128,12 @@ public class SurveyController{
             update.setValue(var.value);
             update.setVariable(var.variableName);
             updateList.add(update);
-            if (LOGGER.isInfoEnabled()) {
-                LOGGER.info("update persisted...");
-            }
-
         }
 
         Updates updates = new Updates();
         updates.setUpdates(updateList);
+        updates.setQuestion(question);
+        updates.setUsername(su.getUsername());
 
         if(concurencyHandler.updateQuestionRevision(session, Long.parseLong(question))){
             utils.updateValuesService(updates);

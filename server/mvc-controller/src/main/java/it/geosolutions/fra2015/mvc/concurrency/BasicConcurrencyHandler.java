@@ -22,21 +22,15 @@
 package it.geosolutions.fra2015.mvc.concurrency;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
-import it.geosolutions.fra2015.server.dao.CountryDAO;
-import it.geosolutions.fra2015.server.dao.QuestionDAO;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.user.User;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.googlecode.genericdao.search.Search;
 
 /**
  * @author DamianoG

@@ -77,5 +77,8 @@
          <property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
  
+    <bean id="activityLogDAO" class="it.geosolutions.fra2015.server.dao.impl.ActivityLogDAOImpl" >
+		<property name="searchProcessor" ref="fra2015SearchProcessor" />
+    </bean>
 	
 </beans>

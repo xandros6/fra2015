@@ -159,6 +159,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_16_"/>
 			<br>
 			<br>
 		</div>
@@ -239,6 +240,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_136_"/>
 			<br>
 			<br>
 		</div>
@@ -280,6 +282,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_137_"/>
 			<br>
 			<br>
 		</div>
