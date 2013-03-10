@@ -88,9 +88,23 @@ public class ReviewController {
 	@RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
 	public String handlePost(HttpServletRequest request,
 			@PathVariable(value = "country") String country,
-			@PathVariable(value = "country") String question,
+			@PathVariable(value = "question") String question,
 			HttpSession session, Model model) {
-		//TODO manage feedbacks
+		model.addAttribute("question", question);
+        model.addAttribute("context", "survey");
+        //TODO validate country
+        User su = (User) session.getAttribute("sessionUser");
+        //TODO check access to provide accessible questions for menu and allow to 
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
+        
+        //TODO save feedbacks
+        model.addAttribute("messageType","warning");
+        //model.addAttribute("messageType","alert");// red background
+        model.addAttribute("messageCode","alert.savefaliure");
+        
+        model.addAttribute("messageTimeout",5000);
 		return "reviewer";
 
 	}
