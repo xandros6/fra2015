@@ -52,19 +52,19 @@
 					<tbody>
 						<tr>
 							<td class="span3"><input type="text"
-								class="input-small hasDatepicker" id="startDate"><input
-								type="text" class="span1 hasTimepicker" id="startTime">
+								class="input-small" id="startDate"><input
+								type="text" class="span1" id="startTime">
 								to <br> <input type="text"
-								class="input-small hasDatepicker" id="endDate"><input
-								type="text" class="span1 hasTimepicker" id="endTime"></td>
+								class="input-small" id="endDate"><input
+								type="text" class="span1" id="endTime"></td>
 							<td><input id="users"
-								class="input-small ui-autocomplete-input" type="text"
+								class="input-small" type="text"
 								autocomplete="off"><span role="status"
-								aria-live="polite" class="ui-helper-hidden-accessible"></span></td>
+								aria-live="polite" ></span></td>
 							<td><input id="countries"
-								class="input-small ui-autocomplete-input" type="text"
-								autocomplete="off"><span role="status"
-								aria-live="polite" class="ui-helper-hidden-accessible"></span></td>
+								class="input-small" type="text"
+								data-provide="typeahead" autocomplete="off" data-source='[${countriesIso3}]'><span role="status"
+								aria-live="polite"></span></td>
 							<td><input class="input-small" type="text"></td>
 							<td></td>
 						</tr>
@@ -140,3 +140,19 @@
 				</ul>
 			</div>
 		</div>
+		<script type="text/javascript">
+		$(function(){
+			$("#startTime").timepicker();
+			$( "#startDate" ).datepicker();
+			$( "#endDate" ).datepicker();
+			$( "#endTime" ).timepicker();
+			/*$( "#countries" ).autocomplete({
+			    source: countries
+			});
+			$( "#users" ).autocomplete({
+			    source: users
+			});*/
+			
+		})
+		
+		</script>
