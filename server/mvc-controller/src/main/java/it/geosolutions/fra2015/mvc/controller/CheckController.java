@@ -57,6 +57,12 @@ public class CheckController {
     }
     @RequestMapping(method = RequestMethod.POST)
     public String printWelcome(HttpServletRequest request,ModelMap model,HttpSession session) {
+    		model.addAttribute("context", "check");
+    		model.addAttribute("messageType","warning");
+            //model.addAttribute("messageType","alert");// red background
+            model.addAttribute("messageCode","alert.notavailableservice");
+            
+    		/*
     		User su = (User) session.getAttribute("sessionUser");
     		Status status = new Status();
     		status.setMessage((String) request.getAttribute("submitmessage"));
@@ -69,7 +75,7 @@ public class CheckController {
 			} catch (NotFoundServiceEx e) {
 				
 			}
-            
+            */
             return "index";
 
     }
