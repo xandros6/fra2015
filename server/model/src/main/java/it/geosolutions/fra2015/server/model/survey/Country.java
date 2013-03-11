@@ -39,8 +39,30 @@ public class Country implements Serializable {
     @Column(name = "ctype", nullable=false)
     @Enumerated(EnumType.STRING)
     private Type type;
+    
+    @Column(name="landarea")
+    private Double landArea;
+    
+    @Column(name="countryarea")
+    private Double countryArea;
 
-    public Long getId() {
+    public Double getLandArea() {
+		return landArea;
+	}
+
+	public void setLandArea(Double landArea) {
+		this.landArea = landArea;
+	}
+
+	public Double getCountryArea() {
+		return countryArea;
+	}
+
+	public void setCountryArea(Double countryArea) {
+		this.countryArea = countryArea;
+	}
+
+	public Long getId() {
         return id;
     }
 
