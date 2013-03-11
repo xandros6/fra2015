@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationResult {
-	private List<String> messages;
+	private List<ValidationMessage> messages;
 	private Boolean success;
-	public List<String> getMessages() {
+	public List<ValidationMessage> getMessages() {
 		return messages;
 	}
-	public void setMessages(List<String> messages) {
+	public void setMessages(List<ValidationMessage> messages) {
 		this.messages = messages;
 	}
-	public void addMessage(String message){
+	public void addMessage(ValidationMessage message){
 		if(messages==null){
-			messages=new ArrayList<String>();
+			messages=new ArrayList<ValidationMessage>();
 		}
 		messages.add(message);
 	}

@@ -76,7 +76,22 @@ public class ValidationRule {
 			// TODO Auto-generated method stub
 			
 		}
-		public boolean evaluate(Map<String,String> values) throws ScriptException{
+		public List<String> getExternalData() {
+			String condition = this.getCondition();
+			String pattern = "\\[\\[\\s*([^\\]\\s]*)\\s*\\]\\]";
+			Pattern p = Pattern.compile(pattern);
+			Matcher m = p.matcher(condition);
+			List<String> result = new ArrayList();
+			while(m.find()){
+				result.add(m.group(1));
+			}
+			return result;
+			
+			
+			// TODO Auto-generated method stub
+			
+		}
+		public boolean evaluate(Map<String,String> values,Map<String,String> externals) throws ScriptException{
 			 ScriptEngineManager mgr = new ScriptEngineManager();
 			 String condition = new String(this.getCondition());
 			 //cycle map
@@ -86,12 +101,22 @@ public class ValidationRule {
 				 Matcher m = p.matcher(condition);
 				 condition= m.replaceAll(values.get(s));
 			 }
+			 if(externals != null){
+				 for(String s : externals.keySet()){
+					 String varmatch = "\\[\\["+ s +"\\]\\]";
+					 Pattern p = Pattern.compile(varmatch);
+					 Matcher m = p.matcher(condition);
+					 condition= m.replaceAll(externals.get(s));
+				 }
+			 }
 		     ScriptEngine engine = mgr.getEngineByName("JavaScript");
 			 
 		     return (Boolean) engine.eval(condition);
 			
 			
 		}
-		
+		public boolean evaluate(Map<String,String> values) throws ScriptException{
+			return evaluate(values,null);
+		}
 	    
 }

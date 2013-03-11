@@ -11,7 +11,11 @@
 					<spring:message code="error.violateconstraints"></spring:message>
 					<ul>
 					 <c:forEach var="mess" items="${validationErrors.messages}">
-					 	<li><spring:message code="${mess}"></spring:message></li> 
+					 	<li><spring:message code="${mess.message}"></spring:message>:
+					 		<c:forEach var="el" items="${mess.elements}">
+					 			${el},
+					 		</c:forEach>
+					 	</li> 
 					 </c:forEach>
 					</ul>
 					
