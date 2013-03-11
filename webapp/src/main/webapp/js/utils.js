@@ -60,7 +60,7 @@ fra = {
 	            	placeholder=hidden;
 	            }
 	            
-	            if(numericVariablelist.indexOf(name)>0 ) {cell.addClass('number');}
+	            if(numericVariablelist.indexOf(name)>=0 ) {cell.addClass('number');}
 		        
 				if(cell.hasClass('number')){type='input';}
 	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
@@ -95,7 +95,7 @@ fra = {
 	        }
 	        return false;
 	    }
-}
+}							
 var numericVariablelist = ["_fraVariable_1a_2_1_",
                            "_fraVariable_1a_2_2_",
                            "_fraVariable_1a_2_3_",
