@@ -13,6 +13,13 @@ $(function(){
 
 		$('#createUserForm').submit();
 	});
+	
+	$('#updateBtn').on('click', function() {
+
+		$("#createUserForm").validate();
+
+		$('#createUserForm').submit();
+	});
 
 	$('#filterBtn').on('click', function() {
 		$('#filterUserForm').submit();

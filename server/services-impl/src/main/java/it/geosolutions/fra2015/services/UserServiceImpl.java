@@ -85,11 +85,13 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundServiceEx("User not found " + user.getId());
         }
 
-        String password = "" + user.getNewPassword();
-        if ( password != null ){
+        String password = user.getNewPassword();
+        if ( password != null && !password.isEmpty() ){
             // TODO encode password
             user.setPassword( password );
-        }
+        }else{
+			user.setPassword( orig.getPassword() );
+		}
         if ( user.getCountries() == null || user.getCountries().isEmpty()){
             user.setCountries(orig.getCountries());
         }

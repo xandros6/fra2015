@@ -29,7 +29,24 @@
 		
 		<div class="modal-footer">
 			<a href="#" class="btn" data-dismiss="modal">Close</a> 
-			<a id="saveBtn" href="#" class="btn btn-primary">Save</a>
+			<a id="saveBtn" href="#" class="btn btn-primary">Create</a>
+		</div>
+	</div>
+	
+	<div id="editUserWindow" class="modal hide fade span8">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">x</button>
+			<h3>Edit user</h3>
+		</div>
+
+		<div id="modal-body" class="modal-body">
+
+		</div>
+		
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a> 
+			<a id="updateBtn" href="#" class="btn btn-primary">Update</a>
 		</div>
 	</div>
 
@@ -80,7 +97,7 @@
 								<td>${user.role}</td>
 								<td>${user.countries}</td>
 								<td width="160px">
-									<a style="width:50px" href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow"> Edit </a>
+									<a style="width:50px" href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#editUserWindow"> Edit </a>
 									<a style="width:50px" href="#" class="btn" data-toggle="modal" data-target="#deleteWarningWindow" data-userid="${user.id}" data-page="${page}"> Delete </a>
 								</td>
 							</tr>

@@ -2,7 +2,7 @@
 
 <form:form class="cmxform" id="createUserForm"  method="post" action="${pageContext.request.contextPath}/users/save/${page}">
 	<fieldset>
-		<form:input path="id" id="cid" name="id" type="hidden" value="${user.id}"/>
+		<form:input path="id" id="cid" name="id" type="hidden"/>
 		<p>
 			<form:label path="name" class="control-label">Name</form:label> 
 			<form:input path="name" id="cname" name="name" size="25" class="required input-block-level"/>
@@ -12,8 +12,8 @@
 			<form:input path="username" id="cusername" name="username" size="25" class="required input-block-level"/>
 		</p>
 		<p>
-			<form:label path="password" class="control-label">Password</form:label> 
-			<input id="newPassword" name="newPassword" size="25" type="password" value="${user.password}" class="required password input-block-level" />
+			<form:label path="password" class="control-label">Password <c:if test="${not empty command.id}">(left blank to not change current)</c:if> </form:label>
+			<input id="newPassword" name="newPassword" size="25" type="password" value="${user.password}" class="<c:if test="${empty command.id}">required</c:if> password input-block-level" />
 		</p>
 		<p>
 			<form:label path="email" class="control-label">E-Mail</form:label> 
