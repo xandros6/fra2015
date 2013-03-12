@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -52,24 +53,34 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 		Iterator<ValidationRule> it = ruleList.iterator();
 		ValidationResult result = new ValidationResult();
 		result.setSuccess(true);
+		// get the needed variable names (1.1 ...)
+		HashSet<String> varnames = new HashSet<String>();
 		while (it.hasNext()) {
 			ValidationRule rule = it.next();
-			List<String> vars = rule.getVariables();
-			try {
-				List<Value> values = surveyService.getEntryListByVariableName(
-						vars, country);
-				Country c = surveyService.searchCountry(country);
-				Map<String, String> externals = new HashMap<String, String>();
-				if (c.getCountryArea() != null && c.getLandArea() != null) {
-					externals.put("COUNTRY_AREA", c.getCountryArea() + "");
-					externals.put("LAND_AREA", c.getLandArea() + "");
-				}
+			varnames.addAll(rule.getVariables());
+
+		}
+		// get external variables
+		Country c = surveyService.searchCountry(country);
+		Map<String, String> externals = new HashMap<String, String>();
+		if (c.getCountryArea() != null && c.getLandArea() != null) {
+			externals.put("COUNTRY_AREA", c.getCountryArea() + "");
+			externals.put("LAND_AREA", c.getLandArea() + "");
+		}
+
+		try {
+			// get variable values
+			List<Value> values = surveyService.getEntryListByVariableName(
+					new ArrayList<String>(varnames), country);
+			// validate the rules
+			it = ruleList.iterator();
+			while (it.hasNext()) {
+				ValidationRule rule = it.next();
 				validateRule(values, rule, result, externals);
 
-			} catch (BadRequestServiceEx e) {
-				LOGGER.error("error retriving variables during validation", e);
-
 			}
+		} catch (BadRequestServiceEx e) {
+			LOGGER.error("error retriving variables during validation", e);
 
 		}
 
@@ -113,37 +124,57 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 			// get the map name ->value
 			Map<String, String> test = tests.get(key);
 			List<String> missing = checkRuleFields(rule, test);
+			// missing variables
 			if (missing.size() > 0) {
-
 				message = new ValidationMessage();
 				message.setMessage("validation.notcompiled");
+				message.setRule(rule);
+				message.setSuccess(false);
 				message.setElements(missing);
 				result.setSuccess(false);
 				alreadyChecked = true;
-
+				continue;
 			}
 
 			try {
 				boolean success = rule.evaluate(test, externals);
+				//
+				// check rules
+				//
+
+				// create the message if not created
+				if (message == null) {
+					message = new ValidationMessage();
+					message.setRule(rule);
+					message.setSuccess(success);
+					message.setMessage(rule.getError());
+				}
 				if (!success) {
-					if (message == null) {
-						message = new ValidationMessage();
-						message.setMessage(rule.getError());
-					}
-					message.addElement(key);
-					result.setSuccess(success);
+					// add the columns that not satisfy the rule
 					
+					message.addElement(key);
+					message.setSuccess(false);
+					result.setSuccess(false);
 				}
 			} catch (ScriptException e) {
 				result.setSuccess(false);
-
 				message = new ValidationMessage();
 				message.setMessage("validation.parseproblem");
+				message.setRule(rule);
+				message.setSuccess(false);
 				message.addElement(rule.getCondition());
 				alreadyChecked = true;
 
+			} catch (NullPointerException e) {
+				result.setSuccess(false);
+				message = new ValidationMessage();
+				message.setMessage("validation.parseproblem");
+				message.setRule(rule);
+				message.setSuccess(false);
+				message.addElement(rule.getCondition());
+				alreadyChecked = true;
 			}
-			
+
 		}
 		result.addMessage(message);
 

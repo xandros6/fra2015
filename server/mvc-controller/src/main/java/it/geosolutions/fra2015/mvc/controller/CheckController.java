@@ -62,9 +62,9 @@ public class CheckController {
     		
             ValidationResult v = validator.validate(su.getCountries());
             if(v.getSuccess()){
-            	//TODO add context stuff 
+            	model.addAttribute("allowsubmit",true);
             }else{
-            	model.addAttribute("validationErrors",v);
+            	model.addAttribute("validationResult",v);
             }
             return "index";
 
