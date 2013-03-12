@@ -87,7 +87,13 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
 		return result;
 	}
-
+	/**
+	 * Validate a single rule for every year
+	 * @param values
+	 * @param rule
+	 * @param result
+	 * @param externals
+	 */
 	private void validateRule(List<Value> values, ValidationRule rule,
 			ValidationResult result, Map<String, String> externals) {
 		Map<String, Map<String, String>> tests = new HashMap<String, Map<String, String>>();
@@ -158,21 +164,13 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 					result.setSuccess(false);
 				}
 			} catch (ScriptException e) {
+				generateParseProblemMessage(message,rule);
 				result.setSuccess(false);
-				message = new ValidationMessage();
-				message.setMessage("validation.parseproblem");
-				message.setRule(rule);
-				message.setSuccess(false);
-				message.addElement(rule.getCondition());
 				alreadyChecked = true;
 
 			} catch (NullPointerException e) {
+			        generateParseProblemMessage(message,rule);
 				result.setSuccess(false);
-				message = new ValidationMessage();
-				message.setMessage("validation.parseproblem");
-				message.setRule(rule);
-				message.setSuccess(false);
-				message.addElement(rule.getCondition());
 				alreadyChecked = true;
 			}
 
@@ -181,7 +179,15 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
 	}
 
-	private List<String> checkRuleFields(ValidationRule rule,
+	private void generateParseProblemMessage(ValidationMessage message, ValidationRule rule) {
+	    message = new ValidationMessage();
+            message.setMessage("validation.parseproblem");
+            message.setRule(rule);
+            message.setSuccess(false);
+            message.addElement(rule.getCondition());
+        
+    }
+    private List<String> checkRuleFields(ValidationRule rule,
 			Map<String, String> test) {
 		List<String> missing = new ArrayList<String>();
 		List<String> vars = rule.getVariables();
