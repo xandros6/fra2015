@@ -32,4 +32,7 @@
     	<property name="surveyCatalog" ref="surveyCatalog" />
     </bean>
     
+    <bean id="bulkLoader" class="it.geosolutions.fra2015.services.BulkModelEntitiesLoader">
+    </bean>
+    
 </beans>
