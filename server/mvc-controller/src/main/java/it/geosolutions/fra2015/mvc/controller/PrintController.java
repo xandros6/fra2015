@@ -46,15 +46,28 @@ public class PrintController {
 
     Logger LOGGER = Logger.getLogger(PrintController.class);
 
-    @RequestMapping(value = "/survey/print/{country}/{onlyschema}", method = RequestMethod.GET)
-    public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "onlyschema") boolean onlyschema, Model model,
-            HttpSession session) {
+    @RequestMapping(value = "/survey/print/{country}/{mode}", method = RequestMethod.GET)
+    public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "mode") String mode, Model model,
+            HttpSession session) throws IllegalArgumentException{
 
-        model.addAttribute("context", "survey");
-        
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("context", "survey");        
         model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
-        utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), onlyschema);
+
+        if(mode.equalsIgnoreCase("allschema")){
+            
+            utils.prepareHTTPRequestOnlyVariablesName(model, country);            
+        }
+        else if(mode.equalsIgnoreCase("onlyvalues")){
+            
+            utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), false);
+        }
+        else if(mode.equalsIgnoreCase("onlynames")){
+            
+            utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), true);
+        }
+        else{
+            throw new IllegalArgumentException("the mode: '" + mode + "' doesn't exist, valid ones are 'allschema', 'onlyvalues' and 'onlynames'");
+        }
 
         return "survey/print";
 

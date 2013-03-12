@@ -149,7 +149,7 @@ public class FeedbackEntryTag extends ProfiledTag{
             StringBuffer feedbackID = new StringBuffer();
             try{
                 JspWriter out = pageContext.getOut();
-                out.print("<p>Something happens wrong</p>");
+                out.print("<p><b>Something happened wrong or this is a feedback field that is not yet full supported...</b></p>");
             }
             catch(IOException e){
                 LOGGER.error("Error in FeedbackEntry: " + e);
