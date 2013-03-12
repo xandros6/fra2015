@@ -12,8 +12,6 @@ import javax.script.ScriptException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.junit.Test;
-
 
 @XmlRootElement(name="rule")
 public class ValidationRule {
