@@ -115,8 +115,8 @@ public class ControllerServices {
             if (catalog.getEntry(el.getVariable()).getType().equals("table")) {
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"
                         + el.getVariable());
-                Integer newRowCounter = (el.getRowNumber() >= 4 && el.getRowNumber() > oldRowCounter) ? el
-                        .getRowNumber() : 4;
+                Integer newRowCounter = (el.getRowNumber() > oldRowCounter) ? el
+                        .getRowNumber() : oldRowCounter;
                 // Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), newRowCounter);
             }
@@ -124,7 +124,7 @@ public class ControllerServices {
             model.addAttribute(VariableNameUtils.buildVariableAsText(el), print);
         }
 
-        // Put in the model the counters
+        // Put in the model the counters, if a counter is < 4 , put 4 due to is the min rows displayed.
         for (String el : tableRowsCounter.keySet()) {
             if (el.startsWith("tableRowsCounter")) {
                 String name = el.substring(16);
