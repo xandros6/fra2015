@@ -12,6 +12,7 @@ import it.geosolutions.fra2015.validation.ValidationRule;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,7 +38,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 	private final static Logger LOGGER = LoggerFactory
 			.getLogger(Validator.class);
 
-	File rulesFile;
+	
 	RuleList ruleList;
 	@Autowired
 	private SurveyService surveyService;
@@ -209,13 +210,22 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
+        InputStream rulesFile;
 		try {
 			rulesFile = applicationContext.getResource(
-					"classpath:validation-rules.xml").getFile();
+					"classpath:validation-rules.xml").getInputStream();
 		} catch (IOException e) {
 			LOGGER.error("unable to load validation-rules:" + e);
-
+            throw e;
 		}
+
+        if(rulesFile == null)
+            throw new IllegalArgumentException("rulesFile is null");
+
+//        if(! rulesFile.canRead() )
+//            throw new IllegalArgumentException("rulesFile does not exist: " + rulesFile);
+
+
 		ruleList = JAXB.unmarshal(rulesFile, RuleList.class);
 		Iterator<ValidationRule> it = ruleList.iterator();
 		LOGGER.info(it.hasNext() + "");
