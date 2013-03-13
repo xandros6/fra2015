@@ -12,6 +12,7 @@ import it.geosolutions.fra2015.validation.ValidationRule;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -55,7 +56,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
         Iterator<ValidationRule> it = ruleList.iterator();
         ValidationResult result = new ValidationResult();
-        result.setSuccess(true);
+        
         // get the needed variable names (1.1 ...)
         HashSet<String> varnames = new HashSet<String>();
         while (it.hasNext()) {
@@ -111,6 +112,10 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             if ("1.1".equals(v.getEntryItem().getRowName())) {
                 forestAreas.put(v.getEntryItem().getColumnName(), v);
             }
+        }
+        if(forestAreas.get("1990")==null || forestAreas.get("2000")==null || forestAreas.get("2005")==null){
+            return;
+            
         }
         double area90 = Double.parseDouble(forestAreas.get("1990").getContent());
         double area00 = Double.parseDouble(forestAreas.get("2000").getContent());
@@ -170,10 +175,10 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         Map<String, Map<String, String>> tests = new HashMap<String, Map<String, String>>();
         // check if there is no value
         if (values.size() == 0) {
-            result.setSuccess(false);
+            
             ValidationMessage v = new ValidationMessage();
             v.setMessage("validation.notcompiled");
-            v.addElement(rule.getEntryId());
+            v.addElements(Arrays.asList((rule.getEntryId().split(","))));
             result.addMessage(v);
             return;
         }
@@ -204,18 +209,19 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
             m.setSuccess(false);
             m.setMessage("validation.notcompiled");
+            m.addElements(missing);
         } else {
 
             try {
                 boolean success = rule.evaluate(new HashMap<String,String>(), externals);
             } catch (ScriptException e) {
                 m =generateParseProblemMessage( rule);
-                result.setSuccess(false);
+                
                 
 
             } catch (NullPointerException e) {
                 m =generateParseProblemMessage( rule);
-                result.setSuccess(false);
+                
                 
             }
         }
@@ -238,12 +244,19 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
             if (missing.size() > 0) {
+                
                 message = new ValidationMessage();
                 message.setMessage("validation.notcompiled");
                 message.setRule(rule);
                 message.setSuccess(false);
-                message.setElements(missing);
-                result.setSuccess(false);
+                if (missing.size()>=rule.getVariables().size()){
+                    //whole table
+                    message.addElements(Arrays.asList(rule.getEntryId().split(",")));
+                }else{
+                    //single elements
+                    message.addElements(missing);
+                } 
+                
                 alreadyChecked = true;
                 continue;
             }
@@ -266,16 +279,16 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
                     message.addElement(key);
                     message.setSuccess(false);
-                    result.setSuccess(false);
+                    
                 }
             } catch (ScriptException e) {
                 message= generateParseProblemMessage(rule);
-                result.setSuccess(false);
+                
                 alreadyChecked = true;
 
             } catch (NullPointerException e) {
                 message= generateParseProblemMessage(rule);
-                result.setSuccess(false);
+                
                 alreadyChecked = true;
             }
 

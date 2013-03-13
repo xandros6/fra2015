@@ -1,11 +1,13 @@
 package it.geosolutions.fra2015.validation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ValidationMessage {
 	
-	List<String> elements = new ArrayList<String>();
+	Set<String> elements = new HashSet<String>();
 	boolean success;
 	ValidationRule rule;
 	String message;
@@ -32,14 +34,23 @@ public class ValidationMessage {
 		this.rule = rule;
 	}
 	public List<String> getElements() {
-		return elements;
+		return new ArrayList<String>(elements);
 	}
 	public void setElements(List<String> elements) {
-		this.elements = elements;
+		this.elements = new HashSet<String>(elements);
 	}
 	public void addElement(String s){
 		elements.add(s);
 	}
+	public void addElements(List<String> elements){
+	    this.elements.addAll(elements);
+	}
+	public List<String> getSortedElements(){
+	    List<String> sort= new ArrayList<String>(this.elements);
+	    java.util.Collections.sort(sort);
+	    return sort;
+	}
+	
 	
 	
 }

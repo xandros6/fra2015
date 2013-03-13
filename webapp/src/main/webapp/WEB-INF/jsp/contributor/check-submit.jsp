@@ -10,10 +10,10 @@
 					<div id="messagePanel" class="alert alert-error">
 						<spring:message code="error.violateconstraints"></spring:message>
 						<ul>
-							<c:forEach var="mess" items="${validationResult.messages}">
+							<c:forEach var="mess" items="${validationResult.errorMessages}">
 								<c:if test="${ !mess.success }">
 									<li><spring:message code="${mess.message}"></spring:message>:
-										<c:forEach var="el" items="${mess.elements}">
+										<c:forEach var="el" items="${mess.sortedElements}">
 					 				${el},
 					 		
 					 				</c:forEach></li>
@@ -24,6 +24,7 @@
 
 					</div>
 				</c:if>
+				<c:if test="${not empty validationResult.successMessages}">
 				<div id="messagePanel" class="alert alert-success">
 						<spring:message code="alert.passedcontraints"></spring:message>
 						<ul>
@@ -36,6 +37,7 @@
 						</ul>
 
 					</div>
+				</c:if>
 				<form method="POST" action="">
 					<div id="textPanel">
 

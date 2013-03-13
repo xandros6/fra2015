@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.validation.ValidationMessage;
+import it.geosolutions.fra2015.validation.ValidationResult;
 import it.geosolutions.fra2015.validation.ValidationRule;
 
 import java.util.HashMap;
@@ -14,7 +16,7 @@ import javax.script.ScriptException;
 
 import org.junit.Test;
 
-public class ValidatorTest {
+public class ValidationTest {
 
 	@Test
 	public void ruleTest() {
@@ -43,7 +45,27 @@ public class ValidatorTest {
 		}
 
 	}
+	
+	@Test
+	public void uniqueMessageTest(){
+ 
+	    ValidationResult re= new ValidationResult();
+	    ValidationMessage m1 = new ValidationMessage();
+	    ValidationMessage m2 = new ValidationMessage();
+	    m1.addElement("1");
+	    m1.addElement("1");
+	    assertTrue(m1.getElements().size()==1);
+	    m1.setMessage("a");
+	    m2.setMessage("a");
+	    m1.addElement("3");
+	    m2.addElement("2");
+	    re.addMessage(m1);
+	    re.addMessage(m2);
+	    assertTrue(re.getMessages().size()==1);
 
+	}
+
+	
 	private void initItems(List<EntryItem> entryitemlist) {
 		for (int i = 0; i < 100; i++) {
 			EntryItem ei = new EntryItem();
