@@ -68,12 +68,16 @@ fra = {
 	            if (cell.hasClass('number')){
 	                // on keydown verify if the key is a number
 	                input.keydown(function(evt){
-	                    var e = evt || window.event; 
-	                    var charCode = e.which || e.keyCode;                        
-	                    if (charCode > 31 && (charCode < 47 || charCode > 57))
-	                        return false;
-	                    if (e.shiftKey) return false;
-	                    return true;
+	                	return ( event.ctrlKey || event.altKey 
+	                            || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+	                            || (95<event.keyCode && event.keyCode<106)
+	                            || (event.keyCode==8) || (event.keyCode==9) 
+	                            || (event.keyCode>34 && event.keyCode<40) 
+	                            || (event.keyCode==46)
+	                            || (event.keyCode==109)
+	                            || (event.keyCode==110)
+	                            ||  (event.keyCode==190)
+	                           ) 
 	                });                               
 	            }
 	            cell.find('#cell-content').html( input );
