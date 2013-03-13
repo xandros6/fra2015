@@ -11,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -39,13 +40,14 @@ public class Country implements Serializable {
     @Column(name = "ctype", nullable=false)
     @Enumerated(EnumType.STRING)
     private Type type;
-    
+
     @Column(name="landarea")
     private Double landArea;
     
     @Column(name="countryarea")
     private Double countryArea;
 
+    @XmlElement(name = "landarea")
     public Double getLandArea() {
 		return landArea;
 	}
@@ -54,6 +56,7 @@ public class Country implements Serializable {
 		this.landArea = landArea;
 	}
 
+    @XmlElement(name = "countryarea")
 	public Double getCountryArea() {
 		return countryArea;
 	}
