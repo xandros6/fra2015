@@ -27,15 +27,18 @@ import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -111,34 +114,68 @@ public class SurveyController{
 
         // Retrieve the stored value in order to compare them with the new submitted values
         CountryValues es = utils.retrieveValues(question, su.getCountries());
-
+        List<CompactValue> oldValues = es.getValues();
+        
+        // Create the OLD MAP
+        Map<String, CompactValue> oldMap = new HashMap<String, CompactValue>();
+        for(CompactValue el : oldValues){
+            oldMap.put(el.getVariable(), el);
+        }
+        
+        // Get from the request the EntryItem values to update
         Map<String, String[]> reqParams = request.getParameterMap();
 
+        // Create the UPDATE LIST
         List<Update> updateList = new ArrayList<Update>();
-        User se = (User) session.getAttribute("sessionUser");
+        
+        // Create the UPDATE MAP
+        Map<String, Update> updateMap = new HashMap<String, Update>();
 
+ 
+        //Iterate over all req params...
         for (String el : reqParams.keySet()) {
             
+            // TODO be sure that the params taken from the request is an entryItem
+            //get the value of the param
             String s = reqParams.get(el)[0];
+            //build the Value (unproperly called 'Variable' in variableNameUtils class)
             VariableNameUtils.VariableName var = VariableNameUtils.buildVariable(el, s);
+            
+            //copy the variable (all info, both name and values) in an Update instance
             Update update = new Update();
             update.setColumn(var.col);
             update.setRow(var.row);
             update.setCountry(su.getCountries());
             update.setValue(var.value);
             update.setVariable(var.variableName);
-            updateList.add(update);
+            
+            // ADD TO UPDATE MAP (just for avoid another iteration over a list...)
+            updateMap.put(el, update);
+            
+            // ADD TO UPDATE LIST IF THE VALUE:
+            // * is present in oldValues
+            // * is not present in oldValues Map AND is not a blank value
+            if(checkIfTheValueMustBeUpdated(var, oldMap)){
+              //add it to the add list, so the Value will be updated
+                updateList.add(update);
+            }
         }
-
+        
+        // create the REMOVE LIST, this list will be passed to values deletion service
+        Updates removes = getValuesToDelete(oldValues, updateMap, su.getCountries());
+        
+        //Build the update list, the object taken as input in updateValuesService method 
         Updates updates = new Updates();
         updates.setUpdates(updateList);
         updates.setQuestion(question);
         updates.setUsername(su.getUsername());
 
+        // Update the Values only if the concurrency System allow the operation.
         if(concurencyHandler.updateQuestionRevision(session, Long.parseLong(question))){
-            utils.updateValuesService(updates);
+            utils.updateValuesService(updates, removes);
         }
         else{
+            // Display the concurrency error message
             LOGGER.error("FATAL ERROR");
             model.addAttribute("messageType","warning");
             //model.addAttribute("messageType","alert");// red background
@@ -158,5 +195,83 @@ public class SurveyController{
         
         return "index";
 
+    }
+    
+    /**
+     * Check if the value has been removed by the user.
+     * The value is Removed if:
+     *  * is present in the oldValue List but not in newValues Map
+     *  * is present in the oldValue List but is blank in newValues Map
+     *  
+     * @param valueToCheck
+     * @param newValues
+     * @return
+     */
+    private static Updates getValuesToDelete(List<CompactValue> oldValues, Map<String, Update> newValues, String country){
+        
+        List<Update> deleteList = new ArrayList<Update>();
+        
+        for (CompactValue el : oldValues) {
+            
+            String entryItemName = VariableNameUtils.buildVariableAsText(el);
+            if(checkIfTheValueMustBeRemoved(entryItemName, newValues)){
+                // build the Value (unproperly called 'Variable' in variableNameUtils class)
+                VariableNameUtils.VariableName var = VariableNameUtils.buildVariable(entryItemName, el.getContent());
+                // copy the variable (all info, both name and values) in an Update instance
+                Update update = new Update();
+                update.setColumn(var.col);
+                update.setRow(var.row);
+                update.setCountry(country);
+                update.setValue(var.value);
+                update.setVariable(var.variableName);
+                // add it to the add list, so the Value will be updated
+                deleteList.add(update);
+            }
+        }
+        Updates updates = new Updates();
+        updates.setUpdates(deleteList);
+        return updates;
+    }
+    
+    /**
+     * The implementation of the logic for the removal check
+     * 
+     * @param valueToCheck
+     * @param newValues
+     * @return
+     */
+    private static boolean checkIfTheValueMustBeRemoved(String valueToCheck, Map<String, Update> newValues){
+        
+        Update val = newValues.get(valueToCheck);
+        if(val == null){
+            
+            return true;
+        }
+        if(StringUtils.isBlank(val.getValue())){
+            
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * The implementation of the logic for the removal check MERGE WITH checkIfTheValueMustBeRemoved
+     * 
+     * @param valueToCheck
+     * @param newValues
+     * @return
+     */
+    private static boolean checkIfTheValueMustBeUpdated(VariableNameUtils.VariableName entryItem, Map<String, CompactValue> oldValues){
+        
+        CompactValue val = oldValues.get(entryItem.variableName);
+        if(val != null){
+            
+            if(StringUtils.isBlank(entryItem.value)){
+                
+                return false;
+            }
+        }
+        
+        return true;
     }
 }

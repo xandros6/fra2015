@@ -37,6 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -45,9 +46,13 @@ import org.springframework.ui.Model;
  * @author DamianoG
  * 
  * This class contains a set of utils that implements several operation used in several Controller.
+ * 
+ * The operations are related to the survey values management, remove
+ *  
  * These methods usually interact with one or more fra business Services 
- * The project involved is only the fra2015-services-impl for the new services created with refactor3 and also
- * projects fra2015-rest-api, fra2015-rest-impl, fra2015-services-api for old service design.
+ * The fra2015 modules involved are:
+ *      * for the new services (refactor3)       : fra2015-services-impl
+ *      * for the old services created until 1.2 : fra2015-rest-api, fra2015-rest-impl, fra2015-services-api
  * 
  */
 public class ControllerServices {
@@ -103,8 +108,10 @@ public class ControllerServices {
 
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
         List<Entry> questionCatalog = catalog.getCatalogForQuestion(null);
+        
+        // Init the row counters for this request
         for (Entry el : questionCatalog) {
-            if (el != null && el.getType().equalsIgnoreCase("table")) {
+            if (StringUtils.equalsIgnoreCase("table", el.getType())) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);
             }
         }
@@ -209,52 +216,16 @@ public class ControllerServices {
         return tableRowsCounter;
     }
 
-    /**
-     * Compares for changes a new values set retrieved from HTTP request with the set stored on DB (called oldSet because it will be updated)
-     * 
-     * @param newSet
-     * @param oldSet
-     * @return Map<String, String[]> representing the values that must be deleted from DB
-     */
-    // public List<String> compareValueSet(Map<String, String[]> newSet, List<CompactValue> oldSet){
-    //
-    // // The return set
-    // List<String> removedSet = new ArrayList<String>();
-    //
-    // //Iterate on the oldSet and search for updated values
-    // for(CompactValue el : oldSet){
-    //
-    // String oldVariable = el.getVariable();
-    //
-    // String oldContent = el.getCo ntent();
-    // String[] set = newSet.get(VariableNameUtils.buildVariableAsText(el));
-    // String newContent = (set!=null)?set[0]:null;
-    // if(newContent == null){
-    // removedSet.add(oldVariable);
-    // }
-    // // if(!oldContent.equals(newContent)){
-    // // activityLog(Changes.UPDATE);
-    // // }
-    // }
-    //
-    // //Iterate on the remaining values of newSet log them as ADDED Values
-    // for(String el : newSet.keySet()){
-    // activityLog(Changes.NEW);
-    // }
-    //
-    // return removedSet;
-    //
-    // }
-
     public List<SurveyInstance> retriveSurveyListByCountries(String[] countryList, int page,
             int index) {
 
         return surveyService.getSurveysByCountry(countryList, page, index);
     }
 
-    public void updateValuesService(Updates updates) {
+    public void updateValuesService(Updates updates, Updates removes) {
 
         surveyService.updateValues(updates);
+        surveyService.removeValues(removes);
     }
 
 }

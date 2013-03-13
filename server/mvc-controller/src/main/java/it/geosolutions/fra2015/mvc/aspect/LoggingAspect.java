@@ -60,31 +60,5 @@ public class LoggingAspect {
         LOGGER.info("");
         
     }
-    
-//    @Before("execution(* it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.retrieveValues(..))")
-//    public void logBefore(JoinPoint joinPoint) {
-//
-//        LOGGER.info("");
-//        LOGGER.info("***************************************************");
-//        LOGGER.info(joinPoint.getSignature().getName());
-//        LOGGER.info("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
-//        LOGGER.info("***************************************************");
-//        LOGGER.info("");
-//        
-//    }
-//    
-//    @Before("execution(* it.geosolutions.fra2015.mvc.controller.IController.handleGet(..)")
-//    public void logBefore2(JoinPoint joinPoint) {
-//
-//        LOGGER.info("");
-//        LOGGER.info("***************************************************");
-//        LOGGER.info(joinPoint.getSignature().getName());
-//        LOGGER.info("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
-//        LOGGER.info("***************************************************");
-//        LOGGER.info("");
-//        
-//    }
-    
-
 }
  
