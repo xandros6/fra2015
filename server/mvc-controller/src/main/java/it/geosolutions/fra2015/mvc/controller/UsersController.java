@@ -25,8 +25,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
@@ -101,6 +103,13 @@ public class UsersController {
 		model.addAttribute("messageType", "success");
 		model.addAttribute("messageText", "User saved successfully");
 		try{
+			if(!user.getQuestionsStr().isEmpty()){
+				String[] qas = user.getQuestionsStr().split(",");
+				for(String qa : qas){
+					Question q = surveyService.findQuestion(Long.parseLong(qa));
+					user.getQuestions().add(q);
+				}
+			}
 			if(user.getId() != null && userService.get(user.getId()) !=null){
 				userService.update(user);
 			}else{
@@ -157,16 +166,31 @@ public class UsersController {
 
 	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
 	public String getUserEditor(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model){
-		//Add countries code to page model formatted as CSV string
-		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
-		Collection<String> countriesIso3 = CollectionUtils.collect( surveyService.getCountries(), transformer );
-		String joined = "\"" + StringUtils.join(countriesIso3,"\",\"") + "\"";
-		model.addAttribute("countriesIso3", joined);
 		User user = new User();
 		//Retrive user informations
 		if(userId > -1){
 			user = userService.get(userId);			
 		}
+		//Add countries code to page model formatted as CSV string
+		List<Question> questions = surveyService.getQuestions();
+		//Check user question
+		Set<Question> userQuestions = user.getQuestions();
+		if(!userQuestions.isEmpty()){
+			BeanToPropertyValueTransformer questionsTransformer = new BeanToPropertyValueTransformer( "id" );
+			Collection<String> userQuestionsId = CollectionUtils.collect( userQuestions, questionsTransformer );
+			for(Question q : questions){
+				if(userQuestionsId.contains(q.getId())){
+					q.setSelected(true);
+				}
+			}
+		}
+		model.addAttribute("questions", questions);
+
+		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+		Collection<String> countriesIso3 = CollectionUtils.collect( surveyService.getCountries(), transformer );
+		String joined = "\"" + StringUtils.join(countriesIso3,"\",\"") + "\"";
+		model.addAttribute("countriesIso3", joined);
+
 		model.addAttribute("roles", roles);
 		model.addAttribute("command", user);
 		model.addAttribute("page", page);

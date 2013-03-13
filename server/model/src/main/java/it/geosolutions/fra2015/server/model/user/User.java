@@ -28,19 +28,31 @@
  */
 package it.geosolutions.fra2015.server.model.user;
 
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.enums.UserGroup;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Index;
 
 /**
@@ -84,12 +96,29 @@ public class User implements Serializable {
     @Column(nullable = true, updatable = true)
     private String countries;
     
+    @Transient
+    private String questionsStr;
+    
     @Column(nullable = false, updatable = false)
     private String role;
 
     @Enumerated
     protected UserGroup userGroup = UserGroup.GUEST;
-    /**
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="fra_questions_reviewers", joinColumns={@JoinColumn(name="reviewers_id")}, inverseJoinColumns={@JoinColumn(name="question_id")})
+   	@Fetch(value=FetchMode.JOIN)
+	private Set<Question> questions  = new HashSet<Question>();
+    
+    public Set<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(Set<Question> questions) {
+		this.questions = questions;
+	}
+
+	/**
      * @return the id
      */
     public Long getId() {
@@ -102,8 +131,16 @@ public class User implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String getQuestionsStr() {
+		return questionsStr;
+	}
 
-    /**
+	public void setQuestionsStr(String questionsStr) {
+		this.questionsStr = questionsStr;
+	}
+
+	/**
      * @return the name
      */
     public String getName() {

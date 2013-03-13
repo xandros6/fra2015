@@ -7,7 +7,7 @@
 */
 label.error{
 	color: red;
-    font-style: italic;
+  font-style: italic;
 }
 .alertArea {
 	position: absolute; 
@@ -290,3 +290,30 @@ hr.soften {
   border: 0;
 }
 
+.myModal {
+  width: 900px; /* SET THE WIDTH OF THE MODAL */
+  margin: -250px 0 0 -450px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (original = margin: -250px 0 0 -280px;) */
+}
+.myModal .modal-body {
+  max-height: 400px;
+  height: 400px;
+}
+.border{
+    border-right: 2px solid #eee;
+    margin: 0px;
+}
+.row-fluid [class*="span"] {
+  padding: 15px;
+}
+.table-noborder th, .table-noborder td{
+	border: 0;
+}
+.hide{
+	display:none;
+}
+.show{
+  display:block;
+}
+.inline{
+	display:inline;
+}

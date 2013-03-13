@@ -60,8 +60,8 @@ public class ControllerServices {
     @Autowired
     private SurveyCatalog catalog;
 
-    @Autowired
-    private BulkModelEntitiesLoader bulkLoader;
+    //@Autowired
+   //private BulkModelEntitiesLoader bulkLoader;
 
     public enum Profile {
         CONTRIBUTOR, REIVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
@@ -143,7 +143,7 @@ public class ControllerServices {
      * @param printNameInsteadOfValue
      */
     public void prepareHTTPRequestOnlyVariablesName(Model model, String country){
-
+/*
         CountryValues values = retrieveValues(null, country);
         Map<String, Integer> tableRowsCounter = countRowsAndStoreTheNumberInTheModel(model, values, catalog);
         List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
@@ -166,7 +166,7 @@ public class ControllerServices {
                 model.addAttribute(el, tableRowsCounter.get(el));
             }
         }
-
+*/
     }
 
     
