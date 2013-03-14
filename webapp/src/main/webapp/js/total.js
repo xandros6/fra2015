@@ -13,6 +13,11 @@ $(function(){
 			var allAvaliable=true;
 			colentries.each(function(){
 				if(totcel.is($(this))) return;
+				var rowname = $(this).closest('tr').attr("rowname");
+				if(rowname){
+					if(rowname.match(/^[^\.]*\.[^\.]*\..*/) )return;
+					if(rowname=="1.5") return; //TOTAL = COUNTRY AREA?
+				}
 				var container = $(this).find('#cell-content');
 				var value = container.text();
 				if ($.isNumeric(value)){
