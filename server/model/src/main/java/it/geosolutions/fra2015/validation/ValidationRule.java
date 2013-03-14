@@ -113,11 +113,13 @@ public class ValidationRule {
 			 ScriptEngineManager mgr = new ScriptEngineManager();
 			 String condition = new String(this.getCondition());
 			 //cycle map
+			 if(values != null){
 			 for(String s : values.keySet()){
 				 String varmatch = "\\{\\{"+ s +"\\}\\}";
 				 Pattern p = Pattern.compile(varmatch);
 				 Matcher m = p.matcher(condition);
 				 condition= m.replaceAll(values.get(s));
+			 }
 			 }
 			 if(externals != null){
 				 for(String s : externals.keySet()){

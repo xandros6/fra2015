@@ -88,6 +88,27 @@ public class ValidationTest {
             }
             
 	}
+	@Test
+	public void  changeRateTest(){
+	    ValidationRule v = new ValidationRule();
+	    v.setCondition("-3 < 100* (Math.pow((<<1.1-2000>>/<<1.1-1990>>),(0.1))-1) &&" +
+	    		    "100* (Math.pow((<<1.1-2000>>/<<1.1-1990>>),(0.1))-1) <3");
+	    Map<String, String> singleValues = new HashMap<String, String>();
+            singleValues.put("1.1-2000","5");
+            singleValues.put("1.1-1990","3");
+            try {
+               assertTrue(!v.evaluate(null,null,singleValues)); // 5.240977914892531 >3
+               singleValues.put("1.1-1990","4");
+               assertTrue(v.evaluate(null,null,singleValues)); // - 3< 2.256518256357287 < 3
+               singleValues.put("1.1-1990","7");
+               assertTrue(!v.evaluate(null,null,singleValues)); // -3.3087451654251088
+               singleValues.put("1.1-1990","6");
+               assertTrue(v.evaluate(null,null,singleValues)); // -1.806695543808734
+
+            } catch (ScriptException e) {
+                fail();
+            } 
+	}
 	
 	private void initItems(List<EntryItem> entryitemlist) {
 		for (int i = 0; i < 100; i++) {
