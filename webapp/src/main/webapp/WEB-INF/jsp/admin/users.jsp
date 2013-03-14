@@ -16,7 +16,7 @@
 	</div>
 
 
-	<div id="createUserWindow" class="modal hide fade span8">
+	<div id="createUserWindow" class="myModal modal hide fade span8">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">x</button>
@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	
-	<div id="editUserWindow" class="modal hide fade span8">
+	<div id="editUserWindow" class="myModal modal hide fade span8">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">x</button>

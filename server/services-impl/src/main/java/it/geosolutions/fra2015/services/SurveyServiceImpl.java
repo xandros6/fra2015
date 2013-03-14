@@ -490,6 +490,12 @@ public class SurveyServiceImpl implements SurveyService {
        
         return questionDAO.find(questionNumber);
     }
+    
+    @Override
+    public List<Question> getQuestions() {
+       
+        return questionDAO.findAll();
+    }
 
 
 

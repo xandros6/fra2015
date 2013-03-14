@@ -1,25 +1,36 @@
 /*
  * USER WINDOW
  */
+function saveUser(){
+	var cquestions = "";
+	$(".questionCheck").each(function( index ) {
+		if($(this).is(':checked')){
+			if(cquestions == ""){
+				cquestions = $(this).attr('id');
+			}else{
+				cquestions = cquestions + "," + $(this).attr('id');
+			}
+		}
+	});
+	$("#questionsStr").val(cquestions);
+	
+	$("#createUserForm").validate({ignore: ""});
+
+	$('#createUserForm').submit();
+}
 
 $(function(){
 	$('#createUserWindow').on('hidden', function() {
 		$(this).data('modal').$element.removeData();
 	});	
-
-	$('#saveBtn').on('click', function() {
-
-		$("#createUserForm").validate();
-
-		$('#createUserForm').submit();
-	});
 	
-	$('#updateBtn').on('click', function() {
+	$('#editUserWindow').on('hidden', function() {
+		$(this).data('modal').$element.removeData();
+	});	
 
-		$("#createUserForm").validate();
-
-		$('#createUserForm').submit();
-	});
+	$('#saveBtn').on('click', saveUser);
+	
+	$('#updateBtn').on('click', saveUser);
 
 	$('#filterBtn').on('click', function() {
 		$('#filterUserForm').submit();

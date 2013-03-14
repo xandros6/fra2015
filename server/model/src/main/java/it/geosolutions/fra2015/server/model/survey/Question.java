@@ -22,15 +22,23 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import it.geosolutions.fra2015.server.model.user.User;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -51,12 +59,30 @@ public class Question extends Session {
 	@Id
 	private Long id;
 	
+    @Column(nullable = false, updatable = false)
+    private String title;
+    
+    @Transient
+    private Boolean selected;
+	
 	@IndexColumn(name="id")
     @OneToMany(mappedBy = "question", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@Fetch(value=FetchMode.JOIN)
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="question_id", referencedColumnName="id")
 	private List<Entry> entries = new ArrayList<Entry>();
+	
+	@ManyToMany
+    @JoinTable(name="fra_questions_reviewers", joinColumns={@JoinColumn(name="question_id")}, inverseJoinColumns={@JoinColumn(name="reviewers_id")})
+	private Set<User> reviewers  = new HashSet<User>();
+	
+	public Set<User> getReviewers() {
+		return reviewers;
+	}
+
+	public void setReviewers(Set<User> reviewers) {
+		this.reviewers = reviewers;
+	}
 
 	public Long getId() {
 		return id;
@@ -64,6 +90,14 @@ public class Question extends Session {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	@XmlElementWrapper(name="entries")
@@ -76,5 +110,12 @@ public class Question extends Session {
 		this.entries = entries;
 	}
 
+	public Boolean getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Boolean selected) {
+		this.selected = selected;
+	}
 
 }
