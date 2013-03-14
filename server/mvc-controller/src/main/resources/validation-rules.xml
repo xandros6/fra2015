@@ -60,7 +60,8 @@
             <![CDATA[ {{1.5}} === [[COUNTRY_AREA]] + 0 ]]>
         </condition>
     </rule>    
-    <rule>
+ <!-- Change rate not clear yet 
+     <rule>
         <id>7</id>
         <description>
             1.7 not greater that net change in Forest area (1.1)/year (?)
@@ -81,7 +82,8 @@
         <condition>
             <![CDATA[ undefined ]]>
         </condition>
-    </rule> 
+    </rule>
+    --> 
     <rule>
         <id>9</id>
         <description>
