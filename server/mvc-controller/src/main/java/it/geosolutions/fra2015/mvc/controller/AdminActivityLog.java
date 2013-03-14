@@ -49,7 +49,7 @@ public class AdminActivityLog {
         model.addAttribute("context", "activitylog");
         List<ActivityLogEntry> l = sal.findByEntryItemName("ALZ", "7", 1, 1);
         model.addAttribute("activityLogList", l);
-        return "reviewer";
+        return "admin";
 
     }
 
@@ -57,7 +57,7 @@ public class AdminActivityLog {
     public String handlePost(ModelMap model) {
         
         model.addAttribute("context", "activitylog");
-        return "reviewer";
+        return "admin";
 
     }
 
