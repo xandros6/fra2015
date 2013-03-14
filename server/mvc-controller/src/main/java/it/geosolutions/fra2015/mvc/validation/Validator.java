@@ -1,6 +1,7 @@
 package it.geosolutions.fra2015.mvc.validation;
 
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -62,6 +63,11 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         while (it.hasNext()) {
             ValidationRule rule = it.next();
             varnames.addAll(rule.getVariables());
+            //single values in rule are <<2.3[2000]
+            List<String> singleValues = rule.getSingleValues();
+            for(String coords : singleValues){
+                varnames.add(coords.split("-")[0]);
+            }
 
         }
         // get external variables
@@ -76,7 +82,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             // get variable values
             List<Value> values = surveyService.getEntryListByVariableName(new ArrayList<String>(
                     varnames), country);
-            calculateVariations(externals, values);
+            //calculateVariations(externals, values);
             // validate the rules
             it = ruleList.iterator();
 
@@ -182,16 +188,17 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             result.addMessage(v);
             return;
         }
+        
         // check single rule (dosn't contains variables
         // e.g. change rate1 in % should be between +3.00% and -3.00%
         if (rule.getVariables().size() == 0) {
 
-            evaluateSingleRule(result, rule, externals);
+            evaluateSingleRule(result, rule, externals,values);
             return;
         }
         // get all columns (1990 2000 etc...)
         populateTests(values, tests);
-        evaluateColumns(result, tests, externals, rule);
+        evaluateColumns(result, tests, externals, rule,values);
         // for each column (year)
 
     }
@@ -199,21 +206,33 @@ public class Validator implements InitializingBean, ApplicationContextAware {
      * @param result
      * @param rule
      * @param externals
+     * @param values 
      */
     private void evaluateSingleRule(ValidationResult result, ValidationRule rule,
-            Map<String, String> externals) {
+            Map<String, String> externals, List<Value> values) {
         // check if some rule is missing
         List<String> missing = checkRuleFields(rule.getExternalData(), externals);
         ValidationMessage m = new ValidationMessage();
         if (missing.size() > 0) {
-
             m.setSuccess(false);
             m.setMessage("validation.notcompiled");
             m.addElements(missing);
-        } else {
+            result.addMessage(m);
+            return;
+        }
+        Map<String,String> singleValues = getSingleValues(values, rule);
+        missing = checkRuleFields(rule.getSingleValues(), singleValues);
+        if (missing.size() > 0) {
+            m.setSuccess(false);
+            m.setMessage("validation.notcompiled");
+            m.addElements(missing);
+            result.addMessage(m);
+            return;
+        }
+        {
 
             try {
-                boolean success = rule.evaluate(new HashMap<String,String>(), externals);
+                boolean success = rule.evaluate(new HashMap<String,String>(), externals,singleValues);
             } catch (ScriptException e) {
                 m =generateParseProblemMessage( rule);
                 
@@ -230,7 +249,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
     }
 
     private void evaluateColumns(ValidationResult result, Map<String, Map<String, String>> tests,
-            Map<String, String> externals, ValidationRule rule) {
+            Map<String, String> externals, ValidationRule rule, List<Value> values) {
         ValidationMessage message = null;
         // some validation problems have priority
         boolean alreadyChecked = false;
@@ -260,9 +279,10 @@ public class Validator implements InitializingBean, ApplicationContextAware {
                 alreadyChecked = true;
                 continue;
             }
-
+            //get single values
+            Map <String,String> singleValues = getSingleValues(values,rule);
             try {
-                boolean success = rule.evaluate(test, externals);
+                boolean success = rule.evaluate(test, externals,singleValues);
                 //
                 // check rules
                 //
@@ -296,7 +316,34 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         result.addMessage(message);
 
     }
+    /**
+     * Creates a map for single values <<1.2-2000>>-->12.34
+     * @param values
+     * @param rule
+     */
+    private Map <String,String> getSingleValues(List<Value> values, ValidationRule rule) {
+        List<String> singleValuesNames = rule.getSingleValues();
+        Map <String,String> singleValues= new HashMap<String,String>();
+        for(String singleValueName : singleValuesNames){
+            String[] coordinates =singleValueName.split("-");
+            String row = coordinates[0];
+            String column = coordinates[1];
+            singleValues.put(singleValueName,getValue(values, row, column));
+        }
+        return singleValues;
+        
+        
+    }
 
+    private String getValue (List<Value> values, String row, String column ){
+        for(Value v: values){
+            EntryItem i = v.getEntryItem();
+            if(column.equals(i.getRowName()) && row.equals(i.getColumnName()) ){
+                return v.getContent();
+            }
+        }
+        return null;
+    }
     private void populateTests(List<Value> values, Map<String, Map<String, String>> tests) {
         for (Value value : values) {
             // for each column add a map name (1.2) -> value (e.g. 1234)

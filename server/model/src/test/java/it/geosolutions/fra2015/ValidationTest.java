@@ -39,10 +39,11 @@ public class ValidationTest {
 			i++;
 		}
 		try {
-			v.evaluate(valueMap,externals);
+			v.evaluate(valueMap,externals,null);
 		} catch (ScriptException e) {
 			fail(e.getMessage());
 		}
+		
 
 	}
 	
@@ -64,7 +65,29 @@ public class ValidationTest {
 	    assertTrue(re.getMessages().size()==1);
 
 	}
-
+	@Test
+	public void singleValueParsingTest(){
+	    ValidationRule v = new ValidationRule();
+	    
+            String[] varnames = { "1.4", "1.5", "1.1", "1.2", "1.3" };
+            String[] values = { "3", "16", "5", "5", "5" };
+            v.setCondition("<<1.1-2010>> + {{1.1}} == 10");
+            assertTrue("1.1-2010".equals(v.getSingleValues().get(0)));
+            Map<String, String> valueMap = new HashMap<String, String>();
+            for (int i = 0; i < varnames.length; i++) {
+                    valueMap.put(varnames[i], values[i]);
+            }
+            Map<String, String> singleValues = new HashMap<String, String>();
+            singleValues.put("1.1-2010","5");
+            
+            
+            try {
+                assertTrue(v.evaluate(valueMap,null,singleValues));
+            } catch (ScriptException e) {
+                fail("unable to parse condition");
+            }
+            
+	}
 	
 	private void initItems(List<EntryItem> entryitemlist) {
 		for (int i = 0; i < 100; i++) {
@@ -78,4 +101,5 @@ public class ValidationTest {
 		}
 
 	}
+	
 }

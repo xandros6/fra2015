@@ -64,7 +64,7 @@ public class ValidationRule {
 			String pattern = "\\{\\{\\s*([^\\}\\s]*)\\s*\\}\\}";
 			Pattern p = Pattern.compile(pattern);
 			Matcher m = p.matcher(condition);
-			List<String> result = new ArrayList();
+			List<String> result = new ArrayList<String>();
 			while(m.find()){
 				result.add(m.group(1));
 			}
@@ -74,12 +74,32 @@ public class ValidationRule {
 			// TODO Auto-generated method stub
 			
 		}
+		/**
+		 * Get values like 1.1-2000
+		 * the format is <<1.1-2000>>
+		 * @return
+		 */
+		public List<String> getSingleValues() {
+                    String condition = this.getCondition();
+                    String pattern = "<<\\s*([^>]*)\\s*>>";
+                    Pattern p = Pattern.compile(pattern);
+                    Matcher m = p.matcher(condition);
+                    List<String> result = new ArrayList<String>();
+                    while(m.find()){
+                            result.add(m.group(1));
+                    }
+                    return result;
+                    
+                    
+                    // TODO Auto-generated method stub
+                    
+            }
 		public List<String> getExternalData() {
 			String condition = this.getCondition();
 			String pattern = "\\[\\[\\s*([^\\]\\s]*)\\s*\\]\\]";
 			Pattern p = Pattern.compile(pattern);
 			Matcher m = p.matcher(condition);
-			List<String> result = new ArrayList();
+			List<String> result = new ArrayList<String>();
 			while(m.find()){
 				result.add(m.group(1));
 			}
@@ -89,7 +109,7 @@ public class ValidationRule {
 			// TODO Auto-generated method stub
 			
 		}
-		public boolean evaluate(Map<String,String> values,Map<String,String> externals) throws ScriptException{
+		public boolean evaluate(Map<String,String> values,Map<String,String> externals, Map<String, String> singleValues) throws ScriptException{
 			 ScriptEngineManager mgr = new ScriptEngineManager();
 			 String condition = new String(this.getCondition());
 			 //cycle map
@@ -107,6 +127,14 @@ public class ValidationRule {
 					 condition= m.replaceAll(externals.get(s));
 				 }
 			 }
+			 if(singleValues!=null){
+			     for(String s : singleValues.keySet()){
+                                 String varmatch = "<<"+ s +">>";
+                                 Pattern p = Pattern.compile(varmatch);
+                                 Matcher m = p.matcher(condition);
+                                 condition= m.replaceAll(singleValues.get(s));
+                         }
+			 }
 		     ScriptEngine engine = mgr.getEngineByName("JavaScript");
 			 
 		     return (Boolean) engine.eval(condition);
@@ -114,7 +142,8 @@ public class ValidationRule {
 			
 		}
 		public boolean evaluate(Map<String,String> values) throws ScriptException{
-			return evaluate(values,null);
+			return evaluate(values,null,null);
 		}
+		
 	    
 }
