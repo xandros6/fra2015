@@ -302,7 +302,7 @@ hr.soften {
     border-right: 2px solid #eee;
     margin: 0px;
 }
-.row-fluid [class*="span"] {
+.row-fluid.custom [class*="span"] {
   padding: 15px;
 }
 .table-noborder th, .table-noborder td{
