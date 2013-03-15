@@ -251,9 +251,6 @@ public class UsersController {
 		try {
 			List<User> users= new ArrayList<User>();
 			for(User user : userService.getAll(page, pagesize,userFilter)){
-				if("admin".equals(user.getRole())){//check admin
-					continue;
-				}
 				user.setRole(roles.get(user.getRole()));
 				users.add(user);
 			}

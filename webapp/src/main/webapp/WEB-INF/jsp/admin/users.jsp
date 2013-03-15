@@ -74,7 +74,6 @@
 			</p>
 		</div>
 
-
 		<div class="row">
 			<div class="span12">
 				<table id="userTable"	class="table table-bordered table-hover table-condensed table-striped">
@@ -87,21 +86,19 @@
 							<th></th>
 						</tr>
 					</thead>
-
 					<tbody>
 						 <c:forEach items='${users}' var='user' varStatus='rowItem'>
 							<tr class="rowItem">								
-								<td>${user.name}</td>
-								<td>${user.username}</td>
-								<td>${user.role}</td>
-								<td>${user.countries}</td>
-								<td width="160px">
+								<td class="fullname"><div>${user.name}</div></td>
+								<td class="username"><div>${user.username}</div></td>
+								<td class="role"><div>${user.role}</div></td>
+								<td class="countries"><div>${user.countries}</div></td>
+								<td class="link">
 									<a style="width:50px" href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#editUserWindow"> Edit </a>
 									<a style="width:50px" href="#" class="btn" data-toggle="modal" data-target="#deleteWarningWindow" data-userid="${user.id}" data-page="${page}"> Delete </a>
 								</td>
 							</tr>
-						</c:forEach>	
-							
+						</c:forEach>								
 					</tbody>
 				</table>
 				<ul class="pager pull-right">
@@ -114,5 +111,6 @@
 				</ul>
 			</div>
 		</div>
+	
 	</div>
 </div>

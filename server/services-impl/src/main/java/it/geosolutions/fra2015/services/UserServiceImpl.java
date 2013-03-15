@@ -152,6 +152,8 @@ public class UserServiceImpl implements UserService {
 
         Search searchCriteria = new Search(User.class);        
         
+        searchCriteria.addFilter(Filter.notEqual("role", "admin"));
+        
         if(userFilter != null){
         	if(userFilter.getUsername() != null && !userFilter.getUsername().isEmpty())
         		searchCriteria.addFilter(Filter.ilike("username", "%"+userFilter.getUsername()+"%"));
