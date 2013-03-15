@@ -91,11 +91,7 @@ public class UserServiceImpl implements UserService {
             user.setPassword( password );
         }else{
 			user.setPassword( orig.getPassword() );
-		}
-        if ( user.getCountries() == null || user.getCountries().isEmpty()){
-            user.setCountries(orig.getCountries());
-        }
-        
+		}        
         
         userDAO.merge(user);
 

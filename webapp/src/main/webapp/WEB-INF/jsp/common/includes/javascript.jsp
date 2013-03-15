@@ -72,6 +72,11 @@ $(function(){
 
 	contextPath = "${pageContext.request.contextPath}";
 	
+	countriesArr = [];
+	<c:forEach var="country" items="${countries}">
+	countriesArr.push({"id":"${country.id}","name": "${country.name}","iso3": "${country.iso3}"});         
+	</c:forEach>
+	
 	<c:if test="${(not empty messageText) && (not empty messageType)}">
 	 	$("#alert-area").append($('<div class="alert alert-${messageType}" style="text-align:center"><strong>${messageText}</strong></div>'));
 	    $("#alert-area").delay(5000).fadeOut("slow", function () { $(this).remove(); });

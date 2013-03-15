@@ -77,8 +77,7 @@
 
 		<div class="row">
 			<div class="span12">
-				<table id="userTable"
-					class="table table-bordered table-hover table-condensed table-striped">
+				<table id="userTable"	class="table table-bordered table-hover table-condensed table-striped">
 					<thead>
 						<tr>
 							<th>Fullname</th>

@@ -503,12 +503,18 @@ public class SurveyServiceImpl implements SurveyService {
      * @see it.geosolutions.fra2015.services.SurveyService#searchCountry(java.lang.String)
      */
     @Override
-    public Country searchCountry(String iso3) {
-        
+    public Country searchCountry(String iso3) {        
         Search searchCriteria = new Search(Country.class);
         searchCriteria.addFilterEqual("iso3", iso3);
         return countryDAO.search(searchCriteria).get(0);
     }
+    
+	@Override
+	public Country findCountry(Long id) {
+		
+		 return countryDAO.find(id);
+	}
+
     
     @Override
     public List<Value> getEntryListByVariableName(List<String> names, String iso3) throws BadRequestServiceEx{
@@ -537,5 +543,8 @@ public class SurveyServiceImpl implements SurveyService {
 		
     	
     }
+
+
+
 
 }
