@@ -21,10 +21,13 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import java.util.Map;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
-import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 
@@ -54,52 +57,55 @@ public class ReviewController {
     @Autowired
     private ControllerServices utils;
 
-//     @Autowired
-//     private FeedbackService feedbackService;
-
     Logger LOGGER = Logger.getLogger(ReviewController.class);
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
-    public String handleGet(@PathVariable(value = "country") String country,
-            @PathVariable(value = "question") String question, Model model, HttpSession session) {
 
-        try {
-            Integer.parseInt(question);
-        } catch (Exception e) {
-            model.addAttribute("context", "survey");
-            model.addAttribute("question", 0);
-            session.invalidate();
+    public String handleGet(
+    		@PathVariable(value = "country") String country, 
+    		@PathVariable(value = "question") Long question, Model model,
+            HttpSession session) {
+	    
+	    
+        // TODO validate country
+        User su = (User) session.getAttribute("sessionUser");
+        if(su==null){
             return "redirect:/login";
         }
-
-        model.addAttribute("question", question);
+        //check allowed questions
+        Set<Question> allowed = su.getQuestions();
+        List<Long> allowedQuestionNumbers = new ArrayList<Long>();
+        Long min = Long.MAX_VALUE;
+        for (Question q : allowed) {
+            allowedQuestionNumbers.add(q.getId());
+            min = q.getId() < min ? q.getId():min;
+        }
+        //set current quetstion if not available
+        if (!allowedQuestionNumbers.contains(question)){
+            question = min;
+        }
+        model.addAttribute("allowedQuestions",allowedQuestionNumbers);
         model.addAttribute("context", "survey");
-        // TODO validate country
-        User su = (User) session.getAttribute(SESSION_USER);
-        // TODO check access to provide accessible questions for menu and allow to
+        model.addAttribute("question", question);
+        //TODO check access to provide accessible questions for menu and allow to 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
-
+        utils.prepareHTTPRequest(model, question.toString(), utils.retrieveValues(question.toString(), country), false);
+        
+        
         return "reviewer";
 
     }
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
-    public String handlePost(@PathVariable(value = "country") String country,
-            @PathVariable(value = "question") String question, Model model, HttpServletRequest request, HttpSession session) {
 
+    public String handlePost(HttpServletRequest request,
+            @PathVariable(value = "country") String country,
+            @PathVariable(value = "question") String question, HttpSession session, Model model) {
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
         // TODO validate country
-        // User su = (User) session.getAttribute(SESSION_USER);
-
-        Map<String, String> m = request.getParameterMap();
-        
-        Feedback feedback = new Feedback();
-//        feedback.setFeedback(feedback);
-//        feedbackService.storeFeedback(feedback);
-
+        User su = (User) session.getAttribute("sessionUser");
         // TODO check access to provide accessible questions for menu and allow to
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
