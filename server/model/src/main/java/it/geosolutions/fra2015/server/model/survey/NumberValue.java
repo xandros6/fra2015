@@ -27,7 +27,7 @@ public class NumberValue extends Value {
     }
 
     public void setValue(Number itemValue) {
-        this.value = value;
+        this.value = itemValue;
     }
    
     
