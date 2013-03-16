@@ -115,6 +115,8 @@ public interface SurveyService {
     Question findQuestion(Long questionNumber);
     
     Country searchCountry(String iso3);
+    
+    Country findCountry(Long id);
     /**
      * 
      * @param country
@@ -124,9 +126,9 @@ public interface SurveyService {
      */
     public List<SurveyInstance> getSurveysByCountry(String[] country, int page, int index);
 
-
     public List<Value> getEntryListByVariableName(List<String> vars, String country) throws BadRequestServiceEx;
 
+    
     public List<Question> getQuestions();
 
 }

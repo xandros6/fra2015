@@ -28,9 +28,11 @@
  */
 package it.geosolutions.fra2015.server.model.user;
 
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.enums.UserGroup;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,6 +51,10 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
@@ -62,9 +68,7 @@ import org.hibernate.annotations.Index;
  * @author DamianoG
  */
 @Entity(name = "User")
-@Table(name = "fra_user", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"username"})})
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "gs_user")
+@Table(name = "fra_user", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 @XmlRootElement(name = "User")
 public class User implements Serializable {
 
@@ -93,8 +97,13 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = true)
     private String email;
     
-    @Column(nullable = true, updatable = true)
-    private String countries;
+    @Transient
+    private String selCountries;
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="fra_users_countries", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name="country_id")})
+   	@Fetch(value=FetchMode.JOIN)
+	private Set<Country> countriesSet  = new HashSet<Country>();
     
     @Transient
     private String questionsStr;
@@ -194,15 +203,30 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getCountries() {
-        return countries;
-    }
+	public String getCountries() {
+        BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+		Collection<String> countriesIso3 = CollectionUtils.collect(this.getCountriesSet(), transformer );
+		String country = StringUtils.join(countriesIso3.toArray(),',');
+		return country;
+	}
 
-    public void setCountries(String countries) {
-        this.countries = countries;
-    }
+	public String getSelCountries() {
+		return selCountries;
+	}
 
-    public String getRole() {
+	public void setSelCountries(String selCountries) {
+		this.selCountries = selCountries;
+	}
+
+	public Set<Country> getCountriesSet() {
+		return countriesSet;
+	}
+
+	public void setCountriesSet(Set<Country> countriesSet) {
+		this.countriesSet = countriesSet;
+	}
+
+	public String getRole() {
         return role;
     }
 

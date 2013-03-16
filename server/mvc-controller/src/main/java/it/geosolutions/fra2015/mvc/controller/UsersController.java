@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyService;
@@ -89,6 +90,7 @@ public class UsersController {
 		model.addAttribute("page", 0);
 		model.addAttribute("context", "users");
 		model.addAttribute("users", this.getPage(0,userFilter));
+		model.addAttribute("countries", surveyService.getCountries());
 		boolean next = this.getPage(1,userFilter).size() > 0;
 		model.addAttribute("next", next?1:-1);
 		model.addAttribute("prev", -1);
@@ -108,6 +110,13 @@ public class UsersController {
 				for(String qa : qas){
 					Question q = surveyService.findQuestion(Long.parseLong(qa));
 					user.getQuestions().add(q);
+				}
+			}
+			if(!user.getSelCountries().isEmpty()){
+				String[] cos = user.getSelCountries().split(",");
+				for(String co : cos){
+					Country c = surveyService.findCountry(Long.parseLong(co));
+					user.getCountriesSet().add(c);
 				}
 			}
 			if(user.getId() != null && userService.get(user.getId()) !=null){
@@ -144,11 +153,6 @@ public class UsersController {
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public String getUserFilter(ModelMap model){
-		//Add countries code to page model formatted as CSV string
-		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
-		Collection<String> countriesIso3 = CollectionUtils.collect( surveyService.getCountries(), transformer );
-		String joined = "\"" + StringUtils.join(countriesIso3,"\",\"") + "\"";
-		model.addAttribute("countriesIso3", joined);
 		model.addAttribute("roles", roles);
 		User userFilter = (model.get("userFilter")!=null ?  (User) model.get("userFilter") : new User());
 		model.addAttribute("formUserFilter", userFilter);
@@ -185,11 +189,11 @@ public class UsersController {
 			}
 		}
 		model.addAttribute("questions", questions);
-
-		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
-		Collection<String> countriesIso3 = CollectionUtils.collect( surveyService.getCountries(), transformer );
-		String joined = "\"" + StringUtils.join(countriesIso3,"\",\"") + "\"";
-		model.addAttribute("countriesIso3", joined);
+		
+		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "id" );
+		Collection<String> countriesId = CollectionUtils.collect( user.getCountriesSet(), transformer );
+		String joined = StringUtils.join(countriesId,",");
+		user.setSelCountries(joined);
 
 		model.addAttribute("roles", roles);
 		model.addAttribute("command", user);
@@ -247,9 +251,6 @@ public class UsersController {
 		try {
 			List<User> users= new ArrayList<User>();
 			for(User user : userService.getAll(page, pagesize,userFilter)){
-				if("admin".equals(user.getRole())){//check admin
-					continue;
-				}
 				user.setRole(roles.get(user.getRole()));
 				users.add(user);
 			}

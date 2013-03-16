@@ -57,8 +57,8 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         countriesFile = applicationContext.getResource("classpath:countries.xml").getFile();        
         surveyFile = applicationContext.getResource("classpath:survey.xml").getFile();
         
-        checkAndInsertAdmin();
-        checkAndInsertCountries();        
+        checkAndInsertCountries(); 
+        checkAndInsertAdmin();               
         checkAndInsertSurvey();
     }
 
@@ -97,9 +97,10 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         CountryList list = JAXB.unmarshal(countriesFile, CountryList.class);
         LOGGER.info("Persisting " + list.getCountries().size() + " country users");
         for (Country country : list) {
+        	Country pcountry = countryDAO.find(country.getId());
             User user = new User();
             user.setName("User " + country.getName());
-            user.setCountries(country.getIso3());
+            user.getCountriesSet().add(pcountry);
             user.setUsername(country.getIso3());
             user.setNewPassword(Long.toString(country.getId()));
             user.setRole("contributor");
