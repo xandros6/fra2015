@@ -60,7 +60,7 @@ fra = {
 	            	placeholder=hidden;
 	            }
 	            
-	            if(numericVariablelist.indexOf(name)>=0 ) {cell.addClass('number');}
+	            if(fra.isNumeric(name) ) {cell.addClass('number');}
 		        
 				if(cell.hasClass('number')){type='input';}
 	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
@@ -98,8 +98,33 @@ fra = {
 	             });
 	        }
 	        return false;
+	    },
+	    
+	    isNumeric: function (name){
+	    	var myRegexp = /_fraVariable_([^_]*)_([^_]*)_([^_]*)_/;
+			var match = myRegexp.exec(name);
+			var varname = match[1];
+			var row = match[2];
+			var col = match[3];
+			if(allnumericVariables.indexOf(varname)>=0 ) return true;
+			switch(varname){
+			case "3b":
+				return parseInt(col)>3;
+			case "4b":
+				return col =="3";
+			case "7":
+				return col =="2" || col =="1";
+			case "8b":
+				return col=="3";
+			case "20":
+				return col=="1" && row=="1"
+			}
+			
 	    }
-}							
+}
+//not all numerics are 3b,33 (not a variable,only first column) 4b_x_3,7_X_1_,7_X_2,8b_x_3,_fraVariable_20_1_1_
+var allnumericVariables = ["1a","1b","2a","2b","2c","3a","3c","3d","3e","4a","5a","5b","6","8a","9","14a","16","17","18a","18b","19","21a","21b"]
+/* some numeric values from summary
 var numericVariablelist = ["_fraVariable_1a_2_1_",
                            "_fraVariable_1a_2_2_",
                            "_fraVariable_1a_2_3_",
@@ -599,3 +624,4 @@ var numericVariablelist = ["_fraVariable_1a_2_1_",
                            "_fraVariable_21a_2_2_",
                            "_fraVariable_21b_2_1_",
         ];
+        */

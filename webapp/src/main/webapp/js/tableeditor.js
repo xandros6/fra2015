@@ -1,7 +1,7 @@
 $(function() {
 
 	// editable tables
-	$('td.editable.text').click(fra.editRow);
+	$('td.editable.text,td.editable.number').click(fra.editRow);
 	// Delete buttons inizialization
 	$('.btn.delete-btn').click(fra.deleteRow);
 
