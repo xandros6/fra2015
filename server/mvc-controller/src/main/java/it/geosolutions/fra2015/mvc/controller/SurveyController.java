@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.user.User;
 
@@ -47,6 +48,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import static  it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.TEXT_STATIC_TABLE;
 /**
  * @author DamianoG
  * 
@@ -61,8 +63,8 @@ public class SurveyController{
     @Autowired
     private BasicConcurrencyHandler concurencyHandler;
     
-    Logger LOGGER = Logger.getLogger(SurveyController.class);
-
+    private final Logger LOGGER = Logger.getLogger(SurveyController.class);
+    
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.GET)
     public String handleGet(@PathVariable(value = "question") String question, Model model,
             HttpSession session) {
@@ -207,7 +209,7 @@ public class SurveyController{
      * @param newValues
      * @return
      */
-    private static Updates getValuesToDelete(List<CompactValue> oldValues, Map<String, Update> newValues, String country){
+    private Updates getValuesToDelete(List<CompactValue> oldValues, Map<String, Update> newValues, String country){
         
         List<Update> deleteList = new ArrayList<Update>();
         
@@ -240,9 +242,18 @@ public class SurveyController{
      * @param newValues
      * @return
      */
-    private static boolean checkIfTheValueMustBeRemoved(String valueToCheck, Map<String, Update> newValues){
+    private boolean checkIfTheValueMustBeRemoved(String valueToCheck, Map<String, Update> newValues){
+        
+        //Check if the Value Entry type is equals to fixed_table 
+        VariableName var = VariableNameUtils.buildVariable(valueToCheck, "placeholder value");
+        String type = utils.getEntryType(var.variableName);
+        if(!StringUtils.isBlank(type) && type.equals(TEXT_STATIC_TABLE)){
+            //Fixed table don't submit not changed value so return false;
+            return false;
+        }
         
         Update val = newValues.get(valueToCheck);
+        
         if(val == null){
             
             return true;

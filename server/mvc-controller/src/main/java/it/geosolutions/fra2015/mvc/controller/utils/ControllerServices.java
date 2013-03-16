@@ -68,6 +68,11 @@ public class ControllerServices {
     @Autowired
     private BulkModelEntitiesLoader bulkLoader;
 
+    public static final String TEXT_STATIC_TABLE = "static_table";
+    
+    public static final String TEXT_DYN_TABLE = "table";
+
+    
     public enum Profile {
         CONTRIBUTOR, REIVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
     }
@@ -111,7 +116,7 @@ public class ControllerServices {
         
         // Init the row counters for this request
         for (Entry el : questionCatalog) {
-            if (StringUtils.equalsIgnoreCase("table", el.getType())) {
+            if (StringUtils.equalsIgnoreCase(TEXT_DYN_TABLE, el.getType())) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);
             }
         }
@@ -119,7 +124,7 @@ public class ControllerServices {
         for (CompactValue el : values.getValues()) {
             // Hack for handle dynamicTables: the jsp must know how many row are present.
             // so count them for each table and put it in the model
-            if (catalog.getEntry(el.getVariable()).getType().equals("table")) {
+            if (catalog.getEntry(el.getVariable()).getType().equals(TEXT_DYN_TABLE)) {
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"
                         + el.getVariable());
                 Integer newRowCounter = (el.getRowNumber() > oldRowCounter) ? el
@@ -181,7 +186,7 @@ public class ControllerServices {
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
         List<Entry> questionCatalog = catalog.getCatalogForQuestion(null);
         for (Entry el : questionCatalog) {
-            if (el != null && el.getType().equalsIgnoreCase("table")) {
+            if (el != null && el.getType().equalsIgnoreCase(TEXT_DYN_TABLE)) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);
             }
         }
@@ -195,7 +200,7 @@ public class ControllerServices {
         for (CompactValue el : values.getValues()) {
             // Hack for handle dynamicTables: the jsp must know how many row are present.
             // so count them for each table and put it in the model
-            if (catalog.getEntry(el.getVariable()).getType().equals("table")) {
+            if (catalog.getEntry(el.getVariable()).getType().equals(TEXT_DYN_TABLE)) {
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"
                         + el.getVariable());
                 Integer newRowCounter = (el.getRowNumber() >= 4 && el.getRowNumber() > oldRowCounter) ? el
@@ -225,6 +230,16 @@ public class ControllerServices {
 
         surveyService.updateValues(updates);
         surveyService.removeValues(removes);
+    }
+    
+    public String getEntryType(String varName){
+        
+        Entry e = catalog.getEntry(varName);
+        if(e !=null){
+            
+            return e.getType();
+        }
+        return null;
     }
 
 }
