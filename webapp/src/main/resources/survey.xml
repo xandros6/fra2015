@@ -255,7 +255,7 @@
 							<variable>8x</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>1a</variable>
 							<EntryItems>
 								<entryItem>
@@ -471,7 +471,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>1b</variable>
 							<EntryItems>
 								<entryItem>
@@ -977,7 +977,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>11x</variable>
 							<EntryItems>
 								<entryItem>
@@ -1073,7 +1073,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>12x</variable>
 							<EntryItems>
 								<entryItem>
@@ -1084,7 +1084,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>13x</variable>
 							<EntryItems>
 								<entryItem>
@@ -1262,7 +1262,7 @@
 							<variable>20x</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>2a</variable>
 							<EntryItems>
 								<entryItem>
@@ -1478,7 +1478,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>2b</variable>
 							<EntryItems>
 								<entryItem>
@@ -1519,7 +1519,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>2c</variable>
 							<EntryItems>
 								<entryItem>
@@ -1605,7 +1605,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>23x</variable>
 							<EntryItems>
 								<entryItem>
@@ -1651,7 +1651,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>24x</variable>
 							<EntryItems>
 								<entryItem>
@@ -1819,7 +1819,7 @@
 							<variable>31</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>3a</variable>
 							<EntryItems>
 								<entryItem>
@@ -2245,7 +2245,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>3b</variable>
 							<EntryItems>
 								<entryItem>
@@ -2581,7 +2581,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>33</variable>
 							<EntryItems>
 								<entryItem>
@@ -2627,7 +2627,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>3c</variable>
 							<EntryItems>
 								<entryItem>
@@ -2738,7 +2738,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>3d</variable>
 							<EntryItems>
 								<entryItem>
@@ -2954,7 +2954,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>3e</variable>
 							<EntryItems>
 								<entryItem>
@@ -3440,7 +3440,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>37</variable>
 							<EntryItems>
 								<entryItem>
@@ -3566,7 +3566,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>38</variable>
 							<EntryItems>
 								<entryItem>
@@ -3734,7 +3734,7 @@
 							<variable>45</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>4a</variable>
 							<EntryItems>
 								<entryItem>
@@ -3845,7 +3845,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>4b</variable>
 							<EntryItems>
 								<entryItem>
@@ -4051,7 +4051,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>46</variable>
 							<EntryItems>
 								<entryItem>
@@ -4077,7 +4077,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>50</variable>
 							<EntryItems>
 								<entryItem>
@@ -4123,7 +4123,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>51</variable>
 							<EntryItems>
 								<entryItem>
@@ -4291,7 +4291,7 @@
 							<variable>58</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>5a</variable>
 							<EntryItems>
 								<entryItem>
@@ -4542,7 +4542,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>59</variable>
 							<EntryItems>
 								<entryItem>
@@ -4553,7 +4553,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>5b</variable>
 							<EntryItems>
 								<entryItem>
@@ -4744,7 +4744,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>62</variable>
 							<EntryItems>
 								<entryItem>
@@ -4870,7 +4870,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>63</variable>
 							<EntryItems>
 								<entryItem>
@@ -5038,7 +5038,7 @@
 							<variable>70</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>6</variable>
 							<EntryItems>
 								<entryItem>
@@ -5124,7 +5124,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>73</variable>
 							<EntryItems>
 								<entryItem>
@@ -5150,7 +5150,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>74</variable>
 							<EntryItems>
 								<entryItem>
@@ -5487,7 +5487,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>85</variable>
 							<EntryItems>
 								<entryItem>
@@ -5503,7 +5503,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>86</variable>
 							<EntryItems>
 								<entryItem>
@@ -5671,7 +5671,7 @@
 							<variable>93</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>8a</variable>
 							<EntryItems>
 								<entryItem>
@@ -5958,7 +5958,7 @@
 						</entry>
 						<entry>
 							<type>table</type>
-							<variable>8b</variable>
+							<variable>static_8b</variable>
 							<EntryItems>
 								<entryItem>
 									<rowNumber>1</rowNumber>
@@ -6178,7 +6178,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>97</variable>
 							<EntryItems>
 								<entryItem>
@@ -6224,7 +6224,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>98</variable>
 							<EntryItems>
 								<entryItem>
@@ -6241,7 +6241,7 @@
 					<title>ref371</title>
 					<entries>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>99</variable>
 							<EntryItems />
 						</entry>
@@ -6544,7 +6544,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>105</variable>
 							<EntryItems>
 								<entryItem>
@@ -6634,7 +6634,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>108</variable>
 							<EntryItems>
 								<entryItem>
@@ -6802,7 +6802,7 @@
 							<variable>115</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>12</variable>
 							<EntryItems>
 								<entryItem>
@@ -6830,7 +6830,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>118</variable>
 							<EntryItems>
 								<entryItem>
@@ -6969,7 +6969,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>13a</variable>
 							<EntryItems>
 								<entryItem>
@@ -7137,7 +7137,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>122</variable>
 							<EntryItems>
 								<entryItem>
@@ -7148,7 +7148,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>123</variable>
 							<EntryItems>
 								<entryItem>
@@ -7261,7 +7261,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>14</variable>
 							<EntryItems>
 								<entryItem>
@@ -7309,7 +7309,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>14c</variable>
 							<EntryItems>
 								<entryItem>
@@ -7331,7 +7331,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>128</variable>
 							<EntryItems>
 								<entryItem>
@@ -7412,7 +7412,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>133</variable>
 							<EntryItems>
 								<entryItem>
@@ -7459,7 +7459,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>16</variable>
 							<EntryItems>
 								<entryItem>
@@ -7541,7 +7541,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>137</variable>
 							<EntryItems>
 								<entryItem>
@@ -7634,7 +7634,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>17</variable>
 							<EntryItems>
 								<entryItem>
@@ -7682,7 +7682,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>140</variable>
 							<EntryItems>
 								<entryItem>
@@ -7703,7 +7703,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>141</variable>
 							<EntryItems>
 								<entryItem>
@@ -7876,7 +7876,7 @@
 							<variable>148</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>18a</variable>
 							<EntryItems>
 								<entryItem>
@@ -8116,7 +8116,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>18b</variable>
 							<EntryItems>
 								<entryItem>
@@ -8267,7 +8267,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>152</variable>
 							<EntryItems>
 								<entryItem>
@@ -8313,7 +8313,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>153</variable>
 							<EntryItems>
 								<entryItem>
@@ -8398,7 +8398,7 @@
 							<variable>157</variable>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>19</variable>
 							<EntryItems>
 								<entryItem>
@@ -8460,7 +8460,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>158</variable>
 							<EntryItems>
 								<entryItem>
@@ -8476,7 +8476,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>159</variable>
 							<EntryItems>
 								<entryItem>
@@ -8498,7 +8498,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>20</variable>
 							<EntryItems>
 								<entryItem>
@@ -8522,7 +8522,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>161</variable>
 							<EntryItems>
 								<entryItem>
@@ -8549,7 +8549,7 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>163</variable>
 							<EntryItems>
 								<entryItem>
@@ -8575,7 +8575,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>21a</variable>
 							<EntryItems>
 								<entryItem>
@@ -8595,7 +8595,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>21b</variable>
 							<EntryItems>
 								<entryItem>
@@ -8608,7 +8608,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
+							<type>static_table</type>
 							<variable>164</variable>
 							<EntryItems>
 								<entryItem>
