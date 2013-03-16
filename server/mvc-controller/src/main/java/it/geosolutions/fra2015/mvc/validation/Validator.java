@@ -233,13 +233,20 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
             try {
                 boolean success = rule.evaluate(new HashMap<String,String>(), externals,singleValues);
+                m.setRule(rule);
+                m.setSuccess(success);
+                m.setMessage(rule.getError());
+                if (!success) {
+                    m.addElements(Arrays.asList(rule.getEntryId().split(",")));
+                    m.setSuccess(false);
+                }
             } catch (ScriptException e) {
-                m =generateParseProblemMessage( rule);
+                m =generateParseProblemMessage(rule);
                 
                 
 
             } catch (NullPointerException e) {
-                m =generateParseProblemMessage( rule);
+                m =generateParseProblemMessage(rule);
                 
                 
             }
@@ -338,7 +345,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
     private String getValue (List<Value> values, String row, String column ){
         for(Value v: values){
             EntryItem i = v.getEntryItem();
-            if(column.equals(i.getRowName()) && row.equals(i.getColumnName()) ){
+            if(column.equals(i.getColumnName() ) && row.equals(i.getRowName()) ){
                 return v.getContent();
             }
         }
