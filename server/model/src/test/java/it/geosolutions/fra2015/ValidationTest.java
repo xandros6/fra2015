@@ -110,6 +110,7 @@ public class ValidationTest {
             } 
 	}
 	
+	
 	private void initItems(List<EntryItem> entryitemlist) {
 		for (int i = 0; i < 100; i++) {
 			EntryItem ei = new EntryItem();
