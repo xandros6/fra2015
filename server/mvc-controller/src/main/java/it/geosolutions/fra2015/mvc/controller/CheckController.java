@@ -21,14 +21,10 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.validation.Validator;
-import it.geosolutions.fra2015.server.model.survey.Status;
-import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyService;
-import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
-import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.validation.ValidationResult;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +51,7 @@ public class CheckController {
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model,HttpSession session) {
     		model.addAttribute("context", "check");
-    		User su = (User) session.getAttribute("sessionUser");
+    		User su = (User) session.getAttribute(SESSION_USER);
     		if(su==null){
     			return "redirect:/";
     		}
@@ -77,7 +73,7 @@ public class CheckController {
             model.addAttribute("messageCode","alert.notavailableservice");
             
     		/*
-    		User su = (User) session.getAttribute("sessionUser");
+    		User su = (User) session.getAttribute(SESSION_USER);
     		Status status = new Status();
     		status.setMessage((String) request.getAttribute("submitmessage"));
     		status.setCountry(su.getCountries());

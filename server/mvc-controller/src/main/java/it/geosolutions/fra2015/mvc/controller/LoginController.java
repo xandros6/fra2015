@@ -43,6 +43,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+
 @Controller
 public class LoginController {
 
@@ -74,7 +76,7 @@ public class LoginController {
             return "login";
         }
         // Store the User in session
-        session.setAttribute("sessionUser", storedUser);
+        session.setAttribute(SESSION_USER, storedUser);
         
         return "redirect:/";
     }
@@ -100,46 +102,5 @@ public class LoginController {
         return "login";
 
     }
-
-//     @Autowired
-//     @Qualifier("userService")
-//     private UserService userService;
-//    
-//     @RequestMapping(method = RequestMethod.GET)
-//     public String showForm(Map<String,User> model) {
-//    
-//     // model.put("user", user);
-//    
-//     return "login";
-//     }
-//    
-//     @RequestMapping(method = RequestMethod.POST)
-//     public String processForm(@ModelAttribute("login") User user,BindingResult result,
-//     Map model, HttpSession session) {
-//    
-//     User storedUser = null;
-//    
-//     try {
-//     storedUser = userService.get("User Algeria");
-//     } catch (NotFoundServiceEx e) {
-//     // TODO Auto-generated catch block
-//     LOGGER.error(e.getMessage(), e);
-//     }
-//    
-//     SessionUser us = new SessionUser();
-//     us.setCountry(storedUser.getCountries());
-//     session.setAttribute("sessionUser", us);
-//    
-//     if (result.hasErrors()) {
-//     return "login";
-//     }
-//     user = (User) model.get("user");
-//    
-//     // check usr
-//    
-//     //model.put("loginForm", loginForm);
-//    
-//     return "redirect:survey/0";
-//     }
 
 }

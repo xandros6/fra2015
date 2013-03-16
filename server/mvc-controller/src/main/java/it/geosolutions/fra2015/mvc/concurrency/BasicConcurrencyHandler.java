@@ -21,6 +21,7 @@
  */
 package it.geosolutions.fra2015.mvc.concurrency;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
@@ -56,7 +57,7 @@ public class BasicConcurrencyHandler {
         
         String countryrevision = ConcurrencyKeys.COUNTRY_REVISION.toString();
         
-        User usr = (User)session.getAttribute("sessionUser");
+        User usr = (User)session.getAttribute(SESSION_USER);
         String country = usr.getCountries();
         
         session.removeAttribute(countryrevision);

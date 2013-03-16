@@ -24,7 +24,6 @@ package it.geosolutions.fra2015.mvc.controller.utils;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
-import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
@@ -71,6 +70,10 @@ public class ControllerServices {
     public static final String TEXT_STATIC_TABLE = "static_table";
     
     public static final String TEXT_DYN_TABLE = "table";
+
+    public static final String SESSION_USER = "sessionUser";
+    
+    private final static String FEEDBACK = "_feedback_";
 
     
     public enum Profile {

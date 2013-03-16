@@ -21,6 +21,7 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -28,6 +29,7 @@ import java.util.Set;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,9 +38,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
+
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 
 /**
  * @author DamianoG
@@ -53,6 +60,7 @@ public class ReviewController {
     Logger LOGGER = Logger.getLogger(ReviewController.class);
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
+
     public String handleGet(
     		@PathVariable(value = "country") String country, 
     		@PathVariable(value = "question") Long question, Model model,
@@ -90,6 +98,7 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
+
     public String handlePost(HttpServletRequest request,
             @PathVariable(value = "country") String country,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
