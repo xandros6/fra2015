@@ -52,7 +52,7 @@ public class SurveyListController {
 
 		User su = (User) session.getAttribute("sessionUser");
 		if (su==null)return "redirect:login";
-		String[] countries = su.getCountries().split(", ");
+		String[] countries = su.getCountries().split(",");
 		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
 		model.addAttribute("surveys",surveys);
 		
