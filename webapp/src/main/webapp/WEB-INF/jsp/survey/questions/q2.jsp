@@ -435,6 +435,7 @@
 							<td class="total" rownumber="10" columnnumber="2"></td>
 							<td class="total" rownumber="10" columnnumber="3"></td>
 							<td class="total" rownumber="10" columnnumber="4"></td>
+							<td class="total" rownumber="10" columnnumber="5"></td>
 						</tr>
 					</tbody>
 				</table>
