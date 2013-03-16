@@ -54,8 +54,12 @@ public class SurveyListController {
 		if (su==null)return "redirect:login";
 		String[] countries = su.getCountries().split(",");
 		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
+		//quick trick, because there is no filtering here 
+		model.addAttribute("prev",page >0);
+		boolean next = utils.retriveSurveyListByCountries(countries, page+1, 10).size()>0;
+		model.addAttribute("next",next);
 		model.addAttribute("surveys",surveys);
-		
+		model.addAttribute("page",page);
 		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
 		return "reviewer";
 
