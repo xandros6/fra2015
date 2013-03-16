@@ -21,6 +21,8 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.TEXT_STATIC_TABLE;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
@@ -48,7 +50,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import static  it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.TEXT_STATIC_TABLE;
 /**
  * @author DamianoG
  * 
@@ -84,7 +85,7 @@ public class SurveyController{
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
         
-        User su = (User) session.getAttribute("sessionUser");
+        User su = (User) session.getAttribute(SESSION_USER);
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
@@ -112,7 +113,7 @@ public class SurveyController{
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
 
-        User su = (User) session.getAttribute("sessionUser");
+        User su = (User) session.getAttribute(SESSION_USER);
 
         // Retrieve the stored value in order to compare them with the new submitted values
         CountryValues es = utils.retrieveValues(question, su.getCountries());

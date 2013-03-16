@@ -21,12 +21,12 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,7 +40,7 @@ public class LandingPageController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(HttpSession session) {
-    		User user= (User) session.getAttribute("sessionUser");
+    		User user= (User) session.getAttribute(SESSION_USER);
     		if(user == null){
     			return "redirect:login";
     			

@@ -21,8 +21,12 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import java.util.Map;
+
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,9 +35,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
+
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 
 /**
  * @author DamianoG
@@ -42,61 +51,67 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ReviewController {
 
-	@Autowired
-	private ControllerServices utils;
+    @Autowired
+    private ControllerServices utils;
 
-	Logger LOGGER = Logger.getLogger(ReviewController.class);
+//     @Autowired
+//     private FeedbackService feedbackService;
 
-	@RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
-    public String handleGet(
-    		@PathVariable(value = "country") String country, 
-    		@PathVariable(value = "question") String question, Model model,
-            HttpSession session) {
+    Logger LOGGER = Logger.getLogger(ReviewController.class);
 
-        try{
+    @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
+    public String handleGet(@PathVariable(value = "country") String country,
+            @PathVariable(value = "question") String question, Model model, HttpSession session) {
+
+        try {
             Integer.parseInt(question);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             model.addAttribute("context", "survey");
             model.addAttribute("question", 0);
             session.invalidate();
             return "redirect:/login";
         }
-        
+
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
-        //TODO validate country
-        User su = (User) session.getAttribute("sessionUser");
-        //TODO check access to provide accessible questions for menu and allow to 
+        // TODO validate country
+        User su = (User) session.getAttribute(SESSION_USER);
+        // TODO check access to provide accessible questions for menu and allow to
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
-        
+
         return "reviewer";
 
     }
 
-	@RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
-	public String handlePost(HttpServletRequest request,
-			@PathVariable(value = "country") String country,
-			@PathVariable(value = "question") String question,
-			HttpSession session, Model model) {
-		model.addAttribute("question", question);
+    @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
+    public String handlePost(@PathVariable(value = "country") String country,
+            @PathVariable(value = "question") String question, Model model, HttpServletRequest request, HttpSession session) {
+
+        model.addAttribute("question", question);
         model.addAttribute("context", "survey");
-        //TODO validate country
-        User su = (User) session.getAttribute("sessionUser");
-        //TODO check access to provide accessible questions for menu and allow to 
+        // TODO validate country
+        // User su = (User) session.getAttribute(SESSION_USER);
+
+        Map<String, String> m = request.getParameterMap();
+        
+        Feedback feedback = new Feedback();
+//        feedback.setFeedback(feedback);
+//        feedbackService.storeFeedback(feedback);
+
+        // TODO check access to provide accessible questions for menu and allow to
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
-        
-        //TODO save feedbacks
-        model.addAttribute("messageType","warning");
-        //model.addAttribute("messageType","alert");// red background
-        model.addAttribute("messageCode","alert.savefaliure");
-        
-        model.addAttribute("messageTimeout",5000);
-		return "reviewer";
 
-	}
+        // TODO save feedbacks
+        model.addAttribute("messageType", "warning");
+        // model.addAttribute("messageType","alert");// red background
+        model.addAttribute("messageCode", "alert.savefaliure");
+
+        model.addAttribute("messageTimeout", 5000);
+        return "reviewer";
+
+    }
 }
