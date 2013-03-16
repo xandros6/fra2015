@@ -1,9 +1,173 @@
 /*
  * USER WINDOW
  */
-function saveUser(){
+
+var countryDeleteHandelr = function(id,el) {
+	el.find('#countriesTable tr#tr_'+id).remove();
+	var countries = el.find('#ccountries').val();
+	var countriesArr = countries.split(',');
+	countriesArr.splice( countriesArr.indexOf(''+id), 1 );
+	el.find('#ccountries').val(countriesArr.join(","));
+	if(countriesArr.length == 0){
+		enableCountry(el);
+	}
+}
+
+var enableCountry = function(el){
+	var addCountryBtn = el.find('#addCountryBtn');
+	var countriesField = el.find('#countries');
+	addCountryBtn.on('click');
+	addCountryBtn.click(function() {
+		addCountryHandler(el);
+	});
+	addCountryBtn.removeClass('disabled');
+	countriesField.removeAttr('disabled');
+}
+
+var createCountryRow = function(id,name,iso3,el) {
+	var row = '<tr id=tr_'+id+'><td style="width: 10px;"><button class="btn btn-mini btn-danger" type="button">x</button></td><td>'+name+'</td><td style="width: 50px;">'+iso3+'</td></tr>'
+	el.find('#countriesTable > tbody:last').append(row);
+	el.find('#countriesTable tr#tr_'+id).find('button').click(function() {
+		countryDeleteHandelr(id,el);
+	});
+	return row;
+}
+
+var addCountryHandler = function(el) {
+	var countriesField = el.find('#countries');
+	var countriesString = el.find('#ccountries');
+	var countriesBlock = el.find('#selectedCountries');
+	var roleComboBox = el.find('#roleComboBox');
+	var addCountryBtn = el.find('#addCountryBtn');
+	var value = countriesField.val();
+	var selectedCountry = $.grep(countriesArr, function(e){ return e.name == value; })[0];
+	countriesField.val('');
+	if (!selectedCountry || countriesString.val().indexOf(selectedCountry.id) !== -1) {
+		// country already in list
+		// ignore
+		return false;
+	}
+	createCountryRow(selectedCountry.id,selectedCountry.name,selectedCountry.iso3,el);
+	// check if this country is already selected
+	var countries = countriesString.val();	
+	if (countries.length > 0) {
+		countries += ',' + selectedCountry.id;
+	} else {
+		countries = selectedCountry.id;
+	}
+	countriesString.val(countries);
+	var role = roleComboBox.val();
+	if (role !== 'reviewer' && role !== 'editor') {
+		addCountryBtn.off('click');
+		addCountryBtn.addClass('disabled');
+		countriesField.attr('disabled', 'disabled');
+	}
+	return false;
+
+};
+
+function changeRole(el){
+	var roleComboBox = el.find('#roleComboBox');
+	var countriesString = el.find('#ccountries');
+	var countriesBlock = el.find('#selectedCountries');
+	var addCountryBtn = el.find('#addCountryBtn');
+	var countriesField = el.find('#countries');
+	var questionsBlock =  el.find('#questions');
+	countriesField.val("");
+	countriesString.val("");
+	el.find('#countriesTable > tbody:last').empty();
+	var role = roleComboBox.val();
+	var countries = countriesString.val();
+	if (role != 'reviewer' && role != 'editor' && countries) {
+		addCountryBtn.off('click');
+		addCountryBtn.addClass('disabled');
+		countriesField.attr('disabled', 'disabled');
+	}else{
+		enableCountry(el);
+	}
+	if (role == 'reviewer') {
+		questionsBlock.attr('class', 'show');
+	} else {
+		questionsBlock.attr('class', 'hide');
+	}
+	if(role == ''){
+		addCountryBtn.off('click');
+		addCountryBtn.addClass('disabled');
+		countriesField.attr('disabled', 'disabled');
+	}
+}	
+	
+function initEditUserWindow(el){
+	initShowAll(el);
+	initCountrySelector(el);
+	var roleComboBox = el.find('#roleComboBox');
+	var usernameField = el.find('#cusername');
+	var addCountryBtn = el.find('#addCountryBtn');
+	var countriesField = el.find('#countries');
+	var questionsBlock =  el.find('#questions');
+	usernameField.attr('disabled', 'true');
+	roleComboBox.attr('disabled', 'true');
+	var role = roleComboBox.val();
+	if (role != 'reviewer' && role != 'editor') {
+		addCountryBtn.off('click');
+		addCountryBtn.addClass('disabled');
+		countriesField.attr('disabled', 'disabled');
+	}else{
+		addCountryBtn.on('click');
+		addCountryBtn.click(function() {
+			addCountryHandler(el);
+		});
+		addCountryBtn.removeClass('disabled');
+		countriesField.removeAttr('disabled');
+	}
+	if (role == 'reviewer') {
+		questionsBlock.attr('class', 'show');
+	} else {
+		questionsBlock.attr('class', 'hide');
+	}
+	
+	el.find('#countriesTable').find("tr").each(function() {
+		  var id = $(this).attr('id').replace("tr_","");
+		  $(this).find('button').click(function() {
+				countryDeleteHandelr(id,el);
+		  });
+	});
+}
+
+function initCreateUserWindow(el){
+	initShowAll(el);
+	initCountrySelector(el);
+	var roleComboBox = el.find('#roleComboBox');
+	roleComboBox.change(function() {
+		changeRole(el);
+	});
+}
+
+function initShowAll(el){
+	/*
+	el.find('#showAll').click(function(){
+	        //add something to ensure the menu will be shown
+		el.find('#countries').val(' ');
+		el.find('#countries').typeahead('lookup');	
+	});
+	*/
+}
+
+function initCountrySelector(el){
+	el.find('#countries').typeahead({
+	    source: function (query, process) {
+	    	var result  = [];	 
+	        $.each(countriesArr, function (i, country) {
+	        	result.push(country.name);
+	        });
+	        process(result);
+	    }
+	});
+}
+
+function saveUser(el){
 	var cquestions = "";
-	$(".questionCheck").each(function( index ) {
+	el.find(".questionCheck").each(function( index ) {
 		if($(this).is(':checked')){
 			if(cquestions == ""){
 				cquestions = $(this).attr('id');
@@ -12,11 +176,11 @@ function saveUser(){
 			}
 		}
 	});
-	$("#questionsStr").val(cquestions);
+	el.find("#questionsStr").val(cquestions);
 	
-	$("#createUserForm").validate({ignore: ""});
+	el.find("#createUserForm").validate({ignore: ""});
 
-	$('#createUserForm').submit();
+	el.find('#createUserForm').submit();
 }
 
 $(function(){
@@ -28,14 +192,29 @@ $(function(){
 		$(this).data('modal').$element.removeData();
 	});	
 
-	$('#saveBtn').on('click', saveUser);
+	$('#saveBtn').on('click', function(){
+		var el = $('#createUserWindow');
+		saveUser(el);
+	});
 	
-	$('#updateBtn').on('click', saveUser);
+	$('#updateBtn').on('click', function(){
+		var el = $('#editUserWindow');
+		saveUser(el);
+	});
 
 	$('#filterBtn').on('click', function() {
 		$('#filterUserForm').submit();
 	});
 	
+	$('#createUserWindow').on('loaded',function() {
+		var el = $('#createUserWindow');
+		initCreateUserWindow(el);
+	});
+	
+	$('#editUserWindow').on('loaded',function() {
+		var el = $('#editUserWindow');
+		initEditUserWindow(el);
+	});
 
 	$('#deleteBtn').on('click', function() {
 		var userId = $('#deleteWarningWindow').data('modal').options.userid;

@@ -13,9 +13,12 @@
     <mapping class="it.geosolutions.fra2015.server.model.survey.EntryItem"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.NumberValue"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.TextValue"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.Value"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.Status"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.Country"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.Question"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.QuestionRevision"/>
+    <mapping class="it.geosolutions.fra2015.server.model.survey.SurveyInstance"/>
     <mapping class="it.geosolutions.fra2015.server.model.survey.ActivityLogEntry"/>
   </session-factory>
 </hibernate-configuration>

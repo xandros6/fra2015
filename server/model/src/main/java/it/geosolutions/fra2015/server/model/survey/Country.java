@@ -11,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -19,7 +20,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author marco
  */
 @Entity(name = "Country")
-@Table(name = "fra_country" )
+@Table(name = "fra_country" ,
+    uniqueConstraints=@UniqueConstraint(columnNames={"iso3","name"})
+        
+)
 @XmlRootElement(name = "country")
 public class Country implements Serializable {
 
@@ -31,10 +35,10 @@ public class Country implements Serializable {
     @Id
     private Long id;
     
-    @Column(unique=true, length=3, nullable=false)
+    @Column(name="iso3", length=3, nullable=false)
     private String iso3;
     
-    @Column(name = "name",unique=true, nullable=false)
+    @Column(name = "name", nullable=false)
     private String name;
 
     @Column(name = "ctype", nullable=false)

@@ -1,6 +1,5 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
-<form:form class="cmxform" id="createUserForm" method="post"
-	action="${pageContext.request.contextPath}/users/save/${page}">
+<form:form class="cmxform" id="createUserForm" method="post" action="${pageContext.request.contextPath}/users/save/${page}">
 	<div class="container-fluid">
 		<div class="row-fluid custom">
 			<div class="inner-fluid clearfix">
@@ -31,55 +30,45 @@
 						</p>
 						<p>
 							<form:label path="role" class="control-label inline" for="roleComboBox">Role</form:label> <label class="error inline" for="roleComboBox" generated="true"/>
-							<form:select path="role" id="roleComboBox" name="role"
-								class="required input-block-level">
+							<form:select path="role" id="roleComboBox" name="role" class="required input-block-level">
 								<form:options items="${roles}" />
 							</form:select>
 						</p>
 					</fieldset>
 				</div>
 				<div class="span6">
-
-						<label class="control-label inline" for="countryComboBox">Countries:</label> <label class="error inline" for="ccountries" generated="true"/>
-						<div class="input-append">
-							<input id="countries" style="margin: 0 auto;" type="text"
-								disabled="disabled" data-provide="typeahead" autocomplete="off"
-								data-source='[${countriesIso3}]' /> 
+						<label class="control-label inline" for="countryComboBox">Countries:</label> <label class="error inline" for="ccountries" generated="true"></label>						
+						<div class="input-append">           
+              <input id="countries" style="margin: 0 auto;" type="text" disabled="disabled" autocomplete="off" />               
+              <!-- 
+              <a id="showAll" class="btn dropdown-toggle" href="#"" data-toggle="dropdown">
+							 <span class="caret"></span>
+							</a>
+							 -->
 							<a id="addCountryBtn" href="#" class="btn disabled">Add</a>
 						</div>
-						<form:input path="countries" name="countries" type="hidden" id="ccountries" class="required"/>
+						<form:input path="selCountries" name="selCountries" type="hidden" id="ccountries" class="required"/>
 			
 					<p id="selectedCountries">
-					<!-- 
-					<div style="height: 60px; overflow: auto">
-						<table
-							class="table table-hover table-condensed table-striped table-noborder">
-							<tr>
-								<td><button class="btn btn-mini btn-danger" type="button">x</button></td>
-								<td>DZA</td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-mini btn-danger" type="button">x</button></td>
-								<td>DZA</td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-mini btn-danger" type="button">x</button></td>
-								<td>DZA</td>
-							</tr>
-						</table>
+					 
+					<div style="height: 100px; overflow: auto; border: 1px solid #DDDDDD;">
+						<table id="countriesTable" class="table table-hover table-striped table-noborder table-condensed">
+                <tbody>
+                  <c:forEach items='${command.countriesSet}' var='country' varStatus='rowItem'>
+                    <tr id='tr_${country.id}'><td style="width: 10px;"><button class="btn btn-mini btn-danger" type="button">x</button></td><td>${country.name}</td><td style="width: 50px;">${country.iso3}</td></tr>
+                  </c:forEach>
+                </tbody>
+              </table>
 					</div>
-					 -->
-					<c:forTokens items='${command.countries}' delims=',' var='country'>
-						<span class="label label-info">${country}</span>
-					</c:forTokens>
+
 					</p>
 					<p>
 					<div id="questions" class="hide">
 						<label>Assigned questions:</label>
 						<form:input path="questionsStr" type="hidden" id="questionsStr" />
-						<div style="height: 190px; overflow: auto">
+						<div style="height: 150px; overflow: auto; border: 1px solid #DDDDDD;">
 							<table
-								class="table table-hover table-striped table-noborder table-condensed">
+								class="table table-hover table-striped table-noborder table-condensed ">
 								<tbody>
 									<c:forEach items='${questions}' var='question'
 										varStatus='rowItem'>
@@ -98,98 +87,3 @@
 		</div>
 	</div>
 </form:form>
-<script type="text/javascript">
-	var createCountryLabel = function(name) {
-		var label = $('<span class="label label-info"></span>');
-		label.append(name);
-		return label;
-	};
-	var addCountryHandler = function() {
-		var el = $('#createUserWindow');
-		var value = el.find("#countries").val();
-		el.find("#countries").empty();
-		el.find("#countries").val('');
-
-		// check if this country is already selected
-		var countries = el.find('#ccountries').val();
-
-		if (countries.indexOf(value) !== -1) {
-			// country already in list
-			// ignore
-			return false;
-		}
-
-		el.find("#selectedCountries").append(createCountryLabel(value)).append(
-				'&nbsp;&nbsp;');
-
-		if (countries.length > 0) {
-			countries += ', ' + value;
-		} else {
-			countries = value;
-		}
-		el.find('#ccountries').val(countries);
-
-		var role = el.find('#roleComboBox').val();
-		if (role !== 'reviewer' && role !== 'editor') {
-			el.find("#addCountryBtn").off('click');
-			el.find("#addCountryBtn").addClass('disabled');
-			$('#countries').attr('disabled', 'disabled');
-		}
-
-		return false;
-	};
-	function enableFunc() {
-		$('#ccountries').val("");
-		$("#selectedCountries").empty();
-		$('#addCountryBtn').on('click');
-		$('#addCountryBtn').click(addCountryHandler);
-		$('#addCountryBtn').removeClass('disabled');
-		$('#countries').removeAttr('disabled');
-		var role = $('#roleComboBox').val();
-		var countries = $('#ccountries').val();
-		if (role != 'reviewer' && role != 'editor' && countries) {
-			$('#addCountryBtn').off('click');
-			$('#addCountryBtn').addClass('disabled');
-			$('#countries').attr('disabled', 'disabled');
-		}
-		if (role == 'reviewer') {
-			$('#questions').attr('class', 'show');
-		} else {
-			$('#questions').attr('class', 'hide');
-		}
-		
-	  if(role == ''){
-	    $('#addCountryBtn').off('click');
-	    $('#addCountryBtn').addClass('disabled');
-	    $('#countries').attr('disabled', 'disabled');
-	  }
-
-	}
-	function initFunc() {
-		$('#addCountryBtn').click(addCountryHandler);
-		var id = $('#cid').val();
-		//If id is present user requires edit otherwise requires create new
-		if (id) {
-			$('#roleComboBox').off('click');
-			$('#roleComboBox').attr('disabled', 'disabled');
-			var role = $('#roleComboBox').val();
-			if (role != 'reviewer' && role != 'editor') {
-				$('#addCountryBtn').off('click');
-				$('#addCountryBtn').addClass('disabled');
-				$('#countries').attr('disabled', 'disabled');
-			}else{
-				$('#addCountryBtn').on('click');
-				$('#addCountryBtn').click(addCountryHandler);
-		    $('#addCountryBtn').removeClass('disabled');
-		    $('#countries').removeAttr('disabled');
-			}
-			if (role == 'reviewer') {
-				$('#questions').attr('class', 'show');
-			} else {
-				$('#questions').attr('class', 'hide');
-			}
-		}
-		$('#roleComboBox').change(enableFunc);
-	}
-	initFunc();
-</script>
