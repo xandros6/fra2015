@@ -993,7 +993,7 @@
 								<entryItem>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>2</rowNumber>
@@ -3851,12 +3851,12 @@
 								<entryItem>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>2</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>2</rowNumber>
@@ -3871,12 +3871,12 @@
 								<entryItem>
 									<rowNumber>3</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>3</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>3</rowNumber>
@@ -3891,12 +3891,12 @@
 								<entryItem>
 									<rowNumber>4</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>4</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>4</rowNumber>
@@ -3911,12 +3911,12 @@
 								<entryItem>
 									<rowNumber>5</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>5</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>5</rowNumber>
@@ -3931,12 +3931,12 @@
 								<entryItem>
 									<rowNumber>6</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>6</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>6</rowNumber>
@@ -3951,12 +3951,12 @@
 								<entryItem>
 									<rowNumber>7</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>7</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>7</rowNumber>
@@ -3971,12 +3971,12 @@
 								<entryItem>
 									<rowNumber>8</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>8</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>8</rowNumber>
@@ -3991,12 +3991,12 @@
 								<entryItem>
 									<rowNumber>9</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>9</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>9</rowNumber>
@@ -4011,12 +4011,12 @@
 								<entryItem>
 									<rowNumber>10</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>10</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>10</rowNumber>
@@ -4031,12 +4031,12 @@
 								<entryItem>
 									<rowNumber>11</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>11</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>11</rowNumber>
@@ -5318,8 +5318,8 @@
 							<variable>81</variable>
 						</entry>
 						<entry>
-							<type>table</type>
-							<variable>82</variable>
+							<type>static_table</type>
+							<variable>7</variable>
 							<EntryItems>
 								<entryItem>
 									<rowName>7.1</rowName>
@@ -5331,13 +5331,13 @@
 									<rowName>7.1</rowName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>7.1</rowName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>3</rowNumber>
@@ -5347,12 +5347,12 @@
 								<entryItem>
 									<rowNumber>3</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>3</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>4</rowNumber>
@@ -5362,12 +5362,12 @@
 								<entryItem>
 									<rowNumber>4</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>4</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>5</rowNumber>
@@ -5377,12 +5377,12 @@
 								<entryItem>
 									<rowNumber>5</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>5</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>6</rowNumber>
@@ -5392,12 +5392,12 @@
 								<entryItem>
 									<rowNumber>6</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>6</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>7</rowNumber>
@@ -5407,12 +5407,12 @@
 								<entryItem>
 									<rowNumber>7</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>7</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>8</rowNumber>
@@ -5422,12 +5422,12 @@
 								<entryItem>
 									<rowNumber>8</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>8</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>9</rowNumber>
@@ -5437,12 +5437,12 @@
 								<entryItem>
 									<rowNumber>9</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>9</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>10</rowNumber>
@@ -5452,12 +5452,12 @@
 								<entryItem>
 									<rowNumber>10</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>10</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>11</rowNumber>
@@ -5467,12 +5467,12 @@
 								<entryItem>
 									<rowNumber>11</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>11</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 							</EntryItems>
 						</entry>
@@ -5978,7 +5978,7 @@
 								<entryItem>
 									<rowNumber>1</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>2</rowNumber>
@@ -5998,7 +5998,7 @@
 								<entryItem>
 									<rowNumber>2</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>3</rowNumber>
@@ -6018,7 +6018,7 @@
 								<entryItem>
 									<rowNumber>3</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>4</rowNumber>
@@ -6038,7 +6038,7 @@
 								<entryItem>
 									<rowNumber>4</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>5</rowNumber>
@@ -6058,7 +6058,7 @@
 								<entryItem>
 									<rowNumber>5</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>6</rowNumber>
@@ -6078,7 +6078,7 @@
 								<entryItem>
 									<rowNumber>6</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>7</rowNumber>
@@ -6098,7 +6098,7 @@
 								<entryItem>
 									<rowNumber>7</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>8</rowNumber>
@@ -6118,7 +6118,7 @@
 								<entryItem>
 									<rowNumber>8</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>9</rowNumber>
@@ -6138,7 +6138,7 @@
 								<entryItem>
 									<rowNumber>9</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowNumber>10</rowNumber>
@@ -6158,7 +6158,7 @@
 								<entryItem>
 									<rowNumber>10</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 							</EntryItems>
 						</entry>
@@ -8511,13 +8511,13 @@
 									<rowName>20.1</rowName>
 									<rowNumber>1</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 								<entryItem>
 									<rowName>20.1</rowName>
 									<rowNumber>1</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>Number</type>
+									<type>String</type>
 								</entryItem>
 							</EntryItems>
 						</entry>

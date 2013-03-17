@@ -113,7 +113,7 @@ fra = {
 			case "3b":
 				return parseInt(col)>2;
 			case "4b":
-				return col =="3";
+				return col =="3" || col =="4" ;
 			case "7":
 				return col =="2" || col =="1";
 			case "8b":
