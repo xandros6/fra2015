@@ -427,7 +427,8 @@ public class SurveyServiceImpl implements SurveyService {
             return true;
         }
 
-	private Country findCountryByISO3(String iso3) {
+        @Override
+	public Country findCountryByISO3(String iso3) {
 		Search searchCriteria = new Search(Country.class);
 		searchCriteria.addFilterEqual("iso3", iso3);
 		List<Country> countries = countryDAO.search(searchCriteria);
