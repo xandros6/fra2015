@@ -921,7 +921,7 @@
 							<td rownumber="13" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
 							<td rownumber="13" columnnumber="1"></td>
-							<td class="total" rownumber="13" columnnumber="2"></td>
+							<td  rownumber="13" columnnumber="2"></td>
 							<td class="total" rownumber="13" columnnumber="3"></td>
 							<td class="total" rownumber="13" columnnumber="4"></td>
 							<td class="total" rownumber="13" columnnumber="5"></td>
