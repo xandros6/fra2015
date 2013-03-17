@@ -5957,8 +5957,8 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>table</type>
-							<variable>static_8b</variable>
+							<type>static_table</type>
+							<variable>8b</variable>
 							<EntryItems>
 								<entryItem>
 									<rowNumber>1</rowNumber>
