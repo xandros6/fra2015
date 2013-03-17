@@ -62,7 +62,7 @@ public class FeedbackService {
         return true;
     }
     
-    public List<Feedback> loadFeedback(User user, SurveyInstance survey) throws BadRequestServiceEx{
+    public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question) throws BadRequestServiceEx{
 
         List<Feedback> list = new ArrayList<Feedback>();
         try {
@@ -70,6 +70,7 @@ public class FeedbackService {
             Search search = new Search();
             search.addFilterEqual("user", user);
             search.addFilterEqual("survey", survey);
+            search.addFilterEqual("entry.question.id", question);
             list = feedbackDAO.search(search);
         }
         catch (Exception e) {

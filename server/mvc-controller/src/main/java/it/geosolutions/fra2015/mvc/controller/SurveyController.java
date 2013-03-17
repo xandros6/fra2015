@@ -28,10 +28,13 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,6 +56,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * @author DamianoG
  * 
+ * This is the contributor controller 
+ * 
+ * 
  */
 @Controller
 @RequestMapping("/survey/{question}")
@@ -61,6 +67,9 @@ public class SurveyController{
     @Autowired
     private ControllerServices utils;
 
+    @Autowired
+    private FeedbackService feedbackService;
+    
     @Autowired
     private BasicConcurrencyHandler concurencyHandler;
     
@@ -72,6 +81,7 @@ public class SurveyController{
 
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
         
+        Long questionLong = Long.parseLong(question); 
         try{
             Integer.parseInt(question);
         }
@@ -90,6 +100,7 @@ public class SurveyController{
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
+        
         
         return "index";
 

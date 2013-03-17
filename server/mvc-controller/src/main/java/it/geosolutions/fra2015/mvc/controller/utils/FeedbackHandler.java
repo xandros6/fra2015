@@ -28,6 +28,8 @@ import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -38,6 +40,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * Hold the feedback management: take as input the req and session objects, build a Feedback Instance and add to a feedback list 
@@ -47,10 +52,41 @@ import org.apache.commons.collections.list.UnmodifiableList;
  */
 public class FeedbackHandler{
     
+    private ControllerServices controllerServiceUtils;
+    
+    private FeedbackService feedbackService;
+    
     private List<Feedback> feedbackList;
     
-    public FeedbackHandler(){
+    public FeedbackHandler(ControllerServices controllerServiceUtils, FeedbackService feedbackService){
+        
+        this.controllerServiceUtils = controllerServiceUtils;
+        this.feedbackService = feedbackService;
         this.feedbackList = new ArrayList<Feedback>();
+    }
+
+    public void handleFeedbackForGetRequest(String country, Long question, Model model,
+            HttpSession session, User su) throws BadRequestServiceEx {
+
+        if (su == null) {
+            throw new NullPointerException("User is null");
+        }
+        controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
+                controllerServiceUtils.retrieveValues(question.toString(), country), false);
+
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+
+        List<Feedback> feedbackList = null;
+        try {
+
+            feedbackList = feedbackService.loadFeedback(su, si, question);
+        } catch (BadRequestServiceEx e) {
+
+           throw new BadRequestServiceEx("Errors loading feedbacks...");
+        }
+        prepareFeedbackModel(model, feedbackList);
     }
     
     public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3){
@@ -75,6 +111,17 @@ public class FeedbackHandler{
             }
         }
         
+    }
+    
+    private void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
+        
+        if(feedbackList != null){
+            
+            for(Feedback el : feedbackList){
+                
+                model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
+            }
+        }
     }
     
     public List getFeedbackList(){

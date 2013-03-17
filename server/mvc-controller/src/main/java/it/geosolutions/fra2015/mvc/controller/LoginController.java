@@ -86,7 +86,7 @@ public class LoginController {
             return "login";
         }
         
-        if(Profile.REVIEWER.toString().toLowerCase().equals(storedUser.getRole())){
+        //if(Profile.REVIEWER.toString().toLowerCase().equals(storedUser.getRole())){
 
             // Retrieve all the SurveyInstances from DB and put in session as Map indexed by iso3 country            
             if(storedUser.getCountriesSet() !=null && !storedUser.getCountriesSet().isEmpty()){
@@ -106,7 +106,7 @@ public class LoginController {
                 }
                 session.setAttribute(SURVEY_INSTANCES, surveyInstancesMap);
             }
-        }
+        //}
         
         
         // Store the User in session

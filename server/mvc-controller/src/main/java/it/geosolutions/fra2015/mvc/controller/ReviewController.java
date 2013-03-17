@@ -22,20 +22,19 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 
-import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Question;
-import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -79,18 +78,17 @@ public class ReviewController {
         }
         //check allowed questions
         setupAllowedQuestions(question, su, model);
+        
         //TODO check access to provide accessible questions for menu and allow to 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
-        utils.prepareHTTPRequest(model, question.toString(), utils.retrieveValues(question.toString(), country), false);
         
-        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>)session.getAttribute(SURVEY_INSTANCES);
-        SurveyInstance si = surveyInstanceMap.get(country);
+        CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
+        utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
         
-        List<Feedback> feedbackList = null;
+        FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
-            
-            feedbackList = feedbackService.loadFeedback(su, si);
+            fh.handleFeedbackForGetRequest(country, question, model, session, su);
         } 
         catch (BadRequestServiceEx e) {
             
@@ -99,7 +97,6 @@ public class ReviewController {
             LOGGER.error(e.getMessage(), e);
             return "reviewer";
         }
-        prepareFeedbackModel(model, feedbackList);
         
         return "reviewer";
 
@@ -109,17 +106,23 @@ public class ReviewController {
     public String handlePost(HttpServletRequest request,
             @PathVariable(value = "country") String country,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
+        
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
+        
         // TODO validate country
         User su = (User) session.getAttribute("sessionUser");
+        
         // TODO check access to provide accessible questions for menu and allow to
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
+        
+        CountryValues cvalues = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, Long.parseLong(question), country);
+        utils.prepareHTTPRequest(model, question, cvalues, false);
         setupAllowedQuestions(Long.parseLong(question), su, model);
+        
         // save feedbacks
-        FeedbackHandler fh = new FeedbackHandler();
+        FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         fh.populateFeedbackList(request, session, utils, country);
         
         try {
@@ -130,6 +133,12 @@ public class ReviewController {
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
             return "reviewer";
+        }
+        
+        //Put feedback in model
+        for(Feedback el : fh.getFeedbackArray()){
+            
+            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
         }
         
         model.addAttribute("messageType","success");
@@ -155,13 +164,5 @@ public class ReviewController {
         model.addAttribute("allowedQuestions",allowedQuestionNumbers);
         model.addAttribute("context", "survey");
         model.addAttribute("question", question);
-    }
-    
-    private void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
-        
-        for(Feedback el : feedbackList){
-            
-            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
-        }
     }
 }
