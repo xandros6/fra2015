@@ -31,6 +31,7 @@ fra = {
 	 	    	});
 	 	    	//remove row
 	            row.remove();
+	            fra.dirty=true;
 	         }
 
 	         return false;
@@ -88,6 +89,7 @@ fra = {
 	                    var text = cell.find(".celleditor").attr('value');
 	                    cell.find('#cell-content').html( text );
 	                    hidden.val( text ).trigger('change');
+	                    fra.dirty=true;
 	                    
 	                }
 	                return false;

@@ -85,10 +85,18 @@ $(function() {
 				radio = $(this);
 				var chks = $(this).find("input.radio-boolean").click(function(){
 					chks.not(this).attr('checked', false);
+					fra.dirty=true;
 				});
                     
                  
 				
 	});
+	$('.tier select').change(function(){
+		fra.dirty=true;
+		
+	});
+	
+	
+			
 })
 
