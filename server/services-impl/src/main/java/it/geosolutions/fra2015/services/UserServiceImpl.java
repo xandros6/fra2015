@@ -28,7 +28,14 @@ import it.geosolutions.fra2015.server.dao.UserDAO;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+
+import java.util.Collection;
 import java.util.List;
+
+
+
+import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -160,9 +167,14 @@ public class UserServiceImpl implements UserService {
         	if(userFilter.getName() != null && !userFilter.getName().isEmpty())
         		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
         	if(userFilter.getRole() != null && !userFilter.getRole().isEmpty())
-        		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));        	
+        		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));     
+        	//filter countries 
+        	BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+                Collection<String> countriesIso3 = CollectionUtils.collect(userFilter.getCountriesSet(), transformer );
         	if(userFilter.getCountries() != null && !userFilter.getCountries().isEmpty())
-        		searchCriteria.addFilter(Filter.ilike("countries", "%"+userFilter.getCountries()+"%"));
+        		searchCriteria.addFilter(
+        		        Filter.some("countriesSet",
+        		                Filter.in("iso3", countriesIso3)));
         	if(userFilter.getEmail() != null && !userFilter.getEmail().isEmpty())
         		searchCriteria.addFilter(Filter.ilike("email", "%"+userFilter.getEmail()+"%"));
         }
