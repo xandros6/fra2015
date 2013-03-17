@@ -73,11 +73,13 @@ public class ControllerServices {
 
     public static final String SESSION_USER = "sessionUser";
     
-    private final static String FEEDBACK = "_feedback_";
+    public static final String FEEDBACK = "_feedback_";
+    
+    public static final String SURVEY_INSTANCES = "surveyInstance";
 
     
     public enum Profile {
-        CONTRIBUTOR, REIVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
+        CONTRIBUTOR, REVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
     }
 
     /**
@@ -243,6 +245,12 @@ public class ControllerServices {
             return e.getType();
         }
         return null;
+    }
+    
+    public Entry getEntry(String varName){
+        
+        Entry e = catalog.getEntry(varName);    
+        return e;
     }
 
 }

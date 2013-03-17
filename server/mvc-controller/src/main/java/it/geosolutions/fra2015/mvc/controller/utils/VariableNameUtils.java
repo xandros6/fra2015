@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 /**
  * @author DamianoG
  * 
- * Utility class used for retrieve the fra Variable name from the index used in the JSPs and viceversa.
+ * Utility class used for retrieve the EntryItem and Feedback IDs from the plan text names used in the JSPs and viceversa.
  */
 public class VariableNameUtils {
 
@@ -48,7 +48,40 @@ public class VariableNameUtils {
         sb.append("_");
         return sb.toString();
     }
+    
+    
+    /**
+     * A feedback name is in the form _feedback_<varName>_
+     * 
+     * @param feedbackID
+     * @return
+     */
+    public static String extractEntryIDfromFeedbackID(String feedbackID){
+        
+        Pattern p = Pattern.compile("(?<=\\_)((\\p{Alnum})*?)(?=\\_)");
+        Matcher m = p.matcher(feedbackID);
+        
+        for (int i =0; m.find(); i++) {
+            
+            if(i==1){
+                
+                String varName = m.group(0);
+                if(varName != null){
+                    return varName;
+                }
+                return null;
+            }
+        }
+        return null;
+    }
 
+    /**
+     * A variable ID
+     * 
+     * @param param
+     * @param value
+     * @return
+     */
     public static VariableName buildVariable(String param, String value) {
 
         VariableNameUtils vnu = new VariableNameUtils();
@@ -97,6 +130,7 @@ public class VariableNameUtils {
                     .toString();
         }
     }
+    
     
     
 }

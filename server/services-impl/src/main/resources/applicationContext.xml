@@ -32,7 +32,8 @@
     	<property name="surveyCatalog" ref="surveyCatalog" />
     </bean>
     
-    <bean id="bulkLoader" class="it.geosolutions.fra2015.services.BulkModelEntitiesLoader">
-    </bean>
+    <bean id="feedbackService" class="it.geosolutions.fra2015.services.FeedbackService" />
+    
+    <bean id="bulkLoader" class="it.geosolutions.fra2015.services.BulkModelEntitiesLoader" />
     
 </beans>
