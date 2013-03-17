@@ -260,6 +260,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         ValidationMessage message = null;
         // some validation problems have priority
         boolean alreadyChecked = false;
+        
         for (String key : tests.keySet()) {
             if (alreadyChecked) {
                 continue;
@@ -270,18 +271,15 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
             if (missing.size() > 0) {
-                
+                if(missing.size()==rule.getVariables().size()) continue;
                 message = new ValidationMessage();
                 message.setMessage("validation.notcompiled");
                 message.setRule(rule);
                 message.setSuccess(false);
-                if (missing.size()>=rule.getVariables().size()){
-                    //whole table
-                    message.addElements(Arrays.asList(rule.getEntryId().split(",")));
-                }else{
-                    //single elements
-                    message.addElements(missing);
-                } 
+                
+                //whole table
+                message.addElements(Arrays.asList(rule.getEntryId().split(",")));
+                
                 
                 alreadyChecked = true;
                 continue;
@@ -320,7 +318,17 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             }
 
         }
-        result.addMessage(message);
+        if (message == null) {
+            message = new ValidationMessage();
+            message.setMessage("validation.notcompiled");
+            message.setRule(rule);
+            message.setSuccess(false);
+
+            // whole table
+            message.addElements(Arrays.asList(rule.getEntryId().split(",")));
+          
+        }
+            result.addMessage(message);
 
     }
     /**
