@@ -57,10 +57,7 @@ public class ReviewController {
     @Autowired
     private FeedbackService feedbackService;
     
-    @Autowired
-    private FeedbackService feedbackHandler;
-    
-    Logger LOGGER = Logger.getLogger(ReviewController.class);
+    private final Logger LOGGER = Logger.getLogger(ReviewController.class);
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
 
@@ -110,6 +107,7 @@ public class ReviewController {
             model.addAttribute("messageType", "warning");
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
+            return "reviewer";
         }
         
         model.addAttribute("messageType","success");
@@ -119,6 +117,7 @@ public class ReviewController {
         return "reviewer";
 
     }
+    
     private static void setupAllowedQuestions(Long question,User su, Model model){
         Set<Question> allowed = su.getQuestions();
         List<Long> allowedQuestionNumbers = new ArrayList<Long>();

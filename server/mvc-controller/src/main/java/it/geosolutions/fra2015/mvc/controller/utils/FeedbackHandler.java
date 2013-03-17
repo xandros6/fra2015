@@ -67,8 +67,7 @@ public class FeedbackHandler{
             String feedbackName = (String)paramsNames.nextElement();
             if(feedbackName.startsWith(FEEDBACK)){
                 
-                // TODO Check if the feedback is empty!!!
-                String feedback = (String)request.getAttribute(feedbackName);
+                String feedback = (String)request.getParameter(feedbackName);
                 
                 String entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
                 Entry entry = controllerServices.getEntry(entryID);

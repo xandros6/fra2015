@@ -39,6 +39,9 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
     
+    private final static String WRITE_SUFFIX = "b";
+    private final static String READ_SUFFIX = "A";
+    
     private String feedbackName;
     
     public int doStartTag() {
@@ -49,7 +52,7 @@ public class FeedbackEntryTag extends ProfiledTag{
 //            composeReviewerEditor();
 //            composeReviewer();
             break;
-        case  REIVIEWER :
+        case  REVIEWER :
             composeReviewer();
             break;
         case  REVIEWEDITOR :
@@ -73,7 +76,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
-                rte.setName(feedbackName+"A");
+                rte.setName(feedbackName+READ_SUFFIX);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();
                 rte.doStartTag();
@@ -95,7 +98,7 @@ public class FeedbackEntryTag extends ProfiledTag{
             composeStartfeedbackArea(out);
             // --- use RichTextEntry ----
             RichTextEntry rte2 = new RichTextEntry();
-            rte2.setName(feedbackName+"b");
+            rte2.setName(feedbackName+WRITE_SUFFIX);
             rte2.setPageContext(pageContext);
             rte2.forceWriteMode();
             rte2.doStartTag();
@@ -118,7 +121,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
-                rte.setName(feedbackName+"A");
+                rte.setName(feedbackName+READ_SUFFIX);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();
                 rte.doStartTag();
@@ -131,7 +134,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 out.print("<br />");
                 // --- use RichTextEntry ----
                 RichTextEntry rte2 = new RichTextEntry();
-                rte2.setName(feedbackName+"b");
+                rte2.setName(feedbackName+WRITE_SUFFIX);
                 rte2.setPageContext(pageContext);
                 rte2.forceWriteMode();
                 rte2.doStartTag();
