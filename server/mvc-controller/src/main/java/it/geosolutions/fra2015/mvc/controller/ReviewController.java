@@ -76,20 +76,7 @@ public class ReviewController {
             return "redirect:/login";
         }
         //check allowed questions
-        Set<Question> allowed = su.getQuestions();
-        List<Long> allowedQuestionNumbers = new ArrayList<Long>();
-        Long min = Long.MAX_VALUE;
-        for (Question q : allowed) {
-            allowedQuestionNumbers.add(q.getId());
-            min = q.getId() < min ? q.getId():min;
-        }
-        //set current question if not available
-        if (!allowedQuestionNumbers.contains(question)){
-            question = min;
-        }
-        model.addAttribute("allowedQuestions",allowedQuestionNumbers);
-        model.addAttribute("context", "survey");
-        model.addAttribute("question", question);
+        setupAllowedQuestions(question, su, model);
         //TODO check access to provide accessible questions for menu and allow to 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
@@ -111,7 +98,7 @@ public class ReviewController {
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
-
+        setupAllowedQuestions(Long.parseLong(question), su, model);
         // save feedbacks
         FeedbackHandler fh = new FeedbackHandler();
         fh.populateFeedbackList(request, session, utils, country);
@@ -131,5 +118,21 @@ public class ReviewController {
         model.addAttribute("messageTimeout", 5000);
         return "reviewer";
 
+    }
+    private static void setupAllowedQuestions(Long question,User su, Model model){
+        Set<Question> allowed = su.getQuestions();
+        List<Long> allowedQuestionNumbers = new ArrayList<Long>();
+        Long min = Long.MAX_VALUE;
+        for (Question q : allowed) {
+            allowedQuestionNumbers.add(q.getId());
+            min = q.getId() < min ? q.getId():min;
+        }
+        //set current question if not available
+        if (!allowedQuestionNumbers.contains(question)){
+            question = min;
+        }
+        model.addAttribute("allowedQuestions",allowedQuestionNumbers);
+        model.addAttribute("context", "survey");
+        model.addAttribute("question", question);
     }
 }
