@@ -421,7 +421,7 @@
 				<td>${_fraVariable_4a_3_5_}</td>
 			</tr>
 			<tr>
-				<td>4.2 <spring:message code="ref222"></spring:message></td>
+				<td>4.3 <spring:message code="ref222"></spring:message></td>
 				<td>1000 ha</td>
 				<td>${_fraVariable_4a_4_1_}</td>
 				<td>${_fraVariable_4a_4_2_}</td>
@@ -866,7 +866,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td rowspan="5">130</td>
+				<td rowspan="5">15</td>
 			</tr>
 			<tr>
 				<td>15.1 <spring:message code="ref461"></spring:message></td>
