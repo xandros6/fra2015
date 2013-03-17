@@ -352,34 +352,8 @@
 						<tr rowname="2.1.1.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
 							</td>
-							<td class="title" colspan="2" rownumber="4" columnnumber="0"><spring:message
-									code="ref111"></spring:message></td>
-							<td columnname="1990" class="prefilled entry-item editable text"
-								rownumber="4" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_4_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_2a_4_1_}</div></td>
-							<td columnname="2000" class="prefilled entry-item editable text"
-								rownumber="4" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_4_2_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_2a_4_2_}</div></td>
-							<td columnname="2005" class="prefilled entry-item editable text"
-								rownumber="4" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_4_3_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_2a_4_3_}</div></td>
-							<td columnname="2010" class="prefilled entry-item editable text"
-								rownumber="4" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_4_4_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_2a_4_4_}</div></td>
-							<td columnname="2015" class="entry-item editable text"
-								rownumber="4" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_4_5_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_2a_4_5_}</div></td>
-						</tr>
-						<tr rowname="2.3" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
-							</td>
 							<td class="title" colspan="2" rownumber="5" columnnumber="0"><spring:message
-									code="ref101"></spring:message></td>
+									code="ref111"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="5" columnnumber="1"
 								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_5_1_">&nbsp;</span>
@@ -401,11 +375,11 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_5_5_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_2a_5_5_}</div></td>
 						</tr>
-						<tr rowname="2.3.1" unit="1000 ha">
+						<tr rowname="2.3" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
 							</td>
 							<td class="title" colspan="2" rownumber="6" columnnumber="0"><spring:message
-									code="ref110"></spring:message></td>
+									code="ref101"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="6" columnnumber="1"
 								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_6_1_">&nbsp;</span>
@@ -426,6 +400,32 @@
 								rownumber="6" columnnumber="5"
 								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_6_5_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_2a_6_5_}</div></td>
+						</tr>
+						<tr rowname="2.3.1" unit="1000 ha">
+							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							</td>
+							<td class="title" colspan="2" rownumber="7" columnnumber="0"><spring:message
+									code="ref110"></spring:message></td>
+							<td columnname="1990" class="prefilled entry-item editable text"
+								rownumber="7" columnnumber="1"
+								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_7_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_2a_7_1_}</div></td>
+							<td columnname="2000" class="prefilled entry-item editable text"
+								rownumber="7" columnnumber="2"
+								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_7_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_2a_7_2_}</div></td>
+							<td columnname="2005" class="prefilled entry-item editable text"
+								rownumber="7" columnnumber="3"
+								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_7_3_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_2a_7_3_}</div></td>
+							<td columnname="2010" class="prefilled entry-item editable text"
+								rownumber="7" columnnumber="4"
+								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_7_4_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_2a_7_4_}</div></td>
+							<td columnname="2015" class="entry-item editable text"
+								rownumber="7" columnnumber="5"
+								style="background-color: rgb(242, 245, 169);" entry-id="2a"><span class="entry_item_placeholder" id="_fraVariable_2a_7_5_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_2a_7_5_}</div></td>
 						</tr>
 						<tr>
 							<td colspan="2" rownumber="10" columnnumber="0"><spring:message
