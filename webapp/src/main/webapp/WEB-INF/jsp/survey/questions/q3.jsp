@@ -1151,12 +1151,12 @@
 						<tr>
 							<td colspan="2" rowspan="3" rownumber="0" columnnumber="0"><spring:message
 									code="ref152"></spring:message></td>
-							<td colspan="2" rownumber="0" columnnumber="1"></td>
-							<td colspan="9" rownumber="0" columnnumber="2"><spring:message
+							
+							<td colspan="10" rownumber="0" columnnumber="2"><spring:message
 									code="ref188"></spring:message></td>
 						</tr>
 						<tr>
-							<td colspan="6" rownumber="1" columnnumber="0"><spring:message
+							<td colspan="5" rownumber="1" columnnumber="0"><spring:message
 									code="ref15"></spring:message></td>
 							<td colspan="5" rownumber="1" columnnumber="1"><spring:message
 									code="ref17"></spring:message></td>
@@ -1164,7 +1164,7 @@
 						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
-							<td colspan="2" rownumber="2" columnnumber="1"><spring:message
+							<td rownumber="2" columnnumber="1"><spring:message
 									code="ref54"></spring:message></td>
 							<td rownumber="2" columnnumber="2"><spring:message
 									code="ref55"></spring:message></td>
@@ -1193,7 +1193,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="3d"><span class="entry_item_placeholder" id="_fraVariable_3d_3_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_3d_3_1_}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
-								colspan="2" rownumber="3" columnnumber="2"
+								 rownumber="3" columnnumber="2"
 								style="background-color: rgb(242, 245, 169);" entry-id="3d"><span class="entry_item_placeholder" id="_fraVariable_3d_3_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_3d_3_2_}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
@@ -1239,7 +1239,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="3d"><span class="entry_item_placeholder" id="_fraVariable_3d_4_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_3d_4_1_}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
-								colspan="2" rownumber="4" columnnumber="2"
+								rownumber="4" columnnumber="2"
 								style="background-color: rgb(242, 245, 169);" entry-id="3d"><span class="entry_item_placeholder" id="_fraVariable_3d_4_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_3d_4_2_}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
@@ -1285,7 +1285,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="3d"><span class="entry_item_placeholder" id="_fraVariable_3d_5_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_3d_5_1_}</div></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
-								colspan="2" rownumber="5" columnnumber="2"
+								rownumber="5" columnnumber="2"
 								style="background-color: rgb(242, 245, 169);" entry-id="3d"><span class="entry_item_placeholder" id="_fraVariable_3d_5_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_3d_5_2_}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
@@ -1322,10 +1322,11 @@
 							<div id="cell-content">${_fraVariable_3d_5_10_}</div></td>
 						</tr>
 						<tr>
-							<td rownumber="6" columnnumber="0"><spring:message
+							<td rownumber="6" colspan=2><spring:message
 									code="ref63"></spring:message></td>
-							<td rownumber="6" columnnumber="1"></td>
-							<td class="total" colspan="2" rownumber="6" columnnumber="2"></td>
+							
+							
+							<td class="total" rownumber="6" columnnumber="1"></td>
 							<td class="total" rownumber="6" columnnumber="2"></td>
 							<td class="total" rownumber="6" columnnumber="3"></td>
 							<td class="total" rownumber="6" columnnumber="4"></td>
@@ -1334,6 +1335,7 @@
 							<td class="total" rownumber="6" columnnumber="7"></td>
 							<td class="total" rownumber="6" columnnumber="8"></td>
 							<td class="total" rownumber="6" columnnumber="9"></td>
+							<td class="total" rownumber="6" columnnumber="10"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -1710,9 +1712,9 @@
 							<div id="cell-content">${_fraVariable_3e_9_10_}</div></td>
 						</tr>
 						<tr>
-							<td rownumber="10" columnnumber="0"><spring:message
+							<td rownumber="10" colspan=2 columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
-							<td rownumber="10" columnnumber="1"></td>
+							
 							<td class="total" rownumber="10" columnnumber="1"></td>
 							<td class="total" rownumber="10" columnnumber="2"></td>
 							<td class="total" rownumber="10" columnnumber="3"></td>
@@ -1722,6 +1724,7 @@
 							<td class="total" rownumber="10" columnnumber="7"></td>
 							<td class="total" rownumber="10" columnnumber="8"></td>
 							<td class="total" rownumber="10" columnnumber="9"></td>
+							<td class="total" rownumber="10" columnnumber="10"></td>
 						</tr>
 					</tbody>
 				</table>

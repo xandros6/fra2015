@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<jsp:include page="leftmenu.jsp"></jsp:include>
-			<form method="POST" action="${question}">
+			<form id="survey_form" method="POST" action="${question}">
 				<div class="span8" id="survey-content">
 
 					<jsp:include page="questions/q${question}.jsp" />
@@ -54,10 +54,24 @@ $(function(){
                                 
 		CKEDITOR.replace( id, { 
 			toolbar: 'MyToolbar'
-		});
+		}).on('blur',function(){
+			fra.dirty=true;
+		})
 	});
-	
-	
+    
+    window.onbeforeunload =   function confirmExit()
+    {
+      if(fra.dirty && !fra.submit){
+    	  return '<spring:message code="alert.survey.pageleaving" />';
+      }
+    }
+ 
+    $(function(){
+    	$('#survey_form').on("submit",function(){
+    		fra.submit=true;
+    		window.onbeforeload=null;
+    	})
+    })
 	    
      
 }); 
