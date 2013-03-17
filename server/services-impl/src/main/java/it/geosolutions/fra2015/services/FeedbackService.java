@@ -43,7 +43,7 @@ public class FeedbackService {
 
         try {
             
-            feedbackDAO.persist(feedback);
+            feedbackDAO.save(feedback);
         }
         catch (Exception e) {
             
