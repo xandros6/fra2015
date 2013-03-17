@@ -46,25 +46,25 @@
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 <tr rowname="14.2" unit="Boolean">
-<td class="title" colspan="3" rownumber="0" columnnumber="0"><spring:message code="ref449"></spring:message></td>
+<td class="title" colspan="3" rownumber="0" columnnumber="0"><spring:message code="ref461"></spring:message></td>
 </tr>
 <tr rowname="14.2.1" unit="Boolean">
-<td class="title" colspan="2" rownumber="1" columnnumber="0"><spring:message code="ref450"></spring:message></td>
-<fra:yesno mod=" editable " name="_fraVariable_14b_1_1_"  rownumber="1" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
+<td class="title" colspan="2" rownumber="1" columnnumber="0"><spring:message code="ref462"></spring:message></td>
+<fra:yesno mod=" editable " name="_fraVariable_15_1_1_"  rownumber="1" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
 </tr>
 <tr rowname="14.2.2" unit="Boolean">
-<td class="title" colspan="2" rownumber="3" columnnumber="0"><spring:message code="ref451"></spring:message></td>
-<fra:yesno mod=" editable " name="_fraVariable_14b_3_1_"  rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
+<td class="title" colspan="2" rownumber="3" columnnumber="0"><spring:message code="ref463"></spring:message></td>
+<fra:yesno mod=" editable " name="_fraVariable_15_3_1_"  rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
 </tr>
 <tr rowname="14.2.3" unit="Boolean">
-<td class="title" colspan="2" rownumber="5" columnnumber="0"><spring:message code="ref452"></spring:message></td>
-<fra:yesno mod=" editable " name="_fraVariable_14b_5_1_"  rownumber="5" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
+<td class="title" colspan="2" rownumber="5" columnnumber="0"><spring:message code="ref464"></spring:message></td>
+<fra:yesno mod=" editable " name="_fraVariable_15_5_1_"  rownumber="5" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="14b"></fra:yesno>
 </tr>
 </tbody>
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<fra:feedback feedbackName="_feedback_14b_"/>
+			<fra:feedback feedbackName="_feedback_15_"/>
 			<br>
 			<br>
 		</div>
