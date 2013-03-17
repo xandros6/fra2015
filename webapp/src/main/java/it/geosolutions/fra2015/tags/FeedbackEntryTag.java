@@ -49,8 +49,6 @@ public class FeedbackEntryTag extends ProfiledTag{
         switch(getProfile()){
         case  CONTRIBUTOR :
             composeContributor();
-//            composeReviewerEditor();
-//            composeReviewer();
             break;
         case  REVIEWER :
             composeReviewer();
@@ -98,7 +96,8 @@ public class FeedbackEntryTag extends ProfiledTag{
             composeStartfeedbackArea(out);
             // --- use RichTextEntry ----
             RichTextEntry rte2 = new RichTextEntry();
-            rte2.setName(feedbackName+WRITE_SUFFIX);
+//            +WRITE_SUFFIX
+            rte2.setName(feedbackName);
             rte2.setPageContext(pageContext);
             rte2.forceWriteMode();
             rte2.doStartTag();

@@ -22,15 +22,20 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,6 +83,23 @@ public class ReviewController {
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
         utils.prepareHTTPRequest(model, question.toString(), utils.retrieveValues(question.toString(), country), false);
+        
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>)session.getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+        
+        List<Feedback> feedbackList = null;
+        try {
+            
+            feedbackList = feedbackService.loadFeedback(su, si);
+        } 
+        catch (BadRequestServiceEx e) {
+            
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "alert.savefaliure");
+            LOGGER.error(e.getMessage(), e);
+            return "reviewer";
+        }
+        prepareFeedbackModel(model, feedbackList);
         
         return "reviewer";
 
@@ -133,5 +155,13 @@ public class ReviewController {
         model.addAttribute("allowedQuestions",allowedQuestionNumbers);
         model.addAttribute("context", "survey");
         model.addAttribute("question", question);
+    }
+    
+    private void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
+        
+        for(Feedback el : feedbackList){
+            
+            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
+        }
     }
 }
