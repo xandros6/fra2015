@@ -111,7 +111,7 @@ fra = {
 			if(allnumericVariables.indexOf(varname)>=0 ) return true;
 			switch(varname){
 			case "3b":
-				return parseInt(col)>3;
+				return parseInt(col)>2;
 			case "4b":
 				return col =="3";
 			case "7":
