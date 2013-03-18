@@ -110,7 +110,7 @@
 								</c:if>
 							</tr>
 							
-							
+							<fra:DynamicTableTag numOfColoumn="2" entryItemName="111" numericColoumn="false"/>
 							
 						</tbody>
 					</table>
