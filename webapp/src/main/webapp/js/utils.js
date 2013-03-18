@@ -10,12 +10,11 @@ fra = {
 	    		$(rows[i]).find('.entry-item').length >0 ?entries++ : entries;
 	    	}
 	    	if (entries<2){
-    			alert("You can not delete this"); // TODO i18n
+    			alert(fra.messages.deleterowdenied); // TODO i18n
 				 return false;
 	    	}
 	    	
-	    	 var result = window.confirm('Are you sure you want to delete these data?');// TODO
-																						// i18n
+	    	 var result = window.confirm(fra.messages.deleterowconfirm);
 	         if ( result ){
 	        	// change number of the row
 	 	    	row.nextAll().find('td').each(function(){
