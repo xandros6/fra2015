@@ -21,10 +21,19 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -52,6 +61,9 @@ public class LoginController {
     @Qualifier("userService")
     private UserService userService;
     
+    @Autowired
+    private ControllerServices controllerServices;
+    
     @RequestMapping(value = "/dologin", method = RequestMethod.GET)
     public String processForm(@ModelAttribute("login") User user, BindingResult result, Map model,
             HttpSession session) {
@@ -73,8 +85,32 @@ public class LoginController {
         if (result.hasErrors()) {
             return "login";
         }
+        
+        //if(Profile.REVIEWER.toString().toLowerCase().equals(storedUser.getRole())){
+
+            // Retrieve all the SurveyInstances from DB and put in session as Map indexed by iso3 country            
+            if(storedUser.getCountriesSet() !=null && !storedUser.getCountriesSet().isEmpty()){
+                
+                List<String> countries = new ArrayList<String>();
+                for(Country el : storedUser.getCountriesSet()){
+                    
+                    countries.add(el.getIso3());
+                }
+                String [] countriesArr = new String[countries.size()];
+                List<SurveyInstance> surveyInstanceList = controllerServices.retriveSurveyListByCountries(countries.toArray(countriesArr), 1, 1);
+                
+                Map<String, SurveyInstance> surveyInstancesMap = new HashMap<String, SurveyInstance>();
+                for(SurveyInstance el : surveyInstanceList){
+                    
+                    surveyInstancesMap.put(el.getCountry().getIso3(), el);
+                }
+                session.setAttribute(SURVEY_INSTANCES, surveyInstancesMap);
+            }
+        //}
+        
+        
         // Store the User in session
-        session.setAttribute("sessionUser", storedUser);
+        session.setAttribute(SESSION_USER, storedUser);
         
         return "redirect:/";
     }
@@ -95,51 +131,11 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logout(ModelMap model) {
+    public String logout(ModelMap model, HttpSession session) {
 
+        session.invalidate();
         return "login";
 
     }
-
-//     @Autowired
-//     @Qualifier("userService")
-//     private UserService userService;
-//    
-//     @RequestMapping(method = RequestMethod.GET)
-//     public String showForm(Map<String,User> model) {
-//    
-//     // model.put("user", user);
-//    
-//     return "login";
-//     }
-//    
-//     @RequestMapping(method = RequestMethod.POST)
-//     public String processForm(@ModelAttribute("login") User user,BindingResult result,
-//     Map model, HttpSession session) {
-//    
-//     User storedUser = null;
-//    
-//     try {
-//     storedUser = userService.get("User Algeria");
-//     } catch (NotFoundServiceEx e) {
-//     // TODO Auto-generated catch block
-//     LOGGER.error(e.getMessage(), e);
-//     }
-//    
-//     SessionUser us = new SessionUser();
-//     us.setCountry(storedUser.getCountries());
-//     session.setAttribute("sessionUser", us);
-//    
-//     if (result.hasErrors()) {
-//     return "login";
-//     }
-//     user = (User) model.get("user");
-//    
-//     // check usr
-//    
-//     //model.put("loginForm", loginForm);
-//    
-//     return "redirect:survey/0";
-//     }
 
 }

@@ -13,7 +13,9 @@
 		<strong><spring:message code="${messageCode}"></spring:message>
 		${not empty messageTrailCode ?':':''}
 		</strong>
+		<c:if test="${(not empty messageTrailCode)}">
 		<spring:message code="${messageTrailCode}"></spring:message>
+		</c:if>
 	</div>
 
 </div>

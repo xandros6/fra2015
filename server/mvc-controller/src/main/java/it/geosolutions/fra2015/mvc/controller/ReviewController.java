@@ -21,8 +21,21 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+
+import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -42,61 +55,116 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ReviewController {
 
-	@Autowired
-	private ControllerServices utils;
+    @Autowired
+    private ControllerServices utils;
+    
+    @Autowired
+    private FeedbackService feedbackService;
+    
+    private final Logger LOGGER = Logger.getLogger(ReviewController.class);
 
-	Logger LOGGER = Logger.getLogger(ReviewController.class);
+    @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
 
-	@RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
     public String handleGet(
-    		@PathVariable(value = "country") String country, 
-    		@PathVariable(value = "question") String question, Model model,
+                @PathVariable(value = "country") String country, 
+                @PathVariable(value = "question") Long question, Model model,
             HttpSession session) {
-
-        try{
-            Integer.parseInt(question);
-        }
-        catch(Exception e){
-            model.addAttribute("context", "survey");
-            model.addAttribute("question", 0);
-            session.invalidate();
+            
+            
+        // TODO validate country
+        User su = (User) session.getAttribute("sessionUser");
+        if(su==null){
             return "redirect:/login";
         }
+        //check allowed questions
+        setupAllowedQuestions(question, su, model);
         
-        model.addAttribute("question", question);
-        model.addAttribute("context", "survey");
-        //TODO validate country
-        User su = (User) session.getAttribute("sessionUser");
         //TODO check access to provide accessible questions for menu and allow to 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
+        model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
+        
+        CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
+        utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
+        
+        FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
+        try {
+            fh.handleFeedbackForGetRequest(country, question, model, session, su);
+        } 
+        catch (BadRequestServiceEx e) {
+            
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "alert.savefaliure");
+            LOGGER.error(e.getMessage(), e);
+            return "reviewer";
+        }
         
         return "reviewer";
 
     }
 
-	@RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
-	public String handlePost(HttpServletRequest request,
-			@PathVariable(value = "country") String country,
-			@PathVariable(value = "question") String question,
-			HttpSession session, Model model) {
-		model.addAttribute("question", question);
+    @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
+    public String handlePost(HttpServletRequest request,
+            @PathVariable(value = "country") String country,
+            @PathVariable(value = "question") String question, HttpSession session, Model model) {
+        
+        model.addAttribute("question", question);
         model.addAttribute("context", "survey");
-        //TODO validate country
+        
+        // TODO validate country
         User su = (User) session.getAttribute("sessionUser");
-        //TODO check access to provide accessible questions for menu and allow to 
+        if(su==null){
+            return "redirect:/login";
+        }
+        // TODO check access to provide accessible questions for menu and allow to
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("profile", ControllerServices.Profile.REIVIEWER.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, country), false);
+        model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
         
-        //TODO save feedbacks
-        model.addAttribute("messageType","warning");
-        //model.addAttribute("messageType","alert");// red background
-        model.addAttribute("messageCode","alert.savefaliure");
+        CountryValues cvalues = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, Long.parseLong(question), country);
+        utils.prepareHTTPRequest(model, question, cvalues, false);
+        setupAllowedQuestions(Long.parseLong(question), su, model);
         
-        model.addAttribute("messageTimeout",5000);
-		return "reviewer";
+        // save feedbacks
+        FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
+        fh.populateFeedbackList(request, session, utils, country);
+        
+        try {
+            feedbackService.storeFeedback(fh.getFeedbackArray());
+        } catch (BadRequestServiceEx e) {
+            
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "alert.savefaliure");
+            LOGGER.error(e.getMessage(), e);
+            return "reviewer";
+        }
+        
+        //Put feedback in model
+        for(Feedback el : fh.getFeedbackArray()){
+            
+            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
+        }
+        
+        model.addAttribute("messageType","success");
+        model.addAttribute("messageCode","alert.savesuccess");
 
-	}
+        model.addAttribute("messageTimeout", 5000);
+        return "reviewer";
+
+    }
+    
+    private static void setupAllowedQuestions(Long question,User su, Model model){
+        Set<Question> allowed = su.getQuestions();
+        List<Long> allowedQuestionNumbers = new ArrayList<Long>();
+        Long min = Long.MAX_VALUE;
+        for (Question q : allowed) {
+            allowedQuestionNumbers.add(q.getId());
+            min = q.getId() < min ? q.getId():min;
+        }
+        //set current question if not available
+        if (!allowedQuestionNumbers.contains(question)){
+            question = min;
+        }
+        model.addAttribute("allowedQuestions",allowedQuestionNumbers);
+        model.addAttribute("context", "survey");
+        model.addAttribute("question", question);
+    }
 }

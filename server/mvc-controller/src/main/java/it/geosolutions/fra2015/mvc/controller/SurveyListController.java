@@ -21,11 +21,11 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -50,12 +50,16 @@ public class SurveyListController {
 	public String printWelcome(@PathVariable(value = "page") int page,ModelMap model, HttpSession session) {
 		model.addAttribute("context", "surveylist");
 
-		User su = (User) session.getAttribute("sessionUser");
+		User su = (User) session.getAttribute(SESSION_USER);
 		if (su==null)return "redirect:login";
-		String[] countries = su.getCountries().split(", ");
+		String[] countries = su.getCountries().split(",");
 		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
+		//quick trick, because there is no filtering here 
+		model.addAttribute("prev",page >0);
+		boolean next = utils.retriveSurveyListByCountries(countries, page+1, 10).size()>0;
+		model.addAttribute("next",next);
 		model.addAttribute("surveys",surveys);
-		
+		model.addAttribute("page",page);
 		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
 		return "reviewer";
 

@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.googlecode.genericdao.search.Search;
@@ -161,6 +162,7 @@ public class SurveyServiceImpl implements SurveyService {
 			@Override
 			public void persist(Value value) {
 				try {
+				    if(!StringUtils.isBlank(value.getContent())){
 					NumberFormat format = NumberFormat.getInstance(Locale.US);
 					Number number = format.parse(value.getContent());
 					NumberValue dbValue = new NumberValue();
@@ -168,6 +170,12 @@ public class SurveyServiceImpl implements SurveyService {
 					dbValue.setValue(number);
 					dbValue.setEntryItem(value.getEntryItem());
 					numberValueDAO.persist(dbValue);
+				    }
+				    else{
+				        StringBuilder sb = new StringBuilder();
+				        sb.append("Error when try to persist entryItem id:'").append(value.getId()).append("' the provided value is blank and the EntryItem has type 'Number', skip the value...");
+				        LOGGER.error(sb.toString());
+				    }
 				} catch (ParseException ex) {
 					throw new IllegalArgumentException("Value of item " + value.getEntryItem().getId() + "must be numeric.");
 				}
@@ -419,7 +427,8 @@ public class SurveyServiceImpl implements SurveyService {
             return true;
         }
 
-	private Country findCountryByISO3(String iso3) {
+        @Override
+	public Country findCountryByISO3(String iso3) {
 		Search searchCriteria = new Search(Country.class);
 		searchCriteria.addFilterEqual("iso3", iso3);
 		List<Country> countries = countryDAO.search(searchCriteria);

@@ -6,6 +6,7 @@ package it.geosolutions.fra2015.server.model.survey;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -18,6 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "TextValue")
 public class TextValue extends Value {
    
+    @Lob
     @Column(name="fra_value", nullable = false, updatable = true)
     private String value;
 

@@ -82,17 +82,15 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
     
     @Override
     public boolean removeValues(Updates removes) {
+        
         try {
-            List<Entry> result = new ArrayList<Entry>();
+            
             if (removes.getUpdates() != null) {
                 for (Update update : removes.getUpdates()) {
-                    Entry entry = surveyService.updateValues(update.getCountry(),
-                            update.getVariable(), update.getRow(), update.getColumn(),
-                            update.getValue());
-//                    if (entry != null) {
-//                        result.add(entry);
-//                    }
-
+                    if (!surveyService.removeValues(update.getCountry(), update.getVariable(),
+                            update.getRow(), update.getColumn(), update.getValue())) {
+                        return false;
+                    }
                 }
             }
             return true;

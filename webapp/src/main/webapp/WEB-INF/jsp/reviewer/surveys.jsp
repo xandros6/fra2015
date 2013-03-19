@@ -29,8 +29,12 @@
 			</tbody>
 		</table>
 		<ul class="pager pull-right">
-			<li class="disabled"><a href="#">Prev</a></li>
-			<li class="disabled"><a href="#">Next</a></li>
+			<c:if test="${prev}">
+			<li class="${prev?'':'disabled'}"><a href="${prev?page-1:'#'}">Prev</a></li>
+			</c:if>
+			<c:if test="${next}">
+			<li class="${next?'':'disabled'}"><a href="${next?page+1:'#'}">Next</a></li>
+			</c:if>
 		</ul>
 	</div>
 </div>

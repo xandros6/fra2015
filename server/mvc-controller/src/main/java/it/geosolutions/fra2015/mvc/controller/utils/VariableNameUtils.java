@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 /**
  * @author DamianoG
  * 
- * Utility class used for retrieve the fra Variable name from the index used in the JSPs and viceversa.
+ * Utility class used for retrieve the EntryItem and Feedback IDs from the plan text names used in the JSPs and viceversa.
  */
 public class VariableNameUtils {
 
@@ -49,6 +49,13 @@ public class VariableNameUtils {
         return sb.toString();
     }
 
+    /**
+     * A variable ID
+     * 
+     * @param param
+     * @param value
+     * @return
+     */
     public static VariableName buildVariable(String param, String value) {
 
         VariableNameUtils vnu = new VariableNameUtils();
@@ -75,6 +82,39 @@ public class VariableNameUtils {
 
         return var;
     }
+    
+    /**
+     * A feedback name is in the form _feedback_<varName>_
+     * 
+     * @param feedbackID
+     * @return
+     */
+    public static String extractEntryIDfromFeedbackID(String feedbackID){
+        
+        Pattern p = Pattern.compile("(?<=\\_)((\\p{Alnum})*?)(?=\\_)");
+        Matcher m = p.matcher(feedbackID);
+        
+        for (int i =0; m.find(); i++) {
+            
+            if(i==1){
+                
+                String varName = m.group(0);
+                if(varName != null){
+                    return varName;
+                }
+                return null;
+            }
+        }
+        return null;
+    }
+    
+    public static String buildfeedbackIDfromEntryID(String entryID){
+        
+        StringBuilder sb = new StringBuilder(); 
+        sb.append("_feedback_").append(entryID).append("_");
+        return sb.toString();
+    }
+    
 
     // TODO remove this ugly and useless class and use CompactValue directly
     public class VariableName {
@@ -97,6 +137,7 @@ public class VariableNameUtils {
                     .toString();
         }
     }
+    
     
     
 }

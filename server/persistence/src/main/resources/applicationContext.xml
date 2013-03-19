@@ -80,5 +80,9 @@
     <bean id="activityLogDAO" class="it.geosolutions.fra2015.server.dao.impl.ActivityLogDAOImpl" >
 		<property name="searchProcessor" ref="fra2015SearchProcessor" />
     </bean>
+    
+    <bean id="feedbackDAO" class="it.geosolutions.fra2015.server.dao.impl.FeedbackDAOImpl" >
+		<property name="searchProcessor" ref="fra2015SearchProcessor" />
+    </bean>
 	
 </beans>

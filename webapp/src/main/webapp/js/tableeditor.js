@@ -1,7 +1,7 @@
 $(function() {
 
 	// editable tables
-	$('td.editable.text').click(fra.editRow);
+	$('td.editable.text,td.editable.number').click(fra.editRow);
 	// Delete buttons inizialization
 	$('.btn.delete-btn').click(fra.deleteRow);
 
@@ -85,10 +85,18 @@ $(function() {
 				radio = $(this);
 				var chks = $(this).find("input.radio-boolean").click(function(){
 					chks.not(this).attr('checked', false);
+					fra.dirty=true;
 				});
                     
                  
 				
 	});
+	$('.tier select').change(function(){
+		fra.dirty=true;
+		
+	});
+	
+	
+			
 })
 

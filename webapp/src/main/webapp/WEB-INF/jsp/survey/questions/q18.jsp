@@ -481,6 +481,7 @@
 							<td class="total" rownumber="10" columnnumber="1"></td>
 							<td class="total" rownumber="10" columnnumber="2"></td>
 							<td class="total" rownumber="10" columnnumber="3"></td>
+							<td class="total" rownumber="10" columnnumber="4"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -740,6 +741,7 @@
 							<td class="total" rownumber="7" columnnumber="2"></td>
 							<td class="total" rownumber="7" columnnumber="3"></td>
 							<td class="total" rownumber="7" columnnumber="4"></td>
+							
 						</tr>
 					</tbody>
 				</table>

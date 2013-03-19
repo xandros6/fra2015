@@ -1,7 +1,7 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
 <form:form class="cmxform" id="createUserForm" method="post" action="${pageContext.request.contextPath}/users/save/${page}">
 	<div class="container-fluid">
-		<div class="row-fluid">
+		<div class="row-fluid custom">
 			<div class="inner-fluid clearfix">
 				<div class="span6 border">
 					<fieldset>

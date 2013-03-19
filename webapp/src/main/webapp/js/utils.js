@@ -10,12 +10,11 @@ fra = {
 	    		$(rows[i]).find('.entry-item').length >0 ?entries++ : entries;
 	    	}
 	    	if (entries<2){
-    			alert("You can not delete this"); // TODO i18n
+    			alert(fra.messages.deleterowdenied); // TODO i18n
 				 return false;
 	    	}
 	    	
-	    	 var result = window.confirm('Are you sure you want to delete these data?');// TODO
-																						// i18n
+	    	 var result = window.confirm(fra.messages.deleterowconfirm);
 	         if ( result ){
 	        	// change number of the row
 	 	    	row.nextAll().find('td').each(function(){
@@ -31,6 +30,7 @@ fra = {
 	 	    	});
 	 	    	//remove row
 	            row.remove();
+	            fra.dirty=true;
 	         }
 
 	         return false;
@@ -60,7 +60,7 @@ fra = {
 	            	placeholder=hidden;
 	            }
 	            
-	            if(numericVariablelist.indexOf(name)>=0 ) {cell.addClass('number');}
+	            if(fra.isNumeric(name) ) {cell.addClass('number');}
 		        
 				if(cell.hasClass('number')){type='input';}
 	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
@@ -68,12 +68,16 @@ fra = {
 	            if (cell.hasClass('number')){
 	                // on keydown verify if the key is a number
 	                input.keydown(function(evt){
-	                    var e = evt || window.event; 
-	                    var charCode = e.which || e.keyCode;                        
-	                    if (charCode > 31 && (charCode < 47 || charCode > 57))
-	                        return false;
-	                    if (e.shiftKey) return false;
-	                    return true;
+	                	return ( event.ctrlKey || event.altKey 
+	                            || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+	                            || (95<event.keyCode && event.keyCode<106)
+	                            || (event.keyCode==8) || (event.keyCode==9) 
+	                            || (event.keyCode>34 && event.keyCode<40) 
+	                            || (event.keyCode==46)
+	                            || (event.keyCode==109)
+	                            || (event.keyCode==110)
+	                            ||  (event.keyCode==190)
+	                           ) 
 	                });                               
 	            }
 	            cell.find('#cell-content').html( input );
@@ -84,6 +88,7 @@ fra = {
 	                    var text = cell.find(".celleditor").attr('value');
 	                    cell.find('#cell-content').html( text );
 	                    hidden.val( text ).trigger('change');
+	                    fra.dirty=true;
 	                    
 	                }
 	                return false;
@@ -94,8 +99,33 @@ fra = {
 	             });
 	        }
 	        return false;
+	    },
+	    
+	    isNumeric: function (name){
+	    	var myRegexp = /_fraVariable_([^_]*)_([^_]*)_([^_]*)_/;
+			var match = myRegexp.exec(name);
+			var varname = match[1];
+			var row = match[2];
+			var col = match[3];
+			if(allnumericVariables.indexOf(varname)>=0 ) return true;
+			switch(varname){
+			case "3b":
+				return parseInt(col)>2;
+			case "4b":
+				return col =="3" || col =="4" ;
+			case "7":
+				return col =="2" || col =="1";
+			case "8b":
+				return col=="3";
+			case "20":
+				return col=="1" && row=="1"
+			}
+			
 	    }
-}							
+}
+//not all numerics are 3b,33 (not a variable,only first column) 4b_x_3,7_X_1_,7_X_2,8b_x_3,_fraVariable_20_1_1_
+var allnumericVariables = ["1a","1b","2a","2b","2c","3a","3c","3d","3e","4a","5a","5b","6","8a","9","12","14","16","17","18a","18b","19","21a","21b"]
+/* some numeric values from summary
 var numericVariablelist = ["_fraVariable_1a_2_1_",
                            "_fraVariable_1a_2_2_",
                            "_fraVariable_1a_2_3_",
@@ -595,3 +625,4 @@ var numericVariablelist = ["_fraVariable_1a_2_1_",
                            "_fraVariable_21a_2_2_",
                            "_fraVariable_21b_2_1_",
         ];
+        */

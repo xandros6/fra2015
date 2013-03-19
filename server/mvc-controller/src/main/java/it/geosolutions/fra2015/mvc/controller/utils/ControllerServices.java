@@ -24,7 +24,6 @@ package it.geosolutions.fra2015.mvc.controller.utils;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
-import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
@@ -37,6 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -45,9 +45,13 @@ import org.springframework.ui.Model;
  * @author DamianoG
  * 
  * This class contains a set of utils that implements several operation used in several Controller.
+ * 
+ * The operations are related to the survey values management, remove
+ *  
  * These methods usually interact with one or more fra business Services 
- * The project involved is only the fra2015-services-impl for the new services created with refactor3 and also
- * projects fra2015-rest-api, fra2015-rest-impl, fra2015-services-api for old service design.
+ * The fra2015 modules involved are:
+ *      * for the new services (refactor3)       : fra2015-services-impl
+ *      * for the old services created until 1.2 : fra2015-rest-api, fra2015-rest-impl, fra2015-services-api
  * 
  */
 public class ControllerServices {
@@ -60,11 +64,22 @@ public class ControllerServices {
     @Autowired
     private SurveyCatalog catalog;
 
-    //@Autowired
-   //private BulkModelEntitiesLoader bulkLoader;
+    @Autowired
+    private BulkModelEntitiesLoader bulkLoader;
 
+    public static final String TEXT_STATIC_TABLE = "static_table";
+    
+    public static final String TEXT_DYN_TABLE = "table";
+
+    public static final String SESSION_USER = "sessionUser";
+    
+    public static final String FEEDBACK = "_feedback_";
+    
+    public static final String SURVEY_INSTANCES = "surveyInstance";
+
+    
     public enum Profile {
-        CONTRIBUTOR, REIVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
+        CONTRIBUTOR, REVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
     }
 
     /**
@@ -103,8 +118,10 @@ public class ControllerServices {
 
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
         List<Entry> questionCatalog = catalog.getCatalogForQuestion(null);
+        
+        // Init the row counters for this request
         for (Entry el : questionCatalog) {
-            if (el != null && el.getType().equalsIgnoreCase("table")) {
+            if (StringUtils.equalsIgnoreCase(TEXT_DYN_TABLE, el.getType())) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);
             }
         }
@@ -112,11 +129,11 @@ public class ControllerServices {
         for (CompactValue el : values.getValues()) {
             // Hack for handle dynamicTables: the jsp must know how many row are present.
             // so count them for each table and put it in the model
-            if (catalog.getEntry(el.getVariable()).getType().equals("table")) {
+            if (catalog.getEntry(el.getVariable()).getType().equals(TEXT_DYN_TABLE)) {
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"
                         + el.getVariable());
-                Integer newRowCounter = (el.getRowNumber() >= 4 && el.getRowNumber() > oldRowCounter) ? el
-                        .getRowNumber() : 4;
+                Integer newRowCounter = (el.getRowNumber() > oldRowCounter) ? el
+                        .getRowNumber() : oldRowCounter;
                 // Integer newRowCounter = (oldRowCounter != null && oldRowCounter+1>4)?el.getRowNumber():4;
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), newRowCounter);
             }
@@ -124,7 +141,7 @@ public class ControllerServices {
             model.addAttribute(VariableNameUtils.buildVariableAsText(el), print);
         }
 
-        // Put in the model the counters
+        // Put in the model the counters, if a counter is < 4 , put 4 due to is the min rows displayed.
         for (String el : tableRowsCounter.keySet()) {
             if (el.startsWith("tableRowsCounter")) {
                 String name = el.substring(16);
@@ -132,6 +149,8 @@ public class ControllerServices {
             }
         }
     }
+    
+    
 
     /**
      * Put in the model all entryItems name and the dynamic table rows counters.
@@ -143,7 +162,7 @@ public class ControllerServices {
      * @param printNameInsteadOfValue
      */
     public void prepareHTTPRequestOnlyVariablesName(Model model, String country){
-/*
+
         CountryValues values = retrieveValues(null, country);
         Map<String, Integer> tableRowsCounter = countRowsAndStoreTheNumberInTheModel(model, values, catalog);
         List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
@@ -166,7 +185,6 @@ public class ControllerServices {
                 model.addAttribute(el, tableRowsCounter.get(el));
             }
         }
-*/
     }
 
     
@@ -175,7 +193,7 @@ public class ControllerServices {
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
         List<Entry> questionCatalog = catalog.getCatalogForQuestion(null);
         for (Entry el : questionCatalog) {
-            if (el != null && el.getType().equalsIgnoreCase("table")) {
+            if (el != null && el.getType().equalsIgnoreCase(TEXT_DYN_TABLE)) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);
             }
         }
@@ -189,7 +207,7 @@ public class ControllerServices {
         for (CompactValue el : values.getValues()) {
             // Hack for handle dynamicTables: the jsp must know how many row are present.
             // so count them for each table and put it in the model
-            if (catalog.getEntry(el.getVariable()).getType().equals("table")) {
+            if (catalog.getEntry(el.getVariable()).getType().equals(TEXT_DYN_TABLE)) {
                 Integer oldRowCounter = tableRowsCounter.remove("tableRowsCounter"
                         + el.getVariable());
                 Integer newRowCounter = (el.getRowNumber() >= 4 && el.getRowNumber() > oldRowCounter) ? el
@@ -209,52 +227,32 @@ public class ControllerServices {
         return tableRowsCounter;
     }
 
-    /**
-     * Compares for changes a new values set retrieved from HTTP request with the set stored on DB (called oldSet because it will be updated)
-     * 
-     * @param newSet
-     * @param oldSet
-     * @return Map<String, String[]> representing the values that must be deleted from DB
-     */
-    // public List<String> compareValueSet(Map<String, String[]> newSet, List<CompactValue> oldSet){
-    //
-    // // The return set
-    // List<String> removedSet = new ArrayList<String>();
-    //
-    // //Iterate on the oldSet and search for updated values
-    // for(CompactValue el : oldSet){
-    //
-    // String oldVariable = el.getVariable();
-    //
-    // String oldContent = el.getCo ntent();
-    // String[] set = newSet.get(VariableNameUtils.buildVariableAsText(el));
-    // String newContent = (set!=null)?set[0]:null;
-    // if(newContent == null){
-    // removedSet.add(oldVariable);
-    // }
-    // // if(!oldContent.equals(newContent)){
-    // // activityLog(Changes.UPDATE);
-    // // }
-    // }
-    //
-    // //Iterate on the remaining values of newSet log them as ADDED Values
-    // for(String el : newSet.keySet()){
-    // activityLog(Changes.NEW);
-    // }
-    //
-    // return removedSet;
-    //
-    // }
-
     public List<SurveyInstance> retriveSurveyListByCountries(String[] countryList, int page,
             int index) {
 
         return surveyService.getSurveysByCountry(countryList, page, index);
     }
 
-    public void updateValuesService(Updates updates) {
+    public void updateValuesService(Updates updates, Updates removes) {
 
         surveyService.updateValues(updates);
+        surveyService.removeValues(removes);
+    }
+    
+    public String getEntryType(String varName){
+        
+        Entry e = catalog.getEntry(varName);
+        if(e !=null){
+            
+            return e.getType();
+        }
+        return null;
+    }
+    
+    public Entry getEntry(String varName){
+        
+        Entry e = catalog.getEntry(varName);    
+        return e;
     }
 
 }

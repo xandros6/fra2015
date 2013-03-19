@@ -916,16 +916,16 @@
 							<div id="cell-content">${_fraVariable_62_11_2_}</div></td>
 						</tr>
 						<tr>
-							<td rownumber="11" columnnumber="0"><spring:message
+							<td rownumber="12" columnnumber="0"><spring:message
 									code="ref308"></spring:message></td>
 							<td class="entry-item editable text" rownumber="11"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="62"><span class="entry_item_placeholder" id="_fraVariable_62_11_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_62_11_1_}</div></td>
-							<td class="entry-item editable text" rownumber="11"
+								entry-id="62"><span class="entry_item_placeholder" id="_fraVariable_62_12_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_62_12_1_}</div></td>
+							<td class="entry-item editable text" rownumber="12"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="62"><span class="entry_item_placeholder" id="_fraVariable_62_11_2_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_62_11_2_}</div></td>
+								entry-id="62"><span class="entry_item_placeholder" id="_fraVariable_62_12_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_62_12_2_}</div></td>
 						</tr>
 
 
