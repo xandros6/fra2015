@@ -271,7 +271,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
             if (missing.size() > 0) {
-                if(missing.size()==rule.getVariables().size()) continue;
+                if(missing.size()==rule.getVariables().size() && message !=null) continue;
                 message = new ValidationMessage();
                 message.setMessage("validation.notcompiled");
                 message.setRule(rule);

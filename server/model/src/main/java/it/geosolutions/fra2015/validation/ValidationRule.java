@@ -61,7 +61,7 @@ public class ValidationRule {
 		}
 		public List<String> getVariables() {
 			String condition = this.getCondition();
-			String pattern = "\\{\\{\\s*([^\\}\\s]*)\\s*\\}\\}";
+			String pattern = "\\{\\{\\s*([^\\}]*)\\s*\\}\\}";
 			Pattern p = Pattern.compile(pattern);
 			Matcher m = p.matcher(condition);
 			List<String> result = new ArrayList<String>();
