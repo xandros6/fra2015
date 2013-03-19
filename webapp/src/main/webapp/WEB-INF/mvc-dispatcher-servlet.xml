@@ -56,6 +56,7 @@
 			<list>
 				<value>it.geosolutions.fra2015.i18n.messages</value>
 				<value>it.geosolutions.fra2015.i18n.locale</value>
+				<value>it.geosolutions.fra2015.i18n.validation</value>
 			</list>
 		</property>
 	</bean>
