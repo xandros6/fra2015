@@ -22,6 +22,7 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import javax.servlet.http.HttpSession;
@@ -41,17 +42,22 @@ public class LandingPageController {
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(HttpSession session) {
     		User user= (User) session.getAttribute(SESSION_USER);
-    		if(user == null){
+    		String role = (user!=null)?user.getRole():null;
+    		if(role == null){
     			return "redirect:login";
     			
-    		}else if("contributor".equals(user.getRole())){
+    		}else if(Profile.CONTRIBUTOR.toString().equalsIgnoreCase(role)){
     			
     			return "redirect:survey/0";
 
-    		}else if("reviewer".equals(user.getRole())){
+    		}else if(Profile.REVIEWER.toString().equalsIgnoreCase(role)){
     			
     			return "redirect:revieweractivitylog";
-    		}else if("admin".equals(user.getRole())){
+                } else if (Profile.EDITOR.toString().equalsIgnoreCase(role)) {
+        
+                    return "redirect:revieweractivitylog";
+                }
+    		else if(Profile.ADMIN.toString().equalsIgnoreCase(role)){
     			
     			return "redirect:users/";
     		}

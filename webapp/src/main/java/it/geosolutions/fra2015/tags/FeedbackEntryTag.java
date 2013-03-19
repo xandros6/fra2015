@@ -53,7 +53,7 @@ public class FeedbackEntryTag extends ProfiledTag{
         case  REVIEWER :
             composeReviewer();
             break;
-        case  REVIEWEDITOR :
+        case  EDITOR :
             composeReviewerEditor();
             break;
         default:
