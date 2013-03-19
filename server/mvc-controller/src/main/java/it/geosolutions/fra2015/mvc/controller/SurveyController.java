@@ -29,6 +29,7 @@ import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
@@ -99,7 +100,9 @@ public class SurveyController{
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
+        
+        CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, su.getCountries());
+        utils.prepareHTTPRequest(model, question, cv, false);
         
         
         return "index";
@@ -110,7 +113,7 @@ public class SurveyController{
     public String handlePost(HttpServletRequest request,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
 
-        
+        Long questionLong = null;
         try{
             Integer.parseInt(question);
         }
@@ -127,7 +130,7 @@ public class SurveyController{
         User su = (User) session.getAttribute(SESSION_USER);
 
         // Retrieve the stored value in order to compare them with the new submitted values
-        CountryValues es = utils.retrieveValues(question, su.getCountries());
+        CountryValues es = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, questionLong, su.getCountries());
         List<CompactValue> oldValues = es.getValues();
         
         // Create the OLD MAP
@@ -198,12 +201,35 @@ public class SurveyController{
             model.addAttribute("messageTimeout",10000);
         }
         
-        // Another time???? WTF???
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
-        model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question, su.getCountries()), false);
         
+        //Merge old values with those have been changed
+        List<CompactValue> backList = new ArrayList<CompactValue>();
+        for(String el : updateMap.keySet()){
+            
+            CompactValue v = oldMap.get(el);
+            if(v != null){
+                
+                backList.add(v);
+            }
+            else{
+                
+                Update u = updateMap.get(el);
+                CompactValue cv = new CompactValue();
+                cv.setColumnNumber(u.getColumn());
+                cv.setContent(u.getValue());
+                cv.setRowNumber(u.getRow());
+                cv.setVariable(u.getVariable());
+                backList.add(cv);
+            }
+        }
+        CountryValues mergedValues = new CountryValues();
+        mergedValues.setValues(backList);
+        
+        utils.prepareHTTPRequest(model, question, mergedValues, false);
+
+        model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");
         

@@ -77,9 +77,9 @@ public class ControllerServices {
     
     public static final String SURVEY_INSTANCES = "surveyInstance";
 
-    
+    // Note: EDITOR means REVIEWEREDITOR profile
     public enum Profile {
-        CONTRIBUTOR, REVIEWER, REVIEWEDITOR, PRINT, COUNTRYACCEPTANCE, ACCEPTED
+        CONTRIBUTOR, REVIEWER, EDITOR, ADMIN, PRINT, COUNTRYACCEPTANCE, ACCEPTED
     }
 
     /**
