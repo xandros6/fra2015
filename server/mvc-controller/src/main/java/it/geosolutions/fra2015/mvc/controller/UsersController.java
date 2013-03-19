@@ -54,6 +54,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.googlecode.genericdao.search.Filter;
+
 /**
  * @author Lorenzo Natali
  * 
@@ -94,6 +96,7 @@ public class UsersController {
 		boolean next = this.getPage(1,userFilter).size() > 0;
 		model.addAttribute("next", next?1:-1);
 		model.addAttribute("prev", -1);
+		model.addAttribute("isFiltered",isFiltered(userFilter));
 		return "admin";
 
 	}
@@ -189,7 +192,7 @@ public class UsersController {
 			}
 		}
 		model.addAttribute("questions", questions);
-		
+
 		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "id" );
 		Collection<String> countriesId = CollectionUtils.collect( user.getCountriesSet(), transformer );
 		String joined = StringUtils.join(countriesId,",");
@@ -210,8 +213,9 @@ public class UsersController {
 			return "forward:/users/";
 		}
 		//add context for view
+		model.addAttribute("countries", surveyService.getCountries());
 		model.addAttribute("context", "users");
-		List<User> users=this.getPage(page, userFilter);
+		List<User> users= this.getPage(page, userFilter);
 		model.addAttribute("page", page);
 		//check prev and next pages presence
 		boolean next =false;
@@ -222,7 +226,7 @@ public class UsersController {
 		model.addAttribute("next", next ? page + 1 : -1);
 		model.addAttribute("prev", previous ? page - 1 : -1);
 		model.addAttribute("users", users);
-
+		model.addAttribute("isFiltered",isFiltered(userFilter));
 
 		return "admin";
 
@@ -261,5 +265,19 @@ public class UsersController {
 		}
 		return null;
 
+	}
+
+	private Boolean isFiltered(User userFilter){
+		Boolean isFiltered = false;
+		if(userFilter != null){
+			if(StringUtils.isNotBlank(userFilter.getUsername()) 
+					|| StringUtils.isNotBlank(userFilter.getName())
+					|| StringUtils.isNotBlank(userFilter.getRole())
+					|| StringUtils.isNotBlank(userFilter.getEmail())
+					|| StringUtils.isNotBlank(userFilter.getSelCountries())){
+				isFiltered = true;
+			}
+		}
+		return isFiltered;
 	}
 }
