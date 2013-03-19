@@ -112,7 +112,9 @@ public class ReviewController {
         
         // TODO validate country
         User su = (User) session.getAttribute("sessionUser");
-        
+        if(su==null){
+            return "redirect:/login";
+        }
         // TODO check access to provide accessible questions for menu and allow to
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
