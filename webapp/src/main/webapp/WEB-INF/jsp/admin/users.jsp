@@ -98,17 +98,58 @@
 									<a style="width:50px" href="#" class="btn" data-toggle="modal" data-target="#deleteWarningWindow" data-userid="${user.id}" data-page="${page}"> Delete </a>
 								</td>
 							</tr>
-						</c:forEach>								
+						</c:forEach>	
+						<c:forEach var="i" begin="1" end="${10 - (fn:length(users))}" step="1">
+						  <tr class="rowItem">                
+                <td class="fullname"><div>&nbsp;</div></td>
+                <td class="username"><div>&nbsp;</div></td>
+                <td class="role"><div>&nbsp;</div></td>
+                <td class="countries"><div>&nbsp;</div></td>
+                <td class="link">&nbsp;</td>
+						</c:forEach>							
 					</tbody>
 				</table>
-				<ul class="pager pull-right">
-					<c:if test="${ prev>=0}">
-					<li class="eanabled"><a href="${pageContext.request.contextPath}/users/${prev}">Prev</a></li>
-					</c:if>
-					<c:if test="${next>0}">
-					<li><a href="${pageContext.request.contextPath}/users/${next}">Next</a></li>
-					</c:if>
-				</ul>
+				<div class="pagination pagination-centered">
+					<ul>
+	          <li class="<c:if test="${empty pagination.firstPage}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.firstPage}">First</a></li>
+						<li class="<c:if test="${empty pagination.prev1}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.prev1}">Prev</a></li>
+						
+						<c:if test="${not empty pagination.prev2}">
+            <li><a href="${pageContext.request.contextPath}/users/${pagination.prev2}">${pagination.prev2+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.prev2}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+						
+						<c:if test="${not empty pagination.prev1}">
+						<li><a href="${pageContext.request.contextPath}/users/${pagination.prev1}">${pagination.prev1+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.prev1}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+            
+						<li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
+						
+						<c:if test="${not empty pagination.next1}">
+						<li><a href="${pageContext.request.contextPath}/users/${pagination.next1}">${pagination.next1+1}</a></li>
+						</c:if>
+						<c:if test="${empty pagination.next1}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+						
+						<c:if test="${not empty pagination.next2}">
+            <li><a href="${pageContext.request.contextPath}/users/${pagination.next2}">${pagination.next2+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.next2}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+						
+						<li class="<c:if test="${empty pagination.next1}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.next1}">Next</a></li>
+						<li class="<c:if test="${empty pagination.lastPage}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.lastPage}">Last</a></li>
+						 
+
+					</ul>
+				</div>
 			</div>
 		</div>
 	

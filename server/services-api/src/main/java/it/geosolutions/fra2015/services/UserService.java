@@ -93,4 +93,6 @@ public interface UserService {
     public long getCount(String nameLike);
     public long getCount();
 
+    public long getCountFiltered(User userFilter) throws BadRequestServiceEx;
+
 }

@@ -148,38 +148,51 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll(Integer page, Integer entries, User userFilter) throws BadRequestServiceEx {
 
-        if (((page != null) && (entries == null)) || ((page == null) && (entries != null))) {
-            throw new BadRequestServiceEx("Page and entries params should be declared together.");
-        }
-
-        Search searchCriteria = new Search(User.class);        
+        Search searchCriteria = getSearchCriteria(page, entries, userFilter);  
         
-        searchCriteria.addFilter(Filter.notEqual("role", "admin"));
-        
-        if(userFilter != null){
-        	if(StringUtils.isNotBlank(userFilter.getUsername()))
-        		searchCriteria.addFilter(Filter.ilike("username", "%"+userFilter.getUsername()+"%"));
-        	if(StringUtils.isNotBlank(userFilter.getName()))
-        		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
-        	if(StringUtils.isNotBlank(userFilter.getRole()))
-        		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));        	
-        	if(StringUtils.isNotBlank(userFilter.getSelCountries()))
-        		searchCriteria.addFilterSome("countriesSet", Filter.equal("id", userFilter.getSelCountries()));
-        	if(StringUtils.isNotBlank(userFilter.getEmail().trim()))
-        		searchCriteria.addFilter(Filter.ilike("email", "%"+userFilter.getEmail()+"%"));
-        }
-        
-        if (page != null) {
-            searchCriteria.setMaxResults(entries);
-            searchCriteria.setPage(page);
-        }
-
         searchCriteria.addSortAsc("name");
 
         List<User> found = userDAO.search(searchCriteria);
 
         return found;
     }
+    
+    @Override
+    public long getCountFiltered(User userFilter) throws BadRequestServiceEx {
+    	Search searchCriteria = getSearchCriteria(null, null, userFilter);  
+    	 return userDAO.count(searchCriteria);
+    }
+    
+    private Search getSearchCriteria(Integer page, Integer entries, User userFilter) throws BadRequestServiceEx{
+    	 if (((page != null) && (entries == null)) || ((page == null) && (entries != null))) {
+             throw new BadRequestServiceEx("Page and entries params should be declared together.");
+         }
+
+         Search searchCriteria = new Search(User.class);        
+         
+         searchCriteria.addFilter(Filter.notEqual("role", "admin"));
+         
+         if(userFilter != null){
+         	if(StringUtils.isNotBlank(userFilter.getUsername()))
+         		searchCriteria.addFilter(Filter.ilike("username", "%"+userFilter.getUsername()+"%"));
+         	if(StringUtils.isNotBlank(userFilter.getName()))
+         		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
+         	if(StringUtils.isNotBlank(userFilter.getRole()))
+         		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));        	
+         	if(StringUtils.isNotBlank(userFilter.getSelCountries()))
+         		searchCriteria.addFilterSome("countriesSet", Filter.equal("id", userFilter.getSelCountries()));
+         	if(StringUtils.isNotBlank(userFilter.getEmail().trim()))
+         		searchCriteria.addFilter(Filter.ilike("email", "%"+userFilter.getEmail()+"%"));
+         }
+         
+         if (page != null) {
+             searchCriteria.setMaxResults(entries);
+             searchCriteria.setPage(page);
+         }
+         
+         return searchCriteria;
+    }
+    
 
     /* (non-Javadoc)
      * @see it.geosolutions.fra2015.services.UserService#getCount(java.lang.String)
