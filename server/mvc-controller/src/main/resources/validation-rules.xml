@@ -562,7 +562,7 @@
         <description>
             8.1.1 should be less than 1.1
         </description>
-        <entryId>1a,14</entryId>
+        <entryId>1a,8a</entryId>
         <error>validation.rule.48</error>
         <condition>
             <![CDATA[ {{8.1.1}} <= {{1.1}} ]]>
