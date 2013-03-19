@@ -94,6 +94,7 @@ function changeRole(el){
 		addCountryBtn.off('click');
 		addCountryBtn.addClass('disabled');
 		countriesField.attr('disabled', 'disabled');
+		countriesField.val("Chose a role before");
 	}
 }	
 	
@@ -137,6 +138,7 @@ function initEditUserWindow(el){
 function initCreateUserWindow(el){
 	initShowAll(el);
 	initCountrySelector(el);
+	el.find('#countries').val("Chose a role before");
 	var roleComboBox = el.find('#roleComboBox');
 	roleComboBox.change(function() {
 		changeRole(el);
@@ -163,6 +165,40 @@ function initCountrySelector(el){
 	        process(result);
 	    }
 	});
+}
+
+function initFilterWindow(el){
+	el.find('#filter_countries').typeahead({
+	    source: function (query, process) {
+	    	var result  = [];	 
+	    	map = {};
+	        $.each(countriesArr, function (i, country) {
+	        	var label = country.name + " (" + country.iso3 + ")";
+	        	result.push(label);
+	        	map[label] = country;
+	        });
+	        process(result);
+	    },
+	    updater: function(item) {
+	    	el.find('#selCountries').val(map[item].id);
+	        return item;
+	    }
+	});
+	var selectedId = el.find('#selCountries').val();
+	if(selectedId){
+		var filterCountriesValue = $.grep(countriesArr, function(e){ return e.id == selectedId; })[0];
+		var label = filterCountriesValue.name + " (" + filterCountriesValue.iso3 + ")";
+		el.find('#filter_countries').val(label);
+	}
+	el.find('#filter_countries').focus(function (e) {
+		el.find('#filter_countries').val('');
+		el.find('#selCountries').val(''); // Clear typeahead
+	});
+	el.find('#filter_cname_clear_btn').click(function(event){ el.find('#filter_cname').val('') });
+	el.find('#filter_cusername_clear_btn').click(function(event){ el.find('#filter_cusername').val('') });
+	el.find('#filter_cemail_clear_btn').click(function(event){ el.find('#filter_cemail').val('') });
+	el.find('#filter_roleComboBox_clear_btn').click(function(event){ el.find('#filter_roleComboBox').val('') });
+	el.find('#filter_countries_clear_btn').click(function(event){ el.find('#filter_countries').val(''); el.find('#selCountries').val('') });
 }
 
 function saveUser(el){
@@ -214,6 +250,11 @@ $(function(){
 	$('#editUserWindow').on('loaded',function() {
 		var el = $('#editUserWindow');
 		initEditUserWindow(el);
+	});
+	
+	$('#filterWindow').on('loaded',function() {
+		var el = $('#filterWindow');
+		initFilterWindow(el);
 	});
 
 	$('#deleteBtn').on('click', function() {

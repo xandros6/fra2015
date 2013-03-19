@@ -70,7 +70,7 @@
 		<div class="row">
 			<p class="pull-right">
 				<a href="${pageContext.request.contextPath}/users/editor/-1/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow"> Create user </a>
-				<a href="${pageContext.request.contextPath}/users/filter/" class="btn <c:if test="${not empty userFilter}">btn-primary</c:if>" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
+				<a href="${pageContext.request.contextPath}/users/filter/" class="btn <c:if test="${isFiltered}">btn-primary</c:if>" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
 			</p>
 		</div>
 

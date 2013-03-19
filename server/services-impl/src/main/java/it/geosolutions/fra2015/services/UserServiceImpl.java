@@ -29,6 +29,8 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -155,15 +157,15 @@ public class UserServiceImpl implements UserService {
         searchCriteria.addFilter(Filter.notEqual("role", "admin"));
         
         if(userFilter != null){
-        	if(userFilter.getUsername() != null && !userFilter.getUsername().isEmpty())
+        	if(StringUtils.isNotBlank(userFilter.getUsername()))
         		searchCriteria.addFilter(Filter.ilike("username", "%"+userFilter.getUsername()+"%"));
-        	if(userFilter.getName() != null && !userFilter.getName().isEmpty())
+        	if(StringUtils.isNotBlank(userFilter.getName()))
         		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
-        	if(userFilter.getRole() != null && !userFilter.getRole().isEmpty())
+        	if(StringUtils.isNotBlank(userFilter.getRole()))
         		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));        	
-        	if(userFilter.getCountries() != null && !userFilter.getCountries().isEmpty())
-        		searchCriteria.addFilter(Filter.ilike("countries", "%"+userFilter.getCountries()+"%"));
-        	if(userFilter.getEmail() != null && !userFilter.getEmail().isEmpty())
+        	if(StringUtils.isNotBlank(userFilter.getSelCountries()))
+        		searchCriteria.addFilterSome("countriesSet", Filter.equal("id", userFilter.getSelCountries()));
+        	if(StringUtils.isNotBlank(userFilter.getEmail().trim()))
         		searchCriteria.addFilter(Filter.ilike("email", "%"+userFilter.getEmail()+"%"));
         }
         
