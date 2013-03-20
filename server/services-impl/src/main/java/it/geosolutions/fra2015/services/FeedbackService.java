@@ -66,8 +66,13 @@ public class FeedbackService {
         try {
             
             Search search = new Search();
+            search.addFilterEqual("harmonized", false);
             if(user != null){
                 search.addFilterEqual("user", user);
+//                search.addFilterEqual("harmonized", false);
+            }
+            else{
+//                search.addFilterEqual("harmonized", true);
             }
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);

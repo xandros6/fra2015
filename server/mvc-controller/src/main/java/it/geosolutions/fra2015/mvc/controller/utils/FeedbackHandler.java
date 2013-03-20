@@ -111,7 +111,7 @@ public class FeedbackHandler{
         return packagedFeedbacks;
     }
     
-    public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3){
+    public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3, boolean harmonized){
         
         User user = (User)session.getAttribute(SESSION_USER);
         
@@ -129,7 +129,7 @@ public class FeedbackHandler{
                 
                 String entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
                 Entry entry = controllerServices.getEntry(entryID);
-                addToFeedbackList(entry, si, user, feedback, entryID, "");
+                addToFeedbackList(entry, si, user, feedback, entryID, "", harmonized);
             }
         }
         
@@ -161,7 +161,7 @@ public class FeedbackHandler{
         return null;
     }
     
-    public void addToFeedbackList(Entry entry, SurveyInstance surveyInstance, User user, String feedback, String feedbackId, String status){
+    public void addToFeedbackList(Entry entry, SurveyInstance surveyInstance, User user, String feedback, String feedbackId, String status, boolean harmonized){
         
         final Feedback f = new Feedback();
         f.setEntry(entry);
@@ -171,6 +171,7 @@ public class FeedbackHandler{
         f.setSurvey(surveyInstance);
         f.setTimestamp(System.currentTimeMillis());
         f.setUser(user);
+        f.setHarmonized(harmonized);
         feedbackList.add(f);
     }
     

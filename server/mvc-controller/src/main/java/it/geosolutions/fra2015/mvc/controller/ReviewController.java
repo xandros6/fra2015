@@ -132,10 +132,21 @@ public class ReviewController {
         
         // TODO validate country
         User su = (User) session.getAttribute("sessionUser");
+        boolean harmonized = true;
         if(su==null){
             return "redirect:/login";
         }
-        // TODO check access to provide accessible questions for menu and allow to
+        if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+            
+            harmonized = false;
+        }
+        else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+            
+            harmonized = true;
+        }
+        else{
+            return "redirect:/login";
+        }
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
         
@@ -145,7 +156,7 @@ public class ReviewController {
         
         // save feedbacks
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
-        fh.populateFeedbackList(request, session, utils, country);
+        fh.populateFeedbackList(request, session, utils, country, harmonized);
         
         try {
             feedbackService.storeFeedback(fh.getFeedbackArray());

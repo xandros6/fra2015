@@ -57,6 +57,8 @@ public class Feedback {
     private String status;
     
     private Long timestamp;
+    
+    private boolean harmonized;
 
     /**
      * @return the feedbackId
@@ -154,6 +156,20 @@ public class Feedback {
      */
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    /**
+     * @return the harmonized
+     */
+    public boolean isHarmonized() {
+        return harmonized;
+    }
+
+    /**
+     * @param harmonized the harmonized to set
+     */
+    public void setHarmonized(boolean harmonized) {
+        this.harmonized = harmonized;
     }
 
     
