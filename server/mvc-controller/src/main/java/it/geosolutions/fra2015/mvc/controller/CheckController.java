@@ -35,6 +35,7 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.validation.ValidationResult;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +43,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +62,9 @@ public class CheckController {
     private SurveyService surveyService;
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private NotificationSerivice notificationService;
 
     @Autowired
     private Validator validator;
@@ -84,22 +89,23 @@ public class CheckController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String printWelcome(HttpServletRequest request, ModelMap model, HttpSession session) {
-        model.addAttribute("context", "check");
-        model.addAttribute("messageType", "warning");
-        // model.addAttribute("messageType","alert");// red background
-        model.addAttribute("messageCode", "alert.notavailableservice");
 
-        
-        //
 
         User su = (User) session.getAttribute(SESSION_USER);
+        if (su == null) {
+            return "redirect:/";
+        }
         Status status = new Status();
         status.setMessage((String) request.getAttribute("submitmessage"));
         status.setCountry(su.getCountries());
+        
+        //TODO check if survey is already under review
         status.setStatus("under review");
+
         Country c = surveyService.findCountryByISO3(su.getCountries());
         
         try {
+            //Set the country
             surveyService.changeStatus(status);
             surveyService.searchCountry(status.getCountry());
             LOGGER.info("submitted survey:"+status.getCountry());
@@ -111,17 +117,34 @@ public class CheckController {
             List<User> reviewers=  userService.getAll(null, null,filter );
             
             
-            LOGGER.info(reviewers.size());
-            
-            // TODO mail the reviewers associated to the country
-            
+           //LOGGER.info(reviewers.size());
+            try{
+                notificationService.notifyContributorSubmit(su, status,reviewers);
+                model.addAttribute("context", "check");
+                model.addAttribute("messageType", "success");
+                model.addAttribute("messageCode", "submit.success");
+            }catch(MailException  e){
+                LOGGER.error("The reviewers were not notified of the message submit becouse of an Mail Exception",e);
+                model.addAttribute("context", "check");
+                model.addAttribute("messageType", "waring");
+                model.addAttribute("messageCode", "submit.notnotified");
+                model.addAttribute("messageTimeout",10000);
+            }
         } catch (BadRequestServiceEx e) {
-            // TODO notify error
+            submissionError(model,e,c,su);
         } catch (NotFoundServiceEx e) {
-            // TODO notify error
+            submissionError(model,e,c,su);
         }
 
         return "index";
 
+    }
+    
+    private void submissionError(ModelMap model,Exception e,Country c,User us){
+        LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user" + "us",e);
+        model.addAttribute("context", "check");
+        model.addAttribute("messageType", "error");
+        model.addAttribute("messageCode", "submit.error");
+        model.addAttribute("messageTimeout",10000);
     }
 }
