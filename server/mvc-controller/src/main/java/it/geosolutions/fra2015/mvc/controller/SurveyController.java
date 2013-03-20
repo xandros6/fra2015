@@ -28,14 +28,12 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
-import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
-import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -204,30 +202,30 @@ public class SurveyController{
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
         
-        //Merge old values with those have been changed
-        List<CompactValue> backList = new ArrayList<CompactValue>();
-        for(String el : updateMap.keySet()){
-            
-            CompactValue v = oldMap.get(el);
-            if(v != null){
-                
-                backList.add(v);
-            }
-            else{
-                
-                Update u = updateMap.get(el);
-                CompactValue cv = new CompactValue();
-                cv.setColumnNumber(u.getColumn());
-                cv.setContent(u.getValue());
-                cv.setRowNumber(u.getRow());
-                cv.setVariable(u.getVariable());
-                backList.add(cv);
-            }
-        }
-        CountryValues mergedValues = new CountryValues();
-        mergedValues.setValues(backList);
+        //Merge old values with those have been changed       
+//        List<CompactValue> backList = new ArrayList<CompactValue>();
+//        for(String el : updateMap.keySet()){
+//            
+//            CompactValue v = oldMap.get(el);
+//            if(v != null){
+//                
+//                backList.add(v);
+//            }
+//            else{
+//                
+//                Update u = updateMap.get(el);
+//                CompactValue cv = new CompactValue();
+//                cv.setColumnNumber(u.getColumn());
+//                cv.setContent(u.getValue());
+//                cv.setRowNumber(u.getRow());
+//                cv.setVariable(u.getVariable());
+//                backList.add(cv);
+//            }
+//        }
+//        CountryValues mergedValues = new CountryValues();
+//        mergedValues.setValues(backList);
         
-        utils.prepareHTTPRequest(model, question, mergedValues, false);
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), su.getCountries())/*mergedValues*/, false);
 
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         model.addAttribute("messageType","success");
@@ -304,7 +302,7 @@ public class SurveyController{
     }
     
     /**
-     * The implementation of the logic for the removal check MERGE WITH checkIfTheValueMustBeRemoved
+     * The implementation of the logic for the update check.
      * 
      * @param valueToCheck
      * @param newValues
