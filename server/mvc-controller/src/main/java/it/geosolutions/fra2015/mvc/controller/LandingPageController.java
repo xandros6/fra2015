@@ -63,7 +63,6 @@ public class LandingPageController {
     		}
     		return "redirect:login";
     		
-            //model.addAttribute("message", "Spring 3 MVC dummy example");
             
 
     }

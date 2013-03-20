@@ -120,7 +120,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
-                rte.setName(feedbackName+READ_SUFFIX);
+                rte.setName(feedbackName/*+READ_SUFFIX*/);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();
                 rte.doStartTag();

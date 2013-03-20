@@ -22,7 +22,6 @@
 package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.dao.FeedbackDAO;
-import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
@@ -33,7 +32,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 
 import com.googlecode.genericdao.search.Search;
 
@@ -68,7 +66,9 @@ public class FeedbackService {
         try {
             
             Search search = new Search();
-            search.addFilterEqual("user", user);
+            if(user != null){
+                search.addFilterEqual("user", user);
+            }
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
             list = feedbackDAO.search(search);
@@ -80,4 +80,5 @@ public class FeedbackService {
         }
         return list;
     }
+    
 }

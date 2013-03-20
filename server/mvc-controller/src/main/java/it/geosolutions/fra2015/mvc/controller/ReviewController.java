@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
@@ -76,19 +77,38 @@ public class ReviewController {
         if(su==null){
             return "redirect:/login";
         }
-        //check allowed questions
-        setupAllowedQuestions(question, su, model);
         
-        //TODO check access to provide accessible questions for menu and allow to 
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
+        User userForQuery = new User();
+        
+        if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+            
+            model.addAttribute("profile", Profile.REVIEWER.toString());
+            setupAllowedQuestions(question, su, model);
+            userForQuery = su;
+        }
+        else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+            
+            model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
+            model.addAttribute("context", "survey");
+            model.addAttribute("question", question);
+            userForQuery = null;
+        }
+        else{
+            return "redirect:/login";
+        }
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
         utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
         
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
-            fh.handleFeedbackForGetRequest(country, question, model, session, su);
+            
+            List<Feedback> listF = fh.retrieveFeedbacks(country, question, model, session, userForQuery);
+            if(Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())){
+                
+                listF = fh.packageFeedbacks(listF);
+            }
+            fh.prepareFeedbackModel(model, listF);
         } 
         catch (BadRequestServiceEx e) {
             

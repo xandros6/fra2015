@@ -33,6 +33,7 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,9 +41,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * Hold the feedback management: take as input the req and session objects, build a Feedback Instance and add to a feedback list 
@@ -65,12 +65,9 @@ public class FeedbackHandler{
         this.feedbackList = new ArrayList<Feedback>();
     }
 
-    public void handleFeedbackForGetRequest(String country, Long question, Model model,
+    public List<Feedback> retrieveFeedbacks(String country, Long question, Model model,
             HttpSession session, User su) throws BadRequestServiceEx {
 
-        if (su == null) {
-            throw new NullPointerException("User is null");
-        }
         controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
                 controllerServiceUtils.retrieveValues(question.toString(), country), false);
 
@@ -86,7 +83,32 @@ public class FeedbackHandler{
 
            throw new BadRequestServiceEx("Errors loading feedbacks...");
         }
-        prepareFeedbackModel(model, feedbackList);
+        return feedbackList;
+    }
+    
+    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks){
+        
+        List<Feedback> packagedFeedbacks = new ArrayList<Feedback>();
+        Map<String, Feedback> packagedFeedbacksMap = new HashMap<String, Feedback>(); 
+        
+        for(Feedback el : feedbacks){
+            
+            Feedback f = packagedFeedbacksMap.remove(el.getFeedbackId());
+            if(f == null){
+                f = new Feedback();
+                BeanUtils.copyProperties(el, f);
+            }
+            User u = f.getUser();
+            StringBuilder sb = new StringBuilder();
+//            sb.append(f.getFeedback());
+            sb.append("User '").append(u.getUsername()).append("' says: <br />").append("----- <br />").append(el.getFeedback()).append("-----");
+            f.setFeedback(sb.toString());
+            packagedFeedbacksMap.put(f.getFeedbackId(), f);
+            
+        }
+        
+        packagedFeedbacks = new ArrayList<Feedback>(packagedFeedbacksMap.values());
+        return packagedFeedbacks;
     }
     
     public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3){
@@ -113,7 +135,7 @@ public class FeedbackHandler{
         
     }
     
-    private void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
+    public void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
         
         if(feedbackList != null){
             
