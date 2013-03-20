@@ -30,12 +30,12 @@
     </bean>
 
     <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
-        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreResourceNotFound" value="false"/>
         <property name="order" value="5"/>
         <property name="locations">
             <list>
                 <value>classpath*:fra2015-datasource-ovr.properties</value>
-                <value>${fra2015-ovr}</value>
+                
             </list>
         </property>
     </bean>

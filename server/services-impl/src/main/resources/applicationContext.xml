@@ -1,39 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:aop="http://www.springframework.org/schema/aop"
-	   xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
 	    	http://www.springframework.org/schema/beans 
 	   		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 			http://www.springframework.org/schema/context
 			http://www.springframework.org/schema/context/spring-context-2.5.xsd
 			http://www.springframework.org/schema/aop 
 			http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
-       default-autowire="byName">
-        
-    <bean id="userService" class="it.geosolutions.fra2015.services.UserServiceImpl">
+	default-autowire="byName">
+
+	<bean id="userService" class="it.geosolutions.fra2015.services.UserServiceImpl">
+	</bean>
+
+	<bean id="authenticationService"
+		class="it.geosolutions.fra2015.services.AuthenticationServiceImpl">
+	</bean>
+
+	<bean id="surveyCatalog" class="it.geosolutions.fra2015.services.SurveyCatalog"
+		depends-on="entryDAO,entryItemDAO">
+		<property name="entryDAO" ref="entryDAO" />
+		<property name="questionDAO" ref="questionDAO" />
+		<!-- <property name="entryItemDAO" ref="entryItemDAO" /> -->
+	</bean>
+
+	<bean id="activityLog" class="it.geosolutions.fra2015.services.SurveyActivityLog">
+		<property name="activityLogDAO" ref="activityLogDAO" />
+	</bean>
+
+	<bean id="surveyService" class="it.geosolutions.fra2015.services.SurveyServiceImpl">
+		<property name="surveyCatalog" ref="surveyCatalog" />
+	</bean>
+
+	<bean id="feedbackService" class="it.geosolutions.fra2015.services.FeedbackService" />
+
+	<bean id="bulkLoader"
+		class="it.geosolutions.fra2015.services.BulkModelEntitiesLoader" />
+    <!-- ############### -->
+	<!-- Mailing support -->
+	<!-- ############### -->
+	<!-- Load in application properties reference -->
+	<bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="order" value="5"/>
+        <property name="location" value="classpath:mail.properties"/>
     </bean>
-    
-    <bean id="authenticationService" class="it.geosolutions.fra2015.services.AuthenticationServiceImpl">
-    </bean>
-    
-    <bean id="surveyCatalog" class="it.geosolutions.fra2015.services.SurveyCatalog" depends-on="entryDAO,entryItemDAO">
-    	<property name="entryDAO" ref="entryDAO" />
-    	<property name="questionDAO" ref="questionDAO" />    	
-    	<!-- <property name="entryItemDAO" ref="entryItemDAO" /> -->
-    </bean>
-    
-    <bean id="activityLog" class="it.geosolutions.fra2015.services.SurveyActivityLog">
-    	<property name="activityLogDAO" ref="activityLogDAO" />
-    </bean>
-    
-    <bean id="surveyService" class="it.geosolutions.fra2015.services.SurveyServiceImpl">
-    	<property name="surveyCatalog" ref="surveyCatalog" />
-    </bean>
-    
-    <bean id="feedbackService" class="it.geosolutions.fra2015.services.FeedbackService" />
-    
-    <bean id="bulkLoader" class="it.geosolutions.fra2015.services.BulkModelEntitiesLoader" />
-    
+
+	
+	<!-- freemarker config -->
+	<bean id="freemarkerMailConfiguration"
+		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="classpath:mail/ftl/" />
+	</bean>
+	<!-- mail sender -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="host" />
+		<property name="port" value="25" />
+		<property name="username" value="username" />
+		<property name="password" value="passord" />
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="notificationService" class="it.geosolutions.fra2015.services.mail.NotificationSerivice">
+		<property name="mailSender" ref="mailSender" />
+		<property name="freemarkerMailConfiguration" ref="freemarkerMailConfiguration" />
+		<property name="messages">
+			<map>
+				<entry key="contributorSubmit">
+					<map>
+						<entry key="template" value="contributorSubmit.ftl"></entry>
+						<entry key="subject"  value="Fra 2015 Notification - Survey has been submitted."></entry><!-- TODO: i18n -->
+					</map>
+				</entry>
+			</map>
+		</property>
+		<property name="mailFromAddress" value="admin@fra2015.org" />
+	</bean>
 </beans>
