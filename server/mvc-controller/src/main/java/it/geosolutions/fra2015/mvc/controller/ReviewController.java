@@ -138,21 +138,23 @@ public class ReviewController {
         }
         if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
             
+            model.addAttribute("profile", Profile.REVIEWER.toString());
+            setupAllowedQuestions(Long.parseLong(question), su, model);
             harmonized = false;
         }
         else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
             
+            model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
             harmonized = true;
         }
         else{
             return "redirect:/login";
         }
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("profile", ControllerServices.Profile.REVIEWER.toString());
+        // ????
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, Long.parseLong(question), country);
         utils.prepareHTTPRequest(model, question, cvalues, false);
-        setupAllowedQuestions(Long.parseLong(question), su, model);
         
         // save feedbacks
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);

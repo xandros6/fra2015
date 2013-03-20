@@ -110,7 +110,10 @@ public class VariableNameUtils {
     
     public static String buildfeedbackIDfromEntryID(String entryID){
         
-        StringBuilder sb = new StringBuilder(); 
+        StringBuilder sb = new StringBuilder();
+        if(entryID.endsWith("Ed")){
+            entryID = entryID.replaceFirst("Ed", "_Ed");
+        }
         sb.append("_feedback_").append(entryID).append("_");
         return sb.toString();
     }

@@ -68,8 +68,8 @@ public class FeedbackHandler{
     public List<Feedback> retrieveFeedbacks(String country, Long question, Model model,
             HttpSession session, User su) throws BadRequestServiceEx {
 
-        controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
-                controllerServiceUtils.retrieveValues(question.toString(), country), false);
+//        controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
+//                controllerServiceUtils.retrieveValues(question.toString(), country), false);
 
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
@@ -166,7 +166,13 @@ public class FeedbackHandler{
         final Feedback f = new Feedback();
         f.setEntry(entry);
         f.setFeedback(feedback);
-        f.setFeedbackId(feedbackId);
+        if(harmonized){
+            // Hack: If the feedback type is 'harmonized' add "Ed"
+            f.setFeedbackId(feedbackId+"Ed");
+        }
+        else{
+            f.setFeedbackId(feedbackId);
+        }
         f.setStatus("");
         f.setSurvey(surveyInstance);
         f.setTimestamp(System.currentTimeMillis());

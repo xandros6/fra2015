@@ -135,7 +135,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 // --- use RichTextEntry ----
                 RichTextEntry rte2 = new RichTextEntry();
                 //Little Hack: the id are placed in all jsp for all entry... so remove the last '_' for ad the EDITOR suffix
-                rte2.setName(feedbackName.substring(0, feedbackName.length()-1)+EDITOR+"_"/*+WRITE_SUFFIX*/);
+                rte2.setName(feedbackName+EDITOR+"_"/*+WRITE_SUFFIX*/);
                 rte2.setPageContext(pageContext);
                 rte2.forceWriteMode();
                 rte2.doStartTag();

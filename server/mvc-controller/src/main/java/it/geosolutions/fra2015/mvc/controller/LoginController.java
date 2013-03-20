@@ -97,7 +97,8 @@ public class LoginController {
                     countries.add(el.getIso3());
                 }
                 String [] countriesArr = new String[countries.size()];
-                List<SurveyInstance> surveyInstanceList = controllerServices.retriveSurveyListByCountries(countries.toArray(countriesArr), 1, 1);
+                // Retrieve all SurveyInstances
+                List<SurveyInstance> surveyInstanceList = controllerServices.retriveSurveyListByCountries(countries.toArray(countriesArr), -1, -1);
                 
                 Map<String, SurveyInstance> surveyInstancesMap = new HashMap<String, SurveyInstance>();
                 for(SurveyInstance el : surveyInstanceList){
