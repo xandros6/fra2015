@@ -244,7 +244,7 @@
         <entryId>3c</entryId>
         <error>validation.rule.21</error>
         <condition>
-            <![CDATA[ {{3.4}} > {3.4.2}} ]]>
+            <![CDATA[ {{3.4}} > {{3.4.2}} ]]>
         </condition>
     </rule> 
     <rule>
@@ -411,12 +411,12 @@
         <error>validation.rule.35</error>
         <condition>
             <![CDATA[ 
-            	{{5.1}} > {5.1.1}} &&
-            	{{5.1}} > {5.1.2}} &&
-            	{{5.1}} > {5.1.3}} &&
-            	{{5.1}} > {5.1.4}} &&
-            	{{5.1}} > {5.1.5}} &&
-            	{{5.1}} > {5.1.6}}           
+            	{{5.1}} > {{5.1.1}} &&
+            	{{5.1}} > {{5.1.2}} &&
+            	{{5.1}} > {{5.1.3}} &&
+            	{{5.1}} > {{5.1.4}} &&
+            	{{5.1}} > {{5.1.5}} &&
+            	{{5.1}} > {{5.1.6}}           
              ]]>
         </condition>
     </rule>
@@ -429,10 +429,10 @@
         <error>validation.rule.36</error>
         <condition>
             <![CDATA[ 
-            	{{5.2}} > {5.2.1}} &&
-            	{{5.2}} > {5.2.2}} &&
-            	{{5.2}} > {5.2.3}} &&
-            	{{5.2}} > {5.2.4}}          
+            	{{5.2}} > {{5.2.1}} &&
+            	{{5.2}} > {{5.2.2}} &&
+            	{{5.2}} > {{5.2.3}} &&
+            	{{5.2}} > {{5.2.4}}          
              ]]>
         </condition>
     </rule>     
@@ -562,7 +562,7 @@
         <description>
             8.1.1 should be less than 1.1
         </description>
-        <entryId>1a,14</entryId>
+        <entryId>1a,8a</entryId>
         <error>validation.rule.48</error>
         <condition>
             <![CDATA[ {{8.1.1}} <= {{1.1}} ]]>

@@ -68,7 +68,8 @@
 		</tr>
 		<tr>
 			<td>
-				<form:input path="countries" id="filter_countries" type="text" data-provide="typeahead" autocomplete="off" data-source='[${countriesIso3}]' class="input-block-level"/>
+				<input id="filter_countries" type="text" autocomplete="off" class="input-block-level"/>  
+				<form:input path="selCountries" name="selCountries" type="hidden" id="selCountries"/>
 			</td>
 			<td valign="top" align="center">
 				<button id="filter_countries_clear_btn" type="button" class="btn btn-primary">X</button>	
@@ -78,10 +79,3 @@
 		</table>
 	</fieldset>
 </form:form>
-<script type="text/javascript">
-	$('#filter_cname_clear_btn').click(function(event){ $('#filter_cname').val('') });
-	$('#filter_cusername_clear_btn').click(function(event){ $('#filter_cusername').val('') });
-	$('#filter_cemail_clear_btn').click(function(event){ $('#filter_cemail').val('') });
-	$('#filter_roleComboBox_clear_btn').click(function(event){ $('#filter_roleComboBox').val('') });
-	$('#filter_countries_clear_btn').click(function(event){ $('#filter_countries').val('') });
-</script>

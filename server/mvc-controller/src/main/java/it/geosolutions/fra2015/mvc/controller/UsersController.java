@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
@@ -53,6 +54,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.googlecode.genericdao.search.Filter;
 
 /**
  * @author Lorenzo Natali
@@ -86,16 +89,7 @@ public class UsersController {
 
 	@RequestMapping(value = "/")
 	public String getUsers(ModelMap model) {
-		User userFilter = (User) model.get("userFilter");
-		model.addAttribute("page", 0);
-		model.addAttribute("context", "users");
-		model.addAttribute("users", this.getPage(0,userFilter));
-		model.addAttribute("countries", surveyService.getCountries());
-		boolean next = this.getPage(1,userFilter).size() > 0;
-		model.addAttribute("next", next?1:-1);
-		model.addAttribute("prev", -1);
-		return "admin";
-
+		return "redirect:/users/0";
 	}
 
 	@RequestMapping(value = "/save/{page}", method = RequestMethod.POST)
@@ -165,7 +159,7 @@ public class UsersController {
 		model.addAttribute("messageType", "success");
 		model.addAttribute("messageText", "User filter updated");
 		model.addAttribute("userFilter", formUserFilter);
-		return "forward:/users/";
+		return "forward:/users/0";
 	}
 
 	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
@@ -189,7 +183,7 @@ public class UsersController {
 			}
 		}
 		model.addAttribute("questions", questions);
-		
+
 		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "id" );
 		Collection<String> countriesId = CollectionUtils.collect( user.getCountriesSet(), transformer );
 		String joined = StringUtils.join(countriesId,",");
@@ -206,24 +200,43 @@ public class UsersController {
 	public String getUsersPage(@PathVariable(value = "page") int page,
 			ModelMap model) {
 		User userFilter = (User) model.get("userFilter");
-		if (page == 0) {
-			return "forward:/users/";
-		}
 		//add context for view
+		model.addAttribute("countries", surveyService.getCountries());
 		model.addAttribute("context", "users");
-		List<User> users=this.getPage(page, userFilter);
+		List<User> users= this.getPage(page, userFilter);
+		if(users.size() == 0 && page > 0){
+			return "redirect:/users/"+(page-1);
+		}
 		model.addAttribute("page", page);
 		//check prev and next pages presence
-		boolean next =false;
-		if(users !=null){
-			next =  users.size()<pagesize ? false : this.getPage(page + 1,userFilter).size() > 0;
+		long totalUser = 0;
+		try {
+			totalUser = userService.getCountFiltered(userFilter);
+		}catch (BadRequestServiceEx e) {
+			LOGGER.error(e.getMessage(), e);
 		}
-		boolean previous =this.getPage(page - 1, userFilter).size() > 0;
-		model.addAttribute("next", next ? page + 1 : -1);
-		model.addAttribute("prev", previous ? page - 1 : -1);
+		int totalPage = (int) (Math.ceil(((double)totalUser)/pagesize));
+		Pagination pagination = new Pagination();
+		pagination.setCurrentPage(page);
+		if((page+1) < totalPage){
+			pagination.setLastPage(totalPage);
+		}
+		if((page+1)*pagesize < totalUser){
+			pagination.setNext1(page+1);
+		}
+		if((page+2)*pagesize < totalUser){
+			pagination.setNext2(page+2);
+		}
+		if(page > 0 ){
+			pagination.setFirstPage(0);
+			pagination.setPrev1(page-1);
+		}
+		if((page-1) > 0 ){
+			pagination.setPrev2(page-2);
+		}
+		model.addAttribute("pagination", pagination);
 		model.addAttribute("users", users);
-
-
+		model.addAttribute("isFiltered",isFiltered(userFilter));
 		return "admin";
 
 	}
@@ -261,5 +274,19 @@ public class UsersController {
 		}
 		return null;
 
+	}
+
+	private Boolean isFiltered(User userFilter){
+		Boolean isFiltered = false;
+		if(userFilter != null){
+			if(StringUtils.isNotBlank(userFilter.getUsername()) 
+					|| StringUtils.isNotBlank(userFilter.getName())
+					|| StringUtils.isNotBlank(userFilter.getRole())
+					|| StringUtils.isNotBlank(userFilter.getEmail())
+					|| StringUtils.isNotBlank(userFilter.getSelCountries())){
+				isFiltered = true;
+			}
+		}
+		return isFiltered;
 	}
 }

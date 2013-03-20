@@ -320,19 +320,24 @@ hr.soften {
 table td.fullname div{  
   word-wrap: break-word;
   width: 200px;
+  height: 30px;
 }
 table td.username div{  
   word-wrap: break-word;
   width: 150px;
+  height: 30px;
 }
 table td.role div{  
   word-wrap: break-word;
   width: 120px;
+  height: 30px;
 }
 table td.countries div{  
   word-wrap: break-word;
   width: 100px;
+  height: 30px;
 }
 table td.link{  
   width: 160px;
+  height: 30px;
 }
