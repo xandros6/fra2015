@@ -133,4 +133,6 @@ public interface SurveyService {
 
     Country findCountryByISO3(String iso3);
 
+    Status getStatus(String iso3);
+
 }

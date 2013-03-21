@@ -370,6 +370,16 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return null;
 	}
+	
+	@Override
+	public Status getStatus(String iso3){
+	    SurveyInstance survey = surveyDAO.findByCountry( iso3 );
+	    if ( survey != null ){
+                return survey.getStatus();
+                
+            }
+	    return null;
+	}
 	@Override
 	public List<SurveyInstance> getSurveysByCountry(String[] countries,int page,int entries){
 		return surveyDAO.findByCountries( countries,page,entries );
