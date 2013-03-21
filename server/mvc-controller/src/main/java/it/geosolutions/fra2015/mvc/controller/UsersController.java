@@ -125,6 +125,11 @@ public class UsersController {
 		}
 		return "forward:/users/"+page;
 	}
+	
+	@RequestMapping(value = "/save/{page}", method = RequestMethod.GET)
+	public String reloadSavedUser(@PathVariable(value = "page") Integer page, ModelMap model) {
+		return "redirect:/users/"+page;
+	}
 
 	@RequestMapping(value = "/delete/{userId}/{page}", method = RequestMethod.GET)
 	public String deleteUser(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model) {
@@ -160,6 +165,11 @@ public class UsersController {
 		model.addAttribute("messageText", "User filter updated");
 		model.addAttribute("userFilter", formUserFilter);
 		return "forward:/users/0";
+	}
+	
+	@RequestMapping(value = "/updateFilter", method = RequestMethod.GET)
+	public String reloadFilter(ModelMap model , SessionStatus sessionStatus) {
+		return "redirect:/users/0";
 	}
 
 	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
