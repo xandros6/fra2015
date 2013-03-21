@@ -76,8 +76,13 @@ public class CheckController {
         if (su == null) {
             return "redirect:/";
         }
-
+        Status s = surveyService.getStatus(su.getCountries());
+        if(!isSubmitAllowed(s)){
+            submitDeniedError(s,model);
+            return "index";
+        }
         ValidationResult v = validator.validate(su.getCountries());
+        
         if (v.getSuccess()) {
             model.addAttribute("allowsubmit", true);
         } else {
@@ -87,27 +92,29 @@ public class CheckController {
 
     }
 
+   
+
     @RequestMapping(method = RequestMethod.POST)
     public String printWelcome(HttpServletRequest request, ModelMap model, HttpSession session) {
 
 
         User su = (User) session.getAttribute(SESSION_USER);
-        if (su == null) {
+        if (su == null ) { //TODO check if the user is contributor
             return "redirect:/";
         }
-        Status status = new Status();
+        //check status
+        Status status =surveyService.getStatus(su.getCountries());
+        if(!isSubmitAllowed(status)){
+            submitDeniedError(status,model);
+            return "index";
+            
+        }
+        status.setStatus("compiled");
         status.setMessage((String) request.getAttribute("submitmessage"));
-        status.setCountry(su.getCountries());
-        
-        //TODO check if survey is already under review
-        status.setStatus("under review");
-
         Country c = surveyService.findCountryByISO3(su.getCountries());
         
         try {
-            //Set the country
             surveyService.changeStatus(status);
-            surveyService.searchCountry(status.getCountry());
             LOGGER.info("submitted survey:"+status.getCountry());
             User filter =new User();
             
@@ -140,11 +147,25 @@ public class CheckController {
 
     }
     
+    private void submitDeniedError(Status s,ModelMap model) {
+        
+        model.addAttribute("context", "check");
+        model.addAttribute("messageType", "waring");
+        model.addAttribute("messageCode", "submit.statuserror");
+        model.addAttribute("denysubmit", true);
+        model.addAttribute("messageTimeout",5000);
+        
+    }
     private void submissionError(ModelMap model,Exception e,Country c,User us){
         LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user" + "us",e);
         model.addAttribute("context", "check");
         model.addAttribute("messageType", "error");
         model.addAttribute("messageCode", "submit.error");
         model.addAttribute("messageTimeout",10000);
+    }
+    
+    private boolean isSubmitAllowed(Status s){
+        String status =s.getStatus();
+        return "inprogress".equals(status) || "pendingfix".equals(status) || "compiled".equals(status) || "empty".equals(status);
     }
 }
