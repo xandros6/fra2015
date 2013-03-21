@@ -178,7 +178,7 @@ public class UserServiceImpl implements UserService {
          	if(StringUtils.isNotBlank(userFilter.getName()))
          		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
          	if(StringUtils.isNotBlank(userFilter.getRole()))
-         		searchCriteria.addFilter(Filter.ilike("role", userFilter.getRole()));        	
+         		searchCriteria.addFilter(Filter.equal("role", userFilter.getRole()));        	
          	if(StringUtils.isNotBlank(userFilter.getSelCountries()))
          		searchCriteria.addFilterSome("countriesSet", Filter.equal("id", userFilter.getSelCountries()));
          	if(StringUtils.isNotBlank(userFilter.getEmail()!=null?userFilter.getEmail().trim():null))
