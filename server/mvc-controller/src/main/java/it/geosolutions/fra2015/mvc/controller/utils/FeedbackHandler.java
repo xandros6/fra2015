@@ -31,16 +31,21 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Enumeration;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
+import org.apache.cxf.common.util.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
 
@@ -99,12 +104,16 @@ public class FeedbackHandler{
                 f = new Feedback();
                 BeanUtils.copyProperties(el, f);
             }
-            if(f.getHarmonized() != null && !f.getHarmonized()){
+            if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(f.getFeedback())){
                 
                 User u = f.getUser();
                 StringBuilder sb = new StringBuilder();
     //            sb.append(f.getFeedback());
-                sb.append("User '").append(u.getUsername()).append("' says: <br />").append("----- <br />").append(el.getFeedback()).append("-----");
+                Calendar cal = GregorianCalendar.getInstance();
+                cal.setTimeInMillis(f.getTimestamp());
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
+                dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+                sb.append("<b>On </b> '").append(dateFormatter.format(cal.getTime())).append("' <b>User</b> '").append(u.getUsername()).append("' <b>says:</b>").append("<br />").append(el.getFeedback()).append("-----");
                 f.setFeedback(sb.toString());
                 packagedFeedbacksMap.put(f.getFeedbackId(), f);
             }
