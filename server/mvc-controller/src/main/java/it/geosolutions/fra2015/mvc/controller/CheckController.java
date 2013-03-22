@@ -22,11 +22,7 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.validation.Validator;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -37,6 +33,8 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.validation.ValidationResult;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,7 +57,7 @@ public class CheckController {
     Logger LOGGER = Logger.getLogger(CheckController.class);
     
     @Autowired
-    private SurveyService surveyService;
+    private SurveyServiceEntryPoint surveyService;
     @Autowired
     private UserService userService;
     
@@ -138,8 +136,6 @@ public class CheckController {
                 model.addAttribute("messageTimeout",10000);
             }
         } catch (BadRequestServiceEx e) {
-            submissionError(model,e,c,su);
-        } catch (NotFoundServiceEx e) {
             submissionError(model,e,c,su);
         }
 

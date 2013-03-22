@@ -1,25 +1,21 @@
 package it.geosolutions.fra2015.services.mail;
 
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
-import it.geosolutions.fra2015.services.SurveyServiceImpl;
 import it.geosolutions.fra2015.services.UserService;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-
-import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
 
 public class NotificationSerivice {
     private static final Logger LOGGER = Logger.getLogger(NotificationSerivice.class);
