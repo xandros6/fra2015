@@ -44,7 +44,7 @@
 								<jsp:include page="admin/users.jsp" />
 							</c:when>
 							<c:when test="${context=='export'}">
-								<jsp:include page="admin/adminexport.jsp" />
+								<jsp:include page="admin/export.jsp" />
 							</c:when>
 						</c:choose>
 
