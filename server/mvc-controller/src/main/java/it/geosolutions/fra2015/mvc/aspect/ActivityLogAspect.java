@@ -1,7 +1,7 @@
 /*
  *  fra2015
  *  https://github.com/geosolutions-it/fra2015
- *  Copyright (C) 2007-2012 GeoSolutions S.A.S.
+ *  Copyright (C) 2013 GeoSolutions S.A.S.
  *  http://www.geo-solutions.it
  *
  *  GPLv3 + Classpath exception
@@ -25,8 +25,11 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
 import it.geosolutions.fra2015.services.SurveyActivityLog;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -63,9 +66,11 @@ public class ActivityLogAspect {
         ActivityLogEntry al = new ActivityLogEntry();
         al.setContent(u.getValue());
         al.setCountry(u.getCountry());
-        al.setEntryItemName(u.getVariable());
+        al.setVarName(u.getVariable());
+        al.setVarCol(u.getColumn());
+        al.setVarRow(u.getRow());
         al.setQuestion_id(question);
-        al.setTime(System.currentTimeMillis());
+        al.setTimestamp(GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC")).getTime());
         al.setUsername(username);
         return al;
     }

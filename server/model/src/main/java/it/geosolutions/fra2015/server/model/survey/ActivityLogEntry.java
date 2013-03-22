@@ -1,7 +1,7 @@
 /*
  *  fra2015
  *  https://github.com/geosolutions-it/fra2015
- *  Copyright (C) 2007-2012 GeoSolutions S.A.S.
+ *  Copyright (C) 2013 GeoSolutions S.A.S.
  *  http://www.geo-solutions.it
  *
  *  GPLv3 + Classpath exception
@@ -21,133 +21,142 @@
  */
 package it.geosolutions.fra2015.server.model.survey;
 
-
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @SuppressWarnings("serial")
 @Entity(name = "ActivityLog")
-@Table(name = "fra_activitylog" )
+@Table(name = "fra_activitylog")
 public class ActivityLogEntry implements Serializable {
 
-        @Id
-        @GeneratedValue
-	private Long id;
-        
-        private Long time;
-        
-        private String entryItemName;
-        
-        private String username;
-        
-        private String country;
-        
-        private String question_id;
-        
-        private String content;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-        /**
-         * @return the id
-         */
-        public Long getId() {
-            return id;
-        }
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateTimeStamp;
 
-        /**
-         * @param id the id to set
-         */
-        public void setId(Long id) {
-            this.id = id;
-        }
+    private String varName;
+    private Integer varRow;
+    private Integer varCol;
 
-        /**
-         * @return the time
-         */
-        public Long getTime() {
-            return time;
-        }
+    private String username;
 
-        /**
-         * @param time the time to set
-         */
-        public void setTime(Long time) {
-            this.time = time;
-        }
-        
-        /**
-         * @return the entryItemName
-         */
-        public String getEntryItemName() {
-            return entryItemName;
-        }
+    private String country;
 
-        /**
-         * @param entryItemName the entryItemName to set
-         */
-        public void setEntryItemName(String entryItemName) {
-            this.entryItemName = entryItemName;
-        }
+    private String question_id;
 
-        /**
-         * @return the username
-         */
-        public String getUsername() {
-            return username;
-        }
+    private String content;
 
-        /**
-         * @param username the username to set
-         */
-        public void setUsername(String username) {
-            this.username = username;
-        }
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
 
-        /**
-         * @return the country
-         */
-        public String getCountry() {
-            return country;
-        }
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        /**
-         * @param country the country to set
-         */
-        public void setCountry(String country) {
-            this.country = country;
-        }
+    public Date getTimestamp() {
+        return updateTimeStamp;
+    }
 
-        /**
-         * @return the question_id
-         */
-        public String getQuestion_id() {
-            return question_id;
-        }
+    public void setTimestamp(Date timestamp) {
+        this.updateTimeStamp = timestamp;
+    }
 
-        /**
-         * @param question_id the question_id to set
-         */
-        public void setQuestion_id(String question_id) {
-            this.question_id = question_id;
-        }
 
-        /**
-         * @return the content
-         */
-        public String getContent() {
-            return content;
-        }
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
 
-        /**
-         * @param content the content to set
-         */
-        public void setContent(String content) {
-            this.content = content;
-        }
-        
-        
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * @return the question_id
+     */
+    public String getQuestion_id() {
+        return question_id;
+    }
+
+    /**
+     * @param question_id the question_id to set
+     */
+    public void setQuestion_id(String question_id) {
+        this.question_id = question_id;
+    }
+
+    /**
+     * @return the content
+     */
+    public String getContent() {
+        return content;
+    }
+
+    /**
+     * @param content the content to set
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getVarName() {
+        return varName;
+    }
+
+    public void setVarName(String varName) {
+        this.varName = varName;
+    }
+
+    public Integer getVarRow() {
+        return varRow;
+    }
+
+    public void setVarRow(Integer varRow) {
+        this.varRow = varRow;
+    }
+
+    public Integer getVarCol() {
+        return varCol;
+    }
+
+    public void setVarCol(Integer varCol) {
+        this.varCol = varCol;
+    }
+
 
 }

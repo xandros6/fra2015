@@ -1215,11 +1215,11 @@
     </label>
     <label ref="376">
         <value><![CDATA[Topic VI: MEASURING PROGRESS TOWARD SFM<br/>
-            <small>i: National-scale enabling environment for SFM</small>]]></value>
+<small>i: National-scale enabling environment for SFM</small>]]></value>
     </label>
     <label ref="topic6b">
         <value><![CDATA[Topic VI: MEASURING PROGRESS TOWARD SFM<br/>
-            <small>ii: Operational scale progress toward SFM</small>]]></value>
+<small>ii: Operational scale progress toward SFM</small>]]></value>
     </label>
     <label ref="377">
         <value>What forest policy and regulatory framework exists to support implementation of sustainable forest management SFM?</value>
@@ -1802,23 +1802,23 @@
     </label>
 
     <label ref="rule_error_1">
-        <value>1.7 > 1.7.1</value>
+        <value>Please note that the "...of which" category should always be less than or equal to the main category</value>
     </label>
 
     <label ref="rule_error_2">
-        <value>1.1+1.2+1.3=land area (compare/check with external data)</value>
+        <value>Please note that the sum of the area of Forest + Other wooded land + Other land should = the official land area of your country, please check Appendix 2 of the Guidelines</value>
     </label>
 
     <label ref="rule_error_3">
-        <value>1.1 change rate1 in % should be between +3.00% and -3.00%</value>
+        <value>The annual change rate in % isnormally a value between +3.00% and -3.00%, please check that the reported values are correct</value>
     </label>
 
     <label ref="rule_error_4">
-        <value>1.4=1.5-(1.1+1.2+1.3)</value>
+        <value>Please note that the area of Inland waters should = the difference between total country area and total land area, please see Appendix 2 of the Guidelines</value>
     </label>
 
     <label ref="rule_error_5">
-        <value>1.5= Country area</value>
+        <value> Please note that the Total country area should = the official country area please see Appendix 2 of the Guidelines</value>
     </label>
 
     <label ref="rule_error_7">
@@ -1830,7 +1830,99 @@
     </label>
 
     <label ref="rule_error_9">
-        <value></value>
+        <value>The annual change rate in % is normally a value between +3.00% and -3.00%, please check that the reported values are correct</value>
+    </label>
+<label ref="rule_error_10">
+        <value>The sum of Primary forest + Other naturally regenerated forest + Planted forest must = the total Forest area reported in Question 1</value>
     </label>
 
+    <label ref="rule_error_11">
+        <value>For forests, the average growing stock per hectare is normally within a range between 50 and 300 (m3/ha). Please check the reported figures</value>
+    </label>
+
+<label ref="rule_error_12">
+        <value>The sum of ...of which coniferous + ...of which broadleaved should = the forest growing stock</value>
+    </label>
+
+    <label ref="rule_error_13">
+        <value>For Other wooded land the average growing stock per hectare is normally within a range between 5 and 100 (m3/ha)</value>
+    </label>
+
+    <label ref="rule_error_14">
+        <value>The sum of ...of which coniferous + ...of which broadleaved should = the Other wooded land growing stock</value>
+    </label>
+
+    <label ref="rule_error_15">
+        <value>The total must correspond to the total Growing stock as reported in table 3a</value>
+    </label>
+
+    <label ref="rule_error_16">
+        <value>The root-shoot ratio is normally within a range between 0.1 and 0.5, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_17">
+        <value>The ratio dead wood/living biomass is normally within a range between 0 and 0.2, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_18">
+        <value>The ratio carbon/living biomass is normally around 0.47 and should be similar over the years, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_19">
+        <value>The ratio above-ground biomass/Growing stock is normally within a range between 0.4 and 10, please check reported values</value>
+    </label>
+<label ref="rule_error_20">
+        <value>The ratio carbon/living biomass is normally around 0.47 and should be similar over the years, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_21">
+        <value>The ratio carbon/living biomass is normally around 0.47 and should be similar over the years</value>
+    </label>
+
+    <label ref="rule_error_22">
+        <value>The Soil carbon (t/ha) is usually within a range of 30 to 100, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_23">
+        <value>The sum should be less than or equal the forest area reported in Question 1, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_24">
+        <value>Should be less than or equal to the forest area reported in Question 1, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_25">
+        <value>Should be less than or equal to the forest area reported in Question 1, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_26">
+        <value>6.2 should be less than 1.1 and 6.1 should be less than 1.1, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_27">
+        <value>The area burned must be less than the total land area, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_28">
+        <value>Should be less than or equal to the forest area reported in Question 1, please check reported values</value>
+    </label>
+
+    <label ref="rule_error_29">
+        <value>Should be less than or equal to the forest area reported in Question 1, please check reported values</value>
+    </label>
+<label ref="rule_error_30">
+        <value>The sum of ...of which for production and ...of which for protection should = Forest area with management plan</value>
+    </label>
+
+    <label ref="rule_error_31">
+        <value>This value should be be less than or equal to 100, please check reported values</value>
+    </label>
+
+<label ref="rule_error_32">
+        <value>The sum of Public ownership + Private ownership + Unknown ownership should = the forest area reported in Question 1</value>
+    </label>
+
+    <label ref="rule_error_33">
+        <value>Please note that the "...of which" categories should = the main category, please check reported values</value>
+    </label>
 </locale>

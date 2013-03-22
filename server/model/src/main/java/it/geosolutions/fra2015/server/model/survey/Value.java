@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  *
@@ -30,7 +31,10 @@ public class Value implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    
+
+    /**
+     * fixme: value should refer to a survey, not to a country
+     */
     @ManyToOne
     private Country country;
     
@@ -40,14 +44,15 @@ public class Value implements Serializable {
     @ManyToOne
     @JoinColumn(name="item_id", nullable=false)
     private EntryItem entryItem;
+
     @Column(nullable = true, updatable = false)
     private Integer rowNumber;
     
-    /**
-     * The id of a question is the concatenation of Country(in the iso3 form) and The question number
-     */
-    @Column(nullable = true, updatable = false)
-    private String questionId;
+//    /**
+//     * The id of a question is the concatenation of Country(in the iso3 form) and The question number
+//     */
+//    @Column(nullable = true, updatable = false)
+//    private String questionId;
 
     public Long getId() {
         return id;
@@ -89,13 +94,13 @@ public class Value implements Serializable {
         this.content = content;
     }
 
-    public String getQuestionNumber() {
-        return questionId;
-    }
-
-    public void setQuestionNumber(String questionId) {
-        this.questionId = questionId;
-    }
+//    public String getQuestionNumber() {
+//        return questionId;
+//    }
+//
+//    public void setQuestionNumber(String questionId) {
+//        this.questionId = questionId;
+//    }
     
     
     
