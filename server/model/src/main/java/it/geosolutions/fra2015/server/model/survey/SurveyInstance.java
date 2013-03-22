@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * a survey instance is a particular survey associated to a country
@@ -28,9 +29,11 @@ public class SurveyInstance implements Serializable {
     private Long id;
     
     @OneToOne(cascade= CascadeType.ALL, optional=false)
+    @ForeignKey(name = "fk_survey_status")
     private Status status;
     
     @OneToOne
+    @ForeignKey(name = "fk_survey_country")
     private Country country;
 
     public Long getId() {

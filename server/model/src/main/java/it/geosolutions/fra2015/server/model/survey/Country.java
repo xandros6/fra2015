@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.Index;
 
 /**
  *
@@ -35,7 +36,8 @@ public class Country implements Serializable {
     @Id
     private Long id;
     
-    @Column(name="iso3", length=3, nullable=false)
+    @Column(name="iso3", length=3, nullable=false, unique = true)
+    @Index(name = "idx_country_iso3")
     private String iso3;
     
     @Column(name = "name", nullable=false)
