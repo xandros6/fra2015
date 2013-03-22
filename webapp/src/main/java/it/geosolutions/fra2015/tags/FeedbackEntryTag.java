@@ -41,7 +41,6 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private final static String WRITE_SUFFIX = "b";
     private final static String READ_SUFFIX = "A";
-    private final static String EDITOR = "Ed";
     
     private String feedbackName;
     
@@ -135,7 +134,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 // --- use RichTextEntry ----
                 RichTextEntry rte2 = new RichTextEntry();
                 //Little Hack: the id are placed in all jsp for all entry... so remove the last '_' for ad the EDITOR suffix
-                rte2.setName(feedbackName+EDITOR+"_"/*+WRITE_SUFFIX*/);
+                rte2.setName(feedbackName+"Ed_"/*+WRITE_SUFFIX*/);
                 rte2.setPageContext(pageContext);
                 rte2.forceWriteMode();
                 rte2.doStartTag();
