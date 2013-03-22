@@ -103,7 +103,8 @@ public class ReviewController {
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
             
-            List<Feedback> listF = fh.retrieveFeedbacks(country, question, model, session, userForQuery);
+            Boolean harmonized = (Profile.EDITOR.toString().equalsIgnoreCase(su.getRole()))?false:null;
+            List<Feedback> listF = listF = fh.retrieveFeedbacks(country, question, model, session, userForQuery, null);
             if(Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())){
                 
                 listF = fh.packageFeedbacks(listF);
@@ -171,10 +172,11 @@ public class ReviewController {
         }
         
         //Put feedback in model
-        for(Feedback el : fh.getFeedbackArray()){
-            
-            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
-        }
+        fh.prepareFeedbackModel(model, fh.getFeedbackList());
+//        for(Feedback el : fh.getFeedbackArray()){
+//            
+//            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
+//        }
         
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");

@@ -31,16 +31,21 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Enumeration;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
+import org.apache.cxf.common.util.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
 
@@ -66,7 +71,7 @@ public class FeedbackHandler{
     }
 
     public List<Feedback> retrieveFeedbacks(String country, Long question, Model model,
-            HttpSession session, User su) throws BadRequestServiceEx {
+            HttpSession session, User su, Boolean harmonized) throws BadRequestServiceEx {
 
 //        controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
 //                controllerServiceUtils.retrieveValues(question.toString(), country), false);
@@ -78,7 +83,7 @@ public class FeedbackHandler{
         List<Feedback> feedbackList = null;
         try {
 
-            feedbackList = feedbackService.loadFeedback(su, si, question);
+            feedbackList = feedbackService.loadFeedback(su, si, question, harmonized);
         } catch (BadRequestServiceEx e) {
 
            throw new BadRequestServiceEx("Errors loading feedbacks...");
@@ -94,16 +99,28 @@ public class FeedbackHandler{
         for(Feedback el : feedbacks){
             
             Feedback f = packagedFeedbacksMap.remove(el.getFeedbackId());
+            
             if(f == null){
                 f = new Feedback();
                 BeanUtils.copyProperties(el, f);
             }
-            User u = f.getUser();
-            StringBuilder sb = new StringBuilder();
-//            sb.append(f.getFeedback());
-            sb.append("User '").append(u.getUsername()).append("' says: <br />").append("----- <br />").append(el.getFeedback()).append("-----");
-            f.setFeedback(sb.toString());
-            packagedFeedbacksMap.put(f.getFeedbackId(), f);
+            if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(f.getFeedback())){
+                
+                User u = f.getUser();
+                StringBuilder sb = new StringBuilder();
+    //            sb.append(f.getFeedback());
+                Calendar cal = GregorianCalendar.getInstance();
+                cal.setTimeInMillis(f.getTimestamp());
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
+                dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+                sb.append("<b>On </b> '").append(dateFormatter.format(cal.getTime())).append("' <b>User</b> '").append(u.getUsername()).append("' <b>says:</b>").append("<br />").append(el.getFeedback()).append("-----");
+                f.setFeedback(sb.toString());
+                packagedFeedbacksMap.put(f.getFeedbackId(), f);
+            }
+            else{
+                
+                packagedFeedbacksMap.put(f.getFeedbackId()+"_Ed", f);
+            }
             
         }
         
@@ -111,7 +128,7 @@ public class FeedbackHandler{
         return packagedFeedbacks;
     }
     
-    public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3, boolean harmonized){
+    public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3, Boolean harmonized){
         
         User user = (User)session.getAttribute(SESSION_USER);
         
@@ -141,7 +158,9 @@ public class FeedbackHandler{
             
             for(Feedback el : feedbackList){
                 
-                model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
+                String feedbackId = el.getFeedbackId();
+                feedbackId = (el.getHarmonized())?feedbackId+"_Ed":feedbackId;
+                model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(feedbackId), el.getFeedback());
             }
         }
     }
@@ -161,18 +180,12 @@ public class FeedbackHandler{
         return null;
     }
     
-    public void addToFeedbackList(Entry entry, SurveyInstance surveyInstance, User user, String feedback, String feedbackId, String status, boolean harmonized){
+    public void addToFeedbackList(Entry entry, SurveyInstance surveyInstance, User user, String feedback, String feedbackId, String status, Boolean harmonized){
         
         final Feedback f = new Feedback();
         f.setEntry(entry);
         f.setFeedback(feedback);
-        if(harmonized){
-            // Hack: If the feedback type is 'harmonized' add "Ed"
-            f.setFeedbackId(feedbackId+"Ed");
-        }
-        else{
-            f.setFeedbackId(feedbackId);
-        }
+        f.setFeedbackId(feedbackId);
         f.setStatus("");
         f.setSurvey(surveyInstance);
         f.setTimestamp(System.currentTimeMillis());
