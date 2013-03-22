@@ -50,7 +50,7 @@ public class NotificationSerivice {
             model.put("user", user);
             model.put("status", status);
             String message = applyTemplate(messageConfig.get("template"),model);
-            sendMessage("offtherailz@gmail.com",messageConfig.get("subject"),message);
+            sendMessage(reviewer.getEmail(),messageConfig.get("subject"),message);
         }
         
         
