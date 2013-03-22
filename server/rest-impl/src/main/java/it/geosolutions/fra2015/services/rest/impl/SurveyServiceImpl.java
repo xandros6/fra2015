@@ -212,4 +212,14 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
 		
 	}
 
+    @Override
+    public Status getStatus(String countries) {
+        return surveyService.getStatus(countries);
+    }
+
+    @Override
+    public Country findCountryByISO3(String countries) {
+        return surveyService.findCountryByISO3(countries);
+    }
+
 }

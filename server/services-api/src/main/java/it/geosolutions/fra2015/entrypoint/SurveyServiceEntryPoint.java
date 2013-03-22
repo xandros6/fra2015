@@ -102,4 +102,10 @@ public interface SurveyServiceEntryPoint {
     
     List<SurveyInstance> getSurveysByCountry(String[] countryList,int page, int index);
 
+
+    public Status getStatus(String countries);
+
+
+    public Country findCountryByISO3(String countries);
+
 }
