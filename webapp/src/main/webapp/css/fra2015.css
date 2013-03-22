@@ -341,3 +341,11 @@ table td.link{
   width: 160px;
   height: 30px;
 }
+
+.table-striped tbody tr:first-child td {
+    background-color: #CCFFCC;
+}
+
+table tr.defhead {
+    background-color: #CCFFCC !important;
+}

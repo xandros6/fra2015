@@ -21,64 +21,56 @@
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr>
-							<td rownumber="0" columnnumber="0"><spring:message
-									code="ref13"></spring:message></td>
-							<td rownumber="0" columnnumber="1"><spring:message
-									code="ref14"></spring:message></td>
+							<td rownumber="0" columnnumber="0"><spring:message code="ref13"></spring:message></td>
+							<td rownumber="0" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="1" columnnumber="0"><spring:message
-									code="ref15"></spring:message></td>
-							<td rownumber="1" columnnumber="1"><spring:message
-									code="ref16"></spring:message></td>
+							<td rownumber="1" columnnumber="0"><spring:message code="ref15"></spring:message></td>
+							<td rownumber="1" columnnumber="1"><spring:message code="ref16"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="2" columnnumber="0"><spring:message
-									code="ref17"></spring:message></td>
-							<td rownumber="2" columnnumber="1"><spring:message
-									code="ref18"></spring:message></td>
+							<td rownumber="2" columnnumber="0"><spring:message code="ref17"></spring:message></td>
+							<td rownumber="2" columnnumber="1"><spring:message code="ref18"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="3" columnnumber="0"><spring:message
-									code="ref19"></spring:message></td>
-							<td rownumber="3" columnnumber="1"><spring:message
-									code="ref20"></spring:message></td>
+							<td rownumber="3" columnnumber="0"><spring:message code="ref19"></spring:message></td>
+							<td rownumber="3" columnnumber="1"><spring:message code="ref20"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="4" columnnumber="0"><spring:message
-									code="ref21"></spring:message></td>
-							<td rownumber="4" columnnumber="1"><spring:message
-									code="ref22"></spring:message></td>
+							<td rownumber="4" columnnumber="0"><spring:message code="ref21"></spring:message></td>
+							<td rownumber="4" columnnumber="1"><spring:message code="ref22"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="5" columnnumber="0"><spring:message
-									code="ref23"></spring:message></td>
-							<td rownumber="5" columnnumber="1"><spring:message
-									code="ref24"></spring:message></td>
+							<td rownumber="5" columnnumber="0"><spring:message code="ref23"></spring:message></td>
+							<td rownumber="5" columnnumber="1"><spring:message code="ref24"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="6" columnnumber="0"><spring:message
-									code="ref25"></spring:message></td>
-							<td rownumber="6" columnnumber="1"><spring:message
-									code="ref26"></spring:message></td>
+							<td rownumber="6" columnnumber="0"><spring:message code="ref25"></spring:message></td>
+							<td rownumber="6" columnnumber="1"><spring:message code="ref26"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="7" columnnumber="0"><spring:message
-									code="ref27"></spring:message></td>
-							<td rownumber="7" columnnumber="1"><spring:message
-									code="ref28"></spring:message></td>
+							<td rownumber="7" columnnumber="0"><spring:message code="refq1affcat"></spring:message></td>
+							<td rownumber="7" columnnumber="1"><spring:message code="refq1affdef"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="8" columnnumber="0"><spring:message
-									code="ref29"></spring:message></td>
-							<td rownumber="8" columnnumber="1"><spring:message
-									code="ref30"></spring:message></td>
+							<td rownumber="9" columnnumber="0"><spring:message code="ref29"></spring:message></td>
+							<td rownumber="9" columnnumber="1"><spring:message code="ref30"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="9" columnnumber="0"><spring:message
-									code="ref31"></spring:message></td>
-							<td rownumber="9" columnnumber="1"><spring:message
-									code="ref32"></spring:message></td>
+							<td rownumber="10" columnnumber="0"><spring:message code="ref31"></spring:message></td>
+							<td rownumber="10" columnnumber="1"><spring:message code="ref32"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="11" columnnumber="0"><spring:message code="refq1dhicat"></spring:message></td>
+							<td rownumber="11" columnnumber="1"><spring:message code="refq1dhidef"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="12" columnnumber="0"><spring:message code="ref27"></spring:message></td>
+							<td rownumber="12" columnnumber="1"><spring:message code="ref28"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="13" columnnumber="0"><spring:message code="refq1rarcat"></spring:message></td>
+							<td rownumber="13" columnnumber="1"><spring:message code="refq1rardef"></spring:message></td>
 						</tr>
 					</tbody>
 				</table>
