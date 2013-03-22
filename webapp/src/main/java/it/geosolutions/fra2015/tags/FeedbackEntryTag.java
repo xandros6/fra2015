@@ -30,8 +30,6 @@ import javax.servlet.jsp.JspWriter;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * @author DamianoG
  *
@@ -92,6 +90,7 @@ public class FeedbackEntryTag extends ProfiledTag{
     private void composeReviewer() {
         
         StringBuffer feedbackID = new StringBuffer();
+
         try{
             JspWriter out = pageContext.getOut();
             composeStartfeedbackArea(out);
@@ -116,7 +115,7 @@ public class FeedbackEntryTag extends ProfiledTag{
         
         String value = (String)pageContext.getRequest().getAttribute(feedbackName);
         String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName);
-        boolean feedbackIsPresent = (value != null && StringUtils.isBlank(value))||(valueEd != null && StringUtils.isBlank(valueEd));
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value))||(valueEd != null && !StringUtils.isBlank(valueEd));
         
         if(feedbackIsPresent){
             try{
@@ -193,13 +192,13 @@ public class FeedbackEntryTag extends ProfiledTag{
 
     @Override
     protected void chooseMode(Profile op) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     
     @Override
     protected void chooseMode() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException("Not implemented yet");
     }
     
 }
