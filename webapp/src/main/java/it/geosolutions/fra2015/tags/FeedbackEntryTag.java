@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import javax.servlet.jsp.JspWriter;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -67,7 +68,8 @@ public class FeedbackEntryTag extends ProfiledTag{
     private void composeContributor() {
         
         StringBuffer feedbackID = new StringBuffer();
-        boolean feedbackIsPresent = true; //TODO take from request if feedback is present
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName+READ_SUFFIX);
+        boolean feedbackIsPresent = (value != null && StringUtils.isBlank(value));
         if(feedbackIsPresent){
             try{
                 JspWriter out = pageContext.getOut();
@@ -90,7 +92,6 @@ public class FeedbackEntryTag extends ProfiledTag{
     private void composeReviewer() {
         
         StringBuffer feedbackID = new StringBuffer();
-        
         try{
             JspWriter out = pageContext.getOut();
             composeStartfeedbackArea(out);
@@ -112,7 +113,10 @@ public class FeedbackEntryTag extends ProfiledTag{
     private void composeReviewerEditor() {
         
         StringBuffer feedbackID = new StringBuffer();
-        boolean feedbackIsPresent = true; //TODO take from request if feedback is present
+        
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName);
+        String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName);
+        boolean feedbackIsPresent = (value != null && StringUtils.isBlank(value))||(valueEd != null && StringUtils.isBlank(valueEd));
         
         if(feedbackIsPresent){
             try{
