@@ -69,7 +69,7 @@ public class ActivityLogDAOImpl extends BaseDAO<ActivityLogEntry, Long> implemen
         Search searchCriteria = new Search(ActivityLogEntry.class);
         searchCriteria.setMaxResults(entries);
         searchCriteria.setPage(page);
-        searchCriteria.setFirstResult(-100);
+        //searchCriteria.setFirstResult(-100); // not needed: by default is -1
         searchCriteria.addFilterGreaterOrEqual("time", t1);
         searchCriteria.addFilterLessOrEqual("time", t2);
         
@@ -82,7 +82,7 @@ public class ActivityLogDAOImpl extends BaseDAO<ActivityLogEntry, Long> implemen
         Search searchCriteria = new Search(ActivityLogEntry.class);
         searchCriteria.setMaxResults(entries);
         searchCriteria.setPage(page);
-        searchCriteria.setFirstResult(-100);
+        //searchCriteria.setFirstResult(-100); // not needed: by default is -1
         searchCriteria.addFilterEqual("country", c);
         searchCriteria.addFilterEqual("entryItemName", entryItemName);
         
@@ -93,9 +93,9 @@ public class ActivityLogDAOImpl extends BaseDAO<ActivityLogEntry, Long> implemen
     public List<ActivityLogEntry> findByQuestionAndUsername(String c, String question, String username, int page,int entries) {
         
         Search searchCriteria = new Search(ActivityLogEntry.class);
-        searchCriteria.setMaxResults(5);
-        searchCriteria.setPage(2);
-        searchCriteria.setFirstResult(-100);
+        searchCriteria.setMaxResults(entries);
+        searchCriteria.setPage(page);
+        //searchCriteria.setFirstResult(-100); // not needed: by default is -1
         searchCriteria.addFilterEqual("country", c);
         searchCriteria.addFilterEqual("username", username);
         
