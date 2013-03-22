@@ -7,7 +7,7 @@
             1.3 > 1.3.1
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.1</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{1.3}} > {{1.3.1}} ]]>
         </condition>
@@ -18,7 +18,7 @@
             1.6 > 1.6.1
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.2</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{1.6}} > {{1.6.1}} ]]>
         </condition>
@@ -29,7 +29,7 @@
             1.6 > 1.3.2
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.3</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{1.6}} > {{1.6.2}} ]]>
         </condition>
@@ -40,7 +40,7 @@
             1.7 > 1.7.1
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.4</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{1.7}} > {{1.7.1}} ]]>
         </condition>
@@ -51,7 +51,7 @@
             1.8 > 1.8.1
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.5</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{1.8}} > {{1.8.1}} ]]>
         </condition>
@@ -62,7 +62,7 @@
             1.1+1.2+1.3=land area (compare/check with external data)
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.6</error>
+        <error>refrule_error_2</error>
         <condition>
             <![CDATA[ {{1.1}} + {{1.2}}+ {{1.3}} === [[LAND_AREA]] ]]>
         </condition>
@@ -89,7 +89,7 @@
             1.4=1.5-(1.1+1.2+1.3)
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.8</error>
+        <error>refrule_error_4</error>
         <condition>
             <![CDATA[ {{1.4}} === {{1.5}} - ({{1.1}}+{{1.2}}+{{1.3}}) ]]>
         </condition>
@@ -100,7 +100,7 @@
             1.5= Country area (compare/check with external data)
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.9</error>
+        <error>refrule_error_5</error>
         <condition>
             <![CDATA[ {{1.5}} === [[COUNTRY_AREA]] + 0 ]]>
         </condition>
@@ -112,7 +112,7 @@
             1.7 not greater that net change in Forest area (1.1)/year (?)
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.10</error>
+        <error>refrule_error_7</error>
         <condition>
             <![CDATA[ undefined ]]>
         </condition>
@@ -123,11 +123,10 @@
             1.6 + 1.8 not greater than net change in Forest area (1.1) (?)
         </description>
         <entryId>1a</entryId>
-        <error>validation.rule.11</error>
+        <error>refrule_error_8</error>
         <condition>
             <![CDATA[ undefined ]]>
         </condition>
-    </rule>
     --> 
     <!--  q2  -->
     	<rule>
@@ -136,7 +135,7 @@
             2.3 > 2.3.1
         </description>
         <entryId>2a</entryId>
-        <error>validation.rule.12</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{2.3}} > {{2.3.1}} ]]>
         </condition>
@@ -148,7 +147,7 @@
             2.5 > 2.5.1
         </description>
         <entryId>2c</entryId>
-        <error>validation.rule.13</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{2.5}} > {{2.5.1}} ]]>
         </condition>
@@ -159,7 +158,7 @@
             2.1 change rate in % should be between +3.00% and -3.00% (?)
         </description>
         <entryId>2a</entryId>
-        <error>validation.rule.14</error>
+        <error>refrule_error_9</error>
         <condition>
              <![CDATA[-3 < 100* (Math.pow((<<2.1-2000>>/<<2.1-1990>>),(0.1))-1) &&
                      100* (Math.pow((<<2.1-2000>>/<<2.1-1990>>),(0.1))-1) <3 &&
@@ -175,7 +174,7 @@
             2.1+2.2+2.3 = 1.1
         </description>
         <entryId>2a,1a</entryId>
-        <error>validation.rule.15</error>
+        <error>refrule_error_10</error>
         <condition>
             <![CDATA[ {{2.1}} + {{2.2}} + {{2.3}} === {{1.1}} ]]>
         </condition>
@@ -187,7 +186,7 @@
             3.1 > 3.1.1
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.16</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{3.1}} > {{3.1.1}} ]]>
         </condition>
@@ -198,7 +197,7 @@
             3.1 > 3.1.2
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.17</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{3.1}} > {{3.1.2}} ]]>
         </condition>
@@ -209,7 +208,7 @@
             3.2 > 3.2.1
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.18</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{3.2}} > {{3.2.1}} ]]>
         </condition>
@@ -220,7 +219,7 @@
             3.2 > 3.2.2
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.19</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{3.2}} > {{3.2.2}} ]]>
         </condition>
@@ -231,7 +230,7 @@
             3.4 > 3.4.1
         </description>
         <entryId>3c</entryId>
-        <error>validation.rule.20</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{3.4}} > {{3.4.1}} ]]>
         </condition>
@@ -242,7 +241,7 @@
             3.4 > 3.4.2
         </description>
         <entryId>3c</entryId>
-        <error>validation.rule.21</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ {{3.4}} > {{3.4.2}} ]]>
         </condition>
@@ -253,7 +252,7 @@
             3.1/1.1= usually within a range between 20 and 300
         </description>
         <entryId>3a,1a</entryId>
-        <error>validation.rule.22</error>
+        <error>refrule_error_11</error>
         <condition>
             <![CDATA[ {{3.1}}/{{1.1}}<=300 && {{3.1}}/{{1.1}}>=20 ]]>
         </condition>
@@ -264,7 +263,7 @@
             3.1.1+3.1.2=3.1
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.23</error>
+        <error>refrule_error_12</error>
         <condition>
             <![CDATA[ {{3.1.1}} + {{3.1.2}} === {{3.1}} ]]>
         </condition>
@@ -275,7 +274,7 @@
             3.2/1.2=usually within a range between 5 and 100
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.24</error>
+        <error>refrule_error_13</error>
         <condition>
             <![CDATA[ {{3.2}}/{{1.2}} >= 5 && {{3.2}}<=100 ]]>
         </condition>
@@ -286,7 +285,7 @@
             3.2.1+3.2.2=3.2
         </description>
         <entryId>3a</entryId>
-        <error>validation.rule.25</error>
+        <error>refrule_error_14</error>
         <condition>
             <![CDATA[ {{3.2.1}} + {{3.2.2}} === {{3.2}} ]]>
         </condition>
@@ -297,7 +296,7 @@
             3.3 (total)=3.1
         </description>
         <entryId>3a,3b</entryId>
-        <error>validation.rule.26</error>
+        <error>refrule_error_15</error>
         <condition>
             <![CDATA[ {{3.3}} === {{3.1}} + 0 ]]>
         </condition>
@@ -308,7 +307,7 @@
             3.6/3.5=range between 0.1 and 0.5
         </description>
         <entryId>3d</entryId>
-        <error>validation.rule.27</error>
+        <error>refrule_error_16</error>
         <condition>
             <![CDATA[ {{3.6}}/{{3.5}} >= 0.1 && {{3.6}}/{{3.5}} <= 0.5 ]]>
         </condition>
@@ -319,7 +318,7 @@
             3.7/(3.5+3.6)=range between 0 and 0.2
         </description>
         <entryId>3d</entryId>
-        <error>validation.rule.28</error>
+        <error>refrule_error_17</error>
         <condition>
             <![CDATA[ {{3.7}}/({{3.5}}+{{3.6}}) >= 0 && {{3.7}}/({{3.5}}+{{3.6}}) <= 0.2 ]]>
         </condition>
@@ -330,7 +329,7 @@
             3.8=3.5*0.47 (usually around 0.5 of the Biomass estimates and should be similar over the years)
         </description>
         <entryId>3d,3e</entryId>
-        <error>validation.rule.29</error>
+        <error>refrule_error_18</error>
         <condition>
             <![CDATA[ 
             	( {{3.8}} > {{3.5}}*0.47*0.97 ) &&
@@ -344,7 +343,7 @@
             (3.8+3.9)/3.1= range between 0.4 and 10
         </description>
         <entryId>3a,3e</entryId>
-        <error>validation.rule.30</error>
+        <error>refrule_error_19</error>
         <condition>
             <![CDATA[ ( {{3.8}} + {{3.9}} ) / {{3.1}}  >= 0.4 && ( {{3.8}} + {{3.9}} ) / {{3.1}} <= 10 ]]>
         </condition>
@@ -355,7 +354,7 @@
             3.9=3.6*0.47 (usually around 0.5 of the Biomass estimates and should be similar over the years)
         </description>
         <entryId>3d,3e</entryId>
-        <error>validation.rule.31</error>
+        <error>refrule_error_20</error>
         <!-- 3% error tolerance -->
         <condition>
             <![CDATA[ 
@@ -370,7 +369,7 @@
             3.10=3.7*0.47 (usually around 0.5 of the Biomass estimates and should be similar over the years)
         </description>
         <entryId>3d,3e</entryId>
-        <error>validation.rule.32</error>
+        <error>refrule_error_21</error>
          <!-- 3% error tolerance -->
         <condition>
             <![CDATA[
@@ -385,7 +384,7 @@
             3.12/1.1 = usually within a range of 30 to 100
         </description>
         <entryId>1a,3e</entryId>
-        <error>validation.rule.33</error>
+        <error>refrule_error_22</error>
         <condition>
             <![CDATA[ {{3.12}}/{{1.1}} >= 30 && {{3.12}}/{{1.1}} <= 100 ]]>
         </condition>
@@ -396,7 +395,7 @@
             The sum of (4.1+4.2) should be less than or equal to 1.1
         </description>
         <entryId>1a,4a</entryId>
-        <error>validation.rule.34</error>
+        <error>refrule_error_23</error>
         <condition>
             <![CDATA[ {{3.1}} + {{4.2}} <= {{1.1}} ]]>
         </condition>
@@ -408,7 +407,7 @@
             5.1 > 5.1.x
         </description>
         <entryId>5a</entryId>
-        <error>validation.rule.35</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ 
             	{{5.1}} > {{5.1.1}} &&
@@ -426,7 +425,7 @@
             5.2 > 5.2.x
         </description>
         <entryId>5b</entryId>
-        <error>validation.rule.36</error>
+        <error>refrule_error_1</error>
         <condition>
             <![CDATA[ 
             	{{5.2}} > {{5.2.1}} &&
@@ -442,7 +441,7 @@
             5.1 should be less than or equal to 1.1
         </description>
         <entryId>5a,1a</entryId>
-        <error>validation.rule.37</error>
+        <error>refrule_error_24</error>
         <condition>
             <![CDATA[ {{5.1}} <= {{1.1}} ]]>
         </condition>
@@ -453,7 +452,7 @@
             5.2 should be less than or equal to 1.1
         </description>
         <entryId>5a,1a</entryId>
-        <error>validation.rule.38</error>
+        <error>refrule_error_25</error>
         <condition>
             <![CDATA[ {{5.2}} <= {{1.1}} ]]>
         </condition>
@@ -464,7 +463,7 @@
             6.1 should be less than 1.1
         </description>
         <entryId>6a,1a</entryId>
-        <error>validation.rule.39</error>
+        <error>refrule_error_26</error>
         <condition>
             <![CDATA[ {{6.1}} < {{1.1}} ]]>
         </condition>
@@ -475,7 +474,7 @@
             6.2 should be less than 1.1
         </description>
         <entryId>1a,6a</entryId>
-        <error>validation.rule.40</error>
+        <error>refrule_error_26</error>
         <condition>
             <![CDATA[ {{6.2}} < {{1.1}} ]]>
         </condition>
@@ -486,7 +485,7 @@
             8.1 should be less than 1.1+1.2+1.3
         </description>
         <entryId>1a,8a</entryId>
-        <error>validation.rule.41</error>
+        <error>refrule_error_27</error>
         <condition>
             <![CDATA[ {{8.1}} < {{1.1}}+{{1.2}}+{{1.3}} ]]>
         </condition>
@@ -497,7 +496,7 @@
             12.1 should be less than or equal to 1.1
         </description>
         <entryId>1a,12</entryId>
-        <error>validation.rule.42</error>
+        <error>refrule_error_28</error>
         <condition>
             <![CDATA[ {{12.1}} <= {{1.1}} ]]>
         </condition>
@@ -508,7 +507,7 @@
             14.1 should be less than or equal to 1.1
         </description>
         <entryId>1a,14</entryId>
-        <error>validation.rule.43</error>
+        <error>refrule_error_29</error>
         <condition>
             <![CDATA[ {{14.1}} <= {{1.1}} ]]>
         </condition>
@@ -519,7 +518,7 @@
             14.1.1 + 14.1.2=14.1
         </description>
         <entryId>14</entryId>
-        <error>validation.rule.44</error>
+        <error>refrule_error_30</error>
         <condition>
             <![CDATA[ {{14.1.1}} + {{14.1.2}} === {{14.1}} ]]>
         </condition>
@@ -530,7 +529,7 @@
             14.3 should be less than or equal to 100
         </description>
         <entryId>14c</entryId>
-        <error>validation.rule.45</error>
+        <error>refrule_error_31</error>
         <condition>
             <![CDATA[ {{14.3}} <= 100 ]]>
         </condition>
@@ -541,7 +540,7 @@
             18.1+18.2+18.3=1.1
         </description>
         <entryId>1a,18a</entryId>
-        <error>validation.rule.46</error>
+        <error>refrule_error_32</error>
         <condition>
             <![CDATA[ {{18.1}} + {{18.2}} + {{18.3}} === {{1.1}} ]]>
         </condition>
@@ -552,7 +551,7 @@
             18.1=18.4+18.5+18.6+18.7+18.8
         </description>
         <entryId>18a,18b</entryId>
-        <error>validation.rule.47</error>
+        <error>refrule_error_33</error>
         <condition>
             <![CDATA[ {{18.1}} === {{18.4}} + {{18.5}} + {{18.6}} + {{18.7}} + {{18.8}} ]]>
         </condition>
@@ -563,7 +562,7 @@
             8.1.1 should be less than 1.1
         </description>
         <entryId>1a,8a</entryId>
-        <error>validation.rule.48</error>
+        <error>refrule_error_34</error>
         <condition>
             <![CDATA[ {{8.1.1}} <= {{1.1}} ]]>
         </condition>
