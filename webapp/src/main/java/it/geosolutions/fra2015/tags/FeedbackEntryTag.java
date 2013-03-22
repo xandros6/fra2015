@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import javax.servlet.jsp.JspWriter;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -39,7 +40,6 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private final static String WRITE_SUFFIX = "b";
     private final static String READ_SUFFIX = "A";
-    private final static String EDITOR = "Ed";
     
     private String feedbackName;
     
@@ -65,8 +65,9 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeContributor() {
         
-//        StringBuilder feedbackID = new StringBuilder();
-        boolean feedbackIsPresent = true; //TODO take from request if feedback is present
+        StringBuffer feedbackID = new StringBuffer();
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName+READ_SUFFIX);
+        boolean feedbackIsPresent = (value != null && StringUtils.isBlank(value));
         if(feedbackIsPresent){
             try{
                 JspWriter out = pageContext.getOut();
@@ -88,8 +89,8 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeReviewer() {
         
-//        StringBuilder feedbackID = new StringBuilder();
-        
+        StringBuffer feedbackID = new StringBuffer();
+
         try{
             JspWriter out = pageContext.getOut();
             composeStartfeedbackArea(out);
@@ -110,8 +111,11 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeReviewerEditor() {
         
-//        StringBuilder feedbackID = new StringBuilder();
-        boolean feedbackIsPresent = true; //TODO take from request if feedback is present
+        StringBuffer feedbackID = new StringBuffer();
+        
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName);
+        String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName);
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value))||(valueEd != null && !StringUtils.isBlank(valueEd));
         
         if(feedbackIsPresent){
             try{
@@ -133,7 +137,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 // --- use RichTextEntry ----
                 RichTextEntry rte2 = new RichTextEntry();
                 //Little Hack: the id are placed in all jsp for all entry... so remove the last '_' for ad the EDITOR suffix
-                rte2.setName(feedbackName+EDITOR+"_"/*+WRITE_SUFFIX*/);
+                rte2.setName(feedbackName+"Ed_"/*+WRITE_SUFFIX*/);
                 rte2.setPageContext(pageContext);
                 rte2.forceWriteMode();
                 rte2.doStartTag();
