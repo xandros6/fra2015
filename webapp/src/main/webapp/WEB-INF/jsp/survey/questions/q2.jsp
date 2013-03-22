@@ -35,7 +35,7 @@
 							<td rownumber="2" columnnumber="1"><spring:message
 									code="ref94"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="3" columnnumber="0"><spring:message
 									code="ref13"></spring:message></td>
 							<td rownumber="3" columnnumber="1"><spring:message
