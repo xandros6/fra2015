@@ -27,9 +27,11 @@ import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.SurveyCatalog;
+import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.HashMap;
@@ -186,7 +188,28 @@ public class ControllerServices {
             }
         }
     }
-
+    /**
+     * Get the status of the country survey
+     * @param c country
+     * @return
+     */
+    public String getStatusByCountry(String c){
+        return surveyService.getStatus(c).getStatus();
+    }
+    
+    /**
+     * Set the status to in progress if it was empty
+     * @param c
+     */
+    public void updateSurveyStatusInProgress(String c){
+        Status s = surveyService.getStatus(c);
+        if(StatusUtils.isEmpty(s)){
+            s.setCountry(c);
+            s.setStatus(StatusUtils.IN_PROGRESS);
+            surveyService.changeStatus(s);
+        }
+        
+    }
     
     private static Map<String, Integer> initRowsCounters(SurveyCatalog catalog){
         

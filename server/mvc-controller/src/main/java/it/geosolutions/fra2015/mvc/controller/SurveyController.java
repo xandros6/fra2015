@@ -30,6 +30,7 @@ import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
@@ -98,9 +99,15 @@ public class SurveyController{
         model.addAttribute("context", "survey");
         
         User su = (User) session.getAttribute(SESSION_USER);
-        
+        String status = utils.getStatusByCountry(su.getCountries());
+        if(StatusUtils.isSubmitAllowed(status)){
+            model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+        }else{
+            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
+        }
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+        model.addAttribute("statuscode",statusLocale);
         
         CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, su.getCountries());
         utils.prepareHTTPRequest(model, question, cv, false);
@@ -204,7 +211,13 @@ public class SurveyController{
 
         // Update the Values only if the concurrency System allow the operation.
         if(concurencyHandler.updateQuestionRevision(session, Long.parseLong(question))){
-            utils.updateValuesService(updates, removes);
+            if(StatusUtils.isSubmitAllowed(utils.getStatusByCountry(su.getCountries()))){
+                utils.updateValuesService(updates, removes);
+                utils.updateSurveyStatusInProgress(su.getCountries());
+            }else{
+                //TODO notify is not editable
+            }
+            
         }
         else{
             // Display the concurrency error message
@@ -256,12 +269,21 @@ public class SurveyController{
             model.addAttribute("messageType", "warning");
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
-            return "reviewer";
+            return "reviewer";  //TODO <--- why????
         }
-        
+        String status = utils.getStatusByCountry(su.getCountries());
+        if(StatusUtils.isSubmitAllowed(status)){
+            model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+        }else{
+            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
+        }
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("statuscode",statusLocale);
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");
+        //get the status 
         
         return "index";
 

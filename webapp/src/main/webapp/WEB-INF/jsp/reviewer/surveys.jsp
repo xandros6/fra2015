@@ -20,7 +20,7 @@
 						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
 						<td>TODO</td>
 
-						<td>${survey.status.status}</td>
+						<td><spring:message code="survey.status.${survey.status.status}"></spring:message></td>
 						<%-- 								<td>${user.countries}</td> --%>
 						<td><a href="../survey/review/${survey.country.iso3}/0" class="btn">View</a></td>
 					</tr>

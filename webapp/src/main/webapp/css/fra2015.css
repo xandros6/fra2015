@@ -335,14 +335,14 @@ table td.role div{
 table td.countries div{  
   word-wrap: break-word;
   width: 100px;
-  height: 30px;
+  
 }
 table td.link{  
   width: 160px;
   height: 30px;
 }
 
-.table-striped tbody tr:first-child td {
+.entry .table-striped tbody tr:first-child td {
     background-color: #CCFFCC;
 }
 
@@ -350,6 +350,6 @@ tr.defhead td {
     background-color: #CCFFCC !important;
 }
 
-td.number #cell-content{
+td.number #cell-content,td.total{
 	text-align:right;	
 }
