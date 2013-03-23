@@ -69,7 +69,9 @@ public class FeedbackService {
             if(user != null){
                 search.addFilterEqual("user", user);
             }
-            search.addFilterEqual("harmonized", harmonized);
+            if(harmonized != null){
+                search.addFilterEqual("harmonized", harmonized);
+            }
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
             list = feedbackDAO.search(search);

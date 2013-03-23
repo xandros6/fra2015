@@ -22,6 +22,11 @@
 package it.geosolutions.fra2015.mvc.controller.utils;
 
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -32,6 +37,7 @@ import javax.servlet.http.HttpSession;
 public class SessionUtils {
 
     public static final String COUNTRY_SURVEY_VALUES = "countryValues";
+    public static final String COUNTRY_FEEDBACKS = "feedbacks";
     
     public static CountryValues retrieveQuestionValueAndStoreInSession(ControllerServices utils, HttpSession session, Long question, String country){
     
@@ -56,5 +62,30 @@ public class SessionUtils {
             return cv;
         }
         return (CountryValues)session.getAttribute(COUNTRY_SURVEY_VALUES);
+    }
+    
+    public static List<Feedback> retrieveFeedbacksAndStoreInSession(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx{
+        
+        List<Feedback> feedbackList = fh.retrieveFeedbacks(country, question, session, userForQuery, harmonized);
+        
+        if(session.getAttribute(COUNTRY_FEEDBACKS) != null){
+            
+            session.removeAttribute(COUNTRY_FEEDBACKS);
+        }
+        session.setAttribute(COUNTRY_FEEDBACKS, feedbackList);
+        
+        return feedbackList;
+    }
+    
+    public static List<Feedback> retrieveFeedbacksFromSessionOrLoadFromDB(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx{
+        
+        if(session.getAttribute(COUNTRY_FEEDBACKS) == null){
+            
+            List<Feedback> feedbacks = null;
+            feedbacks = fh.retrieveFeedbacks(country, question, session, userForQuery, harmonized);
+            session.setAttribute(COUNTRY_FEEDBACKS, feedbacks);
+            return feedbacks;
+        }
+        return (List<Feedback>)session.getAttribute(COUNTRY_FEEDBACKS);
     }
 }

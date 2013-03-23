@@ -79,12 +79,14 @@ public class ReviewController {
         }
         
         User userForQuery = new User();
+        Boolean harmonized = null;
         
         if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
             
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(question, su, model);
             userForQuery = su;
+            harmonized = false;
         }
         else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
             
@@ -102,12 +104,11 @@ public class ReviewController {
         
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
-            
-            Boolean harmonized = (Profile.EDITOR.toString().equalsIgnoreCase(su.getRole()))?false:null;
-            List<Feedback> listF = listF = fh.retrieveFeedbacks(country, question, model, session, userForQuery, null);
+
+            List<Feedback> listF = SessionUtils.retrieveFeedbacksAndStoreInSession(fh, session, question, country, userForQuery, harmonized);
             if(Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())){
                 
-                listF = fh.packageFeedbacks(listF);
+                listF = fh.packageFeedbacks(listF, true);
             }
             fh.prepareFeedbackModel(model, listF);
         } 
@@ -133,7 +134,10 @@ public class ReviewController {
         
         // TODO validate country
         User su = (User) session.getAttribute("sessionUser");
-        boolean harmonized = true;
+        Boolean harmonizedRead = null;
+        Boolean harmonizedWrite = null;
+        User userForQuery = new User();
+        
         if(su==null){
             return "redirect:/login";
         }
@@ -141,28 +145,32 @@ public class ReviewController {
             
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(Long.parseLong(question), su, model);
-            harmonized = false;
+            harmonizedRead = false;
+            harmonizedWrite = false;
+            userForQuery = su;
         }
         else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
             
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
-            harmonized = true;
+            harmonizedWrite = true;
+            userForQuery = null;
         }
         else{
             return "redirect:/login";
         }
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
-        // ????
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, Long.parseLong(question), country);
         utils.prepareHTTPRequest(model, question, cvalues, false);
         
         // save feedbacks
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
-        fh.populateFeedbackList(request, session, utils, country, harmonized);
+        fh.populateFeedbackList(request, session, utils, country, harmonizedWrite);
         
         try {
-            feedbackService.storeFeedback(fh.getFeedbackArray());
+            
+            List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
+            fh.mergefeedbacks(oldFeedbacks);
+            fh.storeFeedbacks();
         } catch (BadRequestServiceEx e) {
             
             model.addAttribute("messageType", "warning");
@@ -173,10 +181,6 @@ public class ReviewController {
         
         //Put feedback in model
         fh.prepareFeedbackModel(model, fh.getFeedbackList());
-//        for(Feedback el : fh.getFeedbackArray()){
-//            
-//            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
-//        }
         
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");

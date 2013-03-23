@@ -70,11 +70,8 @@ public class FeedbackHandler{
         this.feedbackList = new ArrayList<Feedback>();
     }
 
-    public List<Feedback> retrieveFeedbacks(String country, Long question, Model model,
+    public List<Feedback> retrieveFeedbacks(String country, Long question,
             HttpSession session, User su, Boolean harmonized) throws BadRequestServiceEx {
-
-//        controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
-//                controllerServiceUtils.retrieveValues(question.toString(), country), false);
 
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
@@ -91,19 +88,55 @@ public class FeedbackHandler{
         return feedbackList;
     }
     
-    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks){
+    public void storeFeedbacks() throws BadRequestServiceEx{
+        
+        if(this.feedbackList != null){
+            feedbackService.storeFeedback(this.getFeedbackArray());
+        }
+        else{
+            
+            throw new BadRequestServiceEx("feedbackList equals to null");
+        }
+    }
+    
+    public void mergefeedbacks(List<Feedback> oldFeedbacks){
+        
+        List<Feedback> feedbacksMerged = new ArrayList<Feedback>();
+        for(Feedback el : feedbackList){
+            
+            int oldFbIndex = oldFeedbacks.indexOf(el);
+            if(oldFbIndex >= 0){
+                Feedback oldFb = oldFeedbacks.get(oldFbIndex);
+                oldFb.setFeedback(el.getFeedback());
+                feedbacksMerged.add(oldFb);
+            }
+            else if(!StringUtils.isEmpty(el.getFeedback())){
+                
+                feedbacksMerged.add(el);
+            }
+        }
+        List<Feedback> notHarmonizedFeedbacks = packageFeedbacks(oldFeedbacks, false);
+        feedbackList = feedbacksMerged;
+        feedbackList.addAll(notHarmonizedFeedbacks);
+        
+    }
+    
+    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks, boolean packageAlsoArmonized){
         
         List<Feedback> packagedFeedbacks = new ArrayList<Feedback>();
         Map<String, Feedback> packagedFeedbacksMap = new HashMap<String, Feedback>(); 
         
         for(Feedback el : feedbacks){
             
-            Feedback f = packagedFeedbacksMap.remove(el.getFeedbackId());
-            
-            if(f == null){
-                f = new Feedback();
-                BeanUtils.copyProperties(el, f);
+            Feedback f = new Feedback();
+            if(!el.getHarmonized()){
+                f = packagedFeedbacksMap.remove(el.getFeedbackId());
+                if(f == null){
+                    f = new Feedback();
+                }
             }
+            BeanUtils.copyProperties(el, f);
+            
             if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(f.getFeedback())){
                 
                 User u = f.getUser();
@@ -117,7 +150,7 @@ public class FeedbackHandler{
                 f.setFeedback(sb.toString());
                 packagedFeedbacksMap.put(f.getFeedbackId(), f);
             }
-            else{
+            else if(packageAlsoArmonized){
                 
                 packagedFeedbacksMap.put(f.getFeedbackId()+"_Ed", f);
             }
@@ -143,10 +176,14 @@ public class FeedbackHandler{
             if(feedbackName.startsWith(FEEDBACK)){
                 
                 String feedback = (String)request.getParameter(feedbackName);
+                String entryID = null;
+                // This check is made in mergeFeedback now...
+//                if(!StringUtils.isEmpty(feedback)){
+                    entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
+                    Entry entry = controllerServices.getEntry(entryID);
+                    addToFeedbackList(entry, si, user, feedback, entryID, "", harmonized);
+//                }
                 
-                String entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
-                Entry entry = controllerServices.getEntry(entryID);
-                addToFeedbackList(entry, si, user, feedback, entryID, "", harmonized);
             }
         }
         

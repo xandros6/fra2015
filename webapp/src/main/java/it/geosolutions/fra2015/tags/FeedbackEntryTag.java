@@ -114,7 +114,7 @@ public class FeedbackEntryTag extends ProfiledTag{
         StringBuffer feedbackID = new StringBuffer();
         
         String value = (String)pageContext.getRequest().getAttribute(feedbackName);
-        String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName);
+        String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
         boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value))||(valueEd != null && !StringUtils.isBlank(valueEd));
         
         if(feedbackIsPresent){

@@ -192,8 +192,15 @@ public class Feedback {
         this.id = id;
     }
 
-    
-    
+    @Override
+    public boolean equals(Object fb){
+        
+        Feedback castedFb = (Feedback)fb;
+        if(this.feedbackId == null || this.harmonized == null){
+            return false;
+        }
+        return (this.feedbackId.equals(castedFb.feedbackId) && this.harmonized.equals(castedFb.harmonized));
+    }
     
     
 }

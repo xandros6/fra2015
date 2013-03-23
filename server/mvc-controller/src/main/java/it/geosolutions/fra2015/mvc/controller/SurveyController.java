@@ -31,7 +31,6 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
@@ -109,7 +108,7 @@ public class SurveyController{
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
             
-            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, model, session, null, true);
+            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, session, null, true);
             fh.prepareFeedbackModel(model, listF);
         } 
         catch (BadRequestServiceEx e) {
@@ -248,7 +247,7 @@ public class SurveyController{
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
             
-            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, model, session, null, true);
+            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, session, null, true);
             fh.prepareFeedbackModel(model, listF);
         } 
         catch (BadRequestServiceEx e) {
