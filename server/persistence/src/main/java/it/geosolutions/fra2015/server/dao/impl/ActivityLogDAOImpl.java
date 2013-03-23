@@ -84,7 +84,7 @@ public class ActivityLogDAOImpl extends BaseDAO<ActivityLogEntry, Long> implemen
         searchCriteria.setPage(page);
         //searchCriteria.setFirstResult(-100); // not needed: by default is -1
         searchCriteria.addFilterEqual("country", c);
-        searchCriteria.addFilterEqual("entryItemName", entryItemName);
+        searchCriteria.addFilterEqual("varName", entryItemName);
         
         return  this.search(searchCriteria);
     }
