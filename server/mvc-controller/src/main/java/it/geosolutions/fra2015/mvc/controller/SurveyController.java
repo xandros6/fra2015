@@ -270,9 +270,17 @@ public class SurveyController{
             model.addAttribute("messageType", "warning");
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
-            return "reviewer";
+            return "reviewer";  //TODO <--- why????
         }
-        
+        String status = utils.getStatusByCountry(su.getCountries());
+        if(StatusUtils.isSubmitAllowed(status)){
+            model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+        }else{
+            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
+        }
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("statuscode",statusLocale);
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");
