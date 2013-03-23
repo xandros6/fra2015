@@ -77,7 +77,7 @@ public class CheckController {
         }
         Status s = surveyService.getStatus(su.getCountries());
         if(!StatusUtils.isSubmitAllowed(s)){
-            submitDeniedError(s,model);
+            model.addAttribute("denysubmit", true);
             return "index";
         }
         ValidationResult v = validator.validate(su.getCountries());
