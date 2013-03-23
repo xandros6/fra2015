@@ -23,6 +23,7 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.validation.Validator;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -75,7 +76,7 @@ public class CheckController {
             return "redirect:/";
         }
         Status s = surveyService.getStatus(su.getCountries());
-        if(!isSubmitAllowed(s)){
+        if(!StatusUtils.isSubmitAllowed(s)){
             submitDeniedError(s,model);
             return "index";
         }
