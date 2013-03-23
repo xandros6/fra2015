@@ -98,7 +98,7 @@ $(function(){
         value = value.replace( re, '<i class="icon-question-sign" data></i>');
         cell.empty().append( value );
 
-
+		
         if(matchArr) {
             // console.log( "value " + value );
 
@@ -110,18 +110,38 @@ $(function(){
 					$(entry2).attr("data-content",tooltip.replace("\"","\\\"") );
 				$(entry2).attr("data-original-title",'<spring:message code="tootip.title.note"/>');
 				$(entry2).attr("data-toggle","popover");
+				$(entry2).addClass=("tooltip-popover");
                 if (tooltip) {
                     $(entry2).popover({
                         title: 'Note',
                         html: true,
-                        content: tooltip
+                        content: tooltip,
+                        trigger:'hover'
                     });
+                    
                 } else {
                     alert("Bad tooltip # " + labelId);
                 }
 				
       
             });
+            var $poped =$("i");
+            /*
+            $poped.each(function() {
+                var $this = $(this);
+                $this.on('hover',function() {
+                        var popover = $this.data('popover');
+                        var shown = popover && popover.tip().is(':visible');
+                        if(shown) return;        // Avoids flashing
+                        $this.popover('show');
+                });
+            });
+
+            // Trigger for the hiding
+             $('html').on('click.popover.data-api',function() {
+                $poped.popover('hide');
+            });
+            */
         }
 
     //etj end
