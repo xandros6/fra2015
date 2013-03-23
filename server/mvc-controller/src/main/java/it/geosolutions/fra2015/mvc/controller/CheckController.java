@@ -108,7 +108,7 @@ public class CheckController {
             return "index";
             
         }
-        status.setStatus("compiled");
+        status.setStatus(StatusUtils.COMPILED);
         status.setMessage((String) request.getAttribute("submitmessage"));
         Country c = surveyService.findCountryByISO3(su.getCountries());
         
