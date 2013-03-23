@@ -342,7 +342,7 @@ table td.link{
   height: 30px;
 }
 
-.table-striped tbody tr:first-child td {
+.entry .table-striped tbody tr:first-child td {
     background-color: #CCFFCC;
 }
 
