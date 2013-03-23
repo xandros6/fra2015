@@ -346,6 +346,6 @@ table td.link{
     background-color: #CCFFCC;
 }
 
-table tr.defhead {
+tr.defhead td {
     background-color: #CCFFCC !important;
 }

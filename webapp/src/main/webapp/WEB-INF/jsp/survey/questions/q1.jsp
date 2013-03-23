@@ -20,7 +20,7 @@
 				<table
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr>
+                        <tr>
 							<td rownumber="0" columnnumber="0"><spring:message code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
