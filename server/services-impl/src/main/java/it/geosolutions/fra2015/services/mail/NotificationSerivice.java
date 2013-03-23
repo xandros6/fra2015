@@ -52,13 +52,10 @@ public class NotificationSerivice {
             String message = applyTemplate(messageConfig.get("template"),model);
             sendMessage(reviewer.getEmail(),messageConfig.get("subject"),message);
         }
-        
-        
-        
-        
-        
-        
+   
     }
+    
+    
     private String applyTemplate(String template, Map model){
         String result=null;
         try {

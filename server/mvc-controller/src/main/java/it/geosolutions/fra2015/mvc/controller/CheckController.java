@@ -102,7 +102,7 @@ public class CheckController {
         }
         //check status
         Status status =surveyService.getStatus(su.getCountries());
-        if(!isSubmitAllowed(status)){
+        if(!StatusUtils.isSubmitAllowed(status)){
             submitDeniedError(status,model);
             return "index";
             
@@ -160,8 +160,5 @@ public class CheckController {
         model.addAttribute("messageTimeout",10000);
     }
     
-    private boolean isSubmitAllowed(Status s){
-        String status =s.getStatus();
-        return "inprogress".equals(status) || "pendingfix".equals(status) || "compiled".equals(status) || "empty".equals(status);
-    }
+    
 }
