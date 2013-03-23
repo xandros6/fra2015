@@ -59,11 +59,12 @@ fra = {
 	            	
 	            	placeholder=hidden;
 	            }
-	            
-	            if(fra.isNumeric(name) ) {cell.addClass('number');}
+	            var textalign ='left';
+	            if(fra.isNumeric(name) ) {cell.addClass('number');textalign='right';}
 		        
 				if(cell.hasClass('number')){type='input';}
-	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
+				
+	            var input = $('<'+type+' style="text-align:'+textalign+';" name="'+ name +'" class="celleditor input-small" type="text" value="'+text+'"/>');
 	            input.val(text);
 	            if (cell.hasClass('number')){
 	                // on keydown verify if the key is a number
