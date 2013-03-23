@@ -109,8 +109,12 @@ public class CheckController {
             
         }
         status.setStatus(StatusUtils.COMPILED);
+        status.setCountry(su.getCountries());
         status.setMessage((String) request.getAttribute("submitmessage"));
         Country c = surveyService.findCountryByISO3(su.getCountries());
+        if(c!=null){
+            status.setCountry(su.getCountries());
+        }
         
         try {
             surveyService.changeStatus(status);
