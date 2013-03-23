@@ -121,8 +121,25 @@ fra = {
 				return col=="1" && row=="1"
 			}
 			
-	    }
+	    },
+	    setNumber:function(cell){
+	    	var type='textarea';
+	        
+	        placeholder= cell.find('.entry_item_placeholder');
+	        if(placeholder.length <=0) return;
+            name = placeholder.attr('id');
+            if(!name) return;
+            if(fra.isNumeric(name) ) {cell.addClass('number');}
+    }
 }
+
+//assign number class to all td interessed:
+$(function(){
+	$('.entry td.editable').each(function(){
+		fra.setNumber($(this));
+	});
+})
+
 //not all numerics are 3b,33 (not a variable,only first column) 4b_x_3,7_X_1_,7_X_2,8b_x_3,_fraVariable_20_1_1_
 var allnumericVariables = ["1a","1b","2a","2b","2c","3a","3c","3d","3e","4a","5a","5b","6","8a","9","12","14","16","17","18a","18b","19","21a","21b"]
 /* some numeric values from summary
