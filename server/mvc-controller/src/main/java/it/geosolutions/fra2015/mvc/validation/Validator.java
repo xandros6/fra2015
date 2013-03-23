@@ -302,7 +302,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
                 if (!success) {
                     // add the columns that not satisfy the rule
 
-                    message.addElement(key);
+                    message.addElements(Arrays.asList(rule.getEntryId().split(",")));
                     message.setSuccess(false);
                     
                 }
