@@ -349,3 +349,7 @@ table td.link{
 tr.defhead td {
     background-color: #CCFFCC !important;
 }
+
+td.number #cell-content{
+	text-align:right;	
+}
