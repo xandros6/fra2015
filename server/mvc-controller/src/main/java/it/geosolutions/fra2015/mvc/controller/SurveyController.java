@@ -28,12 +28,16 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -102,6 +106,20 @@ public class SurveyController{
         CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, su.getCountries());
         utils.prepareHTTPRequest(model, question, cv, false);
         
+        FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
+        try {
+            
+            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, model, session, null, true);
+            fh.prepareFeedbackModel(model, listF);
+        } 
+        catch (BadRequestServiceEx e) {
+            
+            session.invalidate();
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "alert.savefaliure");
+            LOGGER.error(e.getMessage(), e);
+            return "reviewer";
+        }
         
         return "index";
 
@@ -227,6 +245,21 @@ public class SurveyController{
         
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), su.getCountries())/*mergedValues*/, false);
 
+        FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
+        try {
+            
+            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, model, session, null, true);
+            fh.prepareFeedbackModel(model, listF);
+        } 
+        catch (BadRequestServiceEx e) {
+            
+            session.invalidate();
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "alert.savefaliure");
+            LOGGER.error(e.getMessage(), e);
+            return "reviewer";
+        }
+        
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");

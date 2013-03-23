@@ -66,15 +66,15 @@ public class FeedbackEntryTag extends ProfiledTag{
     private void composeContributor() {
         
         StringBuffer feedbackID = new StringBuffer();
-        String value = (String)pageContext.getRequest().getAttribute(feedbackName+READ_SUFFIX);
-        boolean feedbackIsPresent = (value != null && StringUtils.isBlank(value));
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
         if(feedbackIsPresent){
             try{
                 JspWriter out = pageContext.getOut();
                 composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
-                rte.setName(feedbackName+READ_SUFFIX);
+                rte.setName(feedbackName+"Ed_"/*+READ_SUFFIX*/);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();
                 rte.doStartTag();
