@@ -137,7 +137,7 @@ public class SurveyController{
 
         Long questionLong = null;
         try{
-            Integer.parseInt(question);
+            questionLong = Long.parseLong(question);
         }
         catch(Exception e){
             model.addAttribute("context", "survey");
