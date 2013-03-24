@@ -23,9 +23,14 @@ package it.geosolutions.fra2015.tags;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.servlet.LocaleResolver;
 
 /**
  * Custom Tag that handle the dynamic table. print the html needed for the rows and coloumn of the table
@@ -58,6 +63,12 @@ public class DynamicTableTag extends SurveyEntry {
      */
     private Boolean numericColoumn;
 
+    
+    private ResourceBundleMessageSource messageSource;
+    private LocaleResolver localeResolver;
+    private WebApplicationContext springContext;
+    
+    
 //    private enum Operations {READ, WRITE}
     
     public int doStartTag() {
@@ -101,7 +112,9 @@ public class DynamicTableTag extends SurveyEntry {
                     out.print(" </td>");
                 }
                 if(deleteButton){
-                    out.print(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">Delete</a></td>");
+                    out.print(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">");
+                    out.print(localize("dyntable.delete"));
+                    out.print("</a></td>");
                     out.print("</tr>");
                 }
             }
@@ -114,6 +127,22 @@ public class DynamicTableTag extends SurveyEntry {
         return (SKIP_BODY);
     }
     
+    private String localize(String code) {
+        if (this.springContext == null) {
+            this.springContext = WebApplicationContextUtils.getWebApplicationContext(pageContext
+                    .getServletContext());
+        }
+        if (this.messageSource == null) {
+            this.messageSource = (ResourceBundleMessageSource) springContext
+                    .getBean("messageSource");
+        }
+        if (this.localeResolver == null) {
+            this.localeResolver = (LocaleResolver) springContext.getBean("localeResolver");
+        }
+        return messageSource.getMessage(code, null,
+                localeResolver.resolveLocale((HttpServletRequest) pageContext.getRequest()));
+
+    }
 
 	/**
      * @return the entryItemName

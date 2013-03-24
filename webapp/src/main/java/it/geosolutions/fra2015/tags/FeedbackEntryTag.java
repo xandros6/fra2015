@@ -25,10 +25,15 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.servlet.LocaleResolver;
 
 /**
  * @author DamianoG
@@ -36,7 +41,11 @@ import org.apache.log4j.Logger;
  */
 public class FeedbackEntryTag extends ProfiledTag{
     
-    Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
+    private Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
+    
+    private ResourceBundleMessageSource messageSource;
+    private LocaleResolver localeResolver;
+    private WebApplicationContext springContext;
     
     private final static String WRITE_SUFFIX = "b";
     private final static String READ_SUFFIX = "A";
@@ -162,11 +171,13 @@ public class FeedbackEntryTag extends ProfiledTag{
             }
     }
     
-    public static void composeStartfeedbackArea(JspWriter out) throws IOException{
+    public void composeStartfeedbackArea(JspWriter out) throws IOException{
         out.print("<br />");
         out.print("<hr /\">");
         out.print("<div\">");
-        out.print("<h3>Feedback</h3>");
+        out.print("<h3>");
+        out.print(localize("feedback.title"));
+        out.print("</h3>");
     }
     
     public static void composeBottomfeedbackArea(JspWriter out) throws IOException{
@@ -174,6 +185,23 @@ public class FeedbackEntryTag extends ProfiledTag{
         out.print("<hr /\">");
         out.print("<div\">");
         out.print("<br />");
+    }
+    
+    private String localize(String code) {
+        if (this.springContext == null) {
+            this.springContext = WebApplicationContextUtils.getWebApplicationContext(pageContext
+                    .getServletContext());
+        }
+        if (this.messageSource == null) {
+            this.messageSource = (ResourceBundleMessageSource) springContext
+                    .getBean("messageSource");
+        }
+        if (this.localeResolver == null) {
+            this.localeResolver = (LocaleResolver) springContext.getBean("localeResolver");
+        }
+        return messageSource.getMessage(code, null,
+                localeResolver.resolveLocale((HttpServletRequest) pageContext.getRequest()));
+
     }
     
     /**
