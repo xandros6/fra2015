@@ -579,7 +579,7 @@
 			<tr>
 				<td rowspan="2">7</td>
 			</tr>
-			<tr>
+			<tr><%//TODO check it, maybe have to be replaced with 7.2 or removed %>
 				<td>7.1</td>
 				<td>1000 ha</td>
 				<td></td>
@@ -742,46 +742,43 @@
 			<tr>
 				<td>13.5 <spring:message code="ref428"></spring:message></td>
 				<td>%,year,checkbox</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td colspan="5">${_fraVariable_13a_2_2_},${_fraVariable_13a_3_2_},${_fraVariable_13a_4_2_},${_fraVariable_13a_5_2_}</td>
+				
 			</tr>
 			<tr>
 				<td>13.5.1 <spring:message code="ref430"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>13.5.2 <spring:message code="ref431"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>13.5.3 <spring:message code="ref432"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>13.5.4 <spring:message code="ref433"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -819,7 +816,7 @@
 			</tr>
 			<tr>
 				<td>14.2 <spring:message code="ref449"></spring:message></td>
-				<td>Boolean</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -832,7 +829,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_14b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -841,7 +838,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -850,7 +847,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -862,7 +859,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14c_0_1_}	</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -870,7 +867,7 @@
 			</tr>
 			<tr>
 				<td>15.1 <spring:message code="ref461"></spring:message></td>
-				<td>Boolean</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -1142,11 +1139,8 @@
 			<tr>
 				<td>20.1 <spring:message code="ref552"></spring:message></td>
 				<td>1000 local currency</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td colspan=5>${_fraVariable_20_1_3_}</td>
+				
 			</tr>
 			<tr>
 				<td></td>
