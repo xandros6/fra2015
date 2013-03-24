@@ -353,3 +353,8 @@ tr.defhead td {
 td.number #cell-content,td.total{
 	text-align:right;	
 }
+/*TODO remove background color inline and use this instead */
+/*
+table.table-hover tbody tr td.editable{
+	background-color: rgb(242, 245, 169);
+}*/

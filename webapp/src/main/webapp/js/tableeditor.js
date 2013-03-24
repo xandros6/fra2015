@@ -95,6 +95,12 @@ $(function() {
 		fra.dirty=true;
 		
 	});
+	//refiller change event must refill the classes with refill class
+	$('.refiller').change(function(){
+		var input = $(this).find('input');
+		var name = input.attr('name');
+		$('.refill.'+name).text(input.val());
+	});
 	
 	
 			
