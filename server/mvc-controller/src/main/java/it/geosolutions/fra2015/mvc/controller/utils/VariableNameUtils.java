@@ -115,6 +115,13 @@ public class VariableNameUtils {
         return sb.toString();
     }
     
+    public static String buildfeedbackStatusIDfromEntryID(String entryID){
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("STATUS").append("_feedback_").append(entryID).append("_");
+        return sb.toString();
+    }
+    
 
     // TODO remove this ugly and useless class and use CompactValue directly
     public class VariableName {

@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -74,7 +75,6 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeContributor() {
         
-        StringBuffer feedbackID = new StringBuffer();
         String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
         boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
         if(feedbackIsPresent){
@@ -98,11 +98,10 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeReviewer() {
         
-        StringBuffer feedbackID = new StringBuffer();
-
         try{
             JspWriter out = pageContext.getOut();
             composeStartfeedbackArea(out);
+            composeReviewerSelectBox(out,feedbackName);
             // --- use RichTextEntry ----
             RichTextEntry rte2 = new RichTextEntry();
 //            +WRITE_SUFFIX
@@ -119,8 +118,6 @@ public class FeedbackEntryTag extends ProfiledTag{
     }
     
     private void composeReviewerEditor() {
-        
-        StringBuffer feedbackID = new StringBuffer();
         
         String value = (String)pageContext.getRequest().getAttribute(feedbackName);
         String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
@@ -171,6 +168,40 @@ public class FeedbackEntryTag extends ProfiledTag{
             }
     }
     
+    public void composeReviewerSelectBox(JspWriter out, String feedbackName) throws IOException{
+        String status = getFeedbackStatus("STATUS"+feedbackName);
+        String selectedOK = "";
+        String selectedKO = "";
+        String selectedNOT = "";
+        if(status.equals("ok")){
+            selectedOK="selected=\"selected\"";
+        }else if(status.equals("ko")){
+            selectedKO="selected=\"selected\"";
+        }else{
+            selectedNOT="selected=\"selected\"";
+        }
+            
+        out.print("<select name=\"STATUS");
+        out.print(feedbackName);
+        out.print("\">");
+        out.print("<option value=\"ok\" ");
+        out.print(selectedOK);
+        out.print(">");        
+        out.print(localize("feedback.revisionedok"));
+        out.print("</option>");
+        out.print("<option value=\"ko\" ");
+        out.print(selectedKO);
+        out.print(">");
+        out.print(localize("feedback.revisionedko"));
+        out.print("</option>");
+        out.print("<option value=\"not\" ");
+        out.print(selectedNOT);
+        out.print(">");
+        out.print(localize("feedback.notrevisioned"));
+        out.print("</option>");
+        out.print("</select>");
+    }
+    
     public void composeStartfeedbackArea(JspWriter out) throws IOException{
         out.print("<br />");
         out.print("<hr /\">");
@@ -202,6 +233,14 @@ public class FeedbackEntryTag extends ProfiledTag{
         return messageSource.getMessage(code, null,
                 localeResolver.resolveLocale((HttpServletRequest) pageContext.getRequest()));
 
+    }
+    
+    private String getFeedbackStatus(String name) {
+        if (pageContext.getRequest().getAttribute(name) != null) {
+            return (String) pageContext.getRequest().getAttribute(name);
+        } else {
+            return "";
+        }
     }
     
     /**

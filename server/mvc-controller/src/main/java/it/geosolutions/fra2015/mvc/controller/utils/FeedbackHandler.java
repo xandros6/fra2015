@@ -117,6 +117,7 @@ public class FeedbackHandler{
             if(oldFbIndex >= 0){
                 Feedback oldFb = oldFeedbacks.get(oldFbIndex);
                 oldFb.setFeedback(el.getFeedback());
+                oldFb.setStatus(el.getStatus());
                 feedbacksMerged.add(oldFb);
             }
             else if(!StringUtils.isEmpty(el.getFeedback())){
@@ -190,12 +191,13 @@ public class FeedbackHandler{
             if(feedbackName.startsWith(FEEDBACK)){
                 
                 String feedback = (String)request.getParameter(feedbackName);
+                String feedbackStatus = (String)request.getParameter("STATUS"+feedbackName);
                 String entryID = null;
                 // This check is made in mergeFeedback now...
 //                if(!StringUtils.isEmpty(feedback)){
                     entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
                     Entry entry = controllerServices.getEntry(entryID);
-                    addToFeedbackList(entry, si, user, feedback, entryID, "", harmonized);
+                    addToFeedbackList(entry, si, user, feedback, entryID, feedbackStatus, harmonized);
 //                }
                 
             }
@@ -212,6 +214,7 @@ public class FeedbackHandler{
                 String feedbackId = el.getFeedbackId();
                 feedbackId = (el.getHarmonized())?feedbackId+"_Ed":feedbackId;
                 model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(feedbackId), el.getFeedback());
+                model.addAttribute(VariableNameUtils.buildfeedbackStatusIDfromEntryID(feedbackId), el.getStatus());
             }
         }
     }
@@ -237,7 +240,7 @@ public class FeedbackHandler{
         f.setEntry(entry);
         f.setFeedback(feedback);
         f.setFeedbackId(feedbackId);
-        f.setStatus("");
+        f.setStatus(status);
         f.setSurvey(surveyInstance);
         f.setTimestamp(System.currentTimeMillis());
         f.setUser(user);
