@@ -120,7 +120,7 @@ public class FeedbackHandler{
                 oldFb.setStatus(el.getStatus());
                 feedbacksMerged.add(oldFb);
             }
-            else if(!StringUtils.isEmpty(el.getFeedback())){
+            else if(!StringUtils.isEmpty(el.getFeedback()) || !el.getStatus().equals("not")){
                 
                 feedbacksMerged.add(el);
             }
