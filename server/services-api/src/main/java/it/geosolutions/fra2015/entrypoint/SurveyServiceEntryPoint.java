@@ -13,6 +13,7 @@ import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.List;
@@ -107,5 +108,7 @@ public interface SurveyServiceEntryPoint {
 
 
     public Country findCountryByISO3(String countries);
+    
+    public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
 
 }

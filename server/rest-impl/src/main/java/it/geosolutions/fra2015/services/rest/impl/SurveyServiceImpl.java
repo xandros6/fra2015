@@ -19,6 +19,7 @@ import it.geosolutions.fra2015.server.model.survey.Session;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
@@ -220,6 +221,14 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
     @Override
     public Country findCountryByISO3(String countries) {
         return surveyService.findCountryByISO3(countries);
+    }
+
+    /* (non-Javadoc)
+     * @see it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint#getValues(java.lang.String, java.lang.Integer)
+     */
+    @Override
+    public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx {
+        return surveyService.getValues(iso3, questionNumber);
     }
 
 }

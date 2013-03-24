@@ -493,6 +493,47 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return values;
 	}
+	
+	public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx{
+
+            // find a country with the given name
+            Country country = findCountryByISO3(iso3);
+            if (country == null) {
+                    throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+            }
+
+            List<Value> values = new ArrayList<Value>();
+
+            List<Entry> entries = new ArrayList<Entry>();
+            if(questionNumber == null){
+                    entries = surveyCatalog.getCatalog();
+            }
+            else{
+                    entries = surveyCatalog.getCatalogForQuestion(questionNumber);
+            }
+            //        List<Entry> entries = entryDAO.findAll();
+            if (entries != null) {
+                    for (Entry entry : entries) {
+                            if(entry == null){
+                                    continue;
+                            }
+                            if (!entry.getEntryItems().isEmpty()) {
+                                    for (EntryItem item : entry.getEntryItems()) {
+                                            String type = item.getType();
+                                            ValueDAO valueDAO = map.get(type);
+                                            if (valueDAO != null) {
+                                                    Value value = valueDAO.read(item.getId(), country);
+                                                    if (value != null) {
+                                                            values.add(value);
+                                                    }
+                                            }
+
+                                    }
+                            }
+                    }
+            }
+            return values;
+    }
 
     @Override
     public void insertQuestionRevision(QuestionRevision question) {
