@@ -171,6 +171,10 @@ public class ReviewController {
             List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
             fh.mergefeedbacks(oldFeedbacks);
             fh.storeFeedbacks();
+            if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+                List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
+                fh.addAllToFeedbackList(notHarmonizedFeedbacks);   
+            }
         } catch (BadRequestServiceEx e) {
             
             model.addAttribute("messageType", "warning");

@@ -61,7 +61,9 @@ public class SessionUtils {
             session.setAttribute(COUNTRY_SURVEY_VALUES, cv);
             return cv;
         }
-        return (CountryValues)session.getAttribute(COUNTRY_SURVEY_VALUES);
+        CountryValues cv = (CountryValues)session.getAttribute(COUNTRY_SURVEY_VALUES);
+        session.removeAttribute(COUNTRY_SURVEY_VALUES);
+        return cv;
     }
     
     public static List<Feedback> retrieveFeedbacksAndStoreInSession(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx{
@@ -86,6 +88,8 @@ public class SessionUtils {
             session.setAttribute(COUNTRY_FEEDBACKS, feedbacks);
             return feedbacks;
         }
-        return (List<Feedback>)session.getAttribute(COUNTRY_FEEDBACKS);
+        List<Feedback> returnList = (List<Feedback>)session.getAttribute(COUNTRY_FEEDBACKS);
+        session.removeAttribute(COUNTRY_FEEDBACKS);
+        return returnList;
     }
 }

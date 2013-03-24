@@ -31,6 +31,10 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,8 +50,11 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
 import org.apache.cxf.common.util.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
+
+import com.ibm.wsdl.util.IOUtils;
 
 /**
  * Hold the feedback management: take as input the req and session objects, build a Feedback Instance and add to a feedback list 
@@ -56,6 +63,8 @@ import org.springframework.ui.Model;
  *
  */
 public class FeedbackHandler{
+    
+    private final Logger LOGGER = Logger.getLogger(FeedbackHandler.class);
     
     private ControllerServices controllerServiceUtils;
     
@@ -115,9 +124,7 @@ public class FeedbackHandler{
                 feedbacksMerged.add(el);
             }
         }
-        List<Feedback> notHarmonizedFeedbacks = packageFeedbacks(oldFeedbacks, false);
         feedbackList = feedbacksMerged;
-        feedbackList.addAll(notHarmonizedFeedbacks);
         
     }
     
@@ -133,11 +140,13 @@ public class FeedbackHandler{
                 f = packagedFeedbacksMap.remove(el.getFeedbackId());
                 if(f == null){
                     f = new Feedback();
+                    BeanUtils.copyProperties(el, f);
+                    f.setFeedback("");
                 }
             }
-            BeanUtils.copyProperties(el, f);
             
-            if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(f.getFeedback())){
+            
+            if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(el.getFeedback())){
                 
                 User u = f.getUser();
                 StringBuilder sb = new StringBuilder();
@@ -146,12 +155,17 @@ public class FeedbackHandler{
                 cal.setTimeInMillis(f.getTimestamp());
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
                 dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-                sb.append("<b>On </b> '").append(dateFormatter.format(cal.getTime())).append("' <b>User</b> '").append(u.getUsername()).append("' <b>says:</b>").append("<br />").append(el.getFeedback()).append("-----");
+                sb.append(f.getFeedback());
+                String record = loadTemplatePackaged();
+                record = record.replace("%{date}", dateFormatter.format(cal.getTime()));
+                record = record.replace("%{username}", u.getUsername());
+                record = record.replace("%{feedbackContent}", el.getFeedback());
+                sb.append(record);
                 f.setFeedback(sb.toString());
                 packagedFeedbacksMap.put(f.getFeedbackId(), f);
             }
             else if(packageAlsoArmonized){
-                
+                BeanUtils.copyProperties(el, f);
                 packagedFeedbacksMap.put(f.getFeedbackId()+"_Ed", f);
             }
             
@@ -229,6 +243,42 @@ public class FeedbackHandler{
         f.setUser(user);
         f.setHarmonized(harmonized);
         feedbackList.add(f);
+    }
+    
+    public void addAllToFeedbackList(List<Feedback> list){
+        
+        this.feedbackList.addAll(list);
+    }
+    
+    private String loadTemplatePackaged(){
+        
+        InputStream tmpltStream = this.getClass().getResourceAsStream("/packagedFeedbacksTemplate.tmplt");
+        Reader r = new InputStreamReader(tmpltStream);
+        try {
+            
+            return IOUtils.getStringFromReader(r);
+        } catch (IOException e) {
+            
+            LOGGER.error(e.getMessage(), e);
+        }
+        finally{
+            
+            if(tmpltStream != null){
+                try {
+                    tmpltStream.close();
+                } catch (IOException e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+            }
+            if(r != null){
+                try {
+                    r.close();
+                } catch (IOException e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+            }
+        }
+        return "%{date} - %{username} - %{feedbackContent} <br />";
     }
     
 }
