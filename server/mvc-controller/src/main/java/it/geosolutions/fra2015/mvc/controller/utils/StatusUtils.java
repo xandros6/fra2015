@@ -21,6 +21,7 @@
  */
 package it.geosolutions.fra2015.mvc.controller.utils;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.survey.Status;
 
 /**
@@ -63,7 +64,21 @@ public final class StatusUtils {
     public static boolean isSubmitAllowed(String s) {
         return isInProgress(s) || isPendingFix(s) || isCompiled(s) || isEmpty(s);
     }
-
+    
+    /**
+     * Check if the status is one of the submit allowed by reviewer/reviewerEditor
+     * 
+     * @param s the status
+     * @return true if the contributor can submit the status, false otherwise
+     */
+    public static boolean isSubmitAllowedByReviewer(String s, Profile p) {
+        boolean result = isCompiled(s) || isUnderReview(s);
+        if(p.equals(Profile.EDITOR)){
+            result = result || isReviewCompleted(s) || isReviewEditing(s);
+        }
+        return result;
+    }
+    
     /**
      * Returns locale code for a Status object
      * 

@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Question;
@@ -70,9 +71,8 @@ public class ReviewController {
                 @PathVariable(value = "country") String country, 
                 @PathVariable(value = "question") Long question, Model model,
             HttpSession session) {
-            
-            
-        // TODO validate country
+
+        
         User su = (User) session.getAttribute("sessionUser");
         if(su==null){
             return "redirect:/login";
@@ -80,6 +80,7 @@ public class ReviewController {
         
         User userForQuery = new User();
         Boolean harmonized = null;
+        Profile userProfile = null;
         
         if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
             
@@ -87,6 +88,7 @@ public class ReviewController {
             setupAllowedQuestions(question, su, model);
             userForQuery = su;
             harmonized = false;
+            userProfile = Profile.REVIEWER;
         }
         else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
             
@@ -94,10 +96,22 @@ public class ReviewController {
             model.addAttribute("context", "survey");
             model.addAttribute("question", question);
             userForQuery = null;
+            userProfile = Profile.EDITOR;
         }
         else{
             return "redirect:/login";
         }
+        
+        String status = utils.getStatusByCountry(country);
+        if(StatusUtils.isSubmitAllowedByReviewer(status, userProfile)){
+            model.addAttribute("profile", userProfile.toString());
+        }else{
+            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
+        }
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("statuscode",statusLocale);
+        
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
         utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
@@ -129,6 +143,10 @@ public class ReviewController {
             @PathVariable(value = "country") String country,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
         
+        String status = utils.getStatusByCountry(country);
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("statuscode",statusLocale);
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
         
