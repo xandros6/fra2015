@@ -594,22 +594,22 @@
 			<tr>
 				<td>8.1 <spring:message code="ref352"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${_fraVariable_8a_3_1_},${_fraVariable_8a_3_2_},${_fraVariable_8a_3_3_},${_fraVariable_8a_3_4_},${_fraVariable_8a_3_5_},${_fraVariable_8a_3_6_},${_fraVariable_8a_3_7_},${_fraVariable_8a_3_8_},${_fraVariable_8a_3_9_},${_fraVariable_8a_3_10_}</td>
+				<td colspan="5">${_fraVariable_8a_3_1_},${_fraVariable_8a_3_3_},${_fraVariable_8a_3_5_},${_fraVariable_8a_3_7_},${_fraVariable_8a_3_9_},${_fraVariable_8a_7_1_},${_fraVariable_8a_7_3_},${_fraVariable_8a_7_5_},${_fraVariable_8a_7_7_},${_fraVariable_8a_7_9_ }</td>
 			</tr>
 			<tr>
 				<td>8.1.1 <spring:message code="ref353"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${_fraVariable_8a_4_1_},${_fraVariable_8a_4_2_},${_fraVariable_8a_4_3_},${_fraVariable_8a_4_4_},${_fraVariable_8a_4_5_},${_fraVariable_8a_4_6_},${_fraVariable_8a_4_7_},${_fraVariable_8a_4_8_},${_fraVariable_8a_4_9_},${_fraVariable_8a_4_10_}</td>
+				<td colspan="5">${_fraVariable_8a_4_1_},${_fraVariable_8a_4_3_},${_fraVariable_8a_4_5_},${_fraVariable_8a_4_7_},${_fraVariable_8a_4_9_},${_fraVariable_8a_8_1_},${_fraVariable_8a_8_3_},${_fraVariable_8a_8_5_},${_fraVariable_8a_8_7_},${_fraVariable_8a_8_9_}</td>
 			</tr>
 			<tr>
 				<td>8.2 <spring:message code="ref352"></spring:message></td>
 				<td>Number</td>
-				<td colspan="5">${_fraVariable_8a_7_1_},${_fraVariable_8a_7_2_},${_fraVariable_8a_7_3_},${_fraVariable_8a_7_4_},${_fraVariable_8a_7_5_},${_fraVariable_8a_7_6_},${_fraVariable_8a_7_7_},${_fraVariable_8a_7_9_},${_fraVariable_8a_7_10_}</td>
+				<td colspan="5">${_fraVariable_8a_3_2_},${_fraVariable_8a_3_4_},${_fraVariable_8a_3_6_},${_fraVariable_8a_3_8_},${_fraVariable_8a_3_10_},${_fraVariable_8a_7_2_},${_fraVariable_8a_7_4_},${_fraVariable_8a_7_6_},${_fraVariable_8a_7_8_},${_fraVariable_8a_7_10_}</td>
 			</tr>
 			<tr>
 				<td>8.2.1 <spring:message code="ref353"></spring:message></td>
 				<td>Number</td>
-				<td colspan="5">${_fraVariable_8a_8_1_},${_fraVariable_8a_8_2_},${_fraVariable_8a_8_3_},${_fraVariable_8a_8_4_},${_fraVariable_8a_8_5_},${_fraVariable_8a_8_6_},${_fraVariable_8a_8_7_},${_fraVariable_8a_8_8_},${_fraVariable_8a_8_9_},${_fraVariable_8a_8_10_}</td>
+				<td colspan="5">${_fraVariable_8a_4_2_},${_fraVariable_8a_4_4_},${_fraVariable_8a_4_6_},${_fraVariable_8a_4_8_},${_fraVariable_8a_4_10_},${_fraVariable_8a_8_2_},${_fraVariable_8a_8_4_},${_fraVariable_8a_8_6_},${_fraVariable_8a_8_8_},${_fraVariable_8a_8_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="2">9</td>
@@ -701,7 +701,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_12_1_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -710,7 +710,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_12_2_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -793,7 +793,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14_1_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -802,7 +802,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14_2_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -811,7 +811,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14_3_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -901,7 +901,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_1_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -910,7 +910,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_2_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -919,7 +919,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_3_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -928,7 +928,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_4_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -937,7 +937,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_5_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -946,7 +946,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_6_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -955,7 +955,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_7_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -964,12 +964,12 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_8_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td colspan="7"><strong><spring:message code="ref486"></spring:message></strong></td>
+				<td colspan="7"><strong><spring:message 	code="ref486"></spring:message></strong></td>
 			</tr>
 			<tr>
 				<td rowspan="3">17</td>
