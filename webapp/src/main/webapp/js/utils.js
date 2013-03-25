@@ -121,7 +121,9 @@ fra = {
 			case "16b":
 				return col>"0";
 			case "20":
-				return col=="1" && row=="1"
+				return col=="1" && row=="1";
+			case "13a":
+				return col=="1";
 			}
 			
 	    },
