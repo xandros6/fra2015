@@ -68,17 +68,22 @@ fra = {
 	            input.val(text);
 	            if (cell.hasClass('number')){
 	                // on keydown verify if the key is a number
-	                input.keydown(function(evt){
-	                	return ( event.ctrlKey || event.altKey 
-	                            || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
-	                            || (95<event.keyCode && event.keyCode<106)
-	                            || (event.keyCode==8) || (event.keyCode==9) 
-	                            || (event.keyCode>34 && event.keyCode<40) 
-	                            || (event.keyCode==46)
-	                            || (event.keyCode==109)
-	                            || (event.keyCode==110)
-	                            ||  (event.keyCode==190)
+	                input.keydown(function(e){
+	                	var evt=(e)?e:(window.event)?window.event:null;
+	                    if(evt){
+	                       var code=(evt.charCode)?evt.charCode:((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
+	                   
+	                	return ( evt.ctrlKey || evt.altKey 
+	                            || (47<code && code<58 && evt.shiftKey==false) 
+	                            || (95<code && code<106)
+	                            || (code==8) || (code==9) 
+	                            || (code>34 && code<40) 
+	                            || (code==46)
+	                            || (code==109)
+	                            || (code==110)
+	                            ||  (code==190)
 	                           ) 
+	                    }
 	                });                               
 	            }
 	            cell.find('#cell-content').html( input );
