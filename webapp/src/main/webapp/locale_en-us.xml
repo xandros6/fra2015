@@ -244,7 +244,7 @@
         <value>Tier criteria</value>
     </label>
     <label ref="77">
-        <value>Forest Other wooded land Afforestation Reforestation Natural expansion of forest Deforestation</value>
+        <value><![CDATA[<ul><li>Forest</li><li>Other wooded land</li><li>Afforestation</li><li>Reforestation</li><li>Natural expansion of forest</li><li>Deforestation</li></ul>]]></value>
     </label>
     <label ref="78">
         <value>Tier 3: Data sources Either recent 10 years ago National Forest Inventory or remote sensing with ground truthing or programme for repeated compatible NFIs Tier 2: Data sources Full cover mappingremote sensing or old NFI 10 years ago Tier 1: Other</value>
