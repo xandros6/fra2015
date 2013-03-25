@@ -177,7 +177,8 @@ public class ControllerServices {
             cv.setRowNumber(el.getRowNumber());
             cv.setColumnNumber(el.getColumnNumber());
             String entryItemName = VariableNameUtils.buildVariableAsText(cv);
-            model.addAttribute(entryItemName, entryItemName);
+            String entryItemShortName = entryItemName.replaceFirst("_fraVariable", "");
+            model.addAttribute(entryItemName, entryItemShortName);
         }
         
         //Put in the model the counters
