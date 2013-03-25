@@ -91,7 +91,17 @@ fra = {
 	                if ( cell.hasClass('editing') ){
 	                    cell.removeClass("editing");
 	                    cell.addClass("editable");
+	                    var oldtext= text;
 	                    var text = cell.find(".celleditor").attr('value');
+	                    if(cell.hasClass('number')){
+		                    try{
+		                    	
+		                    	text =Number(text);
+		                    	if(isNaN(text)) text="";
+		                    }catch(e){
+		                    	text=oldtext;
+		                    }
+	                	}
 	                    cell.find('#cell-content').html( text );
 	                    hidden.val( text ).trigger('change');
 	                    fra.dirty=true;
