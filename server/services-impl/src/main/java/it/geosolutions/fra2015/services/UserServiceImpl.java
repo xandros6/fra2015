@@ -56,9 +56,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User insert(User user) throws BadRequestServiceEx {
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Persisting User ... ");
-        }
+//        if (LOGGER.isDebugEnabled()) {
+//            LOGGER.debug("Persisting " + user);
+//        }
 
         if (user == null) {
             throw new BadRequestServiceEx("Missing user info");
