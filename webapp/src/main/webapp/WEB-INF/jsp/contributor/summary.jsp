@@ -430,6 +430,22 @@
 				<td>${_fraVariable_4a_4_5_}</td>
 			</tr>
 			<tr>
+				<td>4b</td>
+				<td><spring:message code="ref231"></spring:message>
+				<td>1000 local currency</td><%//TODO localize %>
+				<td></td>
+				<td></td>
+				<td>${_fraVariable_4b_2_3_ + 
+					  _fraVariable_4b_3_3_ +
+					  _fraVariable_4b_4_3_ +
+					  _fraVariable_4b_5_3_ + _fraVariable_4b_6_3_ + _fraVariable_4b_7_3_ +
+					  _fraVariable_4b_8_3_ + _fraVariable_4b_9_3_ + _fraVariable_4b_10_3_ +
+					  _fraVariable_4b_11_3_}</td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
 				<td></td>
 				<td colspan="7"><strong><spring:message code="ref258"></spring:message></strong></td>
 			</tr>
@@ -579,13 +595,19 @@
 			<tr>
 				<td rowspan="2">7</td>
 			</tr>
-			<tr><%//TODO check it, maybe have to be replaced with 7.2 or removed %>
-				<td>7.1</td>
+			<tr>
+				<td>7.2</td>
 				<td>1000 ha</td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
+				<td>${_fraVariable_7_2_1_ + _fraVariable_7_3_1_ + _fraVariable_7_4_1_  +
+					  _fraVariable_7_5_1_ + _fraVariable_7_6_1_ + _fraVariable_7_7_1_  +
+					  _fraVariable_7_8_1_ + _fraVariable_7_9_1_ + _fraVariable_7_10_1_  +
+					  _fraVariable_7_11_1_} </td>
+				<td>${_fraVariable_7_2_2_ + _fraVariable_7_3_2_ + _fraVariable_7_4_2_  +
+					  _fraVariable_7_5_2_ + _fraVariable_7_6_2_ + _fraVariable_7_7_2_  +
+					  _fraVariable_7_8_2_ + _fraVariable_7_9_2_ + _fraVariable_7_10_2_  +
+					  _fraVariable_7_11_2_} </td>
 				<td></td>
 			</tr>
 			<tr>
@@ -611,10 +633,16 @@
 				<td>Number</td>
 				<td colspan="5">${_fraVariable_8a_4_2_},${_fraVariable_8a_4_4_},${_fraVariable_8a_4_6_},${_fraVariable_8a_4_8_},${_fraVariable_8a_4_10_},${_fraVariable_8a_8_2_},${_fraVariable_8a_8_4_},${_fraVariable_8a_8_6_},${_fraVariable_8a_8_8_},${_fraVariable_8a_8_10_}</td>
 			</tr>
+			<tr><td>8b</td><td><spring:message	code="ref362"></spring:message></td>
+			<td>1000 ha</td>						
+			<td colspan="5">${_fraVariable_8b_1_3_ + _fraVariable_8b_2_3_ + _fraVariable_8b_3_3_  +
+					  _fraVariable_8b_4_3_ + _fraVariable_8b_5_3_ + _fraVariable_8b_6_3_  +
+					  _fraVariable_8b_7_3_ + _fraVariable_8b_8_3_ + _fraVariable_8b_9_3_} </td>
+			<tr>
 			<tr>
 				<td rowspan="2">9</td>
 			</tr>
-			<tr>
+			
 				<td>9.1 <spring:message code="ref372"></spring:message></td>
 				<td>% canopy cover</td>
 				<td colspan="5">${_fraVariable_9_1_1_}</td>
