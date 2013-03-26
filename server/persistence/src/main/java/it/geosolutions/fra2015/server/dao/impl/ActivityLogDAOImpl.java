@@ -30,6 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.googlecode.genericdao.search.ISearch;
 import com.googlecode.genericdao.search.Search;
+import com.googlecode.genericdao.search.Sort;
 
 /**
  * @author DamianoG
@@ -100,6 +101,15 @@ public class ActivityLogDAOImpl extends BaseDAO<ActivityLogEntry, Long> implemen
         searchCriteria.addFilterEqual("username", username);
         
         return  this.search(searchCriteria);
+    }
+
+    @Override
+    public List<ActivityLogEntry> find(int page, int entries) {
+    	Search searchCriteria = new Search(ActivityLogEntry.class);
+    	searchCriteria.addSort(new Sort("time",true));
+    	searchCriteria.setMaxResults(entries);
+    	searchCriteria.setPage(page);  	
+    	return  this.search(searchCriteria);
     }
     
 }

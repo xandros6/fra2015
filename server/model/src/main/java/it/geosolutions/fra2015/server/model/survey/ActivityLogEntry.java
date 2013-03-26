@@ -23,22 +23,38 @@ package it.geosolutions.fra2015.server.model.survey;
 
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
 @Entity(name = "ActivityLog")
 @Table(name = "fra_activitylog" )
 public class ActivityLogEntry implements Serializable {
-
+		
+		@Transient
+		public static final DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	
         @Id
         @GeneratedValue
-	private Long id;
+        private Long id;
         
         private Long time;
+        
+        @Transient
+        private String date;
+        
+        @Transient
+        private String fromDate;
+        
+        @Transient
+        private String toDate;
         
         private String entryItemName;
         
@@ -147,7 +163,25 @@ public class ActivityLogEntry implements Serializable {
         public void setContent(String content) {
             this.content = content;
         }
-        
-        
+
+		public String getFromDate() {
+			return fromDate;
+		}
+
+		public void setFromDate(String fromDate) {
+			this.fromDate = fromDate;
+		}
+
+		public String getToDate() {
+			return toDate;
+		}
+
+		public void setToDate(String toDate) {
+			this.toDate = toDate;
+		}
+
+		public String getDate() {
+			return formatter.format(new Date(this.time));
+		}
 
 }

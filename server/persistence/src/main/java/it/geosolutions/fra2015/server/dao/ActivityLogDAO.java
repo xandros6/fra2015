@@ -62,4 +62,11 @@ public interface ActivityLogDAO extends RestrictedGenericDAO<ActivityLogEntry>{
          * @return
          */
         List<ActivityLogEntry> findByTimeInterval(String c, Long t1, Long t2, int page, int entries);
+
+        /**
+         * @param page
+         * @param entries
+         * @return
+         */
+		List<ActivityLogEntry> find(int page, int entries);
 }

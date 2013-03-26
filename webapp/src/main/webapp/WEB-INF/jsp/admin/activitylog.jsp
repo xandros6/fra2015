@@ -1,114 +1,178 @@
+<%@ include file="../common/includes/taglibs.jsp"%>
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <form:form id="filterActivityLogForm" commandName="logFilter"  method="post" action="${pageContext.request.contextPath}/adminactivitylog/filter">
+        <table id="userTable" class="table table-bordered table-hover table-condensed table-striped">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Username</th>
+              <th>Country</th>
+              <th>Id</th>
+              <th>Content</th>
+            </tr>
+             <tr>
+              <th>
+	              <div id="datetimepickerFrom" class="input-prepend input-append date">
+	                <span class="add-on" style="width:40px">From</span>
+							    <form:input path="fromDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="input-small"/>
+							    <span class="add-on picker">
+							        <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+							    </span>
+							    <span class="add-on">
+							    <i id="filter_from_clear_btn" class="icon-remove-sign"> </i>
+							    </span>
+	                <span class="add-on">
+	                  <i class="icon-filter"> </i>
+	                </span>
+							  </div>
+							  <div id="datetimepickerTo" class="input-prepend input-append date">
+							    <span class="add-on" style="width:40px">To</span>
+                  <form:input path="toDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="input-small"/>
+                    <span class="add-on picker">
+                      <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+                  </span>
+                  <span class="add-on">
+                  <i id="filter_to_clear_btn" class="icon-remove-sign"> </i>
+                  </span>
+	                <span class="add-on">
+	                  <i class="icon-filter"> </i>
+	                </span>
+                </div>    						              
+              </th>
+              <th>
+                <div class="input-append">
+                <form:input path="username" class="span2 input-small ui-autocomplete-input" type="text" autocomplete="off" />
+                  <span class="add-on">
+                  <i id="filter_username_clear_btn" class="icon-remove-sign"> </i>
+                  </span>
+	                <span class="add-on">
+	                  <i class="icon-filter"> </i>
+	                </span>
+                </div>
+              </th>
+              <th>
+                <div class="input-append">
+                <form:input path="country" type="text" class="span1 input-small ui-autocomplete-input"/>                
+                <span class="add-on">
+                  <i id="filter_country_clear_btn" class="icon-remove-sign"> </i>
+                </span>
+                <span class="add-on">
+                  <i class="icon-filter"> </i>
+                </span>
+                </div>
+              </th>
+              <th>
+                <div class="input-append">
+                  <form:input path="question_id" id="questionId" name="questionId" class="span1 input-small ui-autocomplete-input" type="number" autocomplete="off" />
+                <span class="add-on">
+                  <i id="filter_questionId_clear_btn" class="icon-remove-sign"> </i>
+                </span>
+                <span class="add-on">
+                  <i class="icon-filter"> </i>
+                </span>
+                </div>
+              </th>
+              <th>
+                 <div class="input-append">
+                  <form:input path="content" class="span2 input-small ui-autocomplete-input" type="text" autocomplete="off" />
+                <span class="add-on">
+                  <i id="filter_content_clear_btn" class="icon-remove-sign"> </i>
+                </span>
+                <span class="add-on">
+                  <i class="icon-filter"> </i>
+                </span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+             <c:forEach items='${activityLogList}' var='activityLogEntry' varStatus='rowItem'>
+              <tr class="rowItem">                
+                <td class="span2"><div>${activityLogEntry.date}</div></td>
+                <td class="span2"><div>${activityLogEntry.username}</div></td>
+                <td class="span1"><div>${activityLogEntry.country}</div></td>
+                <td class="span1"><div>${activityLogEntry.question_id}</div></td>
+                <td class="span2"><div>${activityLogEntry.content}</div></td>
+              </tr>
+            </c:forEach>  
+            <c:forEach var="i" begin="1" end="${10 - (fn:length(activityLogList))}" step="1">
+              <tr class="rowItem">                
+                <td class="span2"><div>&nbsp;</div></td>
+                <td class="span2"><div>&nbsp;</div></td>
+                <td class="span1"><div>&nbsp;</div></td>
+                <td class="span1"><div>&nbsp;</div></td>
+                <td class="span2"><div>&nbsp;</div></td>
+            </c:forEach>              
+          </tbody>
+        </table>
+        </form:form>
+        <div class="pagination pagination-centered">
+          <ul>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+            <c:if test="${not empty pagination.firstPage}">
+            <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.firstPage}">First</a></li>
+            </c:if>
+            <c:if test="${empty pagination.firstPage}">
+              <li class="disabled"><a href="#">First</a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.prev1}">
+            <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.prev1}">Prev</a></li>
+            </c:if>
+            <c:if test="${empty pagination.prev1}">
+              <li class="disabled"><a href="#">Prev</a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.prev2}">
+            <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.prev2}">${pagination.prev2+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.prev2}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.prev1}">
+            <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.prev1}">${pagination.prev1+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.prev1}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+            
+            <li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
+            
+            <c:if test="${not empty pagination.next1}">
+              <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.next1}">${pagination.next1+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.next1}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.next2}">
+              <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.next2}">${pagination.next2+1}</a></li>
+            </c:if>
+            <c:if test="${empty pagination.next2}">
+              <li class="disabled"><a href="#"> - </a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.next1}">
+              <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.next1}">Next</a></li>
+            </c:if>
+            <c:if test="${empty pagination.next1}">
+              <li class="disabled"><a href="#">Next</a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.lastPage}">
+              <li><a href="${pageContext.request.contextPath}/adminactivitylog/${pagination.lastPage}">Last</a></li>
+            </c:if>
+            <c:if test="${empty pagination.lastPage}">
+              <li class="disabled"><a href="#">Last</a></li>
+            </c:if>            
 
-<div id="tabContent">
-	<div>
-		<div class="container">
-
-			<!-- <div class="row">
-<div class="span4">
-<div class="well well-large">
-<button class="close">×</button>
-<form>
-<fieldset>
-
-<legend>Search criteria</legend>
-
-<label>Start date and time</label>
-<input type="text" class="input-small" id="startDate" /><input type="text" class="input-small" id="startTime" />
-
-
-<label>End date and time</label>
-<input type="text" class="input-small" id="endDate" /><input type="text" class="input-small" id="endTime" />
-
-
-<label>User</label>
-<input id="users" class="input-large" type="text">
-
-<label>Country</label>
-<input id="countries" class="input-large" type="text">
-
-<label>Keyword</label>
-<input class="input-large" type="text">
-
-<button type="submit" class="btn">Search</button>
-</fieldset>
-</form>
-
-</div> 
-</div>-->
-
-
-
-			<div class="span12">
-				
-				<div id="filter">
-					<form action="revieweractivitylog" method="POST">
-						<table
-							class="table table-bordered table-hover table-condensed table-striped">
-							<thead>
-								<tr>
-									<th>Time Interval</th>
-									<th>Country Username Question</th>
-									<th>Country EntryItemName</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="span3">
-										<input type="text" class="input-small hasDatepicker" name="t1" id="startDate">
-										<input type="text" class="span1 hasTimepicker" id="startTime">
-										to <br> 
-										<input type="text" class="input-small hasDatepicker" name="t2" id="endDate" />
-										<input type="text" class="span1 hasTimepicker" id="endTime" />
-									</td>
-									<td>
-										<input id="country" name="country" class="input-small ui-autocomplete-input" type="text" autocomplete="off" />
-										<br>
-										<input id="username" name="username" class="input-small ui-autocomplete-input" type="text" autocomplete="off" />
-										<input id="question" name="question" class="input-small ui-autocomplete-input" type="text" autocomplete="off" />
-										<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-									</td>
-									<td>
-										<input id="country" name="country" class="input-small ui-autocomplete-input" type="text" autocomplete="off">
-										<br>
-										<input id="EntryItemName" name="entryItemName" class="input-small ui-autocomplete-input" type="text" autocomplete="off">
-										<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<input type="hidden" name="filter" value="f3">
-						<button type="submit" class="btn">ApplyFilter</button>
-					</form>
-				</div>
-
-				<table
-					class="table table-bordered table-hover table-condensed table-striped">
-					<thead>
-						<tr>
-							<th>Time</th>
-							<th>Username</th>
-							<th>Country</th>
-							<th>Question id</th>
-							<th>Content</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${activityLogList}" var="activityLogEntry">
-							<tr>
-								<td>${activityLogEntry.time}</td>
-								<td>${activityLogEntry.username}</td>
-								<td>${activityLogEntry.question_id}</td>
-								<td>${activityLogEntry.entryItemName}</td>
-								<td>${activityLogEntry.content}</td>
-							</tr>
-						</c:forEach>						
-					</tbody>
-				</table>
-				<ul class="pager pull-right">
-					<li class="disabled"><a href="#">Newer</a></li>
-					<li><a href="#">Older</a></li>
-				</ul>
-			</div>
-		</div>
+          </ul>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
