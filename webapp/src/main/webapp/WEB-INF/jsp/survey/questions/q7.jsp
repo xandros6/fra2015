@@ -203,7 +203,7 @@
 							<td colspan="2" rownumber="0" columnnumber="1"><spring:message
 									code="ref324"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref55"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message

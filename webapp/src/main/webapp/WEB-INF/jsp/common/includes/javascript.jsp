@@ -47,14 +47,12 @@ fra.tooltips= {
 		ref67_tt:'<spring:message code="ref67_tt"></spring:message>',
 		ref161_tt:'<spring:message code="ref161_tt"></spring:message>',
 		ref179_tt:'<spring:message code="ref179_tt"></spring:message>',
-		ref260_tt:'<spring:message code="ref260_tt"></spring:message>',
 		ref332_tt:'<spring:message code="ref332_tt"></spring:message>',
 		ref79:'<spring:message code="ref79"></spring:message>',
 		ref362_tt:'<spring:message code="ref362_tt"></spring:message>',
+        reftab5att1:'<spring:message code="reftab5att1"></spring:message>',
 		ref367:'<spring:message code="ref367"></spring:message>',
 		ref368:'<spring:message code="ref368"></spring:message>',
-		ref79:'<spring:message code="ref79"></spring:message>'
-		
 };
 fra.messages={
 		confirmsubmit:'<spring:message code="alert.survey.confirmsubmit"></spring:message>',
