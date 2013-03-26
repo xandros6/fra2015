@@ -22,7 +22,11 @@
 package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.dao.EntryItemDAO;
+import it.geosolutions.fra2015.server.dao.NumberValueDAO;
+import it.geosolutions.fra2015.server.dao.TextValueDAO;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.TextValue;
 
 import java.util.List;
 
@@ -37,7 +41,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BulkModelEntitiesLoader {
 
     @Autowired
-    EntryItemDAO entryItemDAO;
+    private EntryItemDAO entryItemDAO;
+    
+    @Autowired
+    private TextValueDAO textValueDAO;
+    
+    @Autowired
+    private NumberValueDAO textNumberDAO;
     
     /**
      * Bulk loading of all persisted EntryItem 
@@ -48,5 +58,21 @@ public class BulkModelEntitiesLoader {
         return entryItemDAO.findAll();
     }
     
+    /**
+     * Bulk loading of all persisted TextValue
+     * @return
+     */
+    public List<TextValue> loadAllTextValues(){
+        
+        return textValueDAO.findAll();
+    }
     
+    /**
+     * Bulk loading of all persisted TextValue
+     * @return
+     */
+    public List<NumberValue> loadAllNumericValues(){
+        
+        return textNumberDAO.findAll();
+    }
 }

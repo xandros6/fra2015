@@ -133,6 +133,7 @@ public class FeedbackHandler{
         
         List<Feedback> packagedFeedbacks = new ArrayList<Feedback>();
         Map<String, Feedback> packagedFeedbacksMap = new HashMap<String, Feedback>(); 
+        String record = loadTemplatePackaged();
         
         for(Feedback el : feedbacks){
             
@@ -157,7 +158,6 @@ public class FeedbackHandler{
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
                 dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
                 sb.append(f.getFeedback());
-                String record = loadTemplatePackaged();
                 record = record.replace("%{date}", dateFormatter.format(cal.getTime()));
                 record = record.replace("%{username}", u.getUsername());
                 record = record.replace("%{feedbackContent}", el.getFeedback());

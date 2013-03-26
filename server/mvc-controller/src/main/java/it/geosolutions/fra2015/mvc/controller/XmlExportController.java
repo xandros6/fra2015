@@ -22,18 +22,35 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.survey.Value;
-import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.server.model.xmlexport.BasicValue;
+import it.geosolutions.fra2015.server.model.xmlexport.SurveyInfo;
+import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
+import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
@@ -52,64 +69,69 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class XmlExportController {
 
     @Autowired
-    private SurveyServiceEntryPoint surveyService;
+    private BulkModelEntitiesLoader bulkLoader;
 
     Logger LOGGER = Logger.getLogger(PrintController.class);
 
-    @RequestMapping(value = "/export/{country}", headers="Accept=application/xml", method = RequestMethod.GET)
-    public /*@ResponseBody List<Value>*/ String handleGet(@PathVariable(value = "country") String country, Model model, HttpSession session)
+    @RequestMapping(value = "/export/{country}", headers = "Accept=application/xml", method = RequestMethod.GET)
+    public/* @ResponseBody List<Value> */String handleGet(
+            @PathVariable(value = "country") String country, Model model, HttpSession session)
             throws IllegalArgumentException {
 
-        // Return A list of EntryValues that represents the full dump of the survey for a given country
-        // * Iterate over ALL EntryItem and build the name with the Help of VariableNameUtils.buildVariableAsText(...).
+        SurveyInfo surveyInfo = new SurveyInfo();
+        surveyInfo.setCountry(country);
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTimeInMillis(System.currentTimeMillis());
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
+        dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        surveyInfo.setTime(dateFormatter.format(cal.getTime()));
 
-        List<Value> values = null;
-        try {
+        XmlSurvey survey = new XmlSurvey();
+        survey.setInfo(surveyInfo);
+        List<BasicValue> valList = new ArrayList<BasicValue>();
+        survey.setBasicValues(valList);
 
-            values = surveyService.getValues(country, null);
-        } catch (BadRequestServiceEx e) {
-
-            LOGGER.error(e.getMessage(), e);
+        List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
+        List<TextValue> textValues = bulkLoader.loadAllTextValues();
+        List<NumberValue> numberValues = bulkLoader.loadAllNumericValues();
+        
+        for (TextValue el : textValues) {
+            
+            valList.add(buildBasicValue(el.getValue(), composeEntryItemName(el.getEntryItem()),"text"));
         }
+        
+        for (NumberValue el : numberValues) {
+            
+            valList.add(buildBasicValue(String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
+        }
+        
+//        for (EntryItem el : entryItems) {
+//
+//            valList.add(buildBasicValue("", composeEntryItemName(el)));
+//        }
 
-        ByteArrayOutputStream tmp = null;
         ByteArrayOutputStream result = new ByteArrayOutputStream();
         try {
 
-            for (Value el : values) {
+            JAXBContext context = null;
+            try {
 
-                tmp = new ByteArrayOutputStream();
-                JAXBContext context;
-                try {
-                    
-                    context = JAXBContext.newInstance(Value.class);
-                    Marshaller marshaller = context.createMarshaller();
-                    marshaller.setProperty("jaxb.fragment", Boolean.TRUE);
-                    marshaller.marshal(el, tmp);
-                    tmp.flush();
-                    tmp.writeTo(result);
-                    tmp.close();
-                } catch (JAXBException e) {
-                
-                    LOGGER.error(e.getMessage(), e);
-                }
+                context = JAXBContext.newInstance(XmlSurvey.class);
+                Marshaller marshaller = context.createMarshaller();
+                marshaller.marshal(survey, result);
+                result.flush();
+                result.close();
+            } catch (JAXBException e) {
+
+                LOGGER.error(e.getMessage(), e);
             }
-            result.flush();
-            model.addAttribute("outSurvey",StringEscapeUtils.escapeXml(result.toString()));
-            return "/admin/exportxml";
-        } catch (IOException e) {
+            model.addAttribute("outSurvey", StringEscapeUtils.escapeXml(result.toString()));
 
+        } catch (IOException e) {
+            
             LOGGER.error(e.getMessage(), e);
         } finally {
 
-            if (tmp != null) {
-
-                try {
-                    tmp.close();
-                } catch (IOException e) {
-                    LOGGER.error(e.getMessage(), e);
-                }
-            }
             if (result != null) {
 
                 try {
@@ -119,8 +141,79 @@ public class XmlExportController {
                 }
             }
         }
-        return null;
-//        return values;
-
+        return "/admin/exportxml";
     }
+    
+    private static String composeEntryItemName(EntryItem el){
+        
+        CompactValue cv = new CompactValue();
+        if (el != null && el.getEntry() != null && el.getEntry().getVariable() != null) {
+            cv.setVariable(el.getEntry().getVariable());
+        }
+        cv.setRowNumber(el.getRowNumber());
+        cv.setColumnNumber(el.getColumnNumber());
+        String entryItemName = VariableNameUtils.buildVariableAsText(cv);
+        // String entryItemShortName = entryItemName.replaceFirst("_fraVariable", "");
+        return entryItemName;
+    }
+    
+    private static BasicValue buildBasicValue(String content, String reference, String type){
+        
+        BasicValue val = new BasicValue();
+        val.setContent(content);
+        val.setReference(reference);
+        val.setType(type);
+        return val;
+    }
+
+//    public void importFromXML() {
+//
+//        JAXBContext jc;
+//        try {
+//
+//            jc = JAXBContext.newInstance(Value.class);
+//            Unmarshaller um = jc.createUnmarshaller();
+//            Values logElement = (Values) um.unmarshal(new FileReader(
+//                    "C:\\Users\\geosolutions\\Documents\\surveyExportExample.xml"));
+//        } catch (JAXBException e) {
+//
+//            LOGGER.error(e.getMessage(), e);
+//        } catch (FileNotFoundException e) {
+//
+//            LOGGER.error(e.getMessage(), e);
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        XmlExportController export = new XmlExportController();
+//        export.importFromXML();
+//    }
+//
+//    @XmlRootElement(name = "Values")
+//    class Values {
+//
+//        @XmlElement(name = "value")
+//        List<Value> list;
+//
+//        public Values() {
+//
+//            list = new ArrayList<Value>();
+//        }
+//
+//        /**
+//         * @return the list
+//         */
+//        public List<Value> getList() {
+//            return list;
+//        }
+//
+//        /**
+//         * @param list the list to set
+//         */
+//        public void setList(List<Value> list) {
+//            this.list = list;
+//        }
+//
+//    }
 }
