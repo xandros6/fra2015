@@ -24,14 +24,15 @@ package it.geosolutions.fra2015.server.model.xmlexport;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author DamianoG
  *
  */
-@XmlRootElement(name="XmlSurvey")
+@XmlRootElement(name="Survey")
+@XmlType(propOrder={"info","basicValues"})
 public class XmlSurvey {
 
     private SurveyInfo info;
@@ -58,7 +59,7 @@ public class XmlSurvey {
     /**
      * @return the basicValues
      */
-    @XmlElementWrapper(name = "Values")
+//    @XmlElementWrapper(name = "Values")
     @XmlElement(name = "Value")
     public List<BasicValue> getBasicValues() {
         return basicValues;

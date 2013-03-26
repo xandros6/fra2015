@@ -21,21 +21,17 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
-import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.server.model.xmlexport.BasicValue;
 import it.geosolutions.fra2015.server.model.xmlexport.SurveyInfo;
 import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -48,9 +44,6 @@ import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
@@ -80,11 +73,8 @@ public class XmlExportController {
 
         SurveyInfo surveyInfo = new SurveyInfo();
         surveyInfo.setCountry(country);
-        Calendar cal = GregorianCalendar.getInstance();
-        cal.setTimeInMillis(System.currentTimeMillis());
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
-        dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-        surveyInfo.setTime(dateFormatter.format(cal.getTime()));
+        Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
+        surveyInfo.setTimestamp(cal.getTime());
 
         XmlSurvey survey = new XmlSurvey();
         survey.setInfo(surveyInfo);
@@ -152,7 +142,7 @@ public class XmlExportController {
         }
         cv.setRowNumber(el.getRowNumber());
         cv.setColumnNumber(el.getColumnNumber());
-        String entryItemName = VariableNameUtils.buildVariableAsText(cv);
+        String entryItemName = VariableNameUtils.buildVariableAsShortText(cv);
         // String entryItemShortName = entryItemName.replaceFirst("_fraVariable", "");
         return entryItemName;
     }

@@ -42,6 +42,7 @@ public class BasicValue {
     /**
      * @return the reference
      */
+    @XmlAttribute(name="name")
     public String getReference() {
         return reference;
     }

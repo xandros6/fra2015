@@ -21,18 +21,21 @@
  */
 package it.geosolutions.fra2015.server.model.xmlexport;
 
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author DamianoG
  *
  */
 @XmlRootElement(name="SurveyInfo")
+@XmlType(propOrder={"country","timestamp"})
 public class SurveyInfo {
 
     private String country;
     
-    private String time;
+    private Date timestamp;
     
     public SurveyInfo(){}
 
@@ -50,19 +53,12 @@ public class SurveyInfo {
         this.country = country;
     }
 
-    /**
-     * @return the time
-     */
-    public String getTime() {
-        return time;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    /**
-     * @param time the time to set
-     */
-    public void setTime(String time) {
-        this.time = time;
-    }
-    
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }    
     
 }
