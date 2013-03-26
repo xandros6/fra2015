@@ -49,6 +49,8 @@ public class ExportController {
     		}
     		if("admin".equals(role)){
     		    return "admin";
+    		}if(role.equals("contributor")){
+    		    model.addAttribute("country",user.getCountries());
     		}
     		return "index";
 

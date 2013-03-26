@@ -16,7 +16,7 @@
 		<intercept-url pattern="/summary*" access="ROLE_contributor" />
 		<intercept-url pattern="/print*" access="ROLE_admin" />
 		<intercept-url pattern="/reviewersubmit*" access="ROLE_reviewer" />
-		<intercept-url pattern="/export*" access="ROLE_admin" />
+		<intercept-url pattern="/export*" access="ROLE_admin,ROLE_contributor,ROLE_editor" />
 		<form-login always-use-default-target="true"  login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />
 		<logout logout-success-url="/logout" />
