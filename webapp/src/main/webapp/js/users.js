@@ -40,7 +40,8 @@ var addCountryHandler = function(el) {
 	var roleComboBox = el.find('#roleComboBox');
 	var addCountryBtn = el.find('#addCountryBtn');
 	var value = countriesField.val();
-	var selectedCountry = $.grep(countriesArr, function(e){ return e.name == value; })[0];
+	//var selectedCountry = $.grep(countriesArr, function(e){ return e.name == value; })[0];
+	var selectedCountry = map[value];
 	countriesField.val('');
 	if (!selectedCountry || countriesString.val().indexOf(selectedCountry.id) !== -1) {
 		// country already in list
@@ -159,8 +160,11 @@ function initCountrySelector(el){
 	el.find('#countries').typeahead({
 	    source: function (query, process) {
 	    	var result  = [];	 
+	    	map = {};
 	        $.each(countriesArr, function (i, country) {
-	        	result.push(country.name);
+	        	var label = country.name + " (" + country.iso3 + ")";
+	        	result.push(label);
+	        	map[label] = country;
 	        });
 	        process(result);
 	    }
