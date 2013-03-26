@@ -265,13 +265,13 @@
 							<td colspan="11" rownumber="0" columnnumber="2"><spring:message
 									code="ref153"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td colspan="6" rownumber="1" columnnumber="0"><spring:message
 									code="ref15"></spring:message></td>
 							<td colspan="5" rownumber="1" columnnumber="1"><spring:message
 									code="ref17"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td colspan="2" rownumber="2" columnnumber="1"><spring:message
@@ -1031,16 +1031,13 @@
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr>
-							<td colspan="2" rowspan="3" rownumber="0" columnnumber="0"><spring:message
-									code="ref152"></spring:message></td>
-							<td colspan="6" rownumber="0" columnnumber="2"><spring:message
-									code="ref185"></spring:message></td>
+							<td colspan="2" rowspan="3" rownumber="0" columnnumber="0"><spring:message code="ref152"></spring:message></td>
+							<td colspan="6" rownumber="0" columnnumber="2"><spring:message code="ref185"></spring:message></td>
 						</tr>
-						<tr>
-							<td colspan="6" rownumber="1" columnnumber="0"><spring:message
-									code="ref15"></spring:message></td>
+						<tr class="defhead">
+							<td colspan="6" rownumber="1" columnnumber="0"><spring:message code="ref15"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td colspan="2" rownumber="2" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="2" columnnumber="1"><spring:message
@@ -1155,13 +1152,13 @@
 							<td colspan="10" rownumber="0" columnnumber="2"><spring:message
 									code="ref188"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td colspan="5" rownumber="1" columnnumber="0"><spring:message
 									code="ref15"></spring:message></td>
 							<td colspan="5" rownumber="1" columnnumber="1"><spring:message
 									code="ref17"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="2" columnnumber="1"><spring:message

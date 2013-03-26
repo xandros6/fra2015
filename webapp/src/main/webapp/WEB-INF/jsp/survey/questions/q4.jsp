@@ -17,11 +17,9 @@
 				<table
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr>
-							<td rownumber="0" columnnumber="0"><spring:message
-									code="ref90"></spring:message></td>
-							<td rownumber="0" columnnumber="1"><spring:message
-									code="ref14"></spring:message></td>
+						<tr class="defhead">
+							<td rownumber="0" columnnumber="0"><spring:message code="ref90"></spring:message></td>
+							<td rownumber="0" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
 						<tr>
 							<td rownumber="1" columnnumber="0"><spring:message
@@ -30,11 +28,23 @@
 									code="ref217"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="2" columnnumber="0"><spring:message
-									code="ref13"></spring:message></td>
-							<td rownumber="2" columnnumber="1"><spring:message
-									code="ref14"></spring:message></td>
+							<td rownumber="6" columnnumber="0"><spring:message
+									code="ref224"></spring:message></td>
+							<td rownumber="6" columnnumber="1"><spring:message
+									code="ref225"></spring:message></td>
 						</tr>
+						<tr>
+							<td rownumber="6" columnnumber="0"><spring:message
+									code="refq4cvncat"></spring:message></td>
+							<td rownumber="6" columnnumber="1"><spring:message
+									code="refq4cvndef"></spring:message></td>
+						</tr>
+
+						<tr class="defhead">
+							<td rownumber="2" columnnumber="0"><spring:message code="ref13"></spring:message></td>
+							<td rownumber="2" columnnumber="1"><spring:message code="ref14"></spring:message></td>
+						</tr>
+
 						<tr>
 							<td rownumber="3" columnnumber="0"><spring:message
 									code="ref218"></spring:message></td>
@@ -55,9 +65,9 @@
 						</tr>
 						<tr>
 							<td rownumber="6" columnnumber="0"><spring:message
-									code="ref224"></spring:message></td>
+									code="refq4twrfcat"></spring:message></td>
 							<td rownumber="6" columnnumber="1"><spring:message
-									code="ref225"></spring:message></td>
+									code="refq4twrfdef"></spring:message></td>
 						</tr>
 					</tbody>
 				</table>
@@ -241,7 +251,7 @@
 							<td colspan="5" rownumber="0" columnnumber="1"><spring:message
 									code="ref109"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -250,8 +260,8 @@
 									code="ref55"></spring:message></td>
 							<td rownumber="1" columnnumber="3"><spring:message
 									code="ref56"></spring:message></td>
-							<td rownumber="1" columnnumber="4"><spring:message
-									code="ref57"></spring:message></td>
+							<td rownumber="1" columnnumber="4"><strike><spring:message
+									code="ref57"></spring:message></strike></td>
 						</tr>
 						<tr rowname="4.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
