@@ -587,13 +587,13 @@
 				<table
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr>
+						<tr class="defhead">
 							<td colspan="3" rownumber="0" columnnumber="0"><spring:message
 									code="ref159"></spring:message></td>
 							<td colspan="4" rownumber="0" columnnumber="1"><spring:message
 									code="ref160"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref161"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -1349,19 +1349,19 @@
 				<table
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr>
+						<tr class="defhead">
 							<td colspan="2" rowspan="3" rownumber="0" columnnumber="0"><spring:message
 									code="ref192"></spring:message></td>
 							<td colspan="10" rownumber="0" columnnumber="1"><spring:message
 									code="ref193"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td colspan="5" rownumber="1" columnnumber="0"><spring:message
 									code="ref15"></spring:message></td>
 							<td colspan="5" rownumber="1" columnnumber="1"><spring:message
 									code="ref17"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="2" columnnumber="1"><spring:message
