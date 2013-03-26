@@ -23,9 +23,11 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.SurveyService;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,18 +39,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ExportController {
+    @Autowired
+    SurveyService surveyService;
     
     @RequestMapping(value = "/export", method = RequestMethod.GET)
     public String export(ModelMap model,HttpSession session) {
     		model.addAttribute("context", "export");
             //model.addAttribute("message", "Spring 3 MVC dummy example");
     		User user = (User) session.getAttribute(SESSION_USER);
+    		if(user==null) return "redirect:/";
     		String role = user.getRole();
     		if("reviewer".equals(role)){
                     return "reviewer";
     		}
     		if("admin".equals(role)){
-    		    return "admin";
+
+    		    return "redirect:/adminextport";
     		}if(role.equals("contributor")){
     		    model.addAttribute("country",user.getCountries());
     		}
@@ -62,12 +68,14 @@ public class ExportController {
         User user = (User) session.getAttribute(SESSION_USER);
         String role = user.getRole();
         if("reviewer".equals(role)){
-            return "reviewer";
+            return "redirect:/export";
         }
         if("admin".equals(role)){
+            model.addAttribute("countries", surveyService.getCountries());
+
             return "admin";
         }
-        return "index";
+        return "/";
 
 }
 }
