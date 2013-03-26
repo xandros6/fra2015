@@ -392,7 +392,7 @@
 								id="_fraVariable_8a_4_10_">&nbsp;</span>
 								<div id="cell-content">${_fraVariable_8a_4_10_}</div></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td colspan="2" rowspan="2" rownumber="5" columnnumber="0"><spring:message
 									code="ref152"></spring:message></td>
 							<td colspan="2" rownumber="5" columnnumber="1"><spring:message
@@ -406,7 +406,7 @@
 							<td colspan="2" rownumber="5" columnnumber="5"><spring:message
 									code="ref357"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="6" columnnumber="0"><spring:message
 									code="ref351"></spring:message></td>
 							<td rownumber="6" columnnumber="1">#</td>
@@ -877,7 +877,7 @@
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></fra:tiers>
-                                        <spring:message code="refq8tierst0"></spring:message>
+                                    <spring:message code="refq8tierst0"></spring:message>
 								</div>
                                 </td>
                             </td>
@@ -892,7 +892,8 @@
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
+                                    <spring:message code="refq8tierss1"></spring:message>
+                                </div></td>
 							<td class="tier entry-item" rownumber="2" columnnumber="2"
 								entry-id="95"><div id="cell-content">
 									<fra:tiers name="_fraVariable_95_2_2_"><option
@@ -900,6 +901,7 @@
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
 										<option value="Tier 3">Tier 3</option></fra:tiers>
+                                    <spring:message code="refq8tierst1"></spring:message>
 								</div></td>
 						</tr>
 					</tbody>

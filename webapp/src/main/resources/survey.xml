@@ -2548,7 +2548,8 @@
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
-								<entryItem>
+								<!-- not editable anymore
+								 <entryItem>
 									<rowNumber>12</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>String</type>
@@ -2557,7 +2558,7 @@
 									<rowNumber>12</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>String</type>
-								</entryItem>
+								</entryItem>  --> 
 								<entryItem>
 									<rowNumber>12</rowNumber>
 									<columnNumber>3</columnNumber>

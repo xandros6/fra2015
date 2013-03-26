@@ -892,14 +892,11 @@
 						<tr>
 							<td class="title" rownumber="12" columnnumber="0"><spring:message
 									code="ref174"></spring:message></td>
-							<td class="entry-item editable text" rownumber="12"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="3b"><span class="entry_item_placeholder" id="_fraVariable_3b_12_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_3b_12_1_}</div></td>
-							<td class="entry-item editable text" rownumber="12"
-								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="3b"><span class="entry_item_placeholder" id="_fraVariable_3b_12_2_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_3b_12_2_}</div></td>
+							<td class="noneditable" rownumber="12"
+								columnnumber="1" 
+								entry-id="3b"></td>
+							<td class="noneditable" rownumber="12"
+								columnnumber="2"> </td>
 							<td class="prefilled entry-item editable text" rownumber="12"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="3b"><span class="entry_item_placeholder" id="_fraVariable_3b_12_3_">&nbsp;</span>
@@ -920,8 +917,8 @@
 						<tr>
 							<td rownumber="13" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
-							<td rownumber="13" columnnumber="1"></td>
-							<td  rownumber="13" columnnumber="2"></td>
+							<td class="noneditable" rownumber="13" columnnumber="1"></td>
+							<td class="noneditable" rownumber="13" columnnumber="2"></td>
 							<td class="total" rownumber="13" columnnumber="3"></td>
 							<td class="total" rownumber="13" columnnumber="4"></td>
 							<td class="total" rownumber="13" columnnumber="5"></td>
