@@ -39,7 +39,7 @@
 				<div class="span6">
 						<label class="control-label inline" for="countryComboBox">Countries:</label> <label class="error inline" for="ccountries" generated="true"></label>						
 						<div class="input-append">           
-              <input id="countries" style="margin: 0 auto;" type="text" disabled="disabled" autocomplete="off" />               
+              <input id="countries" style="margin: 0 auto;" type="text" disabled="disabled" autocomplete="off" placeholder="Type to filter countries"/>               
               <!-- 
               <a id="showAll" class="btn dropdown-toggle" href="#"" data-toggle="dropdown">
 							 <span class="caret"></span>
