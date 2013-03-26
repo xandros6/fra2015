@@ -21,8 +21,13 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.entrypoint.model.Update;
+import it.geosolutions.fra2015.entrypoint.model.Updates;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
@@ -32,8 +37,9 @@ import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -44,6 +50,7 @@ import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
@@ -53,6 +60,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author DamianoG
@@ -63,11 +71,17 @@ public class XmlExportController {
 
     @Autowired
     private BulkModelEntitiesLoader bulkLoader;
+    
+    @Autowired
+    private ControllerServices utils;
+    
+    @Autowired
+    private SurveyServiceEntryPoint surveyService;
 
     Logger LOGGER = Logger.getLogger(PrintController.class);
 
-    @RequestMapping(value = "/export/{country}", headers = "Accept=application/xml", method = RequestMethod.GET)
-    public/* @ResponseBody List<Value> */String handleGet(
+    @RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
+    public @ResponseBody XmlSurvey handleGet(
             @PathVariable(value = "country") String country, Model model, HttpSession session)
             throws IllegalArgumentException {
 
@@ -94,44 +108,47 @@ public class XmlExportController {
             
             valList.add(buildBasicValue(String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
         }
+        return survey;
         
 //        for (EntryItem el : entryItems) {
 //
 //            valList.add(buildBasicValue("", composeEntryItemName(el)));
 //        }
 
-        ByteArrayOutputStream result = new ByteArrayOutputStream();
-        try {
-
-            JAXBContext context = null;
-            try {
-
-                context = JAXBContext.newInstance(XmlSurvey.class);
-                Marshaller marshaller = context.createMarshaller();
-                marshaller.marshal(survey, result);
-                result.flush();
-                result.close();
-            } catch (JAXBException e) {
-
-                LOGGER.error(e.getMessage(), e);
-            }
-            model.addAttribute("outSurvey", StringEscapeUtils.escapeXml(result.toString()));
-
-        } catch (IOException e) {
-            
-            LOGGER.error(e.getMessage(), e);
-        } finally {
-
-            if (result != null) {
-
-                try {
-                    result.close();
-                } catch (IOException e) {
-                    LOGGER.error(e.getMessage(), e);
-                }
-            }
-        }
-        return "/admin/exportxml";
+        
+        // TODO Code for explicity marshall the XmlSurvey... do more tests then remove it 
+//        ByteArrayOutputStream result = new ByteArrayOutputStream();
+//        try {
+//
+//            JAXBContext context = null;
+//            try {
+//
+//                context = JAXBContext.newInstance(XmlSurvey.class);
+//                Marshaller marshaller = context.createMarshaller();
+//                marshaller.marshal(survey, result);
+//                result.flush();
+//                result.close();
+//            } catch (JAXBException e) {
+//
+//                LOGGER.error(e.getMessage(), e);
+//            }
+//            model.addAttribute("outSurvey", StringEscapeUtils.escapeXml(result.toString()));
+//
+//        } catch (IOException e) {
+//            
+//            LOGGER.error(e.getMessage(), e);
+//        } finally {
+//
+//            if (result != null) {
+//
+//                try {
+//                    result.close();
+//                } catch (IOException e) {
+//                    LOGGER.error(e.getMessage(), e);
+//                }
+//            }
+//        }
+//        return "/admin/exportxml";
     }
     
     private static String composeEntryItemName(EntryItem el){
@@ -156,54 +173,63 @@ public class XmlExportController {
         return val;
     }
 
-//    public void importFromXML() {
-//
-//        JAXBContext jc;
-//        try {
-//
-//            jc = JAXBContext.newInstance(Value.class);
-//            Unmarshaller um = jc.createUnmarshaller();
-//            Values logElement = (Values) um.unmarshal(new FileReader(
-//                    "C:\\Users\\geosolutions\\Documents\\surveyExportExample.xml"));
-//        } catch (JAXBException e) {
-//
-//            LOGGER.error(e.getMessage(), e);
-//        } catch (FileNotFoundException e) {
-//
-//            LOGGER.error(e.getMessage(), e);
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//
-//        XmlExportController export = new XmlExportController();
-//        export.importFromXML();
-//    }
-//
-//    @XmlRootElement(name = "Values")
-//    class Values {
-//
-//        @XmlElement(name = "value")
-//        List<Value> list;
-//
-//        public Values() {
-//
-//            list = new ArrayList<Value>();
-//        }
-//
-//        /**
-//         * @return the list
-//         */
-//        public List<Value> getList() {
-//            return list;
-//        }
-//
-//        /**
-//         * @param list the list to set
-//         */
-//        public void setList(List<Value> list) {
-//            this.list = list;
-//        }
-//
-//    }
+    @RequestMapping(value = "/import", headers = "Accept=application/xml", method = RequestMethod.GET)
+    public void importFromXML() {
+
+        
+        JAXBContext jc = null;
+        XmlSurvey survey = null;
+        Updates updates = new Updates();
+        List<Update> updateList = new ArrayList();
+        Updates removes = new Updates();
+        
+        try {
+
+            jc = JAXBContext.newInstance(XmlSurvey.class);
+            Unmarshaller um = jc.createUnmarshaller();
+            // TODO Test add multipart support
+            survey = (XmlSurvey) um.unmarshal(new FileReader(
+                    "C:\\Users\\geosolutions\\Desktop\\surveyExample.xml"));    
+        } catch (JAXBException e) {
+
+            LOGGER.error(e.getMessage(), e);
+        } catch (FileNotFoundException e) {
+
+            LOGGER.error(e.getMessage(), e);
+        }
+        
+        SurveyInfo info = survey.getInfo();
+        String country = info.getCountry();
+        Country countryInstance = surveyService.findCountryByISO3(country);
+        if(countryInstance == null){
+            
+            throw new IllegalStateException("Country '" + country + "' doesn't exist.");
+        }
+        
+        for(BasicValue el : survey.getBasicValues()){
+            
+            String reference = (el.getReference().startsWith("_fraVariable_"))?el.getReference():"_fraVariable_"+el.getReference();
+            VariableNameUtils.VariableName varName = VariableNameUtils.buildVariable(reference, el.getContent());
+            Update up = new Update();
+            up.setColumn(varName.col);
+            up.setCountry(country);
+            up.setRow(varName.row);
+            up.setValue(varName.value);
+            up.setVariable(varName.variableName);
+            
+            updateList.add(up);
+        }
+        
+        updates.setUpdates(updateList);
+        utils.updateValuesService(updates, removes);
+        
+    }
+
+    public static void main(String[] args) {
+
+        XmlExportController export = new XmlExportController();
+        export.importFromXML();
+    }
+
+
 }
