@@ -157,26 +157,24 @@
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 <tr>
-<td rowspan="3" rownumber="0" columnnumber="1"><spring:message code="ref152"></spring:message></td>
-<td colspan="4" rownumber="0" columnnumber="2">
-
-</td>
+    <td rowspan="3" rownumber="0" columnnumber="1"><spring:message code="ref152"></spring:message></td>
+    <td colspan="4" rownumber="0" columnnumber="2"></td>
 </tr>
-<tr>
-<td rowspan="2" rownumber="1" columnnumber="1"><spring:message code="ref383"></spring:message></td>
-<td colspan="3" rownumber="1" columnnumber="2"><spring:message code="ref384"></spring:message></td>
+<tr class="defhead">
+    <td rowspan="2" rownumber="1" columnnumber="1"><spring:message code="ref383"></spring:message></td>
+    <td colspan="3" rownumber="1" columnnumber="2"><spring:message code="ref384"></spring:message></td>
 </tr>
-<tr>
-<td colspan="1" rownumber="2" columnnumber="1"><spring:message code="ref385"></spring:message></td>
-<td colspan="1" rownumber="2" columnnumber="2"><spring:message code="ref386"></spring:message></td>
-<td colspan="1" rownumber="2" columnnumber="3"><spring:message code="ref387"></spring:message></td>
+<tr class="defhead">
+    <td colspan="1" rownumber="2" columnnumber="1"><spring:message code="ref385"></spring:message></td>
+    <td colspan="1" rownumber="2" columnnumber="2"><spring:message code="ref386"></spring:message></td>
+    <td colspan="1" rownumber="2" columnnumber="3"><spring:message code="ref387"></spring:message></td>
 </tr>
 <tr rowname="10.1" unit="Boolean">
-<td class="title" rownumber="3" columnnumber="0"><spring:message code="ref388"></spring:message></td>
-<fra:yesno mod=" " name="_fraVariable_10_3_1_"  rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
-<fra:yesno mod=" " name="_fraVariable_10_3_3_"  rownumber="3" columnnumber="3" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
-<fra:yesno mod=" " name="_fraVariable_10_3_5_"  rownumber="3" columnnumber="5" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
-<fra:yesno mod=" " name="_fraVariable_10_3_7_"  rownumber="3" columnnumber="7" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
+    <td class="title" rownumber="3" columnnumber="0"><spring:message code="ref388"></spring:message></td>
+    <fra:yesno mod=" " name="_fraVariable_10_3_1_"  rownumber="3" columnnumber="1" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
+    <fra:yesno mod=" " name="_fraVariable_10_3_3_"  rownumber="3" columnnumber="3" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
+    <fra:yesno mod=" " name="_fraVariable_10_3_5_"  rownumber="3" columnnumber="5" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
+    <fra:yesno mod=" " name="_fraVariable_10_3_7_"  rownumber="3" columnnumber="7" style="background-color: rgb(242, 245, 169); " entryId="10"></fra:yesno>
 </tr>
 <tr rowname="10.1.1" unit="Boolean">
 <td class="title" rownumber="5" columnnumber="0"><spring:message code="ref389"></spring:message></td>
