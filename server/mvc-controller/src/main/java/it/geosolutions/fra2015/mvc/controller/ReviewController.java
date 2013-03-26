@@ -224,7 +224,13 @@ public class ReviewController {
         if (!allowedQuestionNumbers.contains(question)){
             question = min;
         }
-        model.addAttribute("allowedQuestions",allowedQuestionNumbers);
+        //create a string list to parse
+        List<String> allowedQuestions = new ArrayList<String>();
+        for (Long n : allowedQuestionNumbers){
+            
+            allowedQuestions.add("q"+( n>9 ?n : "0" +n));
+        }
+        model.addAttribute("allowedQuestions",allowedQuestions);
         model.addAttribute("context", "survey");
         model.addAttribute("question", question);
     }
