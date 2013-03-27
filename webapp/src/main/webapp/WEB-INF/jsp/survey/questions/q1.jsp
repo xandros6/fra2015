@@ -884,26 +884,6 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td rownumber="4" columnnumber="0"><spring:message
-									code="ref27"></spring:message></td>
-							<td class="tier entry-item" rownumber="4" columnnumber="1"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_4_1_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-							<td class="tier entry-item" rownumber="4" columnnumber="2"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_4_2_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-						</tr>
-						<tr>
 							<td rownumber="6" columnnumber="0"><spring:message
 									code="ref31"></spring:message></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="1"
@@ -923,6 +903,27 @@
 										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
+						<tr>
+							<td rownumber="4" columnnumber="0"><spring:message
+									code="ref27"></spring:message></td>
+							<td class="tier entry-item" rownumber="4" columnnumber="1"
+								entry-id="9"><div id="cell-content">
+									<fra:tiers name="_fraVariable_9x_4_1_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+							<td class="tier entry-item" rownumber="4" columnnumber="2"
+								entry-id="9"><div id="cell-content">
+									<fra:tiers name="_fraVariable_9x_4_2_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+						</tr>
+						
 					</tbody>
 				</table>
 			</div>
