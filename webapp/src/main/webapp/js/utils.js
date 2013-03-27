@@ -95,9 +95,10 @@ fra = {
 	                    var text = cell.find(".celleditor").attr('value');
 	                    if(cell.hasClass('number')){
 		                    try{
-		                    	
-		                    	text =Number(text);
-		                    	if(isNaN(text)) text="";
+		                    	if(text!=""){
+			                    	text =Number(text);
+			                    	if(isNaN(text)) text="";
+		                    	}
 		                    }catch(e){
 		                    	text=oldtext;
 		                    }
