@@ -3808,41 +3808,7 @@
 									<columnNumber>5</columnNumber>
 									<type>String</type>
 								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>2</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>3</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>4</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>String</type>
-								</entryItem>
+								
 							</EntryItems>
 						</entry>
 						<entry>

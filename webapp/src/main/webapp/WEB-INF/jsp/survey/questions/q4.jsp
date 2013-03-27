@@ -318,32 +318,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="4a"><span class="entry_item_placeholder" id="_fraVariable_4a_3_5_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_4a_3_5_}</div></td>
 						</tr>
-						<tr rowname="4.2" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
-							</td>
-							<td class="title" rownumber="4" columnnumber="0"><spring:message
-									code="ref222"></spring:message></td>
-							<td columnname="1990" class="entry-item editable text"
-								rownumber="4" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="4a"><span class="entry_item_placeholder" id="_fraVariable_4a_4_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_4a_4_1_}</div></td>
-							<td columnname="2000" class="entry-item editable text"
-								rownumber="4" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="4a"><span class="entry_item_placeholder" id="_fraVariable_4a_4_2_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_4a_4_2_}</div></td>
-							<td columnname="2005" class="entry-item editable text"
-								rownumber="4" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="4a"><span class="entry_item_placeholder" id="_fraVariable_4a_4_3_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_4a_4_3_}</div></td>
-							<td columnname="2010" class="entry-item editable text"
-								rownumber="4" columnnumber="4"
-								style="background-color: rgb(242, 245, 169);" entry-id="4a"><span class="entry_item_placeholder" id="_fraVariable_4a_4_4_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_4a_4_4_}</div></td>
-							<td columnname="2015" class="entry-item editable text"
-								rownumber="4" columnnumber="5"
-								style="background-color: rgb(242, 245, 169);" entry-id="4a"><span class="entry_item_placeholder" id="_fraVariable_4a_4_5_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_4a_4_5_}</div></td>
-						</tr>
+						
 					</tbody>
 				</table>
 			</div>
