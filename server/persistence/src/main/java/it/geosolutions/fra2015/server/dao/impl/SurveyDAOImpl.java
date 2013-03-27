@@ -6,6 +6,8 @@ package it.geosolutions.fra2015.server.dao.impl;
 
 import com.googlecode.genericdao.search.ISearch;
 import com.googlecode.genericdao.search.Search;
+import com.googlecode.genericdao.search.Sort;
+
 import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 
@@ -59,7 +61,7 @@ public class SurveyDAOImpl extends BaseDAO<SurveyInstance, Long> implements Surv
     @Override
     public List<SurveyInstance> findByCountries(String[] countries,int page,int entries){
     	Search searchCriteria = new Search(SurveyInstance.class);
-    	
+    	searchCriteria.addSort(Sort.asc("country.iso3"));
         searchCriteria.setMaxResults(entries);
         searchCriteria.setPage(page);
         searchCriteria.addFilterIn("country.iso3", Arrays.asList(countries));
