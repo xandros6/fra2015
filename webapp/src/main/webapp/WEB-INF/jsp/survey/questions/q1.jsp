@@ -904,26 +904,6 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td rownumber="5" columnnumber="0"><spring:message
-									code="ref29"></spring:message></td>
-							<td class="tier entry-item" rownumber="5" columnnumber="1"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_5_1_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-							<td class="tier entry-item" rownumber="5" columnnumber="2"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_5_2_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-						</tr>
-						<tr>
 							<td rownumber="6" columnnumber="0"><spring:message
 									code="ref31"></spring:message></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="1"
@@ -1074,40 +1054,30 @@
 						</tr>
 						<tr>
 							<td rownumber="7" columnnumber="0"><spring:message
-									code="ref27"></spring:message></td>
-							<td class="entry-item editable text" rownumber="7"
+									code="ref31"></spring:message></td>
+							<td class="entry-item editable text" rownumber="9"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_7_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_7_1_}</div></td>
-							<td class="entry-item editable text" rownumber="7"
+							<td class="entry-item editable text" rownumber="9"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_7_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_7_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="8" columnnumber="0"><spring:message
-									code="ref29"></spring:message></td>
-							<td class="entry-item editable text" rownumber="8"
+									code="ref27"></spring:message></td>
+							<td class="entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_8_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_8_1_}</div></td>
-							<td class="entry-item editable text" rownumber="8"
+							<td class="entry-item editable text" rownumber="7"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_8_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_8_2_}</div></td>
 						</tr>
-						<tr>
-							<td rownumber="9" columnnumber="0"><spring:message
-									code="ref31"></spring:message></td>
-							<td class="entry-item editable text" rownumber="9"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_9_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_11x_9_1_}</div></td>
-							<td class="entry-item editable text" rownumber="9"
-								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_9_2_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_11x_9_2_}</div></td>
-						</tr>
+						
+						
 					</tbody>
 				</table>
 			</div>
