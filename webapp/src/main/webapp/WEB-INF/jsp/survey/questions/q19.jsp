@@ -6,6 +6,9 @@
 			<spring:message code="ref536"></spring:message>
 		</h1>
 	</div>
+	<p class="lead">
+		<spring:message code="refq19faq"></spring:message>
+	</p>
 	<section>
 		<h2>
 			19.1
@@ -160,7 +163,7 @@
 							<td colspan="4" rownumber="0" columnnumber="1"><spring:message
 									code="ref542"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message

@@ -7,7 +7,7 @@
 		</h1>
 	</div>
 	<p class="lead">
-		<spring:message code="reftest"></spring:message>
+		<spring:message code="refq1faq"></spring:message>
 	</p>
 	<section>
 		<h2>

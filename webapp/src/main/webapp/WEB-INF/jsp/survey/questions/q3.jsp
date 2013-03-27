@@ -6,6 +6,9 @@
 			<spring:message code="ref130"></spring:message>
 		</h1>
 	</div>
+	<p class="lead">
+		<spring:message code="refq3faq"></spring:message>
+	</p>
 	<section>
 		<h2>
 			3.1
