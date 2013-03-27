@@ -24,12 +24,6 @@
 									code="ref14"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="1" columnnumber="0"><spring:message
-									code="ref469"></spring:message></td>
-							<td rownumber="1" columnnumber="1"><spring:message
-									code="ref470"></spring:message></td>
-						</tr>
-						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
 									code="ref471"></spring:message></td>
 							<td rownumber="2" columnnumber="1"><spring:message
@@ -40,6 +34,12 @@
 									code="ref473"></spring:message></td>
 							<td rownumber="3" columnnumber="1"><spring:message
 									code="ref474"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="1" columnnumber="0"><spring:message
+									code="ref469"></spring:message></td>
+							<td rownumber="1" columnnumber="1"><spring:message
+									code="ref470"></spring:message></td>
 						</tr>
 						<tr>
 							<td rownumber="4" columnnumber="0"><spring:message
@@ -76,7 +76,8 @@
 							<td colspan="7" rownumber="0" columnnumber="1"><spring:message
 									code="ref403"></spring:message></td>
 						</tr>	
-						<tr><td>2000</td><td>2001</td><td>2002</td><td>2003</td><td>2004</td><td>2005</td><td>2006</td>
+						<tr class="defhead">
+                            <td>2000</td><td>2001</td><td>2002</td><td>2003</td><td>2004</td><td>2005</td><td>2006</td>
 						</tr>
 						
 						<tr rowname="16.1.1" unit="1000 ha">
@@ -183,7 +184,8 @@
 							<div id="cell-content">${_fraVariable_16a_4_7_}</div></td>
 						</tr>
 							
-						<tr><td colspan="2"></td><td>2007</td><td>2008</td><td>2009</td><td>2010</td><td>2011</td><td>2012</td><td class="noneditable"></td>
+                        <tr class="defhead">
+                            <td colspan="2"></td><td>2007</td><td>2008</td><td>2009</td><td>2010</td><td>2011</td><td>2012</td><td class="noneditable"></td>
 						</tr>
 						
 						<tr rowname="16.1.1" unit="1000 ha">
@@ -304,7 +306,8 @@
 							<td colspan="7" rownumber="0" columnnumber="1"><spring:message
 									code="ref403"></spring:message></td>
 						</tr>	
-						<tr><td>2000</td><td>2001</td><td>2002</td><td>2003</td><td>2004</td><td>2005</td><td>2006</td>
+						<tr class="defhead">
+                            <td>2000</td><td>2001</td><td>2002</td><td>2003</td><td>2004</td><td>2005</td><td>2006</td>
 						</tr>
 						
 						<tr rowname="16.2.1" unit="1000 ha">
@@ -417,7 +420,8 @@
 							<div id="cell-content">${_fraVariable_16b_4_7_}</div></td>
 						</tr>
 							
-						<tr><td colspan="2"></td><td>2007</td><td>2008</td><td>2009</td><td>2010</td><td>2011</td><td>2012</td><td class="noneditable"></td>
+						<tr class="defhead">
+                            <td colspan="2"></td><td>2007</td><td>2008</td><td>2009</td><td>2010</td><td>2011</td><td>2012</td><td class="noneditable"></td>
 						</tr>
 						
 						<tr rowname="16.2.1" unit="1000 ha">
