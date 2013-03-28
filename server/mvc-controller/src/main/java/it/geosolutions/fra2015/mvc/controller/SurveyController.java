@@ -337,14 +337,14 @@ public class SurveyController{
         //Check if the Value Entry type is equals to fixed_table 
         VariableName var = VariableNameUtils.buildVariable(valueToCheck, "placeholder value");
         String type = utils.getEntryType(var.variableName);
-        if(!StringUtils.isBlank(type) && type.equals(TEXT_STATIC_TABLE)){
-            //Fixed table don't submit not changed value so return false;
-            return false;
-        }
         
         Update val = newValues.get(valueToCheck);
         
-        if(val == null){
+        if(val == null && !StringUtils.isBlank(type) && type.equals(TEXT_STATIC_TABLE)){
+            //Static tables don't submit not changed value so return false;
+            return false;
+        }
+        if(val == null && type!=null && !type.equals(TEXT_STATIC_TABLE)){
             
             return true;
         }
