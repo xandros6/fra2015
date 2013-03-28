@@ -680,6 +680,306 @@
 			<br>
 			<br>
 		</div>
+		<!--  4C  -->
+		<div>
+			<h4>
+				<spring:message code="refq4tab4c"></spring:message> <small><spring:message
+									code="refq4prffaostat"></spring:message></small>
+			</h4>
+			<div></div>
+			<div class="entry">
+				<table
+					class="editable table table-bordered table-hover table-condensed table-striped">
+					<tbody>
+						<tr>
+							<td rownumber="0" rowspan="2" columnnumber="0"><spring:message
+									code="refq4year"></spring:message></td>
+									<td rownumber="0" colnumber="1" colspan="2"><spring:message
+									code="refq4fracat"></spring:message></td>
+							
+						</tr>
+						<tr>
+							<td rownumber="0"  columnnumber="0"><spring:message
+									code="ref222"></spring:message></td>
+									<td rownumber="0" colnumber="1" ><spring:message
+									code="refq4twrfcat"></spring:message></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="2" columnnumber="0">1990</td>
+							<td class="entry-item editable text" rownumber="2"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_2_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_2_1_}</div></td>
+							<td class="entry-item editable text" rownumber="2"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_2_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_2_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="3" columnnumber="0">1991</td>
+							<td class="entry-item editable text" rownumber="3"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_3_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_3_1_}</div></td>
+							<td class="entry-item editable text" rownumber="3"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_3_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_3_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="4" columnnumber="0">1992</td>
+							<td class="entry-item editable text" rownumber="4"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_4_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_4_1_}</div></td>
+							<td class="entry-item editable text" rownumber="4"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_4_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_4_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="5" columnnumber="0">1993</td>
+							<td class="entry-item editable text" rownumber="5"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_5_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_5_1_}</div></td>
+							<td class="entry-item editable text" rownumber="5"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_5_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_5_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="6" columnnumber="0">1994</td>
+							<td class="entry-item editable text" rownumber="6"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_6_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_6_1_}</div></td>
+							<td class="entry-item editable text" rownumber="6"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_6_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_6_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="7" columnnumber="0">1995</td>
+							<td class="entry-item editable text" rownumber="7"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_7_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_7_1_}</div></td>
+							<td class="entry-item editable text" rownumber="7"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_7_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_7_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="8" columnnumber="0">1996</td>
+							<td class="entry-item editable text" rownumber="8"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_8_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_8_1_}</div></td>
+							<td class="entry-item editable text" rownumber="8"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_8_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_8_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="9" columnnumber="0">1997</td>
+							<td class="entry-item editable text" rownumber="9"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_9_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_9_1_}</div></td>
+							<td class="entry-item editable text" rownumber="2"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_9_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_9_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="10" columnnumber="0">1998</td>
+							<td class="entry-item editable text" rownumber="10"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_10_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_10_1_}</div></td>
+							<td class="entry-item editable text" rownumber="10"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_10_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_10_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="11" columnnumber="0">1999</td>
+							<td class="entry-item editable text" rownumber="11"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_11_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_11_1_}</div></td>
+							<td class="entry-item editable text" rownumber="11"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_11_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_11_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="12" columnnumber="0">2000</td>
+							<td class="entry-item editable text" rownumber="12"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_12_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_12_1_}</div></td>
+							<td class="entry-item editable text" rownumber="12"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_12_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_12_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="13" columnnumber="0">2001</td>
+							<td class="entry-item editable text" rownumber="13"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_13_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_13_1_}</div></td>
+							<td class="entry-item editable text" rownumber="13"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_13_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_13_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="14" columnnumber="0">2002</td>
+							<td class="entry-item editable text" rownumber="14"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_14_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_14_1_}</div></td>
+							<td class="entry-item editable text" rownumber="14"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_14_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_14_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="15" columnnumber="0">2003</td>
+							<td class="entry-item editable text" rownumber="15"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_15_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_15_1_}</div></td>
+							<td class="entry-item editable text" rownumber="15"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_15_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_15_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="16" columnnumber="0">2004</td>
+							<td class="entry-item editable text" rownumber="16"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_16_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_16_1_}</div></td>
+							<td class="entry-item editable text" rownumber="16"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_16_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_16_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="17" columnnumber="0">2005</td>
+							<td class="entry-item editable text" rownumber="17"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_17_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_17_1_}</div></td>
+							<td class="entry-item editable text" rownumber="17"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_17_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_17_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="18" columnnumber="0">2006</td>
+							<td class="entry-item editable text" rownumber="18"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_18_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_18_1_}</div></td>
+							<td class="entry-item editable text" rownumber="18"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_18_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_18_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="19" columnnumber="0">2007</td>
+							<td class="entry-item editable text" rownumber="2"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_19_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_19_1_}</div></td>
+							<td class="entry-item editable text" rownumber="2"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_19_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_19_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="20" columnnumber="0">2008</td>
+							<td class="entry-item editable text" rownumber="20"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_20_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_20_1_}</div></td>
+							<td class="entry-item editable text" rownumber="20"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_20_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_20_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="21" columnnumber="0">2009</td>
+							<td class="entry-item editable text" rownumber="21"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_21_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_21_1_}</div></td>
+							<td class="entry-item editable text" rownumber="21"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_21_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_21_2_}</div></td>
+							
+						</tr>
+						
+						<tr>
+							<td class="title" rownumber="23" columnnumber="0">2010</td>
+							<td class="entry-item editable text" rownumber="23"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_23_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_23_1_}</div></td>
+							<td class="entry-item editable text" rownumber="23"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_23_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_23_2_}</div></td>
+							
+						</tr>
+						<tr>
+							<td class="title" rownumber="24" columnnumber="0">2011</td>
+							<td class="entry-item editable text" rownumber="24"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_24_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_24_1_}</div></td>
+							<td class="entry-item editable text" rownumber="24"
+								columnnumber="2" style="background-color: rgb(242, 245, 169);"
+								entry-id="4c"><span class="entry_item_placeholder" id="_fraVariable_4c_24_2_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_4c_24_2_}</div></td>
+							
+						</tr>
+						
+						</tbody>
+				</table>
+			</div>
+			<div class="control pull-right"></div>
+			<fra:feedback feedbackName="_feedback_4c_"/>
+			<br>
+			<br>
+		</div>
+		<!--  end of 4c -->
 		<div>
 			<h4>
 				<spring:message code="ref73"></spring:message>
