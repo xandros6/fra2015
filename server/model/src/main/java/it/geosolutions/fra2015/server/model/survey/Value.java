@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import org.hibernate.annotations.ForeignKey;
+import org.hibernate.annotations.Index;
 
 /**
  *
@@ -27,7 +27,7 @@ import org.hibernate.annotations.ForeignKey;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @XmlRootElement(name = "Value")
 @XmlSeeAlso({TextValue.class, NumberValue.class})
-public class Value implements Serializable {
+public abstract class Value implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
