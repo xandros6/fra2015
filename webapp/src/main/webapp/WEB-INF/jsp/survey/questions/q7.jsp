@@ -409,6 +409,8 @@
 									code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message
 									code="ref74"></spring:message></td>
+							<td rownumber="0" columnnumber="2"><spring:message
+									code="ref75"></spring:message></td>
 						</tr>
 						<tr>
 							<td rownumber="1" columnnumber="0"><spring:message
@@ -416,6 +418,14 @@
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="83"><div id="cell-content">
 									<fra:tiers name="_fraVariable_83_1_1_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+							<td class="tier entry-item" rownumber="1" columnnumber="1"
+								entry-id="83"><div id="cell-content">
+									<fra:tiers name="_fraVariable_83_1_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>
