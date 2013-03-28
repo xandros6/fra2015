@@ -47,7 +47,7 @@ public class SurveyServiceImpl implements SurveyService {
 
 	public abstract class ValueDAO {
 
-		public abstract void persist(Value value);
+		public abstract void persist(ValueDTO value);
 
 		public abstract Value read(Long itemId, Country country);
 
@@ -118,7 +118,7 @@ public class SurveyServiceImpl implements SurveyService {
     public SurveyServiceImpl() {
 		map.put("String", new ValueDAO() {
 			@Override
-			public void persist(Value value) {
+			public void persist(ValueDTO value) {
 				TextValue dbValue = new TextValue();
 				dbValue.setCountry(value.getCountry());
 				dbValue.setRowNumber(value.getRowNumber());
@@ -160,20 +160,20 @@ public class SurveyServiceImpl implements SurveyService {
 		});
 		map.put("Number", new ValueDAO() {
 			@Override
-			public void persist(Value value) {
+			public void persist(ValueDTO value) {
 				try {
 				    if(!StringUtils.isBlank(value.getContent())){
-					NumberFormat format = NumberFormat.getInstance(Locale.US);
-					Number number = format.parse(value.getContent());
-					NumberValue dbValue = new NumberValue();
-					dbValue.setCountry(value.getCountry());
-					dbValue.setValue(number);
-					dbValue.setEntryItem(value.getEntryItem());
-					numberValueDAO.persist(dbValue);
+                        NumberFormat format = NumberFormat.getInstance(Locale.US);
+                        Number number = format.parse(value.getContent());
+                        NumberValue dbValue = new NumberValue();
+                        dbValue.setCountry(value.getCountry());
+                        dbValue.setValue(number);
+                        dbValue.setEntryItem(value.getEntryItem());
+                        numberValueDAO.persist(dbValue);
 				    }
 				    else{
 				        StringBuilder sb = new StringBuilder();
-				        sb.append("Error when try to persist entryItem id:'").append(value.getId()).append("' the provided value is blank and the EntryItem has type 'Number', skip the value...");
+				        sb.append("Error when try to persist entryItem id:'").append(value).append("' the provided value is blank and the EntryItem has type 'Number', skip the value...");
 				        LOGGER.error(sb.toString());
 				    }
 				} catch (ParseException ex) {
@@ -262,12 +262,12 @@ public class SurveyServiceImpl implements SurveyService {
 			Value dbValue = valueDAO.read(item.getId(), country);
 			if (dbValue == null) {
 				// create a new value
-				dbValue = new Value();
-				dbValue.setEntryItem(item);
-				dbValue.setCountry(country);
+				ValueDTO v = new ValueDTO();
+				v.setEntryItem(item);
+				v.setCountry(country);
 				// set value
-				dbValue.setContent(value);
-				valueDAO.persist(dbValue);
+				v.setContent(value);
+				valueDAO.persist(v);
 			} else {
 				// update values
 				dbValue.setContent(value);
@@ -605,6 +605,49 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
 
+    private static class ValueDTO {
+
+        private EntryItem entryItem;
+        private Country country;
+        private String content;
+        private Integer rowNumber;
+
+        public ValueDTO() {
+        }
+
+        public EntryItem getEntryItem() {
+            return entryItem;
+        }
+
+        public void setEntryItem(EntryItem entryItem) {
+            this.entryItem = entryItem;
+        }
+
+        public Country getCountry() {
+            return country;
+        }
+
+        public void setCountry(Country country) {
+            this.country = country;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        public Integer getRowNumber() {
+            return rowNumber;
+        }
+
+        public void setRowNumber(Integer rowNumber) {
+            this.rowNumber = rowNumber;
+        }
+
+    }
 
 
 }
