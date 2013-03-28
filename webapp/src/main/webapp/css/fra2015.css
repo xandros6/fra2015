@@ -267,9 +267,23 @@ section {
 }
 */
 section > .page-header,
-section > .lead {
+section > .lead	
+ {
   color: #5a5a5a;
 }
+section > .lead
+ {
+  margin-bottom:2px;
+  font-weight:bold;
+  color: #8a8a8a;
+}
+section > .lead + ul  {
+	padding-bottom: 20px;
+} 
+section > .lead +ul li {
+	margin:0;
+} 
+
 section > ul li {
   margin-bottom: 5px;
 }
