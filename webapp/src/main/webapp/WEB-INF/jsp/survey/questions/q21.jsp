@@ -60,39 +60,33 @@
 				<div></div>
 				<div class="entry">
 					<table
-						class="editable table table-bordered table-hover table-condensed table-striped">
+						class="editable extensible table table-bordered table-hover table-condensed table-striped">
 						<tbody>
 							<tr>
 								<td rownumber="0" columnnumber="0"></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref35"></spring:message></td>
 								<td rownumber="0" columnnumber="2"><spring:message
-										code="ref37"></spring:message></td>
+										code="ref36"></spring:message></td>
 								<td rownumber="0" columnnumber="3"><spring:message
+										code="ref37"></spring:message></td>
+								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
+								<c:if test="${profile == 'CONTRIBUTOR'}">
+									<td class="action-column" width="80px"></td>
+								</c:if>
 							</tr>
-							<tr>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="0" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_0_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_163_1_0_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="1" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_1_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_163_1_1_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="2" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_2_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_163_1_2_}</div></td>
-								<td class="entry-item editable text" rownumber="1"
-									columnnumber="3" style="background-color: rgb(242, 245, 169);"
-									entry-id="163"><span class="entry_item_placeholder" id="_fraVariable_163_1_3_">&nbsp;</span>
-								<div id="cell-content">${_fraVariable_163_1_3_}</div></td>
-							</tr>
+
+							<fra:DynamicTableTag numOfColoumn="4" entryItemName="163" numericColoumn="true"/>
+							
 						</tbody>
 					</table>
 				</div>
-				<div class="control pull-right"></div>
+				<div class="control pull-right">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
+						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+					</c:if>
+				</div>
 				<fra:feedback feedbackName="_feedback_163_"/>
 				<br>
 				<br>
