@@ -2548,7 +2548,8 @@
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
-								<entryItem>
+								<!-- not editable anymore
+								 <entryItem>
 									<rowNumber>12</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>String</type>
@@ -2557,7 +2558,7 @@
 									<rowNumber>12</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>String</type>
-								</entryItem>
+								</entryItem>  --> 
 								<entryItem>
 									<rowNumber>12</rowNumber>
 									<columnNumber>3</columnNumber>
@@ -3807,41 +3808,7 @@
 									<columnNumber>5</columnNumber>
 									<type>String</type>
 								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>2</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>3</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>4</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>4.2</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>String</type>
-								</entryItem>
+								
 							</EntryItems>
 						</entry>
 						<entry>
@@ -4058,6 +4025,242 @@
 									<rowNumber>1</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>String</type>
+								</entryItem>
+							</EntryItems>
+						</entry>
+						<entry>
+							<type>static_table</type>
+							<variable>4c</variable>
+							<EntryItems>
+								<entryItem>
+									<rowNumber>2</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>2</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>3</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>3</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>4</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>4</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>5</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>5</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>6</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>6</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>7</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>7</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>8</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>8</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>9</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>9</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>10</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>10</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>11</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>11</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>12</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>12</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>13</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>13</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>14</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>14</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>15</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>15</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>16</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>16</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>17</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>17</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>18</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>18</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>19</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>19</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>20</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>20</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>21</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>21</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>22</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>22</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>23</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>23</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>24</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>24</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
 								</entryItem>
 							</EntryItems>
 						</entry>
@@ -5676,280 +5879,280 @@
 							<EntryItems>
 								<entryItem>
 									<rowName>8.1</rowName>
-									<columnName>1990</columnName>
+									<columnName>2003</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1</rowName>
-									<columnName>2000</columnName>
+									<rowName>8.2</rowName>
+									<columnName>2003</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1</rowName>
-									<columnName>2005</columnName>
+									<columnName>2004</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1</rowName>
-									<columnName>2010</columnName>
+									<rowName>8.2</rowName>
+									<columnName>2004</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1</rowName>
-									<columnName>2015</columnName>
+									<columnName>2005</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1</rowName>
-									<columnName>1990</columnName>
+									<rowName>8.2</rowName>
+									<columnName>2005</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1</rowName>
-									<columnName>2000</columnName>
+									<columnName>2006</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1</rowName>
-									<columnName>2005</columnName>
+									<rowName>8.2</rowName>
+									<columnName>2006</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1</rowName>
-									<columnName>2010</columnName>
+									<columnName>2007</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1</rowName>
-									<columnName>2015</columnName>
+									<rowName>8.2</rowName>
+									<columnName>2007</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1.1</rowName>
-									<columnName>1990</columnName>
+									<columnName>2003</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1.1</rowName>
-									<columnName>2000</columnName>
+									<rowName>8.2.1</rowName>
+									<columnName>2003</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1.1</rowName>
-									<columnName>2005</columnName>
+									<columnName>2004</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1.1</rowName>
-									<columnName>2010</columnName>
+									<rowName>8.2.1</rowName>
+									<columnName>2004</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1.1</rowName>
-									<columnName>2015</columnName>
+									<columnName>2005</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1.1</rowName>
-									<columnName>1990</columnName>
+									<rowName>8.2.1</rowName>
+									<columnName>2005</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1.1</rowName>
-									<columnName>2000</columnName>
+									<columnName>2006</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1.1</rowName>
-									<columnName>2005</columnName>
+									<rowName>8.2.1</rowName>
+									<columnName>2006</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.1.1</rowName>
-									<columnName>2010</columnName>
+									<columnName>2007</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.1.1</rowName>
-									<columnName>2015</columnName>
+									<rowName>8.2.1</rowName>
+									<columnName>2007</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2</rowName>
-									<columnName>1990</columnName>
+									<rowName>8.1</rowName>
+									<columnName>2008</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2</rowName>
-									<columnName>2000</columnName>
+									<columnName>2008</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2</rowName>
-									<columnName>2005</columnName>
+									<rowName>8.1</rowName>
+									<columnName>2009</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2</rowName>
-									<columnName>2010</columnName>
+									<columnName>2009</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2</rowName>
-									<columnName>2015</columnName>
+									<rowName>8.1</rowName>
+									<columnName>2010</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2</rowName>
-									<columnName>1990</columnName>
+									<columnName>2010</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2</rowName>
-									<columnName>2000</columnName>
+									<rowName>8.1</rowName>
+									<columnName>2011</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2</rowName>
-									<columnName>2005</columnName>
+									<columnName>2011</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2</rowName>
-									<columnName>2010</columnName>
+									<rowName>8.1</rowName>
+									<columnName>2012</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2</rowName>
-									<columnName>2015</columnName>
+									<columnName>2012</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2.1</rowName>
-									<columnName>1990</columnName>
+									<rowName>8.1.1</rowName>
+									<columnName>2008</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2.1</rowName>
-									<columnName>2000</columnName>
+									<columnName>2008</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2.1</rowName>
-									<columnName>2005</columnName>
+									<rowName>8.1.1</rowName>
+									<columnName>2009</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2.1</rowName>
-									<columnName>2010</columnName>
+									<columnName>2009</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2.1</rowName>
-									<columnName>2015</columnName>
+									<rowName>8.1.1</rowName>
+									<columnName>2010</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2.1</rowName>
-									<columnName>1990</columnName>
+									<columnName>2010</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2.1</rowName>
-									<columnName>2000</columnName>
+									<rowName>8.1.1</rowName>
+									<columnName>2011</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2.1</rowName>
-									<columnName>2005</columnName>
+									<columnName>2011</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>8.2.1</rowName>
-									<columnName>2010</columnName>
+									<rowName>8.1.1</rowName>
+									<columnName>2012</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>8.2.1</rowName>
-									<columnName>2015</columnName>
+									<columnName>2012</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
@@ -7457,7 +7660,7 @@
 							<type>table</type>
 							<variable>134</variable>
 							<EntryItems />
-						</entry>
+						</entry><!-- 
 						<entry>
 							<type>static_table</type>
 							<variable>16</variable>
@@ -7526,6 +7729,582 @@
 									<rowName>16.2.1.3</rowName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+							</EntryItems>
+						</entry>  -->
+						<entry>
+						<type>static_table</type>
+						<variable>16a</variable>
+							<EntryItems>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2000</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2001</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2002</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2003</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2004</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2005</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2006</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>7</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2007</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2008</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2009</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2010</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2011</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.1</rowName>
+									<columnName>2012</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2000</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2001</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2002</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2003</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2004</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2005</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2006</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>7</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2007</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2008</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2009</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2010</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2011</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.2</rowName>
+									<columnName>2012</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2000</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2001</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2002</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2003</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2004</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2005</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2006</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>7</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2007</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2008</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2009</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2010</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2011</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.1.3</rowName>
+									<columnName>2012</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+							</EntryItems>
+						</entry>
+						<entry>
+						<type>static_table</type>
+						<variable>16b</variable>
+							<EntryItems>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>0</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2000</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2001</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2002</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2003</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2004</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2005</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2006</columnName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>7</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2007</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2008</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2009</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2010</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2011</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.1</rowName>
+									<columnName>2012</columnName>
+									<rowNumber>6</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>0</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2000</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2001</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2002</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2003</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2004</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2005</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2006</columnName>
+									<rowNumber>3</rowNumber>
+									<columnNumber>7</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2007</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2008</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2009</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2010</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2011</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.2</rowName>
+									<columnName>2012</columnName>
+									<rowNumber>7</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>0</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2000</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2001</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2002</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2003</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2004</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2005</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>6</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2006</columnName>
+									<rowNumber>4</rowNumber>
+									<columnNumber>7</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2007</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2008</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2009</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2010</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>4</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2011</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>5</columnNumber>
+									<type>Number</type>
+								</entryItem>
+								<entryItem>
+									<rowName>16.2.3</rowName>
+									<columnName>2012</columnName>
+									<rowNumber>8</rowNumber>
+									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 							</EntryItems>
@@ -8549,10 +9328,10 @@
 							<EntryItems />
 						</entry>
 						<entry>
-							<type>static_table</type>
+							<type>table</type>
 							<variable>163</variable>
 							<EntryItems>
-								<entryItem>
+							<entryItem>
 									<rowNumber>1</rowNumber>
 									<columnNumber>0</columnNumber>
 									<type>String</type>
@@ -8569,6 +9348,46 @@
 								</entryItem>
 								<entryItem>
 									<rowNumber>1</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>2</rowNumber>
+									<columnNumber>0</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>2</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>2</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>2</rowNumber>
+									<columnNumber>3</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>3</rowNumber>
+									<columnNumber>0</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>3</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>3</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowNumber>3</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>String</type>
 								</entryItem>

@@ -25,11 +25,16 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.servlet.LocaleResolver;
 
 /**
  * @author DamianoG
@@ -37,11 +42,14 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class FeedbackEntryTag extends ProfiledTag{
     
-    Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
+    private Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
+    
+    private ResourceBundleMessageSource messageSource;
+    private LocaleResolver localeResolver;
+    private WebApplicationContext springContext;
     
     private final static String WRITE_SUFFIX = "b";
     private final static String READ_SUFFIX = "A";
-    private final static String EDITOR = "Ed";
     
     private String feedbackName;
     
@@ -67,15 +75,15 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeContributor() {
         
-        StringBuffer feedbackID = new StringBuffer();
-        boolean feedbackIsPresent = true; //TODO take from request if feedback is present
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
         if(feedbackIsPresent){
             try{
                 JspWriter out = pageContext.getOut();
                 composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
-                rte.setName(feedbackName+READ_SUFFIX);
+                rte.setName(feedbackName+"Ed_"/*+READ_SUFFIX*/);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();
                 rte.doStartTag();
@@ -90,11 +98,10 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeReviewer() {
         
-        StringBuffer feedbackID = new StringBuffer();
-        
         try{
             JspWriter out = pageContext.getOut();
             composeStartfeedbackArea(out);
+            composeReviewerSelectBox(out,feedbackName);
             // --- use RichTextEntry ----
             RichTextEntry rte2 = new RichTextEntry();
 //            +WRITE_SUFFIX
@@ -112,8 +119,9 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private void composeReviewerEditor() {
         
-        StringBuffer feedbackID = new StringBuffer();
-        boolean feedbackIsPresent = true; //TODO take from request if feedback is present
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName);
+        String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value))||(valueEd != null && !StringUtils.isBlank(valueEd));
         
         if(feedbackIsPresent){
             try{
@@ -135,7 +143,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                 // --- use RichTextEntry ----
                 RichTextEntry rte2 = new RichTextEntry();
                 //Little Hack: the id are placed in all jsp for all entry... so remove the last '_' for ad the EDITOR suffix
-                rte2.setName(feedbackName+EDITOR+"_"/*+WRITE_SUFFIX*/);
+                rte2.setName(feedbackName+"Ed_"/*+WRITE_SUFFIX*/);
                 rte2.setPageContext(pageContext);
                 rte2.forceWriteMode();
                 rte2.doStartTag();
@@ -160,11 +168,47 @@ public class FeedbackEntryTag extends ProfiledTag{
             }
     }
     
-    public static void composeStartfeedbackArea(JspWriter out) throws IOException{
+    public void composeReviewerSelectBox(JspWriter out, String feedbackName) throws IOException{
+        String status = getFeedbackStatus("STATUS"+feedbackName);
+        String selectedOK = "";
+        String selectedKO = "";
+        String selectedNOT = "";
+        if(status.equals("ok")){
+            selectedOK="selected=\"selected\"";
+        }else if(status.equals("ko")){
+            selectedKO="selected=\"selected\"";
+        }else{
+            selectedNOT="selected=\"selected\"";
+        }
+            
+        out.print("<select name=\"STATUS");
+        out.print(feedbackName);
+        out.print("\">");
+        out.print("<option value=\"ok\" ");
+        out.print(selectedOK);
+        out.print(">");        
+        out.print(localize("feedback.revisionedok"));
+        out.print("</option>");
+        out.print("<option value=\"ko\" ");
+        out.print(selectedKO);
+        out.print(">");
+        out.print(localize("feedback.revisionedko"));
+        out.print("</option>");
+        out.print("<option value=\"not\" ");
+        out.print(selectedNOT);
+        out.print(">");
+        out.print(localize("feedback.notrevisioned"));
+        out.print("</option>");
+        out.print("</select>");
+    }
+    
+    public void composeStartfeedbackArea(JspWriter out) throws IOException{
         out.print("<br />");
         out.print("<hr /\">");
         out.print("<div\">");
-        out.print("<h3>Feedback</h3>");
+        out.print("<h3>");
+        out.print(localize("feedback.title"));
+        out.print("</h3>");
     }
     
     public static void composeBottomfeedbackArea(JspWriter out) throws IOException{
@@ -172,6 +216,31 @@ public class FeedbackEntryTag extends ProfiledTag{
         out.print("<hr /\">");
         out.print("<div\">");
         out.print("<br />");
+    }
+    
+    private String localize(String code) {
+        if (this.springContext == null) {
+            this.springContext = WebApplicationContextUtils.getWebApplicationContext(pageContext
+                    .getServletContext());
+        }
+        if (this.messageSource == null) {
+            this.messageSource = (ResourceBundleMessageSource) springContext
+                    .getBean("messageSource");
+        }
+        if (this.localeResolver == null) {
+            this.localeResolver = (LocaleResolver) springContext.getBean("localeResolver");
+        }
+        return messageSource.getMessage(code, null,
+                localeResolver.resolveLocale((HttpServletRequest) pageContext.getRequest()));
+
+    }
+    
+    private String getFeedbackStatus(String name) {
+        if (pageContext.getRequest().getAttribute(name) != null) {
+            return (String) pageContext.getRequest().getAttribute(name);
+        } else {
+            return "";
+        }
     }
     
     /**
@@ -190,13 +259,13 @@ public class FeedbackEntryTag extends ProfiledTag{
 
     @Override
     protected void chooseMode(Profile op) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     
     @Override
     protected void chooseMode() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException("Not implemented yet");
     }
     
 }

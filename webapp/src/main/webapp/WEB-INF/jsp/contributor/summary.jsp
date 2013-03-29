@@ -430,6 +430,22 @@
 				<td>${_fraVariable_4a_4_5_}</td>
 			</tr>
 			<tr>
+				<td>4b</td>
+				<td><spring:message code="ref231"></spring:message>
+				<td>1000 local currency</td><%//TODO localize %>
+				<td></td>
+				<td></td>
+				<td>${_fraVariable_4b_2_3_ + 
+					  _fraVariable_4b_3_3_ +
+					  _fraVariable_4b_4_3_ +
+					  _fraVariable_4b_5_3_ + _fraVariable_4b_6_3_ + _fraVariable_4b_7_3_ +
+					  _fraVariable_4b_8_3_ + _fraVariable_4b_9_3_ + _fraVariable_4b_10_3_ +
+					  _fraVariable_4b_11_3_}</td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
 				<td></td>
 				<td colspan="7"><strong><spring:message code="ref258"></spring:message></strong></td>
 			</tr>
@@ -580,12 +596,18 @@
 				<td rowspan="2">7</td>
 			</tr>
 			<tr>
-				<td>7.1</td>
+				<td>7.2</td>
 				<td>1000 ha</td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
+				<td>${_fraVariable_7_2_1_ + _fraVariable_7_3_1_ + _fraVariable_7_4_1_  +
+					  _fraVariable_7_5_1_ + _fraVariable_7_6_1_ + _fraVariable_7_7_1_  +
+					  _fraVariable_7_8_1_ + _fraVariable_7_9_1_ + _fraVariable_7_10_1_  +
+					  _fraVariable_7_11_1_} </td>
+				<td>${_fraVariable_7_2_2_ + _fraVariable_7_3_2_ + _fraVariable_7_4_2_  +
+					  _fraVariable_7_5_2_ + _fraVariable_7_6_2_ + _fraVariable_7_7_2_  +
+					  _fraVariable_7_8_2_ + _fraVariable_7_9_2_ + _fraVariable_7_10_2_  +
+					  _fraVariable_7_11_2_} </td>
 				<td></td>
 			</tr>
 			<tr>
@@ -594,27 +616,33 @@
 			<tr>
 				<td>8.1 <spring:message code="ref352"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${_fraVariable_8a_3_1_},${_fraVariable_8a_3_2_},${_fraVariable_8a_3_3_},${_fraVariable_8a_3_4_},${_fraVariable_8a_3_5_},${_fraVariable_8a_3_6_},${_fraVariable_8a_3_7_},${_fraVariable_8a_3_8_},${_fraVariable_8a_3_9_},${_fraVariable_8a_3_10_}</td>
+				<td colspan="5">${_fraVariable_8a_3_1_},${_fraVariable_8a_3_3_},${_fraVariable_8a_3_5_},${_fraVariable_8a_3_7_},${_fraVariable_8a_3_9_},${_fraVariable_8a_7_1_},${_fraVariable_8a_7_3_},${_fraVariable_8a_7_5_},${_fraVariable_8a_7_7_},${_fraVariable_8a_7_9_ }</td>
 			</tr>
 			<tr>
 				<td>8.1.1 <spring:message code="ref353"></spring:message></td>
 				<td>1000 ha</td>
-				<td colspan="5">${_fraVariable_8a_4_1_},${_fraVariable_8a_4_2_},${_fraVariable_8a_4_3_},${_fraVariable_8a_4_4_},${_fraVariable_8a_4_5_},${_fraVariable_8a_4_6_},${_fraVariable_8a_4_7_},${_fraVariable_8a_4_8_},${_fraVariable_8a_4_9_},${_fraVariable_8a_4_10_}</td>
+				<td colspan="5">${_fraVariable_8a_4_1_},${_fraVariable_8a_4_3_},${_fraVariable_8a_4_5_},${_fraVariable_8a_4_7_},${_fraVariable_8a_4_9_},${_fraVariable_8a_8_1_},${_fraVariable_8a_8_3_},${_fraVariable_8a_8_5_},${_fraVariable_8a_8_7_},${_fraVariable_8a_8_9_}</td>
 			</tr>
 			<tr>
 				<td>8.2 <spring:message code="ref352"></spring:message></td>
 				<td>Number</td>
-				<td colspan="5">${_fraVariable_8a_7_1_},${_fraVariable_8a_7_2_},${_fraVariable_8a_7_3_},${_fraVariable_8a_7_4_},${_fraVariable_8a_7_5_},${_fraVariable_8a_7_6_},${_fraVariable_8a_7_7_},${_fraVariable_8a_7_9_},${_fraVariable_8a_7_10_}</td>
+				<td colspan="5">${_fraVariable_8a_3_2_},${_fraVariable_8a_3_4_},${_fraVariable_8a_3_6_},${_fraVariable_8a_3_8_},${_fraVariable_8a_3_10_},${_fraVariable_8a_7_2_},${_fraVariable_8a_7_4_},${_fraVariable_8a_7_6_},${_fraVariable_8a_7_8_},${_fraVariable_8a_7_10_}</td>
 			</tr>
 			<tr>
 				<td>8.2.1 <spring:message code="ref353"></spring:message></td>
 				<td>Number</td>
-				<td colspan="5">${_fraVariable_8a_8_1_},${_fraVariable_8a_8_2_},${_fraVariable_8a_8_3_},${_fraVariable_8a_8_4_},${_fraVariable_8a_8_5_},${_fraVariable_8a_8_6_},${_fraVariable_8a_8_7_},${_fraVariable_8a_8_8_},${_fraVariable_8a_8_9_},${_fraVariable_8a_8_10_}</td>
+				<td colspan="5">${_fraVariable_8a_4_2_},${_fraVariable_8a_4_4_},${_fraVariable_8a_4_6_},${_fraVariable_8a_4_8_},${_fraVariable_8a_4_10_},${_fraVariable_8a_8_2_},${_fraVariable_8a_8_4_},${_fraVariable_8a_8_6_},${_fraVariable_8a_8_8_},${_fraVariable_8a_8_10_}</td>
 			</tr>
+			<tr><td>8b</td><td><spring:message	code="ref362"></spring:message></td>
+			<td>1000 ha</td>						
+			<td colspan="5">${_fraVariable_8b_1_3_ + _fraVariable_8b_2_3_ + _fraVariable_8b_3_3_  +
+					  _fraVariable_8b_4_3_ + _fraVariable_8b_5_3_ + _fraVariable_8b_6_3_  +
+					  _fraVariable_8b_7_3_ + _fraVariable_8b_8_3_ + _fraVariable_8b_9_3_ + _fraVariable_8b_10_3_} </td>
+			<tr>
 			<tr>
 				<td rowspan="2">9</td>
 			</tr>
-			<tr>
+			
 				<td>9.1 <spring:message code="ref372"></spring:message></td>
 				<td>% canopy cover</td>
 				<td colspan="5">${_fraVariable_9_1_1_}</td>
@@ -629,55 +657,55 @@
 			<tr>
 				<td>10.1 <spring:message code="ref388"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_10_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_3_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_3_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_3_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>10.1.1 <spring:message code="ref389"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_10_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_5_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_5_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_5_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>10.1.2 <spring:message code="ref390"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_10_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_7_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_7_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_7_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>10.2 <spring:message code="ref380"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_10_9_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_9_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_9_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_9_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>10.2.1 <spring:message code="ref389"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_10_10_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_10_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_10_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_10_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>10.1.2 <spring:message code="ref390"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_10_11_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_11_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_11_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_10_11_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -689,7 +717,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_11_0_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_11_0_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -701,7 +729,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_12_1_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -710,7 +738,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_12_2_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -742,46 +770,43 @@
 			<tr>
 				<td>13.5 <spring:message code="ref428"></spring:message></td>
 				<td>%,year,checkbox</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td colspan="5">${_fraVariable_13a_2_2_},${_fraVariable_13a_3_2_},${_fraVariable_13a_4_2_},${_fraVariable_13a_5_2_}</td>
+				
 			</tr>
 			<tr>
 				<td>13.5.1 <spring:message code="ref430"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>13.5.2 <spring:message code="ref431"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>13.5.3 <spring:message code="ref432"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>13.5.4 <spring:message code="ref433"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>checkbox</td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_13b_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -793,7 +818,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14_1_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -802,7 +827,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14_2_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -811,7 +836,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14_3_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -819,7 +844,7 @@
 			</tr>
 			<tr>
 				<td>14.2 <spring:message code="ref449"></spring:message></td>
-				<td>Boolean</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -832,7 +857,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_14b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -841,7 +866,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -850,7 +875,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -862,7 +887,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_14c_0_1_}	</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -870,7 +895,7 @@
 			</tr>
 			<tr>
 				<td>15.1 <spring:message code="ref461"></spring:message></td>
-				<td>Boolean</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -901,7 +926,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_1_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -910,7 +935,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_2_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -919,7 +944,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_3_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -928,7 +953,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_4_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -937,7 +962,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_5_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -946,7 +971,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_6_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -955,7 +980,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_7_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -964,12 +989,12 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>${_fraVariable_16_8_1_}</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td colspan="7"><strong><spring:message code="ref486"></spring:message></strong></td>
+				<td colspan="7"><strong><spring:message 	code="ref486"></spring:message></strong></td>
 			</tr>
 			<tr>
 				<td rowspan="3">17</td>
@@ -1142,11 +1167,8 @@
 			<tr>
 				<td>20.1 <spring:message code="ref552"></spring:message></td>
 				<td>1000 local currency</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td colspan=5>${_fraVariable_20_1_3_}</td>
+				
 			</tr>
 			<tr>
 				<td></td>

@@ -196,19 +196,19 @@ public class SurveyActivityLog {
 
         Search searchCriteria = new Search(ActivityLogEntry.class);     
         
-        searchCriteria.addSort(new Sort("time",true));
+        searchCriteria.addSort(new Sort("updateTimeStamp",true));
         
         if(logFilter != null){
         	if(StringUtils.isNotBlank(logFilter.getFromDate())){
         		try {
-					searchCriteria.addFilter(Filter.greaterOrEqual("time", ActivityLogEntry.formatter.parse(logFilter.getFromDate()).getTime() ) );
+					searchCriteria.addFilter(Filter.greaterOrEqual("updateTimeStamp", ActivityLogEntry.formatter.parse(logFilter.getFromDate())) );
 				} catch (ParseException e) {
 					LOGGER.error(e.getMessage(),e);
 				}
         	}
         	if(StringUtils.isNotBlank(logFilter.getToDate())){
         		try {
-					searchCriteria.addFilter(Filter.lessOrEqual("time", ActivityLogEntry.formatter.parse(logFilter.getToDate()).getTime() ) );
+					searchCriteria.addFilter(Filter.lessOrEqual("updateTimeStamp", ActivityLogEntry.formatter.parse(logFilter.getToDate())) );
 				} catch (ParseException e) {
 					LOGGER.error(e.getMessage(),e);
 				}

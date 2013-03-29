@@ -6,6 +6,9 @@
 			<spring:message code="ref259"></spring:message>
 		</h1>
 	</div>
+	<p class="lead">
+		<spring:message code="refq5faq"></spring:message>
+	</p>
 	<section>
 		<h2>
 			5.1
@@ -129,7 +132,7 @@
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -140,7 +143,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -165,7 +168,7 @@
 										code="ref43"></spring:message></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref14"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -176,7 +179,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -276,7 +279,7 @@
 							<td colspan="5" rownumber="0" columnnumber="1"><spring:message
 									code="ref284"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -292,7 +295,7 @@
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
 							</td>
 							<td class="title" rownumber="2" columnnumber="0"><spring:message
-									code="ref285"></spring:message></td>
+									code="ref285_t5a"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="1"
 								style="background-color: rgb(242, 245, 169);" entry-id="5a"><span class="entry_item_placeholder" id="_fraVariable_5a_2_1_">&nbsp;</span>
@@ -517,7 +520,7 @@
 							<td colspan="5" rownumber="0" columnnumber="1"><spring:message
 									code="ref284"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -555,7 +558,7 @@
 						</tr>
 						<tr rowname="5.2.1" unit="1000 ha">
 							<td class="title" rownumber="3" columnnumber="0"><spring:message
-									code="ref276"></spring:message></td>
+									code="ref276x"></spring:message></td>
 							<td columnname="1990" class="entry-item editable text"
 								rownumber="3" columnnumber="1"
 								style="background-color: rgb(242, 245, 169);" entry-id="5b"><span class="entry_item_placeholder" id="_fraVariable_5b_3_1_">&nbsp;</span>
@@ -579,7 +582,7 @@
 						</tr>
 						<tr rowname="5.2.2" unit="1000 ha">
 							<td class="title" rownumber="4" columnnumber="0"><spring:message
-									code="ref278"></spring:message></td>
+									code="ref278x"></spring:message></td>
 							<td columnname="1990" class="entry-item editable text"
 								rownumber="4" columnnumber="1"
 								style="background-color: rgb(242, 245, 169);" entry-id="5b"><span class="entry_item_placeholder" id="_fraVariable_5b_4_1_">&nbsp;</span>
@@ -603,7 +606,7 @@
 						</tr>
 						<tr rowname="5.2.3" unit="1000 ha">
 							<td class="title" rownumber="5" columnnumber="0"><spring:message
-									code="ref280"></spring:message></td>
+									code="ref280x"></spring:message></td>
 							<td columnname="1990" class="entry-item editable text"
 								rownumber="5" columnnumber="1"
 								style="background-color: rgb(242, 245, 169);" entry-id="5b"><span class="entry_item_placeholder" id="_fraVariable_5b_5_1_">&nbsp;</span>

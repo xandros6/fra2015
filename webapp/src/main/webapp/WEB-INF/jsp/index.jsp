@@ -6,7 +6,7 @@
 <!-- javascripts -->
 <%@ include file="common/includes/javascript.jsp"%>
 <c:choose>
-	<c:when test="${context=='survey'}">
+	<c:when test="${context=='survey' && profile=='CONTRIBUTOR'}">
 		<script src="${pageContext.request.contextPath}/js/tableeditor.js"></script>
 	</c:when>
 </c:choose>

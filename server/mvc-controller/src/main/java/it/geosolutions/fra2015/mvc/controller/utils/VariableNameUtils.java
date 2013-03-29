@@ -35,9 +35,18 @@ public class VariableNameUtils {
 
     
     public static String buildVariableAsText(CompactValue variable) {
+        return buildVariableAsTextAux(variable, false);
+    }
+
+    public static String buildVariableAsShortText(CompactValue variable) {
+        return buildVariableAsTextAux(variable, true);
+    }
+
+    private static String buildVariableAsTextAux(CompactValue variable, boolean isShort) {
 
         StringBuilder sb = new StringBuilder();
-        sb.append("_fraVariable_");
+        if(!isShort)
+            sb.append("_fraVariable_");
         sb.append(variable.getVariable());
         if (!(variable.getRowNumber() == 0 && variable.getColumnNumber() == 0)) {
             sb.append("_");
@@ -111,10 +120,14 @@ public class VariableNameUtils {
     public static String buildfeedbackIDfromEntryID(String entryID){
         
         StringBuilder sb = new StringBuilder();
-        if(entryID.endsWith("Ed")){
-            entryID = entryID.replaceFirst("Ed", "_Ed");
-        }
         sb.append("_feedback_").append(entryID).append("_");
+        return sb.toString();
+    }
+    
+    public static String buildfeedbackStatusIDfromEntryID(String entryID){
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("STATUS").append("_feedback_").append(entryID).append("_");
         return sb.toString();
     }
     

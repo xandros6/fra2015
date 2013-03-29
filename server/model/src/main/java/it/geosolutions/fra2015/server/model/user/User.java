@@ -45,7 +45,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
@@ -55,10 +54,9 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.ForeignKey;
 import org.hibernate.annotations.Index;
 
 /**
@@ -103,6 +101,7 @@ public class User implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="fra_users_countries", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name="country_id")})
    	@Fetch(value=FetchMode.JOIN)
+    @ForeignKey(name = "fk_uc_user", inverseName = "fk_uc_country")
 	private Set<Country> countriesSet  = new HashSet<Country>();
     
     @Transient
@@ -117,6 +116,7 @@ public class User implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="fra_questions_reviewers", joinColumns={@JoinColumn(name="reviewers_id")}, inverseJoinColumns={@JoinColumn(name="question_id")})
    	@Fetch(value=FetchMode.JOIN)
+    @ForeignKey(name = "fk_uq_user", inverseName = "fk_uq_question")
 	private Set<Question> questions  = new HashSet<Question>();
     
     public Set<Question> getQuestions() {

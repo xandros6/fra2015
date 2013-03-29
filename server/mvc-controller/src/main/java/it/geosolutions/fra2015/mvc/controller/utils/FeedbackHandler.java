@@ -31,18 +31,30 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Enumeration;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
+import org.apache.cxf.common.util.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
+
+import com.ibm.wsdl.util.IOUtils;
 
 /**
  * Hold the feedback management: take as input the req and session objects, build a Feedback Instance and add to a feedback list 
@@ -51,6 +63,8 @@ import org.springframework.ui.Model;
  *
  */
 public class FeedbackHandler{
+    
+    private final Logger LOGGER = Logger.getLogger(FeedbackHandler.class);
     
     private ControllerServices controllerServiceUtils;
     
@@ -65,11 +79,8 @@ public class FeedbackHandler{
         this.feedbackList = new ArrayList<Feedback>();
     }
 
-    public List<Feedback> retrieveFeedbacks(String country, Long question, Model model,
-            HttpSession session, User su) throws BadRequestServiceEx {
-
-//        controllerServiceUtils.prepareHTTPRequest(model, question.toString(),
-//                controllerServiceUtils.retrieveValues(question.toString(), country), false);
+    public List<Feedback> retrieveFeedbacks(String country, Long question,
+            HttpSession session, User su, Boolean harmonized) throws BadRequestServiceEx {
 
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
@@ -78,7 +89,7 @@ public class FeedbackHandler{
         List<Feedback> feedbackList = null;
         try {
 
-            feedbackList = feedbackService.loadFeedback(su, si, question);
+            feedbackList = feedbackService.loadFeedback(su, si, question, harmonized);
         } catch (BadRequestServiceEx e) {
 
            throw new BadRequestServiceEx("Errors loading feedbacks...");
@@ -86,24 +97,78 @@ public class FeedbackHandler{
         return feedbackList;
     }
     
-    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks){
+    public void storeFeedbacks() throws BadRequestServiceEx{
+        
+        if(this.feedbackList != null){
+            feedbackService.storeFeedback(this.getFeedbackArray());
+        }
+        else{
+            
+            throw new BadRequestServiceEx("feedbackList equals to null");
+        }
+    }
+    
+    public void mergefeedbacks(List<Feedback> oldFeedbacks){
+        
+        List<Feedback> feedbacksMerged = new ArrayList<Feedback>();
+        for(Feedback el : feedbackList){
+            
+            int oldFbIndex = oldFeedbacks.indexOf(el);
+            if(oldFbIndex >= 0){
+                Feedback oldFb = oldFeedbacks.get(oldFbIndex);
+                oldFb.setFeedback(el.getFeedback());
+                oldFb.setStatus(el.getStatus());
+                feedbacksMerged.add(oldFb);
+            }
+            else if(!StringUtils.isEmpty(el.getFeedback()) || !el.getStatus().equals("not")){
+                
+                feedbacksMerged.add(el);
+            }
+        }
+        feedbackList = feedbacksMerged;
+        
+    }
+    
+    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks, boolean packageAlsoArmonized){
         
         List<Feedback> packagedFeedbacks = new ArrayList<Feedback>();
         Map<String, Feedback> packagedFeedbacksMap = new HashMap<String, Feedback>(); 
+        String record = loadTemplatePackaged();
         
         for(Feedback el : feedbacks){
             
-            Feedback f = packagedFeedbacksMap.remove(el.getFeedbackId());
-            if(f == null){
-                f = new Feedback();
-                BeanUtils.copyProperties(el, f);
+            Feedback f = new Feedback();
+            if(!el.getHarmonized()){
+                f = packagedFeedbacksMap.remove(el.getFeedbackId());
+                if(f == null){
+                    f = new Feedback();
+                    BeanUtils.copyProperties(el, f);
+                    f.setFeedback("");
+                }
             }
-            User u = f.getUser();
-            StringBuilder sb = new StringBuilder();
-//            sb.append(f.getFeedback());
-            sb.append("User '").append(u.getUsername()).append("' says: <br />").append("----- <br />").append(el.getFeedback()).append("-----");
-            f.setFeedback(sb.toString());
-            packagedFeedbacksMap.put(f.getFeedbackId(), f);
+            
+            
+            if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(el.getFeedback())){
+                
+                User u = f.getUser();
+                StringBuilder sb = new StringBuilder();
+    //            sb.append(f.getFeedback());
+                Calendar cal = GregorianCalendar.getInstance();
+                cal.setTimeInMillis(f.getTimestamp());
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
+                dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+                sb.append(f.getFeedback());
+                record = record.replace("%{date}", dateFormatter.format(cal.getTime()));
+                record = record.replace("%{username}", u.getUsername());
+                record = record.replace("%{feedbackContent}", el.getFeedback());
+                sb.append(record);
+                f.setFeedback(sb.toString());
+                packagedFeedbacksMap.put(f.getFeedbackId(), f);
+            }
+            else if(packageAlsoArmonized){
+                BeanUtils.copyProperties(el, f);
+                packagedFeedbacksMap.put(f.getFeedbackId()+"_Ed", f);
+            }
             
         }
         
@@ -111,7 +176,7 @@ public class FeedbackHandler{
         return packagedFeedbacks;
     }
     
-    public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3, boolean harmonized){
+    public void populateFeedbackList(HttpServletRequest request, HttpSession session, ControllerServices controllerServices, String countryIso3, Boolean harmonized){
         
         User user = (User)session.getAttribute(SESSION_USER);
         
@@ -126,10 +191,15 @@ public class FeedbackHandler{
             if(feedbackName.startsWith(FEEDBACK)){
                 
                 String feedback = (String)request.getParameter(feedbackName);
+                String feedbackStatus = (String)request.getParameter("STATUS"+feedbackName);
+                String entryID = null;
+                // This check is made in mergeFeedback now...
+//                if(!StringUtils.isEmpty(feedback)){
+                    entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
+                    Entry entry = controllerServices.getEntry(entryID);
+                    addToFeedbackList(entry, si, user, feedback, entryID, feedbackStatus, harmonized);
+//                }
                 
-                String entryID = VariableNameUtils.extractEntryIDfromFeedbackID(feedbackName);
-                Entry entry = controllerServices.getEntry(entryID);
-                addToFeedbackList(entry, si, user, feedback, entryID, "", harmonized);
             }
         }
         
@@ -141,7 +211,10 @@ public class FeedbackHandler{
             
             for(Feedback el : feedbackList){
                 
-                model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
+                String feedbackId = el.getFeedbackId();
+                feedbackId = (el.getHarmonized())?feedbackId+"_Ed":feedbackId;
+                model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(feedbackId), el.getFeedback());
+                model.addAttribute(VariableNameUtils.buildfeedbackStatusIDfromEntryID(feedbackId), el.getStatus());
             }
         }
     }
@@ -161,24 +234,54 @@ public class FeedbackHandler{
         return null;
     }
     
-    public void addToFeedbackList(Entry entry, SurveyInstance surveyInstance, User user, String feedback, String feedbackId, String status, boolean harmonized){
+    public void addToFeedbackList(Entry entry, SurveyInstance surveyInstance, User user, String feedback, String feedbackId, String status, Boolean harmonized){
         
         final Feedback f = new Feedback();
         f.setEntry(entry);
         f.setFeedback(feedback);
-        if(harmonized){
-            // Hack: If the feedback type is 'harmonized' add "Ed"
-            f.setFeedbackId(feedbackId+"Ed");
-        }
-        else{
-            f.setFeedbackId(feedbackId);
-        }
-        f.setStatus("");
+        f.setFeedbackId(feedbackId);
+        f.setStatus(status);
         f.setSurvey(surveyInstance);
         f.setTimestamp(System.currentTimeMillis());
         f.setUser(user);
         f.setHarmonized(harmonized);
         feedbackList.add(f);
+    }
+    
+    public void addAllToFeedbackList(List<Feedback> list){
+        
+        this.feedbackList.addAll(list);
+    }
+    
+    private String loadTemplatePackaged(){
+        
+        InputStream tmpltStream = this.getClass().getResourceAsStream("/packagedFeedbacksTemplate.tmplt");
+        Reader r = new InputStreamReader(tmpltStream);
+        try {
+            
+            return IOUtils.getStringFromReader(r);
+        } catch (IOException e) {
+            
+            LOGGER.error(e.getMessage(), e);
+        }
+        finally{
+            
+            if(tmpltStream != null){
+                try {
+                    tmpltStream.close();
+                } catch (IOException e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+            }
+            if(r != null){
+                try {
+                    r.close();
+                } catch (IOException e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+            }
+        }
+        return "%{date} - %{username} - %{feedbackContent} <br />";
     }
     
 }

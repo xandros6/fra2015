@@ -6,6 +6,9 @@
 			<spring:message code="ref319"></spring:message>
 		</h1>
 	</div>
+	<p class="lead">
+		<spring:message code="refq7faq"></spring:message>
+	</p>
 	<section>
 		<h2>
 			7.1
@@ -62,7 +65,7 @@
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -73,7 +76,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -97,7 +100,7 @@
 										code="ref43"></spring:message></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref14"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -108,7 +111,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -203,7 +206,7 @@
 							<td colspan="2" rownumber="0" columnnumber="1"><spring:message
 									code="ref324"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref55"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -406,6 +409,8 @@
 									code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message
 									code="ref74"></spring:message></td>
+							<td rownumber="0" columnnumber="2"><spring:message
+									code="ref75"></spring:message></td>
 						</tr>
 						<tr>
 							<td rownumber="1" columnnumber="0"><spring:message
@@ -413,6 +418,14 @@
 							<td class="tier entry-item" rownumber="1" columnnumber="1"
 								entry-id="83"><div id="cell-content">
 									<fra:tiers name="_fraVariable_83_1_1_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+							<td class="tier entry-item" rownumber="1" columnnumber="1"
+								entry-id="83"><div id="cell-content">
+									<fra:tiers name="_fraVariable_83_1_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
 										<option value="Tier 2">Tier 2</option>

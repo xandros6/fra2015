@@ -51,16 +51,6 @@
 			<artifactId>fra2015-mvc-controller</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<scope>provided</scope>
-		</dependency>
 		<!-- <dependency> <groupId>javax</groupId> <artifactId>javaee-web-api</artifactId> 
 			<version>6.0</version> </dependency> -->
 
@@ -73,21 +63,38 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
+
+        <!-- ============================== -->
+		<!-- Web stuff -->
 		<!-- ============================== -->
+
+        <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+        <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+            <version>1.2</version>
+		</dependency>
+
+        <!-- ============================== -->
 		<!-- Test: JETTY -->
 		<!-- ============================== -->
-		<dependency>
+
+        <dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jetty</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jsp-2.1</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jsp-api-2.1</artifactId>
 		</dependency>
 
 		<dependency>

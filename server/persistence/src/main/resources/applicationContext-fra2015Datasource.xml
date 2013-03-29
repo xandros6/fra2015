@@ -13,29 +13,32 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd"
 >
 
-    <!-- ====================================================================
-    Property config files
-    Any customization should go in the property file
-    ==================================================================== -->
+    <!-- ==================================================================== -->
+    <!-- PLEASE DO NO CHANGE THE PROPERTIES IN THIS FILE                      -->
+    <!-- ==================================================================== -->
+    <!-- If you need to customize something for your junit tests, create a file test/resources/fra2015-datasource-ovr.properties -->
+    <!-- If you need to customize something in the running application, define the java arg -Dfra2015-ovr=/PATH/TO/YOUR/OVR -->
+    <!-- ==================================================================== -->
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="0"/>
         <property name="locations">
             <list>
                 <value>classpath:fra2015-datasource.dummy.properties</value>
-                <value>classpath*:fra2015-datasource.properties</value>
             </list>
         </property>
-        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreResourceNotFound" value="true"/>
     </bean>
 
     <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
-        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreResourceNotFound" value="true"/>
         <property name="order" value="5"/>
         <property name="locations">
             <list>
+                <!-- used for overriding props during maven tests -->
                 <value>classpath*:fra2015-datasource-ovr.properties</value>
-                
+                <!-- used for externalized override -->
+                <value>${fra2015-ovr}</value>
             </list>
         </property>
     </bean>
@@ -72,9 +75,9 @@
 
     <bean id="fra2015VendorAdapter"
           class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="databasePlatform" value="org.hibernate.dialect.H2Dialect" />
-        <property name="showSql" value="true" />
-        <property name="generateDdl" value="false" />
+        <property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+        <property name="showSql" value="false" />
+        <property name="generateDdl" value="true" />
     </bean>
 
     <bean id="fra2015TransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

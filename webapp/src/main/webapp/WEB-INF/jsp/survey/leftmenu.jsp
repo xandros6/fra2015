@@ -1,15 +1,14 @@
 <%@ include file="../common/includes/taglibs.jsp" %>
 
 <div class="span4">
-	<a href="#"id ="hide-menu"><spring:message code="left.hidemenu"></spring:message></a>
+	<a href="#" id="hide-menu"><spring:message code="left.hidemenu"></spring:message></a>
 	<div class="in" id="left-menu">
 		<div id="navbar-accordion" class="accordion">
-		<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 0)}">
+		<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q00')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_6cn3etp4x6r"
-						 data-toggle="collapse"><spring:message
-							code="ref0"></spring:message></a>
+						 data-toggle="collapse"><spring:message code="ref0"></spring:message></a>
 				</div>
 				<div id="groupid_6cn3etp4x6r" class="accordion-body ${question == 0 ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
@@ -22,17 +21,17 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 2) || fn:contains(allowedQuestions, 1)}">
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q02') || fn:contains(allowedQuestions, 'q01')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_27medwbfbt9"
 						 data-toggle="collapse"><spring:message
 							code="ref10"></spring:message></a>
 				</div>
-				<div id="groupid_27medwbfbt9" class="accordion-body ${1<= question && question <=2  ? "collapse in" : "collapse"}"">
+				<div id="groupid_27medwbfbt9" class="accordion-body ${1<= question && question <=2  ? "collapse in" : "collapse"}">
 					
 					<div class="accordion-inner">
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 1)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q01')}">
 						<p>
 							<a href="1" class="tab"><div>
 									1.
@@ -40,7 +39,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 2)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q02')}">
 						<p>
 							<a href="2" class="tab"><div>
 									2.
@@ -52,16 +51,16 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 3) || fn:contains(allowedQuestions, 4)}">
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q03') || fn:contains(allowedQuestions, 'q04')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_0bftx6o5hfr"
 						 data-toggle="collapse"><spring:message
 							code="ref129"></spring:message></a>
 				</div>
-				<div id="groupid_0bftx6o5hfr" class="accordion-body ${3<= question && question <=4  ? "collapse in" : "collapse"}"">
+				<div id="groupid_0bftx6o5hfr" class="accordion-body ${3<= question && question <=4  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 3)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions,'q03')}">
 						<p>
 							<a href="3" class="tab"><div>
 									3.
@@ -69,7 +68,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 4)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q04')}">
 						<p>
 							<a href="4" class="tab"><div>
 									4.
@@ -81,14 +80,14 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 5)}">
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q05')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_bzh13gzaor"
 						 data-toggle="collapse"><spring:message
 							code="ref258"></spring:message></a>
 				</div>
-				<div id="groupid_bzh13gzaor" class="accordion-body ${ question ==5  ? "collapse in" : "collapse"}"">
+				<div id="groupid_bzh13gzaor" class="accordion-body ${ question ==5  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
 						<p>
 							<a href="5" class="tab"><div>
@@ -100,14 +99,14 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 6)}">
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q06')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_1zxhjiz4cxr"
 						 data-toggle="collapse"><spring:message
 							code="ref309"></spring:message></a>
 				</div>
-				<div id="groupid_1zxhjiz4cxr" class="accordion-body ${ question ==6  ? "collapse in" : "collapse"}"">
+				<div id="groupid_1zxhjiz4cxr" class="accordion-body ${ question ==6  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
 						<p>
 							<a href="6" class="tab"><div>
@@ -119,16 +118,16 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 7)|| fn:contains(allowedQuestions, 8)|| fn:contains(allowedQuestions, 9)}">
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q07')|| fn:contains(allowedQuestions, 'q08')|| fn:contains(allowedQuestions, 'q09')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_5gsauivn29"
 						 data-toggle="collapse"><spring:message
 							code="ref318"></spring:message></a>
 				</div>
-				<div id="groupid_5gsauivn29" class="accordion-body ${7<= question && question <=9  ? "collapse in" : "collapse"}"">
+				<div id="groupid_5gsauivn29" class="accordion-body ${7<= question && question <=9  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 7)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q07')}">
 						<p>
 							<a href="7" class="tab"><div>
 									7.
@@ -136,7 +135,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 8)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q08')}">
 						
 						<p>
 							<a href="8" class="tab"><div>
@@ -145,7 +144,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 9)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q09')}">
 						<p>
 							<a href="9" class="tab"><div>
 									9.
@@ -157,9 +156,8 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 10)|| fn:contains(allowedQuestions, 11)|| fn:contains(allowedQuestions, 12)
-														|| fn:contains(allowedQuestions, 13)|| fn:contains(allowedQuestions, 15)|| fn:contains(allowedQuestions, 15)
-														|| fn:contains(allowedQuestions, 16)}">
+			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 'q10')|| fn:contains(allowedQuestions, 'q11')|| fn:contains(allowedQuestions, 'q12')
+														|| fn:contains(allowedQuestions, 'q13') }">
 			
 			<div class="accordion-group">
 				<div class="accordion-heading">
@@ -167,9 +165,9 @@
 						 data-toggle="collapse"><spring:message
 							code="ref376"></spring:message></a>
 				</div>
-				<div id="groupid_3gd86w29" class="accordion-body  ${10<= question && question <=16  ? "collapse in" : "collapse"}"">
+				<div id="groupid_3gd86w29" class="accordion-body  ${10<= question && question <=16  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
-					<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 10)}">
+					<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q10')}">
 						<p>
 							<a href="10" class="tab"><div>
 									10.
@@ -177,7 +175,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 11)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q11')}">
 						<p>
 							<a href="11" class="tab"><div>
 									11.
@@ -185,7 +183,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 12)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q12')}">
 						<p>
 							<a href="12" class="tab"><div>
 									12.
@@ -193,7 +191,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 13)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q13')}">
 						<p>
 							<a href="13" class="tab"><div>
 									13.
@@ -201,7 +199,23 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 14)}">
+					</div>
+				</div>
+			</div>
+			</c:if>
+            
+			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 'q14')|| fn:contains(allowedQuestions, 'q15')|| fn:contains(allowedQuestions, 'q16')}">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" href="#groupid_topic6b"
+						 data-toggle="collapse"><spring:message
+							code="reftopic6b"></spring:message></a>
+				</div>
+				<div id="groupid_topic6b" class="accordion-body  ${10<= question && question <=16  ? "collapse in" : "collapse"}">
+					<div class="accordion-inner">
+
+
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q14')}">
 						<p>
 							<a href="14" class="tab"><div>
 									14.
@@ -209,7 +223,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 15)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q15')}">
 						<p>
 							<a href="15" class="tab"><div>
 									15.
@@ -217,7 +231,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 16)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q16')}">
 						<p>
 							<a href="16" class="tab"><div>
 									16.
@@ -229,18 +243,18 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 17)|| fn:contains(allowedQuestions, 18)|| fn:contains(allowedQuestions, 19)
-														|| fn:contains(allowedQuestions, 20)}">
+			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 'q17')|| fn:contains(allowedQuestions, 'q18')|| fn:contains(allowedQuestions,'q19')
+														|| fn:contains(allowedQuestions, 'q20')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_r87gsowp14i"
 						 data-toggle="collapse"><spring:message
 							code="ref486"></spring:message></a>
 				</div>
-				<div id="groupid_r87gsowp14i" class="accordion-body  ${17<= question && question <=20  ? "collapse in" : "collapse"}"">
+				<div id="groupid_r87gsowp14i" class="accordion-body  ${17<= question && question <=20  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
 					
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 17)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q17')}">
 						<p>
 							<a href="17" class="tab"><div>
 									17.
@@ -248,7 +262,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 18)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q18')}">
 						<p>
 							<a href="18" class="tab"><div>
 									18.
@@ -256,7 +270,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 19)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q19')}">
 						<p>
 							<a href="19" class="tab"><div>
 									19.
@@ -264,7 +278,7 @@
 								</div></a>
 						</p>
 						</c:if>
-						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 20)}">
+						<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q20')}">
 						<p>
 							<a href="20" class="tab"><div>
 									20.
@@ -276,14 +290,14 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 21)}">
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q21')}">
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_6hisy2b7qfr"
 						 data-toggle="collapse"><spring:message
 							code="ref553"></spring:message></a>
 				</div>
-				<div id="groupid_6hisy2b7qfr" class="accordion-body ${ question ==21  ? "collapse in" : "collapse"}"">
+				<div id="groupid_6hisy2b7qfr" class="accordion-body ${ question ==21  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
 						<p>
 							<a href="21" class="tab"><div>

@@ -8,6 +8,7 @@ import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
@@ -57,9 +58,9 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         countriesFile = applicationContext.getResource("classpath:countries.xml").getFile();        
         surveyFile = applicationContext.getResource("classpath:survey.xml").getFile();
         
-        checkAndInsertCountries(); 
-        checkAndInsertAdmin();               
+        checkAndInsertCountries();
         checkAndInsertSurvey();
+        checkAndInsertAdmin();               
     }
 
     private void checkAndInsertAdmin() throws BadRequestServiceEx, IOException {
@@ -94,9 +95,9 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
             return;                
         }
 
-        CountryList list = JAXB.unmarshal(countriesFile, CountryList.class);
-        LOGGER.info("Persisting " + list.getCountries().size() + " country users");
-        for (Country country : list) {
+        CountryList countryList = JAXB.unmarshal(countriesFile, CountryList.class);
+        LOGGER.info("Persisting " + countryList.getCountries().size() + " country users");
+        for (Country country : countryList) {
         	Country pcountry = countryDAO.find(country.getId());
             User user = new User();
             user.setName("User " + country.getName());
@@ -105,13 +106,63 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
             user.setNewPassword(Long.toString(country.getId()));
             user.setRole("contributor");
             user.setEmail("fra2015@surveyservice." + country.getIso3().toLowerCase());
-            
+
             try {
                 userService.insert(user);
             } catch (Exception ex) {
                 LOGGER.error("Error creating user for country" + country);
             }
-        }                
+        }
+
+        class RevInit {
+            int div;
+            int[] qlist;
+
+            public RevInit(int div, int ... qlist) {
+                this.div = div;
+                this.qlist = qlist;
+            }
+        }
+
+        final RevInit[] divarr = new RevInit[] {
+            new RevInit(4, 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21),
+            new RevInit(5, 0,1,2,3,4,5,6),
+            new RevInit(6,           5,6,7,8,9,10,11,12,13,14),
+            new RevInit(7, 0,1,2,                       13,14,15,16,17,18,19,20,21),
+        };
+
+        for (int i = 0; i < divarr.length; i++) {
+
+            User user = new User();
+            user.setName("Reviewer #"+(i+1));
+            user.setUsername("rev"+(i+1));
+            user.setNewPassword(Integer.toString(i+1));
+            user.setRole("reviewer");
+            user.setEmail("rev"+(i+1)+"@survey.fra.fao.org");
+
+
+            RevInit div = divarr[i];
+            for (Country country : countryList) {
+                if (country.getId() % div.div == 0) {
+                    Country pcountry = countryDAO.find(country.getId());
+                    user.getCountriesSet().add(pcountry);
+                }
+            }
+
+            for (int j : div.qlist) {
+                Question q = new Question();
+                q.setId((long)j);
+                user.getQuestions().add(q);
+            }
+
+            LOGGER.info("Saving " + user + " associated to " + user.getCountriesSet().size() + " countries and " + user.getQuestions().size() + " questions");
+            try {
+                userService.insert(user);
+            } catch (Exception ex) {
+                LOGGER.error("Error creating " + user + ": " + ex.getMessage());
+            }
+        }
+
     }
     
     private void checkAndInsertCountries() throws IOException {

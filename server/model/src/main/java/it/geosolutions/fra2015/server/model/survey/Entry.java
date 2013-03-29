@@ -22,6 +22,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * This class represents a whole table or a text area or a non editable text.
@@ -54,6 +55,7 @@ public class Entry extends Element {
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="question_id", referencedColumnName="id")
+    @ForeignKey(name = "fk_entry_question")
     private Question question;
     
     @OneToMany(mappedBy = "entry", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)

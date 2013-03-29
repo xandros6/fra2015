@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Question;
@@ -70,21 +71,24 @@ public class ReviewController {
                 @PathVariable(value = "country") String country, 
                 @PathVariable(value = "question") Long question, Model model,
             HttpSession session) {
-            
-            
-        // TODO validate country
+
+        
         User su = (User) session.getAttribute("sessionUser");
         if(su==null){
             return "redirect:/login";
         }
         
         User userForQuery = new User();
+        Boolean harmonized = null;
+        Profile userProfile = null;
         
         if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
             
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(question, su, model);
             userForQuery = su;
+            harmonized = false;
+            userProfile = Profile.REVIEWER;
         }
         else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
             
@@ -92,21 +96,33 @@ public class ReviewController {
             model.addAttribute("context", "survey");
             model.addAttribute("question", question);
             userForQuery = null;
+            userProfile = Profile.EDITOR;
         }
         else{
             return "redirect:/login";
         }
+        
+        String status = utils.getStatusByCountry(country);
+        if(StatusUtils.isSubmitAllowedByReviewer(status, userProfile)){
+            model.addAttribute("profile", userProfile.toString());
+        }else{
+            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
+        }
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("statuscode",statusLocale);
+        
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
         utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
         
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
-            
-            List<Feedback> listF = fh.retrieveFeedbacks(country, question, model, session, userForQuery);
+
+            List<Feedback> listF = SessionUtils.retrieveFeedbacksAndStoreInSession(fh, session, question, country, userForQuery, harmonized);
             if(Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())){
                 
-                listF = fh.packageFeedbacks(listF);
+                listF = fh.packageFeedbacks(listF, true);
             }
             fh.prepareFeedbackModel(model, listF);
         } 
@@ -127,12 +143,19 @@ public class ReviewController {
             @PathVariable(value = "country") String country,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
         
+        String status = utils.getStatusByCountry(country);
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("statuscode",statusLocale);
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
         
         // TODO validate country
         User su = (User) session.getAttribute("sessionUser");
-        boolean harmonized = true;
+        Boolean harmonizedRead = null;
+        Boolean harmonizedWrite = null;
+        User userForQuery = new User();
+        
         if(su==null){
             return "redirect:/login";
         }
@@ -140,28 +163,36 @@ public class ReviewController {
             
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(Long.parseLong(question), su, model);
-            harmonized = false;
+            harmonizedRead = false;
+            harmonizedWrite = false;
+            userForQuery = su;
         }
         else if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
             
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
-            harmonized = true;
+            harmonizedWrite = true;
+            userForQuery = null;
         }
         else{
             return "redirect:/login";
         }
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
-        // ????
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, Long.parseLong(question), country);
         utils.prepareHTTPRequest(model, question, cvalues, false);
         
         // save feedbacks
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
-        fh.populateFeedbackList(request, session, utils, country, harmonized);
+        fh.populateFeedbackList(request, session, utils, country, harmonizedWrite);
         
         try {
-            feedbackService.storeFeedback(fh.getFeedbackArray());
+            
+            List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
+            fh.mergefeedbacks(oldFeedbacks);
+            fh.storeFeedbacks();
+            if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+                List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
+                fh.addAllToFeedbackList(notHarmonizedFeedbacks);   
+            }
         } catch (BadRequestServiceEx e) {
             
             model.addAttribute("messageType", "warning");
@@ -171,10 +202,7 @@ public class ReviewController {
         }
         
         //Put feedback in model
-        for(Feedback el : fh.getFeedbackArray()){
-            
-            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()), el.getFeedback());
-        }
+        fh.prepareFeedbackModel(model, fh.getFeedbackList());
         
         model.addAttribute("messageType","success");
         model.addAttribute("messageCode","alert.savesuccess");
@@ -196,7 +224,13 @@ public class ReviewController {
         if (!allowedQuestionNumbers.contains(question)){
             question = min;
         }
-        model.addAttribute("allowedQuestions",allowedQuestionNumbers);
+        //create a string list to parse
+        List<String> allowedQuestions = new ArrayList<String>();
+        for (Long n : allowedQuestionNumbers){
+            
+            allowedQuestions.add("q"+( n>9 ?n : "0" +n));
+        }
+        model.addAttribute("allowedQuestions",allowedQuestions);
         model.addAttribute("context", "survey");
         model.addAttribute("question", question);
     }

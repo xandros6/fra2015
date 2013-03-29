@@ -7,7 +7,7 @@
 		</h1>
 	</div>
 	<p class="lead">
-		<spring:message code="reftest"></spring:message>
+		<spring:message code="refq1faq"></spring:message>
 	</p>
 	<section>
 		<h2>
@@ -20,65 +20,57 @@
 				<table
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-						<tr>
-							<td rownumber="0" columnnumber="0"><spring:message
-									code="ref13"></spring:message></td>
-							<td rownumber="0" columnnumber="1"><spring:message
-									code="ref14"></spring:message></td>
+                        <tr>
+							<td rownumber="0" columnnumber="0"><spring:message code="ref13"></spring:message></td>
+							<td rownumber="0" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="1" columnnumber="0"><spring:message
-									code="ref15"></spring:message></td>
-							<td rownumber="1" columnnumber="1"><spring:message
-									code="ref16"></spring:message></td>
+							<td rownumber="1" columnnumber="0"><spring:message code="ref15"></spring:message></td>
+							<td rownumber="1" columnnumber="1"><spring:message code="ref16"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="2" columnnumber="0"><spring:message
-									code="ref17"></spring:message></td>
-							<td rownumber="2" columnnumber="1"><spring:message
-									code="ref18"></spring:message></td>
+							<td rownumber="2" columnnumber="0"><spring:message code="ref17"></spring:message></td>
+							<td rownumber="2" columnnumber="1"><spring:message code="ref18"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="3" columnnumber="0"><spring:message
-									code="ref19"></spring:message></td>
-							<td rownumber="3" columnnumber="1"><spring:message
-									code="ref20"></spring:message></td>
+							<td rownumber="3" columnnumber="0"><spring:message code="ref19"></spring:message></td>
+							<td rownumber="3" columnnumber="1"><spring:message code="ref20"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="4" columnnumber="0"><spring:message
-									code="ref21"></spring:message></td>
-							<td rownumber="4" columnnumber="1"><spring:message
-									code="ref22"></spring:message></td>
+							<td rownumber="4" columnnumber="0"><spring:message code="ref21"></spring:message></td>
+							<td rownumber="4" columnnumber="1"><spring:message code="ref22"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="5" columnnumber="0"><spring:message
-									code="ref23"></spring:message></td>
-							<td rownumber="5" columnnumber="1"><spring:message
-									code="ref24"></spring:message></td>
+							<td rownumber="5" columnnumber="0"><spring:message code="ref23"></spring:message></td>
+							<td rownumber="5" columnnumber="1"><spring:message code="ref24"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="6" columnnumber="0"><spring:message
-									code="ref25"></spring:message></td>
-							<td rownumber="6" columnnumber="1"><spring:message
-									code="ref26"></spring:message></td>
+							<td rownumber="6" columnnumber="0"><spring:message code="ref25"></spring:message></td>
+							<td rownumber="6" columnnumber="1"><spring:message code="ref26"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="7" columnnumber="0"><spring:message
-									code="ref27"></spring:message></td>
-							<td rownumber="7" columnnumber="1"><spring:message
-									code="ref28"></spring:message></td>
+							<td rownumber="7" columnnumber="0"><spring:message code="refq1affcat"></spring:message></td>
+							<td rownumber="7" columnnumber="1"><spring:message code="refq1affdef"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="8" columnnumber="0"><spring:message
-									code="ref29"></spring:message></td>
-							<td rownumber="8" columnnumber="1"><spring:message
-									code="ref30"></spring:message></td>
+							<td rownumber="9" columnnumber="0"><spring:message code="ref29"></spring:message></td>
+							<td rownumber="9" columnnumber="1"><spring:message code="ref30"></spring:message></td>
 						</tr>
 						<tr>
-							<td rownumber="9" columnnumber="0"><spring:message
-									code="ref31"></spring:message></td>
-							<td rownumber="9" columnnumber="1"><spring:message
-									code="ref32"></spring:message></td>
+							<td rownumber="10" columnnumber="0"><spring:message code="ref31"></spring:message></td>
+							<td rownumber="10" columnnumber="1"><spring:message code="ref32"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="11" columnnumber="0"><spring:message code="refq1dhicat"></spring:message></td>
+							<td rownumber="11" columnnumber="1"><spring:message code="refq1dhidef"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="12" columnnumber="0"><spring:message code="ref27"></spring:message></td>
+							<td rownumber="12" columnnumber="1"><spring:message code="ref28"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="13" columnnumber="0"><spring:message code="refq1rarcat"></spring:message></td>
+							<td rownumber="13" columnnumber="1"><spring:message code="refq1rardef"></spring:message></td>
 						</tr>
 					</tbody>
 				</table>
@@ -114,7 +106,7 @@
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -125,7 +117,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -150,7 +142,7 @@
 										code="ref43"></spring:message></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref14"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -161,7 +153,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -892,46 +884,6 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td rownumber="4" columnnumber="0"><spring:message
-									code="ref27"></spring:message></td>
-							<td class="tier entry-item" rownumber="4" columnnumber="1"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_4_1_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-							<td class="tier entry-item" rownumber="4" columnnumber="2"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_4_2_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-						</tr>
-						<tr>
-							<td rownumber="5" columnnumber="0"><spring:message
-									code="ref29"></spring:message></td>
-							<td class="tier entry-item" rownumber="5" columnnumber="1"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_5_1_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-							<td class="tier entry-item" rownumber="5" columnnumber="2"
-								entry-id="9"><div id="cell-content">
-									<fra:tiers name="_fraVariable_9x_5_2_"><option
-											selected="selected">---</option>
-										<option value="Tier 1">Tier 1</option>
-										<option value="Tier 2">Tier 2</option>
-										<option value="Tier 3">Tier 3</option></fra:tiers>
-								</div></td>
-						</tr>
-						<tr>
 							<td rownumber="6" columnnumber="0"><spring:message
 									code="ref31"></spring:message></td>
 							<td class="tier entry-item" rownumber="6" columnnumber="1"
@@ -951,6 +903,27 @@
 										<option value="Tier 3">Tier 3</option></fra:tiers>
 								</div></td>
 						</tr>
+						<tr>
+							<td rownumber="4" columnnumber="0"><spring:message
+									code="ref27"></spring:message></td>
+							<td class="tier entry-item" rownumber="4" columnnumber="1"
+								entry-id="9"><div id="cell-content">
+									<fra:tiers name="_fraVariable_9x_4_1_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+							<td class="tier entry-item" rownumber="4" columnnumber="2"
+								entry-id="9"><div id="cell-content">
+									<fra:tiers name="_fraVariable_9x_4_2_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+						</tr>
+						
 					</tbody>
 				</table>
 			</div>
@@ -1082,40 +1055,30 @@
 						</tr>
 						<tr>
 							<td rownumber="7" columnnumber="0"><spring:message
-									code="ref27"></spring:message></td>
-							<td class="entry-item editable text" rownumber="7"
+									code="ref31"></spring:message></td>
+							<td class="entry-item editable text" rownumber="9"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_7_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_7_1_}</div></td>
-							<td class="entry-item editable text" rownumber="7"
+							<td class="entry-item editable text" rownumber="9"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_7_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_7_2_}</div></td>
 						</tr>
 						<tr>
 							<td rownumber="8" columnnumber="0"><spring:message
-									code="ref29"></spring:message></td>
-							<td class="entry-item editable text" rownumber="8"
+									code="ref27"></spring:message></td>
+							<td class="entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_8_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_8_1_}</div></td>
-							<td class="entry-item editable text" rownumber="8"
+							<td class="entry-item editable text" rownumber="7"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_8_2_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_11x_8_2_}</div></td>
 						</tr>
-						<tr>
-							<td rownumber="9" columnnumber="0"><spring:message
-									code="ref31"></spring:message></td>
-							<td class="entry-item editable text" rownumber="9"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_9_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_11x_9_1_}</div></td>
-							<td class="entry-item editable text" rownumber="9"
-								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_11x_9_2_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_11x_9_2_}</div></td>
-						</tr>
+						
+						
 					</tbody>
 				</table>
 			</div>

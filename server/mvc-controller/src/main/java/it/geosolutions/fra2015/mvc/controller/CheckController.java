@@ -22,11 +22,8 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.validation.Validator;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -37,6 +34,8 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.validation.ValidationResult;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,7 +58,7 @@ public class CheckController {
     Logger LOGGER = Logger.getLogger(CheckController.class);
     
     @Autowired
-    private SurveyService surveyService;
+    private SurveyServiceEntryPoint surveyService;
     @Autowired
     private UserService userService;
     
@@ -76,8 +75,13 @@ public class CheckController {
         if (su == null) {
             return "redirect:/";
         }
-
+        Status s = surveyService.getStatus(su.getCountries());
+        if(!StatusUtils.isSubmitAllowed(s)){
+            model.addAttribute("denysubmit", true);
+            return "index";
+        }
         ValidationResult v = validator.validate(su.getCountries());
+        
         if (v.getSuccess()) {
             model.addAttribute("allowsubmit", true);
         } else {
@@ -87,27 +91,33 @@ public class CheckController {
 
     }
 
+   
+
     @RequestMapping(method = RequestMethod.POST)
     public String printWelcome(HttpServletRequest request, ModelMap model, HttpSession session) {
 
 
         User su = (User) session.getAttribute(SESSION_USER);
-        if (su == null) {
+        if (su == null ) { //TODO check if the user is contributor
             return "redirect:/";
         }
-        Status status = new Status();
-        status.setMessage((String) request.getAttribute("submitmessage"));
+        //check status
+        Status status =surveyService.getStatus(su.getCountries());
+        if(!StatusUtils.isSubmitAllowed(status)){
+            submitDeniedError(status,model);
+            return "index";
+            
+        }
+        status.setStatus(StatusUtils.COMPILED);
         status.setCountry(su.getCountries());
-        
-        //TODO check if survey is already under review
-        status.setStatus("under review");
-
+        status.setMessage((String) request.getAttribute("submitmessage"));
         Country c = surveyService.findCountryByISO3(su.getCountries());
+        if(c!=null){
+            status.setCountry(su.getCountries());
+        }
         
         try {
-            //Set the country
             surveyService.changeStatus(status);
-            surveyService.searchCountry(status.getCountry());
             LOGGER.info("submitted survey:"+status.getCountry());
             User filter =new User();
             
@@ -132,14 +142,21 @@ public class CheckController {
             }
         } catch (BadRequestServiceEx e) {
             submissionError(model,e,c,su);
-        } catch (NotFoundServiceEx e) {
-            submissionError(model,e,c,su);
         }
 
         return "index";
 
     }
     
+    private void submitDeniedError(Status s,ModelMap model) {
+        
+        model.addAttribute("context", "check");
+        model.addAttribute("messageType", "waring");
+        model.addAttribute("messageCode", "submit.statuserror");
+        model.addAttribute("denysubmit", true);
+        model.addAttribute("messageTimeout",5000);
+        
+    }
     private void submissionError(ModelMap model,Exception e,Country c,User us){
         LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user" + "us",e);
         model.addAttribute("context", "check");
@@ -147,4 +164,6 @@ public class CheckController {
         model.addAttribute("messageCode", "submit.error");
         model.addAttribute("messageTimeout",10000);
     }
+    
+    
 }

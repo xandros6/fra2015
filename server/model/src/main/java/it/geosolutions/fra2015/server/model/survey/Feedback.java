@@ -24,8 +24,10 @@ package it.geosolutions.fra2015.server.model.survey;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -38,6 +40,9 @@ import javax.persistence.Table;
 public class Feedback {
     
     @Id
+    @GeneratedValue
+    private String id;
+    
     private String feedbackId;
     
     @ManyToOne(optional=false) 
@@ -52,13 +57,14 @@ public class Feedback {
     @JoinColumn(nullable=false, updatable=false)
     private Entry entry;
     
+    @Lob
     private String feedback;
     
     private String status;
     
     private Long timestamp;
     
-    private boolean harmonized;
+    private Boolean harmonized;
 
     /**
      * @return the feedbackId
@@ -161,19 +167,40 @@ public class Feedback {
     /**
      * @return the harmonized
      */
-    public boolean isHarmonized() {
+    public Boolean getHarmonized() {
         return harmonized;
     }
 
     /**
      * @param harmonized the harmonized to set
      */
-    public void setHarmonized(boolean harmonized) {
+    public void setHarmonized(Boolean harmonized) {
         this.harmonized = harmonized;
     }
 
-    
-    
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object fb){
+        
+        Feedback castedFb = (Feedback)fb;
+        if(this.feedbackId == null || this.harmonized == null){
+            return false;
+        }
+        return (this.feedbackId.equals(castedFb.feedbackId) && this.harmonized.equals(castedFb.harmonized));
+    }
     
     
 }

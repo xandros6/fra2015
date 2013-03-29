@@ -60,12 +60,6 @@
 	</servlet>
 	
 	<!-- pick up all spring application contexts -->
-	<context-param> 
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:applicationContext*.xml</param-value>
-	</context-param>
-	
-	<!-- pick up all spring application contexts -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>

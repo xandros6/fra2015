@@ -133,4 +133,7 @@ public interface SurveyService {
 
     Country findCountryByISO3(String iso3);
 
+    Status getStatus(String iso3);
+    
+    public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
 }

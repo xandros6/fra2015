@@ -1,7 +1,7 @@
 /*
  *  fra2015
  *  https://github.com/geosolutions-it/fra2015
- *  Copyright (C) 2007-2012 GeoSolutions S.A.S.
+ *  Copyright (C) 2013 GeoSolutions S.A.S.
  *  http://www.geo-solutions.it
  *
  *  GPLv3 + Classpath exception
@@ -21,167 +21,195 @@
  */
 package it.geosolutions.fra2015.server.model.survey;
 
-
 import java.io.Serializable;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import javax.persistence.Transient;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @SuppressWarnings("serial")
 @Entity(name = "ActivityLog")
-@Table(name = "fra_activitylog" )
+@Table(name = "fra_activitylog")
 public class ActivityLogEntry implements Serializable {
+
 		
-		@Transient
-		public static final DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-	
-        @Id
-        @GeneratedValue
-        private Long id;
-        
-        private Long time;
-        
-        @Transient
-        private String date;
-        
-        @Transient
-        private String fromDate;
-        
-        @Transient
-        private String toDate;
-        
-        private String entryItemName;
-        
-        private String username;
-        
-        private String country;
-        
-        private String question_id;
-        
-        private String content;
+	@Transient
+	public static final DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-        /**
-         * @return the id
-         */
-        public Long getId() {
-            return id;
-        }
+	@Transient
+	private String date;
 
-        /**
-         * @param id the id to set
-         */
-        public void setId(Long id) {
-            this.id = id;
-        }
+	@Transient
+	private String fromDate;
 
-        /**
-         * @return the time
-         */
-        public Long getTime() {
-            return time;
-        }
+	@Transient
+	private String toDate;
 
-        /**
-         * @param time the time to set
-         */
-        public void setTime(Long time) {
-            this.time = time;
-        }
-        
-        /**
-         * @return the entryItemName
-         */
-        public String getEntryItemName() {
-            return entryItemName;
-        }
 
-        /**
-         * @param entryItemName the entryItemName to set
-         */
-        public void setEntryItemName(String entryItemName) {
-            this.entryItemName = entryItemName;
-        }
+    @Id
+    @GeneratedValue
+    private Long id;
 
-        /**
-         * @return the username
-         */
-        public String getUsername() {
-            return username;
-        }
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateTimeStamp;
 
-        /**
-         * @param username the username to set
-         */
-        public void setUsername(String username) {
-            this.username = username;
-        }
+    private String varName;
+    private Integer varRow;
+    private Integer varCol;
 
-        /**
-         * @return the country
-         */
-        public String getCountry() {
-            return country;
-        }
+    private String username;
 
-        /**
-         * @param country the country to set
-         */
-        public void setCountry(String country) {
-            this.country = country;
-        }
+    private String country;
 
-        /**
-         * @return the question_id
-         */
-        public String getQuestion_id() {
-            return question_id;
-        }
+    private String question_id;
 
-        /**
-         * @param question_id the question_id to set
-         */
-        public void setQuestion_id(String question_id) {
-            this.question_id = question_id;
-        }
+    private String content;
 
-        /**
-         * @return the content
-         */
-        public String getContent() {
-            return content;
-        }
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
 
-        /**
-         * @param content the content to set
-         */
-        public void setContent(String content) {
-            this.content = content;
-        }
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-		public String getFromDate() {
-			return fromDate;
-		}
+    public Date getTimestamp() {
+        return updateTimeStamp;
+    }
 
-		public void setFromDate(String fromDate) {
-			this.fromDate = fromDate;
-		}
+    public void setTimestamp(Date timestamp) {
+        this.updateTimeStamp = timestamp;
+    }
 
-		public String getToDate() {
-			return toDate;
-		}
 
-		public void setToDate(String toDate) {
-			this.toDate = toDate;
-		}
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
 
-		public String getDate() {
-			return formatter.format(new Date(this.time));
-		}
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * @return the question_id
+     */
+    public String getQuestion_id() {
+        return question_id;
+    }
+
+    /**
+     * @param question_id the question_id to set
+     */
+    public void setQuestion_id(String question_id) {
+        this.question_id = question_id;
+    }
+
+    /**
+     * @return the content
+     */
+    public String getContent() {
+        return content;
+    }
+
+    /**
+     * @param content the content to set
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getVarName() {
+        return varName;
+    }
+
+    public void setVarName(String varName) {
+        this.varName = varName;
+    }
+
+    public Integer getVarRow() {
+        return varRow;
+    }
+
+    public void setVarRow(Integer varRow) {
+        this.varRow = varRow;
+    }
+
+    public Integer getVarCol() {
+        return varCol;
+    }
+
+    public void setVarCol(Integer varCol) {
+        this.varCol = varCol;
+    }
+
+	public String getDate() {
+		return formatter.format(this.updateTimeStamp);
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(String fromDate) {
+		this.fromDate = fromDate;
+	}
+
+	public String getToDate() {
+		return toDate;
+	}
+
+	public void setToDate(String toDate) {
+		this.toDate = toDate;
+	}
+
+	public Date getUpdateTimeStamp() {
+		return updateTimeStamp;
+	}
+
+	public void setUpdateTimeStamp(Date updateTimeStamp) {
+		this.updateTimeStamp = updateTimeStamp;
+	}
 
 }

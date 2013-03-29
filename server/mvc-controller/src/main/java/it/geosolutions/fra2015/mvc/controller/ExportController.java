@@ -21,6 +21,13 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.SurveyService;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,14 +38,44 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller
-@RequestMapping("/export")
 public class ExportController {
+    @Autowired
+    SurveyService surveyService;
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
+    @RequestMapping(value = "/export", method = RequestMethod.GET)
+    public String export(ModelMap model,HttpSession session) {
     		model.addAttribute("context", "export");
             //model.addAttribute("message", "Spring 3 MVC dummy example");
-            return "index";
+    		User user = (User) session.getAttribute(SESSION_USER);
+    		if(user==null) return "redirect:/";
+    		String role = user.getRole();
+    		if("reviewer".equals(role)){
+                    return "reviewer";
+    		}
+    		if("admin".equals(role)){
+
+    		    return "redirect:/adminextport";
+    		}if(role.equals("contributor")){
+    		    model.addAttribute("country",user.getCountries());
+    		}
+    		return "index";
 
     }
+    @RequestMapping(value = "/adminexport", method = RequestMethod.GET)
+    public String adminexport(ModelMap model,HttpSession session) {
+        model.addAttribute("context", "export");
+    //model.addAttribute("message", "Spring 3 MVC dummy example");
+        User user = (User) session.getAttribute(SESSION_USER);
+        String role = user.getRole();
+        if("reviewer".equals(role)){
+            return "redirect:/export";
+        }
+        if("admin".equals(role)){
+            model.addAttribute("countries", surveyService.getCountries());
+
+            return "admin";
+        }
+        return "/";
+
+}
 }

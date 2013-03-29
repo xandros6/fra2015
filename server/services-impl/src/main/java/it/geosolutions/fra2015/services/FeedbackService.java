@@ -60,19 +60,17 @@ public class FeedbackService {
         return true;
     }
     
-    public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question) throws BadRequestServiceEx{
+    public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question, Boolean harmonized) throws BadRequestServiceEx{
 
         List<Feedback> list = new ArrayList<Feedback>();
         try {
             
             Search search = new Search();
-            search.addFilterEqual("harmonized", false);
             if(user != null){
                 search.addFilterEqual("user", user);
-//                search.addFilterEqual("harmonized", false);
             }
-            else{
-//                search.addFilterEqual("harmonized", true);
+            if(harmonized != null){
+                search.addFilterEqual("harmonized", harmonized);
             }
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);

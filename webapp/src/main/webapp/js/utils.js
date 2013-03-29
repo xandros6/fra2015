@@ -59,25 +59,31 @@ fra = {
 	            	
 	            	placeholder=hidden;
 	            }
-	            
-	            if(fra.isNumeric(name) ) {cell.addClass('number');}
+	            var textalign ='left';
+	            if(fra.isNumeric(name) ) {cell.addClass('number');textalign='right';}
 		        
 				if(cell.hasClass('number')){type='input';}
-	            var input = $('<'+type+' style="width:80%" name="'+ name +'" class="celleditor" type="text" value="'+text+'"/>');
+				
+	            var input = $('<'+type+' style="text-align:'+textalign+';" name="'+ name +'" class="celleditor input-small" type="text" value="'+text+'"/>');
 	            input.val(text);
 	            if (cell.hasClass('number')){
 	                // on keydown verify if the key is a number
-	                input.keydown(function(evt){
-	                	return ( event.ctrlKey || event.altKey 
-	                            || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
-	                            || (95<event.keyCode && event.keyCode<106)
-	                            || (event.keyCode==8) || (event.keyCode==9) 
-	                            || (event.keyCode>34 && event.keyCode<40) 
-	                            || (event.keyCode==46)
-	                            || (event.keyCode==109)
-	                            || (event.keyCode==110)
-	                            ||  (event.keyCode==190)
+	                input.keydown(function(e){
+	                	var evt=(e)?e:(window.event)?window.event:null;
+	                    if(evt){
+	                       var code=(evt.charCode)?evt.charCode:((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
+	                   
+	                	return ( evt.ctrlKey || evt.altKey 
+	                            || (47<code && code<58 && evt.shiftKey==false) 
+	                            || (95<code && code<106)
+	                            || (code==8) || (code==9) 
+	                            || (code>34 && code<40) 
+	                            || (code==46)
+	                            || (code==109)
+	                            || (code==110)
+	                            ||  (code==190)
 	                           ) 
+	                    }
 	                });                               
 	            }
 	            cell.find('#cell-content').html( input );
@@ -85,7 +91,18 @@ fra = {
 	                if ( cell.hasClass('editing') ){
 	                    cell.removeClass("editing");
 	                    cell.addClass("editable");
+	                    var oldtext= text;
 	                    var text = cell.find(".celleditor").attr('value');
+	                    if(cell.hasClass('number')){
+		                    try{
+		                    	if(text!=""){
+			                    	text =Number(text);
+			                    	if(isNaN(text)) text="";
+		                    	}
+		                    }catch(e){
+		                    	text=oldtext;
+		                    }
+	                	}
 	                    cell.find('#cell-content').html( text );
 	                    hidden.val( text ).trigger('change');
 	                    fra.dirty=true;
@@ -116,15 +133,36 @@ fra = {
 			case "7":
 				return col =="2" || col =="1";
 			case "8b":
-				return col=="3";
+				return col=="3";	
+			case "16b":
+				return col>"0";
 			case "20":
-				return col=="1" && row=="1"
+				return col=="1" && row=="1";
+			case "13a":
+				return col=="1";
 			}
 			
-	    }
+	    },
+	    setNumber:function(cell){
+	    	var type='textarea';
+	        
+	        placeholder= cell.find('.entry_item_placeholder');
+	        if(placeholder.length <=0) return;
+            name = placeholder.attr('id');
+            if(!name) return;
+            if(fra.isNumeric(name) ) {cell.addClass('number');}
+    }
 }
+
+//assign number class to all td interessed:
+$(function(){
+	$('.entry td.editable').each(function(){
+		fra.setNumber($(this));
+	});
+})
+
 //not all numerics are 3b,33 (not a variable,only first column) 4b_x_3,7_X_1_,7_X_2,8b_x_3,_fraVariable_20_1_1_
-var allnumericVariables = ["1a","1b","2a","2b","2c","3a","3c","3d","3e","4a","5a","5b","6","8a","9","12","14","16","17","18a","18b","19","21a","21b"]
+var allnumericVariables = ["1a","1b","2a","2b","2c","3a","3c","3d","3e","4a","4c","5a","5b","6","8a","9","12","14","16a","17","18a","18b","19","21a","21b"]
 /* some numeric values from summary
 var numericVariablelist = ["_fraVariable_1a_2_1_",
                            "_fraVariable_1a_2_2_",

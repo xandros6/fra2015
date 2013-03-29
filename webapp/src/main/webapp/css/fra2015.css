@@ -267,9 +267,23 @@ section {
 }
 */
 section > .page-header,
-section > .lead {
+section > .lead	
+ {
   color: #5a5a5a;
 }
+section > .lead
+ {
+  margin-bottom:2px;
+  font-weight:bold;
+  color: #8a8a8a;
+}
+section > .lead + ul  {
+	padding-bottom: 20px;
+} 
+section > .lead +ul li {
+	margin:0;
+} 
+
 section > ul li {
   margin-bottom: 5px;
 }
@@ -333,7 +347,7 @@ table td.role div{
   height: 40px;
 }
 table td.countries div{  
-  word-wrap: break-word;
+  overflow: auto;
   width: 100px;
   height: 40px;
 }
@@ -351,3 +365,20 @@ table td.content div{
   width: 400px;
   height: 40px;
 }
+
+.entry .table-striped tbody tr:first-child td {
+    background-color: #CCFFCC;
+}
+
+tr.defhead td {
+    background-color: #CCFFCC !important;
+}
+
+td.number #cell-content,td.total{
+	text-align:right;	
+}
+/*TODO remove background color inline and use this instead */
+/*
+table.table-hover tbody tr td.editable{
+	background-color: rgb(242, 245, 169);
+}*/

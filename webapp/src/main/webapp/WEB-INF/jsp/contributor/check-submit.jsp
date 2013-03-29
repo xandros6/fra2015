@@ -38,6 +38,7 @@
 
 					</div>
 				</c:if>
+				<c:if test="${!denysubmit}">
 				<c:if test="${allowsubmit}">
 				<div id="messagePanel" class="alert alert-success"><spring:message code="validation.success"></spring:message></div>
 				</c:if>
@@ -57,6 +58,10 @@
 							class="btn btn-large btn-info ${!allowsubmit ? 'disabled':''}" ${!allowsubmit ? 'disabled':''}>Submit</button>
 					</div>
 				</form>
+				</c:if>
+				<c:if test="${denysubmit}">
+				<div id="messagePanel" class="alert alert-warning"><spring:message code="submit.statuserror"></spring:message></div>
+				</c:if>
 			</div>
 		</div>
 	</div>

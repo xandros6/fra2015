@@ -52,14 +52,12 @@ fra.tooltips= {
 		ref67_tt:'<spring:message code="ref67_tt"></spring:message>',
 		ref161_tt:'<spring:message code="ref161_tt"></spring:message>',
 		ref179_tt:'<spring:message code="ref179_tt"></spring:message>',
-		ref260_tt:'<spring:message code="ref260_tt"></spring:message>',
 		ref332_tt:'<spring:message code="ref332_tt"></spring:message>',
 		ref79:'<spring:message code="ref79"></spring:message>',
 		ref362_tt:'<spring:message code="ref362_tt"></spring:message>',
+        reftab5att1:'<spring:message code="reftab5att1"></spring:message>',
 		ref367:'<spring:message code="ref367"></spring:message>',
-		ref368:'<spring:message code="ref368"></spring:message>',
-		ref79:'<spring:message code="ref79"></spring:message>'
-		
+		ref368:'<spring:message code="ref368"></spring:message>'
 };
 fra.messages={
 		confirmsubmit:'<spring:message code="alert.survey.confirmsubmit"></spring:message>',
@@ -103,7 +101,7 @@ $(function(){
         value = value.replace( re, '<i class="icon-question-sign" data></i>');
         cell.empty().append( value );
 
-
+		
         if(matchArr) {
             // console.log( "value " + value );
 
@@ -115,18 +113,92 @@ $(function(){
 					$(entry2).attr("data-content",tooltip.replace("\"","\\\"") );
 				$(entry2).attr("data-original-title",'<spring:message code="tootip.title.note"/>');
 				$(entry2).attr("data-toggle","popover");
+				$(entry2).addClass=("tooltip-popover");
                 if (tooltip) {
                     $(entry2).popover({
                         title: 'Note',
+                        placement:function(tip, element) {
+                            var $element, above, actualHeight, actualWidth, below, boundBottom, boundLeft, boundRight, boundTop, elementAbove, elementBelow, elementLeft, elementRight, isWithinBounds, left, pos, right;
+                            isWithinBounds = function(elementPosition) {
+                              return boundTop < elementPosition.top && boundLeft < elementPosition.left && boundRight > (elementPosition.left + actualWidth) && boundBottom > (elementPosition.top + actualHeight);
+                            };
+                            $element = $(element);
+                            pos = $.extend({}, $element.offset(), {
+                              width: element.offsetWidth,
+                              height: element.offsetHeight
+                            });
+                            actualWidth = 283;
+                            actualHeight = 117;
+                            boundTop = $(document).scrollTop();
+                            boundLeft = $(document).scrollLeft();
+                            boundRight = boundLeft + $(window).width();
+                            boundBottom = boundTop + $(window).height();
+                            elementAbove = {
+                              top: pos.top - actualHeight,
+                              left: pos.left + pos.width / 2 - actualWidth / 2
+                            };
+                            elementBelow = {
+                              top: pos.top + pos.height,
+                              left: pos.left + pos.width / 2 - actualWidth / 2
+                            };
+                            elementLeft = {
+                              top: pos.top + pos.height / 2 - actualHeight / 2,
+                              left: pos.left - actualWidth
+                            };
+                            elementRight = {
+                              top: pos.top + pos.height / 2 - actualHeight / 2,
+                              left: pos.left + pos.width
+                            };
+                            above = isWithinBounds(elementAbove);
+                            below = isWithinBounds(elementBelow);
+                            left = isWithinBounds(elementLeft);
+                            right = isWithinBounds(elementRight);
+                            if (above) {
+                              return "top";
+                            } else {
+                              if (below) {
+                                return "bottom";
+                              } else {
+                                if (left) {
+                                  return "left";
+                                } else {
+                                  if (right) {
+                                    return "right";
+                                  } else {
+                                    return "right";
+                                  }
+                                }
+                              }
+                            }
+                          },
                         html: true,
-                        content: tooltip
+                        content: tooltip,
+                        trigger:'hover'
                     });
+                    
                 } else {
                     alert("Bad tooltip # " + labelId);
                 }
 				
       
             });
+            var $poped =$("i");
+            /*
+            $poped.each(function() {
+                var $this = $(this);
+                $this.on('hover',function() {
+                        var popover = $this.data('popover');
+                        var shown = popover && popover.tip().is(':visible');
+                        if(shown) return;        // Avoids flashing
+                        $this.popover('show');
+                });
+            });
+
+            // Trigger for the hiding
+             $('html').on('click.popover.data-api',function() {
+                $poped.popover('hide');
+            });
+            */
         }
 
     //etj end

@@ -47,7 +47,7 @@ public class SurveyServiceImpl implements SurveyService {
 
 	public abstract class ValueDAO {
 
-		public abstract void persist(Value value);
+		public abstract void persist(ValueDTO value);
 
 		public abstract Value read(Long itemId, Country country);
 
@@ -118,10 +118,9 @@ public class SurveyServiceImpl implements SurveyService {
     public SurveyServiceImpl() {
 		map.put("String", new ValueDAO() {
 			@Override
-			public void persist(Value value) {
+			public void persist(ValueDTO value) {
 				TextValue dbValue = new TextValue();
 				dbValue.setCountry(value.getCountry());
-				dbValue.setRowNumber(value.getRowNumber());
 				dbValue.setValue(value.getContent());
 				dbValue.setEntryItem(value.getEntryItem());
 				textValueDAO.persist(dbValue);
@@ -160,20 +159,20 @@ public class SurveyServiceImpl implements SurveyService {
 		});
 		map.put("Number", new ValueDAO() {
 			@Override
-			public void persist(Value value) {
+			public void persist(ValueDTO value) {
 				try {
 				    if(!StringUtils.isBlank(value.getContent())){
-					NumberFormat format = NumberFormat.getInstance(Locale.US);
-					Number number = format.parse(value.getContent());
-					NumberValue dbValue = new NumberValue();
-					dbValue.setCountry(value.getCountry());
-					dbValue.setValue(number);
-					dbValue.setEntryItem(value.getEntryItem());
-					numberValueDAO.persist(dbValue);
+                        NumberFormat format = NumberFormat.getInstance(Locale.US);
+                        Number number = format.parse(value.getContent());
+                        NumberValue dbValue = new NumberValue();
+                        dbValue.setCountry(value.getCountry());
+                        dbValue.setValue(number);
+                        dbValue.setEntryItem(value.getEntryItem());
+                        numberValueDAO.persist(dbValue);
 				    }
 				    else{
 				        StringBuilder sb = new StringBuilder();
-				        sb.append("Error when try to persist entryItem id:'").append(value.getId()).append("' the provided value is blank and the EntryItem has type 'Number', skip the value...");
+				        sb.append("Error when try to persist entryItem id:'").append(value).append("' the provided value is blank and the EntryItem has type 'Number', skip the value...");
 				        LOGGER.error(sb.toString());
 				    }
 				} catch (ParseException ex) {
@@ -262,12 +261,12 @@ public class SurveyServiceImpl implements SurveyService {
 			Value dbValue = valueDAO.read(item.getId(), country);
 			if (dbValue == null) {
 				// create a new value
-				dbValue = new Value();
-				dbValue.setEntryItem(item);
-				dbValue.setCountry(country);
+				ValueDTO v = new ValueDTO();
+				v.setEntryItem(item);
+				v.setCountry(country);
 				// set value
-				dbValue.setContent(value);
-				valueDAO.persist(dbValue);
+				v.setContent(value);
+				valueDAO.persist(v);
 			} else {
 				// update values
 				dbValue.setContent(value);
@@ -369,6 +368,16 @@ public class SurveyServiceImpl implements SurveyService {
 			return survey.getStatus().getStatus();
 		}
 		return null;
+	}
+	
+	@Override
+	public Status getStatus(String iso3){
+	    SurveyInstance survey = surveyDAO.findByCountry( iso3 );
+	    if ( survey != null ){
+                return survey.getStatus();
+                
+            }
+	    return null;
 	}
 	@Override
 	public List<SurveyInstance> getSurveysByCountry(String[] countries,int page,int entries){
@@ -483,6 +492,47 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return values;
 	}
+	
+	public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx{
+
+            // find a country with the given name
+            Country country = findCountryByISO3(iso3);
+            if (country == null) {
+                    throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+            }
+
+            List<Value> values = new ArrayList<Value>();
+
+            List<Entry> entries = new ArrayList<Entry>();
+            if(questionNumber == null){
+                    entries = surveyCatalog.getCatalog();
+            }
+            else{
+                    entries = surveyCatalog.getCatalogForQuestion(questionNumber);
+            }
+            //        List<Entry> entries = entryDAO.findAll();
+            if (entries != null) {
+                    for (Entry entry : entries) {
+                            if(entry == null){
+                                    continue;
+                            }
+                            if (!entry.getEntryItems().isEmpty()) {
+                                    for (EntryItem item : entry.getEntryItems()) {
+                                            String type = item.getType();
+                                            ValueDAO valueDAO = map.get(type);
+                                            if (valueDAO != null) {
+                                                    Value value = valueDAO.read(item.getId(), country);
+                                                    if (value != null) {
+                                                            values.add(value);
+                                                    }
+                                            }
+
+                                    }
+                            }
+                    }
+            }
+            return values;
+    }
 
     @Override
     public void insertQuestionRevision(QuestionRevision question) {
@@ -554,6 +604,40 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
 
+    private static class ValueDTO {
+
+        private EntryItem entryItem;
+        private Country country;
+        private String content;
+
+        public ValueDTO() {
+        }
+
+        public EntryItem getEntryItem() {
+            return entryItem;
+        }
+
+        public void setEntryItem(EntryItem entryItem) {
+            this.entryItem = entryItem;
+        }
+
+        public Country getCountry() {
+            return country;
+        }
+
+        public void setCountry(Country country) {
+            this.country = country;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+    }
 
 
 }

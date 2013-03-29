@@ -40,12 +40,7 @@
     <!-- ############### -->
 	<!-- Mailing support -->
 	<!-- ############### -->
-	<!-- Load in application properties reference -->
-	<bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
-        <property name="ignoreResourceNotFound" value="false"/>
-        <property name="order" value="5"/>
-        <property name="location" value="classpath:mail.properties"/>
-    </bean>
+
 
 	
 	<!-- freemarker config -->
@@ -62,8 +57,8 @@
 
 		<property name="javaMailProperties">
 			<props>
-				<prop key="mail.smtp.auth">true</prop>
-				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.auth">false</prop>
+				<prop key="mail.smtp.starttls.enable">false</prop>
 			</props>
 		</property>
 	</bean>

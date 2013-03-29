@@ -6,6 +6,9 @@
 			<spring:message code="ref495"></spring:message>
 		</h1>
 	</div>
+	<p class="lead">
+		<spring:message code="refq18faq"></spring:message>
+	</p>
 	<section>
 		<h2>
 			18.1
@@ -71,11 +74,9 @@
 							<td rownumber="8" columnnumber="1"><spring:message
 									code="ref511"></spring:message></td>
 						</tr>
-						<tr>
-							<td rownumber="9" columnnumber="0"><spring:message
-									code="ref512"></spring:message></td>
-							<td rownumber="9" columnnumber="1"><spring:message
-									code="ref14"></spring:message></td>
+                        <tr class="defhead">
+							<td rownumber="9" columnnumber="0"><spring:message code="ref512"></spring:message></td>
+							<td rownumber="9" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
 						<tr>
 							<td rownumber="10" columnnumber="0"><spring:message
@@ -141,7 +142,7 @@
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="4"><spring:message
 										code="ref38"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -152,7 +153,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -177,7 +178,7 @@
 										code="ref43"></spring:message></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref14"></spring:message></td>
-								<c:if test="${sessionUser.role == 'contributor'}">
+								<c:if test="${profile == 'CONTRIBUTOR'}">
 									<td class="action-column" width="80px"></td>
 								</c:if>
 							</tr>
@@ -188,7 +189,7 @@
 					</table>
 				</div>
 				<div class="control pull-right">
-					<c:if test="${sessionUser.role == 'contributor'}">
+					<c:if test="${profile == 'CONTRIBUTOR'}">
 						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
@@ -288,7 +289,7 @@
 							<td colspan="4" rownumber="0" columnnumber="1"><spring:message
 									code="ref284"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -624,7 +625,7 @@
 							<td colspan="4" rownumber="0" columnnumber="1"><spring:message
 									code="ref109"></spring:message></td>
 						</tr>
-						<tr>
+                        <tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message
@@ -919,7 +920,7 @@
 						</tr>
 						<tr>
 							<td rownumber="3" columnnumber="0"><spring:message
-									code="ref534"></spring:message></td>
+									code="ref510"></spring:message></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="152"><span class="entry_item_placeholder" id="_fraVariable_152_3_1_">&nbsp;</span>
@@ -931,7 +932,7 @@
 						</tr>
 						<tr>
 							<td rownumber="4" columnnumber="0"><spring:message
-									code="ref535"></spring:message></td>
+									code="ref535b"></spring:message></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="152"><span class="entry_item_placeholder" id="_fraVariable_152_4_1_">&nbsp;</span>
