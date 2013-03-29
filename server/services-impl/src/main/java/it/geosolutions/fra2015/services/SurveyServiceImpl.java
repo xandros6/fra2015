@@ -121,7 +121,6 @@ public class SurveyServiceImpl implements SurveyService {
 			public void persist(ValueDTO value) {
 				TextValue dbValue = new TextValue();
 				dbValue.setCountry(value.getCountry());
-				dbValue.setRowNumber(value.getRowNumber());
 				dbValue.setValue(value.getContent());
 				dbValue.setEntryItem(value.getEntryItem());
 				textValueDAO.persist(dbValue);
@@ -610,7 +609,6 @@ public class SurveyServiceImpl implements SurveyService {
         private EntryItem entryItem;
         private Country country;
         private String content;
-        private Integer rowNumber;
 
         public ValueDTO() {
         }
@@ -637,14 +635,6 @@ public class SurveyServiceImpl implements SurveyService {
 
         public void setContent(String content) {
             this.content = content;
-        }
-
-        public Integer getRowNumber() {
-            return rowNumber;
-        }
-
-        public void setRowNumber(Integer rowNumber) {
-            this.rowNumber = rowNumber;
         }
 
     }

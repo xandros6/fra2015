@@ -45,9 +45,6 @@ public abstract class Value implements Serializable {
     @JoinColumn(name="item_id", nullable=false)
     private EntryItem entryItem;
 
-    @Column(nullable = true, updatable = false)
-    private Integer rowNumber;
-    
 //    /**
 //     * The id of a question is the concatenation of Country(in the iso3 form) and The question number
 //     */
@@ -76,14 +73,6 @@ public abstract class Value implements Serializable {
 
     public void setEntryItem(EntryItem entryItem) {
         this.entryItem = entryItem;
-    }
-
-    public Integer getRowNumber() {
-        return rowNumber;
-    }
-
-    public void setRowNumber(Integer rowNumber) {
-        this.rowNumber = rowNumber;
     }
 
     public String getContent() {
