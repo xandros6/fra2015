@@ -331,24 +331,30 @@ hr.soften {
 .inline{
 	display:inline;
 }
-table td.fullname div{  
-  word-wrap: break-word;
+table td.fullname{
   width: 200px;
+}
+table td.fullname div{  
+  word-wrap: break-word;  
   height: 40px;
 }
-table td.username div{  
-  word-wrap: break-word;
+table td.username{
   width: 150px;
+}
+table td.username div{  
+  word-wrap: break-word;  
   height: 40px;
+}
+table td.role{
+  width: 120px;
 }
 table td.role div{  
   word-wrap: break-word;
-  width: 120px;
   height: 40px;
 }
-table td.countries div{  
+table td.countries div{ 
+  word-wrap: break-word; 
   overflow: auto;
-  width: 100px;
   height: 40px;
 }
 table td.link{  
