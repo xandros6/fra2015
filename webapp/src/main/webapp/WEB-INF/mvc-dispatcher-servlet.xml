@@ -78,6 +78,7 @@
 				<value>it.geosolutions.fra2015.i18n.messages</value>
 				<value>it.geosolutions.fra2015.i18n.locale</value>
 				<value>it.geosolutions.fra2015.i18n.validation</value>
+				<value>it.geosolutions.fra2015.i18n.countries</value>
 			</list>
 		</property>
 	</bean>
