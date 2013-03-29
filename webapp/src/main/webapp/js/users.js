@@ -40,7 +40,8 @@ var addCountryHandler = function(el) {
 	var roleComboBox = el.find('#roleComboBox');
 	var addCountryBtn = el.find('#addCountryBtn');
 	var value = countriesField.val();
-	var selectedCountry = $.grep(countriesArr, function(e){ return e.name == value; })[0];
+	//var selectedCountry = $.grep(countriesArr, function(e){ return e.name == value; })[0];
+	var selectedCountry = map[value];
 	countriesField.val('');
 	if (!selectedCountry || countriesString.val().indexOf(selectedCountry.id) !== -1) {
 		// country already in list
@@ -159,8 +160,11 @@ function initCountrySelector(el){
 	el.find('#countries').typeahead({
 	    source: function (query, process) {
 	    	var result  = [];	 
+	    	map = {};
 	        $.each(countriesArr, function (i, country) {
-	        	result.push(country.name);
+	        	var label = country.name + " (" + country.iso3 + ")";
+	        	result.push(label);
+	        	map[label] = country;
 	        });
 	        process(result);
 	    }
@@ -219,6 +223,19 @@ function saveUser(el){
 	el.find('#createUserForm').submit();
 }
 
+function initActivityLog(){
+	var el = $('#filterActivityLogForm');
+	el.find('#filter_from_clear_btn').click(function(event){ el.find('#fromDate').val('');el.submit() });
+	el.find('#filter_to_clear_btn').click(function(event){ el.find('#toDate').val('');el.submit() });
+	el.find('#filter_username_clear_btn').click(function(event){ el.find('#username').val('');el.submit() });
+	el.find('#filter_country_clear_btn').click(function(event){ el.find('#country').val('');el.submit( )});
+	el.find('#filter_questionId_clear_btn').click(function(event){ el.find('#questionId').val('');el.submit( )});
+	el.find('#filter_content_clear_btn').click(function(event){ el.find('#content').val('');el.submit()});
+	el.find('#filter_from_clear_btn').click(function(event){ el.find('#fromDate').val('');el.submit()});
+	el.find('.icon-filter').click(function(event){el.submit()});
+	el.find('#questionId').numeric();
+}
+
 $(function(){
 	$('#createUserWindow').on('hidden', function() {
 		$(this).data('modal').$element.removeData();
@@ -263,4 +280,13 @@ $(function(){
 		location.href=contextPath+"/users/delete/"+userId+"/"+page;
 	});
 
+	$('#datetimepickerFrom').datetimepicker({
+		language: 'pt-BR'
+	});
+	
+	$('#datetimepickerTo').datetimepicker({
+		language: 'pt-BR'
+	});
+	
+	initActivityLog();
 });

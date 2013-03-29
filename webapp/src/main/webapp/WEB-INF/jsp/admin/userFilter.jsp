@@ -68,7 +68,7 @@
 		</tr>
 		<tr>
 			<td>
-				<input id="filter_countries" type="text" autocomplete="off" class="input-block-level"/>  
+				<input id="filter_countries" type="text" autocomplete="off" class="input-block-level" placeholder="Type to filter countries"/>  
 				<form:input path="selCountries" name="selCountries" type="hidden" id="selCountries"/>
 			</td>
 			<td valign="top" align="center">

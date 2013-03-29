@@ -2,7 +2,7 @@
 <ul class="nav">
 	<li class="${context=='activitylog' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/adminactivitylog"
 		class="tab"> <spring:message code="toolbar.activity_log" /></a></li>
-	<li class="${context=='users' ? 'active' : '' }"><a href="${context=='users' ? '#' : 'users/' }"
+	<li class="${context=='users' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/users"
 		class="tab" data-i18n="toolbar_create_users"><spring:message code="toolbar.create.users" /></a></li>
 	<li class="${context=='adminexport' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/adminexport"
 		class="tab" data-i18n="toolbar_export"><spring:message code="toolbar.export" /></a></li>

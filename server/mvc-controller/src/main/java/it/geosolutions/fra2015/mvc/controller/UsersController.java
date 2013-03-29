@@ -87,7 +87,7 @@ public class UsersController {
 
 	Logger LOGGER = Logger.getLogger(UsersController.class);
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "")
 	public String getUsers(ModelMap model) {
 		return "redirect:/users/0";
 	}

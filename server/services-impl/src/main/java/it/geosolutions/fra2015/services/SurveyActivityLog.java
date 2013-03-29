@@ -23,10 +23,18 @@ package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.dao.ActivityLogDAO;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import java.text.ParseException;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+
+import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Search;
+import com.googlecode.genericdao.search.Sort;
 
 /**
  * @author DamianoG
@@ -54,6 +62,24 @@ public class SurveyActivityLog {
             return false;
         }
         return true;
+    }
+    
+    /**
+     * Retrieve logs with pagination.
+     * 
+     * @param page
+     * @param entries
+     * @return
+     */
+    public List<ActivityLogEntry> find(int page, int entries) throws IllegalArgumentException{
+        
+        StringBuffer sb = new StringBuffer();
+      /*  if(!checkPageParams(page, entries, sb)){
+            
+            LOGGER.error(sb.toString());
+            throw new IllegalArgumentException();
+        }*/
+        return  activityLogDAO.find(page, entries);
     }
     
     /**
@@ -156,6 +182,65 @@ public class SurveyActivityLog {
      */
     public void setActivityLogDAO(ActivityLogDAO activityLogDAO) {
         this.activityLogDAO = activityLogDAO;
+    }
+
+    public long getCountFiltered(ActivityLogEntry logFilter) throws BadRequestServiceEx {
+    	Search searchCriteria = getSearchCriteria(null, null, logFilter);  
+    	return activityLogDAO.count(searchCriteria);
+    }
+    
+    private Search getSearchCriteria(Integer page, Integer entries, ActivityLogEntry logFilter) throws BadRequestServiceEx{
+   	 if (((page != null) && (entries == null)) || ((page == null) && (entries != null))) {
+            throw new BadRequestServiceEx("Page and entries params should be declared together.");
+        }
+
+        Search searchCriteria = new Search(ActivityLogEntry.class);     
+        
+        searchCriteria.addSort(new Sort("updateTimeStamp",true));
+        
+        if(logFilter != null){
+        	if(StringUtils.isNotBlank(logFilter.getFromDate())){
+        		try {
+					searchCriteria.addFilter(Filter.greaterOrEqual("updateTimeStamp", ActivityLogEntry.formatter.parse(logFilter.getFromDate())) );
+				} catch (ParseException e) {
+					LOGGER.error(e.getMessage(),e);
+				}
+        	}
+        	if(StringUtils.isNotBlank(logFilter.getToDate())){
+        		try {
+					searchCriteria.addFilter(Filter.lessOrEqual("updateTimeStamp", ActivityLogEntry.formatter.parse(logFilter.getToDate())) );
+				} catch (ParseException e) {
+					LOGGER.error(e.getMessage(),e);
+				}
+        	}
+        	if(StringUtils.isNotBlank(logFilter.getToDate())){
+        		searchCriteria.addFilter(Filter.ilike("username", "%"+logFilter.getUsername()+"%"));
+        	}
+        	if(StringUtils.isNotBlank(logFilter.getUsername()))
+        		searchCriteria.addFilter(Filter.ilike("username", "%"+logFilter.getUsername()+"%"));
+        	if(StringUtils.isNotBlank(logFilter.getCountry()))
+        		searchCriteria.addFilter(Filter.ilike("country","%"+logFilter.getCountry()+"%"));        	
+        	if(StringUtils.isNotBlank(logFilter.getQuestion_id()))
+        		searchCriteria.addFilter(Filter.equal("question_id", logFilter.getQuestion_id()));        	
+        	if(StringUtils.isNotBlank(logFilter.getContent()))
+        		searchCriteria.addFilter(Filter.ilike("content","%"+logFilter.getContent()+"%"));
+        }
+        
+        if (page != null) {
+            searchCriteria.setMaxResults(entries);
+            searchCriteria.setPage(page);
+        }
+        
+        return searchCriteria;
+   }
+
+    public List<ActivityLogEntry> getAll(Integer page, Integer entries, ActivityLogEntry logFilter) throws BadRequestServiceEx {
+
+        Search searchCriteria = getSearchCriteria(page, entries, logFilter);  
+
+        List<ActivityLogEntry> found = activityLogDAO.search(searchCriteria);
+
+        return found;
     }
     
     
