@@ -841,17 +841,9 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td rowspan="5">14b</td>
+				<td rowspan="4">14b</td>
 			</tr>
-			<tr>
-				<td>14.2 <spring:message code="ref449"></spring:message></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			
 			<tr>
 				<td>14.2.1 <spring:message code="ref450"></spring:message></td>
 				<td>Boolean</td>
@@ -876,7 +868,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td><c:if test="${_fraVariable_14b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td></td>
 			</tr>
 			<tr>
