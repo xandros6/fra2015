@@ -30,7 +30,10 @@ import it.geosolutions.fra2015.server.model.survey.TextValue;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.googlecode.genericdao.search.Search;
 
 /**
  * @author DamianoG
@@ -62,17 +65,21 @@ public class BulkModelEntitiesLoader {
      * Bulk loading of all persisted TextValue
      * @return
      */
-    public List<TextValue> loadAllTextValues(){
+    public List<TextValue> loadAllTextValues(String iso3){
         
-        return textValueDAO.findAll();
+        Search searchCriteria = new Search();
+        searchCriteria.addFilterEqual("country.iso3", iso3);
+        return textValueDAO.search(searchCriteria);
     }
     
     /**
      * Bulk loading of all persisted TextValue
      * @return
      */
-    public List<NumberValue> loadAllNumericValues(){
+    public List<NumberValue> loadAllNumericValues(String iso3){
         
-        return textNumberDAO.findAll();
+        Search searchCriteria = new Search();
+        searchCriteria.addFilterEqual("country.iso3", iso3);
+        return textNumberDAO.search(searchCriteria);
     }
 }

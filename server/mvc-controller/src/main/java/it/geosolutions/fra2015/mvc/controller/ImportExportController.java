@@ -1,7 +1,7 @@
 /*
  *  fra2015
  *  https://github.com/geosolutions-it/fra2015
- *  Copyright (C) 2013 GeoSolutions S.A.S.
+ *  Copyright (C) 2007-2013 GeoSolutions S.A.S.
  *  http://www.geo-solutions.it
  *
  *  GPLv3 + Classpath exception
@@ -21,24 +21,24 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.mvc.model.SurveyUpload;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.server.model.xmlexport.BasicValue;
 import it.geosolutions.fra2015.server.model.xmlexport.SurveyInfo;
 import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
+import it.geosolutions.fra2015.services.SurveyService;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,37 +49,128 @@ import java.util.TimeZone;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
- * @author DamianoG
+ * @author Lorenzo Natali
  * 
  */
 @Controller
-public class XmlExportController {
+public class ImportExportController {
 
+    @Autowired
+    private SurveyService surveyService;
+    
     @Autowired
     private BulkModelEntitiesLoader bulkLoader;
     
     @Autowired
     private ControllerServices utils;
+
+    private static Logger LOGGER = Logger.getLogger(ImportExportController.class);
     
-    @Autowired
-    private SurveyServiceEntryPoint surveyService;
+    @RequestMapping(value = "/export", method = RequestMethod.GET)
+    public String export(ModelMap model, HttpSession session) {
+        
+        model.addAttribute("context", "export");
+        User user = (User) session.getAttribute(SESSION_USER);
+        if (user == null){
+            return "redirect:/";
+        }
+        String role = user.getRole();
+        if ("reviewer".equals(role)) {
+            
+            return "reviewer";
+        }
+        if ("admin".equals(role)) {
 
-    Logger LOGGER = Logger.getLogger(PrintController.class);
+            return "redirect:/adminexport";
+        }
+        if (role.equals("contributor")) {
+            model.addAttribute("country", user.getCountries());
+        }
+        return "index";
 
+    }
+
+    @RequestMapping(value = "/adminexport", method = RequestMethod.GET)
+    public String adminexport(ModelMap model, HttpSession session) {
+        
+        model.addAttribute("context", "export");
+        User user = (User) session.getAttribute(SESSION_USER);
+        if (user == null){
+            
+            return "redirect:/";
+        }
+        String role = user.getRole();
+        if ("reviewer".equals(role)) {
+            return "redirect:/export";
+        }
+        if ("admin".equals(role)) {
+            model.addAttribute("countries", surveyService.getCountries());
+            model.addAttribute("uploadItem", new SurveyUpload());
+            return "admin";
+        }
+        return "/";
+
+    }
+    
+    @RequestMapping(value = "/importXml", method = RequestMethod.POST)
+    public String importXml(ModelMap model, SurveyUpload uploadItem, BindingResult result) {
+        if (result.hasErrors()) {
+            for (ObjectError error : result.getAllErrors()) {
+                
+                LOGGER.error("Error: " + error.getCode() + " - " + error.getDefaultMessage());
+            }
+            return "redirect:/adminexport";
+        }
+        if(uploadItem == null || uploadItem.getFileData() == null || uploadItem.getFileData().isEmpty() || StringUtils.isBlank(uploadItem.getCountryForImport())){
+            
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "import.resultKO");
+            model.addAttribute("messageTimeout",10000);
+        }
+        else{
+            Boolean outcome = importFromXML(uploadItem.getFileData(), uploadItem.getCountryForImport());
+            if(outcome == null){
+                
+                model.addAttribute("messageType", "warning");
+                model.addAttribute("messageCode", "import.resultKO");
+                model.addAttribute("messageTimeout",10000);
+            }
+            else if(!outcome){
+                
+                model.addAttribute("messageType", "warning");
+                model.addAttribute("messageCode", "import.countrynotmatch");
+                model.addAttribute("messageTimeout",10000);
+            }
+            else{
+                model.addAttribute("messageType", "success");
+                model.addAttribute("messageCode", "import.resultOK");
+                model.addAttribute("messageTimeout",10000);
+            }
+        }
+        
+        model.addAttribute("countries", surveyService.getCountries());
+        model.addAttribute("uploadItem", new SurveyUpload());
+        model.addAttribute("context","export");
+        return "admin";
+    }
+    
     @RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
     public @ResponseBody XmlSurvey handleGet(
             @PathVariable(value = "country") String country, Model model, HttpSession session)
@@ -95,9 +186,9 @@ public class XmlExportController {
         List<BasicValue> valList = new ArrayList<BasicValue>();
         survey.setBasicValues(valList);
 
-        List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
-        List<TextValue> textValues = bulkLoader.loadAllTextValues();
-        List<NumberValue> numberValues = bulkLoader.loadAllNumericValues();
+//        List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
+        List<TextValue> textValues = bulkLoader.loadAllTextValues(country);
+        List<NumberValue> numberValues = bulkLoader.loadAllNumericValues(country);
         
         for (TextValue el : textValues) {
             
@@ -114,41 +205,6 @@ public class XmlExportController {
 //
 //            valList.add(buildBasicValue("", composeEntryItemName(el)));
 //        }
-
-        
-        // TODO Code for explicity marshall the XmlSurvey... do more tests then remove it 
-//        ByteArrayOutputStream result = new ByteArrayOutputStream();
-//        try {
-//
-//            JAXBContext context = null;
-//            try {
-//
-//                context = JAXBContext.newInstance(XmlSurvey.class);
-//                Marshaller marshaller = context.createMarshaller();
-//                marshaller.marshal(survey, result);
-//                result.flush();
-//                result.close();
-//            } catch (JAXBException e) {
-//
-//                LOGGER.error(e.getMessage(), e);
-//            }
-//            model.addAttribute("outSurvey", StringEscapeUtils.escapeXml(result.toString()));
-//
-//        } catch (IOException e) {
-//            
-//            LOGGER.error(e.getMessage(), e);
-//        } finally {
-//
-//            if (result != null) {
-//
-//                try {
-//                    result.close();
-//                } catch (IOException e) {
-//                    LOGGER.error(e.getMessage(), e);
-//                }
-//            }
-//        }
-//        return "/admin/exportxml";
     }
     
     private static String composeEntryItemName(EntryItem el){
@@ -172,34 +228,37 @@ public class XmlExportController {
         val.setType(type);
         return val;
     }
+    
+    public Boolean importFromXML(CommonsMultipartFile file, String countryCheck) {
 
-    @RequestMapping(value = "/import", headers = "Accept=application/xml", method = RequestMethod.GET)
-    public void importFromXML() {
-
-        
         JAXBContext jc = null;
         XmlSurvey survey = null;
         Updates updates = new Updates();
-        List<Update> updateList = new ArrayList();
+        List<Update> updateList = new ArrayList<Update>();
         Updates removes = new Updates();
         
         try {
 
             jc = JAXBContext.newInstance(XmlSurvey.class);
             Unmarshaller um = jc.createUnmarshaller();
-            // TODO Test add multipart support
-            survey = (XmlSurvey) um.unmarshal(new FileReader(
-                    "C:\\Users\\geosolutions\\Desktop\\surveyExample.xml"));    
-        } catch (JAXBException e) {
+            survey = (XmlSurvey) um.unmarshal(file.getInputStream());
+        }
+        catch (IOException e) {
+            
+            LOGGER.error(e.getMessage(), e);
+            return null;
+        }  catch (JAXBException e) {
 
             LOGGER.error(e.getMessage(), e);
-        } catch (FileNotFoundException e) {
-
-            LOGGER.error(e.getMessage(), e);
+            return null;
         }
         
         SurveyInfo info = survey.getInfo();
         String country = info.getCountry();
+        if(!country.equals(countryCheck)){
+            
+            return false;
+        }
         Country countryInstance = surveyService.findCountryByISO3(country);
         if(countryInstance == null){
             
@@ -222,14 +281,6 @@ public class XmlExportController {
         
         updates.setUpdates(updateList);
         utils.updateValuesService(updates, removes);
-        
+        return true;
     }
-
-    public static void main(String[] args) {
-
-        XmlExportController export = new XmlExportController();
-        export.importFromXML();
-    }
-
-
 }

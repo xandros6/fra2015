@@ -5,5 +5,5 @@
 	<li class="${context=='users' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/users"
 		class="tab" data-i18n="toolbar_create_users"><spring:message code="toolbar.create.users" /></a></li>
 	<li class="${context=='adminexport' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/adminexport"
-		class="tab" data-i18n="toolbar_export"><spring:message code="toolbar.export" /></a></li>
+		class="tab" data-i18n="toolbar_export"><spring:message code="toolbar.importexport" /></a></li>
 </ul>
