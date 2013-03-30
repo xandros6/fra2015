@@ -7172,7 +7172,7 @@
 							</EntryItems>
 						</entry>
 						<entry>
-							<type>static_table</type>
+							<type>table</type>
 							<variable>13a</variable>
 							<EntryItems>
 								<entryItem>
