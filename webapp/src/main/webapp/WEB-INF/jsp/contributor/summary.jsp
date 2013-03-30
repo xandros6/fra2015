@@ -400,7 +400,7 @@
 				<td>${_fraVariable_3e_9_5_},${_fraVariable_3e_9_10_}</td>
 			</tr>
 			<tr>
-				<td rowspan="4">4a</td>
+				<td rowspan="3">4a</td>
 			</tr>
 			<tr>
 				<td>4.1 <spring:message code="ref218"></spring:message></td>
@@ -420,7 +420,7 @@
 				<td>${_fraVariable_4a_3_4_}</td>
 				<td>${_fraVariable_4a_3_5_}</td>
 			</tr>
-			<tr>
+			<% /* <tr>
 				<td>4.3 <spring:message code="ref222"></spring:message></td>
 				<td>1000 ha</td>
 				<td>${_fraVariable_4a_4_1_}</td>
@@ -429,6 +429,7 @@
 				<td>${_fraVariable_4a_4_4_}</td>
 				<td>${_fraVariable_4a_4_5_}</td>
 			</tr>
+			*/ %>
 			<tr>
 				<td>4b</td>
 				<td><spring:message code="ref231"></spring:message>
