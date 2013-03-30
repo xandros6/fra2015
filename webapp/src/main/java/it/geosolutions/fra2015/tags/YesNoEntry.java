@@ -1,17 +1,13 @@
 package it.geosolutions.fra2015.tags;
 
-import it.geosolutions.fra2015.server.model.user.User;
-
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.LocaleResolver;
@@ -76,7 +72,7 @@ public class YesNoEntry extends SurveyEntry {
 		this.style = style;
 	}
 
-	private ResourceBundleMessageSource messageSource;
+	private ReloadableResourceBundleMessageSource messageSource;
 
 	LocaleResolver localeResolver;
 	private String reader;
@@ -132,7 +128,7 @@ public class YesNoEntry extends SurveyEntry {
 					.getWebApplicationContext(pageContext.getServletContext());
 		}
 		if (this.messageSource == null) {
-			this.messageSource = (ResourceBundleMessageSource) springContext
+			this.messageSource = (ReloadableResourceBundleMessageSource) springContext
 					.getBean("messageSource");
 		}
 		if (this.localeResolver == null) {
