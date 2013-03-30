@@ -552,9 +552,9 @@
 						<tr>
 							<td colspan="2" rownumber="12" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
-							<td class="noneditable" rownumber="12" columnnumber="1"></td>
-							<td rownumber="12" columnnumber="2"></td>
-							<td class="noneditable" rownumber="12" columnnumber="3"></td>
+							<td class="noneditable" rownumber="12" columnnumber="2"></td>
+							<td rownumber="12" columnnumber="3" class="total"></td>
+							<td class="noneditable" rownumber="12" columnnumber="4"></td>
 						</tr>
 					</tbody>
 				</table>
