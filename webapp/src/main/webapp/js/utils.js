@@ -42,7 +42,7 @@ fra = {
 	        if ( cell.hasClass('editable') ){
 	            cell.removeClass("editable");
 	            cell.addClass("editing");
-	            var text = cell.find('#cell-content').html();
+	            var text = cell.find('#cell-content').text();
 	            var hidden =cell.find('input:hidden');
 	            var name= "";
 	            var placeholder;
@@ -103,7 +103,7 @@ fra = {
 		                    	text=oldtext;
 		                    }
 	                	}
-	                    cell.find('#cell-content').html( text );
+	                    cell.find('#cell-content').text( text );
 	                    hidden.val( text ).trigger('change');
 	                    fra.dirty=true;
 	                    
