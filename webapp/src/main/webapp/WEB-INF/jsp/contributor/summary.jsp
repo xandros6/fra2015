@@ -1213,7 +1213,7 @@
 			<tr>
 				<td>20.1 <spring:message code="ref552"></spring:message></td>
 				<td>1000 local currency</td>
-				<td colspan=5>${_fraVariable_20_1_3_}</td>
+				<td colspan=5>${_fraVariable_20_1_1_}</td>
 				
 			</tr>
 			<tr>
