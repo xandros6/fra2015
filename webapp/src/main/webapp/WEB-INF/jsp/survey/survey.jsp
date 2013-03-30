@@ -3,9 +3,13 @@
 	<div class="container">
 		<div class="row">
 			<jsp:include page="leftmenu.jsp"></jsp:include>
-			<c:if test="${not empty statuscode }">
-						<div class='pull-right label label-inverse'><spring:message code="survey.status">: </spring:message><spring:message code="${statuscode}"></spring:message></div>
-					</c:if>
+			<c:if test="${not empty statuscode && not empty country }">
+						<div class='pull-right label label-inverse'>
+							<spring:message code="survey.country">: </spring:message><spring:message code="country.${country}"></spring:message>
+							<br/>
+							<spring:message code="survey.status">: </spring:message><spring:message code="${statuscode}"></spring:message>
+						</div>
+			</c:if>
 			<form id="survey_form" method="POST" action="${question}">
 				<div class="span8" id="survey-content">
 

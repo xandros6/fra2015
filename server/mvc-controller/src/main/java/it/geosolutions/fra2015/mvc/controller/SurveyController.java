@@ -114,7 +114,8 @@ public class SurveyController{
         String statusLocale= StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("statuscode",statusLocale);
-        
+        model.addAttribute("country",su.getCountries());
+
         CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, su.getCountries());
         utils.prepareHTTPRequest(model, question, cv, false);
         
@@ -278,6 +279,8 @@ public class SurveyController{
             return "reviewer";  //TODO <--- why????
         }
         String status = utils.getStatusByCountry(su.getCountries());
+        model.addAttribute("country",su.getCountries());
+
         if(StatusUtils.isSubmitAllowed(status)){
             model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         }else{
