@@ -26,7 +26,9 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -62,9 +64,10 @@ public class DynamicTableTag extends SurveyEntry {
      * show or not the left numeric coloumn
      */
     private Boolean numericColoumn;
-
     
-    private ResourceBundleMessageSource messageSource;
+    private final int MIN_ROWS = 4;
+    
+    private ReloadableResourceBundleMessageSource messageSource;
     private LocaleResolver localeResolver;
     private WebApplicationContext springContext;
     
@@ -88,12 +91,14 @@ public class DynamicTableTag extends SurveyEntry {
             Integer rows = (Integer) pageContext.getRequest().getAttribute(
                     "tableRowsCounter" + entryItemName);
             
-            
+            int filledRows = 0;
             for (int i = 1; i <= rows; i++) {
                 
-                out.print("<tr>");
+                boolean skipRow = true;
+                StringBuilder sb = new StringBuilder();
+                sb.append("<tr>");
                 if(numericColoumn){
-                    out.print("<td>" + i + "</td>");
+                    sb.append("<td>" + (filledRows+1) + "</td>");
                 }
                 
                 for (int j = 0; j < numOfColoumn; j++) {
@@ -101,22 +106,32 @@ public class DynamicTableTag extends SurveyEntry {
                     String varName = "_fraVariable_" + entryItemName + "_" + i + "_" + j + "_";
                     String varValue = (String) pageContext.getRequest().getAttribute(varName);
                     String entryValue = (varValue == null || varValue.isEmpty()) ? "" : varValue;
-                    out.print(" <td");
-                    out.print("         class=\"entry-item editable text\"");
-                    out.print("         style=\"background-color: rgb(242, 245, 169);\" entry-id=\""
+                    if(!StringUtils.isBlank(entryValue)){
+                        skipRow = false;
+                    }
+                    sb.append(" <td");
+                    sb.append("         class=\"entry-item editable text\"");
+                    sb.append("         style=\"background-color: rgb(242, 245, 169);\" entry-id=\""
                             + entryItemName + "\">");
-//                    out.print("         <span class=\"entry_item_placeholder\" id=\"" + varName
-//                            + "\">&nbsp;</span>");
-                    out.print("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"" + entryValue + "\">");
-                    out.print("         <div id=\"cell-content\" class=\"cell-content\">" + entryValue + "</div>");
-                    out.print(" </td>");
+                    sb.append("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"" + entryValue + "\">");
+                    sb.append("         <div id=\"cell-content\" class=\"cell-content\">" + entryValue + "</div>");
+                    sb.append(" </td>");
                 }
                 if(deleteButton){
-                    out.print(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">");
-                    out.print(localize("dyntable.delete"));
-                    out.print("</a></td>");
-                    out.print("</tr>");
+                    sb.append(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">");
+                    sb.append(localize("dyntable.delete"));
+                    sb.append("</a></td>");
+                    sb.append("</tr>");
                 }
+                if(!skipRow){
+                    out.print(sb.toString());
+                    filledRows++;
+                }
+            }
+            
+            for(int i=0; i<MIN_ROWS-filledRows; i++){
+                
+                out.print(buildEmptyRow(deleteButton,filledRows+1+i,rows));
             }
 
         } catch (IOException ioe) {
@@ -127,13 +142,42 @@ public class DynamicTableTag extends SurveyEntry {
         return (SKIP_BODY);
     }
     
+    private String buildEmptyRow(boolean deleteButton, int i, int rows){
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("<tr>");
+        if(numericColoumn){
+            sb.append("<td>" + i + "</td>");
+        }
+        
+        for (int j = 0; j < numOfColoumn; j++) {
+            
+            String varName = "_fraVariable_" + entryItemName + "_" + (rows+i) + "_" + j + "_";
+            sb.append(" <td");
+            sb.append("         class=\"entry-item editable text\"");
+            sb.append("         style=\"background-color: rgb(242, 245, 169);\" entry-id=\""
+                    + entryItemName + "\">");
+            sb.append("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"\">");
+            sb.append("         <div id=\"cell-content\" class=\"cell-content\"></div>");
+            sb.append(" </td>");
+        }
+        if(deleteButton){
+            sb.append(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">");
+            sb.append(localize("dyntable.delete"));
+            sb.append("</a></td>");
+            sb.append("</tr>");
+        }
+        
+        return sb.toString();
+    }
+    
     private String localize(String code) {
         if (this.springContext == null) {
             this.springContext = WebApplicationContextUtils.getWebApplicationContext(pageContext
                     .getServletContext());
         }
         if (this.messageSource == null) {
-            this.messageSource = (ResourceBundleMessageSource) springContext
+            this.messageSource = (ReloadableResourceBundleMessageSource) springContext
                     .getBean("messageSource");
         }
         if (this.localeResolver == null) {
