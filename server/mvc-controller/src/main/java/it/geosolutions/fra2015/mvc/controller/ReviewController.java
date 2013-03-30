@@ -72,7 +72,7 @@ public class ReviewController {
                 @PathVariable(value = "question") Long question, Model model,
             HttpSession session) {
 
-        
+       
         User su = (User) session.getAttribute("sessionUser");
         if(su==null){
             return "redirect:/login";
@@ -83,7 +83,7 @@ public class ReviewController {
         Profile userProfile = null;
         
         if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
-            
+            //TODO check if reviewer has access to this country
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(question, su, model);
             userForQuery = su;
@@ -111,6 +111,7 @@ public class ReviewController {
         String statusLocale= StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("statuscode",statusLocale);
+        model.addAttribute("country",country);
         
         
         CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
@@ -149,8 +150,8 @@ public class ReviewController {
         model.addAttribute("statuscode",statusLocale);
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
-        
         // TODO validate country
+        model.addAttribute("country",country);
         User su = (User) session.getAttribute("sessionUser");
         Boolean harmonizedRead = null;
         Boolean harmonizedWrite = null;
@@ -160,7 +161,7 @@ public class ReviewController {
             return "redirect:/login";
         }
         if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
-            
+            //TODO check if reviewer has access to this country
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(Long.parseLong(question), su, model);
             harmonizedRead = false;
