@@ -78,6 +78,12 @@ public class SurveyController{
     
     private final Logger LOGGER = Logger.getLogger(SurveyController.class);
     
+    /**
+     * This value is used in select box for mark an Empty Value. 
+     * Note if this value is added in a text cell the meaning is the same: the value on DB will be erased.
+     */
+    private static final String ERASE_VALUE = "---";
+    
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.GET)
     public String handleGet(@PathVariable(value = "question") String question, Model model,
             HttpSession session) {
@@ -293,7 +299,7 @@ public class SurveyController{
      * Check if the value has been removed by the user.
      * The value is Removed if:
      *  * is present in the oldValue List but not in newValues Map
-     *  * is present in the oldValue List but is blank in newValues Map
+     *  * is present in the oldValue List but is blank (or --- if is a select) in newValues Map
      *  
      * @param valueToCheck
      * @param newValues
@@ -348,7 +354,7 @@ public class SurveyController{
             
             return true;
         }
-        if(StringUtils.isBlank(val.getValue())){
+        if(StringUtils.isBlank(val.getValue()) || StringUtils.equals(val.getValue(), ERASE_VALUE)){
             
             return true;
         }
@@ -365,13 +371,13 @@ public class SurveyController{
     private static boolean checkIfTheValueMustBeUpdated(VariableNameUtils.VariableName entryItem, Map<String, CompactValue> oldValues){
         
         CompactValue val = oldValues.get(entryItem.variableName);
-        if(val != null){
+//        if(val != null){
             
-            if(StringUtils.isBlank(entryItem.value)){
+            if(StringUtils.isBlank(entryItem.value) || StringUtils.equals(entryItem.value, ERASE_VALUE)){
                 
                 return false;
             }
-        }
+//        }
         
         return true;
     }
