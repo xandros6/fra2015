@@ -1,4 +1,5 @@
 <%@ include file="taglibs.jsp"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script src="${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
 <script src="${pageContext.request.contextPath}/js/i18next-1.5.9.js"></script>
@@ -11,6 +12,11 @@
 	src="${pageContext.request.contextPath}/ckeditor/adapters/jquery.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+
+<script src="${pageContext.request.contextPath}/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/js/jquery.numeric.js"></script>
+
 <script src="${pageContext.request.contextPath}/js/ejs.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/underscore.js"></script>
@@ -72,7 +78,7 @@ $(function(){
 	
 	countriesArr = [];
 	<c:forEach var="country" items="${countries}">
-	countriesArr.push({"id":"${country.id}","name": "${country.name}","iso3": "${country.iso3}"});         
+	countriesArr.push({"id":"${country.id}","name": "<spring:message code='country.${country.iso3}'></spring:message>","iso3": "${country.iso3}"});         
 	</c:forEach>
 	
 	<c:if test="${(not empty messageText) && (not empty messageType)}">

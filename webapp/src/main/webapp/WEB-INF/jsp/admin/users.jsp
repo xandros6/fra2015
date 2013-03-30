@@ -69,8 +69,8 @@
 
 		<div class="row">
 			<p class="pull-right">
-				<a href="${pageContext.request.contextPath}/users/editor/-1/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow"> Create user </a>
-				<a href="${pageContext.request.contextPath}/users/filter/" class="btn <c:if test="${isFiltered}">btn-primary</c:if>" data-toggle="modal" data-target="#filterWindow">Apply filter</a>
+				<a href="${pageContext.request.contextPath}/users/editor/-1/${page}" class="btn" data-toggle="modal" data-target="#createUserWindow" data-backdrop="static"> Create user </a>
+				<a href="${pageContext.request.contextPath}/users/filter/" class="btn <c:if test="${isFiltered}">btn-primary</c:if>" data-toggle="modal" data-target="#filterWindow" data-backdrop="static">Apply filter</a>
 			</p>
 		</div>
 
@@ -94,8 +94,8 @@
 								<td class="role"><div>${user.role}</div></td>
 								<td class="countries"><div>${user.countries}</div></td>
 								<td class="link">
-									<a style="width:50px" href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#editUserWindow"> Edit </a>
-									<a style="width:50px" href="#" class="btn" data-toggle="modal" data-target="#deleteWarningWindow" data-userid="${user.id}" data-page="${page}"> Delete </a>
+									<a style="width:50px" href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#editUserWindow" data-backdrop="static"> Edit </a>
+									<a style="width:50px" href="#" class="btn" data-toggle="modal" data-target="#deleteWarningWindow" data-userid="${user.id}" data-page="${page}" data-backdrop="static"> Delete </a>
 								</td>
 							</tr>
 						</c:forEach>	
@@ -111,8 +111,20 @@
 				</table>
 				<div class="pagination pagination-centered">
 					<ul>
-	          <li class="<c:if test="${empty pagination.firstPage}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.firstPage}">First</a></li>
-						<li class="<c:if test="${empty pagination.prev1}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.prev1}">Prev</a></li>
+
+						<c:if test="${not empty pagination.firstPage}">
+            <li><a href="${pageContext.request.contextPath}/users/${pagination.firstPage}">First</a></li>
+            </c:if>
+            <c:if test="${empty pagination.firstPage}">
+              <li class="disabled"><a href="#">First</a></li>
+            </c:if>
+						
+						<c:if test="${not empty pagination.prev1}">
+            <li><a href="${pageContext.request.contextPath}/users/${pagination.prev1}">Prev</a></li>
+            </c:if>
+            <c:if test="${empty pagination.prev1}">
+              <li class="disabled"><a href="#">Prev</a></li>
+            </c:if>
 						
 						<c:if test="${not empty pagination.prev2}">
             <li><a href="${pageContext.request.contextPath}/users/${pagination.prev2}">${pagination.prev2+1}</a></li>
@@ -131,22 +143,32 @@
 						<li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
 						
 						<c:if test="${not empty pagination.next1}">
-						<li><a href="${pageContext.request.contextPath}/users/${pagination.next1}">${pagination.next1+1}</a></li>
+						  <li><a href="${pageContext.request.contextPath}/users/${pagination.next1}">${pagination.next1+1}</a></li>
 						</c:if>
 						<c:if test="${empty pagination.next1}">
               <li class="disabled"><a href="#"> - </a></li>
             </c:if>
 						
 						<c:if test="${not empty pagination.next2}">
-            <li><a href="${pageContext.request.contextPath}/users/${pagination.next2}">${pagination.next2+1}</a></li>
+              <li><a href="${pageContext.request.contextPath}/users/${pagination.next2}">${pagination.next2+1}</a></li>
             </c:if>
             <c:if test="${empty pagination.next2}">
               <li class="disabled"><a href="#"> - </a></li>
             </c:if>
 						
-						<li class="<c:if test="${empty pagination.next1}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.next1}">Next</a></li>
-						<li class="<c:if test="${empty pagination.lastPage}">disabled</c:if>"><a href="${pageContext.request.contextPath}/users/${pagination.lastPage}">Last</a></li>
-						 
+						<c:if test="${not empty pagination.next1}">
+              <li><a href="${pageContext.request.contextPath}/users/${pagination.next1}">Next</a></li>
+            </c:if>
+            <c:if test="${empty pagination.next1}">
+              <li class="disabled"><a href="#">Next</a></li>
+            </c:if>
+            
+            <c:if test="${not empty pagination.lastPage}">
+              <li><a href="${pageContext.request.contextPath}/users/${pagination.lastPage}">Last</a></li>
+            </c:if>
+            <c:if test="${empty pagination.lastPage}">
+              <li class="disabled"><a href="#">Last</a></li>
+            </c:if>						 
 
 					</ul>
 				</div>

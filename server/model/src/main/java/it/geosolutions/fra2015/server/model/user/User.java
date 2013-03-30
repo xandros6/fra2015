@@ -206,7 +206,7 @@ public class User implements Serializable {
 	public String getCountries() {
         BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
 		Collection<String> countriesIso3 = CollectionUtils.collect(this.getCountriesSet(), transformer );
-		String country = StringUtils.join(countriesIso3.toArray(),',');
+		String country = StringUtils.join(countriesIso3.toArray(),' ');
 		return country;
 	}
 
