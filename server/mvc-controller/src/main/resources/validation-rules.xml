@@ -8,6 +8,8 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
+        
         <condition>
             <![CDATA[ {{1.3}} > {{1.3.1}} ]]>
         </condition>
@@ -19,6 +21,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.6}} > {{1.6.1}} ]]>
         </condition>
@@ -30,6 +33,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.6}} > {{1.6.2}} ]]>
         </condition>
@@ -41,6 +45,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.7}} > {{1.7.1}} ]]>
         </condition>
@@ -52,6 +57,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.8}} > {{1.8.1}} ]]>
         </condition>
@@ -63,6 +69,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_2</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.1}} + {{1.2}}+ {{1.3}} === [[LAND_AREA]] ]]>
         </condition>
@@ -90,6 +97,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_4</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.4}} === {{1.5}} - ({{1.1}}+{{1.2}}+{{1.3}}) ]]>
         </condition>
@@ -101,6 +109,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_5</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{1.5}} === [[COUNTRY_AREA]] + 0 ]]>
         </condition>
@@ -136,6 +145,7 @@
         </description>
         <entryId>2a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{2.3}} > {{2.3.1}} ]]>
         </condition>
@@ -148,6 +158,7 @@
         </description>
         <entryId>2c</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{2.5}} > {{2.5.1}} ]]>
         </condition>
@@ -175,6 +186,7 @@
         </description>
         <entryId>2a,1a</entryId>
         <error>refrule_error_10</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{2.1}} + {{2.2}} + {{2.3}} === {{1.1}} ]]>
         </condition>
@@ -187,8 +199,9 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.1}} > {{3.1.1}} ]]>
+            <![CDATA[ {{3.1f}} > {{3.1.1f}} && {{3.1o}} > {{3.1.1o}}]]>
         </condition>
     </rule>  
     <rule>
@@ -198,8 +211,9 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.1}} > {{3.1.2}} ]]>
+            <![CDATA[ {{3.1f}} > {{3.1.2f}} && {{3.1o}} > {{3.1.2o}}]]>
         </condition>
     </rule>
      <rule>
@@ -209,8 +223,9 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.2}} > {{3.2.1}} ]]>
+            <![CDATA[ {{3.2f}} > {{3.2.1f}} && {{3.2o}} > {{3.2.1o}}  ]]>
         </condition>
     </rule>
      <rule>
@@ -220,8 +235,9 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.2}} > {{3.2.2}} ]]>
+            <![CDATA[ {{3.2f}} > {{3.2.2f}} && {{3.2f}} > {{3.2.2f}}]]>
         </condition>
     </rule>
          <rule>
@@ -231,8 +247,9 @@
         </description>
         <entryId>3c</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.4}} > {{3.4.1}} ]]>
+            <![CDATA[ {{3.4}} > {{3.4.1}}]]>
         </condition>
     </rule>
      <rule>
@@ -242,8 +259,9 @@
         </description>
         <entryId>3c</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.4}} > {{3.4.2}} ]]>
+            <![CDATA[ {{3.4}} > {{3.4.2}}]]>
         </condition>
     </rule> 
     <rule>
@@ -253,8 +271,13 @@
         </description>
         <entryId>3a,1a</entryId>
         <error>refrule_error_11</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.1}}/{{1.1}}<=300 && {{3.1}}/{{1.1}}>=20 ]]>
+            <![CDATA[ 
+            	{{3.1f}}/{{1.1}}<=300 && {{3.1f}}/{{1.1}}>=20 &&
+            	{{3.1o}}/{{1.1}}<=300 && {{3.1o}}/{{1.1}}>=20 
+            
+            ]]>
         </condition>
     </rule> 
     <rule>
@@ -264,8 +287,9 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_12</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.1.1}} + {{3.1.2}} === {{3.1}} ]]>
+            <![CDATA[ {{3.1.1o}} + {{3.1.2o}} === {{3.1o}} && {{3.1.1f}} + {{3.1.2f}} === {{3.1f}} ]]>
         </condition>
     </rule>    
     <rule>
@@ -275,8 +299,9 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_13</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.2}}/{{1.2}} >= 5 && {{3.2}}<=100 ]]>
+            <![CDATA[ {{3.2f}}/{{1.2}} >= 5 && {{3.2f}}<=100 && {{3.2o}}/{{1.2}} >= 5 && {{3.2o}}<=100 ]]>
         </condition>
     </rule>  
     <rule>
@@ -286,8 +311,10 @@
         </description>
         <entryId>3a</entryId>
         <error>refrule_error_14</error>
+        <columns>1990,2000,2005,2010,2015</columns>
+        
         <condition>
-            <![CDATA[ {{3.2.1}} + {{3.2.2}} === {{3.2}} ]]>
+            <![CDATA[ {{3.2.1f}} + {{3.2.2f}} === {{3.2f}} && {{3.2.1o}} + {{3.2.2o}} === {{3.2o}} ]]>
         </condition>
     </rule>  
     <rule>
@@ -297,8 +324,13 @@
         </description>
         <entryId>3a,3b</entryId>
         <error>refrule_error_15</error>
+        <columns>1990,2000,2005,2010</columns>
+        
         <condition>
-            <![CDATA[ {{3.3}} === {{3.1}} + 0 ]]>
+            <![CDATA[ 
+            {{3.3.1}} + {{3.3.2}}+ {{3.3.3}}+ {{3.3.4}}+ {{3.3.5}} +
+            {{3.3.6}} + {{3.3.7}}+ {{3.3.8}}+ {{3.3.9}}+ {{3.3.10}} +
+            {{3.3.11}}	=== {{3.1f}} ]]>
         </condition>
     </rule>    
     <rule>
@@ -308,8 +340,9 @@
         </description>
         <entryId>3d</entryId>
         <error>refrule_error_16</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.6}}/{{3.5}} >= 0.1 && {{3.6}}/{{3.5}} <= 0.5 ]]>
+            <![CDATA[ {{3.6f}}/{{3.5f}} >= 0.1 && {{3.6f}}/{{3.5f}} <= 0.5 &&  {{3.6o}}/{{3.5o}} >= 0.1 && {{3.6o}}/{{3.5o}} <= 0.5 ]]>
         </condition>
     </rule>  
     <rule>
@@ -319,8 +352,10 @@
         </description>
         <entryId>3d</entryId>
         <error>refrule_error_17</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.7}}/({{3.5}}+{{3.6}}) >= 0 && {{3.7}}/({{3.5}}+{{3.6}}) <= 0.2 ]]>
+            <![CDATA[ {{3.7f}}/({{3.5f}}+{{3.6f}}) >= 0 && {{3.7f}}/({{3.5f}}+{{3.6f}}) <= 0.2 &&
+            		  {{3.7o}}/({{3.5o}}+{{3.6o}}) >= 0 && {{3.7o}}/({{3.5o}}+{{3.6o}}) <= 0.2 ]]>
         </condition>
     </rule> 
     <rule>
@@ -330,10 +365,16 @@
         </description>
         <entryId>3d,3e</entryId>
         <error>refrule_error_18</error>
+        <!-- 5% error tolerance -->
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ 
-            	( {{3.8}} > {{3.5}}*0.47*0.97 ) &&
-            	( {{3.8}} < {{3.5}}*0.47*1.03 ) 
+            	( {{3.8f}} > {{3.5f}}*0.47*0.95 ) &&
+            	( {{3.8f}} < {{3.5f}}*0.47*1.05 ) &&
+            	( {{3.8o}} > {{3.5o}}*0.47*0.95 ) &&
+            	( {{3.8o}} < {{3.5o}}*0.47*1.05 ) 
+            	
+            	
            	]]>
         </condition>
     </rule>   
@@ -344,8 +385,11 @@
         </description>
         <entryId>3a,3e</entryId>
         <error>refrule_error_19</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ ( {{3.8}} + {{3.9}} ) / {{3.1}}  >= 0.4 && ( {{3.8}} + {{3.9}} ) / {{3.1}} <= 10 ]]>
+            <![CDATA[ 
+            	( ( {{3.8f}} + {{3.9f}} ) / {{3.1f}}  >= 0.4 && ( {{3.8f}} + {{3.9f}} ) / {{3.1f}} <= 10 ) &&
+            	( ( {{3.8o}} + {{3.9o}} ) / {{3.1o}}  >= 0.4 && ( {{3.8o}} + {{3.9o}} ) / {{3.1o}} <= 10 )]]>
         </condition>
     </rule>   
     <rule>
@@ -355,11 +399,14 @@
         </description>
         <entryId>3d,3e</entryId>
         <error>refrule_error_20</error>
-        <!-- 3% error tolerance -->
+        <columns>1990,2000,2005,2010,2015</columns>
+        <!-- 5% error tolerance -->
         <condition>
             <![CDATA[ 
-            	( {{3.9}} > {{3.6}}*0.47*0.97 ) && 
-            	( {{3.9}} < {{3.6}}*0.47*1.03 )				
+            	( {{3.9f}} > {{3.6f}}*0.47*0.95 ) && 
+            	( {{3.9f}} < {{3.6f}}*0.47*1.05 )	&&
+            	( {{3.9o}} > {{3.6o}}*0.47*0.95 ) && 
+            	( {{3.9o}} < {{3.6o}}*0.47*1.05 )				
         	]]>
         </condition>
     </rule>  
@@ -370,11 +417,14 @@
         </description>
         <entryId>3d,3e</entryId>
         <error>refrule_error_21</error>
-         <!-- 3% error tolerance -->
+        <columns>1990,2000,2005,2010,2015</columns>
+         <!-- 5% error tolerance -->
         <condition>
             <![CDATA[
-             ( {{3.10}} > {{3.7}}*0.47*0.97 ) &&
-             ( {{3.10}} < {{3.7}}*0.47*1.03 )
+             ( {{3.10f}} > {{3.7f}}*0.47*0.95 ) &&
+             ( {{3.10f}} < {{3.7f}}*0.47*1.05 ) &&
+             ( {{3.10o}} > {{3.7o}}*0.47*0.95 ) &&
+             ( {{3.10o}} < {{3.7o}}*0.47*1.05 )
              ]]>
         </condition>
     </rule>    
@@ -385,8 +435,12 @@
         </description>
         <entryId>1a,3e</entryId>
         <error>refrule_error_22</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.12}}/{{1.1}} >= 30 && {{3.12}}/{{1.1}} <= 100 ]]>
+            <![CDATA[ 
+            	{{3.12f}}/{{1.1}} >= 30 && {{3.12f}}/{{1.1}} <= 100 &&
+            	{{3.12o}}/{{1.1}} >= 30 && {{3.12o}}/{{1.1}} <= 100
+            ]]>
         </condition>
     </rule>   
     <rule>
@@ -396,8 +450,9 @@
         </description>
         <entryId>1a,4a</entryId>
         <error>refrule_error_23</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
-            <![CDATA[ {{3.1}} + {{4.2}} <= {{1.1}} ]]>
+            <![CDATA[ {{4.1}} + {{4.2}} <= {{1.1}} ]]>
         </condition>
     </rule>  
 <!-- q5 -->  
@@ -408,6 +463,7 @@
         </description>
         <entryId>5a</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ 
             	{{5.1}} > {{5.1.1}} &&
@@ -426,6 +482,7 @@
         </description>
         <entryId>5b</entryId>
         <error>refrule_error_1</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ 
             	{{5.2}} > {{5.2.1}} &&
@@ -442,6 +499,7 @@
         </description>
         <entryId>5a,1a</entryId>
         <error>refrule_error_24</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{5.1}} <= {{1.1}} ]]>
         </condition>
@@ -453,6 +511,7 @@
         </description>
         <entryId>5a,1a</entryId>
         <error>refrule_error_25</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{5.2}} <= {{1.1}} ]]>
         </condition>
@@ -464,6 +523,7 @@
         </description>
         <entryId>6a,1a</entryId>
         <error>refrule_error_26</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{6.1}} < {{1.1}} ]]>
         </condition>
@@ -475,6 +535,7 @@
         </description>
         <entryId>1a,6a</entryId>
         <error>refrule_error_26</error>
+        <columns>1990,2000,2005,2010,2015</columns>
         <condition>
             <![CDATA[ {{6.2}} < {{1.1}} ]]>
         </condition>
@@ -486,6 +547,7 @@
         </description>
         <entryId>1a,8a</entryId>
         <error>refrule_error_27</error>
+        <columns>2005,2010</columns>
         <condition>
             <![CDATA[ {{8.1}} < {{1.1}}+{{1.2}}+{{1.3}} ]]>
         </condition>
@@ -497,6 +559,7 @@
         </description>
         <entryId>1a,12</entryId>
         <error>refrule_error_28</error>
+        <columns>2010</columns> 
         <condition>
             <![CDATA[ {{12.1}} <= {{1.1}} ]]>
         </condition>
@@ -506,8 +569,9 @@
         <description>
             14.1 should be less than or equal to 1.1
         </description>
-        <entryId>1a,14</entryId>
+        <entryId>1a,14a</entryId>
         <error>refrule_error_29</error>
+         <columns>2010</columns> 
         <condition>
             <![CDATA[ {{14.1}} <= {{1.1}} ]]>
         </condition>
@@ -517,8 +581,9 @@
         <description>
             14.1.1 + 14.1.2=14.1
         </description>
-        <entryId>14</entryId>
+        <entryId>14a</entryId>
         <error>refrule_error_30</error>
+        <columns>2010</columns>
         <condition>
             <![CDATA[ {{14.1.1}} + {{14.1.2}} === {{14.1}} ]]>
         </condition>
@@ -530,6 +595,7 @@
         </description>
         <entryId>14c</entryId>
         <error>refrule_error_31</error>
+        <columns>2000</columns><!-- TODO check it -->
         <condition>
             <![CDATA[ {{14.3}} <= 100 ]]>
         </condition>
@@ -541,8 +607,13 @@
         </description>
         <entryId>1a,18a</entryId>
         <error>refrule_error_32</error>
+        <columns>1990,2000,2005,2010</columns>
+        
         <condition>
-            <![CDATA[ {{18.1}} + {{18.2}} + {{18.3}} === {{1.1}} ]]>
+            <![CDATA[ 
+            	{{18.1}} + {{8.2}} + {{18.3}} === {{1.1}} 
+            	
+            	 ]]>
         </condition>
     </rule>  
     <rule>
@@ -552,6 +623,7 @@
         </description>
         <entryId>18a,18b</entryId>
         <error>refrule_error_33</error>
+		<columns>1990,2000,2005,2010</columns>
         <condition>
             <![CDATA[ {{18.1}} === {{18.4}} + {{18.5}} + {{18.6}} + {{18.7}} + {{18.8}} ]]>
         </condition>
@@ -563,6 +635,7 @@
         </description>
         <entryId>1a,8a</entryId>
         <error>refrule_error_34</error>
+        <columns>2005,2010</columns>
         <condition>
             <![CDATA[ {{8.1.1}} <= {{1.1}} ]]>
         </condition>

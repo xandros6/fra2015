@@ -261,7 +261,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         // some validation problems have priority
         boolean alreadyChecked = false;
         
-        for (String key : tests.keySet()) {
+        for (String key : rule.getColumns().split(",")) {
             if (alreadyChecked) {
                 continue;
             }
