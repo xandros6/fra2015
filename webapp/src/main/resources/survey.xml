@@ -1851,422 +1851,212 @@
 							<variable>3a</variable>
 							<EntryItems>
 								<entryItem>
-									<rowName>3.1f</rowName>
+									<rowName>3.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1f</rowName>
+									<rowName>3.1</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1f</rowName>
+									<rowName>3.1</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1f</rowName>
+									<rowName>3.1</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1f</rowName>
+									<rowName>3.1</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1o</rowName>
+									<rowName>3.2</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1o</rowName>
+									<rowName>3.2</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1o</rowName>
+									<rowName>3.2</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1o</rowName>
+									<rowName>3.2</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1o</rowName>
+									<rowName>3.2</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1f</rowName>
+									<rowName>3.1.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1f</rowName>
+									<rowName>3.1.1</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1f</rowName>
+									<rowName>3.1.1</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1f</rowName>
+									<rowName>3.1.1</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1f</rowName>
+									<rowName>3.1.1</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1o</rowName>
+									<rowName>3.2.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1o</rowName>
+									<rowName>3.2.1</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1o</rowName>
+									<rowName>3.2.1</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1o</rowName>
+									<rowName>3.2.1</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.1o</rowName>
+									<rowName>3.2.1</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2f</rowName>
+									<rowName>3.1.2</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2f</rowName>
+									<rowName>3.1.2</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>2</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2f</rowName>
+									<rowName>3.1.2</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>3</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2f</rowName>
+									<rowName>3.1.2</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>4</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2f</rowName>
+									<rowName>3.1.2</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2o</rowName>
+									<rowName>3.2.2</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>6</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2o</rowName>
+									<rowName>3.2.2</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>7</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2o</rowName>
+									<rowName>3.2.2</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>8</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2o</rowName>
+									<rowName>3.2.2</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>9</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>3.1.2o</rowName>
+									<rowName>3.2.2</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>5</rowNumber>
-									<columnNumber>10</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2f</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2f</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>2</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2f</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>3</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2f</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>4</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2f</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2o</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>6</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2o</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>7</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2o</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>8</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2o</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2o</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>10</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1f</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1f</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>2</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1f</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>3</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1f</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>4</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1f</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1o</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>6</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1o</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>7</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1o</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>8</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1o</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.1o</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>10</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2f</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2f</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>2</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2f</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>3</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2f</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>4</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2f</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2o</rowName>
-									<columnName>1990</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>6</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2o</rowName>
-									<columnName>2000</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>7</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2o</rowName>
-									<columnName>2005</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>8</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2o</rowName>
-									<columnName>2010</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>3.2.2o</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>8</rowNumber>
 									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
