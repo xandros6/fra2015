@@ -21,36 +21,83 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.servlet.http.HttpSession;
 
+import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author DamianoG
- *
+ * 
  */
 @Controller
-@RequestMapping("/reviewersubmit")
+@RequestMapping("/reviewersubmit/{country}")
 public class ReviewerSubmitController {
 
+    @Autowired
+    private FeedbackService feedbackService;
+
     private final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
-    
+
     @RequestMapping(method = RequestMethod.GET)
-    public String handleGet(HttpSession session){
-        
+    public String handleGet(@PathVariable(value = "country") String country, Model model,
+            HttpSession session) {
+
+        model.addAttribute("context","surveylist");
         User su = (User) session.getAttribute("sessionUser");
-        if(su==null){
+        if (su == null) {
             return "redirect:/login";
         }
-        
-        su.getQuestions();
-        
-        return "eeeeeeee";
-        
+
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+
+        StringBuilder notAcceptedQuestions = new StringBuilder();
+        boolean accepted = true;
+
+        Set<Question> questions = su.getQuestions();
+        for (Question el : questions) {
+
+            int q = Integer.parseInt(String.valueOf(el.getId()));
+            if (!feedbackService.checkQuestionFeedbackStatus(su, si, q)) {
+
+                notAcceptedQuestions.append(el.getId()).append(" ");
+                accepted = false;
+            }
+        }
+
+        if (accepted) {
+
+            // submit the Survey
+            model.addAttribute("messageType", "success");
+            model.addAttribute("messageCode", "revsubmit.ok");
+            model.addAttribute("messageTimeout", 10000);
+            return "reviewer";
+        }
+
+        model.addAttribute("messageType", "warning");
+        model.addAttribute("messageCode", "revsubmit.ko"); // TODO how to display "notAcceptedQuestions" in message?
+        model.addAttribute("messageTimeout", 10000);
+        return "reviewer";
+        //        return "/surveylist/0";
+
     }
 }

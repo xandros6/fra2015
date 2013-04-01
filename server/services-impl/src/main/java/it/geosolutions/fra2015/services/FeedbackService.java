@@ -22,6 +22,7 @@
 package it.geosolutions.fra2015.services;
 
 import it.geosolutions.fra2015.server.dao.FeedbackDAO;
+import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
@@ -42,7 +43,10 @@ import com.googlecode.genericdao.search.Search;
 public class FeedbackService {
 
     @Autowired
-    FeedbackDAO feedbackDAO;
+    private FeedbackDAO feedbackDAO;
+    
+    @Autowired 
+    private SurveyCatalog catalog;
     
     private final Logger LOGGER = Logger.getLogger(FeedbackService.class);
 
@@ -82,6 +86,20 @@ public class FeedbackService {
             throw new BadRequestServiceEx(e.getLocalizedMessage());
         }
         return list;
+    }
+    
+    public boolean checkQuestionFeedbackStatus(User user, SurveyInstance survey, Integer question){
+        
+        List<Entry> entries = catalog.getCatalogForQuestion(question);
+        
+        Search search = new Search();
+        search.addFilterEqual("user", user);
+        search.addFilterEqual("harmonized", false);
+        search.addFilterEqual("survey", survey);
+        search.addFilterEqual("entry.question.id", question);
+        search.addFilterEqual("status", "ok");
+        List<Feedback> list = feedbackDAO.search(search);
+        return (list.size() == entries.size());
     }
     
 }
