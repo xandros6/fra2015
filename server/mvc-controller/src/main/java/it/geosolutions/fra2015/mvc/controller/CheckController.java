@@ -110,7 +110,7 @@ public class CheckController {
         }
         status.setStatus(StatusUtils.COMPILED);
         status.setCountry(su.getCountries());
-        status.setMessage((String) request.getAttribute("submitmessage"));
+        status.setMessage((String) request.getParameter("submitmessage"));
         Country c = surveyService.findCountryByISO3(su.getCountries());
         if(c!=null){
             status.setCountry(su.getCountries());
@@ -125,6 +125,8 @@ public class CheckController {
         
          if(reviewers.size()<=0){
            LOGGER.warn("No reivewer associated to country" +su.getCountries() + "find");
+           //TODO notify someone
+           
          }
         try{
             notificationService.notifyContributorSubmit(su, status,reviewers);
