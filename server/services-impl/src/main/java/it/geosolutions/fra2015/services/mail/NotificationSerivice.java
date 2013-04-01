@@ -70,12 +70,20 @@ public class NotificationSerivice {
         
     }
     private void sendMessage(String address,String subject, String body) {
+
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(address);
         message.setSubject(subject);
         message.setText(body);
         message.setFrom(this.mailFromAddress);
         mailSender.send(message);
+        if(LOGGER.isDebugEnabled()){
+            String logmessage = "\nmail sent:" +
+                    "\n from:" +mailFromAddress +
+                    "\n to:" + address + "\nusing mailSender" + mailSender.toString();
+            LOGGER.info(logmessage);
+        }
+        
 
     }
     

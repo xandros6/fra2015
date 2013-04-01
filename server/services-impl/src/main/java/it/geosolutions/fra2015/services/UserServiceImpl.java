@@ -25,10 +25,17 @@ import com.googlecode.genericdao.search.SearchFacade;
 import com.googlecode.genericdao.search.hibernate.HibernateSearchFacade;
 
 import it.geosolutions.fra2015.server.dao.UserDAO;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+
+import java.io.FilterInputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import net.sf.cglib.core.CollectionUtils;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -212,5 +219,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public long getCount() {
         return getCount(null);
+    }
+
+    @Override
+    public List<User> getUsersToNotify(String role, String iso3) {
+        Search searchCriteria = new Search(User.class);
+
+        searchCriteria.addFilter(Filter.some("countriesSet", new Filter("iso3",iso3)));
+        searchCriteria.addFilter(Filter.equal("role",role));   
+        return userDAO.search(searchCriteria);
+        
     }
 }

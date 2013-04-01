@@ -116,32 +116,27 @@ public class CheckController {
             status.setCountry(su.getCountries());
         }
         
-        try {
-            surveyService.changeStatus(status);
-            LOGGER.info("submitted survey:"+status.getCountry());
-            User filter =new User();
-            
-            filter.setRole("Reviewer");
-            //filtering by country doesn't work yet
-            filter.setCountriesSet(su.getCountriesSet());
-            List<User> reviewers=  userService.getAll(null, null,filter );
-            
-            
-           //LOGGER.info(reviewers.size());
-            try{
-                notificationService.notifyContributorSubmit(su, status,reviewers);
-                model.addAttribute("context", "check");
-                model.addAttribute("messageType", "success");
-                model.addAttribute("messageCode", "submit.success");
-            }catch(MailException  e){
-                LOGGER.error("The reviewers were not notified of the message submit becouse of an Mail Exception",e);
-                model.addAttribute("context", "check");
-                model.addAttribute("messageType", "waring");
-                model.addAttribute("messageCode", "submit.notnotified");
-                model.addAttribute("messageTimeout",10000);
-            }
-        } catch (BadRequestServiceEx e) {
-            submissionError(model,e,c,su);
+        surveyService.changeStatus(status);
+        LOGGER.info("submitted survey:"+status.getCountry());
+        User filter =new User();
+        
+        List<User> reviewers=  userService.getUsersToNotify("reviewer",su.getCountries() );
+        
+        
+         if(reviewers.size()<=0){
+           LOGGER.warn("No reivewer associated to country" +su.getCountries() + "find");
+         }
+        try{
+            notificationService.notifyContributorSubmit(su, status,reviewers);
+            model.addAttribute("context", "check");
+            model.addAttribute("messageType", "success");
+            model.addAttribute("messageCode", "submit.success");
+        }catch(MailException  e){
+            LOGGER.error("The reviewers were not notified of the message submit becouse of an Mail Exception",e);
+            model.addAttribute("context", "check");
+            model.addAttribute("messageType", "waring");
+            model.addAttribute("messageCode", "submit.notnotified");
+            model.addAttribute("messageTimeout",10000);
         }
 
         return "index";

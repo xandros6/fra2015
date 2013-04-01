@@ -28,15 +28,16 @@
  */
 package it.geosolutions.fra2015.services;
 
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Class UserInterface.
  *
- * @author Tobia di Pisa (tobia.dipisa at geo-solutions.it)
  *
  */
 public interface UserService {
@@ -94,5 +95,9 @@ public interface UserService {
     public long getCount();
 
     public long getCountFiltered(User userFilter) throws BadRequestServiceEx;
+
+    public List<User> getUsersToNotify(String role, String iso3);
+
+    
 
 }
