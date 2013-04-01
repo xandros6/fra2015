@@ -58,7 +58,6 @@ public class SessionUtils {
             
             CountryValues cv = null;
             cv = utils.retrieveValues(question.toString(), country);
-            session.setAttribute(COUNTRY_SURVEY_VALUES, cv);
             return cv;
         }
         CountryValues cv = (CountryValues)session.getAttribute(COUNTRY_SURVEY_VALUES);

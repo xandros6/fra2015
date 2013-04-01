@@ -165,7 +165,8 @@ public class SurveyController{
         // Create the OLD MAP
         Map<String, CompactValue> oldMap = new HashMap<String, CompactValue>();
         for(CompactValue el : oldValues){
-            oldMap.put(el.getVariable(), el);
+            String oldVarName = VariableNameUtils.buildVariableAsText(el);
+            oldMap.put(oldVarName, el);
         }
         
         // Get from the request the EntryItem values to update
@@ -183,9 +184,9 @@ public class SurveyController{
             
             // TODO be sure that the params taken from the request is an entryItem
             //get the value of the param
-            String s = reqParams.get(el)[0];
+            String newValue = reqParams.get(el)[0];
             //build the Value (unproperly called 'Variable' in variableNameUtils class)
-            VariableNameUtils.VariableName var = VariableNameUtils.buildVariable(el, s);
+            VariableNameUtils.VariableName var = VariableNameUtils.buildVariable(el, newValue);
             
             //copy the variable (all info, both name and values) in an Update instance
             Update update = new Update();
@@ -201,7 +202,7 @@ public class SurveyController{
             // ADD TO UPDATE LIST IF THE VALUE:
             // * is present in oldValues
             // * is not present in oldValues Map AND is not a blank value
-            if(checkIfTheValueMustBeUpdated(var, oldMap)){
+            if(checkIfTheValueMustBeUpdated(el, newValue, oldMap)){
               //add it to the add list, so the Value will be updated
                 updateList.add(update);
             }
@@ -371,12 +372,12 @@ public class SurveyController{
      * @param newValues
      * @return
      */
-    private static boolean checkIfTheValueMustBeUpdated(VariableNameUtils.VariableName entryItem, Map<String, CompactValue> oldValues){
+    private static boolean checkIfTheValueMustBeUpdated(String name, String value, Map<String, CompactValue> oldValues){
         
-        CompactValue val = oldValues.get(entryItem.variableName);
+        CompactValue val = oldValues.get(name);
 //        if(val != null){
             
-            if(StringUtils.isBlank(entryItem.value) || StringUtils.equals(entryItem.value, ERASE_VALUE)){
+            if(StringUtils.isBlank(value) || StringUtils.equals(value, ERASE_VALUE) || (val!=null && value.equals(val.getContent()))){
                 
                 return false;
             }
