@@ -10,4 +10,6 @@
 		class="tab"><spring:message code="toolbar.summary" /></a></li>
 	<li class="${context=='export' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/export"
 		class="tab"><spring:message code="toolbar.export" /></a></li>
+		<li class="${context=='settings' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/usersettings"
+		class="tab"><spring:message code="toolbar.settings" /></a></li>
 </ul>

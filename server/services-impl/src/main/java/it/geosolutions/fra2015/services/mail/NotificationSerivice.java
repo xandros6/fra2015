@@ -54,7 +54,7 @@ public class NotificationSerivice {
             model.put("user", user);
             model.put("status", status);
             //Translate the country name 
-            String country = messageSource.getMessage("country." + user.getCountries(),null,new Locale("fr") );
+            String country = messageSource.getMessage("country." + user.getCountries(),null,new Locale("en") );
             model.put("country",country);
             String message = applyTemplate(messageConfig.get("template"),model);
             sendMessage(reviewer.getEmail(),messageConfig.get("subject"),message);

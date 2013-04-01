@@ -54,6 +54,9 @@
 							<c:when test="${context=='export'}">
 								<jsp:include page="contributor/export.jsp" />
 							</c:when>
+							<c:when test="${context=='settings'}">
+								<jsp:include page="contributor/settings.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>

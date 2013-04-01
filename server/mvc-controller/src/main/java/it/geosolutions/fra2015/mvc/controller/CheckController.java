@@ -118,7 +118,7 @@ public class CheckController {
         
         surveyService.changeStatus(status);
         LOGGER.info("submitted survey:"+status.getCountry());
-        User filter =new User();
+        
         
         List<User> reviewers=  userService.getUsersToNotify("reviewer",su.getCountries() );
         
@@ -155,7 +155,7 @@ public class CheckController {
         
     }
     private void submissionError(ModelMap model,Exception e,Country c,User us){
-        LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user" + "us",e);
+        LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user: " + us,e);
         model.addAttribute("context", "check");
         model.addAttribute("messageType", "error");
         model.addAttribute("messageCode", "submit.error");
