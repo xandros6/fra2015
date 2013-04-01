@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.mail.MessagingException;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -44,8 +46,10 @@ public class NotificationSerivice {
      * @param user
      * @param status
      * @param reviewers 
+     * @throws TemplateException 
+     * @throws IOException 
      */
-    public void notifyContributorSubmit(User user, Status status, List<User> reviewers) {
+    public void notifyContributorSubmit(User user, Status status, List<User> reviewers) throws IOException, TemplateException {
         Map<String,String> messageConfig = messages.get("contributorSubmit");
         
         for(User reviewer: reviewers){
@@ -56,22 +60,42 @@ public class NotificationSerivice {
             //Translate the country name 
             String country = messageSource.getMessage("country." + user.getCountries(),null,new Locale("en") );
             model.put("country",country);
-            String message = applyTemplate(messageConfig.get("template"),model);
+            String message = applyTemplate(getTemplate(messageConfig,reviewer),model);
             sendMessage(reviewer.getEmail(),messageConfig.get("subject"),message);
         }
    
     }
     
-    
-    private String applyTemplate(String template, Map model){
+    /**
+     * Looks in messageConfig if the template for the user preferred language is present. If it isn't,
+     * gets the "template" entry. Allowed values are "en","fr","es"
+     * @param messageConfig
+     * @param user
+     * @return
+     */
+    private static String getTemplate(Map<String, String> messageConfig, User user) {
+        String lang = user.getLanguage();
+        if(messageConfig.containsKey(lang)){
+            return messageConfig.get(lang);
+        }
+        return messageConfig.get("template");
+        
+       
+    }
+
+
+    private String applyTemplate(String template, Map model) throws IOException, TemplateException{
         String result=null;
         try {
             result = FreeMarkerTemplateUtils.processTemplateIntoString(
                     configuration.getTemplate(template), model);
         } catch (IOException e) {
             LOGGER.error("unable to read template file"+ template, e);
+            throw e; 
+            
         } catch (TemplateException e) {
             LOGGER.error("unable to use freMarkerTemplate:" + template);
+            throw e; 
         }
         return result;
         
