@@ -9,17 +9,21 @@ import it.geosolutions.fra2015.services.UserService;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 public class NotificationSerivice {
     private static final Logger LOGGER = Logger.getLogger(NotificationSerivice.class);
-
+   
+    @Autowired
+    private MessageSource messageSource;
     @Autowired
     private UserService userService;
 
@@ -49,6 +53,9 @@ public class NotificationSerivice {
             model.put("receiver",reviewer);
             model.put("user", user);
             model.put("status", status);
+            //Translate the country name 
+            String country = messageSource.getMessage("country." + user.getCountries(),null,new Locale("fr") );
+            model.put("country",country);
             String message = applyTemplate(messageConfig.get("template"),model);
             sendMessage(reviewer.getEmail(),messageConfig.get("subject"),message);
         }
