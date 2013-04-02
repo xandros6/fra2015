@@ -27,11 +27,10 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.LocaleResolver;
@@ -44,7 +43,7 @@ public class FeedbackEntryTag extends ProfiledTag{
     
     private Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
     
-    private ResourceBundleMessageSource messageSource;
+    private ReloadableResourceBundleMessageSource messageSource;
     private LocaleResolver localeResolver;
     private WebApplicationContext springContext;
     
@@ -224,7 +223,7 @@ public class FeedbackEntryTag extends ProfiledTag{
                     .getServletContext());
         }
         if (this.messageSource == null) {
-            this.messageSource = (ResourceBundleMessageSource) springContext
+            this.messageSource = (ReloadableResourceBundleMessageSource) springContext
                     .getBean("messageSource");
         }
         if (this.localeResolver == null) {

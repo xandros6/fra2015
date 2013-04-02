@@ -29,7 +29,6 @@ import javax.servlet.jsp.JspWriter;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.LocaleResolver;
