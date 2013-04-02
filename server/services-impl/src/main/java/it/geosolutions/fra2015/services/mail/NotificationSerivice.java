@@ -17,6 +17,7 @@ import javax.mail.MessagingException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.NoSuchMessageException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
@@ -50,22 +51,91 @@ public class NotificationSerivice {
      * @throws IOException 
      */
     public void notifyContributorSubmit(User user, Status status, List<User> reviewers) throws IOException, TemplateException {
-        Map<String,String> messageConfig = messages.get("contributorSubmit");
+        notifyUsers(user,status,reviewers,"contributorSubmit");
+   
+    }
+    
+    /**
+     * Notify the contributor that a survey has been reviewed and ready to be fixed
+     * @param user
+     * @param status
+     * @param reviewers 
+     * @throws TemplateException 
+     * @throws IOException 
+     */
+    public void notifyPendingFix(User user, Status status, List<User> contributors) throws IOException, TemplateException {
+        notifyUsers(user,status,contributors,"pendingFix");
+   
+    }
+    
+    public void notifyReviewerSubmit(User user, Status status, List<User> reviewEditors) throws IOException, TemplateException {
+        notifyUsers(user,status,reviewEditors,"reviewerSubmit");
         
-        for(User reviewer: reviewers){
+    }
+    
+    /**
+     * Notify to a list of users a status change of the survey.
+     * @param user
+     * @param status
+     * @param reviewers 
+     * @throws TemplateException 
+     * @throws IOException 
+     */
+    public void notifyUsers(User user, Status status, List<User> receivers,String templateName) throws IOException, TemplateException {
+        Map<String,String> messageConfig = messages.get(templateName);
+        
+        
+        for(User receiver: receivers){
             Map<String,Object> model = new HashMap<String,Object>();
-            model.put("receiver",reviewer);
+            model.put("receiver",receiver);
             model.put("user", user);
             model.put("status", status);
             //Translate the country name 
-            String country = messageSource.getMessage("country." + user.getCountries(),null,new Locale("en") );
+            String country =null;
+            try{
+                country = messageSource.getMessage("country." + receiver.getCountries(),null,new Locale(receiver.getLanguage()) );
+            }catch(NoSuchMessageException e){
+                try{
+                    country = messageSource.getMessage("country." + receiver.getCountries(),null,new Locale("en"));
+                }catch(NoSuchMessageException ee){
+                    country= status.getCountry();
+                }
+            }
+            
             model.put("country",country);
-            String message = applyTemplate(getTemplate(messageConfig,reviewer),model);
-            sendMessage(reviewer.getEmail(),messageConfig.get("subject"),message);
+            String message = applyTemplate(getTemplate(messageConfig,receiver),model);
+            sendMessage(receiver.getEmail(),getSubject(receiver,templateName),message);
         }
    
     }
     
+    
+    /**
+     * Get the first subject in order
+     * * if defined in messageSource as emails.subject.[templateName]
+     * * if defined in configuration as [language]_subject
+     * * if both of previous are null, returns the default subject
+     * @param language 
+     * @return
+     */
+    private String getSubject(User receiver,String templateName) {
+        String lang =receiver.getLanguage();
+        String subject =null;
+        try{
+            subject= messageSource.getMessage("emails.subject." +templateName , null,new Locale(lang));
+        }catch(NoSuchMessageException e){
+            Map<String,String> conf= messages.get(templateName);
+            subject = conf.get(lang+"_subject");
+            if(subject!=null){
+                return subject;
+            }
+            else return conf.get("subject");
+        }
+        return subject;
+        
+        
+    }
+
     /**
      * Looks in messageConfig if the template for the user preferred language is present. If it isn't,
      * gets the "template" entry. Allowed values are "en","fr","es"
@@ -152,4 +222,6 @@ public class NotificationSerivice {
     public String getMailFromAddress() {
         return mailFromAddress;
     }
+
+    
 }
