@@ -22,6 +22,7 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.validation.Validator;
@@ -35,6 +36,7 @@ import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.validation.ValidationResult;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -118,14 +120,12 @@ public class CheckController {
         
         surveyService.changeStatus(status);
         LOGGER.info("submitted survey:"+status.getCountry());
-        User filter =new User();
-        
+
         List<User> reviewers=  userService.getUsersToNotify("reviewer",su.getCountries() );
-        
-        
+       
          if(reviewers.size()<=0){
            LOGGER.warn("No reivewer associated to country" +su.getCountries() + "find");
-           //TODO notify someone
+           //TODO notify someone this error
            
          }
         try{
@@ -134,18 +134,27 @@ public class CheckController {
             model.addAttribute("messageType", "success");
             model.addAttribute("messageCode", "submit.success");
         }catch(MailException  e){
-            LOGGER.error("The reviewers were not notified of the message submit becouse of an Mail Exception",e);
+            LOGGER.error("The reviewers were not notified of the message submit becouse of an Mail Exception",e);    
+        }catch(TemplateException e){
+            model.addAttribute("context", "check");  
+            sumbitNotNotifiedError(model);
+        }catch(IOException e){
             model.addAttribute("context", "check");
-            model.addAttribute("messageType", "waring");
-            model.addAttribute("messageCode", "submit.notnotified");
-            model.addAttribute("messageTimeout",10000);
+            sumbitNotNotifiedError(model);
         }
 
         return "index";
 
     }
     
-    private void submitDeniedError(Status s,ModelMap model) {
+    private static void sumbitNotNotifiedError(ModelMap model){
+        
+        model.addAttribute("messageType", "waring");
+        model.addAttribute("messageCode", "submit.notnotified");
+        model.addAttribute("messageTimeout",10000);
+    }
+    
+    private static void submitDeniedError(Status s,ModelMap model) {
         
         model.addAttribute("context", "check");
         model.addAttribute("messageType", "waring");
@@ -155,7 +164,7 @@ public class CheckController {
         
     }
     private void submissionError(ModelMap model,Exception e,Country c,User us){
-        LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user" + "us",e);
+        LOGGER.error("There was an error submitting the survey for Country:"+c +"submitted by the user: " + us,e);
         model.addAttribute("context", "check");
         model.addAttribute("messageType", "error");
         model.addAttribute("messageCode", "submit.error");

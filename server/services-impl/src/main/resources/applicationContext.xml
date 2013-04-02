@@ -41,24 +41,31 @@
 	<!-- Mailing support -->
 	<!-- ############### -->
 
-
+	
 	
 	<!-- freemarker config -->
+
 	<bean id="freemarkerMailConfiguration"
 		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
 		<property name="templateLoaderPath" value="classpath:mail/ftl/" />
+		<!--  <property name="freemarkerSettings">
+	        <props>
+	            <prop key="auto_import">spring.ftl as spring</prop>
+	        </props>
+	   </property> -->
 	</bean>
+
 	<!-- mail sender -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="host" />
 		<property name="port" value="25" />
-		<property name="username" value="username" />
-		<property name="password" value="passord" />
+		<property name="username" value="user" />
+		<property name="password" value="password" />
 
 		<property name="javaMailProperties">
 			<props>
-				<prop key="mail.smtp.auth">false</prop>
-				<prop key="mail.smtp.starttls.enable">false</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
 			</props>
 		</property>
 	</bean>
@@ -74,8 +81,22 @@
 						<entry key="subject"  value="Fra 2015 Notification - Survey has been submitted."></entry><!-- TODO: i18n -->
 					</map>
 				</entry>
+				<entry key="reviewerSubmit">
+					<map>
+						<entry key="template" value="reviewerSubmit.ftl"></entry>
+						<entry key="subject"  value="Fra 2015 Notification - Survey has been reviewed."></entry><!-- TODO: i18n -->
+					</map>
+				</entry>
+				<entry key="pendingFix">
+					<map>
+						<entry key="template" value="pendingFix.ftl"></entry>
+						<entry key="fr" value="pendingFix_fr.ftl"></entry>
+						<entry key="es" value="pendingFix_es.ftl"></entry>
+						<entry key="subject"  value="Fra 2015 Notification - Survey has been reviewed."></entry><!-- TODO: i18n -->
+					</map>
+				</entry>
 			</map>
 		</property>
-		<property name="mailFromAddress" value="admin@fra2015.org" />
+		<property name="mailFromAddress" value="admin@fra.fao.org" />
 	</bean>
 </beans>

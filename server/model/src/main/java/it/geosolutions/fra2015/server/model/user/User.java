@@ -95,6 +95,9 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = true)
     private String email;
     
+    @Column(nullable =true,updatable =true)
+    private String language;
+
     @Transient
     private String selCountries;
     
@@ -274,5 +277,13 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", name=" + name + '}';
+    }
+    
+    public String getLanguage() {
+        return this.language==null ? "en" : this.language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
