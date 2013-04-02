@@ -23,6 +23,7 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 
@@ -32,6 +33,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,13 +47,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SurveyListController {
 	@Autowired
 	private ControllerServices utils;
-
+	
 	 @RequestMapping(value = "/surveylist/{page}", method = RequestMethod.GET)
-	public String printWelcome(@PathVariable(value = "page") int page,ModelMap model, HttpSession session) {
+	public String printWelcome(@PathVariable(value = "page") int page,Model model, HttpSession session) {
 		model.addAttribute("context", "surveylist");
 
 		User su = (User) session.getAttribute(SESSION_USER);
-		if (su==null)return "redirect:login";
+		if (su==null){
+		    return "redirect:login";
+		}
+		
+		FlashAttributesHandler.copyToModel(session, model);
+		
 		String[] countries = su.getCountries().split(",");
 		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
 		//quick trick, because there is no filtering here 

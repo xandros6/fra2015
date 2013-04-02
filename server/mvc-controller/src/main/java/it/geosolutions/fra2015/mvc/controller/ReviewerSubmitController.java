@@ -28,8 +28,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
@@ -57,7 +59,7 @@ public class ReviewerSubmitController {
     private final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public String handleGet(@PathVariable(value = "country") String country, Model model,
+    public String handleGet(@PathVariable(value = "country") String country, HttpServletRequest request, Model model,
             HttpSession session) {
 
         model.addAttribute("context","surveylist");
@@ -87,16 +89,12 @@ public class ReviewerSubmitController {
         if (accepted) {
 
             // submit the Survey
-            model.addAttribute("messageType", "success");
-            model.addAttribute("messageCode", "revsubmit.ok");
-            model.addAttribute("messageTimeout", 10000);
-            return "reviewer";
+            FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null);
+            return "redirect:/surveylist/0";
         }
-
-        model.addAttribute("messageType", "warning");
-        model.addAttribute("messageCode", "revsubmit.ko"); // TODO how to display "notAcceptedQuestions" in message?
-        model.addAttribute("messageTimeout", 10000);
-        return "reviewer";
+        
+        FlashAttributesHandler.addFlashAttribute(session, "warning", "revsubmit.ko", 10000, null);
+        return "redirect:/surveylist/0";
         //        return "/surveylist/0";
 
     }
