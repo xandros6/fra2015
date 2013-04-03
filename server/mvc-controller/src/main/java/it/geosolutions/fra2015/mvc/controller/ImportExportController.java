@@ -46,6 +46,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -173,7 +174,7 @@ public class ImportExportController {
     
     @RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
     public @ResponseBody XmlSurvey handleGet(
-            @PathVariable(value = "country") String country, Model model, HttpSession session)
+            @PathVariable(value = "country") String country, Model model, HttpSession session, HttpServletResponse response)
             throws IllegalArgumentException {
 
         SurveyInfo surveyInfo = new SurveyInfo();
@@ -199,6 +200,10 @@ public class ImportExportController {
             
             valList.add(buildBasicValue(String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
         }
+        
+        response.setContentType("application/force-download");
+        response.setHeader("Content-Disposition","attachment; filename=\"" + country +  "-surveyExport.xml\"");
+        
         return survey;
         
 //        for (EntryItem el : entryItems) {
