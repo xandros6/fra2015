@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 import javax.servlet.http.HttpSession;
 
@@ -44,7 +45,7 @@ public class SummaryController {
     private ControllerServices utils;
 
     @RequestMapping(value = "/summary", method = RequestMethod.GET)
-    public String handleGet(Model model, HttpSession session) {
+    public String handleGet(Model model, HttpSession session) throws InternalErrorServiceEx {
 
         model.addAttribute("context", "summary");
 

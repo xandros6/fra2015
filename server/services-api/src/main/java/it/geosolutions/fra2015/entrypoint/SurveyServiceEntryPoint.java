@@ -15,6 +15,7 @@ import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 import java.util.List;
 
@@ -74,7 +75,7 @@ public interface SurveyServiceEntryPoint {
      * @return
      * @throws BadRequestServiceEx
      */
-    public CountryValues getCountryAndQuestionValues(String countryId, Integer questionNumber) throws BadRequestServiceEx;
+    public CountryValues getCountryAndQuestionValues(String countryId, Integer questionNumber) throws BadRequestServiceEx, InternalErrorServiceEx;
         
     /**
      * @param revision

@@ -23,6 +23,7 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 import javax.servlet.http.HttpSession;
 
@@ -48,7 +49,7 @@ public class PrintController {
 
     @RequestMapping(value = "/survey/print/{country}/{mode}", method = RequestMethod.GET)
     public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "mode") String mode, Model model,
-            HttpSession session) throws IllegalArgumentException{
+            HttpSession session) throws IllegalArgumentException, InternalErrorServiceEx{
 
         model.addAttribute("context", "survey");        
         model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());

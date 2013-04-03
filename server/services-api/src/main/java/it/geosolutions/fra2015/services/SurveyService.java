@@ -14,6 +14,7 @@ import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
 
@@ -30,8 +31,8 @@ public interface SurveyService {
     public Entry updateValues(String iso3, String variable, Integer row, Integer col, String value)
             throws BadRequestServiceEx, NotFoundServiceEx;
 
-    public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx,
-            NotFoundServiceEx;
+//    public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx,
+//            NotFoundServiceEx;
 
     /**
      * update or insert an entry
@@ -71,7 +72,7 @@ public interface SurveyService {
      * @throws NotFoundServiceEx
      */
     public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionNumber)
-            throws BadRequestServiceEx;
+            throws BadRequestServiceEx, InternalErrorServiceEx;
 
     /**
      * @param iso3

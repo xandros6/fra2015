@@ -36,14 +36,19 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
 
 import com.googlecode.genericdao.search.Search;
+import it.geosolutions.fra2015.services.SurveyServiceImpl.ValueDAO;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 /**
  *
  * @author marco
  */
 public class SurveyServiceImpl implements SurveyService {
+
+    private final static Integer ENTRIES_IN_QUESTION = 500;
 
 	public abstract class ValueDAO {
 
@@ -53,8 +58,11 @@ public class SurveyServiceImpl implements SurveyService {
 
 		public abstract void merge(Value dbValue);
 
-		public abstract void remove(Value dbValue);
+		public abstract void remove(long id);
+
+        public abstract List<? extends Value> readAll(Country country, Integer questionNumber);
 	}
+
 	private static final Logger LOGGER = Logger.getLogger(SurveyServiceImpl.class);
 	private CountryDAO countryDAO;
 	private EntryDAO entryDAO;
@@ -77,7 +85,7 @@ public class SurveyServiceImpl implements SurveyService {
 
 
 
-	private Map<String, ValueDAO> map = new HashMap<String, ValueDAO>();
+	private Map<String, ValueDAO> daoMap = new HashMap<String, ValueDAO>();
 
 	public void setSurveyDAO(SurveyDAO surveyDAO) {
 		this.surveyDAO = surveyDAO;
@@ -116,7 +124,7 @@ public class SurveyServiceImpl implements SurveyService {
 
 
     public SurveyServiceImpl() {
-		map.put("String", new ValueDAO() {
+		daoMap.put("String", new ValueDAO() {
 			@Override
 			public void persist(ValueDTO value) {
 				TextValue dbValue = new TextValue();
@@ -131,6 +139,7 @@ public class SurveyServiceImpl implements SurveyService {
 				Search searchCriteria = new Search(TextValue.class);
 				searchCriteria.addFilterEqual("entryItem.id", itemId);
 				searchCriteria.addFilterEqual("country.id", country.getId());
+                searchCriteria.addFetch("entryItem");
 				// TODO add unique constraint to TextValue
 				List<TextValue> textValues = textValueDAO.search(searchCriteria);
 				if (textValues.size() > 0) {
@@ -139,7 +148,17 @@ public class SurveyServiceImpl implements SurveyService {
 					return textValue;
 				}
 				return null;
+			}
 
+			@Override
+			public List<? extends Value> readAll(Country country, Integer questionId) {
+				Search searchCriteria = new Search(TextValue.class);
+				searchCriteria.addFilterEqual("entryItem.entry.question.id", questionId);
+				searchCriteria.addFilterEqual("country.id", country.getId());
+                searchCriteria.addFetch("entryItem");
+
+				List<TextValue> ret = textValueDAO.search(searchCriteria);
+                return ret;
 			}
 
 			@Override
@@ -150,14 +169,12 @@ public class SurveyServiceImpl implements SurveyService {
 			}
 
 			@Override
-			public void remove(Value value) {
-				TextValue textValue = (TextValue) value;
-				textValue.setValue(value.getContent());
-				textValueDAO.remove(textValue);
-
+			public void remove(long id) {
+				textValueDAO.removeById(id);
 			}
 		});
-		map.put("Number", new ValueDAO() {
+
+		daoMap.put("Number", new ValueDAO() {
 			@Override
 			public void persist(ValueDTO value) {
 				try {
@@ -196,6 +213,17 @@ public class SurveyServiceImpl implements SurveyService {
 			}
 
 			@Override
+			public List<? extends Value> readAll(Country country, Integer questionId) {
+				Search searchCriteria = new Search(NumberValue.class);
+				searchCriteria.addFilterEqual("entryItem.entry.question.id", questionId);
+				searchCriteria.addFilterEqual("country.id", country.getId());
+                searchCriteria.addFetch("entryItem");
+
+				List<NumberValue> ret = numberValueDAO.search(searchCriteria);
+                return ret;
+			}
+
+			@Override
 			public void merge(Value value) {
 				try {
 					NumberValue numberValue = (NumberValue) value;
@@ -209,16 +237,8 @@ public class SurveyServiceImpl implements SurveyService {
 			}
 
 			@Override
-			public void remove(Value value) {
-				try {
-					NumberValue numberValue = (NumberValue) value;
-					NumberFormat format = NumberFormat.getInstance(Locale.US);
-					Number number = format.parse(value.getContent());
-					numberValue.setValue(number);
-					numberValueDAO.remove(numberValue);
-				} catch (ParseException ex) {
-					throw new IllegalArgumentException("Value of item " + value.getEntryItem().getId() + "must be numeric.");
-				}
+			public void remove(long id) {
+				numberValueDAO.removeById(id);
 			}
 		});
 	}
@@ -257,7 +277,7 @@ public class SurveyServiceImpl implements SurveyService {
 			}
 
 			// retrieve previous value if it is an update
-			ValueDAO valueDAO = map.get(item.getType());
+			ValueDAO valueDAO = daoMap.get(item.getType());
 			Value dbValue = valueDAO.read(item.getId(), country);
 			if (dbValue == null) {
 				// create a new value
@@ -286,51 +306,45 @@ public class SurveyServiceImpl implements SurveyService {
 	public boolean removeValues(String iso3, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
 		Entry entry = entryDAO.findByName(entryId);
-		if (entry != null) {
-			Search searchCriteria = new Search(EntryItem.class);
-			searchCriteria.addFilterEqual("rowNumber", row);
-			searchCriteria.addFilterEqual("columnNumber", col);
-			searchCriteria.addFilterEqual("entry.id", entry.getId());
-			List<EntryItem> items = entryItemDAO.search(searchCriteria);
-			EntryItem item = null;
-			if (items.isEmpty()) {
-				return false;
-			} else {
-				item = items.get(0);
-			}
 
-			// find a country with the given name
-			Country country = findCountryByISO3(iso3);
-			if (country == null) {
-				throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
-			}
+        if(entry == null) {
+            throw new NotFoundServiceEx("Entry " + entryId + " not found.");
+        }
 
-			// retrieve previous value if it is an update
-			ValueDAO valueDAO = map.get(item.getType());
-			Value dbValue = valueDAO.read(item.getId(), country);
-			if (dbValue == null) {
-				return false;
-			} else {
-				// update values
-				dbValue.setContent(value);
-				valueDAO.remove(dbValue);
-			}
+        Search searchCriteria = new Search(EntryItem.class);
+        searchCriteria.addFilterEqual("rowNumber", row);
+        searchCriteria.addFilterEqual("columnNumber", col);
+        searchCriteria.addFilterEqual("entry.id", entry.getId());
+        List<EntryItem> items = entryItemDAO.search(searchCriteria);
+        EntryItem item = null;
+        if (items.isEmpty()) {
+            return false;
+        } else {
+            item = items.get(0);
+        }
 
-			return true;
-		}
-		throw new BadRequestServiceEx("Entry " + entryId + " not found.");
+        // find a country with the given name
+        Country country = findCountryByISO3(iso3);
+        if (country == null) {
+            throw new NotFoundServiceEx("Country with code " + iso3 + " does not exist.");
+        }
+
+        // retrieve previous value if it is an update
+        ValueDAO valueDAO = daoMap.get(item.getType());
+        Value dbValue = valueDAO.read(item.getId(), country);
+        if (dbValue == null) {
+            return false;
+        } else {
+            valueDAO.remove(dbValue.getId());
+        }
+
+        return true;
 	}
 
 	@Override
-	public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionId) throws BadRequestServiceEx {
+	public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionId) throws BadRequestServiceEx, InternalErrorServiceEx {
 
-		return getValuesInternal(iso3, questionId);
-	}
-
-	@Override
-	public List<CompactValue> getAllValues(String iso3) throws BadRequestServiceEx, NotFoundServiceEx {
-
-		return getValuesInternal(iso3, null);
+		return getCompactValues(iso3, questionId);
 	}
 
 	@Override
@@ -355,7 +369,7 @@ public class SurveyServiceImpl implements SurveyService {
 				}
 			}
 		}
-		questionDAO.persist(question);	
+		questionDAO.persist(question);
 	}
 
 	@Override
@@ -369,16 +383,16 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return null;
 	}
-	
+
 	@Override
-	public Status getStatus(String iso3){
-	    SurveyInstance survey = surveyDAO.findByCountry( iso3 );
-	    if ( survey != null ){
-                return survey.getStatus();
-                
-            }
-	    return null;
-	}
+    public Status getStatus(String iso3) {
+        SurveyInstance survey = surveyDAO.findByCountry(iso3);
+        if (survey != null) {
+            return survey.getStatus();
+        }
+
+        return null;
+    }
 	@Override
 	public List<SurveyInstance> getSurveysByCountry(String[] countries,int page,int entries){
 		return surveyDAO.findByCountries( countries,page,entries );
@@ -398,13 +412,13 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public List<Country> getCountries() {
 		List<Country> countries = countryDAO.findAll();
 		return countries;
 	}
-	
+
 	@Override
         public QuestionRevision findQuestionRevision(Country country, Question question) {
             Search searchCriteria = new Search(QuestionRevision.class);
@@ -416,10 +430,10 @@ public class SurveyServiceImpl implements SurveyService {
             }
             return null;
         }
-	
+
         @Override
         public boolean updateQuestionRevision(QuestionRevision revision) {
-        
+
             QuestionRevision lastRevision = findQuestionRevision(revision.getCountry(),
                     revision.getQuestion());
             Long version = lastRevision.getVersion();
@@ -432,7 +446,7 @@ public class SurveyServiceImpl implements SurveyService {
                     questionRevisionDAO.merge(lastRevision);
                 }
             }
-        
+
             return true;
         }
 
@@ -447,7 +461,7 @@ public class SurveyServiceImpl implements SurveyService {
 		return null;
 	}
 
-	private List<CompactValue> getValuesInternal(String iso3, Integer questionNumber) throws BadRequestServiceEx{
+	private List<CompactValue> getCompactValues(String iso3, Integer questionNumber) throws BadRequestServiceEx {
 
 		// find a country with the given name
 		Country country = findCountryByISO3(iso3);
@@ -455,83 +469,50 @@ public class SurveyServiceImpl implements SurveyService {
 			throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
 		}
 
-		List<CompactValue> values = new ArrayList<CompactValue>();
+		List<CompactValue> values = new ArrayList<CompactValue>(ENTRIES_IN_QUESTION);
 
-		List<Entry> entries = new ArrayList<Entry>();
-		if(questionNumber == null){
-			entries = surveyCatalog.getCatalog();
-		}
-		else{
-			entries = surveyCatalog.getCatalogForQuestion(questionNumber);
-		}
-		//        List<Entry> entries = entryDAO.findAll();
-		if (entries != null) {
-			for (Entry entry : entries) {
-				if(entry == null){
-					continue;
-				}
-				if (!entry.getEntryItems().isEmpty()) {
-					for (EntryItem item : entry.getEntryItems()) {
-						String type = item.getType();
-						ValueDAO valueDAO = map.get(type);
-						if (valueDAO != null) {
-							Value value = valueDAO.read(item.getId(), country);
-							if (value != null) {
-								CompactValue compact = new CompactValue(
-										item.getEntry().getVariable(),
-										item.getRowNumber(),
-										item.getColumnNumber(),
-										value.getContent());
-								values.add(compact);
-							}
-						}
+        for (Map.Entry<String, ValueDAO> daoEntry : daoMap.entrySet()) {
+            String typeName = daoEntry.getKey();
+            ValueDAO valueDAO = daoEntry.getValue();
+            LOGGER.debug("Loading values for Country:"+iso3 + " question:"+questionNumber + " type:"+typeName);
 
-					}
-				}
-			}
-		}
+            List<? extends Value> valuesList = valueDAO.readAll(country, questionNumber);
+            for (Value value : valuesList) {
+                EntryItem item = value.getEntryItem();
+                CompactValue compact = new CompactValue(
+                        item.getEntry().getVariable(),
+                        item.getRowNumber(),
+                        item.getColumnNumber(),
+                        value.getContent());
+                values.add(compact);
+            }
+        }
 		return values;
 	}
-	
-	public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx{
 
-            // find a country with the given name
-            Country country = findCountryByISO3(iso3);
-            if (country == null) {
-                    throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
-            }
+    public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx {
 
-            List<Value> values = new ArrayList<Value>();
+        // find a country with the given name
+        Country country = findCountryByISO3(iso3);
+        if (country == null) {
+            throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+        }
 
-            List<Entry> entries = new ArrayList<Entry>();
-            if(questionNumber == null){
-                    entries = surveyCatalog.getCatalog();
-            }
-            else{
-                    entries = surveyCatalog.getCatalogForQuestion(questionNumber);
-            }
-            //        List<Entry> entries = entryDAO.findAll();
-            if (entries != null) {
-                    for (Entry entry : entries) {
-                            if(entry == null){
-                                    continue;
-                            }
-                            if (!entry.getEntryItems().isEmpty()) {
-                                    for (EntryItem item : entry.getEntryItems()) {
-                                            String type = item.getType();
-                                            ValueDAO valueDAO = map.get(type);
-                                            if (valueDAO != null) {
-                                                    Value value = valueDAO.read(item.getId(), country);
-                                                    if (value != null) {
-                                                            values.add(value);
-                                                    }
-                                            }
+        if (questionNumber == null) {
+            throw new BadRequestServiceEx("Missing question number.");
+        }
 
-                                    }
-                            }
-                    }
-            }
-            return values;
+        List<Value> values = new ArrayList<Value>(500);
+
+        for (Map.Entry<String, ValueDAO> daoEntry : daoMap.entrySet()) {
+            String typeName = daoEntry.getKey();
+            ValueDAO valueDAO = daoEntry.getValue();
+            LOGGER.debug("Loading values for Country:"+iso3 + " question:"+questionNumber + " type:"+typeName);
+
+            List<? extends Value> valuesList = valueDAO.readAll(country, questionNumber);
+            values.addAll(valuesList);
+        }
+		return values;
     }
 
     @Override
@@ -540,19 +521,18 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
 
-
     /* (non-Javadoc)
      * @see it.geosolutions.fra2015.services.SurveyService#findQuestion(java.lang.Long)
      */
     @Override
     public Question findQuestion(Long questionNumber) {
-       
+
         return questionDAO.find(questionNumber);
     }
-    
+
     @Override
     public List<Question> getQuestions() {
-       
+
         return questionDAO.findAll();
     }
 
@@ -562,24 +542,24 @@ public class SurveyServiceImpl implements SurveyService {
      * @see it.geosolutions.fra2015.services.SurveyService#searchCountry(java.lang.String)
      */
     @Override
-    public Country searchCountry(String iso3) {        
+    public Country searchCountry(String iso3) {
         Search searchCriteria = new Search(Country.class);
         searchCriteria.addFilterEqual("iso3", iso3);
         return countryDAO.search(searchCriteria).get(0);
     }
-    
+
 	@Override
 	public Country findCountry(Long id) {
-		
+
 		 return countryDAO.find(id);
 	}
 
-    
+
     @Override
     public List<Value> getEntryListByVariableName(List<String> names, String iso3) throws BadRequestServiceEx{
-    	
+
     	Search searchCriteria = new Search(EntryItem.class);
-    	
+
     	Country country = findCountryByISO3(iso3);
 		if (country == null) {
 			throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
@@ -589,7 +569,7 @@ public class SurveyServiceImpl implements SurveyService {
     	List<EntryItem> items =  entryItemDAO.search(searchCriteria);
     	for(EntryItem item : items){
     		String type = item.getType();
-			ValueDAO valueDAO = map.get(type);
+			ValueDAO valueDAO = daoMap.get(type);
 			if (valueDAO != null) {
 				Value value = valueDAO.read(item.getId(), country);
 				if(value!=null){
@@ -599,8 +579,8 @@ public class SurveyServiceImpl implements SurveyService {
 			}
     	}
 		return results;
-		
-    	
+
+
     }
 
 

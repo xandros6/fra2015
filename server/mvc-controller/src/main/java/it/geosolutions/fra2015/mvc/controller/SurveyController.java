@@ -38,11 +38,13 @@ import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -118,15 +120,15 @@ public class SurveyController{
 
         CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, su.getCountries());
         utils.prepareHTTPRequest(model, question, cv, false);
-        
+
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
             
-            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, session, null, true);
+            List<Feedback> listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, session, null, true);
             fh.prepareFeedbackModel(model, listF);
         } 
-        catch (BadRequestServiceEx e) {
-            
+        catch (BadRequestServiceEx e) {            
+
             session.invalidate();
             model.addAttribute("messageType", "warning");
             model.addAttribute("messageCode", "alert.savefaliure");

@@ -76,7 +76,7 @@ public class SurveyCatalog {
      * @param questionNumber
      * @return
      */
-    public List<Entry> getCatalogForQuestion(Integer questionNumber) {
+    public List<Entry> getEntriesForQuestion(Integer questionNumber) {
         if(questionNumber == null){
             return getCatalog();
         }

@@ -25,6 +25,7 @@ package it.geosolutions.fra2015.server.model.survey;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.PostLoad;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Index;
@@ -57,7 +58,9 @@ public class TextValue extends Value {
     }
    
 
-
-    
+    @PostLoad
+    public void postLoad() {
+        setContent(getValue());
+    }    
       
 }

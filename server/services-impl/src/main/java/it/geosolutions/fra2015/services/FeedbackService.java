@@ -90,7 +90,7 @@ public class FeedbackService {
     
     public boolean checkQuestionFeedbackStatus(User user, SurveyInstance survey, Integer question){
         
-        List<Entry> entries = catalog.getCatalogForQuestion(question);
+        List<Entry> entries = catalog.getEntriesForQuestion(question);
         
         Search search = new Search();
         search.addFilterEqual("user", user);

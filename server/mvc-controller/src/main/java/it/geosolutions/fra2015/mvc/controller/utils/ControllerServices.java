@@ -33,10 +33,12 @@ import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -99,7 +101,9 @@ public class ControllerServices {
         try {
             es = surveyService.getCountryAndQuestionValues(country, q);
         } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getLocalizedMessage());
+            LOGGER.error(e.getLocalizedMessage(), e);
+        } catch (InternalErrorServiceEx e) {
+            LOGGER.error(e.getLocalizedMessage(), e);
         }
         return es;
     }
@@ -119,7 +123,7 @@ public class ControllerServices {
         Integer q = (question != null) ? Integer.parseInt(question) : null;
 
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
-        List<Entry> questionCatalog = catalog.getCatalogForQuestion(null);
+        List<Entry> questionCatalog = catalog.getEntriesForQuestion(null);
         
         // Init the row counters for this request
         for (Entry el : questionCatalog) {
@@ -163,7 +167,7 @@ public class ControllerServices {
      * @param values
      * @param printNameInsteadOfValue
      */
-    public void prepareHTTPRequestOnlyVariablesName(Model model, String country){
+    public void prepareHTTPRequestOnlyVariablesName(Model model, String country) throws InternalErrorServiceEx{
 
         CountryValues values = retrieveValues(null, country);
         Map<String, Integer> tableRowsCounter = countRowsAndStoreTheNumberInTheModel(model, values, catalog);
@@ -215,7 +219,7 @@ public class ControllerServices {
     private static Map<String, Integer> initRowsCounters(SurveyCatalog catalog){
         
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
-        List<Entry> questionCatalog = catalog.getCatalogForQuestion(null);
+        List<Entry> questionCatalog = catalog.getEntriesForQuestion(null);
         for (Entry el : questionCatalog) {
             if (el != null && el.getType().equalsIgnoreCase(TEXT_DYN_TABLE)) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);

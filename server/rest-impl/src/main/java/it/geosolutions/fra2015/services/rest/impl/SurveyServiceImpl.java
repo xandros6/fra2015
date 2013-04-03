@@ -22,6 +22,7 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
 import it.geosolutions.fra2015.services.rest.exception.InternalErrorWebEx;
@@ -105,7 +106,7 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
 
     @Override
     public CountryValues getCountryAndQuestionValues(String iso3CountryId, Integer questionNumber)
-            throws BadRequestServiceEx {
+            throws BadRequestServiceEx, InternalErrorServiceEx {
 
         if (iso3CountryId == null) {
             throw new BadRequestServiceEx("Missing parameter country");
