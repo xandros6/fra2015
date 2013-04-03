@@ -5,6 +5,7 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,8 @@ public class Status implements Serializable {
     @Column(nullable = false, updatable = true)
     private String status;
     
+    @Column(nullable = true, updatable = true)
+    private Long lastContributorSubmission;
     
     @Transient
     private String country;
@@ -73,6 +76,20 @@ public class Status implements Serializable {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    /**
+     * @return the contributorSubmission
+     */
+    public Long getLastContributorSubmission() {
+        return lastContributorSubmission;
+    }
+
+    /**
+     * @param contributorSubmission the contributorSubmission to set
+     */
+    public void setLastContributorSubmission(Long lastContributorSubmission) {
+        this.lastContributorSubmission = lastContributorSubmission;
     }
     
     

@@ -113,6 +113,7 @@ public class CheckController {
         status.setStatus(StatusUtils.COMPILED);
         status.setCountry(su.getCountries());
         status.setMessage((String) request.getParameter("submitmessage"));
+        status.setLastContributorSubmission(System.currentTimeMillis());
         Country c = surveyService.findCountryByISO3(su.getCountries());
         if(c!=null){
             status.setCountry(su.getCountries());
