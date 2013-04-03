@@ -45,17 +45,18 @@ public class TiersEntry extends SurveyEntry{
 				
 			String value = pageContext.getRequest().getAttribute(this.name) !=null? (String) pageContext.getRequest().getAttribute(this.name):"";
 			int index = 0;
-			if("Tier 1".equals(value)) index= 1;
+			//reverse order
+			if("Tier 1".equals(value)) index= 3;
 			if("Tier 2".equals(value)) index= 2;
-			if("Tier 3".equals(value)) index= 3;
+			if("Tier 3".equals(value)) index= 1;
 			//print start tag
 			if (this.edit) {
 				out.print(editorStart + this.name + "'>");
 			String[] options ={
 						" >---</option>",
-						" value='Tier 1'>Tier 1</option>",
+						" value='Tier 3'>Tier 3</option>",
 						" value='Tier 2'>Tier 2</option>",
-						" value='Tier 3'>Tier 3</option>" 
+						" value='Tier 1'>Tier 1</option>"
 			};
 							
 			String optionstring = "";
