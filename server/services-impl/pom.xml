@@ -99,10 +99,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
             <scope>provided</scope>
         </dependency>
         <dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-support</artifactId>
-				<version>2.0.6</version>
-			</dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
             
 
         <!-- =========================================================== -->
