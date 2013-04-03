@@ -64,6 +64,17 @@ public class FeedbackService {
         return true;
     }
     
+    /**
+     * Load All feedbacks related to the Latest review / ReviewEditing.
+     * The feedback is loaded only if his timestamp is > to the LastContributorSubmission field stored in the survey status
+     *  
+     * @param user
+     * @param survey
+     * @param question
+     * @param harmonized
+     * @return
+     * @throws BadRequestServiceEx
+     */
     public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question, Boolean harmonized) throws BadRequestServiceEx{
 
         List<Feedback> list = new ArrayList<Feedback>();
@@ -78,6 +89,7 @@ public class FeedbackService {
             }
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
             list = feedbackDAO.search(search);
         }
         catch (Exception e) {
