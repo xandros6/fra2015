@@ -184,11 +184,11 @@ function initFilterWindow(el){
 	        process(result);
 	    },
 	    updater: function(item) {
-	    	el.find('#selCountries').val(map[item].id);
+	    	el.find('#countries').val(map[item].id);
 	        return item;
 	    }
 	});
-	var selectedId = el.find('#selCountries').val();
+	var selectedId = el.find('#countries').val();
 	if(selectedId){
 		var filterCountriesValue = $.grep(countriesArr, function(e){ return e.id == selectedId; })[0];
 		var label = filterCountriesValue.name + " (" + filterCountriesValue.iso3 + ")";
