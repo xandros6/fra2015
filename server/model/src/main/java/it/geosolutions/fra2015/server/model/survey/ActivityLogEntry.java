@@ -33,8 +33,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import javax.persistence.Transient;
-
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -44,19 +42,7 @@ import javax.persistence.TemporalType;
 @Table(name = "fra_activitylog")
 public class ActivityLogEntry implements Serializable {
 
-		
-	@Transient
-	public static final DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
-	@Transient
-	private String date;
-
-	@Transient
-	private String fromDate;
-
-	@Transient
-	private String toDate;
-
+    public final static String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
 
     @Id
     @GeneratedValue
@@ -71,11 +57,11 @@ public class ActivityLogEntry implements Serializable {
 
     private String username;
 
-    private String country;
+    private String country; // code? name?
 
-    private String question_id;
+    private String question_id; // not a fk?
 
-    private String content;
+    private String content; // should be cropped, or should be declared as LOB
 
     /**
      * @return the id
@@ -181,27 +167,8 @@ public class ActivityLogEntry implements Serializable {
     }
 
 	public String getDate() {
+    	final DateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
 		return formatter.format(this.updateTimeStamp);
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	public String getFromDate() {
-		return fromDate;
-	}
-
-	public void setFromDate(String fromDate) {
-		this.fromDate = fromDate;
-	}
-
-	public String getToDate() {
-		return toDate;
-	}
-
-	public void setToDate(String toDate) {
-		this.toDate = toDate;
 	}
 
 	public Date getUpdateTimeStamp() {

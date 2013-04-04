@@ -23,12 +23,11 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
-import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyActivityLog;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
-import java.util.ArrayList;
+import it.geosolutions.fra2015.services.model.ActivityLogFilter;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -67,7 +66,7 @@ public class AdminActivityLog {
     }
     
     @RequestMapping(value = "/filter", method = RequestMethod.POST)
-	public String updateFilter(@ModelAttribute("logFilter") ActivityLogEntry logFilter, ModelMap model , SessionStatus sessionStatus) {
+	public String updateFilter(@ModelAttribute("logFilter") ActivityLogFilter logFilter, ModelMap model , SessionStatus sessionStatus) {
 		model.addAttribute("logFilter", logFilter);
 		return "forward:/adminactivitylog/0";
 	}
@@ -80,12 +79,12 @@ public class AdminActivityLog {
     @RequestMapping(value = "/{page}")
 	public String getLogPage(@PathVariable(value = "page") int page,
 			ModelMap model) {
-    	ActivityLogEntry logFilter = (ActivityLogEntry) model.get("logFilter");
+    	ActivityLogFilter logFilter = (ActivityLogFilter) model.get("logFilter");
 		//add context for view
 		//model.addAttribute("countries", surveyService.getCountries());
 		//model.addAttribute("context", "users");
 		List<ActivityLogEntry> activityLogList = this.getPage(page, logFilter);
-		if(activityLogList.size() == 0 && page > 0){
+		if(activityLogList.isEmpty() && page > 0){
 			return "redirect:/adminactivitylog/"+(page-1);
 		}
 		model.addAttribute("page", page);
@@ -115,7 +114,7 @@ public class AdminActivityLog {
 		if((page-1) > 0 ){
 			pagination.setPrev2(page-2);
 		}
-		logFilter = (model.get("logFilter")!=null ?  (ActivityLogEntry) model.get("logFilter") : new ActivityLogEntry());
+		logFilter = (model.get("logFilter")!=null ?  (ActivityLogFilter) model.get("logFilter") : new ActivityLogFilter());
 		model.addAttribute("countries", surveyService.getCountries());
 		model.addAttribute("logFilter", logFilter);
 		model.addAttribute("context", "activitylog");
@@ -124,7 +123,7 @@ public class AdminActivityLog {
 		return "admin";
 	}
     
-	private List<ActivityLogEntry> getPage(int page, ActivityLogEntry userFilter) {
+	private List<ActivityLogEntry> getPage(int page, ActivityLogFilter userFilter) {
 		try {
 			return sal.getAll(page, pagesize,userFilter);
 		} catch (BadRequestServiceEx e) {

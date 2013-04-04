@@ -35,6 +35,7 @@ import org.apache.log4j.Logger;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 import com.googlecode.genericdao.search.Sort;
+import it.geosolutions.fra2015.services.model.ActivityLogFilter;
 
 /**
  * @author DamianoG
@@ -184,12 +185,12 @@ public class SurveyActivityLog {
         this.activityLogDAO = activityLogDAO;
     }
 
-    public long getCountFiltered(ActivityLogEntry logFilter) throws BadRequestServiceEx {
+    public long getCountFiltered(ActivityLogFilter logFilter) throws BadRequestServiceEx {
     	Search searchCriteria = getSearchCriteria(null, null, logFilter);  
     	return activityLogDAO.count(searchCriteria);
     }
     
-    private Search getSearchCriteria(Integer page, Integer entries, ActivityLogEntry logFilter) throws BadRequestServiceEx{
+    private Search getSearchCriteria(Integer page, Integer entries, ActivityLogFilter logFilter) throws BadRequestServiceEx{
    	 if (((page != null) && (entries == null)) || ((page == null) && (entries != null))) {
             throw new BadRequestServiceEx("Page and entries params should be declared together.");
         }
@@ -201,14 +202,14 @@ public class SurveyActivityLog {
         if(logFilter != null){
         	if(StringUtils.isNotBlank(logFilter.getFromDate())){
         		try {
-					searchCriteria.addFilter(Filter.greaterOrEqual("updateTimeStamp", ActivityLogEntry.formatter.parse(logFilter.getFromDate())) );
+					searchCriteria.addFilter(Filter.greaterOrEqual("updateTimeStamp", ActivityLogFilter.asDate(logFilter.getFromDate())) );
 				} catch (ParseException e) {
 					LOGGER.error(e.getMessage(),e);
 				}
         	}
         	if(StringUtils.isNotBlank(logFilter.getToDate())){
         		try {
-					searchCriteria.addFilter(Filter.lessOrEqual("updateTimeStamp", ActivityLogEntry.formatter.parse(logFilter.getToDate())) );
+					searchCriteria.addFilter(Filter.lessOrEqual("updateTimeStamp", ActivityLogFilter.asDate(logFilter.getToDate())) );
 				} catch (ParseException e) {
 					LOGGER.error(e.getMessage(),e);
 				}
@@ -221,7 +222,7 @@ public class SurveyActivityLog {
         	if(StringUtils.isNotBlank(logFilter.getCountry()))
         		searchCriteria.addFilter(Filter.ilike("country","%"+logFilter.getCountry()+"%"));        	
         	if(StringUtils.isNotBlank(logFilter.getQuestion_id()))
-        		searchCriteria.addFilter(Filter.equal("question_id", logFilter.getQuestion_id()));        	
+        		searchCriteria.addFilter(Filter.equal("question_id", logFilter.getQuestion_id()));
         	if(StringUtils.isNotBlank(logFilter.getContent()))
         		searchCriteria.addFilter(Filter.ilike("content","%"+logFilter.getContent()+"%"));
         }
@@ -234,7 +235,7 @@ public class SurveyActivityLog {
         return searchCriteria;
    }
 
-    public List<ActivityLogEntry> getAll(Integer page, Integer entries, ActivityLogEntry logFilter) throws BadRequestServiceEx {
+    public List<ActivityLogEntry> getAll(Integer page, Integer entries, ActivityLogFilter logFilter) throws BadRequestServiceEx {
 
         Search searchCriteria = getSearchCriteria(page, entries, logFilter);  
 
