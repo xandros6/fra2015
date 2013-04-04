@@ -23,8 +23,10 @@
 
 						<td><spring:message code="survey.status.${survey.status.status}"></spring:message></td>
 						<%-- 								<td>${user.countries}</td> --%>
-						<td><a href="../survey/review/${survey.country.iso3}/0" class="btn">View</a></td>
-						<td><a href="../reviewersubmit/${survey.country.iso3}" class="btn">Submit</a></td>
+						<td><a href="../survey/review/${survey.country.iso3}/0" class="btn"><spring:message code="surveylist.view"></spring:message></a></td>
+						<td>${allowedsubmitstatus}
+							<a href="../reviewersubmit/${survey.country.iso3}" class="btn"><spring:message code="surveylist.submit"></spring:message></a>
+						</td>
 					</tr>
 				</c:forEach>
 
