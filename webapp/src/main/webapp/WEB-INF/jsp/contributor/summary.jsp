@@ -434,16 +434,16 @@
 				<td>4b</td>
 				<td><spring:message code="ref231"></spring:message>
 				<td>1000 local currency</td><%//TODO localize %>
-				<td></td>
-				<td></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
 				<td class="numeric">${_fraVariable_4b_2_3_ + 
 					  _fraVariable_4b_3_3_ +
 					  _fraVariable_4b_4_3_ +
 					  _fraVariable_4b_5_3_ + _fraVariable_4b_6_3_ + _fraVariable_4b_7_3_ +
 					  _fraVariable_4b_8_3_ + _fraVariable_4b_9_3_ + _fraVariable_4b_10_3_ +
 					  _fraVariable_4b_11_3_}</td>
-				<td></td>
-				<td></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
 			</tr>
 			
 			<tr>
@@ -599,8 +599,8 @@
 			<tr>
 				<td>7.2</td>
 				<td>1000 ha</td>
-				<td></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
 				<td class="numeric">${_fraVariable_7_2_1_ + _fraVariable_7_3_1_ + _fraVariable_7_4_1_  +
 					  _fraVariable_7_5_1_ + _fraVariable_7_6_1_ + _fraVariable_7_7_1_  +
 					  _fraVariable_7_8_1_ + _fraVariable_7_9_1_ + _fraVariable_7_10_1_  +
@@ -609,7 +609,7 @@
 					  _fraVariable_7_5_2_ + _fraVariable_7_6_2_ + _fraVariable_7_7_2_  +
 					  _fraVariable_7_8_2_ + _fraVariable_7_9_2_ + _fraVariable_7_10_2_  +
 					  _fraVariable_7_11_2_} </td>
-				<td></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td rowspan="5">8a</td>
@@ -655,59 +655,60 @@
 			<tr>
 				<td rowspan="7">10</td>
 			</tr>
+			
 			<tr>
 				<td>10.1 <spring:message code="ref388"></spring:message></td>
 				<td>Boolean</td>
-				<td><c:if test="${_fraVariable_10_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_3_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_3_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_3_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_3_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_3_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_3_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_3_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>10.1.1 <spring:message code="ref389"></spring:message></td>
 				<td>Boolean</td>
-				<td><c:if test="${_fraVariable_10_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_5_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_5_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_5_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_5_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_5_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_5_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_5_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>10.1.2 <spring:message code="ref390"></spring:message></td>
 				<td>Boolean</td>
-				<td><c:if test="${_fraVariable_10_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_7_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_7_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_7_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_7_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_7_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_7_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_7_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>10.2 <spring:message code="ref380"></spring:message></td>
 				<td>Boolean</td>
-				<td><c:if test="${_fraVariable_10_9_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_9_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_9_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_9_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_9_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_9_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_9_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_9_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_9_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>10.2.1 <spring:message code="ref389"></spring:message></td>
-				<td>Boolean</td>
-				<td><c:if test="${_fraVariable_10_10_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_10_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_10_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_10_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="boolean">Boolean</td>
+				<td class="boolean"><c:if test="${_fraVariable_10_10_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_10_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_10_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_10_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>10.1.2 <spring:message code="ref390"></spring:message></td>
 				<td>Boolean</td>
-				<td><c:if test="${_fraVariable_10_11_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_11_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_11_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td><c:if test="${_fraVariable_10_11_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_11_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_11_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_11_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="boolean"><c:if test="${_fraVariable_10_11_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_11_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td rowspan="2">11</td>
@@ -715,11 +716,11 @@
 			<tr>
 				<td>11.1 <spring:message code="ref396"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_11_0_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_11_0_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="boolean"><c:if test="${_fraVariable_11_0_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_11_0_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td rowspan="3">12</td>
@@ -727,20 +728,20 @@
 			<tr>
 				<td>12.1 <spring:message code="ref398"></spring:message></td>
 				<td>1000 ha</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
 				<td class="numeric">${_fraVariable_12_1_1_}</td>
-				<td></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>12.1.1 <spring:message code="ref404"></spring:message></td>
 				<td>1000 ha</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
 				<td class="numeric">${_fraVariable_12_2_1_}</td>
-				<td></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td rowspan="5">13a</td>
@@ -777,38 +778,38 @@
 			<tr>
 				<td>13.5.1 <spring:message code="ref430"></spring:message></td>
 				<td>checkbox</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_13b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="boolean"><c:if test="${_fraVariable_13b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>13.5.2 <spring:message code="ref431"></spring:message></td>
 				<td>checkbox</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_13b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="boolean"><c:if test="${_fraVariable_13b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>13.5.3 <spring:message code="ref432"></spring:message></td>
 				<td>checkbox</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_13b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="boolean"><c:if test="${_fraVariable_13b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>13.5.4 <spring:message code="ref433"></spring:message></td>
 				<td>checkbox</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_13b_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="boolean"><c:if test="${_fraVariable_13b_7_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13b_7_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td rowspan="4">14</td>
@@ -816,29 +817,29 @@
 			<tr>
 				<td>14.1 <spring:message code="ref436"></spring:message></td>
 				<td>1000 ha</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
 				<td class="numeric">${_fraVariable_14_1_1_}</td>
-				<td></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>14.1.1 <spring:message code="ref446"></spring:message></td>
 				<td>1000 ha</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
 				<td class="numeric">${_fraVariable_14_2_1_}</td>
-				<td></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>14.1.2 <spring:message code="ref447"></spring:message></td>
 				<td>1000 ha</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
 				<td class="numeric">${_fraVariable_14_3_1_}</td>
-				<td></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td rowspan="4">14b</td>
@@ -847,29 +848,29 @@
 			<tr>
 				<td>14.2.1 <spring:message code="ref450"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_14b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="notpresent" ></td>
+				<td class="boolean"><c:if test="${_fraVariable_14b_1_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_1_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent" ></td>
 			</tr>
 			<tr>
 				<td>14.2.2 <spring:message code="ref451"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
+				<td class="boolean"><c:if test="${_fraVariable_14b_3_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_3_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>14.2.3 <spring:message code="ref452"></spring:message></td>
 				<td>Boolean</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><c:if test="${_fraVariable_14b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
-				<td></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
+				<td class="boolean"><c:if test="${_fraVariable_14b_5_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_14b_5_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="2">14c</td>
@@ -877,23 +878,21 @@
 			<tr>
 				<td>14.3 <spring:message code="ref454"></spring:message></td>
 				<td>%</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
 				<td class="numeric">${_fraVariable_14c_0_1_}	</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="5">15</td>
 			</tr>
 			<tr>
 				<td>15.1 <spring:message code="ref461"></spring:message></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td ></td>
+				<td  colspan="5" class="noneditable"></td>
+				
+				
 			</tr>
 			<tr>
 				<td>15.1.1 <spring:message code="ref462"></spring:message></td>
@@ -1048,20 +1047,20 @@
 			<tr>
 				<td>17.1 <spring:message code="ref488"></spring:message></td>
 				<td>1000 local currency</td>
-				<td></td>
+				<td class="notpresent"></td>
 				<td class="numeric">${_fraVariable_17_2_1_}</td>
 				<td class="numeric">${_fraVariable_17_2_2_}</td>
 				<td class="numeric">${_fraVariable_17_2_3_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>17.2 <spring:message code="ref490"></spring:message></td>
 				<td>1000 local currency</td>
-				<td></td>
+				<td class="notpresent"></td>
 				<td class="numeric">${_fraVariable_17_3_1_}</td>
 				<td class="numeric">${_fraVariable_17_3_2_}</td>
 				<td class="numeric">${_fraVariable_17_3_3_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="9">18a</td>
@@ -1073,7 +1072,7 @@
 				<td class="numeric">${_fraVariable_18a_2_2_}</td>
 				<td class="numeric">${_fraVariable_18a_2_3_}</td>
 				<td class="numeric">${_fraVariable_18a_2_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.1.1 <spring:message code="ref524"></spring:message></td>
@@ -1082,7 +1081,7 @@
 				<td class="numeric">${_fraVariable_18a_3_2_}</td>
 				<td class="numeric">${_fraVariable_18a_3_3_}</td>
 				<td class="numeric">${_fraVariable_18a_3_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.1.2 <spring:message code="ref525"></spring:message></td>
@@ -1091,7 +1090,7 @@
 				<td class="numeric">${_fraVariable_18a_4_2_}</td>
 				<td class="numeric">${_fraVariable_18a_4_3_}</td>
 				<td class="numeric">${_fraVariable_18a_4_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.2 <spring:message code="ref502"></spring:message></td>
@@ -1100,7 +1099,7 @@
 				<td class="numeric">${_fraVariable_18a_5_2_}</td>
 				<td class="numeric">${_fraVariable_18a_5_3_}</td>
 				<td class="numeric">${_fraVariable_18a_5_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.2.1 <spring:message code="ref526"></spring:message></td>
@@ -1109,7 +1108,7 @@
 				<td class="numeric">${_fraVariable_18a_6_2_}</td>
 				<td class="numeric">${_fraVariable_18a_6_3_}</td>
 				<td class="numeric">${_fraVariable_18a_6_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.2.2 <spring:message code="ref527"></spring:message></td>
@@ -1118,7 +1117,7 @@
 				<td class="numeric">${_fraVariable_18a_7_2_}</td>
 				<td class="numeric">${_fraVariable_18a_7_3_}</td>
 				<td class="numeric">${_fraVariable_18a_7_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.2.3 <spring:message code="ref528"></spring:message></td>
@@ -1127,7 +1126,7 @@
 				<td class="numeric">${_fraVariable_18a_8_2_}</td>
 				<td class="numeric">${_fraVariable_18a_8_3_}</td>
 				<td class="numeric">${_fraVariable_18a_8_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.3 <spring:message code="ref510"></spring:message></td>
@@ -1136,7 +1135,7 @@
 				<td class="numeric">${_fraVariable_18a_9_2_}</td>
 				<td class="numeric">${_fraVariable_18a_9_3_}</td>
 				<td class="numeric">${_fraVariable_18a_9_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="6">18b</td>
@@ -1148,7 +1147,7 @@
 				<td class="numeric">${_fraVariable_18b_2_2_}</td>
 				<td class="numeric">${_fraVariable_18b_2_3_}</td>
 				<td class="numeric">${_fraVariable_18b_2_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.5 <spring:message code="ref532"></spring:message></td>
@@ -1157,7 +1156,7 @@
 				<td class="numeric">${_fraVariable_18b_3_2_}</td>
 				<td class="numeric">${_fraVariable_18b_3_3_}</td>
 				<td class="numeric">${_fraVariable_18b_3_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.6 <spring:message code="ref533"></spring:message></td>
@@ -1166,7 +1165,7 @@
 				<td class="numeric">${_fraVariable_18b_4_2_}</td>
 				<td class="numeric">${_fraVariable_18b_4_3_}</td>
 				<td class="numeric">${_fraVariable_18b_4_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.7 <spring:message code="ref519"></spring:message></td>
@@ -1175,7 +1174,7 @@
 				<td class="numeric">${_fraVariable_18b_5_2_}</td>
 				<td class="numeric">${_fraVariable_18b_5_3_}</td>
 				<td class="numeric">${_fraVariable_18b_5_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>18.8 <spring:message code="ref292"></spring:message></td>
@@ -1184,7 +1183,7 @@
 				<td class="numeric">${_fraVariable_18b_6_2_}</td>
 				<td class="numeric">${_fraVariable_18b_6_3_}</td>
 				<td class="numeric">${_fraVariable_18b_6_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="3">19</td>
@@ -1196,7 +1195,7 @@
 				<td class="numeric">${_fraVariable_19_2_2_}</td>
 				<td class="numeric">${_fraVariable_19_2_3_}</td>
 				<td class="numeric">${_fraVariable_19_2_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td>19.1 <spring:message code="ref544"></spring:message></td>
@@ -1205,7 +1204,7 @@
 				<td class="numeric">${_fraVariable_19_3_2_}</td>
 				<td class="numeric">${_fraVariable_19_3_3_}</td>
 				<td class="numeric">${_fraVariable_19_3_4_}</td>
-				<td></td>
+				<td class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="2">20</td>
