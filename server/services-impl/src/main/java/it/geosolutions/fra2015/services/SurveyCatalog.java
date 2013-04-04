@@ -27,9 +27,13 @@ import it.geosolutions.fra2015.server.dao.QuestionDAO;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
 
 /**
  * @author DamianoG
@@ -39,6 +43,8 @@ import java.util.Map;
  */
 public class SurveyCatalog {
 
+    private final Logger LOGGER = Logger.getLogger(SurveyCatalog.class);
+    
     private EntryDAO entryDAO;
 
     private QuestionDAO questionDAO;
@@ -83,7 +89,18 @@ public class SurveyCatalog {
         forceCatalogLoading();
         Question question = questionDAO.find(questionNumber.longValue());
         List<Entry> questionEntryList = question.getEntries();
-        return questionEntryList;
+        List<Entry> returnList = new ArrayList<Entry>();
+        for(Entry el : questionEntryList){
+            if(el != null){
+                
+                try {
+                    returnList.add((Entry)BeanUtils.cloneBean(el));
+                } catch (Exception e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+            }
+        }
+        return returnList;
     }
 
     /**
