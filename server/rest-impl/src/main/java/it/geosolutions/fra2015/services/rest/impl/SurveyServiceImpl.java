@@ -215,13 +215,13 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
 	}
 
     @Override
-    public Status getStatus(String countries) {
-        return surveyService.getStatus(countries);
+    public Status getStatus(String country) {
+        return surveyService.getStatus(country);
     }
 
     @Override
-    public Country findCountryByISO3(String countries) {
-        return surveyService.findCountryByISO3(countries);
+    public Country findCountryByISO3(String country) {
+        return surveyService.findCountryByISO3(country);
     }
 
     /* (non-Javadoc)

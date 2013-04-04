@@ -29,11 +29,9 @@ import it.geosolutions.fra2015.mvc.validation.Validator;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
-import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
-import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
-import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 import it.geosolutions.fra2015.validation.ValidationResult;
 
 import java.io.IOException;
@@ -77,12 +75,13 @@ public class CheckController {
         if (su == null) {
             return "redirect:/";
         }
-        Status s = surveyService.getStatus(su.getCountries());
+        String iso3 = UserUtil.getSingleIso3(su);
+        Status s = surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowed(s)){
             model.addAttribute("denysubmit", true);
             return "index";
         }
-        ValidationResult v = validator.validate(su.getCountries());
+        ValidationResult v = validator.validate(iso3);
         
         if (v.getSuccess()) {
             model.addAttribute("allowsubmit", true);
@@ -104,28 +103,29 @@ public class CheckController {
             return "redirect:/";
         }
         //check status
-        Status status =surveyService.getStatus(su.getCountries());
+        String iso3 = UserUtil.getSingleIso3(su);
+        Status status =surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowed(status)){
             submitDeniedError(status,model);
             return "index";
             
         }
         status.setStatus(StatusUtils.COMPILED);
-        status.setCountry(su.getCountries());
+        status.setCountry(iso3);
         status.setMessage((String) request.getParameter("submitmessage"));
         status.setLastContributorSubmission(System.currentTimeMillis());
-        Country c = surveyService.findCountryByISO3(su.getCountries());
+        Country c = surveyService.findCountryByISO3(iso3);
         if(c!=null){
-            status.setCountry(su.getCountries());
+            status.setCountry(iso3);
         }
         
         surveyService.changeStatus(status);
         LOGGER.info("submitted survey:"+status.getCountry());
 
-        List<User> reviewers=  userService.getUsersToNotify("reviewer",su.getCountries() );
+        List<User> reviewers=  userService.getUsersToNotify("reviewer", iso3 );
        
          if(reviewers.size()<=0){
-           LOGGER.warn("No reivewer associated to country" +su.getCountries() + "find");
+           LOGGER.error("No reviewer associated to country " + iso3 );
            //TODO notify someone this error
            
          }
@@ -135,7 +135,7 @@ public class CheckController {
             model.addAttribute("messageType", "success");
             model.addAttribute("messageCode", "submit.success");
         }catch(MailException  e){
-            LOGGER.error("The reviewers were not notified of the message submit becouse of an Mail Exception",e);    
+            LOGGER.error("The reviewers were not notified of the message submit because of an Mail Exception",e);
         }catch(TemplateException e){
             model.addAttribute("context", "check");  
             sumbitNotNotifiedError(model);

@@ -105,10 +105,10 @@ public interface SurveyServiceEntryPoint {
     List<SurveyInstance> getSurveysByCountry(String[] countryList,int page, int index);
 
 
-    public Status getStatus(String countries);
+    public Status getStatus(String country);
 
 
-    public Country findCountryByISO3(String countries);
+    public Country findCountryByISO3(String country);
     
     public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
 

@@ -21,21 +21,16 @@ package it.geosolutions.fra2015.services;
 
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
-import com.googlecode.genericdao.search.SearchFacade;
-import com.googlecode.genericdao.search.hibernate.HibernateSearchFacade;
 
 import it.geosolutions.fra2015.server.dao.UserDAO;
-import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.model.UserDTO;
 
-import java.io.FilterInputStream;
+import it.geosolutions.fra2015.services.model.UserFilter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import net.sf.cglib.core.CollectionUtils;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -153,7 +148,7 @@ public class UserServiceImpl implements UserService {
      * @see it.geosolutions.fra2015.services.UserService#getAll(java.lang.Integer, java.lang.Integer)
      */
     @Override
-    public List<User> getAll(Integer page, Integer entries, User userFilter) throws BadRequestServiceEx {
+    public List<User> getAll(Integer page, Integer entries, UserFilter userFilter) throws BadRequestServiceEx {
 
         Search searchCriteria = getSearchCriteria(page, entries, userFilter);  
         
@@ -165,12 +160,12 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
-    public long getCountFiltered(User userFilter) throws BadRequestServiceEx {
+    public long getCountFiltered(UserFilter userFilter) throws BadRequestServiceEx {
     	Search searchCriteria = getSearchCriteria(null, null, userFilter);  
     	 return userDAO.count(searchCriteria);
     }
     
-    private Search getSearchCriteria(Integer page, Integer entries, User userFilter) throws BadRequestServiceEx{
+    private Search getSearchCriteria(Integer page, Integer entries, UserFilter userFilter) throws BadRequestServiceEx{
     	 if (((page != null) && (entries == null)) || ((page == null) && (entries != null))) {
              throw new BadRequestServiceEx("Page and entries params should be declared together.");
          }
@@ -186,8 +181,8 @@ public class UserServiceImpl implements UserService {
          		searchCriteria.addFilter(Filter.ilike("name","%"+userFilter.getName()+"%"));        	
          	if(StringUtils.isNotBlank(userFilter.getRole()))
          		searchCriteria.addFilter(Filter.equal("role", userFilter.getRole()));        	
-         	if(StringUtils.isNotBlank(userFilter.getSelCountries()))
-         		searchCriteria.addFilterSome("countriesSet", Filter.equal("id", userFilter.getSelCountries()));
+         	if(StringUtils.isNotBlank(userFilter.getCountries()))
+         		searchCriteria.addFilterSome("countriesSet", Filter.equal("id", userFilter.getCountries()));
          	if(StringUtils.isNotBlank(userFilter.getEmail()!=null?userFilter.getEmail().trim():null))
          		searchCriteria.addFilter(Filter.ilike("email", "%"+userFilter.getEmail()+"%"));
          }
@@ -225,7 +220,7 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsersToNotify(String role, String iso3) {
         Search searchCriteria = new Search(User.class);
 
-        searchCriteria.addFilter(Filter.some("countriesSet", new Filter("iso3",iso3)));
+        searchCriteria.addFilter(Filter.some("countriesSet", Filter.equal("iso3",iso3)));
         searchCriteria.addFilter(Filter.equal("role",role));   
         return userDAO.search(searchCriteria);
         

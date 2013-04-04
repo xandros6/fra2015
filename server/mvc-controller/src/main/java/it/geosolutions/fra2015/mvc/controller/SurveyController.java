@@ -39,6 +39,7 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -107,7 +108,8 @@ public class SurveyController{
         model.addAttribute("context", "survey");
         
         User su = (User) session.getAttribute(SESSION_USER);
-        String status = utils.getStatusByCountry(su.getCountries());
+        String iso3 = UserUtil.getSingleIso3(su);
+        String status = utils.getStatusByCountry(iso3);
         if(StatusUtils.isSubmitAllowed(status)){
             model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         }else{
@@ -116,15 +118,15 @@ public class SurveyController{
         String statusLocale= StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("statuscode",statusLocale);
-        model.addAttribute("country",su.getCountries());
+        model.addAttribute("country", iso3);
 
-        CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, su.getCountries());
+        CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, iso3);
         utils.prepareHTTPRequest(model, question, cv, false);
 
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
             
-            List<Feedback> listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, session, null, true);
+            List<Feedback> listF = fh.retrieveFeedbacks(iso3, questionLong, session, null, true);
             fh.prepareFeedbackModel(model, listF);
         } 
         catch (BadRequestServiceEx e) {            
@@ -161,7 +163,9 @@ public class SurveyController{
         User su = (User) session.getAttribute(SESSION_USER);
 
         // Retrieve the stored value in order to compare them with the new submitted values
-        CountryValues es = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, questionLong, su.getCountries());
+        String iso3 = UserUtil.getSingleIso3(su);
+
+        CountryValues es = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, questionLong, iso3);
         List<CompactValue> oldValues = es.getValues();
         
         // Create the OLD MAP
@@ -194,7 +198,7 @@ public class SurveyController{
             Update update = new Update();
             update.setColumn(var.col);
             update.setRow(var.row);
-            update.setCountry(su.getCountries());
+            update.setCountry(iso3);
             update.setValue(var.value);
             update.setVariable(var.variableName);
             
@@ -211,7 +215,7 @@ public class SurveyController{
         }
         
         // create the REMOVE LIST, this list will be passed to values deletion service
-        Updates removes = getValuesToDelete(oldValues, updateMap, su.getCountries());
+        Updates removes = getValuesToDelete(oldValues, updateMap, iso3);
         
         //Build the update list, the object taken as input in updateValuesService method 
         Updates updates = new Updates();
@@ -221,9 +225,9 @@ public class SurveyController{
 
         // Update the Values only if the concurrency System allow the operation.
         if(concurencyHandler.updateQuestionRevision(session, Long.parseLong(question))){
-            if(StatusUtils.isSubmitAllowed(utils.getStatusByCountry(su.getCountries()))){
+            if(StatusUtils.isSubmitAllowed(utils.getStatusByCountry(iso3))){
                 utils.updateValuesService(updates, removes);
-                utils.updateSurveyStatusInProgress(su.getCountries());
+                utils.updateSurveyStatusInProgress(iso3);
             }else{
                 //TODO notify is not editable
             }
@@ -265,12 +269,12 @@ public class SurveyController{
 //        CountryValues mergedValues = new CountryValues();
 //        mergedValues.setValues(backList);
         
-        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), su.getCountries())/*mergedValues*/, false);
+        utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), iso3)/*mergedValues*/, false);
 
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         try {
             
-            List<Feedback> listF = listF = fh.retrieveFeedbacks(su.getCountries(), questionLong, session, null, true);
+            List<Feedback> listF = fh.retrieveFeedbacks(iso3, questionLong, session, null, true);
             fh.prepareFeedbackModel(model, listF);
         } 
         catch (BadRequestServiceEx e) {
@@ -281,8 +285,8 @@ public class SurveyController{
             LOGGER.error(e.getMessage(), e);
             return "reviewer";  //TODO <--- why????
         }
-        String status = utils.getStatusByCountry(su.getCountries());
-        model.addAttribute("country",su.getCountries());
+        String status = utils.getStatusByCountry(iso3);
+        model.addAttribute("country", iso3);
 
         if(StatusUtils.isSubmitAllowed(status)){
             model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());

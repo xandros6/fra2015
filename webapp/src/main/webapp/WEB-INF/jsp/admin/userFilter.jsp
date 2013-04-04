@@ -63,13 +63,14 @@
 		
 		<tr>
 			<td colspan="2">
-				<form:label path="countries" class="control-label">Countries</form:label> 
+				<form:label path="countries" class="control-label">Countries</form:label>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<input id="filter_countries" type="text" autocomplete="off" class="input-block-level" placeholder="Type to filter countries"/>  
-				<form:input path="selCountries" name="selCountries" type="hidden" id="selCountries"/>
+				<%--<form:input path="selCountries" name="selCountries" type="hidden" id="selCountries"/>--%>
+                <form:input path="countries" name="countries" type="hidden" id="countries"/>
 			</td>
 			<td valign="top" align="center">
 				<button id="filter_countries_clear_btn" type="button" class="btn btn-primary">X</button>	

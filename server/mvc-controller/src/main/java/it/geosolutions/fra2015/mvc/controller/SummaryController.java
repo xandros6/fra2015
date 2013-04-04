@@ -25,6 +25,7 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import javax.servlet.http.HttpSession;
 
@@ -50,11 +51,11 @@ public class SummaryController {
         model.addAttribute("context", "summary");
 
         User su = (User) session.getAttribute(SESSION_USER);
-        String countryParam = su.getCountries();
+        String iso3 = UserUtil.getSingleIso3(su);
 
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
-        utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, countryParam), false);
+        utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, iso3), false);
 
         return "index";
 

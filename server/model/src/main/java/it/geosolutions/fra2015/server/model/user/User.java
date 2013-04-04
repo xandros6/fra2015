@@ -1,7 +1,7 @@
 /*
  * ====================================================================
  *
- * Copyright (C) 2007 - 2011 GeoSolutions S.A.S.
+ * Copyright (C) 2012 - 2013 GeoSolutions S.A.S.
  * http://www.geo-solutions.it
  *
  * GPLv3 + Classpath exception
@@ -32,7 +32,6 @@ import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.enums.UserGroup;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,14 +45,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.ForeignKey;
@@ -97,19 +92,13 @@ public class User implements Serializable {
     
     @Column(nullable =true,updatable =true)
     private String language;
-
-    @Transient
-    private String selCountries;
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="fra_users_countries", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name="country_id")})
    	@Fetch(value=FetchMode.JOIN)
     @ForeignKey(name = "fk_uc_user", inverseName = "fk_uc_country")
 	private Set<Country> countriesSet  = new HashSet<Country>();
-    
-    @Transient
-    private String questionsStr;
-    
+        
     @Column(nullable = false, updatable = false)
     private String role;
 
@@ -143,14 +132,6 @@ public class User implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public String getQuestionsStr() {
-		return questionsStr;
-	}
-
-	public void setQuestionsStr(String questionsStr) {
-		this.questionsStr = questionsStr;
-	}
 
 	/**
      * @return the name
@@ -206,21 +187,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-	public String getCountries() {
-        BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
-		Collection<String> countriesIso3 = CollectionUtils.collect(this.getCountriesSet(), transformer );
-		String country = StringUtils.join(countriesIso3.toArray(),' ');
-		return country;
-	}
-
-	public String getSelCountries() {
-		return selCountries;
-	}
-
-	public void setSelCountries(String selCountries) {
-		this.selCountries = selCountries;
-	}
-
 	public Set<Country> getCountriesSet() {
 		return countriesSet;
 	}
@@ -273,11 +239,6 @@ public class User implements Serializable {
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + '}';
-    }
     
     public String getLanguage() {
         return this.language==null ? "en" : this.language;
@@ -286,4 +247,10 @@ public class User implements Serializable {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", name=" + name + '}';
+    }
+
 }

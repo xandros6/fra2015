@@ -24,8 +24,10 @@ package it.geosolutions.fra2015.mvc.controller;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class SurveyListController {
 		
 		FlashAttributesHandler.copyToModel(session, model);
 		
-		String[] countries = su.getCountries().split(",");
+		String[] countries = UserUtil.getIso3Array(su);
 		List<SurveyInstance> surveys=utils.retriveSurveyListByCountries(countries, page, 10);
 		//quick trick, because there is no filtering here 
 		model.addAttribute("prev",page >0);

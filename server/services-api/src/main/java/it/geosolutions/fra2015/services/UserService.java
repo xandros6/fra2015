@@ -32,6 +32,7 @@ import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.model.UserFilter;
 import java.util.List;
 import java.util.Set;
 
@@ -85,7 +86,7 @@ public interface UserService {
      * @return List<User>
      * @throws BadRequestServiceEx
      */
-    public List<User> getAll(Integer page, Integer entries, User filter) throws BadRequestServiceEx;
+    public List<User> getAll(Integer page, Integer entries, UserFilter filter) throws BadRequestServiceEx;
 
     /**
      * @param nameLike
@@ -94,7 +95,7 @@ public interface UserService {
     public long getCount(String nameLike);
     public long getCount();
 
-    public long getCountFiltered(User userFilter) throws BadRequestServiceEx;
+    public long getCountFiltered(UserFilter userFilter) throws BadRequestServiceEx;
 
     public List<User> getUsersToNotify(String role, String iso3);
 

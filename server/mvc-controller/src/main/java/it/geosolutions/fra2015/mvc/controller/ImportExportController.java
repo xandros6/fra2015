@@ -38,6 +38,7 @@ import it.geosolutions.fra2015.server.model.xmlexport.SurveyInfo;
 import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -102,7 +103,7 @@ public class ImportExportController {
             return "redirect:/adminexport";
         }
         if (role.equals("contributor")) {
-            model.addAttribute("country", user.getCountries());
+            model.addAttribute("country", UserUtil.getSingleIso3(user));
         }
         return "index";
 

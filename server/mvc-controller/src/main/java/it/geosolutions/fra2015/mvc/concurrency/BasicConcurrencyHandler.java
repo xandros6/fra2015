@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import javax.servlet.http.HttpSession;
 
@@ -58,12 +59,12 @@ public class BasicConcurrencyHandler {
         String countryrevision = ConcurrencyKeys.COUNTRY_REVISION.toString();
         
         User usr = (User)session.getAttribute(SESSION_USER);
-        String country = usr.getCountries();
+        String iso3 = UserUtil.getSingleIso3(usr);
         
         session.removeAttribute(countryrevision);
         
         Question question = surveyService.findQuestion(questionNumber);
-        Country countryEntity = surveyService.searchCountry(country);
+        Country countryEntity = surveyService.searchCountry(iso3);
             
         QuestionRevision qr = surveyService.getQuestionRevisionNumber(countryEntity, question);
         if(qr == null){

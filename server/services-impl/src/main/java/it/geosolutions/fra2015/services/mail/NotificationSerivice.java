@@ -5,14 +5,18 @@ import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 
-import javax.mail.MessagingException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,10 +97,10 @@ public class NotificationSerivice {
             //Translate the country name 
             String country =null;
             try{
-                country = messageSource.getMessage("country." + receiver.getCountries(),null,new Locale(receiver.getLanguage()) );
+                country = messageSource.getMessage("country." + UserUtil.getSpacedIso3(receiver),null,new Locale(receiver.getLanguage()) );
             }catch(NoSuchMessageException e){
                 try{
-                    country = messageSource.getMessage("country." + receiver.getCountries(),null,new Locale("en"));
+                    country = messageSource.getMessage("country." + UserUtil.getSpacedIso3(receiver),null,new Locale("en"));
                 }catch(NoSuchMessageException ee){
                     country= status.getCountry();
                 }
@@ -108,7 +112,8 @@ public class NotificationSerivice {
         }
    
     }
-    
+
+
     
     /**
      * Get the first subject in order
