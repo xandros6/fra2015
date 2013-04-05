@@ -164,6 +164,15 @@ public final class StatusUtils {
         return returnList;
     }
     
+    public static boolean isContributorEditable(String s) {
+        // TODO Auto-generated method stub
+        return isEmpty(s) || isInProgress(s) || isCompiled(s)|| isPendingFix(s);
+    }
+    
+    public static boolean isReviewerEditable(String s){
+        return isCompiled(s) || isReviewEditing(s);
+    }
+    
     public static boolean isValidStatus(Status s) {
 
         return isAccepted(s) || isCompiled(s) || isCompleted(s) || isEmpty(s) || isInProgress(s)
@@ -305,5 +314,9 @@ public final class StatusUtils {
         }
         return false;
     }
+
+    
+    
+    
 
 }
