@@ -109,4 +109,9 @@ public class Question extends Session {
 		this.selected = selected;
 	}
 
+    @Override
+    public String toString() {
+        return "Question{"+ id + '}';
+    }
+
 }

@@ -8,7 +8,10 @@ import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
 import it.geosolutions.fra2015.server.dao.SurveyDAO;
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.Element;
+import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.Session;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
@@ -18,7 +21,10 @@ import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Iterator;
 import javax.xml.bind.JAXB;
+import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -205,12 +211,49 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         }
 
         Survey survey = JAXB.unmarshal(surveyFile, Survey.class);
+        // UNCOMMENT THIS CALL TO TRY AND REMOVE EMPTY ITEMS
+        // removeEmptyEntries(survey);
+
         restSurveyService.create(survey);
 
         surveyCatalog.reinit();
     }
     
-    
+    private static void removeEmptyEntries(Survey survey) {
+        for (Element parent : survey.getElements()) {
+            if(parent instanceof Question) {
+                Question q = (Question)parent;
+                removeEmptyEntries(q);
+            } else if ( parent instanceof Session) {
+                Session s = (Session)parent;
+                removeEmptyEntries(s);
+            } else
+                LOGGER.warn("Unexpected Element found " + parent + " (" + parent.getClass().getName() + ")");
+        }
+    }
+
+    private static void removeEmptyEntries(Question q) {
+        for (Iterator<Entry> it = q.getEntries().iterator(); it.hasNext();) {
+            Entry entry = it.next();
+            if( CollectionUtils.isEmpty(entry.getEntryItems())) {
+                LOGGER.debug("Removing empty entry " + entry);
+                it.remove();
+            }
+        }
+    }
+
+    private static void removeEmptyEntries(Session s) {
+        for (Iterator<Element> it = s.getElements().iterator(); it.hasNext();) {
+            Element parent = it.next();
+            if(parent instanceof Question) {
+                Question q = (Question)parent;
+                removeEmptyEntries(q);
+            } else
+                LOGGER.warn("Unexpected Element found " + parent + " (" + parent.getClass().getName() + ")");
+        }
+    }
+
+
     public void setCountryDAO(CountryDAO countryDAO) {
         this.countryDAO = countryDAO;
     }
@@ -234,5 +277,6 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
     public void setSurveyCatalog(SurveyCatalog surveyCatalog) {
         this.surveyCatalog = surveyCatalog;
     }
+
     
 }
