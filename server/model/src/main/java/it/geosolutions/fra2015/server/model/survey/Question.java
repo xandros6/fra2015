@@ -22,20 +22,14 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 
-import it.geosolutions.fra2015.server.model.user.User;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -45,9 +39,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.IndexColumn;
 
 @Entity(name = "Question")
 @Table(name = "fra_question" )
@@ -117,5 +108,10 @@ public class Question extends Session {
 	public void setSelected(Boolean selected) {
 		this.selected = selected;
 	}
+
+    @Override
+    public String toString() {
+        return "Question{"+ id + '}';
+    }
 
 }

@@ -22,20 +22,21 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
+import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
-import it.geosolutions.fra2015.server.model.survey.Question;
-import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
-import it.geosolutions.fra2015.server.model.user.User;
-import it.geosolutions.fra2015.services.FeedbackService;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class ReviewerSubmitController {
     @Autowired
     private FeedbackService feedbackService;
 
-    private final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
+    private static final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
 
     @RequestMapping(method = RequestMethod.GET)
     public String handleGet(@PathVariable(value = "country") String country, HttpServletRequest request, Model model,
@@ -72,7 +73,7 @@ public class ReviewerSubmitController {
                 .getAttribute(SURVEY_INSTANCES);
         SurveyInstance si = surveyInstanceMap.get(country);
 
-        StringBuilder notAcceptedQuestions = new StringBuilder();
+        List<Long> notAcceptedQuestions = new ArrayList<Long>();
         boolean accepted = true;
 
         Set<Question> questions = su.getQuestions();
@@ -80,22 +81,22 @@ public class ReviewerSubmitController {
 
             long qid = el.getId();
             if (!feedbackService.checkQuestionFeedbackStatus(su, si, qid)) {
-
-                notAcceptedQuestions.append(qid).append(" ");
+                
+                notAcceptedQuestions.add(qid);
                 accepted = false;
             }
         }
-
+        Long[] qArray = (Long[]) notAcceptedQuestions.toArray(new Long[notAcceptedQuestions.size()]);
+        Arrays.sort(qArray);
+        
         if (accepted) {
-
+            StatusUtils.addReviewerToReviewerSubmit(su, si.getStatus());
             // submit the Survey
-            FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null);
+            FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null, null);
             return "redirect:/surveylist/0";
         }
         
-        FlashAttributesHandler.addFlashAttribute(session, "warning", "revsubmit.ko", 10000, null);
+        FlashAttributesHandler.addFlashAttribute(session, "warning", "revsubmit.ko", 10000, null, Arrays.toString(qArray));
         return "redirect:/surveylist/0";
-        //        return "/surveylist/0";
-
     }
 }

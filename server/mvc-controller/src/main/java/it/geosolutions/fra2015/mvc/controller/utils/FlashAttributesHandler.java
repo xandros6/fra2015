@@ -38,19 +38,23 @@ public class FlashAttributesHandler {
     private static final String MESSAGE_TIMEOUT = "messageTimeout";
 
     private static final String MESSAGE_TRAILCODE = "messageTrailCode";
+    
+    private static final String NOT_LOCALIZED_MESSAGE = "notLocalizedMessage";
 
     public static void addFlashAttribute(HttpSession session, String messageType,
-            String messageCode, Integer messageTimeout, String messageTrailCode) {
+            String messageCode, Integer messageTimeout, String messageTrailCode, String notLocalizedMessage) {
 
         session.removeAttribute(MESSAGE_TYPE);
         session.removeAttribute(MESSAGE_CODE);
         session.removeAttribute(MESSAGE_TIMEOUT);
         session.removeAttribute(MESSAGE_TRAILCODE);
+        session.removeAttribute(NOT_LOCALIZED_MESSAGE);
 
         session.setAttribute(MESSAGE_TYPE, messageType);
         session.setAttribute(MESSAGE_CODE, messageCode);
         session.setAttribute(MESSAGE_TIMEOUT, messageTimeout);
         session.setAttribute(MESSAGE_TRAILCODE, messageTrailCode);
+        session.setAttribute(NOT_LOCALIZED_MESSAGE, notLocalizedMessage);
 
     }
 
@@ -72,12 +76,16 @@ public class FlashAttributesHandler {
         if (trailcode != null) {
             model.addAttribute(MESSAGE_TRAILCODE, trailcode);
         }
+        String notLocalizedMessage = (String) session.getAttribute(NOT_LOCALIZED_MESSAGE);
+        if (notLocalizedMessage != null) {
+            model.addAttribute(NOT_LOCALIZED_MESSAGE, notLocalizedMessage);
+        }
 
         session.removeAttribute(MESSAGE_TYPE);
         session.removeAttribute(MESSAGE_CODE);
         session.removeAttribute(MESSAGE_TIMEOUT);
         session.removeAttribute(MESSAGE_TRAILCODE);
-
+        session.removeAttribute(NOT_LOCALIZED_MESSAGE);
     }
 
 }

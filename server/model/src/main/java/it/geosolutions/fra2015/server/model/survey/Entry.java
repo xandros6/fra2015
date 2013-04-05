@@ -151,6 +151,14 @@ public class Entry extends Element {
 	public void setQuestion(Question question) {
 		this.question = question;
 	} 
-    
-    
+
+    @Override
+    public String toString() {
+        return "Entry{"
+                + "var=" + variable
+                + ", type=" + type
+                + ", q=" + question
+                + ", parent=" + ( parent == null? "" : getParent())
+                + '}';
+    }
 }
