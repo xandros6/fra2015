@@ -110,16 +110,13 @@ public class SurveyController{
         User su = (User) session.getAttribute(SESSION_USER);
         String iso3 = UserUtil.getSingleIso3(su);
         String status = utils.getStatusByCountry(iso3);
-        if(StatusUtils.isSubmitAllowed(status)){
-            model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
-        }else{
-            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
-        }
+        model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+        
         String statusLocale= StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("statuscode",statusLocale);
         model.addAttribute("country", iso3);
-
+        model.addAttribute("status",status);    
         CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, iso3);
         utils.prepareHTTPRequest(model, question, cv, false);
 
@@ -164,7 +161,8 @@ public class SurveyController{
 
         // Retrieve the stored value in order to compare them with the new submitted values
         String iso3 = UserUtil.getSingleIso3(su);
-
+        String status = utils.getStatusByCountry(iso3);
+        model.addAttribute("status",status);
         CountryValues es = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, questionLong, iso3);
         List<CompactValue> oldValues = es.getValues();
         
@@ -285,16 +283,14 @@ public class SurveyController{
             LOGGER.error(e.getMessage(), e);
             return "reviewer";  //TODO <--- why????
         }
-        String status = utils.getStatusByCountry(iso3);
+        
         model.addAttribute("country", iso3);
 
-        if(StatusUtils.isSubmitAllowed(status)){
-            model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
-        }else{
-            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
-        }
+
+        
         String statusLocale= StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("status",status);
         model.addAttribute("statuscode",statusLocale);
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
         model.addAttribute("messageType","success");

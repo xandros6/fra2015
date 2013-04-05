@@ -103,13 +103,12 @@ public class ReviewController {
         }
 
         String status = utils.getStatusByCountry(country);
-        if (StatusUtils.isSubmitAllowedByReviewer(status, userProfile)) {
-            model.addAttribute("profile", userProfile.toString());
-        } else {
-            model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
-        }
+       
+        model.addAttribute("profile", userProfile.toString());
+        
         String statusLocale = StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("status",status);
         model.addAttribute("statuscode", statusLocale);
         model.addAttribute("country", country);
 
@@ -146,6 +145,7 @@ public class ReviewController {
         String status = utils.getStatusByCountry(country);
         String statusLocale = StatusUtils.getStatusLocaleCode(status);
         // Set the parameter operationWR, the domain is "WRITE" "READ"
+        model.addAttribute("status",status);
         model.addAttribute("statuscode", statusLocale);
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");

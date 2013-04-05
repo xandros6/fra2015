@@ -105,5 +105,19 @@ jsptaglibrary_2_0.xsd"
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 		</tag>
-	
+		<function>
+			<name>isContributorEditable</name>
+			<function-class>it.geosolutions.fra2015.mvc.controller.utils.StatusUtils</function-class>
+			<function-signature>boolean isContributorEditable(java.lang.String)</function-signature>
+		</function>
+		<function>
+			<name>isReviewerEditable</name>
+			<function-class>it.geosolutions.fra2015.mvc.controller.utils.StatusUtils</function-class>
+			<function-signature>boolean isReviewerEditable(java.lang.String)</function-signature>
+		</function>
+		<function>
+			<name>isReviewEditorEditable</name>
+			<function-class>it.geosolutions.fra2015.mvc.controller.utils.StatusUtils</function-class>
+			<function-signature>boolean isReviewEditorEditable(java.lang.String)</function-signature>
+		</function>
 </taglib> 

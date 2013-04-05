@@ -6,7 +6,7 @@
 		</h1>
 	</div>
 	<div>
-		<h4>
+		<h4>${status}aa
 			<spring:message code="ref2"></spring:message>
 		</h4>
 		<p>
@@ -23,7 +23,7 @@
 					<td rownumber="0" columnnumber="1"><spring:message code="ref5"></spring:message></td>
 					<td rownumber="0" columnnumber="2"><spring:message code="ref6"></spring:message></td>
 					<td rownumber="0" columnnumber="3"><spring:message code="ref7"></spring:message></td>
-					<c:if test="${profile == 'CONTRIBUTOR'}">
+					<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
 						<td class="action-column" width="80px"></td>
 					</c:if>
 				</tr>
@@ -32,7 +32,7 @@
 		</table>
 		</div>
 		<div class="control pull-right">
-			<c:if test="${profile == 'CONTRIBUTOR'}">
+			<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
 				<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 			</c:if>
 		</div>

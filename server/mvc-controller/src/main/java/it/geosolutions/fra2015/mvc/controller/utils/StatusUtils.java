@@ -178,7 +178,7 @@ public final class StatusUtils {
      * @return
      */
     public static boolean isReviewerEditable(String s){
-        return isCompiled(s) || isReviewEditing(s);
+        return isCompiled(s) || isUnderReview(s);
     }
     
     /**

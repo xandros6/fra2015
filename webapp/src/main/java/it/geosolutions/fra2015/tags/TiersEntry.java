@@ -40,8 +40,8 @@ public class TiersEntry extends SurveyEntry{
 	public int doStartTag() {
 		try {
 			JspWriter out = pageContext.getOut();
-			Profile profile = Utils.getProfile(pageContext);
-			this.chooseMode(profile);
+			
+			this.chooseMode();
 				
 			String value = pageContext.getRequest().getAttribute(this.name) !=null? (String) pageContext.getRequest().getAttribute(this.name):"";
 			int index = 0;
