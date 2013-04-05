@@ -143,10 +143,6 @@ public class ReviewController {
             @PathVariable(value = "country") String country,
             @PathVariable(value = "question") String question, HttpSession session, Model model) {
 
-        String status = utils.getStatusByCountry(country);
-        String statusLocale = StatusUtils.getStatusLocaleCode(status);
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("statuscode", statusLocale);
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
         // TODO validate country
@@ -204,7 +200,12 @@ public class ReviewController {
 
         //Put feedback in model
         fh.prepareFeedbackModel(model, fh.getFeedbackList());
-
+        
+        //Set the status
+        String status = utils.getStatusByCountry(country);
+        String statusLocale = StatusUtils.getStatusLocaleCode(status);
+        model.addAttribute("statuscode", statusLocale);
+        
         model.addAttribute("messageType", "success");
         model.addAttribute("messageCode", "alert.savesuccess");
 
