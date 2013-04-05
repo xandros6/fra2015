@@ -21,18 +21,25 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
 import it.geosolutions.fra2015.services.SurveyActivityLog;
+import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
+import it.geosolutions.fra2015.services.model.ActivityLogFilter;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  * @author Lorenzo Natali
@@ -40,61 +47,92 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/revieweractivitylog")
+@SessionAttributes("logFilter")
 public class ReviewerActivityLog {
 
-    private static int page = 1;
-    private static int entries = 2;
-    
-    
+	protected static Logger logger = Logger.getLogger(AdminActivityLog.class);
+	
+	private int pagesize = 10;
+	
     @Autowired
     private SurveyActivityLog sal;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String handleGet(HttpServletRequest request, ModelMap model) {
-        
-        request.getAttribute("uu");
-        model.addAttribute("context", "activitylog");
-        List<ActivityLogEntry> l = sal.findByEntryItemName("ALB", "0", 1, 3);
-        model.addAttribute("activityLogList", l);
-        return "reviewer";
-
+	@Autowired
+	private SurveyService surveyService;
+    
+    @RequestMapping(value = "")
+    public String handleGet(ModelMap model) {        
+    	return "redirect:/adminactivitylog/0";
     }
+    
+    @RequestMapping(value = "/filter", method = RequestMethod.POST)
+	public String updateFilter(@ModelAttribute("logFilter") ActivityLogFilter logFilter, ModelMap model , SessionStatus sessionStatus) {
+		model.addAttribute("logFilter", logFilter);
+		return "forward:/adminactivitylog/0";
+	}
+	
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public String reloadFilter(ModelMap model , SessionStatus sessionStatus) {
+		return "redirect:/adminactivitylog/0";
+	}
+    
+    @RequestMapping(value = "/{page}")
+	public String getLogPage(@PathVariable(value = "page") int page,
+			ModelMap model) {
+    	ActivityLogFilter logFilter = (ActivityLogFilter) model.get("logFilter");
+		//add context for view
+		//model.addAttribute("countries", surveyService.getCountries());
+		//model.addAttribute("context", "users");
+		List<ActivityLogEntry> activityLogList = this.getPage(page, logFilter);
+		if(activityLogList.isEmpty() && page > 0){
+			return "redirect:/adminactivitylog/"+(page-1);
+		}
+		model.addAttribute("page", page);
+		//check prev and next pages presence
+		long totalLog = 0;
+		try {
+			totalLog = sal.getCountFiltered(logFilter);
+		}catch (BadRequestServiceEx e) {
+			logger.error(e.getMessage(), e);
+		}
+		int totalPage = (int) (Math.ceil(((double)totalLog)/pagesize));
+		Pagination pagination = new Pagination();
+		pagination.setCurrentPage(page);
+		if((page+1) < totalPage){
+			pagination.setLastPage(totalPage);
+		}
+		if((page+1)*pagesize < totalLog){
+			pagination.setNext1(page+1);
+		}
+		if((page+2)*pagesize < totalLog){
+			pagination.setNext2(page+2);
+		}
+		if(page > 0 ){
+			pagination.setFirstPage(0);
+			pagination.setPrev1(page-1);
+		}
+		if((page-1) > 0 ){
+			pagination.setPrev2(page-2);
+		}
+		logFilter = (model.get("logFilter")!=null ?  (ActivityLogFilter) model.get("logFilter") : new ActivityLogFilter());
+		model.addAttribute("countries", surveyService.getCountries());
+		model.addAttribute("logFilter", logFilter);
+		model.addAttribute("context", "activitylog");
+		model.addAttribute("pagination", pagination);
+		model.addAttribute("activityLogList", activityLogList);
+		return "admin";
+	}
+    
+	private List<ActivityLogEntry> getPage(int page, ActivityLogFilter userFilter) {
+		try {
+			return sal.getAll(page, pagesize,userFilter);
+		} catch (BadRequestServiceEx e) {
+			logger.error(e.getMessage(), e);
+		}
+		return null;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String handlePost(HttpServletRequest request, ModelMap model) {
-        
-        String filter = request.getParameter("filter");
-        filter = (filter != null)?filter:"";
-        List<ActivityLogEntry> l = null;
-        String c = request.getParameter("country");
-        if(filter.equals("f1")){
-            Long t1 = 0l;
-            Long t2 = 0l;
-            try{
-                Long.parseLong(request.getParameter("t1"));
-                Long.parseLong(request.getParameter("t2"));
-            }
-            catch(Exception e){
-                throw new IllegalArgumentException("reviewerActivitylog: wrong parameter...");
-            }
-            l = sal.findByTimeInterval(c, t1, t2, page, entries);
-        }else if(filter.equals("f2")){
-            String username = request.getParameter("username");
-            String question = request.getParameter("question");
-            l = sal.findByQuestionAndUsername(c, question, username, page, entries);
-        }else if(filter.equals("f3")){
-            String country = request.getParameter("country");
-            String entryItemName = request.getParameter("entryitemname");            
-            l = sal.findByEntryItemName(country, entryItemName, page, entries);
-        }else{
-            throw new IllegalArgumentException("reviewerActivitylog: wrong parameter...");
-        }
-        model.addAttribute("context", "activitylog");
-        model.addAttribute("activityLogList", l);
-        return "reviewer";
-
-    }
-
+	}
+	
     /**
      * @return the sal
      */
