@@ -105,7 +105,7 @@ public class User implements Serializable {
     @Enumerated
     protected UserGroup userGroup = UserGroup.GUEST;
     
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="fra_questions_reviewers", joinColumns={@JoinColumn(name="reviewers_id")}, inverseJoinColumns={@JoinColumn(name="question_id")})
    	@Fetch(value=FetchMode.JOIN)
     @ForeignKey(name = "fk_uq_user", inverseName = "fk_uq_question")

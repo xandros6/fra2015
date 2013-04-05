@@ -65,24 +65,24 @@ public class Question extends Session {
     @Transient
     private Boolean selected;
 	
-	@IndexColumn(name="id")
-    @OneToMany(mappedBy = "question", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)
-	@Fetch(value=FetchMode.JOIN)
+//	@IndexColumn(name="id")
+    @OneToMany(mappedBy = "question", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.LAZY)
+//	@Fetch(value=FetchMode.JOIN)
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="question_id", referencedColumnName="id")
 	private List<Entry> entries = new ArrayList<Entry>();
 	
-	@ManyToMany
-    @JoinTable(name="fra_questions_reviewers", joinColumns={@JoinColumn(name="question_id")}, inverseJoinColumns={@JoinColumn(name="reviewers_id")})
-	private Set<User> reviewers  = new HashSet<User>();
-	
-	public Set<User> getReviewers() {
-		return reviewers;
-	}
-
-	public void setReviewers(Set<User> reviewers) {
-		this.reviewers = reviewers;
-	}
+//	@ManyToMany
+//    @JoinTable(name="fra_questions_reviewers", joinColumns={@JoinColumn(name="question_id")}, inverseJoinColumns={@JoinColumn(name="reviewers_id")})
+//	private Set<User> reviewers  = new HashSet<User>();
+//
+//	public Set<User> getReviewers() {
+//		return reviewers;
+//	}
+//
+//	public void setReviewers(Set<User> reviewers) {
+//		this.reviewers = reviewers;
+//	}
 
 	public Long getId() {
 		return id;

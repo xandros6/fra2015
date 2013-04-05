@@ -1,7 +1,7 @@
 /*
  *  fra2015
  *  https://github.com/geosolutions-it/fra2015
- *  Copyright (C) 2007-2012 GeoSolutions S.A.S.
+ *  Copyright (C) 2012-2013 GeoSolutions S.A.S.
  *  http://www.geo-solutions.it
  *
  *  GPLv3 + Classpath exception
@@ -21,39 +21,111 @@
  */
 package it.geosolutions.fra2015.services;
 
+import com.googlecode.genericdao.search.Search;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
-import it.geosolutions.fra2015.server.dao.EntryItemDAO;
 import it.geosolutions.fra2015.server.dao.QuestionDAO;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import java.util.Collection;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import org.springframework.beans.factory.InitializingBean;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
 /**
  * @author DamianoG
+ * @author ETj
  * 
  *         This class hold The whole Entry Set for the survey to avoid the need for load it everytime is needed.
  * 
  */
-public class SurveyCatalog {
+public class SurveyCatalog implements InitializingBean {
 
-    private final Logger LOGGER = Logger.getLogger(SurveyCatalog.class);
-    
+    private static final Logger LOGGER = Logger.getLogger(SurveyCatalog.class);
+
+    private Map<String, Entry> entryMap;
+    private Map<Long, List<Entry>> questionMap;
+    private Set<Entry> allEntries;
+
     private EntryDAO entryDAO;
-
     private QuestionDAO questionDAO;
 
-    private EntryItemDAO entryItemDAO;
 
-    private List<Entry> catalog;
+    public SurveyCatalog() {
+    }
 
-    private Map<String, Entry> catalogMap;
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        reinit();
+    }
+
+    /**
+     * May be called by the FRAInit when imorting the survey for the very first time.
+     */
+    public synchronized void reinit() {
+        LOGGER.info("Caching catalog....");
+
+        questionMap = new HashMap<Long, List<Entry>>();
+        entryMap = new HashMap<String, Entry>();
+        allEntries = new HashSet<Entry>();
+        
+        List<Question> questions = questionDAO.findAll();
+        for (Question lazyQuestion : questions) {
+            Search search = new Search(Question.class);
+            search.addFetch("entries");
+            search.addFilterEqual("id", lazyQuestion.getId());
+            Question question = questionDAO.searchUnique(search);
+
+            questionMap.put(question.getId(), question.getEntries());
+
+            for (Entry entry : question.getEntries()) {
+                entryMap.put(entry.getVariable(), entry);                
+            }
+
+            allEntries.addAll(question.getEntries());
+        }
+
+        LOGGER.info("Loaded " + questions.size() + " questions  and " + allEntries.size() + " entries");
+    }
+
+    /**
+     * @return the catalog
+     */
+    public Set<Entry> getAllEntries() {
+
+        return allEntries;
+    }
+
+    /**
+     * Provide to the caller the entries stored in the catalog that are related to a given question
+     * If questionNumber == null retrieve the full catalog
+     * 
+     * @param questionNumber
+     * @return
+     */
+    public Collection<Entry> getEntriesForQuestion(Long questionNumber) {
+        if(questionNumber == null){
+            return getAllEntries();
+        }
+
+        return questionMap.get(questionNumber);
+    }
+
+    /**
+     * Get the Entry stored in the catalog with entry.getVariable().equals(varName)
+     * 
+     * @param questionNumber
+     * @return
+     */
+    public Entry getEntry(String varName) {
+        return entryMap.get(varName);
+    }
+
 
     /**
      * @param surveyDAO the surveyDAO to set
@@ -64,83 +136,6 @@ public class SurveyCatalog {
 
     public void setQuestionDAO(QuestionDAO questionDAO) {
         this.questionDAO = questionDAO;
-    }
-
-    /**
-     * @return the catalog
-     */
-    public List<Entry> getCatalog() {
-        // Load the catalog when th first access to it is performed
-        forceCatalogLoading();
-        return catalog;
-    }
-
-    /**
-     * Provide to the caller the entries stored in the catalog that are related to a given question
-     * If questionNumber == null retrieve the full catalog
-     * 
-     * @param questionNumber
-     * @return
-     */
-    public List<Entry> getEntriesForQuestion(Integer questionNumber) {
-        if(questionNumber == null){
-            return getCatalog();
-        }
-        forceCatalogLoading();
-        Question question = questionDAO.find(questionNumber.longValue());
-        List<Entry> questionEntryList = question.getEntries();
-        List<Entry> returnList = new ArrayList<Entry>();
-        for(Entry el : questionEntryList){
-            if(el != null){
-                
-                try {
-                    returnList.add((Entry)BeanUtils.cloneBean(el));
-                } catch (Exception e) {
-                    LOGGER.error(e.getMessage(), e);
-                }
-            }
-        }
-        return returnList;
-    }
-
-    /**
-     * Get the Entry stored in the catalog with entry.getVariable().equals(varName)
-     * 
-     * @param questionNumber
-     * @return
-     */
-    public Entry getEntry(String varName) {
-        return catalogMap.get(varName);
-    }
-
-    /**
-     * @param catalog the catalog to set
-     */
-    public void setCatalog(List<Entry> catalog) {
-        this.catalog = catalog;
-    }
-
-    /**
-     * @param entryItemDAO the entryItemDAO to set
-     */
-    public void setEntryItemDAO(EntryItemDAO entryItemDAO) {
-        this.entryItemDAO = entryItemDAO;
-    }
-
-    private void forceCatalogLoading() {
-        if (catalog == null) {
-            // entryItemDAO.findAll();
-            catalog = entryDAO.findAll();
-            // build the catalog as HashMap
-            catalogMap = new HashMap<String, Entry>();
-            for (Entry el : catalog) {
-                catalogMap.put(el.getVariable(), el);
-            }
-        }
-    }
-
-    public SurveyCatalog() {
-
     }
 
 }

@@ -30,6 +30,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.Index;
 
 /**
  * @author DamianoG
@@ -47,6 +48,7 @@ public class Feedback {
     
     @ManyToOne(optional=false) 
     @JoinColumn(nullable=false, updatable=false)
+    @Index(name = "idx_feedback_survey")
     private SurveyInstance survey;
 
     @ManyToOne(optional=false) 
@@ -55,6 +57,7 @@ public class Feedback {
     
     @ManyToOne(optional=false) 
     @JoinColumn(nullable=false, updatable=false)
+    @Index(name = "idx_feedback_entry")
     private Entry entry;
     
     @Lob

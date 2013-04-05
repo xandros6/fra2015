@@ -177,7 +177,7 @@ public class UsersController {
 	}
 
 	@RequestMapping(value = "/editor/{userId}/{page}", method = RequestMethod.GET)
-	public String getUserEditor(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model){
+	public String getUserEditor(@PathVariable(value = "userId") Long userId, @PathVariable(value = "page") Integer page, ModelMap model){
 		User user = new User();
 		//Retrive user informations
 		if(userId > -1){

@@ -35,6 +35,7 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -123,7 +124,7 @@ public class ControllerServices {
         Integer q = (question != null) ? Integer.parseInt(question) : null;
 
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
-        List<Entry> questionCatalog = catalog.getEntriesForQuestion(null);
+        Collection<Entry> questionCatalog = catalog.getEntriesForQuestion(null);
         
         // Init the row counters for this request
         for (Entry el : questionCatalog) {
@@ -219,7 +220,7 @@ public class ControllerServices {
     private static Map<String, Integer> initRowsCounters(SurveyCatalog catalog){
         
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
-        List<Entry> questionCatalog = catalog.getEntriesForQuestion(null);
+        Collection<Entry> questionCatalog = catalog.getAllEntries();
         for (Entry el : questionCatalog) {
             if (el != null && el.getType().equalsIgnoreCase(TEXT_DYN_TABLE)) {
                 tableRowsCounter.put("tableRowsCounter" + el.getVariable(), 4);

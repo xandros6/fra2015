@@ -20,6 +20,7 @@
          <!-- Site specific initialization. Please specify a path in the ovr file --> 
         <property name="countryDAO" ref="countryDAO"/>
         <property name="restSurveyService" ref="restSurvey"/> 
+        <property name="surveyCatalog" ref="surveyCatalog"/>
     </bean>
     
 

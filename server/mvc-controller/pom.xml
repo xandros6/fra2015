@@ -41,7 +41,6 @@
 		<dependency>
 			<groupId>it.geosolutions.fra2015</groupId>
 		    <artifactId>fra2015-rest-impl</artifactId>
-            <version>1.2-SNAPSHOT</version>
 	    </dependency>
 
         <dependency>
@@ -53,7 +52,6 @@
         <dependency>
             <groupId>it.geosolutions.fra2015</groupId>
             <artifactId>fra2015-services-api</artifactId>
-            <version>1.2-SNAPSHOT</version>
         </dependency>
 
 
@@ -63,12 +61,10 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>1.4</version>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.2.2</version>
         </dependency>
         <!-- ================================================================-->
         <!--  Spring Libs -->
@@ -76,50 +72,42 @@
         <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-core</artifactId>
-          <version>${spring-version}</version>
         </dependency>
      
         <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-web</artifactId>
-          <version>${spring-version}</version>
         </dependency>
      
         <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-webmvc</artifactId>
-          <version>${spring-version}</version>
         </dependency>
         
         <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-oxm</artifactId>
-          <version>${spring-version}</version>
         </dependency>
         
         <!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${spring-version}</version>
 		</dependency>
  
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring-version}</version>
 		</dependency>
  
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring-version}</version>
 		</dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

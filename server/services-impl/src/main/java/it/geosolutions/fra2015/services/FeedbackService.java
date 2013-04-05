@@ -30,6 +30,7 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collection;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,9 +101,9 @@ public class FeedbackService {
         return list;
     }
     
-    public boolean checkQuestionFeedbackStatus(User user, SurveyInstance survey, Integer question){
+    public boolean checkQuestionFeedbackStatus(User user, SurveyInstance survey, Long question){
         
-        List<Entry> entries = catalog.getEntriesForQuestion(question);
+        Collection<Entry> entries = catalog.getEntriesForQuestion(question);
         
         Search search = new Search();
         search.addFilterEqual("user", user);

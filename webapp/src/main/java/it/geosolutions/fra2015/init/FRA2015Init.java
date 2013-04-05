@@ -14,6 +14,7 @@ import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
     
     private File countriesFile;
     private File surveyFile;
+
+    private SurveyCatalog surveyCatalog;
 
     public void setRestSurveyService(SurveyServiceEntryPoint restSurveyService) {
         this.restSurveyService = restSurveyService;
@@ -203,6 +206,8 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
 
         Survey survey = JAXB.unmarshal(surveyFile, Survey.class);
         restSurveyService.create(survey);
+
+        surveyCatalog.reinit();
     }
     
     
@@ -225,4 +230,9 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
+
+    public void setSurveyCatalog(SurveyCatalog surveyCatalog) {
+        this.surveyCatalog = surveyCatalog;
+    }
+    
 }

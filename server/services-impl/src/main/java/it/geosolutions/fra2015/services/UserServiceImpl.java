@@ -108,7 +108,10 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User get(long id) {
-        User user = userDAO.find(id);
+        Search searchCriteria = new Search(User.class);
+        searchCriteria.addFetch("questions");
+        searchCriteria.addFilterEqual("id", id);
+        User user = userDAO.searchUnique(searchCriteria);
         // CHECKME: shouldnt we throw a NotFound when user not found?
         return user;
     }

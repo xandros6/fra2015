@@ -78,10 +78,10 @@ public class ReviewerSubmitController {
         Set<Question> questions = su.getQuestions();
         for (Question el : questions) {
 
-            int q = Integer.parseInt(String.valueOf(el.getId()));
-            if (!feedbackService.checkQuestionFeedbackStatus(su, si, q)) {
+            long qid = el.getId();
+            if (!feedbackService.checkQuestionFeedbackStatus(su, si, qid)) {
 
-                notAcceptedQuestions.append(el.getId()).append(" ");
+                notAcceptedQuestions.append(qid).append(" ");
                 accepted = false;
             }
         }

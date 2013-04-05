@@ -19,6 +19,7 @@
  */
 package it.geosolutions.fra2015.server.dao;
 
+import com.googlecode.genericdao.search.ISearch;
 import it.geosolutions.fra2015.server.model.user.User;
 
 /** 
@@ -28,5 +29,5 @@ import it.geosolutions.fra2015.server.model.user.User;
  *
  */
 public interface UserDAO extends RestrictedGenericDAO<User> {
-
+    public User searchUnique(ISearch search);
 }

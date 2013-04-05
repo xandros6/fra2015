@@ -28,6 +28,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author DamianoG
@@ -43,7 +44,7 @@ public class QuestionRevision{
     private Long id;
     
     @ManyToOne(targetEntity=Question.class)
-    @JoinColumn(name="id_fk", referencedColumnName="id", updatable=false, nullable=false)
+    @JoinColumn(name="question_fk", referencedColumnName="id", updatable=false, nullable=false)
     private Question question;
 
     @ManyToOne(targetEntity=Country.class)

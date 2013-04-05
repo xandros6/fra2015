@@ -18,11 +18,16 @@ import com.googlecode.genericdao.search.ISearch;
  * @author marco
  */
 @Transactional(value = "fra2015TransactionManager")
-public class QuestionDAOImpl extends BaseDAO<Question, Long> implements QuestionDAO{
+public class QuestionDAOImpl extends BaseDAO<Question, Long> implements QuestionDAO {
 
-   @Override
+    @Override
     public List<Question> search(ISearch search) {
         return super.search(search);
+    }
+
+    @Override
+    public Question searchUnique(ISearch search) {
+        return super.searchUnique(search);
     }
 
     @Override
@@ -44,5 +49,4 @@ public class QuestionDAOImpl extends BaseDAO<Question, Long> implements Question
     public boolean removeById(Long id) {
         return super.removeById(id);
     }
-
 }
