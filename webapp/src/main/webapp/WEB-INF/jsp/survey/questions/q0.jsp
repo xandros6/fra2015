@@ -6,7 +6,7 @@
 		</h1>
 	</div>
 	<div>
-		<h4>${status}aa
+		<h4>
 			<spring:message code="ref2"></spring:message>
 		</h4>
 		<p>
