@@ -39,7 +39,7 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class LoggingAspect {
 
-    Logger LOGGER = Logger.getLogger(SurveyController.class);
+    Logger LOGGER = Logger.getLogger(LoggingAspect.class);
     
     @Before("execution(* it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.updateValuesService(..))")
     public void logUpdates(JoinPoint joinPoint) {
@@ -60,5 +60,12 @@ public class LoggingAspect {
         LOGGER.info("");
         
     }
+
+    @Before("execution(* it.geosolutions.fra2015.mvc.controller..*.*(..))")
+    public void traceCalls(JoinPoint joinPoint) {
+        if(LOGGER.isTraceEnabled())
+            LOGGER.trace(" calling " + joinPoint.getSignature());
+    }
+
 }
  
