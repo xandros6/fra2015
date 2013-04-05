@@ -86,10 +86,10 @@ public class FeedbackEntryTag extends ModeTag{
         if(feedbackIsPresent){
             try{
                 JspWriter out = pageContext.getOut();
-                composeStartfeedbackArea(out);
+                //composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
-                rte.setCssClasses("alert");
+                rte.setCssClasses("alert alert-error"); 
                 rte.setName(feedbackName+"Ed_"/*+READ_SUFFIX*/);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();

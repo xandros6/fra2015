@@ -32,7 +32,7 @@ private String cols = "160";
 
 private String rows = "10";
 
-private String cssClasses;
+private String cssClasses ="entry-item richtext richtext-read";
 
 private String editor = "contributor";
 
@@ -69,7 +69,7 @@ public int doStartTag() {
 }
 
 private String readerStart() {
-     return "<div class='entry-item richtext richtext-read "+ this.cssClasses +"' id='";
+     return "<div class='"+ this.cssClasses +"' id='";
 
 }
 
