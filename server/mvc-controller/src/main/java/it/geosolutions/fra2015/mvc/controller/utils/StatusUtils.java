@@ -163,14 +163,31 @@ public final class StatusUtils {
         }
         return returnList;
     }
-    
+    /**
+     * Return true if a contributor can edit in this status
+     * @param s the status
+     * @return
+     */
     public static boolean isContributorEditable(String s) {
         // TODO Auto-generated method stub
         return isEmpty(s) || isInProgress(s) || isCompiled(s)|| isPendingFix(s);
     }
-    
+    /**
+     * Return true if a reviewer can edit in this status
+     * @param s the status
+     * @return
+     */
     public static boolean isReviewerEditable(String s){
         return isCompiled(s) || isReviewEditing(s);
+    }
+    
+    /**
+     * Return true if a review editor can edit in this status
+     * @param s the status
+     * @return
+     */
+    public static boolean isReviewEditorEditable(String s){
+        return isReviewCompleted(s) || isReviewEditing(s);
     }
     
     public static boolean isValidStatus(Status s) {
