@@ -21,18 +21,31 @@
  */
 package it.geosolutions.fra2015.mvc.controller.utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import it.geosolutions.fra2015.mvc.controller.ReviewerSubmitController;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.survey.Status;
+import it.geosolutions.fra2015.server.model.user.User;
 
 /**
  * Utility Class for status. Wraps various checks for Status, if the status is
  * The String or is the Status object. Provides allowed Values for status
- * and provides utility methods to get the status Locale Code
+ * and provides utility methods to get the status Locale Code.
+ * 
+ * Also provide utility methods for manage the reviewersubmit field.
  * 
  * @author Lorenzo Natali
  * 
  */
 public final class StatusUtils {
+    
+    private static final Logger LOGGER = Logger.getLogger(StatusUtils.class);
+    
     public static final String EMPTY = "empty";
 
     public static final String IN_PROGRESS = "inprogress";
@@ -40,7 +53,7 @@ public final class StatusUtils {
     public static final String COMPILED = "compiled";
 
     public static final String PENDING_FIX = "pendingfix";
-
+ 
     public static final String UNDER_REVIEW = "underreview";
 
     public static final String REVIEW_COMPLETED = "reviewcompleted";
@@ -50,6 +63,8 @@ public final class StatusUtils {
     public static final String COMPLETED = "completed";
 
     public static final String ACCEPTED = "accepted";
+    
+    public static final String REVIEWER_SEPARATOR = ";";
 
     /**
      * Check if the status is one of the submit allowed (or generally updatable by the contributor)
@@ -102,7 +117,53 @@ public final class StatusUtils {
             return "survey.status." + s;
         }else return "survey.status.unknown";
     }
-
+    
+    /**
+     * Add a reviewer to the list of reviewers that has already subit their review
+     * 
+     * @param user
+     * @param status
+     */
+    public static void addReviewerToReviewerSubmit(User user, Status status){
+        if(user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+            String oldList = status.getReviewerSubmit();
+            oldList = oldList + REVIEWER_SEPARATOR + user.getUsername();
+            status.setReviewerSubmit(oldList);
+            return;
+        }
+        LOGGER.error("Provided user '" + user.getUsername()+ "' is not a Reviewer");
+    }
+    
+    /**
+     * Empty the list of reviewers that has already subit their review
+     * 
+     * @param user
+     * @param status
+     */
+    public static void emptyReviewerSubmit(User user, Status status){
+        if(user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+            status.setReviewerSubmit("");
+            return;
+        }
+        LOGGER.error("Provided user '" + user.getUsername()+ "' is not a Reviewer");
+    }
+    
+    /**
+     * Get the list of reviewers that has already subit their review as a List
+     * 
+     * @param status
+     * @return
+     */
+    public static List<String> getReviewerSubmit(Status status){
+        String oldList = status.getReviewerSubmit();
+        List<String> returnList = new ArrayList<String>();
+        if(oldList!=null){
+            String[] tmplList = oldList.split(REVIEWER_SEPARATOR);
+            returnList = Arrays.asList(tmplList);
+        }
+        return returnList;
+    }
+    
     public static boolean isValidStatus(Status s) {
 
         return isAccepted(s) || isCompiled(s) || isCompleted(s) || isEmpty(s) || isInProgress(s)
