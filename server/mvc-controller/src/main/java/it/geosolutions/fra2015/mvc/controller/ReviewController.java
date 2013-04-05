@@ -21,6 +21,7 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
@@ -29,6 +30,7 @@ import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -57,8 +59,13 @@ public class ReviewController {
 
     @Autowired
     private ControllerServices utils;
+    
     @Autowired
     private FeedbackService feedbackService;
+    
+    @Autowired
+    private SurveyServiceEntryPoint surveyService;
+    
     private final Logger LOGGER = Logger.getLogger(ReviewController.class);
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
@@ -180,6 +187,9 @@ public class ReviewController {
             List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
             fh.mergefeedbacks(oldFeedbacks);
             fh.storeFeedbacks();
+            
+            changeStatusToUnderReview(country, su);
+            
             if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
                 List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
                 fh.addAllToFeedbackList(notHarmonizedFeedbacks);
@@ -224,5 +234,16 @@ public class ReviewController {
         model.addAttribute("allowedQuestions", allowedQuestions);
         model.addAttribute("context", "survey");
         model.addAttribute("question", question);
+    }
+    
+    private void changeStatusToUnderReview(String iso3, User su){
+        
+        Status status =surveyService.getStatus(iso3);
+        if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString()) && StatusUtils.isCompiled(status)){
+            status.setCountry(iso3);
+            status.setStatus(StatusUtils.UNDER_REVIEW);
+            surveyService.changeStatus(status);
+            LOGGER.info("submitted survey: " + status.getCountry() + " - the status now is UNDER_REVIEW");
+        }
     }
 }
