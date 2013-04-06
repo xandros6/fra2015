@@ -1,5 +1,5 @@
 <%@ include file="../common/includes/taglibs.jsp" %>
-<c:set var="badgeType" scope="session" value="${badgeType !=null? badgeType : 'badge-success'}"/>
+<c:set var="badgeType" scope="session" value="${badgeType !=null? badgeType : 'badge-warning'}"/>
 <div class="span4">
 	<a href="#" id="hide-menu"><spring:message code="left.hidemenu"></spring:message></a>
 	<div class="in" id="left-menu">
