@@ -70,12 +70,7 @@ public class SurveyListController {
 		model.addAttribute("next",next);
 		model.addAttribute("surveys",surveys);
 		model.addAttribute("page",page);
-		if("reviewer".equals(su.getRole())){
-		   model.addAttribute("allowedsubmitstatus",StatusUtils.UNDER_REVIEW);
-		}
-		if("editor".equals(su.getRole())){
-		    model.addAttribute("allowedsubmitstatus",StatusUtils.REVIEW_EDITING);
-		}
+		model.addAttribute("allowedsubmitstatus",StatusUtils.UNDER_REVIEW);
 		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
 		return "reviewer";
 
