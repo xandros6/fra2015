@@ -189,7 +189,11 @@ public class ReviewController {
             fh.storeFeedbacks();
             
             changeStatusToUnderReview(country, su);
-            
+            status = utils.getStatusByCountry(country);
+            statusLocale = StatusUtils.getStatusLocaleCode(status);
+            // Set the parameter operationWR, the domain is "WRITE" "READ"
+            model.addAttribute("status",status);
+            model.addAttribute("statuscode", statusLocale);
             if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
                 List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
                 fh.addAllToFeedbackList(notHarmonizedFeedbacks);
