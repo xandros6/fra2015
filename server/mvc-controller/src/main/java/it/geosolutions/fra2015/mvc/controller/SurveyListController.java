@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
@@ -56,7 +57,7 @@ public class SurveyListController {
 
 		User su = (User) session.getAttribute(SESSION_USER);
 		if (su==null){
-		    return "redirect:login";
+		    return "/";
 		}
 		
 		FlashAttributesHandler.copyToModel(session, model);
@@ -69,6 +70,12 @@ public class SurveyListController {
 		model.addAttribute("next",next);
 		model.addAttribute("surveys",surveys);
 		model.addAttribute("page",page);
+		if("reviewer".equals(su.getRole())){
+		   model.addAttribute("allowedsubmitstatus",StatusUtils.UNDER_REVIEW);
+		}
+		if("editor".equals(su.getRole())){
+		    model.addAttribute("allowedsubmitstatus",StatusUtils.REVIEW_EDITING);
+		}
 		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
 		return "reviewer";
 

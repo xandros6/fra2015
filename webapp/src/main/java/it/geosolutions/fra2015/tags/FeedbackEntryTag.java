@@ -22,11 +22,13 @@
 package it.geosolutions.fra2015.tags;
 
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -39,13 +41,15 @@ import org.springframework.web.servlet.LocaleResolver;
  * @author DamianoG
  *
  */
-public class FeedbackEntryTag extends ProfiledTag{
+public class FeedbackEntryTag extends ModeTag{
     
     private Logger LOGGER = Logger.getLogger(FeedbackEntryTag.class);
     
     private ReloadableResourceBundleMessageSource messageSource;
     private LocaleResolver localeResolver;
     private WebApplicationContext springContext;
+    
+    
     
     private final static String WRITE_SUFFIX = "b";
     private final static String READ_SUFFIX = "A";
@@ -71,7 +75,10 @@ public class FeedbackEntryTag extends ProfiledTag{
         
         return (SKIP_BODY);
     }
-    
+    /**
+     * Shows the feedback for the Contributor. 
+     * He see only the harmonized feedback of the current round.
+     */
     private void composeContributor() {
         
         String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
@@ -79,9 +86,10 @@ public class FeedbackEntryTag extends ProfiledTag{
         if(feedbackIsPresent){
             try{
                 JspWriter out = pageContext.getOut();
-                composeStartfeedbackArea(out);
+                //composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
+                rte.setCssClasses("alert alert-error"); 
                 rte.setName(feedbackName+"Ed_"/*+READ_SUFFIX*/);
                 rte.setPageContext(pageContext);
                 rte.forceReadMode();
@@ -95,27 +103,44 @@ public class FeedbackEntryTag extends ProfiledTag{
         }
     }
     
+    /**
+     * Reviewer should see:
+     * His last feedback + harmonized feedback (read)
+     * The current feedback for writing if can edit
+     */
     private void composeReviewer() {
         
         try{
             JspWriter out = pageContext.getOut();
             composeStartfeedbackArea(out);
-            composeReviewerSelectBox(out,feedbackName);
-            // --- use RichTextEntry ----
-            RichTextEntry rte2 = new RichTextEntry();
-//            +WRITE_SUFFIX
-            rte2.setName(feedbackName);
-            rte2.setPageContext(pageContext);
-            rte2.forceWriteMode();
-            rte2.doStartTag();
-            // -------------------------
-            composeBottomfeedbackArea(out);
+            //feedbacks to show
+            //TODO show previous feedback by the reviewer
+            
+            if(StatusUtils.isReviewerEditable(getStatus())){
+                
+                composeReviewerSelectBox(out,feedbackName);
+                
+                // --- use RichTextEntry ----
+                RichTextEntry rte2 = new RichTextEntry();
+   
+                rte2.setName(feedbackName);
+                rte2.setPageContext(pageContext);
+                rte2.forceWriteMode();
+                rte2.doStartTag();
+                // -------------------------
+                composeBottomfeedbackArea(out);
+            }else{
+                composeContributor();//TODO maybe I can read my feedbacks
+            }
         }
         catch(IOException e){
             LOGGER.error("Error in FeedbackEntry: " + e);
         }
     }
-    
+    /**
+     * Review editor should see the feedbacks of current round (maybe also the previous)
+     * and his editor if allowed
+     */
     private void composeReviewerEditor() {
         
         String value = (String)pageContext.getRequest().getAttribute(feedbackName);
@@ -124,28 +149,32 @@ public class FeedbackEntryTag extends ProfiledTag{
         
         if(feedbackIsPresent){
             try{
+                
                 JspWriter out = pageContext.getOut();
                 composeStartfeedbackArea(out);
+                
                 // --- use RichTextEntry ----
                 RichTextEntry rte = new RichTextEntry();
                 rte.setName(feedbackName/*+READ_SUFFIX*/);
                 rte.setPageContext(pageContext);
+                
                 rte.forceReadMode();
                 rte.doStartTag();
+                if(StatusUtils.isReviewEditorEditable(getStatus())){
                 // -------------------------
-                out.print("<br />");
-                
-                out.print("<div class=\"control pull-right btn btn-mini\"><a href=\"#\" >Copy the reviewer text</a></div>");
-                
-                out.print("<br />");
-                out.print("<br />");
-                // --- use RichTextEntry ----
-                RichTextEntry rte2 = new RichTextEntry();
-                //Little Hack: the id are placed in all jsp for all entry... so remove the last '_' for ad the EDITOR suffix
-                rte2.setName(feedbackName+"Ed_"/*+WRITE_SUFFIX*/);
-                rte2.setPageContext(pageContext);
-                rte2.forceWriteMode();
-                rte2.doStartTag();
+                    
+                    //out.print("<div class=\"control pull-right btn btn-mini\"><a href=\"#\" >Copy the reviewer text</a></div>");
+                    
+                    out.print("<br />");
+                    out.print("<br />");
+                    // --- use RichTextEntry ----
+                    RichTextEntry rte2 = new RichTextEntry();
+                    //Little Hack: the id are placed in all jsp for all entry... so remove the last '_' for ad the EDITOR suffix
+                    rte2.setName(feedbackName+"Ed_"/*+WRITE_SUFFIX*/);
+                    rte2.setPageContext(pageContext);
+                    rte2.forceWriteMode();
+                    rte2.doStartTag();
+                }
                 // -------------------------
                 composeBottomfeedbackArea(out);
             }
@@ -257,7 +286,7 @@ public class FeedbackEntryTag extends ProfiledTag{
     }
 
     @Override
-    protected void chooseMode(Profile op) {
+    protected void chooseMode(Profile op,String sc) {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
@@ -267,4 +296,13 @@ public class FeedbackEntryTag extends ProfiledTag{
         throw new UnsupportedOperationException("Not implemented yet");
     }
     
+    private String getValue(PageContext pageContext,String name) {
+        if (pageContext.getRequest().getAttribute(name) != null) {
+                return  (String) pageContext.getRequest().getAttribute(
+                                name);
+        }else{
+                return "";
+        }
+        
+}
 }

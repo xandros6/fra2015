@@ -42,7 +42,7 @@ public class Feedback {
     
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
     
     private String feedbackId;
     
@@ -184,14 +184,14 @@ public class Feedback {
     /**
      * @return the id
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -135,6 +135,7 @@ public class CheckController {
             model.addAttribute("messageType", "success");
             model.addAttribute("messageCode", "submit.success");
         }catch(MailException  e){
+            submissionError(model,e,c,su);
             LOGGER.error("The reviewers were not notified of the message submit because of an Mail Exception",e);
         }catch(TemplateException e){
             model.addAttribute("context", "check");  

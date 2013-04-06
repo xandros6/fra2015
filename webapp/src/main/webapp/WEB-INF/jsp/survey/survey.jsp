@@ -15,7 +15,13 @@
 
 					<jsp:include page="questions/q${question}.jsp" />
 				</div>
+				<c:if test="${
+					(profile == 'CONTRIBUTOR' && fra:isContributorEditable(status) )||
+					(profile == 'EDITOR' && fra:isReviewEditorEditable(status) )||
+					(profile == 'REVIEWER' && fra:isReviewerEditable(status))
+					}">
 				<jsp:include page="../common/saveall.jsp"></jsp:include>
+				</c:if>
 			</form>
 		</div>
 	</div>

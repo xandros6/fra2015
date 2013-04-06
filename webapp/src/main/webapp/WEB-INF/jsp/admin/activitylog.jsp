@@ -7,10 +7,10 @@
         <table id="userTable" class="table table-bordered table-hover table-condensed table-striped">
           <thead>
             <tr>
-              <th>Time</th>
+              <th>Timestamp</th>
               <th>Username</th>
               <th>Country</th>
-              <th>Id</th>
+              <th>Question</th>
               <th>Content</th>
             </tr>
              <tr>

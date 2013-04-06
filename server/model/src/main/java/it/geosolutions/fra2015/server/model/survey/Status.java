@@ -35,6 +35,9 @@ public class Status implements Serializable {
     @Column(nullable = true, updatable = true)
     private Long lastContributorSubmission;
     
+    @Column(nullable = true, updatable = true)
+    private String reviewerSubmit;
+    
     @Transient
     private String country;
 
@@ -76,6 +79,20 @@ public class Status implements Serializable {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+    
+    /**
+     * @return the reviewerSubmit
+     */
+    public String getReviewerSubmit() {
+        return reviewerSubmit;
+    }
+
+    /**
+     * @param reviewerSubmit the reviewerSubmit to set
+     */
+    public void setReviewerSubmit(String reviewerSubmit) {
+        this.reviewerSubmit = reviewerSubmit;
     }
 
     /**
