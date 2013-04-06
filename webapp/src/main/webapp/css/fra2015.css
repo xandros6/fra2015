@@ -399,7 +399,7 @@ table.table-hover tbody tr td.editable{
 	text-align:center;
 }
 
-.accordion-heading :hover {
+.accordion-heading a:hover {
     background-color: #d5d59d;
     text-decoration: none;
 }
