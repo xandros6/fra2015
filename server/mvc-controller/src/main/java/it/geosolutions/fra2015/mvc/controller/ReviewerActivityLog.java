@@ -50,7 +50,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("logFilter")
 public class ReviewerActivityLog {
 
-	protected static Logger logger = Logger.getLogger(AdminActivityLog.class);
+	protected static Logger logger = Logger.getLogger(ReviewerActivityLog.class);
 	
 	private int pagesize = 10;
 	
@@ -62,18 +62,18 @@ public class ReviewerActivityLog {
     
     @RequestMapping(value = "")
     public String handleGet(ModelMap model) {        
-    	return "redirect:/adminactivitylog/0";
+    	return "redirect:/revieweractivitylog/0";
     }
     
     @RequestMapping(value = "/filter", method = RequestMethod.POST)
 	public String updateFilter(@ModelAttribute("logFilter") ActivityLogFilter logFilter, ModelMap model , SessionStatus sessionStatus) {
 		model.addAttribute("logFilter", logFilter);
-		return "forward:/adminactivitylog/0";
+		return "forward:/revieweractivitylog/0";
 	}
 	
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public String reloadFilter(ModelMap model , SessionStatus sessionStatus) {
-		return "redirect:/adminactivitylog/0";
+		return "redirect:/revieweractivitylog/0";
 	}
     
     @RequestMapping(value = "/{page}")
@@ -85,7 +85,7 @@ public class ReviewerActivityLog {
 		//model.addAttribute("context", "users");
 		List<ActivityLogEntry> activityLogList = this.getPage(page, logFilter);
 		if(activityLogList.isEmpty() && page > 0){
-			return "redirect:/adminactivitylog/"+(page-1);
+			return "redirect:/revieweractivitylog/"+(page-1);
 		}
 		model.addAttribute("page", page);
 		//check prev and next pages presence
@@ -120,7 +120,7 @@ public class ReviewerActivityLog {
 		model.addAttribute("context", "activitylog");
 		model.addAttribute("pagination", pagination);
 		model.addAttribute("activityLogList", activityLogList);
-		return "admin";
+		return "reviewer";
 	}
     
 	private List<ActivityLogEntry> getPage(int page, ActivityLogFilter userFilter) {
