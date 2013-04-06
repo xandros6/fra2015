@@ -57,6 +57,9 @@
 							<c:when test="${context=='settings'}">
 								<jsp:include page="contributor/settings.jsp" />
 							</c:when>
+							<c:when test="${context=='messageonly'}">
+								<jsp:include page="common/messageonly.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>
