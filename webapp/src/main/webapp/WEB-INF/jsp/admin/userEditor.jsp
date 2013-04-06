@@ -61,7 +61,7 @@
               </table>
 					</div>
 
-					</p>
+					
 					<p>
 					<div id="questions" class="hide">
 						<label>Assigned questions:</label>

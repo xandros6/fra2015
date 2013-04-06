@@ -216,9 +216,24 @@ function saveUser(el){
 			}
 		}
 	});
-	el.find("#questionsStr").val(cquestions);
 	
-	el.find("#createUserForm").validate({ignore: ""});
+	
+	el.find("#questionsStr").val(cquestions);
+	//at least 1 question for reviewer
+	var valRules = {ignore: ""};
+	var role = el.find('#roleComboBox').val();
+	if (role == 'reviewer') {
+		valRules.rules={
+			questionsStr: "required"
+		}
+	}else{
+		var settings = $('form').validate().settings;
+		if (settings.rules.questionsStr) {
+			delete settings.rules.questionsStr;
+		}
+		
+	}
+	el.find("#createUserForm").validate(valRules);
 
 	el.find('#createUserForm').submit();
 }
