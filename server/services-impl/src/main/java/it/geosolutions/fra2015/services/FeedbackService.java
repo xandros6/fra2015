@@ -68,6 +68,7 @@ public class FeedbackService {
     /**
      * Load All feedbacks related to the Latest review / ReviewEditing.
      * The feedback is loaded only if his timestamp is > to the LastContributorSubmission field stored in the survey status
+     * If user is not null and harmonized is null, load the feedbacks for the user and also the harmonized feedback related to question and surv
      *  
      * @param user
      * @param survey
@@ -79,6 +80,7 @@ public class FeedbackService {
     public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question, Boolean harmonized) throws BadRequestServiceEx{
 
         List<Feedback> list = new ArrayList<Feedback>();
+        List<Feedback> harmonizedList = new ArrayList<Feedback>();
         try {
             
             Search search = new Search();
@@ -92,12 +94,22 @@ public class FeedbackService {
             search.addFilterEqual("entry.question.id", question);
             search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
             list = feedbackDAO.search(search);
+            //workaround
+            if(user != null && harmonized == null){
+                search = new Search();
+                search.addFilterEqual("harmonized", true);                
+                search.addFilterEqual("survey", survey);
+                search.addFilterEqual("entry.question.id", question);
+                search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+                harmonizedList = feedbackDAO.search(search);
+            }
         }
         catch (Exception e) {
             
             LOGGER.error(e.getLocalizedMessage());
             throw new BadRequestServiceEx(e.getLocalizedMessage());
         }
+        list.addAll(harmonizedList);
         return list;
     }
     

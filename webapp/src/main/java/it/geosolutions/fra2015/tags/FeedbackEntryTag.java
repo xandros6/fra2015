@@ -129,9 +129,10 @@ public class FeedbackEntryTag extends ModeTag{
                 rte2.doStartTag();
                 // -------------------------
                 composeBottomfeedbackArea(out);
-            }else{
-                composeContributor();//TODO maybe I can read my feedbacks
             }
+//                else{
+                composeContributor();//TODO maybe I can read my feedbacks
+//            }
         }
         catch(IOException e){
             LOGGER.error("Error in FeedbackEntry: " + e);

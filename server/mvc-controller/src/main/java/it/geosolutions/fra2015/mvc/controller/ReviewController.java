@@ -89,7 +89,7 @@ public class ReviewController {
             model.addAttribute("profile", Profile.REVIEWER.toString());
             setupAllowedQuestions(question, su, model);
             userForQuery = su;
-            harmonized = false;
+            harmonized = null;
             userProfile = Profile.REVIEWER;
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
 

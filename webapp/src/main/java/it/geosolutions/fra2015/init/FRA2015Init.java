@@ -32,7 +32,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-/**
+/**C
  *
  * @author etj
  */
@@ -212,7 +212,7 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
 
         Survey survey = JAXB.unmarshal(surveyFile, Survey.class);
         // UNCOMMENT THIS CALL TO TRY AND REMOVE EMPTY ITEMS
-        // removeEmptyEntries(survey);
+         removeEmptyEntries(survey);
 
         restSurveyService.create(survey);
 
