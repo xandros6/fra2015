@@ -56,9 +56,9 @@ public final class StatusUtils {
  
     public static final String UNDER_REVIEW = "underreview";
 
-    public static final String REVIEW_COMPLETED = "reviewcompleted";
+    //public static final String REVIEW_COMPLETED = "reviewcompleted";
 
-    public static final String REVIEW_EDITING = "reviewediting";
+    //public static final String REVIEW_EDITING = "reviewediting";
 
     public static final String COMPLETED = "completed";
 
@@ -87,11 +87,8 @@ public final class StatusUtils {
      * @return true if the contributor can submit the status, false otherwise
      */
     public static boolean isSubmitAllowedByReviewer(String s, Profile p) {
-        boolean result = isCompiled(s) || isUnderReview(s);
-        if(p.equals(Profile.EDITOR)){
-            result = result || isReviewCompleted(s) || isReviewEditing(s);
-        }
-        return result;
+        return  isCompiled(s) || isUnderReview(s);
+        
     }
     
     /**
@@ -187,20 +184,20 @@ public final class StatusUtils {
      * @return
      */
     public static boolean isReviewEditorEditable(String s){
-        return isReviewCompleted(s) || isReviewEditing(s);
+        return isUnderReview(s);
     }
     
     public static boolean isValidStatus(Status s) {
 
         return isAccepted(s) || isCompiled(s) || isCompleted(s) || isEmpty(s) || isInProgress(s)
-                || isPendingFix(s) || isReviewCompleted(s) || isReviewEditing(s)
+                || isPendingFix(s) /*|| isReviewCompleted(s) || isReviewEditing(s)*/
                 || isUnderReview(s);
 
     }
     public static boolean isValidStatus(String s) {
 
         return isAccepted(s) || isCompiled(s) || isCompleted(s) || isEmpty(s) || isInProgress(s)
-                || isPendingFix(s) || isReviewCompleted(s) || isReviewEditing(s)
+                || isPendingFix(s) /*|| isReviewCompleted(s) || isReviewEditing(s)*/
                 || isUnderReview(s);
 
     }
@@ -239,7 +236,7 @@ public final class StatusUtils {
         }
         return false;
     }
-
+    /*
     public static boolean isReviewCompleted(Status s) {
         if (s != null) {
             return REVIEW_COMPLETED.equals(s.getStatus());
@@ -253,7 +250,7 @@ public final class StatusUtils {
         }
         return false;
     }
-
+    */
     public static boolean isCompleted(Status s) {
         if (s != null) {
             return COMPLETED.equals(s.getStatus());
@@ -302,7 +299,7 @@ public final class StatusUtils {
         }
         return false;
     }
-
+    /*
     public static boolean isReviewCompleted(String s) {
         if (s != null) {
             return REVIEW_COMPLETED.equals(s);
@@ -317,7 +314,7 @@ public final class StatusUtils {
                  
         return false;
     }
-
+    */
     public static boolean isCompleted(String s) {
         if (s != null) {
             return COMPLETED.equals(s);
