@@ -17,29 +17,23 @@
               <th>
 	              <div id="datetimepickerFrom" class="input-prepend input-append date">
 	                <span class="add-on" style="width:40px">From</span>
-							    <form:input path="fromDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="input-small"/>
+							    <form:input path="fromDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="span2 input-small"/>
 							    <span class="add-on picker">
 							        <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 							    </span>
 							    <span class="add-on">
 							    <i id="filter_from_clear_btn" class="icon-remove-sign"> </i>
 							    </span>
-	                <span class="add-on">
-	                  <i class="icon-filter"> </i>
-	                </span>
 							  </div>
 							  <div id="datetimepickerTo" class="input-prepend input-append date">
 							    <span class="add-on" style="width:40px">To</span>
-                  <form:input path="toDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="input-small"/>
+                  <form:input path="toDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="span2 input-small"/>
                     <span class="add-on picker">
                       <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
                   </span>
                   <span class="add-on">
                   <i id="filter_to_clear_btn" class="icon-remove-sign"> </i>
                   </span>
-	                <span class="add-on">
-	                  <i class="icon-filter"> </i>
-	                </span>
                 </div>    						              
               </th>
               <th>
@@ -48,19 +42,14 @@
                   <span class="add-on">
                   <i id="filter_username_clear_btn" class="icon-remove-sign"> </i>
                   </span>
-	                <span class="add-on">
-	                  <i class="icon-filter"> </i>
-	                </span>
                 </div>
               </th>
               <th>
                 <div class="input-append">
-                <form:input path="country" type="text" class="span1 input-small ui-autocomplete-input"/>                
+                <input id="filter_countries" type="text" class="span2 input-small ui-autocomplete-input" autocomplete="off"/>     
+                <form:input path="country" name="country" type="hidden" id="country"/>           
                 <span class="add-on">
                   <i id="filter_country_clear_btn" class="icon-remove-sign"> </i>
-                </span>
-                <span class="add-on">
-                  <i class="icon-filter"> </i>
                 </span>
                 </div>
               </th>
@@ -70,9 +59,6 @@
                 <span class="add-on">
                   <i id="filter_questionId_clear_btn" class="icon-remove-sign"> </i>
                 </span>
-                <span class="add-on">
-                  <i class="icon-filter"> </i>
-                </span>
                 </div>
               </th>
               <th>
@@ -81,10 +67,14 @@
                 <span class="add-on">
                   <i id="filter_content_clear_btn" class="icon-remove-sign"> </i>
                 </span>
-                <span class="add-on">
-                  <i class="icon-filter"> </i>
-                </span>
                 </div>
+              </th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th colspan="5" style="text-align: right;">
+                <button class="btn" type="button" id="activityLogFilterBtn"><i class="icon-filter"></i>Filter</button>
               </th>
             </tr>
           </thead>
