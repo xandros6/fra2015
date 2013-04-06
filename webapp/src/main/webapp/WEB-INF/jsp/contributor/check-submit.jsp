@@ -3,7 +3,7 @@
 	<div>
 		<div class="container">
 			<div class="check-page">
-
+				
 				<c:if
 					test="${not empty validationResult && !validationResult.success}">
 
@@ -62,6 +62,8 @@
 				<c:if test="${denysubmit}">
 				<div id="messagePanel" class="alert alert-warning"><spring:message code="submit.statuserror"></spring:message></div>
 				</c:if>
+				
+
 			</div>
 		</div>
 	</div>
