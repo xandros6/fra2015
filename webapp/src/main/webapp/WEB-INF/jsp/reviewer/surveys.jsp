@@ -38,7 +38,7 @@
 			<li class="${prev?'':'disabled'}"><a href="${prev?page-1:'#'}"><spring:message code="prev"></spring:message></a></li>
 			</c:if>
 			<c:if test="${next}">
-			<li class="${next?'':'disabled'}"><a href="${next?page+1:'#'}"><a href="${prev?page-1:'#'}"><spring:message code="next"></spring:message></a></li>
+			<li class="${next?'':'disabled'}"><a href="${next?page+1:'#'}"><spring:message code="next"></spring:message></a></li>
 			</c:if>
 		</ul>
 	</div>
