@@ -114,5 +114,25 @@ public class FeedbackService {
         List<Feedback> list = feedbackDAO.search(search);
         return (list.size() == entries.size());
     }
-    
+    /**
+     * Counts feedback for a survey
+     * @param survey
+     * @param harmonized
+     * @return
+     */
+    public int[] getFeedbackCounter(SurveyInstance survey,boolean harmonized){
+        List<Feedback> list = new ArrayList<Feedback>();
+        int[] counts= new int[21];
+       for(int q = 0 ;q<counts.length;q++){
+        Search search = new Search();
+        
+        search.addFilterEqual("harmonized", harmonized);
+        
+        search.addFilterEqual("survey", survey);
+        search.addFilterEqual("entry.question.id", q);
+        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+        counts[q] = feedbackDAO.count(search);
+        }
+        return counts;
+    }
 }

@@ -124,7 +124,9 @@ public class SurveyController{
         try {
             
             List<Feedback> listF = fh.retrieveFeedbacks(iso3, questionLong, session, null, true);
+            
             fh.prepareFeedbackModel(model, listF);
+            model.addAttribute("feedbackCount",fh.getFeedbackCounter(iso3,session,true));
         } 
         catch (BadRequestServiceEx e) {            
 
@@ -162,7 +164,6 @@ public class SurveyController{
         // Retrieve the stored value in order to compare them with the new submitted values
         String iso3 = UserUtil.getSingleIso3(su);
         String status = utils.getStatusByCountry(iso3);
-        model.addAttribute("status",status);
         CountryValues es = SessionUtils.retrieveQuestionValueFromSessionOrLoadFromDB(utils, session, questionLong, iso3);
         List<CompactValue> oldValues = es.getValues();
         
@@ -270,9 +271,11 @@ public class SurveyController{
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), iso3)/*mergedValues*/, false);
 
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
+        model.addAttribute("feedbackCount",fh.getFeedbackCounter(iso3, session, true));
         try {
             
             List<Feedback> listF = fh.retrieveFeedbacks(iso3, questionLong, session, null, true);
+            
             fh.prepareFeedbackModel(model, listF);
         } 
         catch (BadRequestServiceEx e) {
@@ -289,6 +292,7 @@ public class SurveyController{
 
         
         String statusLocale= StatusUtils.getStatusLocaleCode(status);
+        
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("status",status);
         model.addAttribute("statuscode",statusLocale);

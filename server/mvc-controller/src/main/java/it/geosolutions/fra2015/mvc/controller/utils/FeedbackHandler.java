@@ -78,7 +78,7 @@ public class FeedbackHandler{
         this.feedbackService = feedbackService;
         this.feedbackList = new ArrayList<Feedback>();
     }
-
+   
     public List<Feedback> retrieveFeedbacks(String country, Long question,
             HttpSession session, User su, Boolean harmonized) throws BadRequestServiceEx {
 
@@ -283,6 +283,12 @@ public class FeedbackHandler{
             }
         }
         return "%{date} - %{username} - %{feedbackContent} <br />";
+    }
+    public int[] getFeedbackCounter(String country,HttpSession session,boolean harmonized){
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+        return feedbackService.getFeedbackCounter(si, harmonized);
     }
     
 }
