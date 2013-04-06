@@ -408,12 +408,12 @@ table.table-hover tbody tr td.editable{
     padding: 0px !important;
 }
 
-.accordion-inner div :hover {
+.accordion-inner a:hover,.accordion-inner a:hover div {
     background-color: #e4e4b0;
     text-decoration: none;
 }
 
-.accordion-inner div a {
+.accordion-inner  a div{
     display: block;
-    padding: 0px 15px 9px 15px;
+    padding: 9px 15px 9px 15px;
 }
