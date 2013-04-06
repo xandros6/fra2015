@@ -8,7 +8,7 @@
 <c:if test="${(not empty messageCode) && (not empty messageType)}">
 <div id="savemessage" class="modal hide fade alert alert-${messageType}"
 	aria-labelledby="myModalLabel" aria-hidden="true">
-	<button type="button" class="close" data-dismiss="alert">×</button>
+	<button type="button" class="close" data-dismiss="modal">×</button>
 	<div class="modal-body" style="text-align: center;">
 		<strong><spring:message code="${messageCode}"></spring:message>
 		${not empty messageTrailCode ?':':''}
