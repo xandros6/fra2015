@@ -102,11 +102,14 @@ public class AcceptanceViewController{
             session.invalidate();
             return "login";
         }
-        
+        User su = (User) session.getAttribute(SESSION_USER);
+        if(su ==null){
+            return "login";
+        }
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
         
-        User su = (User) session.getAttribute(SESSION_USER);
+       
         String iso3 = UserUtil.getSingleIso3(su);
         String status = utils.getStatusByCountry(iso3);
         model.addAttribute("profile", ControllerServices.Profile.VALIDATOR.toString());
