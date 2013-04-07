@@ -6,7 +6,7 @@
 	<li class="${context=='activitylog' ? 'active' : '' }"><a
 		href="${pageContext.request.contextPath}/revieweractivitylog" class="tab"> <spring:message
 				code="toolbar.activity_log" /></a></li>
-	<li><a href="${context=='export' ? 'active' : '' }" href="surveys"
-		class="tab" data-i18n="toolbar_export"><spring:message
+	<li><a class="${context=='export' ? 'active' : '' }" href="${pageContext.request.contextPath}/revexport"
+		data-i18n="toolbar_export"><spring:message
 				code="toolbar.export" /></a></li>
 </ul>

@@ -136,6 +136,26 @@ public class ImportExportController {
         return "/";
 
     }
+    @RequestMapping(value = "/revexport", method = RequestMethod.GET)
+    public String revExport(ModelMap model, HttpSession session) {
+        
+        model.addAttribute("context", "export");
+        User user = (User) session.getAttribute(SESSION_USER);
+        if (user == null){
+            
+            return "redirect:/";
+        }
+        model.addAttribute("countries", user.getCountriesSet());
+        String role = user.getRole();
+        if ("reviewer".equals(role)) {
+            return "reviewer";
+        }
+        if("editor".equals(role)){
+            return "editor";
+        }
+        return "redirect:/";
+
+    }
     
     @RequestMapping(value = "/importXml", method = RequestMethod.POST)
     public String importXml(ModelMap model, SurveyUpload uploadItem, BindingResult result) {
