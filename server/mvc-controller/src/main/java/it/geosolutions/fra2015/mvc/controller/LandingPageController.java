@@ -60,6 +60,8 @@ public class LandingPageController {
     		else if(Profile.ADMIN.toString().equalsIgnoreCase(role)){
     			
     			return "redirect:users/";
+    		}else if(Profile.VALIDATOR.toString().equalsIgnoreCase(role)){
+    		return "redirect:acceptance/view/0";
     		}
     		return "redirect:login";
     		

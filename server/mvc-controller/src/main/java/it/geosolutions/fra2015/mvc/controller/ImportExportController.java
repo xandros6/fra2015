@@ -26,6 +26,7 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.model.SurveyUpload;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
@@ -97,6 +98,11 @@ public class ImportExportController {
         if ("reviewer".equals(role)) {
             
             return "reviewer";
+        }
+        
+        if (Profile.VALIDATOR.toString().equalsIgnoreCase(role)){
+            model.addAttribute("country", UserUtil.getSingleIso3(user));
+            return "validator";
         }
         if ("admin".equals(role)) {
 

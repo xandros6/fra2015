@@ -84,7 +84,7 @@ public class ControllerServices {
 
     // Note: EDITOR means REVIEWEREDITOR profile
     public enum Profile {
-        CONTRIBUTOR, REVIEWER, EDITOR, ADMIN, PRINT, COUNTRYACCEPTANCE, ACCEPTED
+        CONTRIBUTOR, REVIEWER, EDITOR, ADMIN, PRINT, VALIDATOR, ACCEPTED
     }
 
     /**
