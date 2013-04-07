@@ -122,7 +122,7 @@ public class FeedbackService {
         search.addFilterEqual("harmonized", false);
         search.addFilterEqual("survey", survey);
         search.addFilterEqual("entry.question.id", question);
-        search.addFilterEqual("status", "ok");
+        search.addFilterIn("status", "ok", "ko");
         List<Feedback> list = feedbackDAO.search(search);
         return (list.size() == entries.size());
     }
