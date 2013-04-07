@@ -22,6 +22,7 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.TEXT_STATIC_TABLE;
 import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.entrypoint.model.Update;
@@ -33,9 +34,13 @@ import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils.VariableName;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.Status;
+import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -46,6 +51,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,71 +69,52 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * @author Lorenzo Natali
  * 
- * This is the Country Acceptance controller 
+ * This is the Country Acceptance controller for acceptance 
  * 
  * 
  */
 @Controller
-public class AcceptanceViewController{ 
+@RequestMapping("/acceptance/accept/")
+public class AcceptController{ 
 
     @Autowired
     private ControllerServices utils;
 
-    @Autowired
-    private FeedbackService feedbackService;
     
     @Autowired
     private BasicConcurrencyHandler concurencyHandler;
     
-    private final Logger LOGGER = Logger.getLogger(AcceptanceViewController.class);
+    private final Logger LOGGER = Logger.getLogger(AcceptController.class);
     
-    /**
-     * This value is used in select box for mark an Empty Value. 
-     * Note if this value is added in a text cell the meaning is the same: the value on DB will be erased.
-     */
-    private static final String ERASE_VALUE = "---";
+
     
-    @RequestMapping(value = "/acceptance/view/{question}", method = RequestMethod.GET)
-    public String handleGet(@PathVariable(value = "question") String question, Model model,
+    @RequestMapping(method = RequestMethod.GET)
+    public String handleGet(HttpServletRequest request, Model model,
             HttpSession session) {
-        FlashAttributesHandler.copyToModel(session, model);
-        concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
-        
-        Long questionLong = Long.parseLong(question); 
-        try{
-            Integer.parseInt(question);
-        }
-        catch(Exception e){
-            model.addAttribute("context", "survey");
-            model.addAttribute("question", 0);
-            session.invalidate();
+
+        model.addAttribute("context","surveylist");
+        User su = (User) session.getAttribute("sessionUser");
+        if (su == null) {
             return "redirect:/login";
         }
-        User su = (User) session.getAttribute(SESSION_USER);
-        if(su ==null){
-            return "redirect:/login"; 
+        if(!Profile.VALIDATOR.toString().equalsIgnoreCase(su.getRole())){
+            return "redirect:/";
         }
-        model.addAttribute("question", question);
-        model.addAttribute("context", "survey");
-        
-       
-        String iso3 = UserUtil.getSingleIso3(su);
-        String status = utils.getStatusByCountry(iso3);
-        model.addAttribute("profile", ControllerServices.Profile.VALIDATOR.toString());
-        
-        String statusLocale= StatusUtils.getStatusLocaleCode(status);
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
-        model.addAttribute("statuscode",statusLocale);
-        model.addAttribute("country", iso3);
-        model.addAttribute("status",status);    
-        CountryValues cv = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, questionLong, iso3);
-        utils.prepareHTTPRequest(model, question, cv, false);
+        String country =UserUtil.getSingleIso3(su);
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+        Status s = si.getStatus();
+        if(StatusUtils.isCompleted(s)){
+            utils.updateSurveyStatusAccepted(country);
+            FlashAttributesHandler.addFlashAttribute(session, "success", "acceptance.success", null, null, null);
+        }else{
+            FlashAttributesHandler.addFlashAttribute(session, "error", "acceptance.error.notCompleted", 10000, null, null);
+        }
 
-        return "validator";
-
+        return "redirect:/acceptance/view/0";
+    
     }
-    
-    
 
 
 }

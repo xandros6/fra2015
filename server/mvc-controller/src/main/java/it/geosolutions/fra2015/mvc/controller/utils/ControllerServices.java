@@ -216,6 +216,19 @@ public class ControllerServices {
         }
         
     }
+    /**
+     * Set the status to accepted if it was empty
+     * @param c
+     */
+    public void updateSurveyStatusAccepted(String c){
+        Status s = surveyService.getStatus(c);
+        if(StatusUtils.isCompleted(s)){
+            s.setCountry(c);
+            s.setStatus(StatusUtils.ACCEPTED);
+            surveyService.changeStatus(s);
+        }
+        
+    }
     
     private static Map<String, Integer> initRowsCounters(SurveyCatalog catalog){
         
