@@ -86,7 +86,7 @@ public class FeedbackEntryTag extends ModeTag{
         String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
         boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
         if(feedbackIsPresent){
-            try{
+            
                 JspWriter out = pageContext.getOut();
                 //composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
@@ -97,11 +97,32 @@ public class FeedbackEntryTag extends ModeTag{
                 rte.forceReadMode();
                 rte.doStartTag();
                 // -------------------------
-                composeBottomfeedbackArea(out);
-            }
-            catch(IOException e){
-                LOGGER.error("Error in FeedbackEntry: " + e);
-            }
+                //composeBottomfeedbackArea(out);
+            
+            
+        }
+    }
+    
+   private void composeEditorReadBox() throws IOException {
+        
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
+        if(feedbackIsPresent){
+            
+                JspWriter out = pageContext.getOut();
+                //composeStartfeedbackArea(out);
+                // --- use RichTextEntry ----
+                out.write("<h5>" +localize("feedback.ChosenForContributor") +"<h5>");
+                RichTextEntry rte = new RichTextEntry();
+                rte.setCssClasses("alert alert-info"); 
+                rte.setName(feedbackName+"Ed_"/*+READ_SUFFIX*/);
+                rte.setPageContext(pageContext);
+                rte.forceReadMode();
+                rte.doStartTag();
+                // -------------------------
+                //composeBottomfeedbackArea(out);
+            
+            
         }
     }
     
@@ -114,12 +135,12 @@ public class FeedbackEntryTag extends ModeTag{
         
         try{
             JspWriter out = pageContext.getOut();
-            composeStartfeedbackArea(out);
-            //feedbacks to show
-            //TODO show previous feedback by the reviewer
             
+            //feedbacks to show
+            
+            composeEditorReadBox();
             if(StatusUtils.isReviewerEditable(getStatus())){
-                
+                composeStartfeedbackArea(out);
                 composeReviewerSelectBox(out,feedbackName);
                 
                 // --- use RichTextEntry ----
@@ -132,9 +153,7 @@ public class FeedbackEntryTag extends ModeTag{
                 // -------------------------
                 composeBottomfeedbackArea(out);
             }
-//                else{
-                composeContributor();//TODO maybe I can read my feedbacks
-//            }
+
         }
         catch(IOException e){
             LOGGER.error("Error in FeedbackEntry: " + e);
@@ -234,19 +253,16 @@ public class FeedbackEntryTag extends ModeTag{
     }
     
     public void composeStartfeedbackArea(JspWriter out) throws IOException{
-        out.print("<br />");
-        out.print("<hr /\">");
-        out.print("<div\">");
-        out.print("<h3>");
+        out.print("<div class=\"well\">");
+        
+        out.print("<h4>");
         out.print(localize("feedback.title"));
-        out.print("</h3>");
+        out.print("</h4>");
     }
     
     public static void composeBottomfeedbackArea(JspWriter out) throws IOException{
-        out.print("<br />");
-        out.print("<hr /\">");
-        out.print("<div\">");
-        out.print("<br />");
+        out.print("</div>");
+        
     }
     
     private String localize(String code) {
