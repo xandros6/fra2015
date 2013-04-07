@@ -68,6 +68,8 @@ public class FeedbackEntryTag extends ModeTag{
         case  EDITOR :
             composeReviewerEditor();
             break;
+        case VALIDATOR :
+            return (SKIP_BODY);
         default:
             composeError();
             break;
