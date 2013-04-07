@@ -21,7 +21,7 @@
 							<a href="0" class="tab"><div>
 									<spring:message code="ref1"></spring:message>
 									<c:if test="${feedbackCount[0]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[0]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -49,7 +49,7 @@
 									1.
 									<spring:message code="ref11"></spring:message>
 									<c:if test="${feedbackCount[1]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[1]}</span>
 									</c:if>	
 									
 								</div></a>
@@ -61,7 +61,7 @@
 									2.
 									<spring:message code="ref89"></spring:message>
 									<c:if test="${feedbackCount[2]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[2]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -89,7 +89,7 @@
 									3.
 									<spring:message code="ref130"></spring:message>
 									<c:if test="${feedbackCount[3]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[3]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -100,7 +100,7 @@
 									4.
 									<spring:message code="ref215"></spring:message>
 									<c:if test="${feedbackCount[4]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[4]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -126,7 +126,7 @@
 									5.
 									<spring:message code="ref259"></spring:message>
 									<c:if test="${feedbackCount[5]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[5]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -152,7 +152,7 @@
 									6.
 									<spring:message code="ref310"></spring:message>
 									<c:if test="${feedbackCount[6]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[6]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -179,7 +179,7 @@
 									7.
 									<spring:message code="ref319"></spring:message>
 									<c:if test="${feedbackCount[7]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[7]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -191,7 +191,7 @@
 									8.
 									<spring:message code="ref334"></spring:message>
 									<c:if test="${feedbackCount[8]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[8]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -202,7 +202,7 @@
 									9.
 									<spring:message code="ref371"></spring:message>
 									<c:if test="${feedbackCount[9]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[9]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -232,7 +232,7 @@
 									10.
 									<spring:message code="ref377"></spring:message>
 									<c:if test="${feedbackCount[10]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[10]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -243,7 +243,7 @@
 									11.
 									<spring:message code="ref392"></spring:message>
 									<c:if test="${feedbackCount[11]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[11]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -254,7 +254,7 @@
 									12.
 									<spring:message code="ref397"></spring:message>
 									<c:if test="${feedbackCount[12]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[12]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -265,7 +265,7 @@
 									13.
 									<spring:message code="ref407"></spring:message>
 									<c:if test="${feedbackCount[13]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[13]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -296,7 +296,7 @@
 									14.
 									<spring:message code="ref435"></spring:message>
 									<c:if test="${feedbackCount[14]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[14]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -307,7 +307,7 @@
 									15.
 									<spring:message code="ref457"></spring:message>
 									<c:if test="${feedbackCount[15]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[15]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -318,7 +318,7 @@
 									16.
 									<spring:message code="ref467"></spring:message>
 									<c:if test="${feedbackCount[16]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[16]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -348,7 +348,7 @@
 									17.
 									<spring:message code="ref487"></spring:message>
 									<c:if test="${feedbackCount[17]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[17]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -359,7 +359,7 @@
 									18.
 									<spring:message code="ref495"></spring:message>
 									<c:if test="${feedbackCount[18]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[18]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -370,7 +370,7 @@
 									19.
 									<spring:message code="ref536"></spring:message>
 									<c:if test="${feedbackCount[19]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[19]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -381,7 +381,7 @@
 									20.
 									<spring:message code="ref545"></spring:message>
 									<c:if test="${feedbackCount[20]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[20]}</span>
 									</c:if>	
 								</div></a>
 						
@@ -407,7 +407,7 @@
 									21.
 									<spring:message code="ref554"></spring:message>
 									<c:if test="${feedbackCount[21]>0}">
-										<span class="badge ${badgeType}">1</span>
+										<span class="badge ${badgeType}">${feedbackCount[21]}</span>
 									</c:if>	
 								</div></a>
 						
