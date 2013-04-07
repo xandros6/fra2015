@@ -100,11 +100,11 @@ public class AcceptanceViewController{
             model.addAttribute("context", "survey");
             model.addAttribute("question", 0);
             session.invalidate();
-            return "redirect/login";
+            return "redirect:/login";
         }
         User su = (User) session.getAttribute(SESSION_USER);
         if(su ==null){
-            return "redirect/login";
+            return "redirect:/login"; 
         }
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
