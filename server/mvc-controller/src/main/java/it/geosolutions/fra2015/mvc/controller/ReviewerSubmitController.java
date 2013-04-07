@@ -77,6 +77,12 @@ public class ReviewerSubmitController {
         boolean accepted = true;
 
         Set<Question> questions = su.getQuestions();
+        if(questions == null || questions.isEmpty()){
+            StatusUtils.addReviewerToReviewerSubmit(su, si.getStatus());
+            // submit the Survey
+            FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.error", 10000, null, null);
+            return "redirect:/surveylist/0";
+        }
         for (Question el : questions) {
 
             long qid = el.getId();
