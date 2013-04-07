@@ -5,11 +5,7 @@
 <%@ include file="common/includes/css.jsp"%>
 <!-- javascripts -->
 <%@ include file="common/includes/javascript.jsp"%>
-<c:choose>
-	<c:when test="${context=='survey' && profile=='CONTRIBUTOR' && fra:isContributorEditable(status)}">
-		<script src="${pageContext.request.contextPath}/js/tableeditor.js"></script>
-	</c:when>
-</c:choose>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
