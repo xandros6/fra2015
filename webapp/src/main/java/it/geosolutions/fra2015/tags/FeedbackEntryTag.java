@@ -253,7 +253,7 @@ public class FeedbackEntryTag extends ModeTag{
     }
     
     public void composeStartfeedbackArea(JspWriter out) throws IOException{
-        out.print("<div class=\"well\">");
+        out.print("<div class=\"well feedback-block\">");
         
         out.print("<h4>");
         out.print(localize("feedback.title"));
