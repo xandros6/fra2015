@@ -84,7 +84,8 @@ public class AcceptController{
         SurveyInstance si = surveyInstanceMap.get(country);
         Status s = si.getStatus();
         if(StatusUtils.isCompleted(s)){
-            utils.updateSurveyStatusAccepted(country);
+            doAcceptance(country);
+            
             FlashAttributesHandler.addFlashAttribute(session, "success", "acceptance.success", null, null, null);
         }else{
             FlashAttributesHandler.addFlashAttribute(session, "error", "acceptance.error.notCompleted", 10000, null, null);
@@ -92,6 +93,14 @@ public class AcceptController{
 
         return "redirect:/acceptance/view/0";
     
+    }
+
+
+
+    private void doAcceptance(String country) {
+        //TODO all the stuff to do in acceptance
+        utils.updateSurveyStatusAccepted(country);
+        
     }
 
 
