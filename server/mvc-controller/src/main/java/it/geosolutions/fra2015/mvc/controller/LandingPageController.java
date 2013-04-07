@@ -55,7 +55,7 @@ public class LandingPageController {
     			return "redirect:revieweractivitylog";
                 } else if (Profile.EDITOR.toString().equalsIgnoreCase(role)) {
         
-                    return "redirect:revieweractivitylog";
+                    return "redirect:editoractivitylog";
                 }
     		else if(Profile.ADMIN.toString().equalsIgnoreCase(role)){
     			
