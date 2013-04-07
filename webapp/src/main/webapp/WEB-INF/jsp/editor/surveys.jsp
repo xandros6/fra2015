@@ -8,8 +8,9 @@
 					<th>Survey</th>
 					<th>Last update</th>
 					<th>Status</th>
+					<th>Reviewer complete</th>
+					<th>Revision coverage</th>
 					<th></th>
-					
 				</tr>
 			</thead>
 			<tbody>
@@ -20,6 +21,8 @@
 
 						<td><spring:message code="survey.status.${survey.status.status}"></spring:message></td>
 						<%-- 								<td>${user.countries}</td> --%>
+						<td class="countries"><div>${survey.status.reviewerSubmit}</div></td>
+						<td>${survey.status.coverage}</td>
 						<td>
 						<a href="../survey/review/${survey.country.iso3}/0" class="btn"><spring:message code="surveylist.view"></spring:message></a>
 						

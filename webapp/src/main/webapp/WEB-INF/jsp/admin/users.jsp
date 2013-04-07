@@ -92,7 +92,7 @@
 								<td class="fullname"><div>${user.name}</div></td>
 								<td class="username"><div>${user.username}</div></td>
 								<td class="role"><div>${user.role}</div></td>
-								<td class="countries"><div>${user.countries}</div></td>
+								<td class="countries"><div class="countries">${user.countries}</div></td>
 								<td class="link">
 									<a style="width:50px" href="${pageContext.request.contextPath}/users/editor/${user.id}/${page}" class="btn" data-toggle="modal" data-target="#editUserWindow" data-backdrop="static"> Edit </a>
 									<a style="width:50px" href="#" class="btn" data-toggle="modal" data-target="#deleteWarningWindow" data-userid="${user.id}" data-page="${page}" data-backdrop="static"> Delete </a>

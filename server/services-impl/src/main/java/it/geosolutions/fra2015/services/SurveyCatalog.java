@@ -115,6 +115,15 @@ public class SurveyCatalog implements InitializingBean {
 
         return questionMap.get(questionNumber);
     }
+    
+    /**
+     * Return the number of questions of this survey
+     * @return
+     */
+    public int countAllSurveyQuestions(){
+        
+        return questionMap.keySet().size();
+    }
 
     /**
      * Get the Entry stored in the catalog with entry.getVariable().equals(varName)

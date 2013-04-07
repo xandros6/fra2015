@@ -29,6 +29,7 @@ public class Status implements Serializable {
     
     @Column(nullable = true, updatable = true)
     private String message;
+    
     @Column(nullable = false, updatable = true)
     private String status;
     
@@ -37,6 +38,9 @@ public class Status implements Serializable {
     
     @Column(nullable = true, updatable = true)
     private String reviewerSubmit;
+    
+    @Column(nullable = true, updatable = true)
+    private String coverage;
     
     @Transient
     private String country;
@@ -107,6 +111,20 @@ public class Status implements Serializable {
      */
     public void setLastContributorSubmission(Long lastContributorSubmission) {
         this.lastContributorSubmission = lastContributorSubmission;
+    }
+
+    /**
+     * @return the coverage
+     */
+    public String getCoverage() {
+        return coverage;
+    }
+
+    /**
+     * @param coverage the coverage to set
+     */
+    public void setCoverage(String coverage) {
+        this.coverage = coverage;
     }
     
     

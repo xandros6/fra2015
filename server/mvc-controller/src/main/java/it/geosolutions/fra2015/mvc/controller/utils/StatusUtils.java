@@ -116,19 +116,25 @@ public final class StatusUtils {
     }
     
     /**
-     * Add a reviewer to the list of reviewers that has already subit their review
-     * 
+     * Add a reviewer to the list of reviewers that has already submit their review
      * @param user
      * @param status
+     * @return true if the reviewer is added false if the reviewer was already added to the list
      */
-    public static void addReviewerToReviewerSubmit(User user, Status status){
+    public static boolean addReviewerToReviewerSubmit(User user, Status status){
         if(user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
             String oldList = status.getReviewerSubmit();
+            oldList = (oldList.equals("null"))?"":oldList;
+            String[] oldListArray = oldList.split(REVIEWER_SEPARATOR);
+            if(Arrays.asList(oldListArray).contains(user.getUsername())){
+                return false;
+            }
             oldList = oldList + REVIEWER_SEPARATOR + user.getUsername();
             status.setReviewerSubmit(oldList);
-            return;
+            return true;
         }
         LOGGER.error("Provided user '" + user.getUsername()+ "' is not a Reviewer");
+        return false;
     }
     
     /**

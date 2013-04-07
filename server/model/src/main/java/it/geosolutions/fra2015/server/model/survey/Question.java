@@ -113,5 +113,21 @@ public class Question extends Session {
     public String toString() {
         return "Question{"+ id + '}';
     }
+    
+    @Override
+    public boolean equals(Object q){
+        
+        if(!(q instanceof Question)){
+            
+            return false;
+        }
+        Question qIn = (Question) q;
+        if(qIn.id.equals(this.id)){
+            
+            return true;
+        }
+        return false;
+                
+    }
 
 }

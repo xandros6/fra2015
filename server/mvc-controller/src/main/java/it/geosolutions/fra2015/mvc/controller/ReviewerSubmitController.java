@@ -23,11 +23,18 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.ReviewerUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Question;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
+import it.geosolutions.fra2015.services.SurveyCatalog;
+import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +64,15 @@ public class ReviewerSubmitController {
     @Autowired
     private FeedbackService feedbackService;
 
+    @Autowired
+    private SurveyService surveyService;
+    
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private SurveyCatalog catalog;
+    
     private static final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
 
     @RequestMapping(method = RequestMethod.GET)
@@ -96,7 +112,27 @@ public class ReviewerSubmitController {
         Arrays.sort(qArray);
         
         if (accepted) {
-            StatusUtils.addReviewerToReviewerSubmit(su, si.getStatus());
+            Status s = si.getStatus();
+            s.setCountry(si.getCountry().getIso3());
+            boolean outcome = StatusUtils.addReviewerToReviewerSubmit(su, s);
+            if(!outcome){
+                FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.doublesubmit", 10000, null, null);
+                return "redirect:/surveylist/0";
+            }
+            
+            //Calculate the revision coverage
+            List<String> reviewers = StatusUtils.getReviewerSubmit(s);
+            ReviewerUtils ru = new ReviewerUtils(catalog, userService);
+            s.setCoverage(ru.getSurveyCoverage(reviewers));
+            
+            try {
+                surveyService.changeStatus(s);
+            } catch (BadRequestServiceEx e) {
+                LOGGER.error(e.getMessage(), e);
+            } catch (NotFoundServiceEx e) {
+                LOGGER.error(e.getMessage(), e);
+            }
+            
             // submit the Survey
             FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null, null);
             return "redirect:/surveylist/0";
