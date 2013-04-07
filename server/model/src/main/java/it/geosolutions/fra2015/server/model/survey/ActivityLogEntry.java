@@ -31,6 +31,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import javax.persistence.Temporal;
@@ -60,8 +61,9 @@ public class ActivityLogEntry implements Serializable {
     private String country; // code? name?
 
     private String question_id; // not a fk?
-
-    private String content; // should be cropped, or should be declared as LOB
+    
+    @Lob
+    private String content;
 
     /**
      * @return the id
