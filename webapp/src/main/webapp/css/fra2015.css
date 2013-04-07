@@ -417,3 +417,11 @@ table.table-hover tbody tr td.editable{
     display: block;
     padding: 9px 15px 9px 15px;
 }
+
+/*feedbacks*/
+.breadcrumb.feedbackentry-head{
+	margin-bottom:0px;
+}
+div.feedbackentry-body{
+	padding:5px;
+}
