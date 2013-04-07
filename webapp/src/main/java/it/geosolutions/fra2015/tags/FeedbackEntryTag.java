@@ -70,6 +70,8 @@ public class FeedbackEntryTag extends ModeTag{
             break;
         case VALIDATOR :
             return (SKIP_BODY);
+        case PRINT:
+            return (SKIP_BODY);
         default:
             composeError();
             break;
@@ -185,7 +187,7 @@ public class FeedbackEntryTag extends ModeTag{
                 if(StatusUtils.isReviewEditorEditable(getStatus())){
                 // -------------------------
                     
-                    //out.print("<div class=\"control pull-right btn btn-mini\"><a href=\"#\" >Copy the reviewer text</a></div>");
+                   
                     
                     out.print("<br />");
                     out.print("<br />");
