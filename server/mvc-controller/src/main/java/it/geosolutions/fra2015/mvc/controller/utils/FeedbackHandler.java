@@ -134,10 +134,10 @@ public class FeedbackHandler{
         
         List<Feedback> packagedFeedbacks = new ArrayList<Feedback>();
         Map<String, Feedback> packagedFeedbacksMap = new HashMap<String, Feedback>(); 
-        String record = loadTemplatePackaged();
+        String recordTemplate = loadTemplatePackaged();
         
         for(Feedback el : feedbacks){
-            
+            String record = recordTemplate;
             Feedback f = new Feedback();
             if(!el.getHarmonized()){
                 f = packagedFeedbacksMap.remove(el.getFeedbackId());
