@@ -81,13 +81,24 @@ public final class StatusUtils {
     }
     
     /**
-     * Check if the status is one of the submit allowed by reviewer/reviewerEditor
+     * Check if the status is one of the submit allowed by reviewer
      * 
      * @param s the status
      * @return true if the contributor can submit the status, false otherwise
      */
     public static boolean isSubmitAllowedByReviewer(String s, Profile p) {
         return  isCompiled(s) || isUnderReview(s);
+        
+    }
+    
+    /**
+     * Check if the status is one of the submit allowed by reviewerEditor
+     * 
+     * @param s the status
+     * @return true if the contributor can submit the status, false otherwise
+     */
+    public static boolean isSubmitAllowedByReviewerEditor(Status s) {
+        return  isUnderReview(s);
         
     }
     
