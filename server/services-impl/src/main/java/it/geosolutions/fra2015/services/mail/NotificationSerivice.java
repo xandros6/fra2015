@@ -72,6 +72,11 @@ public class NotificationSerivice {
    
     }
     
+    public void notifyComplete(User user, Status status, List<User> validators) throws IOException, TemplateException {
+        notifyUsers(user,status,validators,"complete");
+   
+    }
+    
     public void notifyReviewerSubmit(User user, Status status, List<User> reviewEditors) throws IOException, TemplateException {
         notifyUsers(user,status,reviewEditors,"reviewerSubmit");
         

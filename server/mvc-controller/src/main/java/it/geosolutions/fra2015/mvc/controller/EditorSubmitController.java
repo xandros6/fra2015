@@ -22,6 +22,11 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+
+import java.io.IOException;
+import java.util.List;
+
+import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Country;
@@ -31,12 +36,14 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,6 +64,9 @@ public class EditorSubmitController {
     
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private NotificationSerivice notificationService;
     
     @RequestMapping(value = "/editorPendingFix/{countryIso3}", method = RequestMethod.GET)
     public String editorPendingFix(@PathVariable(value = "countryIso3") String country,
@@ -91,11 +101,32 @@ public class EditorSubmitController {
             LOGGER.error(e.getMessage(), e);
         }
         LOGGER.info("submitted survey:"+status.getCountry());
-
-        //TODO Which user must be notified? 
-        //List<User> reviewers=  userService.getUsersToNotify("reviewer", iso3 );
+ 
+        List<User> reviewers = userService.getUsersToNotify("reviewer", iso3 );
+        if (reviewers.size() <= 0) {
+            LOGGER.error("No reviewer associated to country " + iso3);
+            // TODO notify someone this error
+        }
+        try {
+            notificationService.notifyPendingFix(user, status, reviewers);
+        } catch (MailException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
+                    10000, null, null);
+            LOGGER.error(
+                    "The reviewers were not notified of the message submit because of an Mail Exception",
+                    e);
+            return "redirect:/surveylist/0";
+        } catch (TemplateException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
+                    10000, null, null);
+            return "redirect:/surveylist/0";
+        } catch (IOException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
+                    10000, null, null);
+            return "redirect:/surveylist/0";
+        }
         
-        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.surveylist.submitSuccess", 10000, null, null);
+        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.pendingfix.notnotified", 10000, null, null);
         return "redirect:/surveylist/0";
 
     }
@@ -134,10 +165,31 @@ public class EditorSubmitController {
         }
         LOGGER.info("submitted survey:"+status.getCountry());
 
-        //TODO Which user must be notified? 
-        //List<User> reviewers=  userService.getUsersToNotify("reviewer", iso3 );
+        List<User> validators = userService.getUsersToNotify("validator", iso3 );
+        if (validators.size() <= 0) {
+            LOGGER.error("No reviewer associated to country " + iso3);
+            // TODO notify someone this error
+        }
+        try {
+            notificationService.notifyComplete(user, status, validators);
+        } catch (MailException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
+                    10000, null, null);
+            LOGGER.error(
+                    "The validators were not notified of the message submit because of an Mail Exception",
+                    e);
+            return "redirect:/surveylist/0";
+        } catch (TemplateException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
+                    10000, null, null);
+            return "redirect:/surveylist/0";
+        } catch (IOException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
+                    10000, null, null);
+            return "redirect:/surveylist/0";
+        }
 
-        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.surveylist.submitSuccess", 10000, null, null);
+        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.complete.notnotified", 10000, null, null);
         return "redirect:/surveylist/0";
 
     }
