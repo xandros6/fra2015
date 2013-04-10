@@ -116,8 +116,9 @@ public class FeedbackHandler{
             int oldFbIndex = oldFeedbacks.indexOf(el);
             if(oldFbIndex >= 0){
                 Feedback oldFb = oldFeedbacks.get(oldFbIndex);
-                oldFb.setFeedback(el.getFeedback());
                 oldFb.setStatus(el.getStatus());
+                String feedbackValue = (el.getStatus().equals("ok"))?"":el.getFeedback();
+                oldFb.setFeedback(feedbackValue);
                 oldFb.setTimestamp(el.getTimestamp());
                 feedbacksMerged.add(oldFb);
             }
