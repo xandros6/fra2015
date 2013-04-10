@@ -25,9 +25,8 @@ import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
 import it.geosolutions.fra2015.services.SurveyActivityLog;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -45,7 +44,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Aspect
 public class ActivityLogAspect {
 
-    Logger LOGGER = Logger.getLogger(ActivityLogAspect.class);
+    private Logger LOGGER = Logger.getLogger(ActivityLogAspect.class);
+    
+    private static final String DELETED = "***VALUE_DELETED***";
     
     @Autowired
     private SurveyActivityLog sal;
@@ -60,12 +61,36 @@ public class ActivityLogAspect {
             
             sal.storeLog(fromUpdateToActivityLog(el, up.getQuestion(), up.getUsername()));
         }
+        
+        Updates del = (Updates)joinPoint.getArgs()[1];
+        List<Update> delList = del.getUpdates();
+
+        for(Update el : delList){
+            
+            sal.storeLog(fromDeleteToActivityLog(el, up.getQuestion(), up.getUsername()));
+        }
+        
+        
     }
     
     private static ActivityLogEntry fromUpdateToActivityLog(Update u, String question, String username){
         
         ActivityLogEntry al = new ActivityLogEntry();
         al.setContent(truncateContent(u.getValue()));
+        al.setCountry(u.getCountry());
+        al.setVarName(u.getVariable());
+        al.setVarCol(u.getColumn());
+        al.setVarRow(u.getRow());
+        al.setQuestion_id(question);
+        al.setTimestamp(GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC")).getTime());
+        al.setUsername(username);
+        return al;
+    }
+    
+    private static ActivityLogEntry fromDeleteToActivityLog(Update u, String question, String username){
+        
+        ActivityLogEntry al = new ActivityLogEntry();
+        al.setContent(DELETED);
         al.setCountry(u.getCountry());
         al.setVarName(u.getVariable());
         al.setVarCol(u.getColumn());
