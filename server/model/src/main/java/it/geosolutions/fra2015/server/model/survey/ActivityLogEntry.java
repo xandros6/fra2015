@@ -62,7 +62,6 @@ public class ActivityLogEntry implements Serializable {
 
     private String question_id; // not a fk?
     
-    @Lob
     private String content;
 
     /**

@@ -31,6 +31,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -64,7 +65,7 @@ public class ActivityLogAspect {
     private static ActivityLogEntry fromUpdateToActivityLog(Update u, String question, String username){
         
         ActivityLogEntry al = new ActivityLogEntry();
-        al.setContent(u.getValue());
+        al.setContent(truncateContent(u.getValue()));
         al.setCountry(u.getCountry());
         al.setVarName(u.getVariable());
         al.setVarCol(u.getColumn());
@@ -73,5 +74,15 @@ public class ActivityLogAspect {
         al.setTimestamp(GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC")).getTime());
         al.setUsername(username);
         return al;
+    }
+    
+    private static String truncateContent(String content){
+        
+        if(!StringUtils.isBlank(content) && content.length() > 20){
+            StringBuilder sb = new StringBuilder();
+            sb.append(content.substring(0, 20)).append("[...]");
+            return sb.toString();
+        }
+        return content;
     }
 }
