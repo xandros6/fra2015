@@ -123,6 +123,7 @@ public class FeedbackService {
         search.addFilterEqual("survey", survey);
         search.addFilterEqual("entry.question.id", question);
         search.addFilterIn("status", "ok", "ko");
+        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
         List<Feedback> list = feedbackDAO.search(search);
         return (list.size() == entries.size());
     }
