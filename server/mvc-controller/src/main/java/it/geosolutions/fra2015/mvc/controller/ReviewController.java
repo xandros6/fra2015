@@ -87,7 +87,7 @@ public class ReviewController {
         if (su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())) {
             //TODO check if reviewer has access to this country
             model.addAttribute("profile", Profile.REVIEWER.toString());
-            setupAllowedQuestions(question, su, model);
+            question = setupAllowedQuestions(question, su, model);
             userForQuery = su;
             harmonized = null;
             userProfile = Profile.REVIEWER;
@@ -218,7 +218,7 @@ public class ReviewController {
 
     }
 
-    private static void setupAllowedQuestions(Long question, User su, Model model) {
+    private static Long setupAllowedQuestions(Long question, User su, Model model) {
         Set<Question> allowed = su.getQuestions();
         List<Long> allowedQuestionNumbers = new ArrayList<Long>();
         Long min = Long.MAX_VALUE;
@@ -239,6 +239,7 @@ public class ReviewController {
         model.addAttribute("allowedQuestions", allowedQuestions);
         model.addAttribute("context", "survey");
         model.addAttribute("question", question);
+        return question;
     }
     
     private void changeStatusToUnderReview(String iso3, User su){
