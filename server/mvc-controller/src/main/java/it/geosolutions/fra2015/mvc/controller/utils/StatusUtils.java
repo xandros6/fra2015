@@ -135,7 +135,7 @@ public final class StatusUtils {
     public static boolean addReviewerToReviewerSubmit(User user, Status status){
         if(user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
             String oldList = status.getReviewerSubmit();
-            oldList = (oldList.equals("null"))?"":oldList;
+            oldList = (oldList == null || oldList.equals("null"))?"":oldList;
             String[] oldListArray = oldList.split(REVIEWER_SEPARATOR);
             if(Arrays.asList(oldListArray).contains(user.getUsername())){
                 return false;
