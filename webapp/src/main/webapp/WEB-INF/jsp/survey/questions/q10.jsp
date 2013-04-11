@@ -218,7 +218,7 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<fra:feedback feedbackName="_feedback_105_"/>
+			<fra:feedback feedbackName="_feedback_10_"/>
 			<br>
 			<br>
 		</div>
