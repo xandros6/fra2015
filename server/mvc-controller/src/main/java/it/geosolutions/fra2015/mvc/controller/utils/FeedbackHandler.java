@@ -194,6 +194,7 @@ public class FeedbackHandler{
                 
                 String feedback = (String)request.getParameter(feedbackName);
                 String feedbackStatus = (String)request.getParameter("STATUS"+feedbackName);
+                feedbackStatus = (feedbackStatus != null)?feedbackStatus:"";
                 String entryID = null;
                 // This check is made in mergeFeedback now...
 //                if(!StringUtils.isEmpty(feedback)){
