@@ -35,7 +35,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<br> <br>
 		</div>
 	</section>
@@ -75,9 +75,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="control pull-right">
+				<div class="control clearfix">
 					<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
-						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+						<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_76_"/>
@@ -110,9 +110,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="control pull-right">
+				<div class="control clearfix">
 					<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
-						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+						<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_77_"/>
@@ -129,7 +129,7 @@
 				<div class="entry">
 					<fra:richtextentry name="_fraVariable_78_"></fra:richtextentry>
 				</div>
-				<div class="control pull-right"></div>
+				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_78_"/>
 				<br> <br>
 			</div>
@@ -150,7 +150,7 @@
 				<div class="entry">
 					<fra:richtextentry name="_fraVariable_79_"></fra:richtextentry>
 				</div>
-				<div class="control pull-right"></div>
+				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_79_"/>
 				<br> <br>
 			</div>
@@ -165,7 +165,7 @@
 				<div class="entry">
 					<fra:richtextentry name="_fraVariable_80_"></fra:richtextentry>
 				</div>
-				<div class="control pull-right"></div>
+				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_80_"/>
 				<br> <br>
 			</div>
@@ -180,7 +180,7 @@
 				<div class="entry">
 					<fra:richtextentry name="_fraVariable_81_"></fra:richtextentry>
 				</div>
-				<div class="control pull-right"></div>
+				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_81_"/>
 				<br> <br>
 			</div>
@@ -391,7 +391,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_7_"/>
 			<br> <br>
 		</div>
@@ -435,7 +435,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_83_"/>
 			<br> <br>
 		</div>
@@ -467,7 +467,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<br> <br>
 		</div>
 	</section>
@@ -507,7 +507,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_85_"/>
 			<br> <br>
 		</div>
@@ -531,7 +531,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_86_"/>
 			<br>
 			<br>

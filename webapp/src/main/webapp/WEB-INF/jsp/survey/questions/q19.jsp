@@ -41,7 +41,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<br>
 			<br>
 		</div>
@@ -80,9 +80,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="control pull-right">
+				<div class="control clearfix">
 					<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
-						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+						<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_155_"/>
@@ -116,9 +116,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="control pull-right">
+				<div class="control clearfix">
 					<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
-						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+						<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_156_"/>
@@ -136,7 +136,7 @@
 				<div class="entry">
 					<fra:richtextentry name="_fraVariable_157_"></fra:richtextentry>
 				</div>
-				<div class="control pull-right"></div>
+				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_157_"/>
 				<br>
 				<br>
@@ -220,7 +220,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_19_"/>
 			<br>
 			<br>
@@ -260,7 +260,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_158_"/>
 			<br>
 			<br>
@@ -284,7 +284,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_159_"/>
 			<br>
 			<br>

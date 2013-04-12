@@ -35,7 +35,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<br>
 			<br>
 		</div>
@@ -66,7 +66,7 @@
 </tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_15_"/>
 			<br>
 			<br>
@@ -101,7 +101,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_131_"/>
 			<br>
 			<br>
@@ -130,7 +130,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<br>
 			<br>
 		</div>
@@ -185,7 +185,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_133_"/>
 			<br>
 			<br>

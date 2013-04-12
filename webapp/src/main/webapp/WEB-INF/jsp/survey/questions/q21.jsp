@@ -41,7 +41,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<br>
 			<br>
 		</div>
@@ -82,9 +82,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="control pull-right">
+				<div class="control clearfix">
 					<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
-						<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+						<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_163_"/>
@@ -135,7 +135,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_21a_"/>
 			<br>
 			<br>
@@ -170,7 +170,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_21b_"/>
 			<br>
 			<br>
@@ -212,7 +212,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="control pull-right"></div>
+			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_164_"/>
 			<br>
 			<br>

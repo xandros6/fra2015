@@ -31,9 +31,9 @@
 			</tbody>
 		</table>
 		</div>
-		<div class="control pull-right">
+		<div class="control clearfix">
 			<c:if test="${profile == 'CONTRIBUTOR' && fra:isContributorEditable(status)}">
-				<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
+				<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 			</c:if>
 		</div>
 		<br>
@@ -50,7 +50,7 @@
 		<div class="entry">
 			<fra:richtextentry operation="${operationWR}" name="_fraVariable_1_"></fra:richtextentry>
 		</div>
-		<div class="control pull-right"></div>
+		<div class="control clearfix"></div>
 		<br>
 		<br>
 	</div>
