@@ -425,3 +425,8 @@ table.table-hover tbody tr td.editable{
 div.feedbackentry-body{
 	padding:5px;
 }
+/* fixes for ckeditor with bootstrap */ 
+.cke_skin_kama .cke_dialog_body input.cke_dialog_ui_input_text, .cke_skin_kama  .cke_dialog_body input.cke_dialog_ui_input_password{
+	margin-bottom:0px;
+	height:20px
+}
