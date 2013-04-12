@@ -68,7 +68,7 @@ public class SurveyListController {
 		    targetPage = "reviewer";
                 }
 		else{
-		    return "/";
+		    targetPage= "redirect:/";
 		}
 		
 		FlashAttributesHandler.copyToModel(session, model);

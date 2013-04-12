@@ -125,6 +125,8 @@ public class ReviewController {
                 listF = fh.packageFeedbacks(listF, true);
             }
             fh.prepareFeedbackModel(model, listF);
+            model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
+
         } catch (BadRequestServiceEx e) {
 
             model.addAttribute("messageType", "warning");
@@ -197,6 +199,8 @@ public class ReviewController {
             if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
                 List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
                 fh.addAllToFeedbackList(notHarmonizedFeedbacks);
+                model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
+
             }
         } catch (BadRequestServiceEx e) {
 
