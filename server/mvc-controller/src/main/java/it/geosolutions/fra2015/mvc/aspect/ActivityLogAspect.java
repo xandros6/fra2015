@@ -61,13 +61,15 @@ public class ActivityLogAspect {
             
             sal.storeLog(fromUpdateToActivityLog(el, up.getQuestion(), up.getUsername()));
         }
-        
-        Updates del = (Updates)joinPoint.getArgs()[1];
-        List<Update> delList = del.getUpdates();
 
-        for(Update el : delList){
-            
-            sal.storeLog(fromDeleteToActivityLog(el, up.getQuestion(), up.getUsername()));
+        Updates del = (Updates) joinPoint.getArgs()[1];
+
+        List<Update> delList = del.getUpdates();
+        if (delList != null) {
+            for (Update el : delList) {
+
+                sal.storeLog(fromDeleteToActivityLog(el, up.getQuestion(), up.getUsername()));
+            }
         }
         
         
