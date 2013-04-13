@@ -140,9 +140,12 @@ public class FeedbackService {
         Search search = new Search();
         
         search.addFilterEqual("harmonized", harmonized);
-        
+        if(!harmonized){
+            search.addFilterEqual("status","ko");
+        }
         search.addFilterEqual("survey", survey);
         search.addFilterEqual("entry.question.id", q);
+        
         search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
         counts[q] = feedbackDAO.count(search);
         }

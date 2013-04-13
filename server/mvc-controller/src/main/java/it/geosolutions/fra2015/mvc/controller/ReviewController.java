@@ -123,8 +123,12 @@ public class ReviewController {
             if (Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())) {
 
                 listF = fh.packageFeedbacks(listF, true);
+                model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
+
+                
             }
             fh.prepareFeedbackModel(model, listF);
+
         } catch (BadRequestServiceEx e) {
 
             model.addAttribute("messageType", "warning");
@@ -169,6 +173,7 @@ public class ReviewController {
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
 
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
+            
             harmonizedWrite = true;
             userForQuery = null;
         } else {
@@ -181,7 +186,7 @@ public class ReviewController {
         // save feedbacks
         FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
         fh.populateFeedbackList(request, session, utils, country, harmonizedWrite);
-
+        
         try {
 
             List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
@@ -197,6 +202,8 @@ public class ReviewController {
             if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
                 List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
                 fh.addAllToFeedbackList(notHarmonizedFeedbacks);
+                model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
+                
             }
         } catch (BadRequestServiceEx e) {
 

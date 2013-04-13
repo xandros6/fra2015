@@ -159,7 +159,8 @@ $(function(){
 		var block =  $(this).closest('div.feedback-block');
 		var id = block.find('textarea').attr('name');
 		var ckid =  id;
-		CKEDITOR.instances[ckid].setData(body);
+		var editor = CKEDITOR.instances[ckid]
+		editor.setData(editor.getData() + body);
 	});
 	
 });

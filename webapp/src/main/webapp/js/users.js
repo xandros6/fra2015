@@ -43,7 +43,7 @@ var addCountryHandler = function(el) {
 	//var selectedCountry = $.grep(countriesArr, function(e){ return e.name == value; })[0];
 	var selectedCountry = map[value];
 	countriesField.val('');
-	if (!selectedCountry || countriesString.val().indexOf(selectedCountry.id) !== -1) {
+	if (!selectedCountry || countriesString.val().split(',').indexOf(selectedCountry.id) !== -1) {
 		// country already in list
 		// ignore
 		return false;

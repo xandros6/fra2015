@@ -30,7 +30,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="control pull-right"></div>
+		<div class="control clearfix"></div>
 		<br>
 		<br>
 	</div>
@@ -62,7 +62,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="control pull-right"></div>
+		<div class="control clearfix"></div>
 		<fra:feedback feedbackName="_feedback_9_"/>
 		<br>
 		<br>
