@@ -114,7 +114,7 @@ public class FeedbackEntryTag extends ModeTag{
                 JspWriter out = pageContext.getOut();
                 //composeStartfeedbackArea(out);
                 // --- use RichTextEntry ----
-                out.write("<h5>" +localize("feedback.ChosenForContributor") +"<h5>");
+                out.write("<h5>" +localize("feedback.ChosenForContributor") +"</h5>");
                 RichTextEntry rte = new RichTextEntry();
                 rte.setCssClasses("alert alert-info"); 
                 rte.setName(feedbackName+"Ed_"/*+READ_SUFFIX*/);
@@ -236,7 +236,7 @@ public class FeedbackEntryTag extends ModeTag{
         //out.print("<select name=\"STATUS");
         //out.print(feedbackName);
         //out.print("\">");
-        out.print("<div class=\"inline\">");
+        out.print("<div class=\"inline fbstatus\">");
         out.print("<input class=\"radio\" type=\"radio\" name=\"STATUS" + feedbackName + "\" value=\"ok\" ");
         out.print(selectedOK);
         out.print(">");        
