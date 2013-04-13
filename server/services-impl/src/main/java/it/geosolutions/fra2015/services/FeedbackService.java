@@ -92,7 +92,7 @@ public class FeedbackService {
             }
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
-            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
             list = feedbackDAO.search(search);
             //workaround
             if(user != null && harmonized == null){
@@ -100,7 +100,7 @@ public class FeedbackService {
                 search.addFilterEqual("harmonized", true);                
                 search.addFilterEqual("survey", survey);
                 search.addFilterEqual("entry.question.id", question);
-                search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+                search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
                 harmonizedList = feedbackDAO.search(search);
             }
         }
@@ -123,7 +123,7 @@ public class FeedbackService {
         search.addFilterEqual("survey", survey);
         search.addFilterEqual("entry.question.id", question);
         search.addFilterIn("status", "ok", "ko");
-        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
         List<Feedback> list = feedbackDAO.search(search);
         return (list.size() == entries.size());
     }

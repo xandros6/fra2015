@@ -148,6 +148,16 @@ public final class StatusUtils {
         return false;
     }
     
+    public static boolean updateRevision(Status status){
+        
+        Long lastReview = (status.getLastSurveyReview() != null)?status.getLastSurveyReview():0;
+        Integer revNumber = (status.getRevisionNumber() != null)?status.getRevisionNumber():0;
+        status.setPreviousSurveyReview(lastReview);
+        status.setLastSurveyReview(System.currentTimeMillis());
+        status.setRevisionNumber(revNumber+1);
+        return true;
+    }
+    
     /**
      * Empty the list of reviewers that has already subit their review
      * 

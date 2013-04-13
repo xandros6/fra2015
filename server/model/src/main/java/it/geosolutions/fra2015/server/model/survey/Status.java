@@ -36,11 +36,23 @@ public class Status implements Serializable {
     @Column(nullable = true, updatable = true)
     private Long lastContributorSubmission;
     
+    /**
+     * This field name is a bit ambiguos: it store the list (as CSV) of those reviewer that already has submitted their review.
+     */
     @Column(nullable = true, updatable = true)
     private String reviewerSubmit;
     
     @Column(nullable = true, updatable = true)
     private String coverage;
+    
+    @Column(updatable = true)
+    private Long lastSurveyReview;
+    
+    @Column(nullable = true, updatable = true)
+    private Long previousSurveyReview;
+    
+    @Column(nullable = true, updatable = true)
+    private Integer revisionNumber;
     
     @Transient
     private String country;
@@ -125,6 +137,48 @@ public class Status implements Serializable {
      */
     public void setCoverage(String coverage) {
         this.coverage = coverage;
+    }
+
+    /**
+     * @return the lastSurveyReview
+     */
+    public Long getLastSurveyReview() {
+        return lastSurveyReview;
+    }
+
+    /**
+     * @param lastSurveyReview the lastSurveyReview to set
+     */
+    public void setLastSurveyReview(Long lastSurveyReview) {
+        this.lastSurveyReview = lastSurveyReview;
+    }
+
+    /**
+     * @return the previousSurveyReview
+     */
+    public Long getPreviousSurveyReview() {
+        return previousSurveyReview;
+    }
+
+    /**
+     * @param previousSurveyReview the previousSurveyReview to set
+     */
+    public void setPreviousSurveyReview(Long previousSurveyReview) {
+        this.previousSurveyReview = previousSurveyReview;
+    }
+
+    /**
+     * @return the revisionNumber
+     */
+    public Integer getRevisionNumber() {
+        return revisionNumber;
+    }
+
+    /**
+     * @param revisionNumber the revisionNumber to set
+     */
+    public void setRevisionNumber(Integer revisionNumber) {
+        this.revisionNumber = revisionNumber;
     }
     
     

@@ -87,6 +87,7 @@ public class EditorSubmitController {
         status.setCountry(iso3);
         status.setReviewerSubmit("");
         status.setCoverage("");
+        StatusUtils.updateRevision(status);
         Country c = surveyService.findCountryByISO3(iso3);
         if(c!=null){
             status.setCountry(iso3);
