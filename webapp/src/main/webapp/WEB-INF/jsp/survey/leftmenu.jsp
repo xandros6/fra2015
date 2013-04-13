@@ -114,10 +114,11 @@
 				<div class="accordion-heading">
 					<a class="accordion-toggle" href="#groupid_bzh13gzaor"
 						 data-toggle="collapse">
-						 <spring:message code="ref258"></spring:message></a>
-						 <c:if test="${feedbackCount[5]>0}">
+						 <spring:message code="ref258"></spring:message><c:if test="${feedbackCount[5]>0}">
 							<span class="badge ${badgeType}">${feedbackCount[5]}</span>
 						 </c:if>
+					 </a>
+						 
 				</div>
 				<div id="groupid_bzh13gzaor" class="accordion-body ${ question ==5  ? "collapse in" : "collapse"}">
 					<div class="accordion-inner">
