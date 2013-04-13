@@ -64,13 +64,53 @@ $(function(){
   			id = "cke_" +Math.floor(Math.random()*999999);
   			$(this).attr('id',id);
 		}
-                                
+        var readOnly = false;
+        var status = $('input:radio[name=STATUS'+id+']:checked').val();
+		if(status && status!="undefined"){ //returns undefined string, don't know why
+			if( status == "ok"){
+				readOnly= true; 
+				}
+			else{
+				readOnly= false; 
+
+			}
+			var data;
+			$('input:radio[name=STATUS'+id+']').change(function(){
+				var input = $('input:radio[name=STATUS'+id+']:checked');
+				var status = input.val();
+				var instance = CKEDITOR.instances[id];
+				var container = input.closest('.fbstatus');
+				container.removeClass('alert-success');
+				container.removeClass('alert-warning');
+				container.removeClass('alert-error');
+				if( status == "ok"){
+					instance.setReadOnly(true); 
+					container.addClass('alert-success');
+
+				}else if(status =="ko"){
+					instance.setReadOnly(false);
+					container.addClass('alert-error');
+
+				}else{
+					instance.setReadOnly(false);
+					container.addClass('alert-warning');
+
+				}
+
+			})
+		}
 		CKEDITOR.replace( id, { 
-			toolbar: 'MyToolbar'
+			toolbar: 'MyToolbar',
+			readOnly : readOnly
 		}).on('blur',function(){
 			fra.dirty=true;
 		})
+		
+		
 	});
+	
+	//enable /disable CKEDITOR when fbstatus changes
+	 
     
     window.onbeforeunload =   function confirmExit()
     {
