@@ -64,13 +64,41 @@ $(function(){
   			id = "cke_" +Math.floor(Math.random()*999999);
   			$(this).attr('id',id);
 		}
-                                
+        var readOnly = false;
+        var status = $('input:radio[name=STATUS'+id+']:checked').val();
+		if(status && status!="undefined"){ //returns undefined string, don't know why
+			if( status == "ok"){
+				readOnly= true; 
+				}
+			else{
+				readOnly= false; 
+
+			}
+			var data;
+			$('input:radio[name=STATUS'+id+']').change(function(){
+				var status = $('input:radio[name=STATUS'+id+']:checked').val();
+				var instance = CKEDITOR.instances[id];
+
+				if( status == "ok"){
+					instance.setReadOnly(true); 
+				}else{
+					instance.setReadOnly(false);
+				}
+
+			})
+		}
 		CKEDITOR.replace( id, { 
-			toolbar: 'MyToolbar'
+			toolbar: 'MyToolbar',
+			readOnly : readOnly
 		}).on('blur',function(){
 			fra.dirty=true;
 		})
+		
+		
 	});
+	
+	//enable /disable CKEDITOR when fbstatus changes
+	 
     
     window.onbeforeunload =   function confirmExit()
     {
