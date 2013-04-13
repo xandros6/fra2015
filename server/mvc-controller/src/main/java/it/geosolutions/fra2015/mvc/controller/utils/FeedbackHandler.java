@@ -152,16 +152,15 @@ public class FeedbackHandler{
             
             if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(el.getFeedback())){
                 
-                User u = f.getUser();
                 StringBuilder sb = new StringBuilder();
     //            sb.append(f.getFeedback());
                 Calendar cal = GregorianCalendar.getInstance();
-                cal.setTimeInMillis(f.getTimestamp());
+                cal.setTimeInMillis(el.getTimestamp());
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
                 dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
                 sb.append(f.getFeedback());
                 record = record.replace("%{date}", dateFormatter.format(cal.getTime()));
-                record = record.replace("%{username}", u.getUsername());
+                record = record.replace("%{username}", el.getUser().getUsername());
                 record = record.replace("%{feedbackContent}", el.getFeedback());
                 sb.append(record);
                 f.setFeedback(sb.toString());
