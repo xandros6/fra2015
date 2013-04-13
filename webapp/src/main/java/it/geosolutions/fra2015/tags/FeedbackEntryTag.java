@@ -225,18 +225,22 @@ public class FeedbackEntryTag extends ModeTag{
         String selectedOK = "";
         String selectedKO = "";
         String selectedNOT = "";
+        String cssClass="";
         if(status.equals("ok")){
             selectedOK=" checked ";
+            cssClass = "alert alert-success";
         }else if(status.equals("ko")){
+            cssClass = "alert alert-error";
             selectedKO=" checked ";
         }else{
+            cssClass = "alert alert-warning";
             selectedNOT=" checked ";
         }
-            
+        
         //out.print("<select name=\"STATUS");
         //out.print(feedbackName);
         //out.print("\">");
-        out.print("<div class=\"inline fbstatus\">");
+        out.print("<div class=\"inline fbstatus "+cssClass+"\">");
         out.print("<input class=\"radio\" type=\"radio\" name=\"STATUS" + feedbackName + "\" value=\"ok\" ");
         out.print(selectedOK);
         out.print(">");        
@@ -251,8 +255,8 @@ public class FeedbackEntryTag extends ModeTag{
         out.print(selectedNOT);
         out.print(">");
         out.print(localize("feedback.notrevisioned"));
-        out.print("</input> ");
-        out.print("</div>");
+        out.print("</input>");
+        out.print("</div><br/> ");
     }
     
     public void composeStartfeedbackArea(JspWriter out) throws IOException{

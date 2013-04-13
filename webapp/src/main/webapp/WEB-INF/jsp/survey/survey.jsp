@@ -76,13 +76,25 @@ $(function(){
 			}
 			var data;
 			$('input:radio[name=STATUS'+id+']').change(function(){
-				var status = $('input:radio[name=STATUS'+id+']:checked').val();
+				var input = $('input:radio[name=STATUS'+id+']:checked');
+				var status = input.val();
 				var instance = CKEDITOR.instances[id];
-
+				var container = input.closest('.fbstatus');
+				container.removeClass('alert-success');
+				container.removeClass('alert-warning');
+				container.removeClass('alert-error');
 				if( status == "ok"){
 					instance.setReadOnly(true); 
+					container.addClass('alert-success');
+
+				}else if(status =="ko"){
+					instance.setReadOnly(false);
+					container.addClass('alert-error');
+
 				}else{
 					instance.setReadOnly(false);
+					container.addClass('alert-warning');
+
 				}
 
 			})
