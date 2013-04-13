@@ -226,32 +226,33 @@ public class FeedbackEntryTag extends ModeTag{
         String selectedKO = "";
         String selectedNOT = "";
         if(status.equals("ok")){
-            selectedOK="selected=\"selected\"";
+            selectedOK=" checked ";
         }else if(status.equals("ko")){
-            selectedKO="selected=\"selected\"";
+            selectedKO=" checked ";
         }else{
-            selectedNOT="selected=\"selected\"";
+            selectedNOT=" checked ";
         }
             
-        out.print("<select name=\"STATUS");
-        out.print(feedbackName);
-        out.print("\">");
-        out.print("<option value=\"ok\" ");
+        //out.print("<select name=\"STATUS");
+        //out.print(feedbackName);
+        //out.print("\">");
+        out.print("<div class=\"inline\">");
+        out.print("<input class=\"radio\" type=\"radio\" name=\"STATUS" + feedbackName + "\" value=\"ok\" ");
         out.print(selectedOK);
         out.print(">");        
         out.print(localize("feedback.revisionedok"));
-        out.print("</option>");
-        out.print("<option value=\"ko\" ");
+        out.print("</input> ");
+        out.print("<input class=\"radio\" type=\"radio\"  name=\"STATUS" + feedbackName + "\" value=\"ko\" ");
         out.print(selectedKO);
         out.print(">");
         out.print(localize("feedback.revisionedko"));
-        out.print("</option>");
-        out.print("<option value=\"not\" ");
+        out.print("</input> ");
+        out.print("<input class=\"radio\" type=\"radio\"  name=\"STATUS" + feedbackName + "\" value=\"not\" ");
         out.print(selectedNOT);
         out.print(">");
         out.print(localize("feedback.notrevisioned"));
-        out.print("</option>");
-        out.print("</select>");
+        out.print("</input> ");
+        out.print("</div>");
     }
     
     public void composeStartfeedbackArea(JspWriter out) throws IOException{
