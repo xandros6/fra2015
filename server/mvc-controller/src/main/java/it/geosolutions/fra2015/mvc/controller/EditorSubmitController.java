@@ -22,10 +22,6 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
-
-import java.io.IOException;
-import java.util.List;
-
 import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
@@ -37,7 +33,9 @@ import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
-import it.geosolutions.fra2015.services.utils.UserUtil;
+
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -79,7 +77,7 @@ public class EditorSubmitController {
         }
         
         //check status
-        String iso3 = UserUtil.getSingleIso3(user);
+        String iso3 = country;
         Status status = surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.submitFailed", 10000, null, null);
@@ -142,7 +140,7 @@ public class EditorSubmitController {
         }
         
       //check status
-        String iso3 = UserUtil.getSingleIso3(user);
+        String iso3 = country;
         Status status = surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.submitFailed", 10000, null, null);
