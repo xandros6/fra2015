@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -36,6 +37,7 @@ import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 import com.googlecode.genericdao.search.Sort;
 import it.geosolutions.fra2015.services.model.ActivityLogFilter;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 /**
  * @author DamianoG
@@ -238,7 +240,30 @@ public class SurveyActivityLog {
     public List<ActivityLogEntry> getAll(Integer page, Integer entries, ActivityLogFilter logFilter) throws BadRequestServiceEx {
 
         Search searchCriteria = getSearchCriteria(page, entries, logFilter);  
+        
+        List<ActivityLogEntry> found = activityLogDAO.search(searchCriteria);
 
+        return found;
+    }
+    
+    /**
+     * Filters the  activity log and add proper filter for users (reviewer,editor)
+     * @param page
+     * @param entries
+     * @param logFilter
+     * @param user
+     * @return
+     * @throws BadRequestServiceEx
+     */
+    public List<ActivityLogEntry> getAll(Integer page, Integer entries, ActivityLogFilter logFilter,User user) throws BadRequestServiceEx {
+        if(user==null) return getAll(page,entries,logFilter);
+        Search searchCriteria = getSearchCriteria(page, entries, logFilter);  
+        if(user.getRole().equals("reviewer")){
+            searchCriteria.addFilterIn("country",Arrays.asList(UserUtil.getIso3Array(user)));
+            searchCriteria.addFilterIn("question_id", UserUtil.getQuestionIdList(user));
+        }else if(user.getRole().equals("editor")){
+            searchCriteria.addFilterIn("country", user.getCountriesSet());
+        }
         List<ActivityLogEntry> found = activityLogDAO.search(searchCriteria);
 
         return found;

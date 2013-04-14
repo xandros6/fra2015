@@ -21,14 +21,20 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyActivityLog;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import it.geosolutions.fra2015.services.model.ActivityLogFilter;
+import it.geosolutions.fra2015.services.utils.UserUtil;
+
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,12 +84,14 @@ public class ReviewerActivityLog {
     
     @RequestMapping(value = "/{page}")
 	public String getLogPage(@PathVariable(value = "page") int page,
-			ModelMap model) {
+			ModelMap model,HttpSession session) {
     	ActivityLogFilter logFilter = (ActivityLogFilter) model.get("logFilter");
 		//add context for view
 		//model.addAttribute("countries", surveyService.getCountries());
 		//model.addAttribute("context", "users");
-		List<ActivityLogEntry> activityLogList = this.getPage(page, logFilter);
+                User su = (User) session.getAttribute(SESSION_USER);
+
+		List<ActivityLogEntry> activityLogList = this.getPage(page, logFilter,su);
 		if(activityLogList.isEmpty() && page > 0){
 			return "redirect:/revieweractivitylog/"+(page-1);
 		}
@@ -114,18 +122,21 @@ public class ReviewerActivityLog {
 		if((page-1) > 0 ){
 			pagination.setPrev2(page-2);
 		}
+		List<Long> questions = UserUtil.getQuestionIdList(su);
+		
 		logFilter = (model.get("logFilter")!=null ?  (ActivityLogFilter) model.get("logFilter") : new ActivityLogFilter());
-		model.addAttribute("countries", surveyService.getCountries());
+		model.addAttribute("countries", su.getCountriesSet());
 		model.addAttribute("logFilter", logFilter);
 		model.addAttribute("context", "activitylog");
+		model.addAttribute("questions",questions);
 		model.addAttribute("pagination", pagination);
 		model.addAttribute("activityLogList", activityLogList);
 		return "reviewer";
 	}
     
-	private List<ActivityLogEntry> getPage(int page, ActivityLogFilter userFilter) {
+	private List<ActivityLogEntry> getPage(int page, ActivityLogFilter userFilter,User user) {
 		try {
-			return sal.getAll(page, pagesize,userFilter);
+			return sal.getAll(page, pagesize,userFilter, user);
 		} catch (BadRequestServiceEx e) {
 			logger.error(e.getMessage(), e);
 		}

@@ -20,6 +20,7 @@
 
 package it.geosolutions.fra2015.services.utils;
 
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
 import org.apache.commons.collections.CollectionUtils;
@@ -58,9 +60,9 @@ public class UserUtil {
 	    return getSeparatedIso3(user,sorted," ");
 	}
 	public static String[] getIso3Array(User user) {
-        BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
-		Collection<String> countriesIso3 = CollectionUtils.collect(user.getCountriesSet(), transformer );
-        return countriesIso3.toArray(new String[user.getCountriesSet().size()]);
+            BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+            Collection<String> countriesIso3 = CollectionUtils.collect(user.getCountriesSet(), transformer );
+            return countriesIso3.toArray(new String[user.getCountriesSet().size()]);
 	}
 
 	public static String getSingleIso3(User user) {
@@ -76,6 +78,16 @@ public class UserUtil {
         } else {
             return user.getCountriesSet().iterator().next().getIso3();
         }
-	}
+    }
+    public static List<Long> getQuestionIdList(User user) {
+        BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "id" );
+        List<Long> ids = new ArrayList<Long>();
+        CollectionUtils.collect(user.getQuestions(), transformer ,ids);
+        Collections.sort( ids );
+        
+        return Arrays.asList(ids.toArray(new Long[user.getQuestions().size()]));
+        
+        
+    }
 
 }
