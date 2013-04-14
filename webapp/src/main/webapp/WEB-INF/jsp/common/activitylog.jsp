@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="span12">
-        <form:form id="filterActivityLogForm" commandName="logFilter"  method="post" action="${pageContext.request.contextPath}/editoractivitylog/filter">
+        <form:form id="filterActivityLogForm" commandName="logFilter"  method="post" action="filter">
         <table id="userTable" class="table table-bordered table-hover table-condensed table-striped">
           <thead>
             <tr>
@@ -55,11 +55,10 @@
               </th>
               <th>
                 <div class="input-append">
-                  <form:select path="question_id" id="questionId" name="questionId" class="span1 input-small ui-autocomplete-input" autocomplete="off">
+				  <form:select path="question_id" id="questionId" name="questionId" class="span1 input-small ui-autocomplete-input" autocomplete="off">
                   	<form:option value="" label=""/>
                   	<form:options items="${questions}" />
-                  </form:select>
-                <span class="add-on">
+                  </form:select>                <span class="add-on">
                   <i id="filter_questionId_clear_btn" class="icon-remove-sign"> </i>
                 </span>
                 </div>
@@ -106,28 +105,28 @@
           <ul>
 
             <c:if test="${not empty pagination.firstPage}">
-            <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.firstPage}">First</a></li>
+            <li><a href="${pagination.firstPage}">First</a></li>
             </c:if>
             <c:if test="${empty pagination.firstPage}">
               <li class="disabled"><a href="#">First</a></li>
             </c:if>
             
             <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.prev1}">Prev</a></li>
+            <li><a href="${pagination.prev1}">Prev</a></li>
             </c:if>
             <c:if test="${empty pagination.prev1}">
               <li class="disabled"><a href="#">Prev</a></li>
             </c:if>
             
             <c:if test="${not empty pagination.prev2}">
-            <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.prev2}">${pagination.prev2+1}</a></li>
+            <li><a href="${pagination.prev2}">${pagination.prev2+1}</a></li>
             </c:if>
             <c:if test="${empty pagination.prev2}">
               <li class="disabled"><a href="#"> - </a></li>
             </c:if>
             
             <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.prev1}">${pagination.prev1+1}</a></li>
+            <li><a href="${pagination.prev1}">${pagination.prev1+1}</a></li>
             </c:if>
             <c:if test="${empty pagination.prev1}">
               <li class="disabled"><a href="#"> - </a></li>
@@ -136,28 +135,28 @@
             <li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
             
             <c:if test="${not empty pagination.next1}">
-              <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.next1}">${pagination.next1+1}</a></li>
+              <li><a href="${pagination.next1}">${pagination.next1+1}</a></li>
             </c:if>
             <c:if test="${empty pagination.next1}">
               <li class="disabled"><a href="#"> - </a></li>
             </c:if>
             
             <c:if test="${not empty pagination.next2}">
-              <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.next2}">${pagination.next2+1}</a></li>
+              <li><a href="${pagination.next2}">${pagination.next2+1}</a></li>
             </c:if>
             <c:if test="${empty pagination.next2}">
               <li class="disabled"><a href="#"> - </a></li>
             </c:if>
             
             <c:if test="${not empty pagination.next1}">
-              <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.next1}">Next</a></li>
+              <li><a href="${pagination.next1}">Next</a></li>
             </c:if>
             <c:if test="${empty pagination.next1}">
               <li class="disabled"><a href="#">Next</a></li>
             </c:if>
             
             <c:if test="${not empty pagination.lastPage}">
-              <li><a href="${pageContext.request.contextPath}/editoractivitylog/${pagination.lastPage}">Last</a></li>
+              <li><a href="${pagination.lastPage}">Last</a></li>
             </c:if>
             <c:if test="${empty pagination.lastPage}">
               <li class="disabled"><a href="#">Last</a></li>
