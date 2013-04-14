@@ -23,9 +23,12 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.Country;
@@ -183,6 +186,18 @@ public class UsersController {
 		if(userId > -1){
 			user = userService.get(userId);			
 		}
+		Set<Country> set = user.getCountriesSet();
+		SortedSet<Country> sorted=new TreeSet<Country>(new Comparator<Country>(){
+
+                    @Override
+                    public int compare(Country a, Country b) {
+                        return a.getIso3().compareTo(b.getIso3());
+                    }
+                   
+                });
+		sorted.addAll(set);
+		user.setCountriesSet(sorted);
+		
 		//Add countries code to page model formatted as CSV string
 		List<Question> questions = surveyService.getQuestions();
 		//Check user question

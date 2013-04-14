@@ -43,13 +43,19 @@ public class UserUtil {
 		String country = StringUtils.join(countriesIso3,' ');
 		return country;
 	}
-	public static String getSpacedIso3(User user,Boolean sorted){
-	    if(!sorted) return getSpacedIso3(user);
+	public static String getSeparatedIso3(User user,boolean sorted,String separator){
+	    
+	    if(!sorted && separator ==null) return getSpacedIso3(user);
 	    BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
 	    List<String> countriesIso3 = new ArrayList<String>();
 	    CollectionUtils.collect(user.getCountriesSet(), transformer ,countriesIso3);
-	    Collections.sort( countriesIso3 );
-	    return StringUtils.join(countriesIso3,' ');
+	    if(sorted){
+	        Collections.sort( countriesIso3 );
+	    }
+	    return StringUtils.join(countriesIso3,separator);
+	}
+	public static String getSpacedIso3(User user,boolean sorted){
+	    return getSeparatedIso3(user,sorted," ");
 	}
 	public static String[] getIso3Array(User user) {
         BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
