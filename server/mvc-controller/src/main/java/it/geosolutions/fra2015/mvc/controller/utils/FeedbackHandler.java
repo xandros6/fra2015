@@ -49,11 +49,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
-import org.apache.cxf.common.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
 
+import com.ctc.wstx.util.StringUtil;
 import com.ibm.wsdl.util.IOUtils;
 
 /**
@@ -65,6 +66,8 @@ import com.ibm.wsdl.util.IOUtils;
 public class FeedbackHandler{
     
     private static final Logger LOGGER = Logger.getLogger(FeedbackHandler.class);
+    
+    private static final String NO_COMMENT = "NO COMMENT PROVIDED...";
     
     private ControllerServices controllerServiceUtils;
     
@@ -259,6 +262,7 @@ public class FeedbackHandler{
         
         final Feedback f = new Feedback();
         f.setEntry(entry);
+        feedback = (StringUtils.isBlank(feedback) && "ko".equals(status))?NO_COMMENT:feedback;
         f.setFeedback(feedback);
         f.setFeedbackId(feedbackId);
         f.setStatus(status);
