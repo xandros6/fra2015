@@ -39,6 +39,8 @@ import org.apache.commons.lang.StringUtils;
  * @author ETj (etj at geo-solutions.it)
  */
 public class UserUtil {
+        private static int[] qs = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+
 	public static String getSpacedIso3(User user) {
         BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
 		Collection<String> countriesIso3 = CollectionUtils.collect(user.getCountriesSet(), transformer);
@@ -88,6 +90,9 @@ public class UserUtil {
         return Arrays.asList(ids.toArray(new Long[user.getQuestions().size()]));
         
         
+    }
+    public static int[] getAllQuestionIdList() {
+        return qs;
     }
 
 }

@@ -262,7 +262,7 @@ public class SurveyActivityLog {
             searchCriteria.addFilterIn("country",Arrays.asList(UserUtil.getIso3Array(user)));
             searchCriteria.addFilterIn("question_id", UserUtil.getQuestionIdList(user));
         }else if(user.getRole().equals("editor")){
-            searchCriteria.addFilterIn("country", user.getCountriesSet());
+           searchCriteria.addFilterIn("country",Arrays.asList(UserUtil.getIso3Array(user)));
         }
         List<ActivityLogEntry> found = activityLogDAO.search(searchCriteria);
 
