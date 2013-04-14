@@ -37,7 +37,7 @@
 						<c:choose>
 
 							<c:when test="${context=='activitylog'}">
-								<jsp:include page="reviewer/activitylog.jsp" />
+								<jsp:include page="common/activitylog.jsp" />
 							</c:when>
 							<c:when test="${context=='surveylist'}">
 								<jsp:include page="reviewer/surveys.jsp" />

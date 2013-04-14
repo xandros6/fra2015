@@ -38,7 +38,7 @@
 						<c:choose>
 
 							<c:when test="${context=='activitylog'}">
-								<jsp:include page="admin/activitylog.jsp" />
+								<jsp:include page="common/activitylog.jsp" />
 							</c:when>
 							<c:when test="${context=='users'}">
 								<jsp:include page="admin/users.jsp" />
