@@ -55,8 +55,10 @@
               </th>
               <th>
                 <div class="input-append">
-                  <form:input path="question_id" id="questionId" name="questionId" class="span1 input-small ui-autocomplete-input" type="number" autocomplete="off" />
-                <span class="add-on">
+				  <form:select path="question_id" id="questionId" name="questionId" class="span1 input-small ui-autocomplete-input" autocomplete="off">
+                  	<form:option value="" label=""/>
+                  	<form:options items="${questions}" />
+                  </form:select>                <span class="add-on">
                   <i id="filter_questionId_clear_btn" class="icon-remove-sign"> </i>
                 </span>
                 </div>

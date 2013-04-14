@@ -28,6 +28,8 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import it.geosolutions.fra2015.services.model.ActivityLogFilter;
+import it.geosolutions.fra2015.services.utils.UserUtil;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -116,6 +118,7 @@ public class AdminActivityLog {
 		}
 		logFilter = (model.get("logFilter")!=null ?  (ActivityLogFilter) model.get("logFilter") : new ActivityLogFilter());
 		model.addAttribute("countries", surveyService.getCountries());
+		model.addAttribute("questions",UserUtil.getAllQuestionIdList());
 		model.addAttribute("logFilter", logFilter);
 		model.addAttribute("context", "activitylog");
 		model.addAttribute("pagination", pagination);
