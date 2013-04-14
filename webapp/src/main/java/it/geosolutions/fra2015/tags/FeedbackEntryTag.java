@@ -105,6 +105,30 @@ public class FeedbackEntryTag extends ModeTag{
         }
     }
     
+    /**
+     * Shows the feedback made by the reviewer in the previous revision.
+     */
+    private void composePreviousFeedback() throws IOException{
+        
+        String value = (String)pageContext.getRequest().getAttribute(feedbackName+"old_");
+        boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
+        if(feedbackIsPresent){
+            
+                JspWriter out = pageContext.getOut();
+                //composeStartfeedbackArea(out);
+                // --- use RichTextEntry ----
+                out.write("<h5>" +localize("feedback.previousFeedback") +"</h5>");
+                RichTextEntry rte = new RichTextEntry();
+                rte.setCssClasses("alert alert-warning"); 
+                rte.setName(feedbackName+"old_"/*+READ_SUFFIX*/);
+                rte.setPageContext(pageContext);
+                rte.forceReadMode();
+                rte.doStartTag();
+                // -------------------------
+                //composeBottomfeedbackArea(out);
+        }         
+   }
+    
    private void composeEditorReadBox() throws IOException {
         
         String value = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
@@ -141,6 +165,7 @@ public class FeedbackEntryTag extends ModeTag{
             //feedbacks to show
             
             composeEditorReadBox();
+            composePreviousFeedback();
             if(StatusUtils.isReviewerEditable(getStatus())){
                 composeStartfeedbackArea(out);
                 composeReviewerSelectBox(out,feedbackName);

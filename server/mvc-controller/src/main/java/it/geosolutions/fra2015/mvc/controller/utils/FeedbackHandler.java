@@ -64,7 +64,7 @@ import com.ibm.wsdl.util.IOUtils;
  */
 public class FeedbackHandler{
     
-    private final Logger LOGGER = Logger.getLogger(FeedbackHandler.class);
+    private static final Logger LOGGER = Logger.getLogger(FeedbackHandler.class);
     
     private ControllerServices controllerServiceUtils;
     
@@ -87,13 +87,16 @@ public class FeedbackHandler{
         SurveyInstance si = surveyInstanceMap.get(country);
 
         List<Feedback> feedbackList = null;
+        List<Feedback> harmonizedFeedbackList = null;
         try {
 
-            feedbackList = feedbackService.loadFeedback(su, si, question, harmonized);
+            feedbackList = feedbackService.loadFeedback(su, si, question);
+            harmonizedFeedbackList = feedbackService.loadHarmonizedfeedbacks(si, question);
         } catch (BadRequestServiceEx e) {
 
            throw new BadRequestServiceEx("Errors loading feedbacks...");
         }
+        feedbackList.addAll(harmonizedFeedbackList);
         return feedbackList;
     }
     
@@ -207,6 +210,22 @@ public class FeedbackHandler{
         
     }
     
+    public static void loadPreviousFeedbacks(Model model, FeedbackService feedbackService, HttpSession session, User su, Long question, String countryIso3){
+        
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session.getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(countryIso3);
+        List<Feedback> previousFB = new ArrayList<Feedback>();
+        try {
+            
+            previousFB = feedbackService.loadPreviousReviewFeedbacks(su, si, question);
+        } catch (BadRequestServiceEx e1) {
+            LOGGER.error(e1.getMessage(), e1);
+        }
+        for(Feedback el : previousFB){
+            model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(el.getFeedbackId()+"_old"), el.getFeedback());
+        }
+    }
+    
     public void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
         
         if(feedbackList != null){
@@ -291,5 +310,4 @@ public class FeedbackHandler{
         SurveyInstance si = surveyInstanceMap.get(country);
         return feedbackService.getFeedbackCounter(si, harmonized);
     }
-    
 }

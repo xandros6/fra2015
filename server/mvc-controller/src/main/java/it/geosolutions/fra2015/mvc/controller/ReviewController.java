@@ -91,6 +91,7 @@ public class ReviewController {
             userForQuery = su;
             harmonized = null;
             userProfile = Profile.REVIEWER;
+            FeedbackHandler.loadPreviousFeedbacks(model, feedbackService, session, su, question, country);
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
 
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
@@ -111,8 +112,7 @@ public class ReviewController {
         model.addAttribute("status",status);
         model.addAttribute("statuscode", statusLocale);
         model.addAttribute("country", country);
-
-
+        
         try {
             CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
             utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
@@ -124,8 +124,6 @@ public class ReviewController {
 
                 listF = fh.packageFeedbacks(listF, true);
                 model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
-
-                
             }
             fh.prepareFeedbackModel(model, listF);
 

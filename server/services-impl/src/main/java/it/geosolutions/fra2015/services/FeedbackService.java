@@ -29,8 +29,8 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collection;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +68,6 @@ public class FeedbackService {
     /**
      * Load All feedbacks related to the Latest review / ReviewEditing.
      * The feedback is loaded only if his timestamp is > to the LastContributorSubmission field stored in the survey status
-     * If user is not null and harmonized is null, load the feedbacks for the user and also the harmonized feedback related to question and surv
      *  
      * @param user
      * @param survey
@@ -77,7 +76,7 @@ public class FeedbackService {
      * @return
      * @throws BadRequestServiceEx
      */
-    public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question, Boolean harmonized) throws BadRequestServiceEx{
+    public List<Feedback> loadFeedback(User user, SurveyInstance survey, Long question) throws BadRequestServiceEx{
 
         List<Feedback> list = new ArrayList<Feedback>();
         List<Feedback> harmonizedList = new ArrayList<Feedback>();
@@ -87,22 +86,11 @@ public class FeedbackService {
             if(user != null){
                 search.addFilterEqual("user", user);
             }
-            if(harmonized != null){
-                search.addFilterEqual("harmonized", harmonized);
-            }
+            search.addFilterEqual("harmonized", false);
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
             search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
             list = feedbackDAO.search(search);
-            //workaround
-            if(user != null && harmonized == null){
-                search = new Search();
-                search.addFilterEqual("harmonized", true);                
-                search.addFilterEqual("survey", survey);
-                search.addFilterEqual("entry.question.id", question);
-                search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
-                harmonizedList = feedbackDAO.search(search);
-            }
         }
         catch (Exception e) {
             
@@ -110,6 +98,70 @@ public class FeedbackService {
             throw new BadRequestServiceEx(e.getLocalizedMessage());
         }
         list.addAll(harmonizedList);
+        return list;
+    }
+    
+    /**
+     * Load all the harmonized feedbacks for a given question
+     * 
+     * @param survey
+     * @param question
+     * @return
+     * @throws BadRequestServiceEx
+     */
+    public List<Feedback> loadHarmonizedfeedbacks(SurveyInstance survey, Long question) throws BadRequestServiceEx{
+        
+        List<Feedback> list = new ArrayList<Feedback>();
+        List<Feedback> harmonizedList = new ArrayList<Feedback>();
+        try {
+            
+            Search search = new Search();
+            search.addFilterEqual("harmonized", true);
+            search.addFilterEqual("survey", survey);
+            search.addFilterEqual("entry.question.id", question);
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+            list = feedbackDAO.search(search);
+        }
+        catch (Exception e) {
+            
+            LOGGER.error(e.getLocalizedMessage());
+            throw new BadRequestServiceEx(e.getLocalizedMessage());
+        }
+        list.addAll(harmonizedList);
+        return list;
+    }
+    
+    /**
+     * Load the feedbacks that are saved between the previous editor submission and the latest in order to 
+     * allow the reviewer to see their previous comment for each entry.
+     * 
+     * @param user
+     * @param survey
+     * @param question
+     * @param harmonized
+     * @return
+     * @throws BadRequestServiceEx
+     */
+    public List<Feedback> loadPreviousReviewFeedbacks(User user, SurveyInstance survey, Long question) throws BadRequestServiceEx{
+
+        List<Feedback> list = new ArrayList<Feedback>();
+        try {
+            
+            Search search = new Search();
+            search.addFilterEqual("user", user);
+            search.addFilterEqual("survey", survey);
+            search.addFilterEqual("entry.question.id", question);
+            Long prev = (survey.getStatus().getPreviousSurveyReview() != null)?survey.getStatus().getPreviousSurveyReview():0;
+            Long last = (survey.getStatus().getLastSurveyReview() != null)?survey.getStatus().getLastSurveyReview():0;
+            search.addFilterGreaterThan("timestamp", prev);
+            search.addFilterLessThan("timestamp", last);
+            list = feedbackDAO.search(search);
+        }
+        catch (Exception e) {
+            
+            LOGGER.error(e.getLocalizedMessage());
+            throw new BadRequestServiceEx(e.getLocalizedMessage());
+        }
         return list;
     }
     
@@ -123,7 +175,7 @@ public class FeedbackService {
         search.addFilterEqual("survey", survey);
         search.addFilterEqual("entry.question.id", question);
         search.addFilterIn("status", "ok", "ko");
-        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
+        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
         List<Feedback> list = feedbackDAO.search(search);
         return (list.size() == entries.size());
     }
