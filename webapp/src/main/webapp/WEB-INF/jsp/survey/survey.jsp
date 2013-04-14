@@ -4,11 +4,8 @@
 		<div class="row">
 			<jsp:include page="leftmenu.jsp"></jsp:include>
 			<c:if test="${not empty statuscode && not empty country }">
-						<div class='pull-right label label-inverse'>
-							<spring:message code="survey.country">: </spring:message><spring:message code="country.${country}"></spring:message>
-							<br/>
-							<spring:message code="survey.status">: </spring:message><spring:message code="${statuscode}"></spring:message>
-						</div>
+				<jsp:include page="../common/statuslabel.jsp"></jsp:include>
+
 			</c:if>
 			<form id="survey_form" method="POST" action="${question}">
 				<div class="span8" id="survey-content">
@@ -20,7 +17,6 @@
 					(profile == 'EDITOR' && fra:isReviewEditorEditable(status) )||
 					(profile == 'REVIEWER' && fra:isReviewerEditable(status))
 					}">
-				<jsp:include page="../common/saveall.jsp"></jsp:include>
 				</c:if>
 			</form>
 		</div>
