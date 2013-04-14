@@ -289,7 +289,7 @@ public class UsersController {
                 UserDTO dto = new UserDTO();
                 dto.copyFrom(user);
 				dto.setRole(roles.get(user.getRole())); // translate role string
-                dto.setSelCountries(UserUtil.getSpacedIso3(user));
+                dto.setSelCountries(UserUtil.getSpacedIso3(user,true));
 
 				ret.add(dto);
 			}

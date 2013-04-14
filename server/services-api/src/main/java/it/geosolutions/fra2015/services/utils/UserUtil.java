@@ -21,7 +21,13 @@
 package it.geosolutions.fra2015.services.utils;
 
 import it.geosolutions.fra2015.server.model.user.User;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -33,11 +39,18 @@ import org.apache.commons.lang.StringUtils;
 public class UserUtil {
 	public static String getSpacedIso3(User user) {
         BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
-		Collection<String> countriesIso3 = CollectionUtils.collect(user.getCountriesSet(), transformer );
+		Collection<String> countriesIso3 = CollectionUtils.collect(user.getCountriesSet(), transformer);
 		String country = StringUtils.join(countriesIso3,' ');
 		return country;
 	}
-
+	public static String getSpacedIso3(User user,Boolean sorted){
+	    if(!sorted) return getSpacedIso3(user);
+	    BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
+	    List<String> countriesIso3 = new ArrayList<String>();
+	    CollectionUtils.collect(user.getCountriesSet(), transformer ,countriesIso3);
+	    Collections.sort( countriesIso3 );
+	    return StringUtils.join(countriesIso3,' ');
+	}
 	public static String[] getIso3Array(User user) {
         BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "iso3" );
 		Collection<String> countriesIso3 = CollectionUtils.collect(user.getCountriesSet(), transformer );
