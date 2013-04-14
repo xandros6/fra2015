@@ -7,16 +7,16 @@
         <table id="userTable" class="table table-bordered table-hover table-condensed table-striped">
           <thead>
             <tr>
-              <th>Timestamp</th>
-              <th>Username</th>
-              <th>Country</th>
-              <th>Question</th>
-              <th>Content</th>
+              <th><spring:message code="timestamp"></spring:message></th>
+              <th><spring:message code="username"></spring:message></th>
+              <th><spring:message code="country"></spring:message></th>
+              <th><spring:message code="question"></spring:message></th>
+              <th><spring:message code="content"></spring:message></th>
             </tr>
              <tr>
               <th>
 	              <div id="datetimepickerFrom" class="input-prepend input-append date">
-	                <span class="add-on" style="width:40px">From</span>
+	                <span class="add-on" style="width:40px"><spring:message code="from"></spring:message></span>
 							    <form:input path="fromDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="span2 input-small"/>
 							    <span class="add-on picker">
 							        <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
@@ -26,7 +26,7 @@
 							    </span>
 							  </div>
 							  <div id="datetimepickerTo" class="input-prepend input-append date">
-							    <span class="add-on" style="width:40px">To</span>
+							    <span class="add-on" style="width:40px"><spring:message code="to"></spring:message></span>
                   <form:input path="toDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" class="span2 input-small"/>
                     <span class="add-on picker">
                       <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
@@ -76,7 +76,7 @@
           <thead>
             <tr>
               <th colspan="5" style="text-align: right;">
-                <button class="btn" type="button" id="activityLogFilterBtn"><i class="icon-filter"></i>Filter</button>
+                <button class="btn" type="button" id="activityLogFilterBtn"><i class="icon-filter"></i><spring:message code="filter"></spring:message></button>
               </th>
             </tr>
           </thead>
@@ -105,17 +105,17 @@
           <ul>
 
             <c:if test="${not empty pagination.firstPage}">
-            <li><a href="${pagination.firstPage}">First</a></li>
+            <li><a href="${pagination.firstPage}"><spring:message code="first"></spring:message></a></li>
             </c:if>
             <c:if test="${empty pagination.firstPage}">
-              <li class="disabled"><a href="#">First</a></li>
+              <li class="disabled"><a href="#"><spring:message code="first"></spring:message></a></li>
             </c:if>
             
             <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pagination.prev1}">Prev</a></li>
+            <li><a href="${pagination.prev1}"><spring:message code="prev"></spring:message></a></li>
             </c:if>
             <c:if test="${empty pagination.prev1}">
-              <li class="disabled"><a href="#">Prev</a></li>
+              <li class="disabled"><a href="#"><spring:message code="prev"></spring:message></a></li>
             </c:if>
             
             <c:if test="${not empty pagination.prev2}">
@@ -149,17 +149,17 @@
             </c:if>
             
             <c:if test="${not empty pagination.next1}">
-              <li><a href="${pagination.next1}">Next</a></li>
+              <li><a href="${pagination.next1}"><spring:message code="next"></spring:message></a></li>
             </c:if>
             <c:if test="${empty pagination.next1}">
-              <li class="disabled"><a href="#">Next</a></li>
+              <li class="disabled"><a href="#"><spring:message code="next"></spring:message></a></li>
             </c:if>
             
             <c:if test="${not empty pagination.lastPage}">
-              <li><a href="${pagination.lastPage}">Last</a></li>
+              <li><a href="${pagination.lastPage}"><spring:message code="last"></spring:message></a></li>
             </c:if>
             <c:if test="${empty pagination.lastPage}">
-              <li class="disabled"><a href="#">Last</a></li>
+              <li class="disabled"><a href="#"><spring:message code="last"></spring:message></a></li>
             </c:if>            
 
           </ul>
