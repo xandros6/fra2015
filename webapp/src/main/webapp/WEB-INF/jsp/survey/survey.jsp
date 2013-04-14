@@ -17,6 +17,8 @@
 					(profile == 'EDITOR' && fra:isReviewEditorEditable(status) )||
 					(profile == 'REVIEWER' && fra:isReviewerEditable(status))
 					}">
+				<jsp:include page="../common/saveall.jsp"></jsp:include>
+					
 				</c:if>
 			</form>
 		</div>
