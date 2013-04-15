@@ -300,7 +300,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             }
             //skip the column if contains N/A values
             if(checkRuleNA(rule.getVariables(), test)){
-                return;
+                continue;
             }
             //get single values
             Map <String,String> singleValues = getSingleValues(values,rule);
