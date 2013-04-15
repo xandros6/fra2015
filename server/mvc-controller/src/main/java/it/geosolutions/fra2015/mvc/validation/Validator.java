@@ -12,6 +12,7 @@ import it.geosolutions.fra2015.validation.ValidationRule;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ import java.util.Map;
 import javax.script.ScriptException;
 import javax.xml.bind.JAXB;
 
+import org.dom4j.rule.RuleSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -229,6 +231,10 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             result.addMessage(m);
             return;
         }
+        //skip evaluation if N/A
+        if(checkRuleNA(rule.getSingleValues(),singleValues)){
+            return;
+        }
         {
 
             try {
@@ -269,7 +275,12 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             // get the map name ->value
             Map<String, String> test = tests.get(key);
             if(test==null){
-                return ;
+                message = new ValidationMessage();
+                message.setMessage("validation.notcompiled");
+                message.setRule(rule);
+                message.setSuccess(false);
+                message.addElements(Arrays.asList(rule.getEntryId().split(",")));
+
             }
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
@@ -286,6 +297,10 @@ public class Validator implements InitializingBean, ApplicationContextAware {
                 
                 alreadyChecked = true;
                 continue;
+            }
+            //skip the column if contains N/A values
+            if(checkRuleNA(rule.getVariables(), test)){
+                return;
             }
             //get single values
             Map <String,String> singleValues = getSingleValues(values,rule);
@@ -412,6 +427,27 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             }
         }
         return missing;
+    }
+    /**
+     * Check if some rules are NaN (N/A for the meaning, and so the rule have
+     * to be skipped
+     * @param vars
+     * @param test
+     * @return
+     */
+    private boolean checkRuleNA(List<String> vars, Map<String, String> test) {
+        List<String> missing = new ArrayList<String>();
+
+        for (String name : vars) {
+            if(test==null) {
+                return false;
+            }
+            Double d= Double.parseDouble(test.get(name));
+               if(d.isNaN()){
+                   return true;
+               }
+        }
+        return false;
     }
 
     // Setters and Getters
