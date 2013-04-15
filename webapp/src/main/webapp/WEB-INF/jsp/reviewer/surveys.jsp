@@ -17,16 +17,18 @@
 
 
 				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
+					<c:set scope="page" var="submitAllowed" value="enabled" />
+					<c:if test="${survey.status.status != 'underreview'}">
+						<c:set scope="page" var="submitAllowed" value="disabled" />
+					</c:if>
 					<tr class="rowItem">
 						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
 						<td>TODO</td>
-
 						<td><spring:message code="survey.status.${survey.status.status}"></spring:message></td>
-						<%-- 								<td>${user.countries}</td> --%>
 						<td>
 						<a href="../survey/review/${survey.country.iso3}/0" class="btn"><spring:message code="surveylist.view"></spring:message></a>
 						
-							<a href="../reviewersubmit/${survey.country.iso3}" class="btn"><spring:message code="surveylist.submit"></spring:message></a>
+							<a href="../reviewersubmit/${survey.country.iso3}" class="btn ${submitAllowed}"><spring:message code="surveylist.submit"></spring:message></a>
 						</td>
 					</tr>
 				</c:forEach>
