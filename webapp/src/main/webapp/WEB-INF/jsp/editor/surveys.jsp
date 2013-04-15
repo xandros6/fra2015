@@ -17,6 +17,13 @@
 			<tbody>
 				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
 					<c:set scope="page" var="countryIso3" value="${survey.country.iso3}" />
+					
+					<c:if test="${survey.status.status != 'underreview'}">
+						<c:set scope="page" var="pendingFixEnabled" value="disabled" />
+					</c:if>
+					<c:if test="${survey.status.status != 'completed'}">
+						<c:set scope="page" var="completeEnabled" value="disabled" />
+					</c:if>
 					<tr class="rowItem">
 						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
 						<td>TODO</td>
@@ -24,14 +31,32 @@
 						<td><spring:message
 								code="survey.status.${survey.status.status}"></spring:message></td>
 						<%-- 								<td>${user.countries}</td> --%>
-						<td><div>${survey.status.reviewerSubmit}</div></td>
-						<td>${survey.status.coverage}</td>
+						<td>
+							<c:choose>
+								<c:when test="${empty survey.status.reviewerSubmit}">
+									<div  style="text-align: center">No submission yet</div>
+								</c:when>
+								<c:otherwise>
+									<div  style="text-align: center">${fn:replace(survey.status.reviewerSubmit, ";", " ")}</div>
+								</c:otherwise>
+							</c:choose>
+						</td>
+						<td>
+							<c:choose>
+								<c:when test="${empty survey.status.coverage}">
+									<div style="text-align: center"> 0 / 21 </div>
+								</c:when>
+								<c:otherwise>
+									<div style="text-align: center">${survey.status.coverage}</div>
+								</c:otherwise>
+							</c:choose>
+						</td>
 						<td><a href="../survey/review/${survey.country.iso3}/0"
 							class="btn"><spring:message code="editor.surveylist.view"></spring:message></a>
 						</td>
-						<td><a data-toggle="modal" href="#pendingConfirm" class="btn"><spring:message
+						<td><a data-toggle="modal" href="#pendingConfirm" class="btn ${pendingFixEnabled}"><spring:message
 									code="editor.surveylist.pending"></spring:message></a> <a
-							data-toggle="modal" href="#completedConfirm" class="btn"><spring:message
+							data-toggle="modal" href="#completedConfirm" class="btn ${completeEnabled}"><spring:message
 									code="editor.surveylist.completed"></spring:message></a></td>
 					</tr>
 				</c:forEach>
