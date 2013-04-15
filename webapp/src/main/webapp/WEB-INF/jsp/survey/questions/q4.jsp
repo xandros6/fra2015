@@ -263,8 +263,8 @@
 									code="ref55"></spring:message></td>
 							<td rownumber="1" columnnumber="3"><spring:message
 									code="ref56"></spring:message></td>
-							<td rownumber="1" columnnumber="4"><strike><spring:message
-									code="ref57"></spring:message></strike></td>
+							<td rownumber="1" columnnumber="4"><spring:message
+									code="ref57"></spring:message></td>
 						</tr>
 						<tr rowname="4.1" unit="1000 ha">
 							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
