@@ -82,6 +82,9 @@ fra = {
 	                            || (code==109)
 	                            || (code==110)
 	                            ||  (code==190)
+	                            || (code==78)
+	                            || (code==65)
+	                            || (code==47)
 	                           ) 
 	                    }
 	                });                               
@@ -97,7 +100,10 @@ fra = {
 		                    try{
 		                    	if(text!=""){
 			                    	text =Number(text);
-			                    	if(isNaN(text)) text="";
+			                    	
+			                    	if(isNaN(text)){ 
+			                    		text="N/A"; 		
+		                    		}
 		                    	}
 		                    }catch(e){
 		                    	text=oldtext;
@@ -150,7 +156,19 @@ fra = {
 	        if(placeholder.length <=0) return;
             name = placeholder.attr('id');
             if(!name) return;
-            if(fra.isNumeric(name) ) {cell.addClass('number');}
+            if(fra.isNumeric(name) ) {
+            	cell.addClass('number');
+            	var content=cell.find('#cell-content');
+            	var text = cell.find('#cell-content').text();
+            	if(text!=""){
+                	text =Number(text);
+                	
+                	if(isNaN(text)){ 
+                		text="N/A"; 		
+            		}
+            	}
+            	content.text(text)
+        	}
     }
 }
 $(function(){

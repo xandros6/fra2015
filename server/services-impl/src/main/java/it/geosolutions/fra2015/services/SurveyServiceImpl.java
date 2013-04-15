@@ -177,10 +177,16 @@ public class SurveyServiceImpl implements SurveyService {
 		daoMap.put("Number", new ValueDAO() {
 			@Override
 			public void persist(ValueDTO value) {
-				try {
+				//try {
 				    if(!StringUtils.isBlank(value.getContent())){
-                        NumberFormat format = NumberFormat.getInstance(Locale.US);
-                        Number number = format.parse(value.getContent());
+				        Number number;
+		        try{
+                        NumberFormat format = NumberFormat.getInstance(Locale.US); 
+                        number = format.parse(value.getContent());
+		        }catch(ParseException e){
+		            number =new Double(Double.NaN);
+                          
+                        }
                         NumberValue dbValue = new NumberValue();
                         dbValue.setCountry(value.getCountry());
                         dbValue.setValue(number);
@@ -192,9 +198,9 @@ public class SurveyServiceImpl implements SurveyService {
 				        sb.append("Error when try to persist entryItem id:'").append(value).append("' the provided value is blank and the EntryItem has type 'Number', skip the value...");
 				        LOGGER.error(sb.toString());
 				    }
-				} catch (ParseException ex) {
+				    /*} catch (ParseException ex) {
 					throw new IllegalArgumentException("Value of item " + value.getEntryItem().getId() + "must be numeric.");
-				}
+				}*/
 			}
 
 			@Override
@@ -225,15 +231,18 @@ public class SurveyServiceImpl implements SurveyService {
 
 			@Override
 			public void merge(Value value) {
-				try {
+				
 					NumberValue numberValue = (NumberValue) value;
 					NumberFormat format = NumberFormat.getInstance(Locale.US);
-					Number number = format.parse(value.getContent());
+					Number number =null;
+					try {
+					    number= format.parse(value.getContent() );
+					}catch (ParseException ex) {
+					   number = new Double(Double.NaN);    
+	                                }
 					numberValue.setValue(number);
 					numberValueDAO.merge(numberValue);
-				} catch (ParseException ex) {
-					throw new IllegalArgumentException("Value of item " + value.getEntryItem().getId() + "must be numeric.");
-				}
+				
 			}
 
 			@Override

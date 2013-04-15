@@ -268,6 +268,9 @@ public class Validator implements InitializingBean, ApplicationContextAware {
 
             // get the map name ->value
             Map<String, String> test = tests.get(key);
+            if(test==null){
+                return ;
+            }
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
             if (missing.size() > 0) {
@@ -401,7 +404,9 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         List<String> missing = new ArrayList<String>();
 
         for (String name : vars) {
-
+            if(test==null) {
+             return null;   
+            }
             if (test.get(name) == null) {
                 missing.add(name);
             }
