@@ -202,6 +202,15 @@ public class ControllerServices {
     }
     
     /**
+     * Get the status instance of the country survey
+     * @param c country
+     * @return
+     */
+    public Status getStatusInstanceByCountry(String c){
+        return surveyService.getStatus(c);
+    }
+    
+    /**
      * Set the status to in progress if it was empty
      * @param c
      */

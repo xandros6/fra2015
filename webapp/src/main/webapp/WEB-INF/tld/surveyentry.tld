@@ -105,6 +105,12 @@ jsptaglibrary_2_0.xsd"
 				<rtexprvalue>true</rtexprvalue>
 			</attribute>
 		</tag>
+		<tag>
+			<name>reviewers</name>
+			<tag-class>it.geosolutions.fra2015.tags.ReviewersTag</tag-class>
+			<body-content>JSP</body-content>
+			<attribute />
+		</tag>
 		<function>
 			<name>isContributorEditable</name>
 			<function-class>it.geosolutions.fra2015.mvc.controller.utils.StatusUtils</function-class>

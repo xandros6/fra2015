@@ -33,6 +33,7 @@ import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
+import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 
 import java.util.ArrayList;
@@ -66,6 +67,9 @@ public class ReviewController {
     @Autowired
     private SurveyServiceEntryPoint surveyService;
     
+    @Autowired
+    private UserService userService;
+    
     private final Logger LOGGER = Logger.getLogger(ReviewController.class);
 
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.GET)
@@ -74,12 +78,11 @@ public class ReviewController {
             @PathVariable(value = "question") Long question, Model model,
             HttpSession session) {
 
-
         User su = (User) session.getAttribute("sessionUser");
         if (su == null) {
             return "redirect:/login";
         }
-
+        
         User userForQuery = new User();
         Boolean harmonized = null;
         Profile userProfile = null;
@@ -97,6 +100,7 @@ public class ReviewController {
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
             model.addAttribute("context", "survey");
             model.addAttribute("question", question);
+            model.addAttribute("reviewers", userService.getReviewersForSurveyAndQuestion(country, question));
             userForQuery = null;
             userProfile = Profile.EDITOR;
         } else {
@@ -122,7 +126,7 @@ public class ReviewController {
             List<Feedback> listF = SessionUtils.retrieveFeedbacksAndStoreInSession(fh, session, question, country, userForQuery, harmonized);
             if (Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())) {
 
-                listF = fh.packageFeedbacks(listF, true);
+                listF = fh.packageFeedbacks(listF, true, utils.getStatusInstanceByCountry(country));
                 model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
             }
             fh.prepareFeedbackModel(model, listF);
@@ -161,6 +165,7 @@ public class ReviewController {
         if (su == null) {
             return "redirect:/login";
         }
+        
         if (su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())) {
             //TODO check if reviewer has access to this country
             model.addAttribute("profile", Profile.REVIEWER.toString());
@@ -171,7 +176,7 @@ public class ReviewController {
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
 
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
-            
+            model.addAttribute("reviewers", userService.getReviewersForSurveyAndQuestion(country, Long.parseLong(question)));
             harmonizedWrite = true;
             userForQuery = null;
         } else {
@@ -198,7 +203,7 @@ public class ReviewController {
             model.addAttribute("status",status);
             model.addAttribute("statuscode", statusLocale);
             if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
-                List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false);
+                List<Feedback> notHarmonizedFeedbacks = fh.packageFeedbacks(oldFeedbacks, false, utils.getStatusInstanceByCountry(country));
                 fh.addAllToFeedbackList(notHarmonizedFeedbacks);
                 model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
                 

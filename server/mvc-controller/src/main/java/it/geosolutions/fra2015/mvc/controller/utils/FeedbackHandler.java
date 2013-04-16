@@ -26,6 +26,7 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
@@ -49,13 +50,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
-
-import com.ctc.wstx.util.StringUtil;
-import com.ibm.wsdl.util.IOUtils;
 
 /**
  * Hold the feedback management: take as input the req and session objects, build a Feedback Instance and add to a feedback list 
@@ -137,14 +136,14 @@ public class FeedbackHandler{
         
     }
     
-    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks, boolean packageAlsoArmonized){
+    public List<Feedback> packageFeedbacks(List<Feedback> feedbacks, boolean packageAlsoArmonized, Status status){
         
         List<Feedback> packagedFeedbacks = new ArrayList<Feedback>();
         Map<String, Feedback> packagedFeedbacksMap = new HashMap<String, Feedback>(); 
-        String recordTemplate = loadTemplatePackaged();
+        String recordKO = loadTemplatePackaged().get(0);
+        String recordOK = loadTemplatePackaged().get(1);
         
         for(Feedback el : feedbacks){
-            String record = recordTemplate;
             Feedback f = new Feedback();
             if(!el.getHarmonized()){
                 f = packagedFeedbacksMap.remove(el.getFeedbackId());
@@ -155,19 +154,22 @@ public class FeedbackHandler{
                 }
             }
             
+            String record = (el.getStatus().equals("ok"))?recordOK:recordKO;
+            String colorClass = (StatusUtils.getReviewerSubmit(status).contains(el.getUser().getUsername()))?"alert-success":"alert alert-warning";
             
-            if(f.getHarmonized() != null && !f.getHarmonized() && !StringUtils.isEmpty(el.getFeedback())){
+            if(f.getHarmonized() != null && !f.getHarmonized()){
                 
                 StringBuilder sb = new StringBuilder();
-    //            sb.append(f.getFeedback());
                 Calendar cal = GregorianCalendar.getInstance();
                 cal.setTimeInMillis(el.getTimestamp());
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy.MM.dd 'at' hh:mm:ss a zzz");
                 dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
                 sb.append(f.getFeedback());
+                record = record.replace("%{colorClass}", colorClass);
                 record = record.replace("%{date}", dateFormatter.format(cal.getTime()));
                 record = record.replace("%{username}", el.getUser().getUsername());
                 record = record.replace("%{feedbackContent}", el.getFeedback());
+                record = record.replace("%{status}", el.getStatus());
                 sb.append(record);
                 f.setFeedback(sb.toString());
                 packagedFeedbacksMap.put(f.getFeedbackId(), f);
@@ -278,13 +280,16 @@ public class FeedbackHandler{
         this.feedbackList.addAll(list);
     }
     
-    private String loadTemplatePackaged(){
+    private List<String> loadTemplatePackaged(){
         
         InputStream tmpltStream = this.getClass().getResourceAsStream("/packagedFeedbacksTemplate.tmplt");
         Reader r = new InputStreamReader(tmpltStream);
+        List<String> templates = new ArrayList<String>();
+        templates.add("%{date} - %{username} - %{feedbackContent} - %{status}<br />");
+        templates.add("%{date} - %{username} - %{feedbackContent} - %{status}<br />");
         try {
             
-            return IOUtils.getStringFromReader(r);
+            templates = IOUtils.readLines(r);
         } catch (IOException e) {
             
             LOGGER.error(e.getMessage(), e);
@@ -306,7 +311,7 @@ public class FeedbackHandler{
                 }
             }
         }
-        return "%{date} - %{username} - %{feedbackContent} <br />";
+        return templates;
     }
     public int[] getFeedbackCounter(String country,HttpSession session,boolean harmonized){
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session

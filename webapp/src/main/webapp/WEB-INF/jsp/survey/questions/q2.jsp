@@ -9,6 +9,9 @@
 	<p class="lead">
 		<spring:message code="refq2faq"></spring:message>
 	</p>
+	
+	<fra:reviewers />
+	
 	<section>
 		<h2>
 			2.1

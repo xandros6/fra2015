@@ -99,6 +99,14 @@ public interface UserService {
 
     public List<User> getUsersToNotify(String role, String iso3);
 
+    /**
+     * @param userName
+     * @param iso3
+     * @param questions
+     * @return
+     */
+    public List<User> getReviewersForSurveyAndQuestion(String iso3, Long question);
+
     
 
 }
