@@ -156,7 +156,7 @@ public class FeedbackHandler{
             
             String record = (el.getStatus().equals("ok"))?recordOK:recordKO;
             String colorClass = "";
-            if(StatusUtils.getReviewerSubmit(status).contains(el.getUser().getUsername())){
+            if(!StatusUtils.getReviewerSubmit(status).contains(el.getUser().getUsername())){
                        colorClass= "alert alert-warning";
             } else {
                 if (el.getStatus().equals("ok")) {
@@ -328,7 +328,14 @@ public class FeedbackHandler{
     public int[] getFeedbackCounter(String country,HttpSession session,boolean harmonized){
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
+        
         SurveyInstance si = surveyInstanceMap.get(country);
-        return feedbackService.getFeedbackCounter(si, harmonized);
+        if(!harmonized){
+            Status s = si.getStatus();
+            StatusUtils.getReviewerSubmit(s);
+            return feedbackService.getFeedbackCounter(si, harmonized,StatusUtils.getReviewerSubmit(s));
+        }else{
+            return feedbackService.getFeedbackCounter(si, harmonized);
+        }
     }
 }

@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.services;
 import it.geosolutions.fra2015.server.dao.FeedbackDAO;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -196,6 +197,28 @@ public class FeedbackService {
             search.addFilterEqual("status","ko");
         }
         search.addFilterEqual("survey", survey);
+        search.addFilterEqual("entry.question.id", q);
+        
+        search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+        counts[q] = feedbackDAO.count(search);
+        }
+        return counts;
+    }
+
+    public int[] getFeedbackCounter(SurveyInstance survey, boolean harmonized, List<String> users) {
+        List<Feedback> list = new ArrayList<Feedback>();
+        int[] counts= new int[21];
+       for(int q = 0 ;q<counts.length;q++){
+        Search search = new Search();
+        
+        search.addFilterEqual("harmonized", harmonized);
+        if(!harmonized){
+            search.addFilterEqual("status","ko");
+            search.addFilterIn("user.username",users); 
+        }
+        search.addFilterEqual("survey", survey);
+        search.setDistinct(true);
+        search.addField("entry.id");
         search.addFilterEqual("entry.question.id", q);
         
         search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
