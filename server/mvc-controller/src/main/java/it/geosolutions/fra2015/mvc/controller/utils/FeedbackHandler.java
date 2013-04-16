@@ -155,7 +155,19 @@ public class FeedbackHandler{
             }
             
             String record = (el.getStatus().equals("ok"))?recordOK:recordKO;
-            String colorClass = (StatusUtils.getReviewerSubmit(status).contains(el.getUser().getUsername()))?"alert-success":"alert alert-warning";
+            String colorClass = "";
+            if(StatusUtils.getReviewerSubmit(status).contains(el.getUser().getUsername())){
+                       colorClass= "alert alert-warning";
+            } else {
+                if (el.getStatus().equals("ok")) {
+                    colorClass = "alert alert-success";
+                }else  if (el.getStatus().equals("ko")) {
+                    colorClass = "alert alert-error";
+                }else{
+                    colorClass= "alert alert-warning";
+
+                }
+            }
             
             if(f.getHarmonized() != null && !f.getHarmonized()){
                 

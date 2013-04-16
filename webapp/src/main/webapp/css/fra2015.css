@@ -419,11 +419,13 @@ table.table-hover tbody tr td.editable{
 }
 
 /*feedbacks*/
-.breadcrumb.feedbackentry-head{
-	margin-bottom:0px;
-}
+
 div.feedbackentry-body{
 	padding:5px;
+}
+div.feedbackentry-head.alert{
+	padding-right:15px;
+	margin-bottom:5px;
 }
 /* fixes for ckeditor with bootstrap */ 
 .cke_skin_kama .cke_dialog_body input.cke_dialog_ui_input_text, .cke_skin_kama  .cke_dialog_body input.cke_dialog_ui_input_password{
