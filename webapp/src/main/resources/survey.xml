@@ -504,13 +504,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.6</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>2</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.6</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -538,13 +531,6 @@
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
-									<rowName>1.6</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>2</rowNumber>
-									<columnNumber>10</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
 									<rowName>1.6.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>3</rowNumber>
@@ -574,13 +560,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.6.1</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>3</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.6.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -605,13 +584,6 @@
 									<columnName>2010</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.6.1</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>3</rowNumber>
-									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
@@ -644,13 +616,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.6.2</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.6.2</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -675,13 +640,6 @@
 									<columnName>2010</columnName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.6.2</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>4</rowNumber>
-									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
@@ -714,13 +672,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.7</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>5</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.7</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -745,13 +696,6 @@
 									<columnName>2010</columnName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.7</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>5</rowNumber>
-									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
@@ -784,13 +728,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.7.1</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.7.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>6</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -815,13 +752,6 @@
 									<columnName>2010</columnName>
 									<rowNumber>6</rowNumber>
 									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.7.1</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>6</rowNumber>
-									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
@@ -854,13 +784,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.8</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.8</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -885,13 +808,6 @@
 									<columnName>2010</columnName>
 									<rowNumber>7</rowNumber>
 									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.8</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>7</rowNumber>
-									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 								<entryItem>
@@ -924,13 +840,6 @@
 								</entryItem>
 								<entryItem>
 									<rowName>1.8.1</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>5</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.8.1</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>6</columnNumber>
@@ -955,13 +864,6 @@
 									<columnName>2010</columnName>
 									<rowNumber>8</rowNumber>
 									<columnNumber>9</columnNumber>
-									<type>Number</type>
-								</entryItem>
-								<entryItem>
-									<rowName>1.8.1</rowName>
-									<columnName>2015</columnName>
-									<rowNumber>8</rowNumber>
-									<columnNumber>10</columnNumber>
 									<type>Number</type>
 								</entryItem>
 							</EntryItems>
