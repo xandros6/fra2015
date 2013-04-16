@@ -258,7 +258,7 @@
 							<td colspan="5" rownumber="0" columnnumber="1"><spring:message
 									code="ref52"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
@@ -457,7 +457,7 @@
 							<td colspan="5" rownumber="0" columnnumber="2"><spring:message
 									code="ref67"></spring:message></td>
 						</tr>
-						<tr>
+						<tr class="defhead">
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref53"></spring:message></td>
 							<td rownumber="1" columnnumber="1"><spring:message

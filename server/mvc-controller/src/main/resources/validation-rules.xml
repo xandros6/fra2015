@@ -21,7 +21,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
-        <columns>1990,2000,2005,2010,2015</columns>
+        <columns>1990,2000,2005,2010</columns>
         <condition>
             <![CDATA[ {{1.6}} > {{1.6.1}} ]]>
         </condition>
@@ -33,7 +33,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
-        <columns>1990,2000,2005,2010,2015</columns>
+        <columns>1990,2000,2005,2010</columns>
         <condition>
             <![CDATA[ {{1.6}} > {{1.6.2}} ]]>
         </condition>
@@ -45,7 +45,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
-        <columns>1990,2000,2005,2010,2015</columns>
+        <columns>1990,2000,2005,2010</columns>
         <condition>
             <![CDATA[ {{1.7}} > {{1.7.1}} ]]>
         </condition>
@@ -57,7 +57,7 @@
         </description>
         <entryId>1a</entryId>
         <error>refrule_error_1</error>
-        <columns>1990,2000,2005,2010,2015</columns>
+        <columns>1990,2000,2005,2010</columns>
         <condition>
             <![CDATA[ {{1.8}} > {{1.8.1}} ]]>
         </condition>
