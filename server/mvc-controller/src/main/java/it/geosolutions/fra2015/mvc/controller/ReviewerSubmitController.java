@@ -88,7 +88,9 @@ public class ReviewerSubmitController {
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
         SurveyInstance si = surveyInstanceMap.get(country);
-
+        // Update the status in surveyIstance
+        si.setStatus(surveyService.getStatus(country));
+        
         List<Long> notAcceptedQuestions = new ArrayList<Long>();
         boolean accepted = true;
 

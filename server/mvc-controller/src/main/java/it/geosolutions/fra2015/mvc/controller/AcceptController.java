@@ -58,13 +58,7 @@ public class AcceptController{
     @Autowired
     private ControllerServices utils;
 
-    
-    @Autowired
-    private BasicConcurrencyHandler concurencyHandler;
-    
     private final Logger LOGGER = Logger.getLogger(AcceptController.class);
-    
-
     
     @RequestMapping(method = RequestMethod.GET)
     public String handleGet(HttpServletRequest request, Model model,
@@ -82,13 +76,17 @@ public class AcceptController{
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
         SurveyInstance si = surveyInstanceMap.get(country);
+        // Update the status in surveyIstance
+        si.setStatus(utils.getStatusInstanceByCountry(country));
+        
         Status s = si.getStatus();
         if(StatusUtils.isCompleted(s)){
             doAcceptance(country);
-            
             FlashAttributesHandler.addFlashAttribute(session, "success", "acceptance.success", null, null, null);
+            LOGGER.info("The Country Acceptace has now accepted the survey. The status for survey '" + country + "' is Completed");
         }else{
             FlashAttributesHandler.addFlashAttribute(session, "error", "acceptance.error.notCompleted", 10000, null, null);
+            LOGGER.info("Errors has occurred while Accept process run for country: '" + country + "'");
         }
 
         return "redirect:/acceptance/view/0";

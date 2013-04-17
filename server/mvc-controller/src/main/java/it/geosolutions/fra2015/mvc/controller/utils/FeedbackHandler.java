@@ -328,8 +328,10 @@ public class FeedbackHandler{
     public int[] getFeedbackCounter(String country,HttpSession session,boolean harmonized){
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
-        
         SurveyInstance si = surveyInstanceMap.get(country);
+        // Update the status in surveyIstance
+        si.setStatus(controllerServiceUtils.getStatusInstanceByCountry(country));
+        
         if(!harmonized){
             Status s = si.getStatus();
             StatusUtils.getReviewerSubmit(s);
