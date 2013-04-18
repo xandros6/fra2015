@@ -1054,47 +1054,5 @@
 			<br>
 			<br>
 		</div>
-		<div>
-			<div></div>
-			<div class="entry">
-				<table
-					class="editable table table-bordered table-hover table-condensed table-striped">
-					<tbody>
-						<tr>
-							<td colspan="2" rownumber="0" columnnumber="0"><spring:message
-									code="ref85"></spring:message></td>
-						</tr>
-						<tr>
-							<td rownumber="1" columnnumber="0"><spring:message
-									code="ref86"></spring:message></td>
-							<td class="entry-item editable text" rownumber="1"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13"><span class="entry_item_placeholder" id="_fraVariable_13x_1_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_13x_1_1_}</div></td>
-						</tr>
-						<tr>
-							<td rownumber="2" columnnumber="0"><spring:message
-									code="ref87"></spring:message></td>
-							<td class="entry-item editable text" rownumber="2"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13"><span class="entry_item_placeholder" id="_fraVariable_13x_2_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_13x_2_1_}</div></td>
-						</tr>
-						<tr>
-							<td rownumber="3" columnnumber="0"><spring:message
-									code="ref88"></spring:message></td>
-							<td class="entry-item editable text" rownumber="3"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13"><span class="entry_item_placeholder" id="_fraVariable_13x_3_1_">&nbsp;</span>
-							<div id="cell-content">${_fraVariable_13x_3_1_}</div></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="control clearfix"></div>
-			<fra:feedback feedbackName="_feedback_13x_"/>
-			<br>
-			<br>
-		</div>
 	</section>
 </section>
