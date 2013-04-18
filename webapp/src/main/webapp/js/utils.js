@@ -66,31 +66,8 @@ fra = {
 				
 	            var input = $('<'+type+' style="text-align:'+textalign+';" name="'+ name +'" class="celleditor input-small" type="text" value="'+text+'"/>');
 	            input.val(text);
-	            if (cell.hasClass('number')){
-	                // on keydown verify if the key is a number
-	                input.keydown(function(e){
-	                	var evt=(e)?e:(window.event)?window.event:null;
-	                    if(evt){
-	                       var code=(evt.charCode)?evt.charCode:((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
-	                   
-	                	return ( evt.ctrlKey || evt.altKey 
-	                            || (47<code && code<58 && evt.shiftKey==false) 
-	                            || (95<code && code<106)
-	                            || (code==8) || (code==9) 
-	                            || (code>34 && code<40) 
-	                            || (code==46)
-	                            || (code==109)
-	                            || (code==110)
-	                            ||  (code==190)
-	                            || (code==78)
-	                            || (code==65)
-	                            || (code==47)
-	                           ) 
-	                    }
-	                });                               
-	            }
-	            cell.find('#cell-content').html( input );
-	            cell.find('.celleditor').blur( function(){  	
+            	var hideEditor = function(){  
+            		
 	                if ( cell.hasClass('editing') ){
 	                    cell.removeClass("editing");
 	                    cell.addClass("editable");
@@ -115,13 +92,116 @@ fra = {
 	                    
 	                }
 	                return false;
-	            });
+	            }
+	            if (cell.hasClass('number')){
+	                // on keydown verify if the key is a number
+	                input.keydown(function(e){
+	                	var evt=(e)?e:(window.event)?window.event:null;
+	                    if(evt){
+	                       var code=(evt.charCode)?evt.charCode:((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
+	                   
+	                	return ( evt.ctrlKey || evt.altKey 
+	                            || (47<code && code<58 && evt.shiftKey==false) 
+	                            || (95<code && code<106)
+	                            || (code==8)  
+	                            || (code>34 && code<40) 
+	                            || (code==46)
+	                            || (code==109)
+	                            || (code==110)
+	                            ||  (code==190)
+	                            || (code==78)
+	                            || (code==65)
+	                            || (code==47)
+	                           ) 
+	                    }
+	                });                               
+	            }
+	            input.bind('keydown',function(e){
+                	var evt=(e)?e:(window.event)?window.event:null;
+                	if(evt){
+	                       var code=(evt.charCode)?evt.charCode:((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
+	                     if(event.shiftKey && event.keyCode == 9){
+	                    	 e.preventDefault();
+	                    	 $(this).each(hideEditor);
+	                    	 fra.showPrevious(cell);
+	                    	 return true;
+	                     }
+		                if(code==9){
+		                	 e.preventDefault();
+		        	    	$(this).each(hideEditor);
+
+	                		fra.showNext(cell)
+	                		 
+	                		
+	                    	 
+	                    }
+                	}
+                });    
+	            cell.find('#cell-content').html( input );
+	            cell.find('.celleditor').blur(hideEditor);
 	            cell.find('.celleditor').focus();
 	            $('input').bind('keypress keydown keyup', function(e){
 	                if(e.keyCode == 13) { e.preventDefault(); }
+	                
+	                
 	             });
 	        }
 	        return false;
+	    },
+	    showPrevious: function(cell){
+	    	var nextCell = cell.prev('td.editable');
+	    	if (nextCell.length<=0){
+	    		var nextCell = cell.closest('tr').prev('tr').contents('td.editable').last();
+	    	}
+	    	if(nextCell.length>0){
+   			 
+   			 nextCell.trigger('click');
+           	 
+   			 return true;
+	    	}
+	    	e.preventDefault();
+	    },
+	    showNext:function(cell){
+    		var nextCell = cell.next('td.editable');
+    		 if (nextCell.length<=0){
+    			 var nextCell = cell.closest('tr').next('tr').contents('td.editable').first();
+    		 }
+    		 if(nextCell.length>0){
+    			 
+    			 nextCell.trigger('click');
+            	 e.preventDefault();
+    			 return true;
+    		 }
+    		 /*//next entry
+    		 var nextEntry = cell.closest('.entry').next('.entry');
+    		 if(nextEntry.length<=0){
+    			 nextEntry = cell.closest('.entry').closest('div').next('div');
+    			 
+    		 }
+    		 if(nextEntry.length<=0){
+    			 nextEntry = cell.closest('section').next('section');
+    			 
+    		 }
+    		 alert(nextEntry.length)
+    		 //another table
+    		 var nextCell = nextEntry.find('td.editable');
+    		 if (nextCell.length<=0){
+    			 var nextCell = nextEntry.find('input');
+    		 }
+    		 if (nextCell.length<=0){
+    			 var nextCell = nextEntry.find('select');
+    		 }
+    		 if(nextCell.length<=0){
+    			 var nextCell = nextEntry.find('textarea');
+    		 }
+    		 alert(nextCell.length);
+    		 if(nextCell.length>0){
+    			 nextCell.trigger('click');
+            	 e.preventDefault();
+    			 return true;
+    		 }
+    		 */
+    		 e.preventDefault();
 	    },
 	    
 	    isNumeric: function (name){
