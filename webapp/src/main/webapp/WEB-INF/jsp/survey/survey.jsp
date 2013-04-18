@@ -99,6 +99,7 @@ $(function(){
 		}
 		CKEDITOR.replace( id, { 
 			toolbar: 'MyToolbar',
+			language : '${pageContext.response.locale}',
 			readOnly : readOnly
 		}).on('blur',function(){
 			fra.dirty=true;
