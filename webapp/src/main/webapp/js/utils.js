@@ -66,12 +66,12 @@ fra = {
 				
 	            var input = $('<'+type+' style="text-align:'+textalign+';" name="'+ name +'" class="celleditor input-small" type="text" value="'+text+'"/>');
 	            input.val(text);
+	            var oldtext = text;
             	var hideEditor = function(){  
             		
 	                if ( cell.hasClass('editing') ){
 	                    cell.removeClass("editing");
 	                    cell.addClass("editable");
-	                    var oldtext= text;
 	                    var text = cell.find(".celleditor").attr('value');
 	                    if(cell.hasClass('number')){
 		                    try{
@@ -87,8 +87,15 @@ fra = {
 		                    }
 	                	}
 	                    cell.find('#cell-content').text( text );
-	                    hidden.val( text ).trigger('change');
-	                    fra.dirty=true;
+	                    
+                    	hidden.val( text );
+	                    if(oldtext!=text){
+	                    	hidden.trigger('change');
+	                    	fra.dirty=true;
+	                    	
+	                    }
+	                    
+	                    
 	                    
 	                }
 	                return false;
@@ -155,7 +162,7 @@ fra = {
 	    	}
 	    	if(nextCell.length>0){
    			 
-   			 nextCell.trigger('click');
+   			 nextCell.trigger('mousedown');
            	 
    			 return true;
 	    	}
@@ -168,7 +175,7 @@ fra = {
     		 }
     		 if(nextCell.length>0){
     			 
-    			 nextCell.trigger('click');
+    			 nextCell.trigger('mousedown');
             	 e.preventDefault();
     			 return true;
     		 }
@@ -196,7 +203,7 @@ fra = {
     		 }
     		 alert(nextCell.length);
     		 if(nextCell.length>0){
-    			 nextCell.trigger('click');
+    			 nextCell.trigger('mousedown');
             	 e.preventDefault();
     			 return true;
     		 }
