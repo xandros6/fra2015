@@ -90,7 +90,7 @@ $(function(){
 					container.addClass('alert-error');
 
 				}else{
-					instance.setReadOnly(false);
+					instance.setReadOnly(true);
 					container.addClass('alert-warning');
 
 				}
