@@ -61,10 +61,10 @@ fra = {
 	            }
 	            var textalign ='left';
 	            if(fra.isNumeric(name) ) {cell.addClass('number');textalign='right';}
-		        
-				if(cell.hasClass('number')){type='input';}
+	            var cls = "";
+				if(cell.hasClass('number')){type='input';cls="input-small"}
 				
-	            var input = $('<'+type+' style="text-align:'+textalign+';" name="'+ name +'" class="celleditor input-small" type="text" value="'+text+'"/>');
+	            var input = $('<'+type+' style="text-align:'+textalign+';" name="'+ name +'" class="celleditor '+cls+'"" type="text" value="'+text+'"/>');
 	            input.val(text);
 	            var oldtext = text;
             	var hideEditor = function(){  
@@ -176,7 +176,7 @@ fra = {
     		 if(nextCell.length>0){
     			 
     			 nextCell.trigger('mousedown');
-            	 e.preventDefault();
+            	 
     			 return true;
     		 }
     		 /*//next entry
@@ -208,7 +208,7 @@ fra = {
     			 return true;
     		 }
     		 */
-    		 e.preventDefault();
+    		 
 	    },
 	    
 	    isNumeric: function (name){

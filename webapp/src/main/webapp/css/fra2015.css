@@ -392,6 +392,16 @@ td.number #cell-content,td.total{
 table.table-hover tbody tr td.editable{
 	background-color: rgb(242, 245, 169);
 }*/
+
+table tbody tr td.editing input.celleditor{
+	
+}
+table tbody tr td.editing{
+	position:relative;
+}
+table tbody tr td.editing textarea.celleditor{
+
+}
 .summary td.notpresent{
 	 background-color: #E9E9E9  !important; 
 }
