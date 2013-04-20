@@ -102,7 +102,9 @@ $(function(){
 			language : '${pageContext.response.locale}',
 			readOnly : readOnly
 		}).on('blur',function(){
-			fra.dirty=true;
+			if(CKEDITOR.instances[id].checkDirty()){
+				fra.dirty=true;
+			}
 		})
 		
 		
