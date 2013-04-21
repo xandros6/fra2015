@@ -38,6 +38,9 @@ fra = {
 	    editRow: function(){
     		var type='textarea';
 	        var cell = $(this);
+	        if(cell.hasClass('editing')){
+	        	return true;
+	        }
 	        
 	        if ( cell.hasClass('editable') ){
 	            cell.removeClass("editable");
