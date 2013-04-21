@@ -10,9 +10,13 @@
 		<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/users/*" access="ROLE_admin" />
 		<intercept-url pattern="/adminactivitylog*" access="ROLE_admin" />
+		<intercept-url pattern="/adminactivitylog/*" access="ROLE_admin" />
 		<intercept-url pattern="/survey/*" access="ROLE_contributor" />
 		<intercept-url pattern="/surveylist*" access="ROLE_reviewer,ROLE_editor" />
-		<intercept-url pattern="/revieweractivitylog*" access="ROLE_reviewer,ROLE_editor" />
+		<intercept-url pattern="/editoractivitylog*" access="ROLE_editor" />
+		<intercept-url pattern="/editoractivitylog/*" access="ROLE_editor" />
+		<intercept-url pattern="/revieweractivitylog*" access="ROLE_reviewer" />
+		<intercept-url pattern="/revieweractivitylog/*" access="ROLE_reviewer" />
 		<intercept-url pattern="/summary*" access="ROLE_contributor" />
 		<intercept-url pattern="/print*" access="ROLE_admin" />
 		<intercept-url pattern="/reviewersubmit*" access="ROLE_reviewer" />
