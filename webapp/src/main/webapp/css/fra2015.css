@@ -83,6 +83,9 @@ td.entry-item{
     box-shadow: 0 1px 2px rgba(0,0,0,.05);
     min-height:100px;
 }
+.richtext-read,.feedbackentry-body{
+	overflow-x: auto;
+}
 .form-signin .form-signin-heading{
 	font-weight:bold;font-size:30px
 }
@@ -392,6 +395,16 @@ td.number #cell-content,td.total{
 table.table-hover tbody tr td.editable{
 	background-color: rgb(242, 245, 169);
 }*/
+
+table tbody tr td.editing input.celleditor{
+	
+}
+table tbody tr td.editing{
+	position:relative;
+}
+table tbody tr td.editing textarea.celleditor{
+
+}
 .summary td.notpresent{
 	 background-color: #E9E9E9  !important; 
 }

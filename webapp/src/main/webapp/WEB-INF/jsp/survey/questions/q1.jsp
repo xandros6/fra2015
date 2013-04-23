@@ -396,7 +396,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1a_6_5_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_1a_6_5_}</div></td>
 						</tr>
-						<tr rowname="1.5" unit="1000 ha">
+						<!--  <tr rowname="1.5" unit="1000 ha">
 							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
 							<td class="title" colspan="2" rownumber="7" columnnumber="0"><spring:message
 									code="ref62"></spring:message></td>
@@ -420,7 +420,7 @@
 								rownumber="7" columnnumber="5"
 								style="background-color: rgb(242, 245, 169);" entry-id="1a"><span class="entry_item_placeholder" id="_fraVariable_1a_7_5_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_1a_7_5_}</div></td>
-						</tr>
+						</tr> -->
 						<tr>
 							<td></td>
 							<td colspan="2" rownumber="8" columnnumber="0"><spring:message

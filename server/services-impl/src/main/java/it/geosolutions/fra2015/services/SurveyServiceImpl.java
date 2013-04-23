@@ -492,7 +492,13 @@ public class SurveyServiceImpl implements SurveyService {
             LOGGER.debug("Loading values for Country:"+iso3 + " question:"+questionNumber + " type:"+typeName);
 
             List<? extends Value> valuesList = valueDAO.readAll(country, questionNumber);
+            
             for (Value value : valuesList) {
+                if(typeName.equals("Number")){
+                    if ("NaN".equalsIgnoreCase(value.getContent())){
+                        value.setContent("N/A");
+                    }
+                }
                 EntryItem item = value.getEntryItem();
                 CompactValue compact = new CompactValue(
                         item.getEntry().getVariable(),

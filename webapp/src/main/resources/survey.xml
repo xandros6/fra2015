@@ -433,7 +433,8 @@
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
 								</entryItem>
-								<entryItem>
+								<!-- removed as in #138
+								 <entryItem>
 									<rowName>1.5</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>7</rowNumber>
@@ -467,7 +468,7 @@
 									<rowNumber>7</rowNumber>
 									<columnNumber>5</columnNumber>
 									<type>Number</type>
-								</entryItem>
+								</entryItem> -->
 							</EntryItems>
 						</entry>
 						<entry>
