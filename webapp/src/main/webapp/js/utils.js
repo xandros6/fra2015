@@ -126,18 +126,19 @@ fra = {
 	                    }
 	                });                               
 	            }
+	            //tab navigation
 	            input.bind('keydown',function(e){
                 	var evt=(e)?e:(window.event)?window.event:null;
                 	if(evt){
 	                       var code=(evt.charCode)?evt.charCode:((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
-	                     if(event.shiftKey && event.keyCode == 9){
-	                    	 e.preventDefault();
+	                     if(evt.shiftKey && code == 9){
+	                    	 evt.preventDefault();
 	                    	 $(this).each(hideEditor);
 	                    	 fra.showPrevious(cell);
 	                    	 return true;
 	                     }
 		                if(code==9){
-		                	 e.preventDefault();
+		                	 evt.preventDefault();
 		        	    	$(this).each(hideEditor);
 
 	                		fra.showNext(cell)
@@ -169,7 +170,7 @@ fra = {
            	 
    			 return true;
 	    	}
-	    	e.preventDefault();
+	    	
 	    },
 	    showNext:function(cell){
     		var nextCell = cell.next('td.editable');
