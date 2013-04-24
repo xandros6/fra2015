@@ -226,8 +226,46 @@ $(function(){
         
     });
 })
-
-
-
 </script>
+<c:if test="${not empty sessionUser}">
+
+<script type="text/javascript">
+		//First advice
+		var firstAdviceTime =7200000; //2 h
+		var end = new Date();
+		//end of session
+		end.setHours(end.getHours()+3);
+		function addZeros(num){
+			return num <=9 ? '0' + num : num;
+		}
+        function DisplaySessionTimeout()
+        {
+        	var now = new Date();
+        	var sessionTimeout = ( end.getTime() - now.getTime()) / 1000;
+            //assigning minutes left to session timeout to Label
+            var hours = addZeros(Math.floor( sessionTimeout / (60*60) %24));
+       		var mins  = addZeros(Math.floor( sessionTimeout / 60 % 60 ));
+        	var secs  = addZeros (Math.floor( sessionTimeout % 60));
+            
+            
+    	 	$("#alert-area").html($('<div class="alert alert-warning" style="text-align:center"><strong><spring:message code="timeout.start" text="You will be disconnected in" /> '
+    	 			+ hours + ':' + mins + ':' + secs + ' <spring:message code="timeout.trail" text="due inactivity. Please save your changes the or thay will be lost" /></strong></div>'));
+
+            //if session is not less than 0
+            if (sessionTimeout >= 0)
+                //call the function again after 1 minute delay
+                window.setTimeout("DisplaySessionTimeout()", 1000);
+            else
+            {
+                //show message box
+    	 		$("#alert-area").html($('<div class="alert alert-error" style="text-align:center"><strong><spring:message code="timeout.disconnected" text="Disconnected due inactivity" /> </strong></div>'));
+
+            	
+            }
+        }
+        //first alert after 2 hours  
+        window.setTimeout("DisplaySessionTimeout()", firstAdviceTime);
+
+</script>		<div class="alertArea" style="position:fixed;top:0;z-index:10000" id="alert-area"></div>
+</c:if>
 <script src="${pageContext.request.contextPath}/js/users.js"></script>

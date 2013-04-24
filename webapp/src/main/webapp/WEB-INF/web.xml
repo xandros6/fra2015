@@ -97,7 +97,7 @@
  </filter-mapping>
  <!-- Session duration -->
  <session-config>
-    <session-timeout>25</session-timeout> <!-- in minutes -->
+    <session-timeout>180</session-timeout> <!-- 3 hour Session -->
 </session-config>
 
 
