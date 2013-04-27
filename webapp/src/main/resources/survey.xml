@@ -1037,27 +1037,6 @@
 								</entryItem>
 							</EntryItems>
 						</entry>
-						<entry>
-							<type>static_table</type>
-							<variable>13x</variable>
-							<EntryItems>
-								<entryItem>
-									<rowNumber>1</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowNumber>2</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowNumber>3</rowNumber>
-									<columnNumber>1</columnNumber>
-									<type>String</type>
-								</entryItem>
-							</EntryItems>
-						</entry>
 					</entries>
 				</question>
 				<question>
