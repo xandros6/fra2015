@@ -36,6 +36,7 @@
 				<a  href="#" class="btn btn-mini pull-right addBtn"><spring:message code="add.row" /></a>
 			</c:if>
 		</div>
+		<fra:feedback feedbackName="_feedback_0_"/>
 		<br>
 		<br>
 	</div>
@@ -51,6 +52,7 @@
 			<fra:richtextentry operation="${operationWR}" name="_fraVariable_1_"></fra:richtextentry>
 		</div>
 		<div class="control clearfix"></div>
+		<fra:feedback feedbackName="_feedback_1_"/>
 		<br>
 		<br>
 	</div>

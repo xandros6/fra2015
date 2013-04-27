@@ -104,7 +104,7 @@ public class ReviewerSubmitController {
         for (Question el : questions) {
 
             long qid = el.getId();
-            if (!feedbackService.checkQuestionFeedbackStatus(su, si, qid) && qid != 0) {
+            if (!feedbackService.checkQuestionFeedbackStatus(su, si, qid)) {
                 
                 notAcceptedQuestions.add(qid);
                 accepted = false;
