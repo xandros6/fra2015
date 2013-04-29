@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>it.geosolutions</groupId>
+        <artifactId>fra2015-root</artifactId>
+        <version>1.2-SNAPSHOT</version>
+    </parent>
+
+    <groupId>it.geosolutions.fra2015</groupId>
+    <artifactId>fra2015-init-db</artifactId>
+
+    <packaging>jar</packaging>
+
+    <name>FRA2015 db init</name>
+    <description>Creates an empty hsql db with the FRA2015 model. Only used for creation of db for standalone deploy</description>
+    
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-persistence</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>it.geosolutions.fra2015</groupId>
+            <artifactId>fra2015-model</artifactId>
+        </dependency>
+
+         
+        <!-- ============================== -->
+        <!-- log4j -->
+        <!-- ============================== -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <!-- mvn -e clean install org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+                       -Dexec.executable=java
+                        "-Dexec.args=-classpath %classpath -Dfra2015-ovr=init/initdb-ovr.properties it.geosolutions.fra2015.init.DBInit"
+                 -->
+
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>build-db</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>exec</goal> <!-- run in a separate process -->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+
+                    <arguments>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>-Dfra2015-ovr=init/initdb-ovr.properties</argument>
+                        <argument>it.geosolutions.fra2015.init.DBInit</argument>
+                    </arguments>
+
+                    <systemProperties>
+                        <systemProperty>
+                            <key>fra2015-ovr</key>
+                            <value>init/initdb-ovr.properties</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+    
+
+</project>

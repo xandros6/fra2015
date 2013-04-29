@@ -160,6 +160,7 @@
     <modules>
         <module>server</module>
         <module>webapp</module>
+        <module>initdb</module>
     </modules>
 
     <dependencyManagement>
