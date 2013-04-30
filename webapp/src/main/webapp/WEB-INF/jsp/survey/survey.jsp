@@ -43,12 +43,12 @@ $(function(){
             $left.addClass('in');
             $left.css('display', 'block');
             $right.removeClass('span12').addClass('span8');
-            $hide.text('Hide menu');
+            $hide.text('<spring:message code="left.hidemenu" text="Hide Menu"/>');
         } else {
             $left.removeClass('in');
             $left.css('display', 'none');
             $right.removeClass('span8').addClass('span12');
-            $hide.text('Show menu');
+            $hide.text('<spring:message code="left.showmenu" text="Show Menu"/>');
         }
     });
 	
