@@ -13,3 +13,4 @@ apache-tomcat-6.0.35
 .project
 .settings/
 target/
+/release/installer
