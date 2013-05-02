@@ -55,7 +55,7 @@
 					
 					<div id="buttonPanel" class="pull-right">
 						<button id="submitButton"
-							class="btn btn-large btn-info ${!allowsubmit ? 'disabled':''}" ${!allowsubmit ? 'disabled':''}>Submit</button>
+							class="btn btn-large btn-info ${!allowsubmit ? 'disabled':''}" ${!allowsubmit ? 'disabled':''}><spring:message code="submit.button" /></button>
 					</div>
 				</form>
 				</c:if>
