@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.aspect;
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.ActivityLogEntry;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.services.SurveyActivityLog;
 
 import java.util.GregorianCalendar;
@@ -47,6 +48,7 @@ public class ActivityLogAspect {
     private Logger LOGGER = Logger.getLogger(ActivityLogAspect.class);
     
     private static final String DELETED = "***VALUE_DELETED***";
+    private static final String STATUS_CHANGED = "STATUS_CHANGED";
     
     @Autowired
     private SurveyActivityLog sal;
@@ -73,6 +75,40 @@ public class ActivityLogAspect {
         }
         
         
+    }
+    
+    @Before("execution(* it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint.changeStatus(..))")
+    public void logStatusChange(JoinPoint joinPoint) {
+        
+        Status status = (Status)joinPoint.getArgs()[0];
+        sal.storeLog(fromStatusToActivityLog(status));
+    }
+    
+    private static ActivityLogEntry fromStatusToActivityLog(Status status){
+        
+        ActivityLogEntry al = new ActivityLogEntry();
+        al.setContent(composeStatusChangeContent(status));
+        al.setCountry(status.getCountry());
+        al.setVarName(null);
+        al.setVarCol(null);
+        al.setVarRow(null);
+        al.setQuestion_id(STATUS_CHANGED);
+        al.setTimestamp(GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC")).getTime());
+        al.setUsername(null);
+        return al;
+    }
+    
+    private static String composeStatusChangeContent(Status status) {
+
+        final String SEPARATOR = " % ";
+        String tostring = "status=" + status.getStatus() + SEPARATOR + "message="
+                + status.getMessage() + SEPARATOR + "coverage=" + status.getCoverage() + SEPARATOR
+                + "reviewerSubmit=" + status.getReviewerSubmit() + SEPARATOR
+                + "lastContributorSubmission=" + status.getLastContributorSubmission() + SEPARATOR
+                + "lastSurveyReview=" + status.getLastSurveyReview() + SEPARATOR
+                + "previousSurveyReview=" + status.getPreviousSurveyReview() + SEPARATOR
+                + "revisionNumber=" + status.getRevisionNumber();
+        return tostring;
     }
     
     private static ActivityLogEntry fromUpdateToActivityLog(Update u, String question, String username){

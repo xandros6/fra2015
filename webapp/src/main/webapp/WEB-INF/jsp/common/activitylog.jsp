@@ -57,6 +57,9 @@
                 <div class="input-append">
 				  <form:select path="question_id" id="questionId" name="questionId" class="span1 input-small ui-autocomplete-input" autocomplete="off">
                   	<form:option value="" label=""/>
+                  	<c:if test="${showStatusChange}">
+                  		<form:option value="STATUS_CHANGED" label="StateChanges"/>
+                  	</c:if>
                   	<form:options items="${questions}" />
                   </form:select>                <span class="add-on">
                   <i id="filter_questionId_clear_btn" class="icon-remove-sign"> </i>

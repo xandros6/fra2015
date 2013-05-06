@@ -123,6 +123,7 @@ public class AdminActivityLog {
 		model.addAttribute("context", "activitylog");
 		model.addAttribute("pagination", pagination);
 		model.addAttribute("activityLogList", activityLogList);
+		model.addAttribute("showStatusChange", true);
 		return "admin";
 	}
     
