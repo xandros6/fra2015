@@ -46,6 +46,9 @@
 							<c:when test="${context=='export'}">
 								<jsp:include page="admin/export.jsp" />
 							</c:when>
+							<c:when test="${context=='surveystatus'}">
+								<jsp:include page="common/surveystatus.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>

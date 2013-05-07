@@ -107,6 +107,11 @@ public interface UserService {
      */
     public List<User> getReviewersForSurveyAndQuestion(String iso3, Long question);
 
+    List<User> getUsersForCountry(String iso3, String role, Integer question);
+
+    List<User> getUsersForCountry(String iso3, String role);
+
+
     
 
 }

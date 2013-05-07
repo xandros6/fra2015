@@ -48,6 +48,9 @@
 							<c:when test="${context=='survey'}">
 								<jsp:include page="editor/survey.jsp" />
 							</c:when>
+							<c:when test="${context=='surveystatus'}">
+								<jsp:include page="common/surveystatus.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>

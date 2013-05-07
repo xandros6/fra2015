@@ -237,6 +237,28 @@ public class UserServiceImpl implements UserService {
         return userDAO.search(searchCriteria);
         
     }
+    /**
+     * Get users for a country,filtering by role, question
+     */
+    @Override
+    public List<User> getUsersForCountry(String iso3,String role,Integer question) {
+        Search searchCriteria = new Search(User.class);
+        searchCriteria.addFilterSome("countriesSet", Filter.equal("iso3", iso3));
+        if(role != null){
+            searchCriteria.addFilter(Filter.equal("role",role));   
+        }
+        if(question != null){
+            searchCriteria.addFilterSome("questions", Filter.equal("id", Long.toString(question)));
+        }
+        return userDAO.search(searchCriteria);
+        
+    }
+    @Override
+    public List<User> getUsersForCountry(String iso3,String role) {
+        
+        return getUsersForCountry(iso3,role,null);
+    }
+    
 
     
 }
