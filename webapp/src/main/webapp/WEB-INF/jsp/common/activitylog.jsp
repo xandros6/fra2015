@@ -89,8 +89,20 @@
                 <td class="span2"><div>${activityLogEntry.date}</div></td>
                 <td class="span2"><div>${activityLogEntry.username}</div></td>
                 <td class="span1"><div>${activityLogEntry.country}</div></td>
-                <td class="span1"><div>${activityLogEntry.question_id}</div></td>
-                <td class="span2"><div>${activityLogEntry.content}</div></td>
+                <td class="span1"><div>
+                	<c:if test="${activityLogEntry.question_id=='STATUS_CHANGED'}">
+							<spring:message code="statuschange" text="Status Change"></spring:message>
+						</c:if>
+						<c:if test="${activityLogEntry.question_id!='STATUS_CHANGED'}">
+							${activityLogEntry.question_id}
+						</c:if></div></td></div></td>
+                <td class="span2"><div>
+                		<c:if test="${activityLogEntry.question_id=='STATUS_CHANGED'}">
+							${fra:formatStatusChange(activityLogEntry.content).message}
+						</c:if>
+						<c:if test="${activityLogEntry.question_id!='STATUS_CHANGED'}">
+							${activityLogEntry.content}
+						</c:if></div></td>
               </tr>
             </c:forEach>  
             <c:forEach var="i" begin="1" end="${10 - (fn:length(activityLogList))}" step="1">
