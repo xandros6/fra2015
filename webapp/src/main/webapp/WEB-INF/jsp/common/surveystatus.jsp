@@ -94,7 +94,7 @@
 
 			<h3>
 				<spring:message code="statuschanges" text="Status Changes"></spring:message>
-				</h2>
+				</h3>
 				<table id="coverage"
 					class="table table-bordered table-hover .table-condensed">
 					<thead>
@@ -120,26 +120,58 @@
 		</div>
 		<h3>
 			<spring:message code="status changes" text="Status Changes"></spring:message>
-			</h2>
+			</h3>
 			<table id="statuschanges"
 				class="table table-bordered table-hover .table-condensed">
 				<thead>
 					<tr>
 						  <th><spring:message code="timestamp"></spring:message></th>
-			              <th><spring:message code="username"></spring:message></th>
 			              <th><spring:message code="country"></spring:message></th>
-			              <th><spring:message code="question"></spring:message></th>
 			              <th><spring:message code="content"></spring:message></th>
 					</tr>
 				</thead>
 				<c:forEach items='${statuschanges}' var='statuschange'
 					varStatus='rowItem'>
 					<tr class="rowItem">
-						<td class="span2"><div>${statuschange.date}</div></td>
-						<td class="span2"><div>${statuschange.username}</div></td>
-						<td class="span1"><div>${statuschange.country}</div></td>
-						<td class="span1"><div>${statuschange.question_id}</div></td>
-						<td class="span2"><div>${statuschange.content}</div></td>
+						<td class="span2">${statuschange.date}</td>
+						<td class="span1">${statuschange.country}</td>
+						<td class="span4">
+						<c:if test="${statuschange.question_id=='STATUS_CHANGED'}">
+							<dl>
+							<c:forEach items="${fra:formatStatusChange(statuschange.content)}" var="attr">
+								<c:if test="${ attr.value!='null'}">
+								<dt>
+									<spring:message code="${attr.key}" text="${attr.key}"></spring:message>
+								</dt>
+								<dd>
+								
+									<c:choose>
+    									<c:when test="${
+    										attr.key=='lastContributorSubmission' || 
+    										attr.key=='lastSurveyReview' ||
+    										attr.key=='previousSurveyReview' ||
+    										attr.key=='lastContributorSubmission'
+    										
+    										 }">
+											<jsp:setProperty name="dateValue" property="time"
+												value="${attr.value}" />
+											<fmt:formatDate value="${dateValue}"
+												pattern="MM/dd/yyyy HH:mm" />
+   										</c:when>
+   									 <c:otherwise>
+										${attr.value}
+									 </c:otherwise>
+									 </c:choose>
+								</dd>
+								</c:if>
+							</c:forEach>
+							</dl>
+						</c:if>
+						<c:if test="${statuschange.question_id!='STATUS_CHANGED'}">
+							${statuschange.content}
+						</c:if>
+						
+						</td>
 
 					</tr>
 				</c:forEach>

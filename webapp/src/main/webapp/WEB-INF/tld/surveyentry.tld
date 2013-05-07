@@ -126,4 +126,9 @@ jsptaglibrary_2_0.xsd"
 			<function-class>it.geosolutions.fra2015.mvc.controller.utils.StatusUtils</function-class>
 			<function-signature>boolean isReviewEditorEditable(java.lang.String)</function-signature>
 		</function>
+		<function>
+			<name>formatStatusChange</name>
+			<function-class>it.geosolutions.fra2015.utils.FormatUtils</function-class>
+			<function-signature>java.util.Map formatStatusChange(java.lang.String)</function-signature>
+		</function>
 </taglib> 
