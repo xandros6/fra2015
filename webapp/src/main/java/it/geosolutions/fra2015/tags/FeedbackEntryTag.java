@@ -196,19 +196,21 @@ public class FeedbackEntryTag extends ModeTag{
         String valueEd = (String)pageContext.getRequest().getAttribute(feedbackName+"Ed_");
         boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value))||(valueEd != null && !StringUtils.isBlank(valueEd));
         
-        if(feedbackIsPresent){
+        if(feedbackIsPresent || StatusUtils.isReviewEditorEditable(getStatus())){
             try{
                 
                 JspWriter out = pageContext.getOut();
                 composeStartfeedbackArea(out);
                 
                 // --- use RichTextEntry ----
-                RichTextEntry rte = new RichTextEntry();
-                rte.setName(feedbackName/*+READ_SUFFIX*/);
-                rte.setPageContext(pageContext);
-                
-                rte.forceReadMode();
-                rte.doStartTag();
+                if(feedbackIsPresent){
+                    RichTextEntry rte = new RichTextEntry();
+                    rte.setName(feedbackName/*+READ_SUFFIX*/);
+                    rte.setPageContext(pageContext);
+                    
+                    rte.forceReadMode();
+                    rte.doStartTag();
+                }
                 if(StatusUtils.isReviewEditorEditable(getStatus())){
                 // -------------------------
                     
