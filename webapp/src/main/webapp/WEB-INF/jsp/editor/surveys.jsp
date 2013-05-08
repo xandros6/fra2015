@@ -54,9 +54,9 @@
 						<td><a href="../survey/review/${survey.country.iso3}/0"
 							class="btn"><spring:message code="editor.surveylist.view"></spring:message></a>
 						</td>
-						<td><a data-toggle="modal" href="#pendingConfirm" class="btn ${pendingFixEnabled}"><spring:message
+						<td><a data-toggle="modal" data-country="${survey.country.iso3}" href="#pendingConfirm" class="btn ${pendingFixEnabled} pendingConfirm"><spring:message
 									code="editor.surveylist.pending"></spring:message></a> <a
-							data-toggle="modal" href="#completedConfirm" class="btn ${completeEnabled}"><spring:message
+							data-toggle="modal"  data-country="${survey.country.iso3}" href="#completedConfirm" class="btn ${completeEnabled} completedConfirm"><spring:message
 									code="editor.surveylist.completed"></spring:message></a></td>
 					</tr>
 				</c:forEach>
@@ -93,7 +93,7 @@
 			<a href="#" class="btn" data-dismiss="modal"><spring:message
 					code="close"></spring:message></a> <a id="updateBtn"
 				href="../editorPendingFix/${countryIso3}"
-				class="btn btn-primary"><spring:message
+				class="btn btn-primary confirm"><spring:message
 					code="editor.surveylist.pending"></spring:message></a>
 		</div>
 	</div>
@@ -115,9 +115,22 @@
 		<div class="modal-footer">
 			<a href="#" class="btn" data-dismiss="modal"><spring:message
 					code="close"></spring:message></a> <a id="updateBtn"
-				href="../editorCompleted/${countryIso3}"
-				class="btn btn-primary"><spring:message code="editor.surveylist.completed"></spring:message></a>
+				href="#"
+				class="btn btn-primary confirm"><spring:message code="editor.surveylist.completed"></spring:message></a>
 		</div>
 	</div>
+	<script type="text/javascript">
+	$(function(){
+		var sethref 
+		$('.completedConfirm').click(function(){
+			$('#completedConfirm .confirm').attr('href','../editorCompleted/'+$(this).attr('data-country'));
+			
+		})
+		$('.pendingConfirm').click(function(){
+			$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country'));
+		});
+	});
+	
+	</script>
 
 </div>
