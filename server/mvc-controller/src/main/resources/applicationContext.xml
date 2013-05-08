@@ -17,6 +17,7 @@
 		
 		<!-- *** Validator *** -->
     	<bean id="validator" class="it.geosolutions.fra2015.mvc.validation.Validator" />
+    	<bean id="tiersValidator" class="it.geosolutions.fra2015.mvc.validation.TiersValidator" />
 
     	
     	<!-- *** AOP *** -->

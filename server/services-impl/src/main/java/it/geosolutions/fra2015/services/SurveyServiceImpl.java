@@ -24,6 +24,7 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.text.NumberFormat;
@@ -36,11 +37,8 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.apache.log4j.Level;
 
 import com.googlecode.genericdao.search.Search;
-import it.geosolutions.fra2015.services.SurveyServiceImpl.ValueDAO;
-import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
 /**
  *
@@ -603,8 +601,41 @@ public class SurveyServiceImpl implements SurveyService {
 
 
     }
+    
+    @Override
+    public List<EntryItem> getEntryItemsListByFieldValues(String field, List<String> fieldValues, String rowNameValue, String iso3, boolean emptyValues) throws BadRequestServiceEx{
+
+        Search searchCriteria = new Search(EntryItem.class);
+
+        Country country = findCountryByISO3(iso3);
+                if (country == null) {
+                        throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
+                }
+        searchCriteria.addFilterIn(field, fieldValues);
+        if(!StringUtils.isBlank(rowNameValue)){
+            searchCriteria.addFilterEqual("rowName", rowNameValue);
+        }
+        List<EntryItem> results = new ArrayList<EntryItem>();
+        List<EntryItem> items =  entryItemDAO.search(searchCriteria);
+        for(EntryItem item : items){
+                String type = item.getType();
+                        ValueDAO valueDAO = daoMap.get(type);
+                        if (valueDAO != null) {
+                                Value value = valueDAO.read(item.getId(), country);
+                                if(value==null && emptyValues){
+
+                                        results.add(item);
+                                }
+                                else if(value!=null && !emptyValues){
+                                    results.add(item);
+                                }
+                        }
+        }
+                return results;
 
 
+    }
+    
     private static class ValueDTO {
 
         private EntryItem entryItem;

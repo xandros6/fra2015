@@ -25,6 +25,7 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
+import it.geosolutions.fra2015.mvc.validation.TiersValidator;
 import it.geosolutions.fra2015.mvc.validation.Validator;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -67,6 +68,9 @@ public class CheckController {
 
     @Autowired
     private Validator validator;
+    
+    @Autowired
+    private TiersValidator tiersValidator;
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model, HttpSession session) {
@@ -82,6 +86,7 @@ public class CheckController {
             return "index";
         }
         ValidationResult v = validator.validate(iso3);
+        //tiersValidator.checkTiers(iso3);
         
         if (v.getSuccess()) {
             model.addAttribute("allowsubmit", true);
