@@ -17,9 +17,12 @@ public class FormatUtils {
         Map<String,String> attrs = new HashMap<String,String>();
         for(int i = 0; i < elements.length;i++){
             String[] splittedEl = elements[i].split("=");
-            String key = splittedEl[0];
-            String value = splittedEl[1];
-            attrs.put(key,value);
+            if(splittedEl.length ==2){
+                String key = splittedEl[0];
+                String value = splittedEl[1];
+            
+                attrs.put(key,value);
+            }
         }
         return attrs;
     }
