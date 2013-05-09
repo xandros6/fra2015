@@ -85,10 +85,13 @@ public class CheckController {
             model.addAttribute("denysubmit", true);
             return "index";
         }
-        ValidationResult v = validator.validate(iso3);
-        //tiersValidator.checkTiers(iso3);
-        
-        if (v.getSuccess()) {
+        ValidationResult tiersResult = tiersValidator.checkTiers(iso3);
+        ValidationResult rulesResult = null;
+        if(tiersResult.getSuccess()){
+            rulesResult = validator.validate(iso3);
+        }
+        ValidationResult v = (rulesResult==null)?tiersResult:rulesResult;
+        if (v.getSuccess() && tiersResult.getSuccess()) {
             model.addAttribute("allowsubmit", true);
         } else {
             model.addAttribute("validationResult", v);

@@ -23,6 +23,8 @@ package it.geosolutions.fra2015.mvc.validation;
 
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.validation.ValidationMessage;
+import it.geosolutions.fra2015.validation.ValidationResult;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,28 +42,59 @@ public class TiersValidator {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(TiersValidator.class);
     
-    // TODO externalize
+    //The tiers list
+    // TODO externalize (File? in DB?)
     public static final String tiers = "9x"/*;21x;35*/;
     
     @Autowired
     private SurveyService surveyService;
     
-    public void checkTiers(String iso3){
+    /**
+     * This method detect if there are valorized variable rows related to a tier with that tiers not valorized.
+     * This situation violate a constraint for the survey validity.
+     * A variable row is valorized when at least one element of the row is valorized (exists the record on DB and the value is different than NaN)
+     * 
+     * The method search all the not valorized tiers and check if the related row variable is valorized(the match is stored in the rowName field of the tier)
+     * 
+     * @param iso3
+     */
+    public ValidationResult checkTiers(String iso3){
+        
+        ValidationResult vr = new ValidationResult();
+        List<String> errorElements = new ArrayList<String>();
+        
         try {
+            // load empty tiers
             List<EntryItem> emptyTiers = surveyService.getEntryItemsListByFieldValues("entry.variable", Arrays.asList(tiers.split(";")), null, iso3, true);
             for(EntryItem el : emptyTiers){
+                // retrieve from the tiers rowName the related variable row 
                 String [] filters = el.getRowName().split(";");
                 List<String> varList = new ArrayList<String>();
                 varList.add(filters[0]);
+                // load the row variables related to the current tier 
                 List<EntryItem> items = surveyService.getEntryItemsListByFieldValues("entry.variable", varList, filters[1], iso3, false);
                 if(!items.isEmpty()){
-                    LOGGER.error("found a value, tiers null");
+                    errorElements.add("table["+filters[0]+"]-row["+filters[1]+"]");
                 }
-                
             }
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
         }
+        if(!errorElements.isEmpty()){
+            ValidationMessage vm = new ValidationMessage();
+            vm.setMessage("error.violateTiersconstraints");
+            vm.setSuccess(false);
+            vm.setElements(errorElements);
+            vr.addMessage(vm);
+            //vm.setRule("Tiers Validity");
+        }
+        else{
+            ValidationMessage vmOk = new ValidationMessage();
+            vmOk.setSuccess(true);
+            vmOk.setMessage("error.violateTiersconstraints");
+            vr.addMessage(vmOk);
+        }
+        return vr;
     }
     
     
