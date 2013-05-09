@@ -52,7 +52,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 
  */
 @Controller
-@RequestMapping("/acceptance/accept/")
 public class AcceptController{ 
 
     @Autowired
@@ -60,8 +59,8 @@ public class AcceptController{
 
     private final Logger LOGGER = Logger.getLogger(AcceptController.class);
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String handleGet(HttpServletRequest request, Model model,
+    @RequestMapping(value ="/acceptance/accept/",method = RequestMethod.GET)
+    public String handleAccept(HttpServletRequest request, Model model,
             HttpSession session) {
 
         model.addAttribute("context","surveylist");
@@ -92,9 +91,46 @@ public class AcceptController{
         return "redirect:/acceptance/view/0";
     
     }
+    @RequestMapping(value ="/acceptance/decline/",method = RequestMethod.GET)
+    public String handleDecline(HttpServletRequest request, Model model,
+            HttpSession session) {
+
+        model.addAttribute("context","surveylist");
+        User su = (User) session.getAttribute("sessionUser");
+        if (su == null) {
+            return "redirect:/login";
+        }
+        if(!Profile.VALIDATOR.toString().equalsIgnoreCase(su.getRole())){
+            return "redirect:/";
+        }
+        String country =UserUtil.getSingleIso3(su);
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+        // Update the status in surveyIstance
+        si.setStatus(utils.getStatusInstanceByCountry(country));
+        
+        Status s = si.getStatus();
+        if(StatusUtils.isCompleted(s)||StatusUtils.isAccepted(s)){
+            doDecline(country);
+            FlashAttributesHandler.addFlashAttribute(session, "success", "acceptance.decline.success", null, null, null);
+            LOGGER.info("The Country Acceptace has now accepted the survey. The status for survey '" + country + "' is Completed");
+        }else{
+            FlashAttributesHandler.addFlashAttribute(session, "error", "acceptance.error.decline.notCompleted", 10000, null, null);
+            LOGGER.info("Errors has occurred while Accept process run for country: '" + country + "'");
+        }//message error acceptance.error.decline.notNotified 
+
+        return "redirect:/acceptance/view/0";
+    
+    }
 
 
 
+    private void doDecline(String country) {
+        //TODO send mails, notify errors        
+        utils.updateSurveyStatusUnderReview(country);
+        
+    }
     private void doAcceptance(String country) {
         //TODO all the stuff to do in acceptance
         utils.updateSurveyStatusAccepted(country);

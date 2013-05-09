@@ -236,7 +236,15 @@ public class ControllerServices {
         }
         
     }
-    
+    public void updateSurveyStatusUnderReview(String c) {
+        Status s = surveyService.getStatus(c);
+        if(StatusUtils.isCompleted(s) || StatusUtils.isAccepted(s)){
+            s.setCountry(c);
+            s.setStatus(StatusUtils.UNDER_REVIEW);
+            surveyService.changeStatus(s);
+        }
+        
+    }
     private static Map<String, Integer> initRowsCounters(SurveyCatalog catalog){
         
         Map<String, Integer> tableRowsCounter = new HashMap<String, Integer>();
@@ -303,5 +311,7 @@ public class ControllerServices {
         Entry e = catalog.getEntry(varName);    
         return e;
     }
+
+    
 
 }

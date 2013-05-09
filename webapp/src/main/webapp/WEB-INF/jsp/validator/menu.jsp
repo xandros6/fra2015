@@ -4,11 +4,11 @@
 		href="${pageContext.request.contextPath}/acceptance/view/0" class="tab"><spring:message code="toolbar.survey" /></a></li>
 	<li class="${context=='export' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/export"
 		class="tab"><spring:message code="toolbar.export" /></a></li>
-	<c:if test="${status=='completed'}">
+	<c:if test="${status=='completed' || status=='accepted'}">
 		<li><a data-toggle="modal" href="#acceptConfirm"
 			class="tab"><spring:message code="acceptance.accept"></spring:message></a></li>
 			<li><a data-toggle="modal" href="#acceptDecline"
-			class="tab"><spring:message code="acceptance.decline" text="Decline"></spring:message></a></li>
+			class="tab"><spring:message code="acceptance.decline"></spring:message></a></li>
 	</c:if>
 </ul>
 <div id="acceptConfirm" class="modal hide fade span8">
@@ -33,18 +33,18 @@
 				<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">x</button>
 		
-			<h3><spring:message code="acceptance.declineSurvey" text="Decline survey"></spring:message></h3>
+			<h3><spring:message code="acceptance.declineSurvey"></spring:message></h3>
 		</div>
 		
 		<div id="modal-body" class="modal-body">
-		<spring:message code="acceptance.acceptDeclineBody" text="do you want to reject this survey? Please leave a message:"></spring:message>
+		<spring:message code="acceptance.declineConfirmBody"></spring:message>
 		<textarea style="width:90%" name="message"></textarea>
 		
 		</div>
 		
 		<div class="modal-footer">
 			<a href="#" class="btn" data-dismiss="modal"><spring:message code="close"></spring:message></a> 
-			<a id="declineBtn" href="${pageContext.request.contextPath}/acceptance/decline/" class="btn btn-primary"><spring:message code="acceptance.decline" text="Decline"></spring:message></a>
+			<a id="declineBtn" href="${pageContext.request.contextPath}/acceptance/decline/" class="btn btn-primary"><spring:message code="acceptance.decline"></spring:message></a>
 		</div>
 	</form>
 </div>
