@@ -236,10 +236,12 @@ public class ControllerServices {
         }
         
     }
-    public void updateSurveyStatusUnderReview(String c) {
+    
+    public void updateSurveyStatusUnderReview(String c, String message) {
         Status s = surveyService.getStatus(c);
         if(StatusUtils.isCompleted(s) || StatusUtils.isAccepted(s)){
             s.setCountry(c);
+            s.setMessage(message);
             s.setStatus(StatusUtils.UNDER_REVIEW);
             surveyService.changeStatus(s);
         }
@@ -311,6 +313,8 @@ public class ControllerServices {
         Entry e = catalog.getEntry(varName);    
         return e;
     }
+
+    
 
     
 

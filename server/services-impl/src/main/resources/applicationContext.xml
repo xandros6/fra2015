@@ -101,6 +101,12 @@
 						<entry key="subject"  value="Fra 2015 Notification - Survey has been completed."></entry><!-- TODO: i18n -->
 					</map>
 				</entry>
+				<entry key="surveyDeclined">
+					<map>
+						<entry key="template" value="decline.ftl"></entry>
+						<entry key="subject"  value="Fra 2015 Notification - Survey has been rejected"></entry><!-- TODO: i18n -->
+					</map>
+				</entry>
 			</map>
 		</property>
 		<property name="mailFromAddress" value="admin@fra.fao.org" />

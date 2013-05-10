@@ -28,7 +28,7 @@
 		</div>
 </div>
 <div id="acceptDecline" class="modal hide fade span8">
-	<form>
+	<form action="${pageContext.request.contextPath}/acceptance/decline/" method="POST">
 		<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">x</button>
@@ -44,7 +44,7 @@
 		
 		<div class="modal-footer">
 			<a href="#" class="btn" data-dismiss="modal"><spring:message code="close"></spring:message></a> 
-			<a id="declineBtn" href="${pageContext.request.contextPath}/acceptance/decline/" class="btn btn-primary"><spring:message code="acceptance.decline"></spring:message></a>
+			<button type=submit  id="declineBtn"  class="btn btn-primary"><spring:message code="acceptance.decline"></spring:message></a>
 		</div>
 	</form>
 </div>

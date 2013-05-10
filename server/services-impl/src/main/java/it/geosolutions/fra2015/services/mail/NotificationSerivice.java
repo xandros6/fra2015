@@ -81,6 +81,9 @@ public class NotificationSerivice {
         notifyUsers(user,status,reviewEditors,"reviewerSubmit");
         
     }
+    public void notifyDecline(User user,Status status,List<User> reviewEditors) throws IOException,TemplateException{
+        notifyUsers(user, status, reviewEditors, "surveyDeclined");
+    }
     
     /**
      * Notify to a list of users a status change of the survey.
