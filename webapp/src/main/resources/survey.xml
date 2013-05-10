@@ -6537,6 +6537,28 @@
 								</entryItem>
 							</EntryItems>
 						</entry>
+						<entry>
+							<type>static_table</type>
+							<variable>900</variable>
+							<EntryItems>
+								<entryItem>
+									<rowNumber>1</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>String</type>
+								</entryItem>
+							</EntryItems>
+						</entry>
+						<entry>
+							<type>static_table</type>
+							<variable>901</variable>
+							<EntryItems>
+								<entryItem>
+									<rowNumber>1</rowNumber>
+									<columnNumber>1</columnNumber>
+									<type>String</type>
+								</entryItem>
+							</EntryItems>
+						</entry>
 					</entries>
 				</question>
 				<question>

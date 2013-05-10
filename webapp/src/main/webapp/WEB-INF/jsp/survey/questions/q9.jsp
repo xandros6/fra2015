@@ -70,4 +70,97 @@
 		<br>
 		<br>
 	</div>
+	<div>
+			<h4>
+				<spring:message code="ref73"></spring:message>
+			</h4>
+			<div></div>
+			<div class="entry">
+				<table
+					class="editable table table-bordered table-hover table-condensed table-striped">
+					<tbody>
+						<tr>
+							<td rownumber="0" columnnumber="0"><spring:message
+									code="ref13"></spring:message></td>
+							<td rownumber="0" columnnumber="2"><spring:message
+									code="ref75"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="1" columnnumber="0"><spring:message
+									code="ref372"></spring:message></td>
+							<td class="tier entry-item" rownumber="1" columnnumber="2"
+								entry-id="9"><div id="cell-content">
+									<fra:tiers name="_fraVariable_900_1_2_"><option
+											selected="selected">---</option>
+										<option value="Tier 1">Tier 1</option>
+										<option value="Tier 2">Tier 2</option>
+										<option value="Tier 3">Tier 3</option></fra:tiers>
+								</div></td>
+						</tr>						
+					</tbody>
+				</table>
+			</div>
+			<div class="control clearfix"></div>
+			<fra:feedback feedbackName="_feedback_900_"/>
+			<br>
+			<br>
+		</div>
+		<div>
+			<h4>
+				<spring:message code="ref76"></spring:message>
+			</h4>
+			<div></div>
+			<div class="entry">
+				<table
+					class="table table-bordered table-hover table-condensed table-striped">
+					<tbody>
+						<tr>
+							<td rownumber="0" columnnumber="0"><spring:message
+									code="ref13"></spring:message></td>
+							<td rownumber="0" columnnumber="1"><spring:message
+									code="ref75"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="1" columnnumber="0"><spring:message
+									code="ref372"></spring:message></td>
+							<td rownumber="1" columnnumber="1"><spring:message
+									code="ref375bis"></spring:message></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br>
+			<br>
+			<div>
+			<h4>
+				<spring:message code="ref126"></spring:message>
+			</h4>
+			<div></div>
+			<div class="entry">
+				<table
+					class="editable table table-bordered table-hover table-condensed table-striped">
+					<tbody>
+						<tr>
+							<td rownumber="0" columnnumber="0"><spring:message
+									code="ref13"></spring:message></td>
+							<td rownumber="0" columnnumber="1"><spring:message
+									code="ref81"></spring:message></td>
+						</tr>
+						<tr>
+							<td rownumber="1" columnnumber="0"><spring:message
+									code="ref372"></spring:message></td>
+							<td class="entry-item editable text" rownumber="1"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_901_1_1_">&nbsp;</span>
+							<div id="cell-content">${_fraVariable_901_1_1_}</div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="control clearfix"></div>
+			<fra:feedback feedbackName="_feedback_11x_"/>
+			<br>
+			<br>
+		</div>
+		</div>
 </section>
