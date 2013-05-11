@@ -96,25 +96,9 @@ public class NotificationSerivice {
     public void notifyUsers(User user, Status status, List<User> receivers,String templateName) throws IOException, TemplateException {
         Map<String,String> messageConfig = messages.get(templateName);
         
-        
         for(User receiver: receivers){
-            Map<String,Object> model = new HashMap<String,Object>();
-            model.put("receiver",receiver);
-            model.put("user", user);
-            model.put("status", status);
-            //Translate the country name 
-            String country =null;
-            try{
-                country = messageSource.getMessage("country." + UserUtil.getSpacedIso3(receiver),null,new Locale(receiver.getLanguage()) );
-            }catch(NoSuchMessageException e){
-                try{
-                    country = messageSource.getMessage("country." + UserUtil.getSpacedIso3(receiver),null,new Locale("en"));
-                }catch(NoSuchMessageException ee){
-                    country= status.getCountry();
-                }
-            }
-            
-            model.put("country",country);
+            Map<String,Object> model =buildMessageModel(user,receiver,status);
+            buildCountry(receiver,status,model);
             String message = applyTemplate(getTemplate(messageConfig,receiver),model);
             sendMessage(receiver.getEmail(),getSubject(receiver,templateName),message);
         }
@@ -123,6 +107,33 @@ public class NotificationSerivice {
 
 
     
+    public Map<String,Object> buildMessageModel(User user,User receiver,Status status) {
+        Map<String,Object> model = new HashMap<String,Object>();
+        model.put("receiver",receiver);
+        model.put("user", user);
+        model.put("status", status);
+        //Translate the country name 
+
+        // TODO Auto-generated method stub
+        return model;
+        
+    }
+    
+    public void buildCountry(User receiver,Status status,Map<String, Object> model){
+        String country =status.getCountry();
+        if (country == null) country = UserUtil.getSpacedIso3(receiver);
+        try{
+            country = messageSource.getMessage("country." + country,null,new Locale(receiver.getLanguage()) );
+        }catch(NoSuchMessageException e){
+            try{
+                country = messageSource.getMessage("country." + country ,null,new Locale("en"));
+            }catch(NoSuchMessageException ee){
+                LOGGER.warn("localization not found for country" + country);
+            }
+        }
+        model.put("country",country);
+    }
+
     /**
      * Get the first subject in order
      * * if defined in messageSource as emails.subject.[templateName]
