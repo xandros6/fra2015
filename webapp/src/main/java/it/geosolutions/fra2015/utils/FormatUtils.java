@@ -13,15 +13,17 @@ import antlr.StringUtils;
  */
 public class FormatUtils {
     public static Map<String,String> formatStatusChange(String statusMessage){
-        String[] elements= statusMessage.split(" % ");
+        String[] elements= statusMessage.split(" % ");//TODO improve message splitting
         Map<String,String> attrs = new HashMap<String,String>();
         for(int i = 0; i < elements.length;i++){
             String[] splittedEl = elements[i].split("=");
             if(splittedEl.length ==2){
                 String key = splittedEl[0];
                 String value = splittedEl[1];
+                if(value != null || !"null".equals(value)){
+                    attrs.put(key,value);
             
-                attrs.put(key,value);
+                }
             }
         }
         return attrs;

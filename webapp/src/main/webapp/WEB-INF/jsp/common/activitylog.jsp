@@ -95,10 +95,32 @@
 						</c:if>
 						<c:if test="${activityLogEntry.question_id!='STATUS_CHANGED'}">
 							${activityLogEntry.question_id}
-						</c:if></div></td></div></td>
+						</c:if></div></td>
                 <td class="span2"><div>
                 		<c:if test="${activityLogEntry.question_id=='STATUS_CHANGED'}">
-							${fra:formatStatusChange(activityLogEntry.content).message}
+							
+							<c:forEach items="${fra:formatStatusChange(activityLogEntry.content)}" var="attr">
+								<c:if test="${ attr.value!='null' &&(attr.key=='message' || attr.key=='status')}">
+								<dt>
+									<spring:message code="${attr.key}" text="${attr.key}"></spring:message>
+								</dt>
+								<dd>
+								
+									<c:choose>
+    									
+   										<c:when test="${ attr.key =='status'}">
+   										<spring:message code="survey.status.${attr.value}" text="${attr.value}"></spring:message>
+   										</c:when>
+   										<c:when test="${ attr.key =='message'}">
+   											${attr.value}
+   										</c:when>
+   									 <c:otherwise>
+										
+									 </c:otherwise>
+									 </c:choose>
+								</dd>
+								</c:if>
+							</c:forEach>
 						</c:if>
 						<c:if test="${activityLogEntry.question_id!='STATUS_CHANGED'}">
 							${activityLogEntry.content}

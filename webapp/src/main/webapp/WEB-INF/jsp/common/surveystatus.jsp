@@ -158,6 +158,9 @@
 											<fmt:formatDate value="${dateValue}"
 												pattern="MM/dd/yyyy HH:mm" />
    										</c:when>
+   										<c:when test="${ attr.key =='status'}">
+   										<spring:message code="survey.status.${attr.value}" text="${attr.value}"></spring:message>
+   										</c:when>
    									 <c:otherwise>
 										${attr.value}
 									 </c:otherwise>
