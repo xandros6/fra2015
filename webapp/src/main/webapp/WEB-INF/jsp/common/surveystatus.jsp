@@ -93,7 +93,7 @@
 		<div class="span5">
 
 			<h3>
-				<spring:message code="statuschanges" text="Status Changes"></spring:message>
+				<spring:message code="associatedreviewers" text="Reviewers"></spring:message>
 				</h3>
 				<table id="coverage"
 					class="table table-bordered table-hover .table-condensed">
