@@ -7,7 +7,6 @@ package it.geosolutions.fra2015.services;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Entry;
-import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -140,7 +139,13 @@ public interface SurveyService {
     public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
 
     /**
-     * @param field
+     * Search all the entryItems that have the field specified as input equals to one of the elements of fieldValues.
+     * Optionally could be added also a filter by rowName (a list of names), if null or the list is empty the filter on that field is skipped.
+     * if the boolean emptyValues is true, the method return all the filtered values that have no Value associated and viceversa.
+     * 
+     * This method is usefull in tiersValidation.
+     * 
+     * @param field the field of the EntryItem used for filter
      * @param fieldValues
      * @param rowNameValue Optional, could be null
      * @param iso3
@@ -148,6 +153,6 @@ public interface SurveyService {
      * @return
      * @throws BadRequestServiceEx
      */
-    List<EntryItem> getEntryItemsListByFieldValues(String field, List<String> fieldValues,
-            String rowNameValue, String iso3, boolean emptyValues) throws BadRequestServiceEx;
+    public List<Value> getEntryItemsListByFieldValues(String field, List<String> fieldValues,
+            List<String> rowNamesValue, String iso3, boolean emptyValues) throws BadRequestServiceEx;
 }

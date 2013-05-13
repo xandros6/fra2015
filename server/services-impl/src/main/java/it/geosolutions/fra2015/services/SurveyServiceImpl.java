@@ -603,7 +603,7 @@ public class SurveyServiceImpl implements SurveyService {
     }
     
     @Override
-    public List<EntryItem> getEntryItemsListByFieldValues(String field, List<String> fieldValues, String rowNameValue, String iso3, boolean emptyValues) throws BadRequestServiceEx{
+    public List<Value> getEntryItemsListByFieldValues(String field, List<String> fieldValues, List<String> rowNamesValue, String iso3, boolean emptyValues) throws BadRequestServiceEx{
 
         Search searchCriteria = new Search(EntryItem.class);
 
@@ -612,10 +612,10 @@ public class SurveyServiceImpl implements SurveyService {
                         throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
                 }
         searchCriteria.addFilterIn(field, fieldValues);
-        if(!StringUtils.isBlank(rowNameValue)){
-            searchCriteria.addFilterEqual("rowName", rowNameValue);
+        if(rowNamesValue != null && !rowNamesValue.isEmpty()){
+            searchCriteria.addFilterIn("rowName", rowNamesValue);
         }
-        List<EntryItem> results = new ArrayList<EntryItem>();
+        List<Value> results = new ArrayList<Value>();
         List<EntryItem> items =  entryItemDAO.search(searchCriteria);
         for(EntryItem item : items){
                 String type = item.getType();
@@ -623,11 +623,13 @@ public class SurveyServiceImpl implements SurveyService {
                         if (valueDAO != null) {
                                 Value value = valueDAO.read(item.getId(), country);
                                 if(value==null && emptyValues){
-
-                                        results.add(item);
+                                        
+                                        Value val = new NumberValue();
+                                        val.setEntryItem(item);
+                                        results.add(val);
                                 }
                                 else if(value!=null && !emptyValues){
-                                    results.add(item);
+                                    results.add(value);
                                 }
                         }
         }
