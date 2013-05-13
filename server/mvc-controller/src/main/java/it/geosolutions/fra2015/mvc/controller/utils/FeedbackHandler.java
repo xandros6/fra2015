@@ -53,6 +53,7 @@ import org.apache.commons.collections.list.UnmodifiableList;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.jsoup.Jsoup;
 import org.springframework.beans.BeanUtils;
 import org.springframework.ui.Model;
 
@@ -118,7 +119,6 @@ public class FeedbackHandler{
         
         List<Feedback> feedbacksMerged = new ArrayList<Feedback>();
         for(Feedback el : feedbackList){
-            
             int oldFbIndex = oldFeedbacks.indexOf(el);
             if(oldFbIndex >= 0){
                 Feedback oldFb = oldFeedbacks.get(oldFbIndex);
@@ -128,8 +128,7 @@ public class FeedbackHandler{
                 oldFb.setTimestamp(el.getTimestamp());
                 feedbacksMerged.add(oldFb);
             }
-            else if(!StringUtils.isEmpty(el.getFeedback()) || (el.getStatus().equals("ok") || el.getStatus().equals("ko"))){
-                
+            else if(checkIfMustBeMerged(el)){
                 feedbacksMerged.add(el);
             }
         }
@@ -340,5 +339,13 @@ public class FeedbackHandler{
         }else{
             return feedbackService.getFeedbackCounter(si, harmonized);
         }
+    }
+    
+    public static boolean checkIfMustBeMerged(Feedback f){
+        String s = Jsoup.parse(f.getFeedback()).text();
+        boolean isBlank = (StringUtils.isBlank(s) || !StringUtils.isAsciiPrintable(s));
+        boolean isOKorKO = (f.getStatus().equals("ok") || f.getStatus().equals("ko"));
+        
+        return !isBlank || isOKorKO;
     }
 }
