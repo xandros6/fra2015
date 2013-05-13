@@ -45,8 +45,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -91,8 +91,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_110_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -127,8 +127,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_111_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -143,8 +143,8 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_112_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -165,8 +165,8 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_113_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -181,8 +181,8 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_114_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -197,8 +197,8 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_115_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -223,23 +223,23 @@
 									code="ref403"></spring:message></td>
 						</tr>
 						<tr rowname="12.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="1" columnnumber="0"><spring:message
 									code="ref398"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="12"><span class="entry_item_placeholder" id="_fraVariable_12_1_1_">&nbsp;</span>
+								entry-id="12"><span class="entry_item_placeholder" id="_fraVariable_12_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_12_1_1_}</div></td>
 						</tr>
 						<tr rowname="12.1.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="2" columnnumber="0"><spring:message
 									code="ref404"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="12"><span class="entry_item_placeholder" id="_fraVariable_12_2_1_">&nbsp;</span>
+								entry-id="12"><span class="entry_item_placeholder" id="_fraVariable_12_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_12_2_1_}</div></td>
 						</tr>
 					</tbody>
@@ -247,8 +247,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_12_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -294,8 +294,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_116_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -328,8 +328,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -356,11 +356,11 @@
 									code="ref398"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_1_1_">&nbsp;</span>
+								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_118_1_1_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_1_2_">&nbsp;</span>
+								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_1_2_">&#160;</span>
 							<div id="cell-content">${_fraVariable_118_1_2_}</div></td>
 						</tr>
 						<tr>
@@ -368,11 +368,11 @@
 									code="ref405"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_2_1_">&nbsp;</span>
+								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_118_2_1_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_2_2_">&nbsp;</span>
+								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_2_2_">&#160;</span>
 							<div id="cell-content">${_fraVariable_118_2_2_}</div></td>
 						</tr>
 					</tbody>
@@ -380,8 +380,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_118_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>

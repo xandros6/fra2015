@@ -112,20 +112,21 @@ public class DynamicTableTag extends SurveyEntry {
                     sb.append("         class=\"entry-item editable text\"");
                     sb.append("         style=\"background-color: rgb(242, 245, 169);\" entry-id=\""
                             + entryItemName + "\">");
-                    sb.append("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"" + entryValue + "\">");
+                    sb.append("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"" + entryValue + "\" />");
                     sb.append("         <div id=\"cell-content\" class=\"cell-content\">" + entryValue + "</div>");
                     sb.append(" </td>");
                 }
                 if(deleteButton){
                     sb.append(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">");
                     sb.append(localize("dyntable.delete"));
-                    sb.append("</a></td>");
-                    sb.append("</tr>");
+                    sb.append("</a></td>");                    
                 }
+                sb.append("</tr>");
                 if(!skipRow){
                     out.print(sb.toString());
                     filledRows++;
                 }
+                
             }
             
             for(int i=0; i<MIN_ROWS-filledRows; i++){
@@ -156,17 +157,16 @@ public class DynamicTableTag extends SurveyEntry {
             sb.append("         class=\"entry-item editable text\"");
             sb.append("         style=\"background-color: rgb(242, 245, 169);\" entry-id=\""
                     + entryItemName + "\">");
-            sb.append("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"\">");
+            sb.append("         <input type=\"hidden\"  name=\"" + varName + "\" value=\"\" />");
             sb.append("         <div id=\"cell-content\" class=\"cell-content\"></div>");
             sb.append(" </td>");
         }
         if(deleteButton){
             sb.append(" <td class=\"action-column\" width=\"80px\"><a href=\"#\" class=\"btn delete-btn\">");
             sb.append(localize("dyntable.delete"));
-            sb.append("</a></td>");
-            sb.append("</tr>");
+            sb.append("</a></td>");            
         }
-        
+        sb.append("</tr>");
         return sb.toString();
     }
     

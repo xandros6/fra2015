@@ -63,7 +63,7 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br> <br>
+			<br/> <br/>
 		</div>
 	</section>
 	<section>
@@ -108,7 +108,7 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_88_"/>
-				<br> <br>
+				<br/> <br/>
 			</div>
 		</section>
 		<section>
@@ -143,7 +143,7 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_89_"/>
-				<br> <br>
+				<br/> <br/>
 			</div>
 		</section>
 		<section>
@@ -158,7 +158,7 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_90_"/>
-				<br> <br>
+				<br/> <br/>
 			</div>
 		</section>
 	</section>
@@ -179,7 +179,7 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_91_"/>
-				<br> <br>
+				<br/> <br/>
 			</div>
 		</section>
 		<section>
@@ -194,7 +194,7 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_92_"/>
-				<br> <br>
+				<br/> <br/>
 			</div>
 		</section>
 		<section>
@@ -209,7 +209,7 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_93_"/>
-				<br> <br>
+				<br/> <br/>
 			</div>
 		</section>
 	</section>
@@ -265,7 +265,7 @@
 						<tr rowname="8.1" unit="1000 ha"
 							class="summary-aggregated-2003-2012">
 							<td><img class="cfrq-logo"
-								src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+								src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="3" columnnumber="0"><spring:message
 									code="ref352"></spring:message></td>
@@ -273,67 +273,67 @@
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_1_">&nbsp;</span>
+								id="_fraVariable_8a_3_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_1_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_2_">&nbsp;</span>
+								id="_fraVariable_8a_3_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_2_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_3_">&nbsp;</span>
+								id="_fraVariable_8a_3_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_3_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="4" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_4_">&nbsp;</span>
+								id="_fraVariable_8a_3_4_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_4_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="5" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_5_">&nbsp;</span>
+								id="_fraVariable_8a_3_5_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_5_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="6" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_6_">&nbsp;</span>
+								id="_fraVariable_8a_3_6_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_6_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="7" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_7_">&nbsp;</span>
+								id="_fraVariable_8a_3_7_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_7_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="8" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_8_">&nbsp;</span>
+								id="_fraVariable_8a_3_8_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_8_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="9" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_9_">&nbsp;</span>
+								id="_fraVariable_8a_3_9_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_9_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="10" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_3_10_">&nbsp;</span>
+								id="_fraVariable_8a_3_10_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_3_10_}</div></td>
 						</tr>
 						<tr rowname="8.1.1" unit="1000 ha"
 							class="summary-aggregated-2003-2012">
 							<td><img class="cfrq-logo"
-								src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+								src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="4" columnnumber="0"><spring:message
 									code="ref353"></spring:message></td>
@@ -341,61 +341,61 @@
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_1_">&nbsp;</span>
+								id="_fraVariable_8a_4_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_1_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_2_">&nbsp;</span>
+								id="_fraVariable_8a_4_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_2_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_3_">&nbsp;</span>
+								id="_fraVariable_8a_4_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_3_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="4" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_4_">&nbsp;</span>
+								id="_fraVariable_8a_4_4_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_4_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="5" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_5_">&nbsp;</span>
+								id="_fraVariable_8a_4_5_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_5_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="6" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_6_">&nbsp;</span>
+								id="_fraVariable_8a_4_6_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_6_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="7" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_7_">&nbsp;</span>
+								id="_fraVariable_8a_4_7_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_7_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="8" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_8_">&nbsp;</span>
+								id="_fraVariable_8a_4_8_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_8_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="9" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_9_">&nbsp;</span>
+								id="_fraVariable_8a_4_9_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_9_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="4"
 								columnnumber="10" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_4_10_">&nbsp;</span>
+								id="_fraVariable_8a_4_10_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_4_10_}</div></td>
 						</tr>
 						<tr class="defhead">
@@ -432,7 +432,7 @@
 						<tr rowname="8.2" unit="Number"
 							class="summary-aggregated-2003-2012">
 							<td><img class="cfrq-logo"
-								src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+								src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="7" columnnumber="0"><spring:message
 									code="ref352"></spring:message></td>
@@ -440,67 +440,67 @@
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_1_">&nbsp;</span>
+								id="_fraVariable_8a_7_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_1_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_2_">&nbsp;</span>
+								id="_fraVariable_8a_7_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_2_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_3_">&nbsp;</span>
+								id="_fraVariable_8a_7_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_3_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="4" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_4_">&nbsp;</span>
+								id="_fraVariable_8a_7_4_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_4_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="5" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_5_">&nbsp;</span>
+								id="_fraVariable_8a_7_5_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_5_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="6" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_6_">&nbsp;</span>
+								id="_fraVariable_8a_7_6_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_6_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="7" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_7_">&nbsp;</span>
+								id="_fraVariable_8a_7_7_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_7_}</div></td>
 							<td columnname="2003-2102"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="8" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_8_">&nbsp;</span>
+								id="_fraVariable_8a_7_8_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_8_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="9" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_9_">&nbsp;</span>
+								id="_fraVariable_8a_7_9_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_9_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="7"
 								columnnumber="10" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_7_10_">&nbsp;</span>
+								id="_fraVariable_8a_7_10_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_7_10_}</div></td>
 						</tr>
 						<tr rowname="8.2.1" unit="Number"
 							class="summary-aggregated-2003-2012">
 							<td><img class="cfrq-logo"
-								src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+								src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="8" columnnumber="0"><spring:message
 									code="ref353"></spring:message></td>
@@ -508,61 +508,61 @@
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_1_">&nbsp;</span>
+								id="_fraVariable_8a_8_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_1_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_2_">&nbsp;</span>
+								id="_fraVariable_8a_8_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_2_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_3_">&nbsp;</span>
+								id="_fraVariable_8a_8_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_3_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="4" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_4_">&nbsp;</span>
+								id="_fraVariable_8a_8_4_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_4_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="5" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_5_">&nbsp;</span>
+								id="_fraVariable_8a_8_5_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_5_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="6" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_6_">&nbsp;</span>
+								id="_fraVariable_8a_8_6_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_6_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="7" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_7_">&nbsp;</span>
+								id="_fraVariable_8a_8_7_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_7_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="8" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_8_">&nbsp;</span>
+								id="_fraVariable_8a_8_8_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_8_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="9" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_9_">&nbsp;</span>
+								id="_fraVariable_8a_8_9_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_9_}</div></td>
 							<td columnname="2003-2012"
 								class="prefilled entry-item editable text" rownumber="8"
 								columnnumber="10" style="background-color: rgb(242, 245, 169);"
 								entry-id="8a"><span class="entry_item_placeholder"
-								id="_fraVariable_8a_8_10_">&nbsp;</span>
+								id="_fraVariable_8a_8_10_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8a_8_10_}</div></td>
 						</tr>
 					</tbody>
@@ -570,7 +570,7 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_8a_"/>
-			<br> <br>
+			<br/> <br/>
 		</div>
 		<div>
 			<h4>
@@ -595,220 +595,220 @@
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_1_0_">&nbsp;</span>
+								id="_fraVariable_8b_1_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_1_0_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_1_1_">&nbsp;</span>
+								id="_fraVariable_8b_1_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_1_1_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_1_2_">&nbsp;</span>
+								id="_fraVariable_8b_1_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_1_2_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_1_3_">&nbsp;</span>
+								id="_fraVariable_8b_1_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_1_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_2_0_">&nbsp;</span>
+								id="_fraVariable_8b_2_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_2_0_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_2_1_">&nbsp;</span>
+								id="_fraVariable_8b_2_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_2_1_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_2_2_">&nbsp;</span>
+								id="_fraVariable_8b_2_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_2_2_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_2_3_">&nbsp;</span>
+								id="_fraVariable_8b_2_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_2_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_3_0_">&nbsp;</span>
+								id="_fraVariable_8b_3_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_3_0_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_3_1_">&nbsp;</span>
+								id="_fraVariable_8b_3_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_3_1_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_3_2_">&nbsp;</span>
+								id="_fraVariable_8b_3_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_3_2_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_3_3_">&nbsp;</span>
+								id="_fraVariable_8b_3_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_3_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_4_0_">&nbsp;</span>
+								id="_fraVariable_8b_4_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_4_0_}</div></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_4_1_">&nbsp;</span>
+								id="_fraVariable_8b_4_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_4_1_}</div></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_4_2_">&nbsp;</span>
+								id="_fraVariable_8b_4_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_4_2_}</div></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_4_3_">&nbsp;</span>
+								id="_fraVariable_8b_4_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_4_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_5_0_">&nbsp;</span>
+								id="_fraVariable_8b_5_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_5_0_}</div></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_5_1_">&nbsp;</span>
+								id="_fraVariable_8b_5_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_5_1_}</div></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_5_2_">&nbsp;</span>
+								id="_fraVariable_8b_5_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_5_2_}</div></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_5_3_">&nbsp;</span>
+								id="_fraVariable_8b_5_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_5_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_6_0_">&nbsp;</span>
+								id="_fraVariable_8b_6_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_6_0_}</div></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_6_1_">&nbsp;</span>
+								id="_fraVariable_8b_6_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_6_1_}</div></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_6_2_">&nbsp;</span>
+								id="_fraVariable_8b_6_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_6_2_}</div></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_6_3_">&nbsp;</span>
+								id="_fraVariable_8b_6_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_6_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_7_0_">&nbsp;</span>
+								id="_fraVariable_8b_7_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_7_0_}</div></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_7_1_">&nbsp;</span>
+								id="_fraVariable_8b_7_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_7_1_}</div></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_7_2_">&nbsp;</span>
+								id="_fraVariable_8b_7_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_7_2_}</div></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_7_3_">&nbsp;</span>
+								id="_fraVariable_8b_7_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_7_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_8_0_">&nbsp;</span>
+								id="_fraVariable_8b_8_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_8_0_}</div></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_8_1_">&nbsp;</span>
+								id="_fraVariable_8b_8_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_8_1_}</div></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_8_2_">&nbsp;</span>
+								id="_fraVariable_8b_8_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_8_2_}</div></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_8_3_">&nbsp;</span>
+								id="_fraVariable_8b_8_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_8_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="9"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_9_0_">&nbsp;</span>
+								id="_fraVariable_8b_9_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_9_0_}</div></td>
 							<td class="entry-item editable text" rownumber="9"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_9_1_">&nbsp;</span>
+								id="_fraVariable_8b_9_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_9_1_}</div></td>
 							<td class="entry-item editable text" rownumber="9"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_9_2_">&nbsp;</span>
+								id="_fraVariable_8b_9_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_9_2_}</div></td>
 							<td class="entry-item editable text" rownumber="9"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_9_3_">&nbsp;</span>
+								id="_fraVariable_8b_9_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_9_3_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="10"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_10_0_">&nbsp;</span>
+								id="_fraVariable_8b_10_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_10_0_}</div></td>
 							<td class="entry-item editable text" rownumber="10"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_10_1_">&nbsp;</span>
+								id="_fraVariable_8b_10_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_10_1_}</div></td>
 							<td class="entry-item editable text" rownumber="10"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_10_2_">&nbsp;</span>
+								id="_fraVariable_8b_10_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_10_2_}</div></td>
 							<td class="entry-item editable text" rownumber="10"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
 								entry-id="8b"><span class="entry_item_placeholder"
-								id="_fraVariable_8b_10_3_">&nbsp;</span>
+								id="_fraVariable_8b_10_3_">&#160;</span>
 								<div id="cell-content">${_fraVariable_8b_10_3_}</div></td>
 						</tr>
 					</tbody>
@@ -816,7 +816,7 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_8b_"/>
-			<br> <br>
+			<br/> <br/>
 		</div>
 		<div>
 			<div></div>
@@ -844,7 +844,7 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br> <br>
+			<br/> <br/>
 		</div>
 		<div>
 			<h4>
@@ -885,8 +885,7 @@
 										<option value="Tier 3">Tier 3</option></fra:tiers>
                                     <spring:message code="refq8tierst0"></spring:message>
 								</div>
-                                </td>
-                            </td>
+              </td>
 						</tr>
 						<tr>
 							<td rownumber="2" columnnumber="0"><spring:message
@@ -915,7 +914,7 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_95_"/>
-			<br> <br>
+			<br/> <br/>
 		</div>
 		<div>
 			<h4>
@@ -954,7 +953,7 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br> <br>
+			<br/> <br/>
 		</div>
 	</section>
 	<section>
@@ -982,12 +981,12 @@
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_1_1_">&nbsp;</span>
+								id="_fraVariable_97_1_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_1_1_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_1_2_">&nbsp;</span>
+								id="_fraVariable_97_1_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_1_2_}</div></td>
 						</tr>
 						<tr>
@@ -996,12 +995,12 @@
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_2_1_">&nbsp;</span>
+								id="_fraVariable_97_2_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_2_1_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_2_2_">&nbsp;</span>
+								id="_fraVariable_97_2_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_2_2_}</div></td>
 						</tr>
 						<tr>
@@ -1010,12 +1009,12 @@
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_3_1_">&nbsp;</span>
+								id="_fraVariable_97_3_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_3_1_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_3_2_">&nbsp;</span>
+								id="_fraVariable_97_3_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_3_2_}</div></td>
 						</tr>
 						<tr>
@@ -1024,12 +1023,12 @@
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_4_1_">&nbsp;</span>
+								id="_fraVariable_97_4_1_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_4_1_}</div></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
 								entry-id="97"><span class="entry_item_placeholder"
-								id="_fraVariable_97_4_2_">&nbsp;</span>
+								id="_fraVariable_97_4_2_">&#160;</span>
 								<div id="cell-content">${_fraVariable_97_4_2_}</div></td>
 						</tr>
 					</tbody>
@@ -1037,7 +1036,7 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_97_"/>
-			<br> <br>
+			<br/> <br/>
 		</div>
 		<div>
 			<div></div>
@@ -1053,7 +1052,7 @@
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
 								entry-id="98"><span class="entry_item_placeholder"
-								id="_fraVariable_98_1_0_">&nbsp;</span>
+								id="_fraVariable_98_1_0_">&#160;</span>
 								<div id="cell-content">${_fraVariable_98_1_0_}</div></td>
 						</tr>
 					</tbody>
@@ -1061,7 +1060,7 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_98_"/>
-			<br> <br>
+			<br/> <br/>
 		</div>
 	</section>
 </section>

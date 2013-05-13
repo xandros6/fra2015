@@ -37,8 +37,8 @@
 			</c:if>
 		</div>
 		<fra:feedback feedbackName="_feedback_0_"/>
-		<br>
-		<br>
+		<br/>
+		<br/>
 	</div>
 	<div>
 		<h4>
@@ -53,7 +53,7 @@
 		</div>
 		<div class="control clearfix"></div>
 		<fra:feedback feedbackName="_feedback_1_"/>
-		<br>
-		<br>
+		<br/>
+		<br/>
 	</div>
 </section>

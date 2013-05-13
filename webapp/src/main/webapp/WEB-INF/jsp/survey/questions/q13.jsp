@@ -45,8 +45,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -91,8 +91,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_120_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -127,8 +127,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_121_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -175,11 +175,11 @@
 									code="ref423"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_2_1_" value="${_fraVariable_13a_2_1_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_2_1_" value="${_fraVariable_13a_2_1_}" />
 							<div id="cell-content">${_fraVariable_13a_2_1_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_2_2_" value="${_fraVariable_13a_2_2_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_2_2_" value="${_fraVariable_13a_2_2_}" />
 							<div id="cell-content">${_fraVariable_13a_2_2_}</div></td>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_2_3_"  rownumber="2" columnnumber="3" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_2_4_"  rownumber="2" columnnumber="4" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
@@ -195,11 +195,11 @@
 									code="ref424"></spring:message></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_3_1_" value="${_fraVariable_13a_3_1_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_3_1_" value="${_fraVariable_13a_3_1_}" />
 							<div id="cell-content">${_fraVariable_13a_3_1_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_3_2_" value="${_fraVariable_13a_3_2_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_3_2_" value="${_fraVariable_13a_3_2_}" />
 							<div id="cell-content">${_fraVariable_13a_3_2_}</div></td>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_3_3_"  rownumber="2" columnnumber="3" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_3_4_"  rownumber="2" columnnumber="4" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
@@ -214,11 +214,11 @@
 									code="ref425"></spring:message></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_4_1_" value="${_fraVariable_13a_4_1_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_4_1_" value="${_fraVariable_13a_4_1_}" />
 							<div id="cell-content">${_fraVariable_13a_4_1_}</div></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_4_2_" value="${_fraVariable_13a_4_2_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_4_2_" value="${_fraVariable_13a_4_2_}" />
 							<div id="cell-content">${_fraVariable_13a_4_2_}</div></td>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_4_3_"  rownumber="2" columnnumber="3" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_4_4_"  rownumber="2" columnnumber="4" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
@@ -234,11 +234,11 @@
 									code="ref426"></spring:message></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_5_1_" value="${_fraVariable_13a_5_1_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_5_1_" value="${_fraVariable_13a_5_1_}" />
 							<div id="cell-content">${_fraVariable_13a_5_1_}</div></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_5_2_" value="${_fraVariable_13a_5_2_}">
+								entry-id="13a"><input type="hidden" style="width:80%" name="_fraVariable_13a_5_2_" value="${_fraVariable_13a_5_2_}" />
 							<div id="cell-content">${_fraVariable_13a_5_2_}</div></td>
 							<td class="noneditable" rownumber="5" columnnumber="3"></td>
 							<td class="noneditable" rownumber="5" columnnumber="4"></td>
@@ -252,8 +252,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_13a_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -289,8 +289,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_13b_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<div></div>
@@ -305,7 +305,7 @@
 						<tr>
 							<td rownumber="1" columnnumber="0"
 								class="entry-item editable text"
-								style="background-color: rgb(242, 245, 169);" entry-id="122"><span class="entry_item_placeholder" id="_fraVariable_122_1_0_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="122"><span class="entry_item_placeholder" id="_fraVariable_122_1_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_122_1_0_}</div></td>
 						</tr>
 					</tbody>
@@ -313,8 +313,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_122_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -337,31 +337,31 @@
 						<tr>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_1_0_">&nbsp;</span>
+								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_1_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_123_1_0_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_1_1_">&nbsp;</span>
+								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_123_1_1_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_2_0_">&nbsp;</span>
+								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_2_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_123_2_0_}</div></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_2_1_">&nbsp;</span>
+								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_123_2_1_}</div></td>
 						</tr>
 						<tr>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_3_0_">&nbsp;</span>
+								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_3_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_123_3_0_}</div></td>
 							<td class="entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_3_1_">&nbsp;</span>
+								entry-id="123"><span class="entry_item_placeholder" id="_fraVariable_123_3_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_123_3_1_}</div></td>
 						</tr>
 					</tbody>
@@ -369,8 +369,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_123_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>

@@ -39,8 +39,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -72,15 +72,15 @@
 									code="ref552"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="20"><span class="entry_item_placeholder" id="_fraVariable_20_1_1_">&nbsp;</span>
+								entry-id="20"><span class="entry_item_placeholder" id="_fraVariable_20_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_20_1_1_}</div></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="20"><span class="entry_item_placeholder" id="_fraVariable_20_1_2_">&nbsp;</span>
+								entry-id="20"><span class="entry_item_placeholder" id="_fraVariable_20_1_2_">&#160;</span>
 							<div id="cell-content">${_fraVariable_20_1_2_}</div></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="3" style="background-color: rgb(242, 245, 169);"
-								entry-id="20"><span class="entry_item_placeholder" id="_fraVariable_20_1_3_">&nbsp;</span>
+								entry-id="20"><span class="entry_item_placeholder" id="_fraVariable_20_1_3_">&#160;</span>
 							<div id="cell-content">${_fraVariable_20_1_3_}</div></td>
 						</tr>
 					</tbody>
@@ -88,8 +88,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_20_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -112,11 +112,11 @@
 						<tr>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="161"><span class="entry_item_placeholder" id="_fraVariable_161_1_0_">&nbsp;</span>
+								entry-id="161"><span class="entry_item_placeholder" id="_fraVariable_161_1_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_161_1_0_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="161"><span class="entry_item_placeholder" id="_fraVariable_161_1_1_">&nbsp;</span>
+								entry-id="161"><span class="entry_item_placeholder" id="_fraVariable_161_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_161_1_1_}</div></td>
 						</tr>
 					</tbody>
@@ -124,8 +124,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_161_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>

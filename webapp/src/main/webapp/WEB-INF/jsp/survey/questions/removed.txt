@@ -1,7 +1,7 @@
 <!-- from 3b -->
 
 				 <tr rowname="3.2" unit="million m3">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="6" columnnumber="0"><spring:message
 									code="ref157"></spring:message></td>
@@ -47,7 +47,7 @@
 							<div id="cell-content">${_fraVariable_3a_6_10_}</div></td>
 						</tr>
 						<tr rowname="3.2.1" unit="million m3">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="7" columnnumber="0"><spring:message
 									code="ref155"></spring:message></td>
@@ -93,7 +93,7 @@
 							<div id="cell-content">${_fraVariable_3a_7_10_}</div></td>
 						</tr>
 						<tr rowname="3.2.2" unit="million m3">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="8" columnnumber="0"><spring:message
 									code="ref156"></spring:message></td>

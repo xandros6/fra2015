@@ -34,8 +34,8 @@
 			</table>
 		</div>
 		<div class="control clearfix"></div>
-		<br>
-		<br>
+		<br/>
+		<br/>
 	</div>
 	<div>
 		<h4>
@@ -59,7 +59,7 @@
 						<td columnname="2000-2010"
 							class="prefilled entry-item editable text" rownumber="1"
 							columnnumber="1" style="background-color: rgb(242, 245, 169);"
-							entry-id="9"><span class="entry_item_placeholder" id="_fraVariable_9_1_1_">&nbsp;</span>
+							entry-id="9"><span class="entry_item_placeholder" id="_fraVariable_9_1_1_">&#160;</span>
 						<div id="cell-content">${_fraVariable_9_1_1_}</div></td>
 					</tr>
 				</tbody>
@@ -67,7 +67,7 @@
 		</div>
 		<div class="control clearfix"></div>
 		<fra:feedback feedbackName="_feedback_9_"/>
-		<br>
-		<br>
+		<br/>
+		<br/>
 	</div>
 </section>

@@ -51,8 +51,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -76,7 +76,7 @@
 									code="ref403"></spring:message></td>
 						</tr>
 						<tr rowname="16.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="1" columnnumber="0"><spring:message
 									code="ref479"></spring:message></td>
@@ -86,7 +86,7 @@
 							<div id="cell-content">${_fraVariable_16_1_1_}</div></td>
 						</tr>
 						<tr rowname="16.1.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="2" columnnumber="0"><spring:message
 									code="ref480"></spring:message></td>
@@ -96,7 +96,7 @@
 							<div id="cell-content">${_fraVariable_16_2_1_}</div></td>
 						</tr>
 						<tr rowname="16.1.2" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="3" columnnumber="0"><spring:message
 									code="ref481"></spring:message></td>
@@ -106,7 +106,7 @@
 							<div id="cell-content">${_fraVariable_16_3_1_}</div></td>
 						</tr>
 						<tr rowname="16.2" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="4" columnnumber="0"><spring:message
 									code="ref482"></spring:message></td>
@@ -116,7 +116,7 @@
 							<div id="cell-content">${_fraVariable_16_4_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="5" columnnumber="0"><spring:message
 									code="ref483"></spring:message></td>
@@ -126,7 +126,7 @@
 							<div id="cell-content">${_fraVariable_16_5_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="6" columnnumber="0"><spring:message
 									code="ref39"></spring:message></td>
@@ -136,7 +136,7 @@
 							<div id="cell-content">${_fraVariable_16_6_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.2" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="7" columnnumber="0"><spring:message
 									code="ref40"></spring:message></td>
@@ -146,7 +146,7 @@
 							<div id="cell-content">${_fraVariable_16_7_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.3" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="8" columnnumber="0"><spring:message
 									code="ref41"></spring:message></td>
@@ -160,8 +160,8 @@
 			</div>
 			<div class="control pull-right"></div>
 			<fra:feedback feedbackName="_feedback_16_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -194,8 +194,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -241,8 +241,8 @@
 			</div>
 			<div class="control pull-right"></div>
 			<fra:feedback feedbackName="_feedback_136_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -283,8 +283,8 @@
 			</div>
 			<div class="control pull-right"></div>
 			<fra:feedback feedbackName="_feedback_137_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>

@@ -63,7 +63,7 @@
 										style="position: relative; left: -10px; top: -10px;">
 										<span style="font-weight: bold; font-size: 18px"
 										data-i18n="login_select"><spring:message
-												code="login.select" /></span>: <br> <select
+												code="login.select" /></span>: </br> <select
 										id="languageSelector" class="input-block-level" ONCHANGE="location = '?lang='+this.options[this.selectedIndex].value;">
 											<option value="en" ${pageContext.response.locale=='en'?'selected':''}>English</option>
 											<option value="fr" ${pageContext.response.locale=='fr'?'selected':''}>Français</option>

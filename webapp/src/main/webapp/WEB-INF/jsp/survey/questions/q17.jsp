@@ -45,8 +45,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -91,8 +91,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_139_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -129,15 +129,15 @@
 									code="ref488"></spring:message></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_2_1_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_17_2_1_}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="2" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_2_2_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_2_2_">&#160;</span>
 							<div id="cell-content">${_fraVariable_17_2_2_}</div></td>
 							<td columnname="2010" class="entry-item editable text"
 								rownumber="2" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_2_3_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_2_3_">&#160;</span>
 							<div id="cell-content">${_fraVariable_17_2_3_}</div></td>
 						</tr>
 						<tr rowname="17.2" unit="1000 local currency">
@@ -145,15 +145,15 @@
 									code="ref490"></spring:message></td>
 							<td columnname="2000" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_3_1_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_3_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_17_3_1_}</div></td>
 							<td columnname="2005" class="prefilled entry-item editable text"
 								rownumber="3" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_3_2_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_3_2_">&#160;</span>
 							<div id="cell-content">${_fraVariable_17_3_2_}</div></td>
 							<td columnname="2010" class="entry-item editable text"
 								rownumber="3" columnnumber="3"
-								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_3_3_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="17"><span class="entry_item_placeholder" id="_fraVariable_17_3_3_">&#160;</span>
 							<div id="cell-content">${_fraVariable_17_3_3_}</div></td>
 						</tr>
 					</tbody>
@@ -161,8 +161,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_17_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<div></div>
@@ -180,15 +180,15 @@
 							<td><spring:message code="ref494"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="140"><span class="entry_item_placeholder" id="_fraVariable_140_1_0_">&nbsp;</span>
+								entry-id="140"><span class="entry_item_placeholder" id="_fraVariable_140_1_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_140_1_0_}</div></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="140"><span class="entry_item_placeholder" id="_fraVariable_140_1_0_">&nbsp;</span>
+								entry-id="140"><span class="entry_item_placeholder" id="_fraVariable_140_1_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_140_1_0_}</div></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="0" style="background-color: rgb(242, 245, 169);"
-								entry-id="140"><span class="entry_item_placeholder" id="_fraVariable_140_1_0_">&nbsp;</span>
+								entry-id="140"><span class="entry_item_placeholder" id="_fraVariable_140_1_0_">&#160;</span>
 							<div id="cell-content">${_fraVariable_140_1_0_}</div></td>
 						</tr>
 					</tbody>
@@ -196,8 +196,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_140_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -222,7 +222,7 @@
 									code="ref488"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="141"><span class="entry_item_placeholder" id="_fraVariable_141_1_1_">&nbsp;</span>
+								entry-id="141"><span class="entry_item_placeholder" id="_fraVariable_141_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_141_1_1_}</div></td>
 						</tr>
 						<tr>
@@ -230,7 +230,7 @@
 									code="ref490"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="141"><span class="entry_item_placeholder" id="_fraVariable_141_2_1_">&nbsp;</span>
+								entry-id="141"><span class="entry_item_placeholder" id="_fraVariable_141_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_141_2_1_}</div></td>
 						</tr>
 					</tbody>
@@ -238,8 +238,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_141_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>

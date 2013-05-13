@@ -84,8 +84,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -188,8 +188,8 @@
 				<div class="control pull-right">
 					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 				</div>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -240,8 +240,8 @@
 				<div class="control pull-right">
 					<a  href="#" class="btn btn-mini addBtn"><spring:message code="add.row" /></a>
 				</div>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -255,8 +255,8 @@
 					<fra:richtextentry name="_e1_1p2p3_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -276,8 +276,8 @@
 					<fra:richtextentry name="_e1_1p3p1 _"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -291,8 +291,8 @@
 					<fra:richtextentry name="_e1_1p3p2_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -306,8 +306,8 @@
 					<fra:richtextentry name="_e1_1p3p3_"></fra:richtextentry>
 				</div>
 				<div class="control pull-right"></div>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -346,7 +346,7 @@
 									code="ref57"></spring:message></td>
 						</tr>
 						<tr rowname="1.1" unit="1000 ha">
-							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
+							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="2" columnnumber="0"><spring:message
 									code="ref58"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
@@ -371,7 +371,7 @@
 							<div id="cell-content">${_v1p1_2015_}</div></td>
 						</tr>
 						<tr rowname="1.2" unit="1000 ha">
-							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
+							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="3" columnnumber="0"><spring:message
 									code="ref59"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
@@ -396,7 +396,7 @@
 							<div id="cell-content">${_v1p2_2015_}</div></td>
 						</tr>
 						<tr rowname="1.3" unit="1000 ha">
-							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
+							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="4" columnnumber="0"><spring:message
 									code="ref60"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
@@ -421,7 +421,7 @@
 							<div id="cell-content">${_v1p3_2015_}</div></td>
 						</tr>
 						<tr rowname="1.3.1" unit="1000 ha">
-							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
+							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="5" columnnumber="0"><spring:message
 									code="ref61"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
@@ -446,7 +446,7 @@
 							<div id="cell-content">${_v1p3p1_2015_}</div></td>
 						</tr>
 						<tr rowname="1.4" unit="1000 ha">
-							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
+							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="6" columnnumber="0"><spring:message
 									code="ref23"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
@@ -471,7 +471,7 @@
 							<div id="cell-content">${_v1p4_2015_}</div></td>
 						</tr>
 						<tr rowname="1.5" unit="1000 ha">
-							<td><img width="20px" src="${pageContext.request.contextPath}/img/CFRQbutton.png"></td>
+							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="7" columnnumber="0"><spring:message
 									code="ref62"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"
@@ -509,8 +509,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -553,7 +553,7 @@
 									code="ref57"></spring:message></td>
 						</tr>
 						<tr rowname="1.6" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="6" columnnumber="0"><spring:message
 									code="ref68"></spring:message></td>
@@ -599,7 +599,7 @@
 							<div id="cell-content">${_v1p6_2015_2_}</div></td>
 						</tr>
 						<tr rowname="1.6.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="3" columnnumber="0"><spring:message
 									code="ref69"></spring:message></td>
@@ -645,7 +645,7 @@
 							<div id="cell-content">${_v1p6p1_2015_2_}</div></td>
 						</tr>
 						<tr rowname="1.6.2" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="4" columnnumber="0"><spring:message
 									code="ref70"></spring:message></td>
@@ -691,7 +691,7 @@
 							<div id="cell-content">${_v1p6p2_2015_2_}</div></td>
 						</tr>
 						<tr rowname="1.7" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="5" columnnumber="0"><spring:message
 									code="ref31"></spring:message></td>
@@ -737,7 +737,7 @@
 							<div id="cell-content">${_v1p7_2015_2_}</div></td>
 						</tr>
 						<tr rowname="1.7.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="6" columnnumber="0"><spring:message
 									code="ref71"></spring:message></td>
@@ -783,7 +783,7 @@
 							<div id="cell-content">${_v1p7p1_2015_2_}</div></td>
 						</tr>
 						<tr rowname="1.8" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="7" columnnumber="0"><spring:message
 									code="ref27"></spring:message></td>
@@ -829,7 +829,7 @@
 							<div id="cell-content">${_v1p8_2015_2_}</div></td>
 						</tr>
 						<tr rowname="1.8.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${pageContext.request.contextPath}/img/CFRQbutton.png">
+							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" colspan="2" rownumber="8" columnnumber="0"><spring:message
 									code="ref72"></spring:message></td>
@@ -878,8 +878,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -982,8 +982,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -1014,8 +1014,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -1146,8 +1146,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<div></div>
@@ -1169,8 +1169,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<div></div>
@@ -1210,8 +1210,8 @@
 				</table>
 			</div>
 			<div class="control pull-right"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>
