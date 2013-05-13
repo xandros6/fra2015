@@ -45,8 +45,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -91,8 +91,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_163_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -128,11 +128,11 @@
 									code="ref555"></spring:message></td>
 							<td columnname="2020-2030" class="entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21a_2_1_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21a_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_21a_2_1_}</div></td>
 							<td columnname="2020-2030" class="entry-item editable text"
 								rownumber="2" columnnumber="2"
-								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21a_2_2_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="21a"><span class="entry_item_placeholder" id="_fraVariable_21a_2_2_">&#160;</span>
 							<div id="cell-content">${_fraVariable_21a_2_2_}</div></td>
 						</tr>
 					</tbody>
@@ -140,8 +140,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_21a_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -167,7 +167,7 @@
 									code="ref557"></spring:message></td>
 							<td columnname="2013" class="entry-item editable text"
 								rownumber="2" columnnumber="1"
-								style="background-color: rgb(242, 245, 169);" entry-id="21b"><span class="entry_item_placeholder" id="_fraVariable_21b_2_1_">&nbsp;</span>
+								style="background-color: rgb(242, 245, 169);" entry-id="21b"><span class="entry_item_placeholder" id="_fraVariable_21b_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_21b_2_1_}</div></td>
 						</tr>
 					</tbody>
@@ -175,8 +175,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_21b_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -201,7 +201,7 @@
 									code="ref555"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="164"><span class="entry_item_placeholder" id="_fraVariable_164_1_1_">&nbsp;</span>
+								entry-id="164"><span class="entry_item_placeholder" id="_fraVariable_164_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_164_1_1_}</div></td>
 						</tr>
 						<tr>
@@ -209,7 +209,7 @@
 									code="ref557"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="164"><span class="entry_item_placeholder" id="_fraVariable_164_2_1_">&nbsp;</span>
+								entry-id="164"><span class="entry_item_placeholder" id="_fraVariable_164_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_164_2_1_}</div></td>
 						</tr>
 					</tbody>
@@ -217,8 +217,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_164_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>

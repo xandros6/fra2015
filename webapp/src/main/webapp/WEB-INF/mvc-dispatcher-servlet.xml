@@ -54,7 +54,7 @@
       class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
     </bean>
 
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <bean id="messageSource" class="it.geosolutions.fra2015.mvc.view.MyReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
                 <value>WEB-INF/loc/messages</value>
@@ -67,8 +67,8 @@
     </bean>
 
     <!-- How and where the framework search for the JSPs -->
-    <bean
-        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="1"/>
         <property name="prefix">
             <value>/WEB-INF/jsp/</value>
         </property>
@@ -76,6 +76,7 @@
             <value>.jsp</value>
         </property>
     </bean>
+
 
 	
 </beans>
