@@ -745,7 +745,7 @@
             var onHourShow = this._get(inst, 'onHourShow');		//custom callback
 
             if (hour == undefined) {
-                html = '<td><span class="ui-state-default ui-state-disabled">&nbsp;</span></td>';
+                html = '<td><span class="ui-state-default ui-state-disabled">&#160;</span></td>';
                 return html;
             }
 
@@ -785,7 +785,7 @@
              }
 
              if (minute == undefined) {
-                 html = '<td><span class="ui-state-default ui-state-disabled">&nbsp;</span></td>';
+                 html = '<td><span class="ui-state-default ui-state-disabled">&#160;</span></td>';
                  return html;
              }
 

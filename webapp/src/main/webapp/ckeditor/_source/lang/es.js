@@ -558,7 +558,7 @@ CKEDITOR.lang['es'] =
 		title			: 'Contenido de Plantillas',
 		options : 'Opciones de plantillas',
 		insertOption	: 'Reemplazar el contenido actual',
-		selectPromptMsg	: 'Por favor selecciona la plantilla a abrir en el editor<br>(el contenido actual se perderá):',
+		selectPromptMsg	: 'Por favor selecciona la plantilla a abrir en el editor<br/>(el contenido actual se perderá):',
 		emptyListMsg	: '(No hay plantillas definidas)'
 	},
 

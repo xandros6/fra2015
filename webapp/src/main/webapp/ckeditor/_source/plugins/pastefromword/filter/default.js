@@ -234,7 +234,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			{
 				var text;
 				return ( ( text = element.onlyChild() )
-					    && ( /^(:?\s|&nbsp;)+$/ ).test( text.value ) );
+					    && ( /^(:?\s|&#160;)+$/ ).test( text.value ) );
 			},
 
 			resolveList : function( element )

@@ -1238,7 +1238,7 @@
 <button class="btn">pdf</button>
 <button class="btn">xml</button>
 </div>
-<br><br>
+<br/><br/>
 </div></div>
 <%@ include file="../common/includes/taglibs.jsp"%>
 <ul class="nav">

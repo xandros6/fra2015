@@ -16,7 +16,7 @@ CKEDITOR.dialog.add( 'colordialog', function( editor )
 		var spacer =
 		{
 			type : 'html',
-			html : '&nbsp;'
+			html : '&#160;'
 		};
 
 		var selected;
@@ -90,7 +90,7 @@ CKEDITOR.dialog.add( 'colordialog', function( editor )
 			focused.setStyle( 'border-color', color );
 			focused.setStyle( 'border-style', 'solid' );
 			$doc.getById( hicolorId ).removeStyle( 'background-color' );
-			$doc.getById( hicolorTextId ).setHtml( '&nbsp;' );
+			$doc.getById( hicolorTextId ).setHtml( '&#160;' );
 			focused = null;
 		}
 
@@ -110,7 +110,7 @@ CKEDITOR.dialog.add( 'colordialog', function( editor )
 			if ( ! ( focused || hovered ) )
 			{
 				$doc.getById( hicolorId ).removeStyle( 'background-color' );
-				$doc.getById( hicolorTextId ).setHtml( '&nbsp;' );
+				$doc.getById( hicolorTextId ).setHtml( '&#160;' );
 			}
 		}
 
@@ -345,7 +345,7 @@ CKEDITOR.dialog.add( 'colordialog', function( editor )
 											type : 'html',
 											html : '<span>' + lang.highlight +'</span>\
 												<div id="' + hicolorId + '" style="border: 1px solid; height: 74px; width: 74px;"></div>\
-												<div id="' + hicolorTextId + '">&nbsp;</div><span>' + lang.selected + '</span>\
+												<div id="' + hicolorTextId + '">&#160;</div><span>' + lang.selected + '</span>\
 												<div id="' + selHiColorId + '" style="border: 1px solid; height: 20px; width: 74px;"></div>'
 										},
 										{

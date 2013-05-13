@@ -497,7 +497,7 @@ CKEDITOR.lang['is'] =
 		noChanges		: 'Villuleit lokið: Engu orði breytt',
 		oneChange		: 'Villuleit lokið: Einu orði breytt',
 		manyChanges		: 'Villuleit lokið: %1 orðum breytt',
-		ieSpellDownload	: 'Villuleit ekki sett upp.<br>Viltu setja hana upp?'
+		ieSpellDownload	: 'Villuleit ekki sett upp.<br/>Viltu setja hana upp?'
 	},
 
 	smiley :
@@ -558,7 +558,7 @@ CKEDITOR.lang['is'] =
 		title			: 'Innihaldssniðmát',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Skipta út raunverulegu innihaldi',
-		selectPromptMsg	: 'Veldu sniðmát til að opna í ritlinum.<br>(Núverandi innihald víkur fyrir því!):',
+		selectPromptMsg	: 'Veldu sniðmát til að opna í ritlinum.<br/>(Núverandi innihald víkur fyrir því!):',
 		emptyListMsg	: '(Ekkert sniðmát er skilgreint!)'
 	},
 

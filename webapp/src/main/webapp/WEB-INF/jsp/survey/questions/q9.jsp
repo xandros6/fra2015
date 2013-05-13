@@ -102,8 +102,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_900_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		<div>
 			<h4>
@@ -129,8 +129,8 @@
 					</tbody>
 				</table>
 			</div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 			<div>
 			<h4>
 				<spring:message code="ref126"></spring:message>
@@ -151,7 +151,7 @@
 									code="ref372"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="901"><span class="entry_item_placeholder" id="_fraVariable_901_1_1_">&nbsp;</span>
+								entry-id="901"><span class="entry_item_placeholder" id="_fraVariable_901_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_901_1_1_}</div></td>
 						</tr>
 					</tbody>
@@ -159,8 +159,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_901_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 		</div>
 </section>

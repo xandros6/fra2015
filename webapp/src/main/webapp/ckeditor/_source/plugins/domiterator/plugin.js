@@ -22,7 +22,7 @@ CKEDITOR.plugins.add( 'domiterator' );
 		this.range = range;
 		this.forceBrBreak = 0;
 
-		// Whether include <br>s into the enlarged range.(#3730).
+		// Whether include <br/>s into the enlarged range.(#3730).
 		this.enlargeBr = 1;
 		this.enforceRealBlocks = 0;
 
@@ -146,7 +146,7 @@ CKEDITOR.plugins.add( 'domiterator' );
 					if ( currentNode.isBlockBoundary( this.forceBrBreak &&
 							!parentPre && { br : 1 } ) )
 					{
-						// <br> boundaries must be part of the range. It will
+						// <br/> boundaries must be part of the range. It will
 						// happen only if ForceBrBreak.
 						if ( nodeName == 'br' )
 							includeNode = 1;
@@ -193,7 +193,7 @@ CKEDITOR.plugins.add( 'domiterator' );
 				}
 				else if ( currentNode.type == CKEDITOR.NODE_TEXT )
 				{
-					// Ignore normal whitespaces (i.e. not including &nbsp; or
+					// Ignore normal whitespaces (i.e. not including &#160; or
 					// other unicode whitespaces) before/after a block node.
 					if ( beginWhitespaceRegex.test( currentNode.getText() ) )
 						includeNode = 0;
@@ -338,7 +338,7 @@ CKEDITOR.plugins.add( 'domiterator' );
 				var lastChild = block.getLast();
 				if ( lastChild && lastChild.type == CKEDITOR.NODE_ELEMENT && lastChild.getName() == 'br' )
 				{
-					// Take care not to remove the block expanding <br> in non-IE browsers.
+					// Take care not to remove the block expanding <br/> in non-IE browsers.
 					if ( CKEDITOR.env.ie
 						 || lastChild.getPrevious( bookmarkGuard )
 						 || lastChild.getNext( bookmarkGuard ) )

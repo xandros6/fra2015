@@ -558,7 +558,7 @@ CKEDITOR.lang['gl'] =
 		title			: 'Plantillas de Contido',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Replace actual contents', // MISSING
-		selectPromptMsg	: 'Por favor, seleccione a plantilla a abrir no editor<br>(o contido actual perderase):',
+		selectPromptMsg	: 'Por favor, seleccione a plantilla a abrir no editor<br/>(o contido actual perderase):',
 		emptyListMsg	: '(Non hai plantillas definidas)'
 	},
 

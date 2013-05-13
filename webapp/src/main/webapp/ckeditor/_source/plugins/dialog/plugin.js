@@ -2663,7 +2663,7 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 		 * @returns {Boolean} true if changed, false if not changed.
 		 * @example
 		 * if ( uiElement.isChanged() )
-		 * &nbsp;&nbsp;confirm( 'Value changed! Continue?' );
+		 * &#160;&#160;confirm( 'Value changed! Continue?' );
 		 */
 		isChanged : function()
 		{
@@ -2777,9 +2777,9 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 		 * // This connects the 'click' event in CKEDITOR.ui.dialog.button to onClick
 		 * // handlers in the UI element's definitions.
 		 * CKEDITOR.ui.dialog.button.eventProcessors = CKEDITOR.tools.extend( {},
-		 * &nbsp;&nbsp;CKEDITOR.ui.dialog.uiElement.prototype.eventProcessors,
-		 * &nbsp;&nbsp;{ onClick : function( dialog, func ) { this.on( 'click', func ); } },
-		 * &nbsp;&nbsp;true );
+		 * &#160;&#160;CKEDITOR.ui.dialog.uiElement.prototype.eventProcessors,
+		 * &#160;&#160;{ onClick : function( dialog, func ) { this.on( 'click', func ); } },
+		 * &#160;&#160;true );
 		 */
 		eventProcessors :
 		{

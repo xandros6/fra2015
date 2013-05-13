@@ -28,7 +28,7 @@
 					<input
 					id="countries" style="margin: 0 auto;" type="text"
 					autocomplete="off" placeholder="<spring:message code="export.selectcountry" />"/>
-					<br>
+					<br/>
 					 <input type="text" name="address" placeholder="<spring:message code="customaddress"
 							text="Custom Address" />">
 					 <select

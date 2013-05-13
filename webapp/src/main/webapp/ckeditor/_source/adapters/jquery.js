@@ -33,8 +33,8 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 {
 	/**
 	 * Allows CKEditor to override jQuery.fn.val(), making it possible to use the val()
-	 * function on textareas, as usual, having it synchronized with CKEditor.<br>
-	 * <br>
+	 * function on textareas, as usual, having it synchronized with CKEditor.<br/>
+	 * <br/>
 	 * This configuration option is global and executed during the jQuery Adapter loading.
 	 * It can't be customized across editor instances.
 	 * @type Boolean

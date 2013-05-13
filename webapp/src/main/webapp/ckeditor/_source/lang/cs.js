@@ -558,7 +558,7 @@ CKEDITOR.lang['cs'] =
 		title			: 'Šablony obsahu',
 		options : 'Nastavení šablon',
 		insertOption	: 'Nahradit aktuální obsah',
-		selectPromptMsg	: 'Prosím zvolte šablonu pro otevření v editoru<br>(aktuální obsah editoru bude ztracen):',
+		selectPromptMsg	: 'Prosím zvolte šablonu pro otevření v editoru<br/>(aktuální obsah editoru bude ztracen):',
 		emptyListMsg	: '(Není definována žádná šablona)'
 	},
 

@@ -160,7 +160,7 @@ function configureFlashOutput( ev )
 		dataProcessor = editor.dataProcessor,
 		htmlFilter = dataProcessor && dataProcessor.htmlFilter;
 
-	// Out self closing tags the HTML4 way, like <br>.
+	// Out self closing tags the HTML4 way, like <br/>.
 	dataProcessor.writer.selfClosingEnd = '>';
 
 	// Make output formatting match Flash expectations

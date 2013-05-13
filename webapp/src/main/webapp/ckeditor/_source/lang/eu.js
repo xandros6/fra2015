@@ -558,7 +558,7 @@ CKEDITOR.lang['eu'] =
 		title			: 'Eduki Txantiloiak',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Ordeztu oraingo edukiak',
-		selectPromptMsg	: 'Mesedez txantiloia aukeratu editorean kargatzeko<br>(orain dauden edukiak galduko dira):',
+		selectPromptMsg	: 'Mesedez txantiloia aukeratu editorean kargatzeko<br/>(orain dauden edukiak galduko dira):',
 		emptyListMsg	: '(Ez dago definitutako txantiloirik)'
 	},
 

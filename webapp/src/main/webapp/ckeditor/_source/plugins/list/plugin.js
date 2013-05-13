@@ -149,7 +149,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						currDir != orgDir ? orgDir: null );
 
 					// If the next block is an <li> with another list tree as the first
-					// child, we'll need to append a filler (<br>/NBSP) or the list item
+					// child, we'll need to append a filler (<br/>/NBSP) or the list item
 					// wouldn't be editable. (#6724)
 					if ( !currentListItem.getChildCount() && CKEDITOR.env.ie && !( doc.$.documentMode > 7 ))
 						currentListItem.append( doc.createText( '\xa0' ) );
@@ -499,7 +499,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		var newList = CKEDITOR.plugins.list.arrayToList( listArray, database, null, editor.config.enterMode,
 			groupObj.root.getAttribute( 'dir' ) );
 
-		// Compensate <br> before/after the list node if the surrounds are non-blocks.(#3836)
+		// Compensate <br/> before/after the list node if the surrounds are non-blocks.(#3836)
 		var docFragment = newList.listNode, boundaryNode, siblingNode;
 		function compensateBrs( isStart )
 		{
@@ -714,7 +714,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 	}
 
 	var dtd = CKEDITOR.dtd;
-	var tailNbspRegex = /[\t\r\n ]*(?:&nbsp;|\xa0)$/;
+	var tailNbspRegex = /[\t\r\n ]*(?:&#160;|\xa0)$/;
 
 	function indexOfFirstChildElement( element, tagNameList )
 	{

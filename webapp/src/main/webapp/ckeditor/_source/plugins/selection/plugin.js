@@ -1652,7 +1652,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 						var next = fillingChar.getNext();
 
-						// If the filling char is followed by a <br>, whithout
+						// If the filling char is followed by a <br/>, whithout
 						// having something before it, it'll not blink.
 						// Let's remove it in this case.
 						if ( next && !fillingChar.getPrevious() && next.type == CKEDITOR.NODE_ELEMENT && next.getName() == 'br' )
@@ -1855,7 +1855,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 					if ( isStartMarkerAlone )
 					{
-						// To expand empty blocks or line spaces after <br>, we need
+						// To expand empty blocks or line spaces after <br/>, we need
 						// instead to have any char, which will be later deleted using the
 						// selection.
 						// \ufeff = Zero Width No-Break Space (U+FEFF). (#1359)

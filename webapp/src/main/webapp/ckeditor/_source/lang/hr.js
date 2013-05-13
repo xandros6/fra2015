@@ -558,7 +558,7 @@ CKEDITOR.lang['hr'] =
 		title			: 'Predlošci sadržaja',
 		options : 'Opcije predložaka',
 		insertOption	: 'Zamijeni trenutne sadržaje',
-		selectPromptMsg	: 'Molimo odaberite predložak koji želite otvoriti<br>(stvarni sadržaj će biti izgubljen):',
+		selectPromptMsg	: 'Molimo odaberite predložak koji želite otvoriti<br/>(stvarni sadržaj će biti izgubljen):',
 		emptyListMsg	: '(Nema definiranih predložaka)'
 	},
 

@@ -28,7 +28,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			baseXml = xmlObjectOrData;
 		else
 		{
-			var data = ( xmlObjectOrData || '' ).replace( /&nbsp;/g, '\xA0' );
+			var data = ( xmlObjectOrData || '' ).replace( /&#160;/g, '\xA0' );
 			if ( window.DOMParser )
 				baseXml = (new DOMParser()).parseFromString( data, 'text/xml' );
 			else if ( window.ActiveXObject )

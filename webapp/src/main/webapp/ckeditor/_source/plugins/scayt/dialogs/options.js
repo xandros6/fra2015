@@ -111,7 +111,7 @@ CKEDITOR.dialog.add( 'scaytcheck', function( editor )
 							html : 	'<form name="dictionarybar_' + editorName + '"><div class="inner_dictionary" style="text-align:left; white-space:normal; width:320px; overflow: hidden;">' +
 									'	<div style="margin:5px auto; width:80%;white-space:normal; overflow:hidden;" id="dic_message_' + editorName + '"> </div>' +
 									'	<div style="margin:5px auto; width:80%;white-space:normal;"> ' +
-									'       <span class="cke_dialog_ui_labeled_label" >Dictionary name</span><br>'+
+									'       <span class="cke_dialog_ui_labeled_label" >Dictionary name</span><br/>'+
 									'		<span class="cke_dialog_ui_labeled_content" >'+
 									'			<div class="cke_dialog_ui_input_text">'+
 									'				<input id="dic_name_' + editorName + '" type="text" class="cke_dialog_ui_input_text"/>'+

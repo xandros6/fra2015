@@ -10,7 +10,7 @@
 	<body>
 	  <div style="display:none">
 	     <c:forEach var="key" items="${messageKeys}" >
-			    <span id="${key}"><spring:message code="${key}"/></span>
+			    <div id="${key}"><spring:message code="${key}"/></div>
 			 </c:forEach>
 	  </div>
 		<div id="all" style="padding: 30px">

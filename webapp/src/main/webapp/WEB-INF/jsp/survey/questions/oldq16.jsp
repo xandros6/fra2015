@@ -82,7 +82,7 @@
 									code="ref479"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_1_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_1_1_}</div></td>
 						</tr>
 						<tr rowname="16.1.1" unit="1000 ha">
@@ -92,7 +92,7 @@
 									code="ref480"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_2_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_2_1_}</div></td>
 						</tr>
 						<tr rowname="16.1.2" unit="1000 ha">
@@ -102,7 +102,7 @@
 									code="ref481"></spring:message></td>
 							<td class="prefilled entry-item editable text" rownumber="3"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_3_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_3_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_3_1_}</div></td>
 						</tr>
 						<tr rowname="16.2" unit="1000 ha">
@@ -112,7 +112,7 @@
 									code="ref482"></spring:message></td>
 							<td class="entry-item editable text" rownumber="4"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_4_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_4_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_4_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1" unit="1000 ha">
@@ -122,7 +122,7 @@
 									code="ref483"></spring:message></td>
 							<td class="entry-item editable text" rownumber="5"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_5_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_5_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_5_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.1" unit="1000 ha">
@@ -132,7 +132,7 @@
 									code="ref39"></spring:message></td>
 							<td class="entry-item editable text" rownumber="6"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_6_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_6_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_6_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.2" unit="1000 ha">
@@ -142,7 +142,7 @@
 									code="ref40"></spring:message></td>
 							<td class="entry-item editable text" rownumber="7"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_7_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_7_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_7_1_}</div></td>
 						</tr>
 						<tr rowname="16.2.1.3" unit="1000 ha">
@@ -152,7 +152,7 @@
 									code="ref41"></spring:message></td>
 							<td class="entry-item editable text" rownumber="8"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_8_1_">&nbsp;</span>
+								entry-id="16"><span class="entry_item_placeholder" id="_fraVariable_16_8_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_16_8_1_}</div></td>
 						</tr>
 					</tbody>
@@ -267,7 +267,7 @@
 									code="ref469"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="137"><span class="entry_item_placeholder" id="_fraVariable_137_1_1_">&nbsp;</span>
+								entry-id="137"><span class="entry_item_placeholder" id="_fraVariable_137_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_137_1_1_}</div></td>
 						</tr>
 						<tr>
@@ -275,7 +275,7 @@
 									code="ref482"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="137"><span class="entry_item_placeholder" id="_fraVariable_137_2_1_">&nbsp;</span>
+								entry-id="137"><span class="entry_item_placeholder" id="_fraVariable_137_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_137_2_1_}</div></td>
 						</tr>
 					</tbody>

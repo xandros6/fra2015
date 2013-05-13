@@ -5,5 +5,5 @@
 <button class="btn"  data-toggle="tooltip" id="pdf" title="not yet implemented">pdf</button>
 <a class="btn" href="export/${country}">xml</a>
 </div>
-</br></br>
+<br/><br/>
 </div></div><script>$(function(){$("#pdf").tooltip()})</script>

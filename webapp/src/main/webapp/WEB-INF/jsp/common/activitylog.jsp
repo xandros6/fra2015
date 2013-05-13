@@ -129,11 +129,11 @@
             </c:forEach>  
             <c:forEach var="i" begin="1" end="${10 - (fn:length(activityLogList))}" step="1">
               <tr class="rowItem">                
-                <td class="span2"><div>&nbsp;</div></td>
-                <td class="span2"><div>&nbsp;</div></td>
-                <td class="span1"><div>&nbsp;</div></td>
-                <td class="span1"><div>&nbsp;</div></td>
-                <td class="span2"><div>&nbsp;</div></td>
+                <td class="span2"><div>&#160;</div></td>
+                <td class="span2"><div>&#160;</div></td>
+                <td class="span1"><div>&#160;</div></td>
+                <td class="span1"><div>&#160;</div></td>
+                <td class="span2"><div>&#160;</div></td>
             </c:forEach>              
           </tbody>
         </table>

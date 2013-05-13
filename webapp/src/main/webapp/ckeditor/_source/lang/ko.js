@@ -558,7 +558,7 @@ CKEDITOR.lang['ko'] =
 		title			: '내용 템플릿',
 		options : 'Template Options', // MISSING
 		insertOption	: '현재 내용 바꾸기',
-		selectPromptMsg	: '에디터에서 사용할 템플릿을 선택하십시요.<br>(지금까지 작성된 내용은 사라집니다.):',
+		selectPromptMsg	: '에디터에서 사용할 템플릿을 선택하십시요.<br/>(지금까지 작성된 내용은 사라집니다.):',
 		emptyListMsg	: '(템플릿이 없습니다.)'
 	},
 

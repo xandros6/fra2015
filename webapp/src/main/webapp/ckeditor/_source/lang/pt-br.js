@@ -557,7 +557,7 @@ CKEDITOR.lang['pt-br'] =
 		title			: 'Modelo de layout de conteúdo',
 		options : 'Opções de Template',
 		insertOption	: 'Substituir o conteúdo atual',
-		selectPromptMsg	: 'Selecione um modelo de layout para ser aberto no editor<br>(o conteúdo atual será perdido):',
+		selectPromptMsg	: 'Selecione um modelo de layout para ser aberto no editor<br/>(o conteúdo atual será perdido):',
 		emptyListMsg	: '(Não foram definidos modelos de layout)'
 	},
 
