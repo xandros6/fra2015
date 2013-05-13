@@ -102,13 +102,14 @@ public class FeedbackHandler{
         return feedbackList;
     }
     
-    public void storeFeedbacks() throws BadRequestServiceEx{
-        
-        if(this.feedbackList != null){
-            feedbackService.storeFeedback(this.getFeedbackArray());
-        }
-        else{
-            
+    public void storeFeedbacks() throws BadRequestServiceEx {
+
+        if (this.feedbackList != null) {
+            if (!this.feedbackList.isEmpty()) {
+                feedbackService.storeFeedback(this.getFeedbackArray());
+            }
+        } else {
+
             throw new BadRequestServiceEx("feedbackList equals to null");
         }
     }
@@ -127,7 +128,7 @@ public class FeedbackHandler{
                 oldFb.setTimestamp(el.getTimestamp());
                 feedbacksMerged.add(oldFb);
             }
-            else if(!StringUtils.isEmpty(el.getFeedback()) || !el.getStatus().equals("not")){
+            else if(!StringUtils.isEmpty(el.getFeedback()) || (el.getStatus().equals("ok") || el.getStatus().equals("ko"))){
                 
                 feedbacksMerged.add(el);
             }
