@@ -272,7 +272,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             if (alreadyChecked) {
                 continue;
             }
-
+            
             // get the map name ->value
             Map<String, String> test = tests.get(key);
             if(test==null){
@@ -281,7 +281,8 @@ public class Validator implements InitializingBean, ApplicationContextAware {
                 message.setRule(rule);
                 message.setSuccess(false);
                 message.addElements(Arrays.asList(rule.getEntryId().split(",")));
-
+                alreadyChecked = true;
+                continue;
             }
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
