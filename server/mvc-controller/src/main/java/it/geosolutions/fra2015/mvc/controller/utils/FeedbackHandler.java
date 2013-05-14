@@ -51,6 +51,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.list.UnmodifiableList;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -119,8 +120,10 @@ public class FeedbackHandler{
         
         List<Feedback> feedbacksMerged = new ArrayList<Feedback>();
         for(Feedback el : feedbackList){
+            clearFeedbackValue(el);
             int oldFbIndex = oldFeedbacks.indexOf(el);
             if(oldFbIndex >= 0){
+                // The feedback is present, so merge it
                 Feedback oldFb = oldFeedbacks.get(oldFbIndex);
                 oldFb.setStatus(el.getStatus());
                 String feedbackValue = (el.getStatus().equals("ok"))?"":el.getFeedback();
@@ -128,7 +131,8 @@ public class FeedbackHandler{
                 oldFb.setTimestamp(el.getTimestamp());
                 feedbacksMerged.add(oldFb);
             }
-            else if(checkIfMustBeMerged(el)){
+            // The feedback is not present, so check if must be added            
+            else if(checkIfMustBeAdded(el)){
                 feedbacksMerged.add(el);
             }
         }
@@ -213,6 +217,9 @@ public class FeedbackHandler{
                 
                 String feedback = (String)request.getParameter(feedbackName);
                 String feedbackStatus = (String)request.getParameter("STATUS"+feedbackName);
+                if(!harmonized && !checkIsOKorKO(feedbackStatus)){
+                    continue;
+                }
                 feedbackStatus = (feedbackStatus != null)?feedbackStatus:"";
                 String entryID = null;
                 // This check is made in mergeFeedback now...
@@ -341,11 +348,54 @@ public class FeedbackHandler{
         }
     }
     
-    public static boolean checkIfMustBeMerged(Feedback f){
-        String s = Jsoup.parse(f.getFeedback()).text();
-        boolean isBlank = (StringUtils.isBlank(s) || !StringUtils.isAsciiPrintable(s));
-        boolean isOKorKO = (f.getStatus().equals("ok") || f.getStatus().equals("ko"));
+    /**
+     * This method basically check if the feedback is empty.
+     * This check can't be done just with an isBlank method because some html tag can be present anyway, without any real content. (wrong Enter press, some button in ckeditor pressed)
+     * So if no text is detected set the feedback value to ""
+     * 
+     * @param f the feedback to analyze
+     */
+    public static void clearFeedbackValue(Feedback f){
+        if(checkIsOKorNOT(f.getStatus()) || StringUtils.isBlank(f.getFeedback())){
+            return;
+        }
+        String s = f.getFeedback().replaceAll("\\s","");
+        if(StringUtils.isBlank(s)){
+            return;
+        }
+        s = Jsoup.parse(s).text();
+        if(StringUtils.isBlank(s)){
+            return;
+        }
+        for(int i=0; i<s.length(); i++){
+            if(CharUtils.isAsciiPrintable(s.charAt(i)) && s.charAt(i) != 0 && s.charAt(i) != 32){
+                return;
+            }
+        }
+        if(f.getHarmonized()){
+            f.setFeedback("");
+        }
+        else{
+            f.setFeedback(NO_COMMENT);
+        }
         
+    }
+    
+    public static boolean checkIfMustBeAdded(Feedback f){
+        boolean isBlank = StringUtils.isBlank(f.getFeedback());
+        boolean isOKorKO = checkIsOKorKO(f);        
         return !isBlank || isOKorKO;
+    }
+    
+    public static boolean checkIsOKorKO(Feedback f){
+        return (StringUtils.equals(f.getStatus(), "ok") || StringUtils.equals(f.getStatus(), "ko"));
+    }
+    
+    public static boolean checkIsOKorKO(String status){
+        return (StringUtils.equals(status, "ok") || StringUtils.equals(status, "ko"));
+    }
+    
+    public static boolean checkIsOKorNOT(String status){
+        return (StringUtils.equals(status, "ok") || StringUtils.equals(status, "not"));
     }
 }
