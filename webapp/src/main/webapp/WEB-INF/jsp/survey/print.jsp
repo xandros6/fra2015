@@ -8,6 +8,9 @@
     <jsp:include page="../common/includes/css.jsp" />
 	</head>
 	<body>
+	  <div style="display:none" id="profileName">${profileName}</div>
+	  <div style="display:none" id="userName">${userName}</div>
+	  <div style="display:none" id="currentDate">${currentDate}</div>
 	  <div style="display:none">
 	     <c:forEach var="key" items="${messageKeys}" >
 			    <div id="${key}"><spring:message code="${key}"/></div>

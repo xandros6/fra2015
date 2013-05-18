@@ -23,11 +23,22 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.mvc.controller.utils.CharArrayWriterResponse;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.view.MyReloadableResourceBundleMessageSource;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 
+import java.io.File;
 import java.io.StringReader;
+import java.io.StringWriter;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -41,6 +52,7 @@ import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.fop.apps.FOUserAgent;
@@ -64,12 +76,15 @@ public class PrintController {
 
 	@Autowired
 	private ControllerServices utils;
-	
-    @Autowired
-    private SurveyService surveyService;
-	
+
+	@Autowired
+	private SurveyService surveyService;
+
 	@Autowired
 	private MyReloadableResourceBundleMessageSource messageSource;
+
+	@Autowired
+	private FeedbackService feedbackService;
 
 	Logger LOGGER = Logger.getLogger(PrintController.class);
 
@@ -77,20 +92,53 @@ public class PrintController {
 	public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "mode") String mode, Model model,
 			HttpSession session,  Locale locale) throws IllegalArgumentException, InternalErrorServiceEx{
 
+		User su = (User) session.getAttribute("sessionUser");
+		DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy");
+		
 		Set<Object> messageKeys = messageSource.getKeys(locale);
-		
+
 		String countryName = surveyService.findCountryByISO3(country).getName();
-		
+
 		model.addAttribute("context", "survey");    
 		model.addAttribute("country", countryName);  
-		model.addAttribute("messageKeys", messageKeys);     
+		model.addAttribute("messageKeys", messageKeys);   
+		
+		model.addAttribute("userName", su!=null?su.getUsername().toUpperCase():"");    
+		model.addAttribute("currentDate", df.format(new java.util.Date()));    
+		
+
+		
 		model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
 
-		if(mode.equalsIgnoreCase("allschema")){
+		FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
+		List<Feedback> listF = new ArrayList<Feedback>(0);
 
+		if(su!= null && su.getRole() != null){
+			if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+				try{
+					model.addAttribute("profile", ControllerServices.Profile.PRINT_CON_FEEDBACK_REVIEWER.toString());
+					model.addAttribute("profileName","REVIEWER");
+					listF = fh.retrieveAllFeedbacks(country, session, su);
+				} catch (BadRequestServiceEx e) {
+					LOGGER.error(e.getMessage(), e);
+				}
+			}
+			if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+				try{
+					model.addAttribute("profile", ControllerServices.Profile.PRINT_CON_FEEDBACK_EDITOR.toString());
+					model.addAttribute("profileName","EDITOR");
+					listF = fh.retrieveAllFeedbacks(country, session, null);
+				} catch (BadRequestServiceEx e) {
+					LOGGER.error(e.getMessage(), e);
+				}
+			}
+		}
+
+
+		if(mode.equalsIgnoreCase("allschema")){
 			utils.prepareHTTPRequestOnlyVariablesName(model, country);            
 		}
-		else if(mode.equalsIgnoreCase("onlyvalues")){
+		else if(mode.equalsIgnoreCase("onlyvalues") || mode.equalsIgnoreCase("onlyvalues_feedback")){
 
 			utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), false);
 		}
@@ -99,85 +147,132 @@ public class PrintController {
 			utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), true);
 		}
 		else{
-			throw new IllegalArgumentException("the mode: '" + mode + "' doesn't exist, valid ones are 'allschema', 'onlyvalues' and 'onlynames'");
+			throw new IllegalArgumentException("the mode: '" + mode + "' doesn't exist, valid ones are 'allschema', 'onlyvalues', 'onlyvalues_feedback' and 'onlynames'");
 		}
 
+		if(!listF.isEmpty() && mode.equalsIgnoreCase("onlyvalues_feedback")){
+			listF = fh.packageFeedbacks(listF, true, utils.getStatusInstanceByCountry(country));
+			model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, true));
+			fh.prepareFeedbackModel(model, listF);
+		}
 		return "survey/print";
 
 	}
 
-	@RequestMapping(value = "/survey/print/pdf/{country}/{mode}", method = RequestMethod.GET)
-	public void printPdf(@PathVariable(value = "country") String country, @PathVariable(value = "mode") String mode, Model model,
+	@RequestMapping(value = "/survey/print/pdf/{country}/feedback", method = RequestMethod.GET)
+	public void printPdf(@PathVariable(value = "country") String country, Model model,
+			HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException, InternalErrorServiceEx{
+		try {
+			User su = (User) session.getAttribute("sessionUser");
+
+			String template = "/survey/print/"+country+"/onlyvalues_feedback";
+			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
+			req.getRequestDispatcher(template).include(req, customResponse);
+			String xml = customResponse.getOutput();
+
+			ServletOutputStream out = resp.getOutputStream();
+			try {
+				FopFactory fopFactory = FopFactory.newInstance();
+				FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+				Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
+
+				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
+				String xslFilename = "/WEB-INF/xsl/feedbackReport.xsl" ;
+				ServletContext context = session.getServletContext();
+				String pathname =context.getRealPath(xslFilename); 
+				Source xslt = new StreamSource(pathname);
+				Transformer transformer = factory.newTransformer(xslt);
+				transformer.setParameter("versionParam", "2.0");
+				StringReader xmlReader = new StringReader(xml);
+				Source src = new StreamSource(xmlReader);
+				String filename =  "FRA_2015_Feedback_Report_"+ country.replace(" ","_") + "_"+su.getUsername()+".pdf";
+
+				resp.setContentType(MimeConstants.MIME_PDF);
+				resp.setHeader("Content-Disposition", "inline ; filename=\"" + filename +"\"");
+
+				Result res = new SAXResult(fop.getDefaultHandler());
+				transformer.transform(src, res);
+
+			} finally {
+				out.close();
+			}
+
+		} catch (Throwable e) {
+			LOGGER.error(e.getMessage(), e);
+		}
+
+	}
+
+
+	@RequestMapping(value = "/survey/print/pdf/{country}/{type}", method = RequestMethod.GET)
+	public void printPdf(@PathVariable(value = "country") String country, @PathVariable(value = "type") String type, Model model,
 			HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException, InternalErrorServiceEx{
 
+		if(!type.equalsIgnoreCase("cfrq") && !type.equalsIgnoreCase("full")){
+			throw new IllegalArgumentException("the type: '" + type + "' doesn't exist, valid ones are 'full', 'cfrq'");         
+		}
 
 		try {
-			
-			String template = "/survey/print/"+country+"/"+mode;
 
+
+			String template = "/survey/print/"+country+"/onlyvalues";
 			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
-
 			req.getRequestDispatcher(template).include(req, customResponse);
-
 			String xml = customResponse.getOutput();
-			//m.getModelMap().addAttribute("xml",customResponse.getOutput());
+
 
 			FopFactory fopFactory = FopFactory.newInstance();
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-
 			ServletOutputStream out = null;
 
 			try {
 
 				out = resp.getOutputStream();
 				resp.setContentType(MimeConstants.MIME_PDF);
-				String filename =  "FRA 2015 – Country Report, " + country + ".pdf";
-				resp.setHeader("Content-Disposition", "inline ; filename=\"" + filename +"\"");
+
 				// Construct fop with desired output format
 				Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
 
-
-
-				
-				// Setup XSLT
-				//TransformerFactory factory = TransformerFactory.newInstance();
-				//USE SAXON
 				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
 
-				// Create new transformer and get the stylesheet using
-				// getStylesheetSource() from superclass (XsltView)
-				// there must be an XSL file in WEB-INF/xsl with file name
-				// equal to the name of the view
 				String xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;
 				ServletContext context = session.getServletContext();
 				String pathname =context.getRealPath(xslFilename); 
-				
+
 				Source xslt = new StreamSource(pathname);
 				Transformer transformer = factory.newTransformer(xslt);
-
-
 				transformer.setParameter("versionParam", "2.0");
 
-				// Setup input for XSLT transformation
-				//if(model.get("xml") != null){
 				StringReader xmlReader = new StringReader(xml);
 				Source src = new StreamSource(xmlReader);
 
-				// Resulting SAX events (the generated FO) must be piped through to FOP
+				String title =  "FRA_2015_Country_Report_";
+
+				if(type.equals("cfrq")){
+					StringWriter xmlOutWriter = new StringWriter();				
+					String cfrqFilterFilename = "/WEB-INF/xsl/cfrqFilter.xsl" ;
+					String cfrqFilterPathname = context.getRealPath(cfrqFilterFilename); 					
+					Source cfrqXslt = new StreamSource(new File(cfrqFilterPathname));			
+					StreamResult xmlResult = new StreamResult(xmlOutWriter);
+					Transformer cfraFilter = factory.newTransformer(cfrqXslt);
+					cfraFilter.setParameter("versionParam", "2.0");
+					cfraFilter.transform(src, xmlResult);
+					src = new StreamSource( new StringReader(xmlOutWriter.toString()));
+					title = title + "CFRQ_";
+				}
+				String filename = title + country.replace(" ","_") + ".pdf";
+				resp.setHeader("Content-Disposition", "inline ; filename=\"" + filename +"\"");
+
 				Result res = new SAXResult(fop.getDefaultHandler());
 
-				// Start XSLT transformation and FOP processing
 				transformer.transform(src, res);
-				
-				System.out.println(res.toString());
-				//}
+
 			} finally {
 				out.close();
 			}
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Throwable e) {
+			LOGGER.error(e.getMessage(), e);
 		}
 
 	}

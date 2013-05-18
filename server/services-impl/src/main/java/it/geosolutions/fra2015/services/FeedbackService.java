@@ -102,6 +102,31 @@ public class FeedbackService {
         return list;
     }
     
+    public List<Feedback> loadAllFeedback(User user, SurveyInstance survey) throws BadRequestServiceEx{
+
+        List<Feedback> list = new ArrayList<Feedback>();
+        List<Feedback> harmonizedList = new ArrayList<Feedback>();
+        try {
+            
+            Search search = new Search();
+            if(user != null){
+                search.addFilterEqual("user", user);
+            }
+            search.addFilterEqual("harmonized", false);
+            search.addFilterEqual("survey", survey);
+            //search.addFilterEqual("entry.question.id", question);
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
+            list = feedbackDAO.search(search);
+        }
+        catch (Exception e) {
+            
+            LOGGER.error(e.getLocalizedMessage());
+            throw new BadRequestServiceEx(e.getLocalizedMessage());
+        }
+        list.addAll(harmonizedList);
+        return list;
+    }
+    
     /**
      * Load all the harmonized feedbacks for a given question
      * 
@@ -120,6 +145,28 @@ public class FeedbackService {
             search.addFilterEqual("harmonized", true);
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
+            list = feedbackDAO.search(search);
+        }
+        catch (Exception e) {
+            
+            LOGGER.error(e.getLocalizedMessage());
+            throw new BadRequestServiceEx(e.getLocalizedMessage());
+        }
+        list.addAll(harmonizedList);
+        return list;
+    }
+    
+    public List<Feedback> loadAllHarmonizedfeedbacks(SurveyInstance survey) throws BadRequestServiceEx{
+        
+        List<Feedback> list = new ArrayList<Feedback>();
+        List<Feedback> harmonizedList = new ArrayList<Feedback>();
+        try {
+            
+            Search search = new Search();
+            search.addFilterEqual("harmonized", true);
+            search.addFilterEqual("survey", survey);
+            //search.addFilterEqual("entry.question.id", question);
             search.addFilterGreaterThan("timestamp", survey.getStatus().getLastContributorSubmission());
             list = feedbackDAO.search(search);
         }

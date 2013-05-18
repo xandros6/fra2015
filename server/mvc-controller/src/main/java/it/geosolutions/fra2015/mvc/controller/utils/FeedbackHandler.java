@@ -104,6 +104,26 @@ public class FeedbackHandler{
         return feedbackList;
     }
     
+    public List<Feedback> retrieveAllFeedbacks(String country, HttpSession session, User su) throws BadRequestServiceEx {
+
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+
+        List<Feedback> feedbackList = null;
+        List<Feedback> harmonizedFeedbackList = null;
+        try {
+
+            feedbackList = feedbackService.loadAllFeedback(su, si);
+            harmonizedFeedbackList = feedbackService.loadAllHarmonizedfeedbacks(si);
+        } catch (BadRequestServiceEx e) {
+
+           throw new BadRequestServiceEx("Errors loading feedbacks...");
+        }
+        feedbackList.addAll(harmonizedFeedbackList);
+        return feedbackList;
+    }
+    
     public void storeFeedbacks() throws BadRequestServiceEx {
 
         if (this.feedbackList != null) {
@@ -252,10 +272,8 @@ public class FeedbackHandler{
     
     public void prepareFeedbackModel(Model model, List<Feedback> feedbackList){
         
-        if(feedbackList != null){
-            
-            for(Feedback el : feedbackList){
-                
+        if(feedbackList != null){            
+            for(Feedback el : feedbackList){                
                 String feedbackId = el.getFeedbackId();
                 feedbackId = (el.getHarmonized())?feedbackId+"_Ed":feedbackId;
                 model.addAttribute(VariableNameUtils.buildfeedbackIDfromEntryID(feedbackId), el.getFeedback());
