@@ -9322,6 +9322,12 @@
 								</entryItem>
 								<entryItem>
 									<rowName>18b;18.5</rowName>
+									<rowNumber>2</rowNumber>
+									<columnNumber>2</columnNumber>
+									<type>String</type>
+								</entryItem>
+								<entryItem>
+									<rowName>18b;18.6</rowName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>String</type>
@@ -9333,7 +9339,7 @@
 									<type>String</type>
 								</entryItem>
 								<entryItem>
-									<rowName>18b;18.6</rowName>
+									<rowName>18b;18.7</rowName>
 									<rowNumber>4</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>String</type>
@@ -9345,7 +9351,7 @@
 									<type>String</type>
 								</entryItem>
 								<entryItem>
-									<rowName>18b;18.7</rowName>
+									<rowName>18b;18.8</rowName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>1</columnNumber>
 									<type>String</type>
@@ -9354,12 +9360,6 @@
 									<rowName>18b;18.8</rowName>
 									<rowNumber>5</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowName>18b;18.8</rowName>
-									<rowNumber></rowNumber>
-									<columnNumber></columnNumber>
 									<type>String</type>
 								</entryItem>	
 							</EntryItems>
