@@ -10,9 +10,9 @@
 			<form id="survey_form" method="POST" action="${question}">
 				<div class="span8" id="survey-content">
 					<c:if test="${
-						!((profile == 'CONTRIBUTOR' && fra:isContributorEditable(status) )||
-						(profile == 'EDITOR' && fra:isReviewEditorEditable(status) )||
-						(profile == 'REVIEWER' && fra:isReviewerEditable(status)) )
+						(profile == 'CONTRIBUTOR' && !fra:isContributorEditable(status) )||
+						(profile == 'EDITOR' && !fra:isReviewEditorEditable(status) )||
+						(profile == 'REVIEWER' && !fra:isReviewerEditable(status)) 
 						}">
 					<span class="label label-info"><i class=" icon-hand-right"></i>
 						<spring:message code="survey.readonly" text="You can't edit the survey at this stage of the revision cycle">
