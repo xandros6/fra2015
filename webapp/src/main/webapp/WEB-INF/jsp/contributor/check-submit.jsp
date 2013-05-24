@@ -38,7 +38,7 @@
 
 					</div>
 				</c:if>
-				<c:if test="${!denysubmit}">
+				<c:if test="${!denysubmit && cansubmit}">
 				<c:if test="${allowsubmit}">
 				<div id="messagePanel" class="alert alert-success"><spring:message code="validation.success"></spring:message></div>
 				</c:if>
