@@ -55,11 +55,12 @@ public class Validator implements InitializingBean, ApplicationContextAware {
      * @param country
      * @return
      */
-    public ValidationResult validate(String country) {
+    public ValidationResult validate(String country, ValidationResult result) {
 
         Iterator<ValidationRule> it = ruleList.iterator();
-        ValidationResult result = new ValidationResult();
-        
+        if(result == null){
+            result = new ValidationResult();
+        }
         // get the needed variable names (1.1 ...)
         HashSet<String> varnames = new HashSet<String>();
         while (it.hasNext()) {
@@ -271,7 +272,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             if (alreadyChecked) {
                 continue;
             }
-
+            
             // get the map name ->value
             Map<String, String> test = tests.get(key);
             if(test==null){
@@ -280,7 +281,8 @@ public class Validator implements InitializingBean, ApplicationContextAware {
                 message.setRule(rule);
                 message.setSuccess(false);
                 message.addElements(Arrays.asList(rule.getEntryId().split(",")));
-
+                alreadyChecked = true;
+                continue;
             }
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables

@@ -6,7 +6,7 @@
 			<thead>
 				<tr>
 					<th>Survey</th>
-					<th>Last update</th>
+					<!-- <th>Last update</th>  -->
 					<th>Status</th>
 					<th></th>
 					
@@ -23,7 +23,7 @@
 					</c:if>
 					<tr class="rowItem">
 						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
-						<td>TODO</td>
+						<!-- <td>TODO</td>  -->
 						<td><spring:message code="survey.status.${survey.status.status}"></spring:message></td>
 						<td>
 						<a href="../survey/review/${survey.country.iso3}/0" class="btn"><spring:message code="surveylist.view"></spring:message></a>

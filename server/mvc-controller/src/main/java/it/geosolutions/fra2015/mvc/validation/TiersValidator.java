@@ -22,6 +22,8 @@
 package it.geosolutions.fra2015.mvc.validation;
 
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.Value;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.validation.ValidationMessage;
 import it.geosolutions.fra2015.validation.ValidationResult;
@@ -44,7 +46,7 @@ public class TiersValidator {
     
     //The tiers list
     // TODO externalize (File? in DB?)
-    public static final String tiers = "9x"/*;21x;35*/;
+    public static final String tiers = "9x;21x;35;48;60;71;83;95;900;116;126;131;136;149;151";
     
     @Autowired
     private SurveyService surveyService;
@@ -65,16 +67,16 @@ public class TiersValidator {
         
         try {
             // load empty tiers
-            List<EntryItem> emptyTiers = surveyService.getEntryItemsListByFieldValues("entry.variable", Arrays.asList(tiers.split(";")), null, iso3, true);
+            List<Value> emptyTiersValue = surveyService.getEntryItemsListByFieldValues("entry.variable", Arrays.asList(tiers.split(";")), null, iso3, true);
+            List<EntryItem> emptyTiers = fromValueListToTiersList(emptyTiersValue);
             for(EntryItem el : emptyTiers){
-                // retrieve from the tiers rowName the related variable row 
-                String [] filters = el.getRowName().split(";");
                 List<String> varList = new ArrayList<String>();
-                varList.add(filters[0]);
+                TierRowName trn = new TierRowName(el.getRowName());
+                varList.add(trn.getReletedEntityId());
                 // load the row variables related to the current tier 
-                List<EntryItem> items = surveyService.getEntryItemsListByFieldValues("entry.variable", varList, filters[1], iso3, false);
-                if(!items.isEmpty()){
-                    errorElements.add("table["+filters[0]+"]-row["+filters[1]+"]");
+                List<Value> items = surveyService.getEntryItemsListByFieldValues("entry.variable", varList, trn.getRelatedRowNames(), iso3, false);
+                if(!items.isEmpty() && !areTheValuesAllNA(items)){
+                     errorElements.add(trn.getErrorMessage());
                 }
             }
         } catch (Exception e) {
@@ -88,15 +90,76 @@ public class TiersValidator {
             vr.addMessage(vm);
             //vm.setRule("Tiers Validity");
         }
-        else{
-            ValidationMessage vmOk = new ValidationMessage();
-            vmOk.setSuccess(true);
-            vmOk.setMessage("error.violateTiersconstraints");
-            vr.addMessage(vmOk);
-        }
         return vr;
     }
     
+    private boolean areTheValuesAllNA(List<Value> items){
+        for(Value el : items){
+            if(el instanceof NumberValue){
+                Double d = ((NumberValue)el).getValue().doubleValue();
+                if(!d.isNaN()){
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
     
+    private List<EntryItem> fromValueListToTiersList(List<Value> items){
+        List<EntryItem> results = new ArrayList<EntryItem>();
+        for(Value el : items){
+            if(el != null){
+                results.add(el.getEntryItem());
+            }
+        }
+        return results;
+    }
+    
+    private class TierRowName{
+        private String reletedEntityId;
+        private List<String> relatedRowNames;
+        
+        public TierRowName(String name){
+            String [] filters = name.split(";");
+            if(filters.length == 2){
+                this.reletedEntityId = filters[0];
+                String [] relatedRowNamesArray = filters[1].split(",");
+                relatedRowNames = Arrays.asList(relatedRowNamesArray);
+            }
+            else{
+                this.reletedEntityId = "";
+                relatedRowNames = new ArrayList<String>();
+            }
+        }
+        
+        public String getErrorMessage(){
+            if(relatedRowNames.size() == 1){
+                return "table["+reletedEntityId+"]-row["+relatedRowNames.get(0)+"]";
+            }
+            else if (relatedRowNames.size() > 1){
+                return "table["+reletedEntityId+"]-row[ALL]";
+            }
+            return "Error occurred in tiers validation.";
+        }
+
+        /**
+         * @return the reletedEntityId
+         */
+        public String getReletedEntityId() {
+            return reletedEntityId;
+        }
+
+        /**
+         * @return the relatedRowNames
+         */
+        public List<String> getRelatedRowNames() {
+            return relatedRowNames;
+        }
+        
+        
+    }
     
 }

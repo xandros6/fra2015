@@ -6,7 +6,7 @@
 			<thead>
 				<tr>
 					<th>Survey</th>
-					<th>Last update</th>
+					<!-- <th>Last update</th>  -->
 					<th>Status</th>
 					<th>Reviewer complete</th>
 					<th>Revision coverage</th>
@@ -26,7 +26,7 @@
 					</c:if>
 					<tr class="rowItem">
 						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
-						<td>TODO</td>
+						<!-- <td>TODO</td> -->
 
 						<td><spring:message
 								code="survey.status.${survey.status.status}"></spring:message></td>

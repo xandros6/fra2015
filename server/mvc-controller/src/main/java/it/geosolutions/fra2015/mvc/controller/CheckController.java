@@ -86,10 +86,7 @@ public class CheckController {
             return "index";
         }
         ValidationResult tiersResult = tiersValidator.checkTiers(iso3);
-        ValidationResult rulesResult = null;
-        if(tiersResult.getSuccess()){
-            rulesResult = validator.validate(iso3);
-        }
+        ValidationResult rulesResult = rulesResult = validator.validate(iso3, tiersResult);
         ValidationResult v = (rulesResult==null)?tiersResult:rulesResult;
         if (v.getSuccess() && tiersResult.getSuccess()) {
             model.addAttribute("allowsubmit", true);

@@ -89,7 +89,7 @@
 							<td rownumber="1" columnnumber="0"><spring:message
 									code="ref372"></spring:message></td>
 							<td class="tier entry-item" rownumber="1" columnnumber="2"
-								entry-id="9"><div id="cell-content">
+								entry-id="900"><div id="cell-content">
 									<fra:tiers name="_fraVariable_900_1_2_"><option
 											selected="selected">---</option>
 										<option value="Tier 1">Tier 1</option>
@@ -151,14 +151,14 @@
 									code="ref372"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="11"><span class="entry_item_placeholder" id="_fraVariable_901_1_1_">&nbsp;</span>
+								entry-id="901"><span class="entry_item_placeholder" id="_fraVariable_901_1_1_">&nbsp;</span>
 							<div id="cell-content">${_fraVariable_901_1_1_}</div></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<fra:feedback feedbackName="_feedback_11x_"/>
+			<fra:feedback feedbackName="_feedback_901_"/>
 			<br>
 			<br>
 		</div>
