@@ -101,6 +101,9 @@ public class User implements Serializable {
         
     @Column(nullable = false, updatable = false)
     private String role;
+    
+    @Column(nullable = true, updatable = true)
+    private Boolean canSubmit;
 
     @Enumerated
     protected UserGroup userGroup = UserGroup.GUEST;
@@ -211,8 +214,13 @@ public class User implements Serializable {
         this.newPassword = newPassword;
     }
     
-    
+    public Boolean getCanSubmit() {
+        return canSubmit;
+    }
 
+    public void setCanSubmit(Boolean canSubmit) {
+        this.canSubmit = canSubmit;
+    }
     
     @Override
     public int hashCode() {
