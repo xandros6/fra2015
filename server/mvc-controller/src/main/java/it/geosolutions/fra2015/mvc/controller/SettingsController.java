@@ -23,10 +23,12 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -51,7 +53,6 @@ public class SettingsController {
     @RequestMapping(value = "/usersettings", method = RequestMethod.GET)
     public String handleGet(Model model, HttpSession session) {
 
-        model.addAttribute("context", "summary");
 
         User su = (User) session.getAttribute(SESSION_USER);
         if (su==null){
@@ -61,16 +62,35 @@ public class SettingsController {
         model.addAttribute("mailfavoritelanguage",language);
         
         // Set the parameter operationWR, the domain is "WRITE" "READ"
-       model.addAttribute("context","settings");
+        model.addAttribute("context","settings");
         
 
-        return "index";
+        return getTemplate(su);
 
+    }
+    private String getTemplate(User user) {
+        if(user==null){ return "redirect:/";}
+        String role = user.getRole();
+        if(role.equals("contributor")){
+            return "index";
+        }
+        if(role.equals("admin")){
+            return "admin";
+        }
+        if(role.equals("reviewer")){
+            return "reviewer";
+        }
+        if(role.equals("editor")){
+            return "editor";
+        }
+        if(role.equals("validator")){
+            return "validator";
+        }
+        return "redirect:/";
     }
     @RequestMapping(value = "/usersettings", method = RequestMethod.POST)
     public String handlePost(Model model, HttpSession session,HttpServletRequest request) {
 
-        model.addAttribute("context", "summary");
 
         User su = (User) session.getAttribute(SESSION_USER);
         if (su==null){
@@ -79,9 +99,9 @@ public class SettingsController {
 
         String language = request.getParameter("mailfavoritelanguage");
         model.addAttribute("context","settings");
-
+        User user = null;
         try {
-            User user = userService.get(su.getUsername());
+            user = userService.get(su.getUsername());
             if(user==null){
                 throw new BadRequestServiceEx("User not found");
             }
@@ -92,14 +112,14 @@ public class SettingsController {
             model.addAttribute("messageType", "success");
             model.addAttribute("messageCode", "settings.success");
             model.addAttribute("mailfavoritelanguage",language);
-            return "index";
+            return getTemplate(user);
         } catch (NotFoundServiceEx e) {
             model.addAttribute("messageType", "error");
             model.addAttribute("messageCode", "settings.error");
             model.addAttribute("messageTimeout",10000);
             model.addAttribute("mailfavoritelanguage",su.getLanguage());
             LOGGER.error( e.getMessage(), e);
-            return "index";
+            return getTemplate(user);
             
         } catch (BadRequestServiceEx e) {
             model.addAttribute("messageType", "error");
@@ -107,7 +127,7 @@ public class SettingsController {
             model.addAttribute("messageTimeout",10000);
             model.addAttribute("mailfavoritelanguage",su.getLanguage());
             LOGGER.error( e.getMessage(), e);
-            return "index";
+            return getTemplate(user);
         }
         
 
