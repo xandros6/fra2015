@@ -8,7 +8,7 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/users/*" access="ROLE_admin" />
+		<intercept-url pattern="/users/**" access="ROLE_admin" />
 		<intercept-url pattern="/adminactivitylog*" access="ROLE_admin" />
 		<intercept-url pattern="/adminactivitylog/*" access="ROLE_admin" />
 		<intercept-url pattern="/survey/*" access="ROLE_contributor" />
@@ -21,8 +21,8 @@
 		<intercept-url pattern="/survey/print/**/onlyvalues" access="ROLE_admin" />
 		<intercept-url pattern="/reviewersubmit*" access="ROLE_reviewer" />
 		<intercept-url pattern="/export/*" access="ROLE_admin,ROLE_contributor,ROLE_editor,ROLE_validator" />
-		<intercept-url pattern="/acceptance/*" access="ROLE_validator" />
-		<intercept-url pattern="/admin/*" access="ROLE_admin" />
+		<intercept-url pattern="/acceptance/**" access="ROLE_validator" />
+		<intercept-url pattern="/admin/**" access="ROLE_admin" />
 		
 		<form-login always-use-default-target="true"  login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />
