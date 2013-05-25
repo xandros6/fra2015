@@ -51,5 +51,15 @@ public class Assembler {
                 accountNonLocked, authorities);
         return user;
     }
+    
+    /**
+     * used to check password in other contexts
+     * @param user the user
+     * @param pw the password to check 
+     * @return
+     */
+    public static boolean checkPassword(User user,String pw){
+        return user.getPassword().equals(pw);
+    }
 
 }

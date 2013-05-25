@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.security.Assembler;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -98,6 +99,9 @@ public class SettingsController {
         }
 
         String language = request.getParameter("mailfavoritelanguage");
+        String newpw = request.getParameter("newPassword");
+        String oldpw = request.getParameter("oldPassword");
+        
         model.addAttribute("context","settings");
         User user = null;
         try {
@@ -105,7 +109,22 @@ public class SettingsController {
             if(user==null){
                 throw new BadRequestServiceEx("User not found");
             }
-            user.setLanguage(language);
+            if(language != null){
+                user.setLanguage(language);
+            }else{
+                language = user.getLanguage();
+            }
+            if(newpw != null){
+                if(!Assembler.checkPassword(user, oldpw)){
+                    model.addAttribute("messageType", "error");
+                    model.addAttribute("messageCode", "settings.wrongpassword");
+                    model.addAttribute("messageTimeout",10000);
+                    model.addAttribute("mailfavoritelanguage",su.getLanguage());
+                    return getTemplate(user);
+                }
+                user.setNewPassword(newpw);
+                LOGGER.info("user \"" + user.getUsername() + "\" has changed his password ");
+            }
             userService.update(user);
             // Store the User in session
             session.setAttribute(SESSION_USER, user);
@@ -132,4 +151,5 @@ public class SettingsController {
         
 
     }
+    
 }
