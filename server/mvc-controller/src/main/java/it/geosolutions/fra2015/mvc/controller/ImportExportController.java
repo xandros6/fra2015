@@ -32,16 +32,19 @@ import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.server.model.xmlexport.BasicValue;
 import it.geosolutions.fra2015.server.model.xmlexport.SurveyInfo;
+import it.geosolutions.fra2015.server.model.xmlexport.SurveyStatus;
 import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -54,6 +57,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -202,15 +206,25 @@ public class ImportExportController {
     @RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
     public @ResponseBody XmlSurvey handleGet(
             @PathVariable(value = "country") String country, Model model, HttpSession session, HttpServletResponse response)
-            throws IllegalArgumentException {
+            throws IllegalArgumentException, IllegalStateException {
 
         SurveyInfo surveyInfo = new SurveyInfo();
         surveyInfo.setCountry(country);
         Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
         surveyInfo.setTimestamp(cal.getTime());
-
+        
+        SurveyStatus surveyStatusDto = new SurveyStatus();
+        Status surveyStatus = surveyService.getStatus(country);
+        try {
+            BeanUtils.copyProperties(surveyStatusDto, surveyStatus);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw new IllegalStateException("Error occurred while copying DTO object into entity onject");
+        } 
+        
         XmlSurvey survey = new XmlSurvey();
         survey.setInfo(surveyInfo);
+        survey.setSurveyStatus(surveyStatusDto);
         List<BasicValue> valList = new ArrayList<BasicValue>();
         survey.setBasicValues(valList);
 
