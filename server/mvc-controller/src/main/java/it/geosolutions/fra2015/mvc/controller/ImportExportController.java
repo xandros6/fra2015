@@ -32,15 +32,20 @@ import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.server.model.xmlexport.BasicValue;
 import it.geosolutions.fra2015.server.model.xmlexport.SurveyInfo;
 import it.geosolutions.fra2015.server.model.xmlexport.SurveyStatus;
+import it.geosolutions.fra2015.server.model.xmlexport.UserDTO;
 import it.geosolutions.fra2015.server.model.xmlexport.XmlSurvey;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.model.UserFilter;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.io.IOException;
@@ -89,6 +94,9 @@ public class ImportExportController {
     @Autowired
     private ControllerServices utils;
 
+    @Autowired
+    private UserService usersServices;
+    
     private static Logger LOGGER = Logger.getLogger(ImportExportController.class);
     
     @RequestMapping(value = "/export", method = RequestMethod.GET)
@@ -207,7 +215,7 @@ public class ImportExportController {
     @RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
     public @ResponseBody XmlSurvey handleGet(
             @PathVariable(value = "country") String country, Model model, HttpSession session, HttpServletResponse response)
-            throws IllegalArgumentException, IllegalStateException {
+            throws IllegalArgumentException, IllegalStateException, BadRequestServiceEx {
 
         SurveyInfo surveyInfo = new SurveyInfo();
         surveyInfo.setCountry(country);
@@ -250,6 +258,33 @@ public class ImportExportController {
             }
             valList.add(buildBasicValue(questionId, String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
         }
+        
+        // Get the users (Just for export not for import)
+        UserFilter uf = new UserFilter();
+        Country countryInstance = surveyService.findCountryByISO3(country);
+        if(countryInstance == null){
+            
+            throw new IllegalStateException("Country '" + country + "' doesn't exist.");
+        }
+        uf.setCountries(String.valueOf(countryInstance.getId()));
+        List<User> users = usersServices.getAll(null, null, uf);
+        List<UserDTO> usersDTO = new ArrayList<UserDTO>();
+        try {
+            for(User el : users){
+                UserDTO uDTO = new UserDTO();
+                BeanUtils.copyProperties(uDTO, el);
+                List<Long> questions = new ArrayList<Long>();
+                for(Question el2 : el.getQuestions()){
+                    questions.add(el2.getId());
+                }
+                uDTO.setQuestionsId(questions);
+                usersDTO.add(uDTO);
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw new IllegalStateException("Error occurred while copying DTO object into entity onject");
+        }
+        survey.setUsers(usersDTO);
         
         response.setContentType("application/force-download");
         response.setHeader("Content-Disposition","attachment; filename=\"" + country +  "-surveyExport.xml\"");
@@ -321,36 +356,36 @@ public class ImportExportController {
             
             throw new IllegalStateException("Country '" + country + "' doesn't exist.");
         }
-        
-        for(BasicValue el : survey.getBasicValues()){
-            
-            Long qId = el.getQuestionId();
-            List<Update> upList = updatesMap.get(qId);
-            if(upList == null){
-                List<Update> newUpList = new ArrayList<Update>();
-                updatesMap.put(qId, newUpList);
-                upList = newUpList;
+        if(survey != null && survey.getBasicValues() != null){
+            for(BasicValue el : survey.getBasicValues()){
+                
+                Long qId = el.getQuestionId();
+                List<Update> upList = updatesMap.get(qId);
+                if(upList == null){
+                    List<Update> newUpList = new ArrayList<Update>();
+                    updatesMap.put(qId, newUpList);
+                    upList = newUpList;
+                }
+                String reference = (el.getReference().startsWith("_fraVariable_"))?el.getReference():"_fraVariable_"+el.getReference();
+                VariableNameUtils.VariableName varName = VariableNameUtils.buildVariable(reference, el.getContent());
+                Update up = new Update();
+                up.setColumn(varName.col);
+                up.setCountry(country);
+                up.setRow(varName.row);
+                up.setValue(varName.value);
+                up.setVariable(varName.variableName);
+                
+                upList.add(up);
             }
-            String reference = (el.getReference().startsWith("_fraVariable_"))?el.getReference():"_fraVariable_"+el.getReference();
-            VariableNameUtils.VariableName varName = VariableNameUtils.buildVariable(reference, el.getContent());
-            Update up = new Update();
-            up.setColumn(varName.col);
-            up.setCountry(country);
-            up.setRow(varName.row);
-            up.setValue(varName.value);
-            up.setVariable(varName.variableName);
             
-            upList.add(up);
+            for(Long el : updatesMap.keySet()){
+                List<Update> up = updatesMap.get(el);
+                updates.setQuestion(String.valueOf(el));
+                updates.setUsername("IMPORTED_FROM_XML");
+                updates.setUpdates(up);
+                utils.updateValuesService(updates, removes);
+            }
         }
-        
-        for(Long el : updatesMap.keySet()){
-            List<Update> up = updatesMap.get(el);
-            updates.setQuestion(String.valueOf(el));
-            updates.setUsername("IMPORTED_FROM_XML");
-            updates.setUpdates(up);
-            utils.updateValuesService(updates, removes);
-        }
-        
         return true;
     }
 }

@@ -32,12 +32,14 @@ import javax.xml.bind.annotation.XmlType;
  *
  */
 @XmlRootElement(name="Survey")
-@XmlType(propOrder={"info","basicValues","surveyStatus"})
+@XmlType(propOrder={"info","basicValues","surveyStatus","users"})
 public class XmlSurvey {
 
     private SurveyInfo info;
     
     private List<BasicValue> basicValues;
+    
+    private List<UserDTO> users;
     
     private SurveyStatus surveyStatus;
 
@@ -86,6 +88,21 @@ public class XmlSurvey {
      */
     public void setSurveyStatus(SurveyStatus surveyStatus) {
         this.surveyStatus = surveyStatus;
+    }
+
+    /**
+     * @return the users
+     */
+    @XmlElement(name = "Users")
+    public List<UserDTO> getUsers() {
+        return users;
+    }
+
+    /**
+     * @param users the users to set
+     */
+    public void setUsers(List<UserDTO> users) {
+        this.users = users;
     }
     
     
