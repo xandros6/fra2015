@@ -25,8 +25,8 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import it.geosolutions.fra2015.entrypoint.model.Update;
 import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
-import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.mvc.controller.utils.VariableNameUtils;
 import it.geosolutions.fra2015.mvc.model.SurveyUpload;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
@@ -44,11 +44,12 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletResponse;
@@ -234,12 +235,20 @@ public class ImportExportController {
         
         for (TextValue el : textValues) {
             
-            valList.add(buildBasicValue(el.getValue(), composeEntryItemName(el.getEntryItem()),"text"));
+            Long questionId = null;
+            if(el != null && el.getEntryItem() != null && el.getEntryItem().getEntry() != null){
+                questionId = el.getEntryItem().getEntry().getQuestion().getId();
+            }
+            valList.add(buildBasicValue(questionId, el.getValue(), composeEntryItemName(el.getEntryItem()),"text"));
         }
         
         for (NumberValue el : numberValues) {
             
-            valList.add(buildBasicValue(String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
+            Long questionId = null;
+            if(el != null && el.getEntryItem() != null && el.getEntryItem().getEntry() != null){
+                questionId = el.getEntryItem().getEntry().getQuestion().getId();
+            }
+            valList.add(buildBasicValue(questionId, String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
         }
         
         response.setContentType("application/force-download");
@@ -266,9 +275,10 @@ public class ImportExportController {
         return entryItemName;
     }
     
-    private static BasicValue buildBasicValue(String content, String reference, String type){
+    private static BasicValue buildBasicValue(Long questionId, String content, String reference, String type){
         
         BasicValue val = new BasicValue();
+        val.setQuestionId(questionId);
         val.setContent(content);
         val.setReference(reference);
         val.setType(type);
@@ -280,7 +290,8 @@ public class ImportExportController {
         JAXBContext jc = null;
         XmlSurvey survey = null;
         Updates updates = new Updates();
-        List<Update> updateList = new ArrayList<Update>();
+        Map<Long, List<Update>> updatesMap = new HashMap<Long, List<Update>>();
+//        List<Update> updateList = new ArrayList<Update>();
         Updates removes = new Updates();
         
         try {
@@ -313,6 +324,13 @@ public class ImportExportController {
         
         for(BasicValue el : survey.getBasicValues()){
             
+            Long qId = el.getQuestionId();
+            List<Update> upList = updatesMap.get(qId);
+            if(upList == null){
+                List<Update> newUpList = new ArrayList<Update>();
+                updatesMap.put(qId, newUpList);
+                upList = newUpList;
+            }
             String reference = (el.getReference().startsWith("_fraVariable_"))?el.getReference():"_fraVariable_"+el.getReference();
             VariableNameUtils.VariableName varName = VariableNameUtils.buildVariable(reference, el.getContent());
             Update up = new Update();
@@ -322,11 +340,17 @@ public class ImportExportController {
             up.setValue(varName.value);
             up.setVariable(varName.variableName);
             
-            updateList.add(up);
+            upList.add(up);
         }
         
-        updates.setUpdates(updateList);
-        utils.updateValuesService(updates, removes);
+        for(Long el : updatesMap.keySet()){
+            List<Update> up = updatesMap.get(el);
+            updates.setQuestion(String.valueOf(el));
+            updates.setUsername("IMPORTED_FROM_XML");
+            updates.setUpdates(up);
+            utils.updateValuesService(updates, removes);
+        }
+        
         return true;
     }
 }
