@@ -124,7 +124,20 @@ public class SurveyStatusController {
         Map<String, List<User>> users = new HashMap<String, List<User>>();
 
         for (String role : getRoles()) {
-            users.put(role + "s", userService.getUsersForCountry(country, role));
+            List<User> list = userService.getUsersForCountry(country, role);
+            if(role.equals("contributor")){
+                List<User> submitters= new ArrayList<User>();
+                for( User u : list){
+                    
+                    if(u.getCanSubmit()!=null){
+                        if(u.getCanSubmit() ==true){
+                            submitters.add(u);
+                        }
+                    }
+                }
+                users.put("submitters", submitters);
+            }
+            users.put(role + "s",list );
             
         }
         return users;
