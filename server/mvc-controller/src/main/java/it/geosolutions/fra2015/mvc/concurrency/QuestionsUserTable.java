@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import org.apache.commons.collections.ListUtils;
 import org.apache.commons.collections.keyvalue.MultiKey;
 
 /**
@@ -40,6 +41,7 @@ import org.apache.commons.collections.keyvalue.MultiKey;
 public class QuestionsUserTable {
 
     Map<MultiKey, List<User>> m = new Hashtable<MultiKey, List<User>>();
+    Map<User,List<Integer>> usersIndexes = new Hashtable<User,List<Integer>>();
     
     public void addUser(User usr, int question){
         
@@ -51,6 +53,12 @@ public class QuestionsUserTable {
             m.put(key, users);
         }
         users.add(usr);
+        List<Integer> listQ = usersIndexes.get(usr);
+        if(listQ == null){
+            listQ = new Vector<Integer>();
+            usersIndexes.put(usr, listQ);
+        }
+        listQ.add(question);
     }
     
     public void removeUser(User usr, int question) throws IllegalStateException{
@@ -63,7 +71,21 @@ public class QuestionsUserTable {
             // throw new IllegalStateException("The user " + usr.getUsername() + "is not stored for question " + iso3 + "-" + question);
         }
         boolean isRemoverd = users.remove(usr);
-        m.toString();
+        List<Integer> listQ = usersIndexes.get(usr);
+        if(listQ != null){
+            listQ.remove(new Integer(question));
+        }
+    }
+    
+    public boolean purgeDataForUser(User usr){
+        List<Integer> list = usersIndexes.get(usr);
+        if(list == null){
+            return false;
+        }
+        for(Integer el : list){
+            removeUser(usr, el);
+        }
+        return true;
     }
     
     public boolean amITheFirst(User usr, int question){

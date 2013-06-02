@@ -457,10 +457,11 @@ public class SurveyServiceImpl implements SurveyService {
                 else{
                     lastRevision.setVersion(version+1);
                     questionRevisionDAO.merge(lastRevision);
+                    return true;
                 }
             }
 
-            return true;
+            return false;
         }
 
         @Override

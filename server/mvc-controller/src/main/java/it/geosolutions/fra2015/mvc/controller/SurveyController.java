@@ -231,18 +231,18 @@ public class SurveyController{
             if(StatusUtils.isSubmitAllowed(utils.getStatusByCountry(iso3))){
                 utils.updateValuesService(updates, removes);
                 utils.updateSurveyStatusInProgress(iso3);
+                model.addAttribute("messageType","success");
+                model.addAttribute("messageCode","alert.savesuccess");
             }else{
                 //TODO notify is not editable
             }
-            
         }
         else{
             // Display the concurrency error message
             LOGGER.error("FATAL ERROR");
             model.addAttribute("messageType","warning");
             //model.addAttribute("messageType","alert");// red background
-            model.addAttribute("messageCode","alert.savefaliure");
-            model.addAttribute("messageTrailCode","message.cuncurrencyconflict");
+            model.addAttribute("messageCode","message.cuncurrencyconflict");
             model.addAttribute("messageTimeout",10000);
 
             //TODO Test it !!!
@@ -280,8 +280,6 @@ public class SurveyController{
         model.addAttribute("status",status);
         model.addAttribute("statuscode",statusLocale);
         model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
-        model.addAttribute("messageType","success");
-        model.addAttribute("messageCode","alert.savesuccess");
         //get the status 
         
         return "index";

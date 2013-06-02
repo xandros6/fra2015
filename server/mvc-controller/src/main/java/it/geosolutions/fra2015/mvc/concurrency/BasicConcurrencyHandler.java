@@ -137,4 +137,13 @@ public class BasicConcurrencyHandler {
         session.setAttribute(SESSION_USER_QUESTION, question);
         Integer attr = (Integer)session.getAttribute(SESSION_USER_QUESTION);
     }
+    
+    public void purgeDataForUser(User usr) {
+        
+        QuestionsUserTable qut = (QuestionsUserTable) context.getAttribute(USER_MAP_NAME);
+        if(qut == null){
+            return;
+        }
+        qut.purgeDataForUser(usr);
+    }
 }

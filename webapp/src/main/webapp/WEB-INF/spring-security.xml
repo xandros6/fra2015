@@ -26,7 +26,7 @@
 		
 		<form-login always-use-default-target="true"  login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />
-		<logout logout-success-url="/logout" />
+		<logout logout-success-url="/logout" invalidate-session="false"/>
 	</http>
 		
 	<beans:bean id="assembler" class="it.geosolutions.fra2015.security.Assembler" />
@@ -55,5 +55,5 @@
 			<!-- <password-encoder hash="md5" /> -->
 		</authentication-provider>
 	</authentication-manager>
-
+	
 </beans:beans>

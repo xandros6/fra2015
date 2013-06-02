@@ -23,12 +23,14 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,6 +64,9 @@ public class LoginController {
     
     @Autowired
     private ControllerServices controllerServices;
+    
+    @Autowired
+    private BasicConcurrencyHandler concurencyHandler;
     
     @RequestMapping(value = "/dologin", method = RequestMethod.GET)
     public String processForm(@ModelAttribute("login") User user, BindingResult result, Map model,
@@ -133,6 +138,9 @@ public class LoginController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(ModelMap model, HttpSession session) {
 
+        User su = (User) session.getAttribute(SESSION_USER);
+        session.getAttributeNames();
+        concurencyHandler.purgeDataForUser(su);
         session.invalidate();
         return "login";
 
