@@ -38,14 +38,12 @@ import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
-import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -91,8 +89,6 @@ public class SurveyController{
     public String handleGet(@PathVariable(value = "question") String question, Model model,
             HttpSession session) {
 
-        concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
-        
         Long questionLong = Long.parseLong(question); 
         try{
             Integer.parseInt(question);
@@ -103,6 +99,10 @@ public class SurveyController{
             session.invalidate();
             return "login";
         }
+        
+        concurencyHandler.resetCurrentUserQuestion(session);
+        boolean amITheFirst = concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
+        concurencyHandler.updateCurrentUserQuestion(session, questionLong.intValue());
         
         model.addAttribute("question", question);
         model.addAttribute("context", "survey");
@@ -135,6 +135,10 @@ public class SurveyController{
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
             return "reviewer";
+        }
+        if(!amITheFirst){
+            model.addAttribute("messageType", "warning");
+            model.addAttribute("messageCode", "message.cuncurrencyconflict.notthefirst");
         }
         
         return "index";
@@ -240,33 +244,12 @@ public class SurveyController{
             model.addAttribute("messageCode","alert.savefaliure");
             model.addAttribute("messageTrailCode","message.cuncurrencyconflict");
             model.addAttribute("messageTimeout",10000);
+
+            //TODO Test it !!!
+            //utils.prepareHTTPRequest(model, question, /*mergedValues*/, false);
         }
         
-        // Set the parameter operationWR, the domain is "WRITE" "READ"
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
-        
-        //Merge old values with those have been changed       
-//        List<CompactValue> backList = new ArrayList<CompactValue>();
-//        for(String el : updateMap.keySet()){
-//            
-//            CompactValue v = oldMap.get(el);
-//            if(v != null){
-//                
-//                backList.add(v);
-//            }
-//            else{
-//                
-//                Update u = updateMap.get(el);
-//                CompactValue cv = new CompactValue();
-//                cv.setColumnNumber(u.getColumn());
-//                cv.setContent(u.getValue());
-//                cv.setRowNumber(u.getRow());
-//                cv.setVariable(u.getVariable());
-//                backList.add(cv);
-//            }
-//        }
-//        CountryValues mergedValues = new CountryValues();
-//        mergedValues.setValues(backList);
         
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), iso3)/*mergedValues*/, false);
 

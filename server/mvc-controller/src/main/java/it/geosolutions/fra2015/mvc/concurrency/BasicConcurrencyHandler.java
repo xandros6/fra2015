@@ -29,6 +29,7 @@ import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -48,18 +49,33 @@ public class BasicConcurrencyHandler {
     @Autowired
     private SurveyServiceEntryPoint surveyService;
     
+    @Autowired
+    private ServletContext context;
+    
+    private static String USER_MAP_NAME = "UserMap";
+    private static String SESSION_USER_QUESTION = "userQuestion";
+    
     private static final Logger LOGGER = Logger.getLogger(BasicConcurrencyHandler.class);
 
     public enum ConcurrencyKeys {
         COUNTRY_REVISION
     }
 
-    public void loadQuestionRevision(HttpSession session, Long questionNumber){
+    public boolean loadQuestionRevision(HttpSession session, Long questionNumber){
         
         String countryrevision = ConcurrencyKeys.COUNTRY_REVISION.toString();
         
         User usr = (User)session.getAttribute(SESSION_USER);
         String iso3 = UserUtil.getSingleIso3(usr);
+        
+        QuestionsUserTable qut = (QuestionsUserTable) context.getAttribute(USER_MAP_NAME);
+        if(qut == null){
+            qut = new QuestionsUserTable();
+            context.setAttribute(USER_MAP_NAME, qut);
+            context.getAttribute(USER_MAP_NAME);
+        }
+        boolean amITheFirst = qut.amITheFirst(usr, questionNumber.intValue());
+        qut.addUser(usr, questionNumber.intValue());
         
         session.removeAttribute(countryrevision);
         
@@ -75,19 +91,19 @@ public class BasicConcurrencyHandler {
             surveyService.insertQuestionRevisionNumber(qrNew);
             qr = surveyService.getQuestionRevisionNumber(countryEntity, question);
         }
-        session.setAttribute(countryrevision, qr);            
+        session.setAttribute(countryrevision, qr);
         
-        
-        
+        return amITheFirst;
     }
     
     public boolean updateQuestionRevision(HttpSession session, Long question){
         String countryVersion = ConcurrencyKeys.COUNTRY_REVISION.toString();
         
         QuestionRevision countryUpdate = (QuestionRevision)session.getAttribute(countryVersion);
-        User user = (User)session.getAttribute("User");
+//        User user = (User)session.getAttribute("User");
         
-        return surveyService.updateQuestionRevisionNumber(countryUpdate);
+        boolean outcome = surveyService.updateQuestionRevisionNumber(countryUpdate);
+        return outcome;
     }
     
     public static boolean genericEnumValidator(Class enumerator, String valueToCheck) {
@@ -102,4 +118,23 @@ public class BasicConcurrencyHandler {
         return true;
     }
 
+    public boolean resetCurrentUserQuestion(HttpSession session) {
+        
+        User usr = (User)session.getAttribute(SESSION_USER);
+        QuestionsUserTable qut = (QuestionsUserTable) context.getAttribute(USER_MAP_NAME);
+        boolean outcome = true;
+        Integer attr = (Integer)session.getAttribute(SESSION_USER_QUESTION);
+        if (qut == null || attr == null) {
+            return false;
+        }
+        qut.removeUser(usr, attr);
+        session.removeAttribute(SESSION_USER_QUESTION);
+        return outcome;
+    }
+    
+    public void updateCurrentUserQuestion(HttpSession session, int question) {
+
+        session.setAttribute(SESSION_USER_QUESTION, question);
+        Integer attr = (Integer)session.getAttribute(SESSION_USER_QUESTION);
+    }
 }
