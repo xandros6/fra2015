@@ -100,7 +100,7 @@ public class SurveyController{
             return "login";
         }
         
-        concurencyHandler.resetCurrentUserQuestion(session);
+        
         boolean amITheFirst = concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
         concurencyHandler.updateCurrentUserQuestion(session, questionLong.intValue());
         
