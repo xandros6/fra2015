@@ -30,7 +30,6 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
-import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -138,9 +137,8 @@ public class LoginController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(ModelMap model, HttpSession session) {
 
-        User su = (User) session.getAttribute(SESSION_USER);
-        session.getAttributeNames();
-        concurencyHandler.purgeDataForUser(su);
+        //User su = (User) session.getAttribute(SESSION_USER);
+        //concurencyHandler.purgeDataForUser(su);
         session.invalidate();
         return "login";
 

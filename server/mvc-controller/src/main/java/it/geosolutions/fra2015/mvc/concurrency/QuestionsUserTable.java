@@ -82,7 +82,8 @@ public class QuestionsUserTable {
         if(list == null){
             return false;
         }
-        for(Integer el : list){
+        Integer [] arr = list.toArray(new Integer[list.size()]);
+        for(Integer el : arr){
             removeUser(usr, el);
         }
         return true;
