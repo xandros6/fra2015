@@ -10,6 +10,8 @@
 			<li><a data-toggle="modal" href="#acceptDecline"
 			class="tab"><spring:message code="acceptance.decline"></spring:message></a></li>
 	</c:if>
+	<li class="${context=='settings' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/usersettings"
+		class="tab"><spring:message code="toolbar.settings" /></a></li>
 </ul>
 <div id="acceptConfirm" class="modal hide fade span8">
 		<div class="modal-header">

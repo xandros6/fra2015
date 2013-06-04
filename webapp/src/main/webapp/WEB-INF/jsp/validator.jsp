@@ -41,9 +41,11 @@
 							<c:when test="${context=='survey'}">
 								<jsp:include page="survey/survey.jsp" />
 							</c:when>
-							
 							<c:when test="${context=='export'}">
 								<jsp:include page="validator/export.jsp" />
+							</c:when>
+							<c:when test="${context=='settings'}">
+								<jsp:include page="common/settings.jsp" />
 							</c:when>
 						</c:choose>
 

@@ -17,6 +17,8 @@
 
 <script src="${pageContext.request.contextPath}/js/jquery.numeric.js"></script>
 
+<script src="${pageContext.request.contextPath}/js/jquery.fileDownload.js"></script>
+
 <script src="${pageContext.request.contextPath}/js/ejs.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/underscore.js"></script>

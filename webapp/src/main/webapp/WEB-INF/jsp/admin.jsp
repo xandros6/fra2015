@@ -52,6 +52,9 @@
 							<c:when test="${context=='mailer'}">
 								<jsp:include page="admin/mailer.jsp" />
 							</c:when>
+							<c:when test="${context=='settings'}">
+								<jsp:include page="common/settings.jsp" />
+							</c:when>
 						</c:choose>
 
 					</div>

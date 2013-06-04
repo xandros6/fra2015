@@ -31,6 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="BasicValue")
 public class BasicValue {
 
+    private Long questionId;
+    
     private String reference;
     
     private String content;
@@ -81,6 +83,21 @@ public class BasicValue {
      */
     public void setType(String type) {
         this.type = type;
+    }
+
+    /**
+     * @return the questionId
+     */
+    @XmlAttribute(name="question")
+    public Long getQuestionId() {
+        return questionId;
+    }
+
+    /**
+     * @param questionId the questionId to set
+     */
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
     }
     
     

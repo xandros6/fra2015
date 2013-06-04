@@ -38,7 +38,7 @@
 
 					</div>
 				</c:if>
-				<c:if test="${!denysubmit}">
+				<c:if test="${!denysubmit && cansubmit}">
 				<c:if test="${allowsubmit}">
 				<div id="messagePanel" class="alert alert-success"><spring:message code="validation.success"></spring:message></div>
 				</c:if>
@@ -67,7 +67,44 @@
 			</div>
 		</div>
 	</div>
+	
+	<%--
+	<div id="submitConfirm" class="modal hide fade span8">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">x</button>
+			<h3>
+				<spring:message code="editor.submit"></spring:message>
+			</h3>
+		</div>
+
+		<div id="modal-body" class="modal-body">
+			<spring:message code="editor.surveylist.pending.msg"></spring:message>
+			<br /> <b><spring:message code="editor.surveylist.alert"></spring:message></b>
+		</div>
+
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal"><spring:message
+					code="close"></spring:message></a> <a id="updateBtn"
+				href="../editorPendingFix/${countryIso3}"
+				class="btn btn-primary confirm"><spring:message
+					code="editor.surveylist.pending"></spring:message></a>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	$(function(){
+		var sethref 
+		$('.submitConfirm').click(function(){
+			$('#submitConfirm .confirm').attr('href','../editorCompleted/'+$(this).attr('data-country'));
+			
+		});
+	});
+	
+	</script>
+	--%>
 </div>
+
 <c:if test="${!allowsubmit}">
 <script type="text/javascript">
 

@@ -564,50 +564,6 @@
 			<br/>
 		</div>
 		
-		<!-- entry 16b 
-						<tr rowname="16.2.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
-							</td>
-							<td class="title" rownumber="5" columnnumber="0"><spring:message
-									code="ref483"></spring:message></td>
-							<td class="entry-item editable text" rownumber="5"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16b"><span class="entry_item_placeholder" id="_fraVariable_16_5_1_">&#160;</span>
-							<div id="cell-content">${_fraVariable_16_5_1_}</div></td>
-						</tr>
-						<tr rowname="16.2.1.1" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
-							</td>
-							<td class="title" rownumber="6" columnnumber="0"><spring:message
-									code="ref39"></spring:message></td>
-							<td class="entry-item editable text" rownumber="6"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16b"><span class="entry_item_placeholder" id="_fraVariable_16_6_1_">&#160;</span>
-							<div id="cell-content">${_fraVariable_16_6_1_}</div></td>
-						</tr>
-						<tr rowname="16.2.1.2" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
-							</td>
-							<td class="title" rownumber="7" columnnumber="0"><spring:message
-									code="ref40"></spring:message></td>
-							<td class="entry-item editable text" rownumber="7"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16b"><span class="entry_item_placeholder" id="_fraVariable_16_7_1_">&#160;</span>
-							<div id="cell-content">${_fraVariable_16_7_1_}</div></td>
-						</tr>
-						<tr rowname="16.2.1.3" unit="1000 ha">
-							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
-							</td>
-							<td class="title" rownumber="8" columnnumber="0"><spring:message
-									code="ref41"></spring:message></td>
-							<td class="entry-item editable text" rownumber="8"
-								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="16b"><span class="entry_item_placeholder" id="_fraVariable_16_8_1_">&#160;</span>
-							<div id="cell-content">${_fraVariable_16_8_1_}</div></td>
-						</tr>
-		
-		
-		 -->
 		<div>
 			<h4>
 				<spring:message code="ref73"></spring:message>

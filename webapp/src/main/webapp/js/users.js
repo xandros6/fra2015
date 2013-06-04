@@ -74,6 +74,7 @@ function changeRole(el){
 	var addCountryBtn = el.find('#addCountryBtn');
 	var countriesField = el.find('#countries');
 	var questionsBlock =  el.find('#questions');
+	var canSubmitBlock = el.find('#submittercbx');
 	countriesField.val("");
 	countriesString.val("");
 	el.find('#countriesTable > tbody:last').empty();
@@ -91,6 +92,11 @@ function changeRole(el){
 	} else {
 		questionsBlock.attr('class', 'hide');
 	}
+	if (role=='contributor'){
+		canSubmitBlock.toggleClass('hide',false)
+	}else{
+		canSubmitBlock.toggleClass('hide',true)
+	}
 	if(role == ''){
 		addCountryBtn.off('click');
 		addCountryBtn.addClass('disabled');
@@ -107,6 +113,8 @@ function initEditUserWindow(el){
 	var addCountryBtn = el.find('#addCountryBtn');
 	var countriesField = el.find('#countries');
 	var questionsBlock =  el.find('#questions');
+	var canSubmitBlock = el.find('#submittercbx');
+
 	usernameField.attr('disabled', 'true');
 	roleComboBox.attr('disabled', 'true');
 	var role = roleComboBox.val();
@@ -127,7 +135,11 @@ function initEditUserWindow(el){
 	} else {
 		questionsBlock.attr('class', 'hide');
 	}
-	
+	if (role=='contributor'){
+		canSubmitBlock.toggleClass('hide',false)
+	}else{
+		canSubmitBlock.toggleClass('hide',true)
+	}
 	el.find('#countriesTable').find("tr").each(function() {
 		  var id = $(this).attr('id').replace("tr_","");
 		  $(this).find('button').click(function() {

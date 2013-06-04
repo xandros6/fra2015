@@ -1,9 +1,64 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
-<div><div class="container">
-<spring:message code="export.selecthow" />
-<div class="btn-group">
-<button class="btn"  data-toggle="tooltip" id="pdf" title="not yet implemented">pdf</button>
-<a class="btn" href="export/${country}">xml</a>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="../common/includes/javascript.jsp"%>
+
+<div>
+	<div class="container">
+		<button class="btn pdf" id="fullPdf" title="Full PDF" >Full PDF</button>
+		<button class="btn pdf" id="cfrqPdf" title="CFRQ PDF" >CFRQ PDF</button>
+		<button class="btn pdf" id="feedbackPdf" title="Feedback PDF" >Feedback PDF</button>
+		<button class="btn" id="xml" title="XML" >XML</button>
+		<hr>	
+	</div>
 </div>
-<br/><br/>
-</div></div><script>$(function(){$("#pdf").tooltip()})</script>
+
+<script>
+$(function() {
+	  $("#xml").click(function() {
+		  var url = 'export/${country}';
+		  window.location = url;
+	  });
+    $("#fullPdf").click(function() {
+      var countryCode = "${country}";
+      var url = 'survey/print/pdf/'+countryCode+'/full';
+      $.fileDownload(url, {
+            preparingMessageHtml: "We are preparing your report, please wait...",
+            failMessageHtml: "There was a problem generating your report, please try again."
+      });
+      return false;
+    });
+    $("#cfrqPdf").click(function() {
+     var countryCode = getSelectedCountry().iso3;
+     var url = 'survey/print/pdf/'+countryCode+'/cfrq';
+        $.fileDownload(url, {
+              preparingMessageHtml: "We are preparing your report, please wait...",
+              failMessageHtml: "There was a problem generating your report, please try again."
+        });
+        return false;
+    });
+    $("#feedbackPdf").click(function() {
+        var countryCode = getSelectedCountry().iso3;
+        var url = 'survey/print/pdf/'+countryCode+'/feedback';
+        $.fileDownload(url, {
+              preparingMessageHtml: "We are preparing your report, please wait...",
+              failMessageHtml: "There was a problem generating your report, please try again."
+        });
+        return false;
+    });
+    $('.pdf').tooltip();
+    $("#xml").click(function() {
+      var c = getSelectedCountry();
+      if (c != null && c.iso3 != null) {
+        window.open('export/' + c.iso3);
+      }
+    });
+    $("#import").click(function() {
+      var c = getSelectedCountry();
+      if (c != null && c.iso3 != null) {
+        $('#countryForImport').val(c.iso3);
+      }
+    });
+
+  });
+  
+</script>

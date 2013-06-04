@@ -81,6 +81,13 @@ public class CheckController {
         }
         String iso3 = UserUtil.getSingleIso3(su);
         Status s = surveyService.getStatus(iso3);
+        Boolean canSubmit = su.getCanSubmit();
+        if(canSubmit==null){
+            canSubmit = Boolean.FALSE;
+           
+
+        }
+        model.addAttribute("cansubmit",canSubmit);
         if(!StatusUtils.isSubmitAllowed(s)){
             model.addAttribute("denysubmit", true);
             return "index";

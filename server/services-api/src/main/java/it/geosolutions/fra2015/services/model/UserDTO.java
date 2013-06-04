@@ -167,4 +167,12 @@ public class UserDTO {
     public void setLanguage(String language) {
         user.setLanguage(language);
     }
+    
+    public Boolean getCanSubmit() {
+        return  user.getCanSubmit();
+    }
+
+    public void setCanSubmit(Boolean canSubmit) {
+        user.setCanSubmit(canSubmit);
+    }
 }

@@ -235,7 +235,7 @@ public class FeedbackService {
      */
     public int[] getFeedbackCounter(SurveyInstance survey,boolean harmonized){
         List<Feedback> list = new ArrayList<Feedback>();
-        int[] counts= new int[21];
+        int[] counts= new int[22];
        for(int q = 0 ;q<counts.length;q++){
         Search search = new Search();
         
@@ -254,7 +254,7 @@ public class FeedbackService {
 
     public int[] getFeedbackCounter(SurveyInstance survey, boolean harmonized, List<String> users) {
         List<Feedback> list = new ArrayList<Feedback>();
-        int[] counts= new int[21];
+        int[] counts= new int[22];
        for(int q = 0 ;q<counts.length;q++){
         Search search = new Search();
         

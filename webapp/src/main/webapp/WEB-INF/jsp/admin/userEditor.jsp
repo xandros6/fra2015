@@ -61,9 +61,11 @@
               </table>
 					</div>
 
-					
+					<div id="submittercbx" class="hide"><label  class="checkbox"><spring:message code="user.cansubmit" text="Can submit"></spring:message><form:checkbox path="canSubmit" ></form:checkbox></label>
+						
+					</div>
 					<p>
-					<div id="questions" class="hide">
+					<div id="questions" class="hide form-inline">
 						<label>Assigned questions:</label>
 						<form:input path="questionsStr" type="hidden" id="questionsStr" />
 						<div style="height: 150px; overflow: auto; border: 1px solid #DDDDDD;">

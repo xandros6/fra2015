@@ -72,7 +72,9 @@
           </fo:block>
         </fo:static-content>
         <fo:flow flow-name="xsl-region-body">
-            <xsl:apply-templates select='//section[ div[@class="page-header" and ../descendant::div[contains(@class,"feedbackentry ko")]]]' />
+            <fo:block break-before="page" text-align="start" font-size="10pt" font-family="times"  id='{generate-id(.)}'> 
+              <xsl:apply-templates select='//section[ div[@class="page-header" and ../descendant::div[contains(@class,"feedbackentry ko")]]]' />
+            </fo:block>
         </fo:flow>
       </fo:page-sequence>
     </fo:root>
@@ -108,9 +110,9 @@
   </xsl:template>
 
     <xsl:template match='//section[ div[@class="page-header" and ../descendant::div[contains(@class,"feedbackentry ko")]]]'>
-        <fo:block break-before="page" text-align="start" font-size="10pt" font-family="times"  id='{generate-id(.)}'>            
+            
             <xsl:apply-templates />
-        </fo:block>
+       
     </xsl:template>
     
     <xsl:template match="h1" />

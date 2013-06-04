@@ -36,6 +36,7 @@ import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.HttpCookie;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -55,6 +57,8 @@ import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.beanutils.BeanPropertyValueEqualsPredicate;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
@@ -93,8 +97,17 @@ public class PrintController {
 			HttpSession session,  Locale locale) throws IllegalArgumentException, InternalErrorServiceEx{
 
 		User su = (User) session.getAttribute("sessionUser");
+
+		//Check if user have this country
+		if(!su.getName().equals("admin")){
+			BeanPropertyValueEqualsPredicate predicate = new BeanPropertyValueEqualsPredicate( "iso3", country );
+			if(CollectionUtils.find( su.getCountriesSet(), predicate ) == null){
+				throw new IllegalArgumentException("Permission denied for country: " + country);
+			}
+		}
+
 		DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy");
-		
+
 		Set<Object> messageKeys = messageSource.getKeys(locale);
 
 		String countryName = surveyService.findCountryByISO3(country).getName();
@@ -102,12 +115,12 @@ public class PrintController {
 		model.addAttribute("context", "survey");    
 		model.addAttribute("country", countryName);  
 		model.addAttribute("messageKeys", messageKeys);   
-		
+
 		model.addAttribute("userName", su!=null?su.getUsername().toUpperCase():"");    
 		model.addAttribute("currentDate", df.format(new java.util.Date()));    
-		
 
-		
+
+
 		model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
 
 		FeedbackHandler fh = new FeedbackHandler(utils, feedbackService);
@@ -188,7 +201,12 @@ public class PrintController {
 				String filename =  "FRA_2015_Feedback_Report_"+ country.replace(" ","_") + "_"+su.getUsername()+".pdf";
 
 				resp.setContentType(MimeConstants.MIME_PDF);
-				resp.setHeader("Content-Disposition", "inline ; filename=\"" + filename +"\"");
+				resp.setHeader("Content-Disposition", "attachment ; filename=\"" + filename +"\"");
+
+				Cookie cookie = new Cookie("fileDownload", "true");
+				cookie.setPath("/");
+				cookie.setMaxAge(-1);
+				resp.addCookie(cookie);
 
 				Result res = new SAXResult(fop.getDefaultHandler());
 				transformer.transform(src, res);
@@ -261,7 +279,11 @@ public class PrintController {
 					title = title + "CFRQ_";
 				}
 				String filename = title + country.replace(" ","_") + ".pdf";
-				resp.setHeader("Content-Disposition", "inline ; filename=\"" + filename +"\"");
+				resp.setHeader("Content-Disposition", "attachment ; filename=\"" + filename +"\"");
+				Cookie cookie = new Cookie("fileDownload", "true");
+				cookie.setPath("/");
+				cookie.setMaxAge(-1);
+				resp.addCookie(cookie);
 
 				Result res = new SAXResult(fop.getDefaultHandler());
 

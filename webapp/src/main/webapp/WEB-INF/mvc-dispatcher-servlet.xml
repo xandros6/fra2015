@@ -23,9 +23,10 @@
 	        <property name="useCacheControlNoStore" value="true"/>
 	    </bean>
 	    <bean id="localeChangeInterceptor"
-		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-		<property name="paramName" value="lang" />
-	</bean>
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+		<bean id="userQuestionCleaner" class="it.geosolutions.fra2015.mvc.concurrency.CurrentUserQuestionCleaner" />
 	</mvc:interceptors>
 	<!-- example of spring validator, but not yet used in this app... -->
 	<bean class="it.geosolutions.fra2015.mvc.validator.DummyFormValidator" />
@@ -40,15 +41,6 @@
         <!-- maximum file size in bytes (100 MB) -->
         <property name="maxUploadSize" value="100000000"/>
     </bean>
-	
-	<!-- <bean
-		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
-		<property name="interceptors">
-			<list>
-				<ref bean="localeChangeInterceptor" />
-			</list>
-		</property>
-	</bean> -->
 
     <bean id="handlerMapping"
       class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
