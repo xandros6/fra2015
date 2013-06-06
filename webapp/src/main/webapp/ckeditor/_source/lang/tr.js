@@ -557,7 +557,7 @@ CKEDITOR.lang['tr'] =
 		title			: 'İçerik Şablonları',
 		options : 'Şablon Seçenekleri',
 		insertOption	: 'Mevcut içerik ile değiştir',
-		selectPromptMsg	: 'Düzenleyicide açmak için lütfen bir şablon seçin.<br/>(hali hazırdaki içerik kaybolacaktır.):',
+		selectPromptMsg	: 'Düzenleyicide açmak için lütfen bir şablon seçin.<br>(hali hazırdaki içerik kaybolacaktır.):',
 		emptyListMsg	: '(Belirli bir şablon seçilmedi)'
 	},
 

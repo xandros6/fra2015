@@ -558,7 +558,7 @@ CKEDITOR.lang['lt'] =
 		title			: 'Turinio šablonai',
 		options : 'Template Options',
 		insertOption	: 'Pakeisti dabartinį turinį pasirinktu šablonu',
-		selectPromptMsg	: 'Pasirinkite norimą šabloną<br/>(<b>Dėmesio!</b> esamas turinys bus prarastas):',
+		selectPromptMsg	: 'Pasirinkite norimą šabloną<br>(<b>Dėmesio!</b> esamas turinys bus prarastas):',
 		emptyListMsg	: '(Šablonų sąrašas tuščias)'
 	},
 

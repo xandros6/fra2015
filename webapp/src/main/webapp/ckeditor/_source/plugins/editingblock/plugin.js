@@ -24,7 +24,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			editor.on( 'themeSpace', function( event )
 				{
 					if ( event.data.space == 'contents' )
-						event.data.html += '<br/>';
+						event.data.html += '<br>';
 				});
 
 			editor.on( 'themeLoaded', function()

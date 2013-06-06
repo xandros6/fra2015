@@ -5,9 +5,9 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 (function()
 {
-	// Regex to scan for &#160; at the end of blocks, which are actually placeholders.
-	// Safari transforms the &#160; to \xa0. (#4172)
-	var tailNbspRegex = /^[\t\r\n ]*(?:&#160;|\xa0)$/;
+	// Regex to scan for &nbsp; at the end of blocks, which are actually placeholders.
+	// Safari transforms the &nbsp; to \xa0. (#4172)
+	var tailNbspRegex = /^[\t\r\n ]*(?:&nbsp;|\xa0)$/;
 
 	var protectedSourceMarker = '{cke_protected}';
 
@@ -31,7 +31,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		// If the current node is a block, and if we're converting from source or
 		// we're not in IE then search for and remove any tailing BR node.
 		//
-		// Also, any &#160; at the end of blocks are fillers, remove them as well.
+		// Also, any &nbsp; at the end of blocks are fillers, remove them as well.
 		// (#2886)
 		var children = block.children, lastChild = lastNoneSpaceChild( block );
 		if ( lastChild )
@@ -88,7 +88,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 	// Define orders of table elements.
 	var tableOrder = [ 'caption', 'colgroup', 'col', 'thead', 'tfoot', 'tbody' ];
 
-	// Find out the list of block-like tags that can contain <br/>.
+	// Find out the list of block-like tags that can contain <br>.
 	var blockLikeTags = CKEDITOR.tools.extend( {}, dtd.$block, dtd.$listItem, dtd.$tableContent );
 	for ( var i in blockLikeTags )
 	{
@@ -229,7 +229,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						delete element.name;
 				},
 
-				// Empty <pre> in IE is reported with filler node (&#160;).
+				// Empty <pre> in IE is reported with filler node (&nbsp;).
 				pre : function( element ) { CKEDITOR.env.ie && trimFillers( element ); },
 
 				html : function( element )
@@ -602,7 +602,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
  */
 
 /**
- * Whether a filler text (non-breaking space entity - &#160;) will be inserted into empty block elements in HTML output,
+ * Whether a filler text (non-breaking space entity - &nbsp;) will be inserted into empty block elements in HTML output,
  * this is used to render block elements properly with line-height; When a function is instead specified,
  * it'll be passed a {@link CKEDITOR.htmlParser.element} to decide whether adding the filler text
  * by expecting a boolean return value.

@@ -558,7 +558,7 @@ CKEDITOR.lang['lv'] =
 		title			: 'Satura sagataves',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Replace actual contents', // MISSING
-		selectPromptMsg	: 'Lūdzu, norādiet sagatavi, ko atvērt editorā<br/>(patreizējie dati tiks zaudēti):',
+		selectPromptMsg	: 'Lūdzu, norādiet sagatavi, ko atvērt editorā<br>(patreizējie dati tiks zaudēti):',
 		emptyListMsg	: '(Nav norādītas sagataves)'
 	},
 

@@ -70,8 +70,8 @@ CKEDITOR.dialog.add( 'specialchar', function( editor )
 
 		if ( target.getName() == 'a' )
 		{
-			dialog.getContentElement( 'info', 'charPreview' ).getElement().setHtml( '&#160;' );
-			dialog.getContentElement( 'info', 'htmlPreview' ).getElement().setHtml( '&#160;' );
+			dialog.getContentElement( 'info', 'charPreview' ).getElement().setHtml( '&nbsp;' );
+			dialog.getContentElement( 'info', 'htmlPreview' ).getElement().setHtml( '&nbsp;' );
 			target.getParent().removeClass( "cke_light_background" );
 
 			focusedNode = undefined;
@@ -250,7 +250,7 @@ CKEDITOR.dialog.add( 'specialchar', function( editor )
 							'</span></a>');
 					}
 					else
-						html.push( '<td class="cke_dark_background">&#160;' );
+						html.push( '<td class="cke_dark_background">&nbsp;' );
 
 					html.push( '</td>' );
 				}
@@ -324,14 +324,14 @@ CKEDITOR.dialog.add( 'specialchar', function( editor )
 												id : 'charPreview',
 												className : 'cke_dark_background',
 												style : 'border:1px solid #eeeeee;font-size:28px;height:40px;width:70px;padding-top:9px;font-family:\'Microsoft Sans Serif\',Arial,Helvetica,Verdana;text-align:center;',
-												html : '<div>&#160;</div>'
+												html : '<div>&nbsp;</div>'
 											},
 											{
 												type : 'html',
 												id : 'htmlPreview',
 												className : 'cke_dark_background',
 												style : 'border:1px solid #eeeeee;font-size:14px;height:20px;width:70px;padding-top:2px;font-family:\'Microsoft Sans Serif\',Arial,Helvetica,Verdana;text-align:center;',
-												html : '<div>&#160;</div>'
+												html : '<div>&nbsp;</div>'
 											}
 										]
 									}

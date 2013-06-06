@@ -742,7 +742,7 @@ CKEDITOR.tools.extend( CKEDITOR.editor.prototype,
 		 * Puts or restores the editor into read-only state. When in read-only,
 		 * the user is not able to change the editor contents, but can still use
 		 * some editor features. This function sets the <code>{@link CKEDITOR.config.readOnly}</code>
-		 * property of the editor, firing the <code>{@link CKEDITOR.editor#readOnly}</code> event.<br/><br/>
+		 * property of the editor, firing the <code>{@link CKEDITOR.editor#readOnly}</code> event.<br><br>
 		 * <strong>Note:</strong> the current editing area will be reloaded.
 		 * @param {Boolean} [isReadOnly] Indicates that the editor must go
 		 *		read-only (<code>true</code>, default) or be restored and made editable

@@ -70,19 +70,19 @@ CKEDITOR.addTemplates( 'default',
 							'</caption>' +
 							'</tr>' +
 							'<tr>' +
-								'<td>&#160;</td>' +
-								'<td>&#160;</td>' +
-								'<td>&#160;</td>' +
+								'<td>&nbsp;</td>' +
+								'<td>&nbsp;</td>' +
+								'<td>&nbsp;</td>' +
 							'</tr>' +
 							'<tr>' +
-								'<td>&#160;</td>' +
-								'<td>&#160;</td>' +
-								'<td>&#160;</td>' +
+								'<td>&nbsp;</td>' +
+								'<td>&nbsp;</td>' +
+								'<td>&nbsp;</td>' +
 							'</tr>' +
 							'<tr>' +
-								'<td>&#160;</td>' +
-								'<td>&#160;</td>' +
-								'<td>&#160;</td>' +
+								'<td>&nbsp;</td>' +
+								'<td>&nbsp;</td>' +
+								'<td>&nbsp;</td>' +
 							'</tr>' +
 						'</table>' +
 						'<p>' +

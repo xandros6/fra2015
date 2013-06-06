@@ -1078,24 +1078,24 @@ CKEDITOR.STYLE_OBJECT = 3;
 			 blockHtml =  blockHtml.replace( /(\r\n|\r)/g, '\n' ) ;
 			 blockHtml = replace(  blockHtml, /^[ \t]*\n/, '' ) ;
 			 blockHtml = replace(  blockHtml, /\n$/, '' ) ;
-			// 2. Convert spaces or tabs at the beginning or at the end to &#160;
+			// 2. Convert spaces or tabs at the beginning or at the end to &nbsp;
 			 blockHtml = replace(  blockHtml, /^[ \t]+|[ \t]+$/g, function( match, offset, s )
 					{
 						if ( match.length == 1 )	// one space, preserve it
-							return '&#160;' ;
+							return '&nbsp;' ;
 						else if ( !offset )		// beginning of block
-							return CKEDITOR.tools.repeat( '&#160;', match.length - 1 ) + ' ';
+							return CKEDITOR.tools.repeat( '&nbsp;', match.length - 1 ) + ' ';
 						else				// end of block
-							return ' ' + CKEDITOR.tools.repeat( '&#160;', match.length - 1 );
+							return ' ' + CKEDITOR.tools.repeat( '&nbsp;', match.length - 1 );
 					} ) ;
 
-			// 3. Convert \n to <br/>.
-			// 4. Convert contiguous (i.e. non-singular) spaces or tabs to &#160;
-			 blockHtml =  blockHtml.replace( /\n/g, '<br/>' ) ;
+			// 3. Convert \n to <BR>.
+			// 4. Convert contiguous (i.e. non-singular) spaces or tabs to &nbsp;
+			 blockHtml =  blockHtml.replace( /\n/g, '<br>' ) ;
 			 blockHtml =  blockHtml.replace( /[ \t]{2,}/g,
 					function ( match )
 					{
-						return CKEDITOR.tools.repeat( '&#160;', match.length - 1 ) + ' ' ;
+						return CKEDITOR.tools.repeat( '&nbsp;', match.length - 1 ) + ' ' ;
 					} ) ;
 
 			if ( docFrag )
@@ -1124,13 +1124,13 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 		// 1. Trim head/tail spaces, they're not visible.
 		preHtml = replace( preHtml, /(?:^[ \t\n\r]+)|(?:[ \t\n\r]+$)/g, '' );
-		// 2. Delete ANSI whitespaces immediately before and after <br/> because
+		// 2. Delete ANSI whitespaces immediately before and after <BR> because
 		//    they are not visible.
 		preHtml = preHtml.replace( /[ \t\r\n]*(<br[^>]*>)[ \t\r\n]*/gi, '$1' );
 		// 3. Compress other ANSI whitespaces since they're only visible as one
 		//    single space previously.
-		// 4. Convert &#160; to spaces since &#160; is no longer needed in <PRE>.
-		preHtml = preHtml.replace( /([ \t\n\r]+|&#160;)/g, ' ' );
+		// 4. Convert &nbsp; to spaces since &nbsp; is no longer needed in <PRE>.
+		preHtml = preHtml.replace( /([ \t\n\r]+|&nbsp;)/g, ' ' );
 		// 5. Convert any <BR /> to \n. This must not be done earlier because
 		//    the \n would then get compressed.
 		preHtml = preHtml.replace( /<br\b[^>]*>/gi, '\n' );
@@ -1699,14 +1699,14 @@ CKEDITOR.editor.prototype.getStylesSet = function( callback )
 
 /**
  * The "styles definition set" to use in the editor. They will be used in the
- * styles combo and the Style selector of the div container. <br/>
+ * styles combo and the Style selector of the div container. <br>
  * The styles may be defined in the page containing the editor, or can be
  * loaded on demand from an external file. In the second case, if this setting
  * contains only a name, the styles definition file will be loaded from the
  * "styles" folder inside the styles plugin folder.
  * Otherwise, this setting has the "name:url" syntax, making it
- * possible to set the URL from which loading the styles file.<br/>
- * Previously this setting was available as config.stylesCombo_stylesSet<br/>
+ * possible to set the URL from which loading the styles file.<br>
+ * Previously this setting was available as config.stylesCombo_stylesSet<br>
  * @name CKEDITOR.config.stylesSet
  * @type String|Array
  * @default 'default'

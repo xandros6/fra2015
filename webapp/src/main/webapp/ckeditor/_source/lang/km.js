@@ -558,7 +558,7 @@ CKEDITOR.lang['km'] =
 		title			: 'ឯកសារគំរូ របស់អត្ថន័យ',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Replace actual contents', // MISSING
-		selectPromptMsg	: 'សូមជ្រើសរើសឯកសារគំរូ ដើម្បីបើកនៅក្នុងកម្មវិធីតាក់តែងអត្ថបទ<br/>(អត្ថបទនឹងបាត់បង់):',
+		selectPromptMsg	: 'សូមជ្រើសរើសឯកសារគំរូ ដើម្បីបើកនៅក្នុងកម្មវិធីតាក់តែងអត្ថបទ<br>(អត្ថបទនឹងបាត់បង់):',
 		emptyListMsg	: '(ពុំមានឯកសារគំរូត្រូវបានកំណត់)'
 	},
 

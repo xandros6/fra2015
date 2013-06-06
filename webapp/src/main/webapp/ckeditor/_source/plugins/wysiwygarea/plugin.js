@@ -11,7 +11,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 (function()
 {
 	// Matching an empty paragraph at the end of document.
-	var emptyParagraphRegexp = /(^|<body\b[^>]*>)\s*<(p|div|address|h\d|center|pre)[^>]*>\s*(?:<br[^>]*>|&#160;|\u00A0|&#160;)?\s*(:?<\/\2>)?\s*(?=$|<\/body>)/gi;
+	var emptyParagraphRegexp = /(^|<body\b[^>]*>)\s*<(p|div|address|h\d|center|pre)[^>]*>\s*(?:<br[^>]*>|&nbsp;|\u00A0|&#160;)?\s*(:?<\/\2>)?\s*(?=$|<\/body>)/gi;
 
 	var notWhitespaceEval = CKEDITOR.dom.walker.whitespaces( true ),
 	  notBogus = CKEDITOR.dom.walker.bogus( true ),
@@ -144,21 +144,21 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 		var html = CKEDITOR.tools.htmlEncode( text.replace( /\r\n|\r/g, '\n' ) );
 
-		// Convert leading and trailing whitespaces into &#160;
+		// Convert leading and trailing whitespaces into &nbsp;
 		html = html.replace( /^[ \t]+|[ \t]+$/g, function( match, offset, s )
 			{
 				if ( match.length == 1 )	// one space, preserve it
-					return '&#160;';
+					return '&nbsp;';
 				else if ( !offset )		// beginning of block
-					return CKEDITOR.tools.repeat( '&#160;', match.length - 1 ) + ' ';
+					return CKEDITOR.tools.repeat( '&nbsp;', match.length - 1 ) + ' ';
 				else				// end of block
-					return ' ' + CKEDITOR.tools.repeat( '&#160;', match.length - 1 );
+					return ' ' + CKEDITOR.tools.repeat( '&nbsp;', match.length - 1 );
 			} );
 
-		// Convert subsequent whitespaces into &#160;
+		// Convert subsequent whitespaces into &nbsp;
 		html = html.replace( /[ \t]{2,}/g, function ( match )
 		   {
-			   return CKEDITOR.tools.repeat( '&#160;', match.length - 1 ) + ' ';
+			   return CKEDITOR.tools.repeat( '&nbsp;', match.length - 1 ) + ' ';
 		   } );
 
 		var paragraphTag = mode == CKEDITOR.ENTER_P ? 'p' : 'div';
@@ -173,13 +173,13 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				});
 		}
 
-		// One <br/> per line-break.
-		html = html.replace( /\n/g, '<br/>' );
+		// One <br> per line-break.
+		html = html.replace( /\n/g, '<br>' );
 
-		// Compensate padding <br/> for non-IE.
+		// Compensate padding <br> for non-IE.
 		if ( !( isEnterBrMode || CKEDITOR.env.ie ) )
 		{
-			html = html.replace( new RegExp( '<br/>(?=</' + paragraphTag + '>)' ), function( match )
+			html = html.replace( new RegExp( '<br>(?=</' + paragraphTag + '>)' ), function( match )
 			{
 				return CKEDITOR.tools.repeat( match, 2 );
 			} );
@@ -321,7 +321,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 	function isNbsp( node )
 	{
 		return node.type == CKEDITOR.NODE_TEXT
-			   && CKEDITOR.tools.trim( node.getText() ).match( /^(?:&#160;|\xa0)$/ );
+			   && CKEDITOR.tools.trim( node.getText() ).match( /^(?:&nbsp;|\xa0)$/ );
 	}
 
 	function restoreSelection( selection )
@@ -902,7 +902,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 									sel = editor.getSelection(),
 									range = sel && sel.getRanges()[ 0 ];
 
-								if ( range && body.getHtml().match( /^<p>&#160;<\/p>$/i )
+								if ( range && body.getHtml().match( /^<p>&nbsp;<\/p>$/i )
 									&& range.startContainer.equals( body ) )
 								{
 									// Avoid the ambiguity from a real user cursor position.
@@ -1126,7 +1126,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 								// BR at the end of document is bogus node for Mozilla. (#5293).
 								if ( CKEDITOR.env.gecko )
-									data = data.replace( /<br/>(?=\s*(:?$|<\/body>))/, '' );
+									data = data.replace( /<br>(?=\s*(:?$|<\/body>))/, '' );
 
 								if ( editor.dataProcessor )
 									data = editor.dataProcessor.toDataFormat( data, fixForBody );

@@ -764,7 +764,7 @@ class JSON
 	''					</code>
 	'' @PARAM:			name [string]: name of the value (accessible with javascript afterwards). leave empty to get just the value
 	'' @PARAM:			val [variant], [int], [float], [array], [object], [dictionary]: value which needs
-	''					to be generated. Conversation of the data types is as follows:<br/>
+	''					to be generated. Conversation of the data types is as follows:<br>
 	''					- <strong>ASP datatype -> JavaScript datatype</strong>
 	''					- NOTHING, NULL -> null
 	''					- INT, DOUBLE -> number

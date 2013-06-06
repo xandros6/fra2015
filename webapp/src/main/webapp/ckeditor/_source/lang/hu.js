@@ -558,7 +558,7 @@ CKEDITOR.lang['hu'] =
 		title			: 'Elérhető sablonok',
 		options : 'Sablon opciók',
 		insertOption	: 'Kicseréli a jelenlegi tartalmat',
-		selectPromptMsg	: 'Válassza ki melyik sablon nyíljon meg a szerkesztőben<br/>(a jelenlegi tartalom elveszik):',
+		selectPromptMsg	: 'Válassza ki melyik sablon nyíljon meg a szerkesztőben<br>(a jelenlegi tartalom elveszik):',
 		emptyListMsg	: '(Nincs sablon megadva)'
 	},
 

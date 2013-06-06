@@ -557,7 +557,7 @@ CKEDITOR.lang['sv'] =
 		title			: 'Sidmallar',
 		options : 'Inställningar för mall',
 		insertOption	: 'Ersätt aktuellt innehåll',
-		selectPromptMsg	: 'Var god välj en mall att använda med editorn<br/>(allt nuvarande innehåll raderas):',
+		selectPromptMsg	: 'Var god välj en mall att använda med editorn<br>(allt nuvarande innehåll raderas):',
 		emptyListMsg	: '(Ingen mall är vald)'
 	},
 

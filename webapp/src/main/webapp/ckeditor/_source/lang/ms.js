@@ -558,7 +558,7 @@ CKEDITOR.lang['ms'] =
 		title			: 'Templat Kandungan',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Replace actual contents', // MISSING
-		selectPromptMsg	: 'Sila pilih templat untuk dibuka oleh editor<br/>(kandungan sebenar akan hilang):',
+		selectPromptMsg	: 'Sila pilih templat untuk dibuka oleh editor<br>(kandungan sebenar akan hilang):',
 		emptyListMsg	: '(Tiada Templat Disimpan)'
 	},
 

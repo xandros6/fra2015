@@ -8,8 +8,8 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
  * DOM Document.
  * @class Represents a delimited piece of content in a DOM Document.
  * It is contiguous in the sense that it can be characterized as selecting all
- * of the content between a pair of boundary-points.<br/>
- * <br/>
+ * of the content between a pair of boundary-points.<br>
+ * <br>
  * This class shares much of the W3C
  * <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/ranges.html">Document Object Model Range</a>
  * ideas and features, adding several range manipulation tools to it, but it's
@@ -322,7 +322,7 @@ CKEDITOR.dom.range = function( document )
 				if ( mergeThen && topStart.type == CKEDITOR.NODE_ELEMENT )
 				{
 					var span = CKEDITOR.dom.element.createFromHtml( '<span ' +
-						'data-cke-bookmark="1" style="display:none">&#160;</span>', range.document );
+						'data-cke-bookmark="1" style="display:none">&nbsp;</span>', range.document );
 					span.insertAfter( topStart );
 					topStart.mergeSiblings( false );
 					range.moveToBookmark( { startNode : span } );
@@ -410,7 +410,7 @@ CKEDITOR.dom.range = function( document )
 
 	var whitespaceEval = new CKEDITOR.dom.walker.whitespaces(),
 		bookmarkEval = new CKEDITOR.dom.walker.bookmark(),
-		nbspRegExp = /^[\t\r\n ]*(?:&#160;|\xa0)$/;
+		nbspRegExp = /^[\t\r\n ]*(?:&nbsp;|\xa0)$/;
 
 	function nonWhitespaceOrBookmarkEval( node )
 	{
@@ -518,7 +518,7 @@ CKEDITOR.dom.range = function( document )
 
 			// For IE, it must have something inside, otherwise it may be
 			// removed during DOM operations.
-			startNode.setHtml( '&#160;' );
+			startNode.setHtml( '&nbsp;' );
 
 			if ( serializable )
 			{
@@ -530,7 +530,7 @@ CKEDITOR.dom.range = function( document )
 			if ( !collapsed )
 			{
 				endNode = startNode.clone();
-				endNode.setHtml( '&#160;' );
+				endNode.setHtml( '&nbsp;' );
 
 				if ( serializable )
 					endNode.setAttribute( 'id', baseId + 'E' );
@@ -1385,7 +1385,7 @@ CKEDITOR.dom.range = function( document )
 							  || enlargeable && blockBoundary.contains( enlargeable ) ) ?
 								CKEDITOR.POSITION_BEFORE_END :
 								CKEDITOR.POSITION_BEFORE_START );
-					// We must include the <br/> at the end of range if there's
+					// We must include the <br> at the end of range if there's
 					// one and we're expanding list item contents
 					if ( tailBr )
 						this.setEndAfter( tailBr );
@@ -1747,8 +1747,8 @@ CKEDITOR.dom.range = function( document )
 				{
 					endBlock = this.splitElement( startBlock );
 
-					// In Gecko, the last child node must be a bogus <br/>.
-					// Note: bogus <br/> added under <ul> or <ol> would cause
+					// In Gecko, the last child node must be a bogus <br>.
+					// Note: bogus <br> added under <ul> or <ol> would cause
 					// lists to be incorrectly rendered.
 					if ( !CKEDITOR.env.ie && !startBlock.is( 'ul', 'ol') )
 						startBlock.appendBogus() ;

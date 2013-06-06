@@ -222,7 +222,7 @@ CKEDITOR.ui.button.prototype =
 		}
 
 		output.push(
-					'>&#160;</span>' +
+					'>&nbsp;</span>' +
 					'<span id="', id, '_label" class="cke_label">', this.label, '</span>' );
 
 		if ( this.hasArrow )
@@ -230,7 +230,7 @@ CKEDITOR.ui.button.prototype =
 			output.push(
 					'<span class="cke_buttonarrow">'
 					// BLACK DOWN-POINTING TRIANGLE
-					+ ( CKEDITOR.env.hc ? '&#9660;' : '&#160;' )
+					+ ( CKEDITOR.env.hc ? '&#9660;' : '&nbsp;' )
 					+ '</span>' );
 		}
 

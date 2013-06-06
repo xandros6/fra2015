@@ -558,7 +558,7 @@ CKEDITOR.lang['fi'] =
 		title			: 'Sisältöpohjat',
 		options : 'Sisältöpohjan ominaisuudet',
 		insertOption	: 'Korvaa editorin koko sisältö',
-		selectPromptMsg	: 'Valitse pohja editoriin<br/>(aiempi sisältö menetetään):',
+		selectPromptMsg	: 'Valitse pohja editoriin<br>(aiempi sisältö menetetään):',
 		emptyListMsg	: '(Ei määriteltyjä pohjia)'
 	},
 

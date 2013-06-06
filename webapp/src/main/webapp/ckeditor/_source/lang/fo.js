@@ -558,7 +558,7 @@ CKEDITOR.lang['fo'] =
 		title			: 'Innihaldsskabelónir',
 		options : 'Møguleikar fyri Template',
 		insertOption	: 'Yvirskriva núverandi innihald',
-		selectPromptMsg	: 'Vinarliga vel ta skabelón, ið skal opnast í tekstviðgeranum<br/>(Hetta yvirskrivar núverandi innihald):',
+		selectPromptMsg	: 'Vinarliga vel ta skabelón, ið skal opnast í tekstviðgeranum<br>(Hetta yvirskrivar núverandi innihald):',
 		emptyListMsg	: '(Ongar skabelónir tøkar)'
 	},
 

@@ -69,7 +69,7 @@ CKEDITOR.plugins.add( 'pagebreak',
 						var className =  value.replace( 'cke_pagebreak', '' );
 						if ( className != value )
 						{
-							var span = CKEDITOR.htmlParser.fragment.fromHtml( '<span style="display: none;">&#160;</span>' );
+							var span = CKEDITOR.htmlParser.fragment.fromHtml( '<span style="display: none;">&nbsp;</span>' );
 							element.children.length = 0;
 							element.add( span );
 							var attrs = element.attributes;

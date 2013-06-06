@@ -558,7 +558,7 @@ CKEDITOR.lang['pt'] =
 		title			: 'Modelo de Conteúdo',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Replace actual contents', // MISSING
-		selectPromptMsg	: 'Por favor, seleccione o modelo a abrir no editor<br/>(o conteúdo actual será perdido):',
+		selectPromptMsg	: 'Por favor, seleccione o modelo a abrir no editor<br>(o conteúdo actual será perdido):',
 		emptyListMsg	: '(Sem modelos definidos)'
 	},
 

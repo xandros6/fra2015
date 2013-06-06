@@ -302,11 +302,11 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				return span.getHtml();
 			};
 
-			var fix1 = ( standard( '\n' ).toLowerCase() == '<br/>' ) ?
+			var fix1 = ( standard( '\n' ).toLowerCase() == '<br>' ) ?
 				function( text )
 				{
-					// #3874 IE and Safari encode line-break into <br/>
-					return standard( text ).replace( /<br/>/gi, '\n' );
+					// #3874 IE and Safari encode line-break into <br>
+					return standard( text ).replace( /<br>/gi, '\n' );
 				} :
 				standard;
 
@@ -319,11 +319,11 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				} :
 				fix1;
 
-			var fix3 = ( standard( '  ' ) == '&#160; ' ) ?
+			var fix3 = ( standard( '  ' ) == '&nbsp; ' ) ?
 				function( text )
 				{
-					// #3785 IE8 changes spaces (>= 2) to &#160;
-					return fix2( text ).replace( /&#160;/g, ' ' );
+					// #3785 IE8 changes spaces (>= 2) to &nbsp;
+					return fix2( text ).replace( /&nbsp;/g, ' ' );
 				} :
 				fix2;
 

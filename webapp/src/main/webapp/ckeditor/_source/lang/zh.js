@@ -558,7 +558,7 @@ CKEDITOR.lang['zh'] =
 		title			: '內容樣版',
 		options : 'Template Options', // MISSING
 		insertOption	: '取代原有內容',
-		selectPromptMsg	: '請選擇欲開啟的樣版<br/> (原有的內容將會被清除):',
+		selectPromptMsg	: '請選擇欲開啟的樣版<br> (原有的內容將會被清除):',
 		emptyListMsg	: '(無樣版)'
 	},
 

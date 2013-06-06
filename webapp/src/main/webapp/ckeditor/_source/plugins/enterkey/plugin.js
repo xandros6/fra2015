@@ -132,7 +132,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			if ( !isStartOfBlock && !isEndOfBlock )
 			{
 				// If the next block is an <li> with another list tree as the first
-				// child, we'll need to append a filler (<br/>/NBSP) or the list item
+				// child, we'll need to append a filler (<br>/NBSP) or the list item
 				// wouldn't be editable. (#1420)
 				if ( nextBlock.is( 'li' )
 					 && ( node = nextBlock.getFirst( CKEDITOR.dom.walker.invisible( true ) ) )
@@ -236,7 +236,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					var tmpNode = doc.createElement( 'span' );
 
 					// We need some content for Safari.
-					tmpNode.setHtml( '&#160;' );
+					tmpNode.setHtml( '&nbsp;' );
 
 					range.insertNode( tmpNode );
 					tmpNode.scrollIntoView();
@@ -298,7 +298,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				}
 				else
 				{
-					// Insert a <br/> after the current paragraph.
+					// Insert a <br> after the current paragraph.
 					doc.createElement( 'br' ).insertAfter( startBlock );
 
 					// A text node is required by Gecko only to make the cursor blink.
@@ -315,7 +315,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 				isPre = ( startBlockTag == 'pre' );
 
-				// Gecko prefers <br/> as line-break inside <pre> (#4711).
+				// Gecko prefers <br> as line-break inside <pre> (#4711).
 				if ( isPre && !CKEDITOR.env.gecko )
 					lineBreak = doc.createText( CKEDITOR.env.ie ? '\r' : '\n' );
 				else
@@ -330,7 +330,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				else
 				{
 					// A text node is required by Gecko only to make the cursor blink.
-					// We need some text inside of it, so the bogus <br/> is properly
+					// We need some text inside of it, so the bogus <br> is properly
 					// created.
 					doc.createText( '\ufeff' ).insertAfter( lineBreak );
 
@@ -353,7 +353,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						dummy = doc.createElement( 'span' );
 						// We need have some contents for Webkit to position it
 						// under parent node. ( #3681)
-						dummy.setHtml('&#160;');
+						dummy.setHtml('&nbsp;');
 					}
 					else
 						dummy = doc.createElement( 'br' );

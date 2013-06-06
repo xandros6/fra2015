@@ -558,7 +558,7 @@ CKEDITOR.lang['fr-ca'] =
 		title			: 'Modèles de contenu',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Remplacer tout le contenu actuel',
-		selectPromptMsg	: 'Sélectionner le modèle à ouvrir dans l\'éditeur<br/>(le contenu actuel sera remplacé):',
+		selectPromptMsg	: 'Sélectionner le modèle à ouvrir dans l\'éditeur<br>(le contenu actuel sera remplacé):',
 		emptyListMsg	: '(Aucun modèle disponible)'
 	},
 

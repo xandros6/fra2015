@@ -558,7 +558,7 @@ CKEDITOR.lang['ro'] =
 		title			: 'Template-uri (şabloane) de conţinut',
 		options : 'Opțiuni șabloane',
 		insertOption	: 'Înlocuieşte cuprinsul actual',
-		selectPromptMsg	: 'Vă rugăm selectaţi template-ul (şablonul) ce se va deschide în editor<br/>(conţinutul actual va fi pierdut):',
+		selectPromptMsg	: 'Vă rugăm selectaţi template-ul (şablonul) ce se va deschide în editor<br>(conţinutul actual va fi pierdut):',
 		emptyListMsg	: '(Niciun template (şablon) definit)'
 	},
 

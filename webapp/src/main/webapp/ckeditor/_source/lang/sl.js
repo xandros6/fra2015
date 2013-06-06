@@ -558,7 +558,7 @@ CKEDITOR.lang['sl'] =
 		title			: 'Vsebinske predloge',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Zamenjaj trenutno vsebino',
-		selectPromptMsg	: 'Izberite predlogo, ki jo želite odpreti v urejevalniku<br/>(trenutna vsebina bo izgubljena):',
+		selectPromptMsg	: 'Izberite predlogo, ki jo želite odpreti v urejevalniku<br>(trenutna vsebina bo izgubljena):',
 		emptyListMsg	: '(Ni pripravljenih predlog)'
 	},
 

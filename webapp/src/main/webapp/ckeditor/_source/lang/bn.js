@@ -558,7 +558,7 @@ CKEDITOR.lang['bn'] =
 		title			: 'কনটেন্ট টেমপ্লেট',
 		options : 'Template Options', // MISSING
 		insertOption	: 'Replace actual contents', // MISSING
-		selectPromptMsg	: 'অনুগ্রহ করে এডিটরে ওপেন করার জন্য টেমপ্লেট বাছাই করুন<br/>(আসল কনটেন্ট হারিয়ে যাবে):',
+		selectPromptMsg	: 'অনুগ্রহ করে এডিটরে ওপেন করার জন্য টেমপ্লেট বাছাই করুন<br>(আসল কনটেন্ট হারিয়ে যাবে):',
 		emptyListMsg	: '(কোন টেমপ্লেট ডিফাইন করা নেই)'
 	},
 

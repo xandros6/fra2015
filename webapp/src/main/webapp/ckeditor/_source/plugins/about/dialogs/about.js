@@ -53,14 +53,14 @@ CKEDITOR.dialog.add( 'about', function( editor )
 							'<div class="cke_about_container">' +
 								'<div class="cke_about_logo"></div>' +
 								'<p>' +
-									'CKEditor ' + CKEDITOR.version + ' (revision ' + CKEDITOR.revision + ')<br/>' +
+									'CKEditor ' + CKEDITOR.version + ' (revision ' + CKEDITOR.revision + ')<br>' +
 									'<a href="http://ckeditor.com/">http://ckeditor.com</a>' +
 								'</p>' +
 								'<p>' +
 									lang.help.replace( '$1', '<a href="http://docs.cksource.com/CKEditor_3.x/Users_Guide/Quick_Reference">' + lang.userGuide + '</a>' ) +
 								'</p>' +
 								'<p>' +
-									lang.moreInfo + '<br/>' +
+									lang.moreInfo + '<br>' +
 									'<a href="http://ckeditor.com/license">http://ckeditor.com/license</a>' +
 								'</p>' +
 								'<p>' +

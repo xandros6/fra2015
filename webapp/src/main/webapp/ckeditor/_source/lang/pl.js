@@ -558,7 +558,7 @@ CKEDITOR.lang['pl'] =
 		title			: 'Szablony zawartości',
 		options : 'Opcje szablonów',
 		insertOption	: 'Zastąp obecną zawartość',
-		selectPromptMsg	: 'Wybierz szablon do otwarcia w edytorze<br/>(obecna zawartość okna edytora zostanie utracona):',
+		selectPromptMsg	: 'Wybierz szablon do otwarcia w edytorze<br>(obecna zawartość okna edytora zostanie utracona):',
 		emptyListMsg	: '(Brak zdefiniowanych szablonów)'
 	},
 

@@ -489,7 +489,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		};
 	};
 
-	var tailNbspRegex = /^[\t\r\n ]*(?:&#160;|\xa0)$/,
+	var tailNbspRegex = /^[\t\r\n ]*(?:&nbsp;|\xa0)$/,
 		isWhitespaces = CKEDITOR.dom.walker.whitespaces(),
 		isBookmark = CKEDITOR.dom.walker.bookmark(),
 		toSkip = function( node )

@@ -257,8 +257,8 @@ CKEDITOR.config =
 
 	/**
 	 * The height of the editing area (that includes the editor content). This
-	 * can be an integer, for pixel sizes, or any CSS-defined length unit.<br/>
-	 * <br/>
+	 * can be an integer, for pixel sizes, or any CSS-defined length unit.<br>
+	 * <br>
 	 * <strong>Note:</strong> Percent units (%) are not supported.
 	 * @type Number|String
 	 * @default <code>200</code>
@@ -404,8 +404,8 @@ CKEDITOR.config =
 
 	/**
 	 * The editor UI outer width. This can be an integer, for pixel sizes, or
-	 * any CSS-defined unit.<br/>
-	 * <br/>
+	 * any CSS-defined unit.<br>
+	 * <br>
 	 * Unlike the <code>{@link CKEDITOR.config.height}</code> setting, this
 	 * one will set the outer width of the entire editor UI, not for the
 	 * editing area only.

@@ -558,7 +558,7 @@ CKEDITOR.lang['vi'] =
 		title			: 'Nội dung Mẫu dựng sẵn',
 		options : 'Tùy chọn mẫu dựng sẵn',
 		insertOption	: 'Thay thế nội dung hiện tại',
-		selectPromptMsg	: 'Hãy chọn mẫu dựng sẵn để mở trong trình biên tập<br/>(nội dung hiện tại sẽ bị mất):',
+		selectPromptMsg	: 'Hãy chọn mẫu dựng sẵn để mở trong trình biên tập<br>(nội dung hiện tại sẽ bị mất):',
 		emptyListMsg	: '(Không có mẫu dựng sẵn nào được định nghĩa)'
 	},
 
