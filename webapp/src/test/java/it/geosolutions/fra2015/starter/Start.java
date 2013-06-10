@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * Jetty starter, will run GeoBatch inside the Jetty web container.<br>
+ * Jetty starter, will run GeoBatch inside the Jetty web container.<br/>
  * Useful for debugging, especially in IDE were you have direct dependencies between the sources of
  * the various modules (such as Eclipse).
  * 

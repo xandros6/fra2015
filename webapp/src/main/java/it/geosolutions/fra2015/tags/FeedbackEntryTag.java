@@ -71,7 +71,13 @@ public class FeedbackEntryTag extends ModeTag{
         case VALIDATOR :
             return (SKIP_BODY);
         case PRINT:
-            return (SKIP_BODY);
+        	return (SKIP_BODY);
+        case PRINT_CON_FEEDBACK_REVIEWER:
+        	composePrintFeedbackReviewer();
+        	break;
+        case PRINT_CON_FEEDBACK_EDITOR:
+        	composePrintFeedbackEditor();
+        	break;
         default:
             composeError();
             break;
@@ -79,7 +85,24 @@ public class FeedbackEntryTag extends ModeTag{
         
         return (SKIP_BODY);
     }
-    /**
+    private void composePrintFeedbackEditor() {
+    	 try{
+    		 composePrintBox();
+         }
+         catch(IOException e){
+             LOGGER.error("Error in FeedbackEntry: " + e);
+         }		
+    	
+	}
+	private void composePrintFeedbackReviewer() {
+    	 try{
+    		 composePrintBox();
+         }
+         catch(IOException e){
+             LOGGER.error("Error in FeedbackEntry: " + e);
+         }		
+	}
+	/**
      * Shows the feedback for the Contributor. 
      * He see only the harmonized feedback of the current round.
      */
@@ -152,6 +175,21 @@ public class FeedbackEntryTag extends ModeTag{
         }
     }
     
+   private void composePrintBox() throws IOException {
+       
+       String value = (String)pageContext.getRequest().getAttribute(feedbackName);
+       boolean feedbackIsPresent = (value != null && !StringUtils.isBlank(value));
+       if(feedbackIsPresent){           
+               JspWriter out = pageContext.getOut();
+               RichTextEntry rte = new RichTextEntry();
+               rte.setName(feedbackName);
+               rte.setPageContext(pageContext);
+               rte.forceReadMode();
+               rte.doStartTag();;
+           
+       }
+   }
+   
     /**
      * Reviewer should see:
      * His last feedback + harmonized feedback (read)

@@ -101,11 +101,11 @@
 						</c:forEach>	
 						<c:forEach var="i" begin="1" end="${10 - (fn:length(users))}" step="1">
 						  <tr class="rowItem">                
-                <td class="fullname"><div>&nbsp;</div></td>
-                <td class="username"><div>&nbsp;</div></td>
-                <td class="role"><div>&nbsp;</div></td>
-                <td class="countries"><div>&nbsp;</div></td>
-                <td class="link">&nbsp;</td>
+                <td class="fullname"><div>&#160;</div></td>
+                <td class="username"><div>&#160;</div></td>
+                <td class="role"><div>&#160;</div></td>
+                <td class="countries"><div>&#160;</div></td>
+                <td class="link">&#160;</td>
 						</c:forEach>							
 					</tbody>
 				</table>

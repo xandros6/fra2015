@@ -44,21 +44,31 @@ public class LoggingAspect {
     @Before("execution(* it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.updateValuesService(..))")
     public void logUpdates(JoinPoint joinPoint) {
         
-        LOGGER.info("******************* ActivityLog **********");
-        LOGGER.info(joinPoint.getSignature().getName());
-        Updates up = (Updates)joinPoint.getArgs()[0];
-        List<Update> upList = up.getUpdates();
-        StringBuilder sb = new StringBuilder();
-        sb.append("Update Variables: [START");
-        for(Update el : upList){
-            sb.append("; ").append(el.getVariable()).append(".").append(el.getRow()).append(".").append(el.getColumn());
-            if(LOGGER.isDebugEnabled()){sb.append("-").append("val:").append(el.getValue());};
+//        LOGGER.info("******************* ActivityLog **********");
+//        LOGGER.info(joinPoint.getSignature().getName());
+
+        if(LOGGER.isInfoEnabled()) {
+            Updates up = (Updates)joinPoint.getArgs()[0];
+            List<Update> upList = up.getUpdates();
+
+            for(Update el : upList){
+                StringBuilder sb = new StringBuilder();
+                sb.append("Update - country:").append(el.getCountry()).append(" var:").append(el.getVariable());
+                if(el.getRow() != null)
+                    sb.append(".R").append(el.getRow());
+                if(el.getColumn() != null)
+                    sb.append(".C").append(el.getColumn());
+
+                LOGGER.info(sb);
+
+                if(LOGGER.isDebugEnabled()) {
+                    sb.append(" val:").append(el.getValue());
+                    LOGGER.debug(sb);
+                }
+            }
         }
-        sb.append("]");
-        LOGGER.info("     Update Values: " + sb.toString());
-        LOGGER.info("***************************************************");
-        LOGGER.info("");
-        
+//        LOGGER.info("***************************************************");
+//        LOGGER.info("");        
     }
 
     @Before("execution(* it.geosolutions.fra2015.mvc.controller..*.*(..))")

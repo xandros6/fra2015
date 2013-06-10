@@ -1,5 +1,5 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
-<br>
+<br/>
 <div id="footer">
 <div class="container">
 <p class="muted credit">

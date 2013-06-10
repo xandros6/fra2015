@@ -109,10 +109,10 @@ public class YesNoEntry extends SurveyEntry {
 	private String printEditableContent(String value) {
 		return "<input value=\"yes\" name=\"" + this.name
 				+ "\" class=\"radio-boolean\" type=\"checkbox\" "
-				+ ("yes".equals(value) ? "checked=\"checked\" " : "") + ">"
-				+ localize("chk.yes") + "</br><input value=\"no\" name=\""
+				+ ("yes".equals(value) ? "checked=\"checked\" " : "") + " />"
+				+ localize("chk.yes") + "<br/><input value=\"no\" name=\""
 				+ this.name + "\" class=\"radio-boolean\" type=\"checkbox\" "
-				+ ("no".equals(value) ? "checked=\"checked\" " : "") + ">"
+				+ ("no".equals(value) ? "checked=\"checked\" " : "") + " />"
 				+ localize("chk.no");
 
 	}

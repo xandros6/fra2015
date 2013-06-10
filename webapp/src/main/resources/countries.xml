@@ -178,6 +178,7 @@
 <country><id>205</id><iso3>RWA</iso3><name>Rwanda</name><type>CFRQ</type><countryarea>2634</countryarea><landarea>2467</landarea></country>
 <country><id>215</id><iso3>SAU</iso3><name>Saudi Arabia</name><type>FRA</type><countryarea>214969</countryarea><landarea>214969</landarea></country>
 <country><id>40764</id><iso3>SDN</iso3><name>Sudan</name><type>FRA</type><countryarea>186148.4</countryarea><landarea>186148.4</landarea></country>
+<country><id>99940764</id><iso3>SSD</iso3><name>South Sudan</name><type>FRA</type><countryarea>64433</countryarea><landarea>64433</landarea></country>
 <country><id>217</id><iso3>SEN</iso3><name>Senegal</name><type>FRA</type><countryarea>19672</countryarea><landarea>19253</landarea></country>
 <country><id>222</id><iso3>SGP</iso3><name>Singapore</name><type>FRA</type><countryarea>71</countryarea><landarea>70</landarea></country>
 <country><id>207</id><iso3>SHN</iso3><name>Saint Helena</name><type>FRA</type><countryarea>39</countryarea><landarea>39</landarea></country>

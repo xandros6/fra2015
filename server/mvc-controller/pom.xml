@@ -116,6 +116,43 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <!-- ================================================================-->
+        <!--  FOP Libs -->
+        <!-- ================================================================-->
+
+		 <dependency>
+		  <groupId>org.apache.xmlgraphics</groupId>
+		  <artifactId>fop</artifactId>
+		  <version>1.1</version>
+		  <exclusions>
+		   <exclusion>
+		   <artifactId>avalon-framework-api</artifactId>
+		   <groupId>org.apache.avalon.framework</groupId>
+		   </exclusion>
+		   <exclusion>
+		   <artifactId>avalon-framework-impl</artifactId>
+		   <groupId>org.apache.avalon.framework</groupId>
+		   </exclusion>
+		  </exclusions>
+		  </dependency>
+		  <!-- these two are to correct issues in fop dependency -->
+		  <dependency>
+		   <groupId>avalon-framework</groupId>
+		   <artifactId>avalon-framework-api</artifactId>
+		   <version>4.2.0</version>
+		  </dependency>
+		  <dependency>
+		   <groupId>avalon-framework</groupId>
+		   <artifactId>avalon-framework-impl</artifactId>
+		   <version>4.2.0</version>
+		  </dependency> 
+		  <dependency>
+			  <groupId>net.sf.saxon</groupId>
+			  <artifactId>Saxon-HE</artifactId>
+			  <version>9.5.0.1</version>
+			</dependency>
+			
     </dependencies>
 
     <build>

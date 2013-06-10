@@ -384,7 +384,7 @@ if(typeof String.prototype.trim !== 'function') {
                             
                             el.find( "#selectedCountries" )
                             .append( createCountryLabel(value))
-                            .append( '&nbsp;&nbsp;');
+                            .append( '&#160;&#160;');
                       
                               
                             if ( countries.length>0){
@@ -506,7 +506,7 @@ if(typeof String.prototype.trim !== 'function') {
                                         $.each( array, function(id, country){
                                             el.find( "#selectedCountries" )
                                             .append( createCountryLabel(country))
-                                            .append( '&nbsp;&nbsp;');
+                                            .append( '&#160;&#160;');
                       
                                         });        
                             
@@ -904,7 +904,7 @@ if(typeof String.prototype.trim !== 'function') {
                 if ( value ){
                     cell.empty().append( value.content );  
                 } else {
-                    cell.empty().append('&nbsp;');
+                    cell.empty().append('&#160;');
                 }
             });
 
@@ -974,7 +974,7 @@ if(typeof String.prototype.trim !== 'function') {
                         return false;
                     }
                     )
-                    .empty().append('&nbsp;');
+                    .empty().append('&#160;');
                     row.appendTo(table); 
 
                     row.find('.delete-btn').click(function(e){
@@ -1113,7 +1113,7 @@ if(typeof String.prototype.trim !== 'function') {
                     div.append( value.content );
                     hidden.val(value.content);
                 } else {
-                    div.append( '&nbsp;');
+                    div.append( '&#160;');
                 }
                 
                 cell.append( hidden );
@@ -1545,7 +1545,7 @@ if(typeof String.prototype.trim !== 'function') {
                             $.each( obj.options.items, builder );
 
                             /* if (fc>0){
-                                text.append( '&nbsp;&nbsp;<span class="badge badge-warning">'+ fc + '</span>' );
+                                text.append( '&#160;&#160;<span class="badge badge-warning">'+ fc + '</span>' );
                             }*/
 
                             depth--;            

@@ -21,7 +21,12 @@ $(function(){
 				var container = $(this).find('#cell-content');
 				var value = container.text();
 				if ($.isNumeric(value)){
-					tot +=parseFloat(value);
+					
+						tot +=parseFloat(value);
+					
+				}else{
+					allAvaliable=false;
+
 				}
 				if(value.match(/^([\s\t\r\n]*)$/)){
 					allAvaliable=false;

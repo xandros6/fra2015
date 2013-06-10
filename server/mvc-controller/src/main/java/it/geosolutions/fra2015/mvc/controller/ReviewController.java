@@ -136,10 +136,11 @@ public class ReviewController {
             model.addAttribute("messageType", "warning");
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
-            return "reviewer";
+            
+            return getTemplate(su);
         }
 
-        return "reviewer";
+        return getTemplate(su);
 
     }
 
@@ -213,7 +214,7 @@ public class ReviewController {
             model.addAttribute("messageType", "warning");
             model.addAttribute("messageCode", "alert.savefaliure");
             LOGGER.error(e.getMessage(), e);
-            return "reviewer";
+            return getTemplate(su);
         }
 
         //Put feedback in model
@@ -224,7 +225,7 @@ public class ReviewController {
         model.addAttribute("messageCode", "alert.savesuccess");
 
         model.addAttribute("messageTimeout", 5000);
-        return "reviewer";
+        return getTemplate(su);
 
     }
 
@@ -262,4 +263,13 @@ public class ReviewController {
             LOGGER.info("submitted survey: " + status.getCountry() + " - the status now is UNDER_REVIEW");
         }
     }
+    private String getTemplate(User su){
+        if (su == null)return "redirect:/";
+        if (su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())) {
+            return "reviewer";
+        }else  if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
+            return "editor";
+        }else return "redirect:/";
+    }
+    
 }

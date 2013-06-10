@@ -41,6 +41,7 @@
    <label ref="USA">United States of America</label>
    <label ref="HKG">Hong Kong</label>
    <label ref="SDN">Sudan</label>
+   <label ref="SSD">South Sudan</label>
    <label ref="EGY">Egypt</label>
    <label ref="ESH">Western Sahara</label>
    <label ref="SEN">Senegal</label>

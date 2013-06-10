@@ -45,8 +45,8 @@
 				</table>
 			</div>
 			<div class="control clearfix"></div>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -91,8 +91,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_102_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -127,8 +127,8 @@
 					</c:if>
 				</div>
 				<fra:feedback feedbackName="_feedback_103_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 		<section>
@@ -143,8 +143,8 @@
 				</div>
 				<div class="control clearfix"></div>
 				<fra:feedback feedbackName="_feedback_104_"/>
-				<br>
-				<br>
+				<br/>
+				<br/>
 			</div>
 		</section>
 	</section>
@@ -222,8 +222,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_10_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 	<section>
@@ -248,7 +248,7 @@
 									code="ref378"></spring:message></td>
 							<td class="entry-item editable text" rownumber="1"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="105"><span class="entry_item_placeholder" id="_fraVariable_105_1_1_">&nbsp;</span>
+								entry-id="105"><span class="entry_item_placeholder" id="_fraVariable_105_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_105_1_1_}</div></td>
 						</tr>
 						<tr>
@@ -256,7 +256,7 @@
 									code="ref380"></spring:message></td>
 							<td class="entry-item editable text" rownumber="2"
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
-								entry-id="105"><span class="entry_item_placeholder" id="_fraVariable_105_2_1_">&nbsp;</span>
+								entry-id="105"><span class="entry_item_placeholder" id="_fraVariable_105_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_105_2_1_}</div></td>
 						</tr>
 					</tbody>
@@ -264,8 +264,8 @@
 			</div>
 			<div class="control clearfix"></div>
 			<fra:feedback feedbackName="_feedback_105_"/>
-			<br>
-			<br>
+			<br/>
+			<br/>
 		</div>
 	</section>
 </section>
