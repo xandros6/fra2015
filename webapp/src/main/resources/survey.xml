@@ -7226,18 +7226,8 @@
 									<type>String</type>
 								</entryItem>
 								<entryItem>
-									<rowNumber>1</rowNumber>
-									<columnNumber>2</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
-								</entryItem>
-								<entryItem>
-									<rowNumber>2</rowNumber>
-									<columnNumber>2</columnNumber>
 									<type>String</type>
 								</entryItem>
 							</EntryItems>
