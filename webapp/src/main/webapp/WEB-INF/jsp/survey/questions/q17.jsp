@@ -233,6 +233,14 @@
 								entry-id="141"><span class="entry_item_placeholder" id="_fraVariable_141_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_141_2_1_}</div></td>
 						</tr>
+						<tr>
+							<td rownumber="3" columnnumber="0"><spring:message
+									code="ref490bb"></spring:message></td>
+							<td class="entry-item editable text" rownumber="3"
+								columnnumber="1" style="background-color: rgb(242, 245, 169);"
+								entry-id="141"><span class="entry_item_placeholder" id="_fraVariable_141_3_1_">&#160;</span>
+							<div id="cell-content">${_fraVariable_141_3_1_}</div></td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
