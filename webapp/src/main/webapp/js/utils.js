@@ -79,6 +79,8 @@ fra = {
 	                    if(cell.hasClass('number')){
 		                    try{
 		                    	if(text!=""){
+		                    		text=text.replace(",","");
+		                    		text=text.replace(" ","");
 			                    	text =Number(text);
 			                    	
 			                    	if(isNaN(text)){ 
@@ -252,6 +254,8 @@ fra = {
             	var content=cell.find('#cell-content');
             	var text = cell.find('#cell-content').text();
             	if(text!=""){
+            		text=text.replace(",","");
+            		text=text.replace(" ","");
                 	text =Number(text);
                 	
                 	if(isNaN(text)){ 

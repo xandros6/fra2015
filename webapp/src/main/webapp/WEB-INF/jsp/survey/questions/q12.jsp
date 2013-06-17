@@ -348,8 +348,8 @@
 									code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message
 									code="ref81"></spring:message></td>
-							<td rownumber="0" columnnumber="2"><spring:message
-									code="ref212"></spring:message></td>
+							<%-- <td rownumber="0" columnnumber="2"><spring:message
+									code="ref212"></spring:message></td> --%>
 						</tr>
 						<tr>
 							<td class="title" rownumber="1" columnnumber="0"><spring:message
@@ -358,10 +358,6 @@
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_1_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_118_1_1_}</div></td>
-							<td class="entry-item editable text" rownumber="1"
-								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_1_2_">&#160;</span>
-							<div id="cell-content">${_fraVariable_118_1_2_}</div></td>
 						</tr>
 						<tr>
 							<td class="title" rownumber="2" columnnumber="0"><spring:message
@@ -370,10 +366,6 @@
 								columnnumber="1" style="background-color: rgb(242, 245, 169);"
 								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_2_1_">&#160;</span>
 							<div id="cell-content">${_fraVariable_118_2_1_}</div></td>
-							<td class="entry-item editable text" rownumber="2"
-								columnnumber="2" style="background-color: rgb(242, 245, 169);"
-								entry-id="118"><span class="entry_item_placeholder" id="_fraVariable_118_2_2_">&#160;</span>
-							<div id="cell-content">${_fraVariable_118_2_2_}</div></td>
 						</tr>
 					</tbody>
 				</table>

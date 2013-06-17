@@ -70,6 +70,8 @@
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref35"></spring:message></td>
 								<td rownumber="0" columnnumber="2"><spring:message
+										code="ref36"></spring:message></td>
+								<td rownumber="0" columnnumber="2"><spring:message
 										code="ref37"></spring:message></td>
 								<td rownumber="0" columnnumber="3"><spring:message
 										code="ref38"></spring:message></td>
@@ -78,7 +80,7 @@
 								</c:if>
 							</tr>
 							
-							<fra:DynamicTableTag numOfColoumn="3" entryItemName="155" numericColoumn="true"/>
+							<fra:DynamicTableTag numOfColoumn="4" entryItemName="155" numericColoumn="true"/>
 							
 						</tbody>
 					</table>

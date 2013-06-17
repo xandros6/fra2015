@@ -250,6 +250,7 @@ public class SurveyController{
         }
         
         concurencyHandler.loadQuestionRevision(session, Long.parseLong(question));
+        concurencyHandler.updateCurrentUserQuestion(session, questionLong.intValue());
         
         utils.prepareHTTPRequest(model, question, utils.retrieveValues(question.toString(), iso3)/*mergedValues*/, false);
 

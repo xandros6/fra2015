@@ -46,7 +46,7 @@
 								<jsp:include page="editor/export.jsp" />
 							</c:when>
 							<c:when test="${context=='survey'}">
-								<jsp:include page="editor/survey.jsp" />
+								<jsp:include page="survey/survey.jsp" />
 							</c:when>
 							<c:when test="${context=='surveystatus'}">
 								<jsp:include page="common/surveystatus.jsp" />
