@@ -1,4 +1,13 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
+
+<c:set var="q" value="_13_" />
+<c:set var="hide" value="false" />
+<c:if test="${(! fn:contains(notEmptyQuestion,q)) && param.hideEmpty == 'true'}">
+  <c:set var="hide" value="true" />
+</c:if>
+
+<c:if test="${hide == 'false'}">
+
 <section>
 	<div class="page-header">
 		<h1>
@@ -49,11 +58,13 @@
 			<br/>
 		</div>
 	</section>
+	<c:if test="${fn:contains(notEmptyEntry,'_120_') || fn:contains(notEmptyEntry,'_121_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			13.2
 			<spring:message code="ref33"></spring:message>
 		</h2>
+		<c:if test="${fn:contains(notEmptyEntry,'_120_') || param.hideEmpty != 'true'}">
 		<section>
 			<h3>
 				13.2.1
@@ -95,6 +106,8 @@
 				<br/>
 			</div>
 		</section>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_121_') || param.hideEmpty != 'true'}">
 		<section>
 			<h3>
 				13.2.2
@@ -131,12 +144,16 @@
 				<br/>
 			</div>
 		</section>
+		</c:if>
 	</section>
+	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_13a_') || fn:contains(notEmptyEntry,'_13b_') || fn:contains(notEmptyEntry,'_122_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			13.3
 			<spring:message code="ref49"></spring:message>
 		</h2>
+		<c:if test="${fn:contains(notEmptyEntry,'_13a_') || param.hideEmpty != 'true'}">
 		<div>
 			<h4>
 				<spring:message code="ref413"></spring:message>
@@ -255,6 +272,8 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_13b_') || param.hideEmpty != 'true'}">
 		<div>
 			<h4>
 				<spring:message code="ref427"></spring:message>
@@ -292,6 +311,8 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_122_') || param.hideEmpty != 'true'}">
 		<div>
 			<div></div>
 			<div class="entry">
@@ -316,12 +337,16 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
 	</section>
+	</c:if>
+	 <c:if test="${fn:contains(notEmptyEntry,'_123_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			13.4
 			<spring:message code="ref126"></spring:message>
 		</h2>
+	
 		<div>
 			<div></div>
 			<div class="entry">
@@ -373,4 +398,7 @@
 			<br/>
 		</div>
 	</section>
+	</c:if>
 </section>
+
+</c:if>

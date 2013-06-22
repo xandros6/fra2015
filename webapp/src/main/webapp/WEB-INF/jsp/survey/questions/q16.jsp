@@ -1,4 +1,13 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
+
+<c:set var="q" value="_16_" />
+<c:set var="hide" value="false" />
+<c:if test="${(! fn:contains(notEmptyQuestion,q)) && param.hideEmpty == 'true'}">
+  <c:set var="hide" value="true" />
+</c:if>
+
+<c:if test="${hide == 'false'}">
+
 <section>
 	<div class="page-header">
 		<h1>
@@ -61,11 +70,13 @@
 			<br/>
 		</div>
 	</section>
+	<c:if test="${fn:contains(notEmptyEntry,'_16a_') || fn:contains(notEmptyEntry,'_16b_') || fn:contains(notEmptyEntry,'_136_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			16.2
 			<spring:message code="ref49"></spring:message>
 		</h2>
+		<c:if test="${fn:contains(notEmptyEntry,'_16a_') || param.hideEmpty != 'true'}">
 		<div>
 			<h4>
 				<spring:message code="ref477"></spring:message>
@@ -296,6 +307,8 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_16b_') || param.hideEmpty != 'true'}">
 		<div>
 			<h4>
 				<spring:message code="rev477b"></spring:message>
@@ -563,7 +576,8 @@
 			<br/>
 			<br/>
 		</div>
-		
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_136_') || param.hideEmpty != 'true'}">
 		<div>
 			<h4>
 				<spring:message code="ref73"></spring:message>
@@ -611,7 +625,10 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
 	</section>
+	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_137_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			16.3
@@ -654,4 +671,7 @@
 			<br/>
 		</div>
 	</section>
+	</c:if>
 </section>
+
+</c:if>

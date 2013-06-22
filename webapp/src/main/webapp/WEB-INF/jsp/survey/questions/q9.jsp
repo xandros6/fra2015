@@ -1,4 +1,13 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
+
+<c:set var="q" value="_9_" />
+<c:set var="hide" value="false" />
+<c:if test="${(! fn:contains(notEmptyQuestion,q)) && param.hideEmpty == 'true'}">
+  <c:set var="hide" value="true" />
+</c:if>
+
+<c:if test="${hide == 'false'}">
+
 <section>
 	<div class="page-header">
 		<h1>
@@ -37,6 +46,7 @@
 		<br/>
 		<br/>
 	</div>
+	<c:if test="${fn:contains(notEmptyEntry,'_9_') || param.hideEmpty != 'true'}">
 	<div>
 		<h4>
 			<spring:message code="ref374"></spring:message>
@@ -70,7 +80,9 @@
 		<br/>
 		<br/>
 	</div>
-	<div>
+	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_900_') || param.hideEmpty != 'true'}">
+	 <div>
 			<h4>
 				<spring:message code="ref73"></spring:message>
 			</h4>
@@ -104,7 +116,9 @@
 			<fra:feedback feedbackName="_feedback_900_"/>
 			<br/>
 			<br/>
-		</div>
+	</div>
+	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_901_') || param.hideEmpty != 'true'}">
 		<div>
 			<h4>
 				<spring:message code="ref76"></spring:message>
@@ -163,4 +177,7 @@
 			<br/>
 		</div>
 		</div>
+	</c:if>
 </section>
+
+</c:if>

@@ -26,7 +26,11 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.view.MyReloadableResourceBundleMessageSource;
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.SurveyService;
@@ -39,6 +43,7 @@ import java.io.StringWriter;
 import java.net.HttpCookie;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -147,12 +152,16 @@ public class PrintController {
 			}
 		}
 
+		
+		
 
 		if(mode.equalsIgnoreCase("allschema")){
 			utils.prepareHTTPRequestOnlyVariablesName(model, country);            
 		}
 		else if(mode.equalsIgnoreCase("onlyvalues") || mode.equalsIgnoreCase("onlyvalues_feedback")){
 
+			utils.prepareEmptyElement(model, null, country, false);
+			
 			utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), false);
 		}
 		else if(mode.equalsIgnoreCase("onlynames")){

@@ -1,4 +1,13 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
+
+<c:set var="q" value="_19_" />
+<c:set var="hide" value="false" />
+<c:if test="${(! fn:contains(notEmptyQuestion,q)) && param.hideEmpty == 'true'}">
+  <c:set var="hide" value="true" />
+</c:if>
+
+<c:if test="${hide == 'false'}">
+
 <section>
 	<div class="page-header">
 		<h1>
@@ -49,11 +58,13 @@
 			<br/>
 		</div>
 	</section>
+	<c:if test="${fn:contains(notEmptyEntry,'_155_') || fn:contains(notEmptyEntry,'_156_') || fn:contains(notEmptyEntry,'_157_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			19.2
 			<spring:message code="ref33"></spring:message>
 		</h2>
+		<c:if test="${fn:contains(notEmptyEntry,'_155_') || param.hideEmpty != 'true'}">
 		<section>
 			<h3>
 				19.2.1
@@ -95,6 +106,8 @@
 				<br/>
 			</div>
 		</section>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_156_') || param.hideEmpty != 'true'}">
 		<section>
 			<h3>
 				19.2.2
@@ -131,6 +144,8 @@
 				<br/>
 			</div>
 		</section>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_157_') || param.hideEmpty != 'true'}">
 		<section>
 			<h3>
 				19.2.3
@@ -147,7 +162,10 @@
 				<br/>
 			</div>
 		</section>
+		</c:if>
 	</section>
+	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_19_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			19.3
@@ -231,11 +249,14 @@
 			<br/>
 		</div>
 	</section>
+	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_158_') || fn:contains(notEmptyEntry,'_159_') || param.hideEmpty != 'true'}">
 	<section>
 		<h2>
 			19.4
 			<spring:message code="ref126"></spring:message>
 		</h2>
+		<c:if test="${fn:contains(notEmptyEntry,'_158_') || param.hideEmpty != 'true'}">
 		<div>
 			<div></div>
 			<div class="entry">
@@ -270,6 +291,8 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
+		<c:if test="${fn:contains(notEmptyEntry,'_159_') || param.hideEmpty != 'true'}">
 		<div>
 			<div></div>
 			<div class="entry">
@@ -294,5 +317,9 @@
 			<br/>
 			<br/>
 		</div>
+		</c:if>
 	</section>
+	</c:if>
 </section>
+
+</c:if>
