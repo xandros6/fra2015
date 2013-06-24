@@ -6,7 +6,7 @@
 <input id="countries" style="margin: 0 auto;" type="text" autocomplete="off" />
 <button class="btn pdf" id="fullPdf" title="Full PDF" disabled="disabled" >Full PDF</button>
 <button class="btn pdf" id="cfrqPdf" title="CFRQ PDF" disabled="disabled" >CFRQ PDF</button>
-
+<button class="btn" id="xml" title="XML" disabled="disabled" >XML</button
 <hr>
 
 <h3><spring:message code="import.title" /></h3>
@@ -57,16 +57,20 @@ $(function() {
       },
       updater : function(item) {
         $('.pdf').removeAttr("disabled");
-        $('.pdf').removeAttr("disabled");
+        $('#xml').removeAttr("disabled");
+		    $('#import').removeAttr("disabled");
         return item;
       }
     });
     $('#countries').keyup(function() {
       if (!getSelectedCountry()) {
         $('.pdf').attr("disabled", "disabled");
-        
+        $('#xml').attr("disabled", "disabled");
+        $('#import').attr("disabled", "disabled");
       } else {
         $('.pdf').removeAttr("disabled");
+        $('#xml').removeAttr("disabled");
+        $('#import').removeAttr("disabled");
         
       }
     });

@@ -28,7 +28,7 @@ $(function() {
       return false;
     });
     $("#cfrqPdf").click(function() {
-     var countryCode = getSelectedCountry().iso3;
+     var countryCode = "${country}";
      var url = 'survey/print/pdf/'+countryCode+'/cfrq';
         $.fileDownload(url, {
               preparingMessageHtml: "We are preparing your report, please wait...",
@@ -37,7 +37,7 @@ $(function() {
         return false;
     });
     $("#feedbackPdf").click(function() {
-        var countryCode = getSelectedCountry().iso3;
+    	var countryCode = "${country}";
         var url = 'survey/print/pdf/'+countryCode+'/feedback';
         $.fileDownload(url, {
               preparingMessageHtml: "We are preparing your report, please wait...",
@@ -46,19 +46,6 @@ $(function() {
         return false;
     });
     $('.pdf').tooltip();
-    $("#xml").click(function() {
-      var c = getSelectedCountry();
-      if (c != null && c.iso3 != null) {
-        window.open('export/' + c.iso3);
-      }
-    });
-    $("#import").click(function() {
-      var c = getSelectedCountry();
-      if (c != null && c.iso3 != null) {
-        $('#countryForImport').val(c.iso3);
-      }
-    });
-
   });
   
 </script>

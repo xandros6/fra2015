@@ -1,10 +1,19 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
-<section>
+
+<c:set var="q" value="_0_" />
+<c:set var="hide" value="false" />
+<c:if test="${(! fn:contains(notEmptyQuestion,q)) && param.hideEmpty == 'true'}">
+  <c:set var="hide" value="true" />
+</c:if>
+
+<c:if test="${hide == 'false'}">
+<section>  
 	<div class="page-header">
 		<h1>
 			<spring:message code="ref1"></spring:message>
 		</h1>
 	</div>
+	<c:if test="${(fn:contains(notEmptyEntry,'_0_')) || param.hideEmpty != 'true'}">
 	<div>
 		<h4>
 			<spring:message code="ref2"></spring:message>
@@ -40,20 +49,27 @@
 		<br/>
 		<br/>
 	</div>
-	<div>
-		<h4>
-			<spring:message code="ref8"></spring:message>
-		</h4>
-		<p>
-			<spring:message code="ref9"></spring:message>
-		</p>
-		<div></div>
-		<div class="entry">
-			<fra:richtextentry operation="${operationWR}" name="_fraVariable_1_"></fra:richtextentry>
+	
+	</c:if>
+	
+	<c:if test="${(fn:contains(notEmptyEntry,'_1_')) || param.hideEmpty != 'true'}">
+		<div>
+			<h4>
+				<spring:message code="ref8"></spring:message>
+			</h4>
+			<p>
+				<spring:message code="ref9"></spring:message>
+			</p>
+			<div></div>
+			<div class="entry">
+				<fra:richtextentry operation="${operationWR}" name="_fraVariable_1_"></fra:richtextentry>
+			</div>
+			<div class="control clearfix"></div>
+			<fra:feedback feedbackName="_feedback_1_"/>
+			<br/>
+			<br/>
 		</div>
-		<div class="control clearfix"></div>
-		<fra:feedback feedbackName="_feedback_1_"/>
-		<br/>
-		<br/>
-	</div>
+	</c:if>
 </section>
+
+</c:if>

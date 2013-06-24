@@ -151,7 +151,9 @@ public class SurveyServiceImpl implements SurveyService {
 			@Override
 			public List<? extends Value> readAll(Country country, Integer questionId) {
 				Search searchCriteria = new Search(TextValue.class);
-				searchCriteria.addFilterEqual("entryItem.entry.question.id", questionId);
+				if(questionId != null){
+					searchCriteria.addFilterEqual("entryItem.entry.question.id", questionId);
+				}
 				searchCriteria.addFilterEqual("country.id", country.getId());
                 searchCriteria.addFetch("entryItem");
 
@@ -517,11 +519,11 @@ public class SurveyServiceImpl implements SurveyService {
         if (country == null) {
             throw new BadRequestServiceEx("Country with code " + iso3 + " does not exist.");
         }
-
+/*
         if (questionNumber == null) {
             throw new BadRequestServiceEx("Missing question number.");
         }
-
+*/
         List<Value> values = new ArrayList<Value>(500);
 
         for (Map.Entry<String, ValueDAO> daoEntry : daoMap.entrySet()) {
