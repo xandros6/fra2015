@@ -49,7 +49,7 @@
 							<spring:message code="submit.addnote" />
 						</p>
 						</c:if>
-						<textarea id="submitmessage" name="submitmessage" rows="5"
+						<textarea id="submitmessage" name="submitmessage" rows="5" onKeyUp="limitText(15);"
 							class="span12"></textarea>
 					</div>
 					
@@ -112,6 +112,7 @@
 		$('#submitmessage').keyup(
 				function() {
 					var condition = !$('#submitmessage').val() != "";
+					$('#submitmessage').val($('#submitmessage').val().substring(0,4000));
 					$('#submitButton').toggleClass('disabled',
 							condition);
 					if (condition){
@@ -123,6 +124,7 @@
 				})
 
 	});
+	
 	
 </script>
 </c:if>
