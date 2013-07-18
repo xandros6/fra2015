@@ -49,7 +49,7 @@
 							<spring:message code="submit.addnote" />
 						</p>
 						</c:if>
-						<textarea id="submitmessage" name="submitmessage" rows="5" onKeyUp="limitText(15);"
+						<textarea id="submitmessage" name="submitmessage" rows="5" maxlength="4000"
 							class="span12"></textarea>
 					</div>
 					
