@@ -23,6 +23,7 @@
 <country><id>21</id><iso3>BHR</iso3><name>Bahrain</name><type>FRA</type><countryarea>76</countryarea><landarea>76</landarea></country>
 <country><id>20</id><iso3>BHS</iso3><name>Bahamas</name><type>FRA</type><countryarea>1388</countryarea><landarea>1001</landarea></country>
 <country><id>34</id><iso3>BIH</iso3><name>Bosnia and Herzegovina</name><type>CFRQ</type><countryarea>5121</countryarea><landarea>5100</landarea></country>
+<country><id>99900002</id><iso3>BLM</iso3><name>Saint Barthelemy</name><type>FRA</type><countryarea>2.1</countryarea><landarea>2.1</landarea></country>
 <country><id>26</id><iso3>BLR</iso3><name>Belarus</name><type>CFRQ</type><countryarea>20760</countryarea><landarea>20282</landarea></country>
 <country><id>28</id><iso3>BLZ</iso3><name>Belize</name><type>FRA</type><countryarea>2297</countryarea><landarea>2281</landarea></country>
 <country><id>30</id><iso3>BMU</iso3><name>Bermuda</name><type>FRA</type><countryarea>5</countryarea><landarea>5</landarea></country>
@@ -123,6 +124,7 @@
 <country><id>147</id><iso3>LTU</iso3><name>Lithuania</name><type>CFRQ</type><countryarea>6530</countryarea><landarea>6267.5</landarea></country>
 <country><id>148</id><iso3>LUX</iso3><name>Luxembourg</name><type>CFRQ</type><countryarea>259</countryarea><landarea>259</landarea></country>
 <country><id>140</id><iso3>LVA</iso3><name>Latvia</name><type>CFRQ</type><countryarea>6456</countryarea><landarea>6218</landarea></country>
+<country><id>99900001</id><iso3>MAF</iso3><name>Saint Martin (French part)</name><type>FRA</type><countryarea>5.44</countryarea><landarea>5.44</landarea></country>
 <country><id>169</id><iso3>MAR</iso3><name>Morocco</name><type>FRA</type><countryarea>44655</countryarea><landarea>44630</landarea></country>
 <country><id>166</id><iso3>MCO</iso3><name>Monaco</name><type>CFRQ</type><countryarea>0.2</countryarea><landarea>0.2</landarea></country>
 <country><id>165</id><iso3>MDA</iso3><name>Republic of Moldova</name><type>CFRQ</type><countryarea>3385</countryarea><landarea>3289</landarea></country>

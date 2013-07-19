@@ -69,9 +69,9 @@ public class TiersValidator {
             // load empty tiers
             List<Value> emptyTiersValue = surveyService.getEntryItemsListByFieldValues("entry.variable", Arrays.asList(tiers.split(";")), null, iso3, true);
             List<EntryItem> emptyTiers = fromValueListToTiersList(emptyTiersValue);
-            for(EntryItem el : emptyTiers){
+            for(EntryItem entryItem : emptyTiers){
                 List<String> varList = new ArrayList<String>();
-                TierRowName trn = new TierRowName(el.getRowName());
+                TierRowName trn = new TierRowName(entryItem.getRowName());
                 varList.add(trn.getReletedEntityId());
                 // load the row variables related to the current tier 
                 List<Value> items = surveyService.getEntryItemsListByFieldValues("entry.variable", varList, trn.getRelatedRowNames(), iso3, false);

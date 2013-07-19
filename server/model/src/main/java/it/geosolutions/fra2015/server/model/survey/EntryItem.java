@@ -100,7 +100,9 @@ public class EntryItem implements Serializable {
     public void setColumnName(String columnName) {
         this.columnName = columnName;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "EntryItem{id=" + id + ", row#" + rowNumber + ", col#" + columnNumber + ", entry=" + entry + ", rowN=" + rowName + ", colN=" + columnName + ", type=" + type + '}';
+    }
 }

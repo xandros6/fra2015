@@ -172,11 +172,11 @@
     <label ref="ROU">Rumania</label>
     <label ref="RUS">Federación de Rusia</label>
     <label ref="RWA">Rwanda</label>
-    <label ref="BLM">(Saint Barthelemy)</label>
+    <label ref="BLM">Saint Barthelemy</label>
     <label ref="SHN">Santa Elena</label>
     <label ref="KNA">Saint Kitts y Nevis</label>
     <label ref="LCA">Santa Lucía</label>
-    <label ref="MAF">(Saint Martin)</label>
+    <label ref="MAF">Saint Martin</label>
     <label ref="SPM">Saint-Pierre y Miquelon</label>
     <label ref="VCT">San Vicente y las Granadinas</label>
     <label ref="WSM">Samoa</label>

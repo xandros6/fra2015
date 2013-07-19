@@ -27,7 +27,7 @@ public class Status implements Serializable {
     @GeneratedValue
     private Long id;
     
-    @Column(nullable = true, updatable = true)
+    @Column(nullable = true, updatable = true, length = 4000)
     private String message;
     
     @Column(nullable = false, updatable = true)

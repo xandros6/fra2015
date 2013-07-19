@@ -3750,70 +3750,70 @@
 									<columnName>1990</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.1</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.1</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.1</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>4</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.1</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>5</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.2</rowName>
 									<columnName>1990</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.2</rowName>
 									<columnName>2000</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.2</rowName>
 									<columnName>2005</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>3</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.2</rowName>
 									<columnName>2010</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>4</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>4.2</rowName>
 									<columnName>2015</columnName>
 									<rowNumber>3</rowNumber>
 									<columnNumber>5</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								
 							</EntryItems>
@@ -9716,14 +9716,14 @@
 									<columnName>2020</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 								<entryItem>
 									<rowName>21.1</rowName>
 									<columnName>2030</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>2</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 							</EntryItems>
 						</entry>
@@ -9736,7 +9736,7 @@
 									<columnName>2013</columnName>
 									<rowNumber>2</rowNumber>
 									<columnNumber>1</columnNumber>
-									<type>String</type>
+									<type>Number</type>
 								</entryItem>
 							</EntryItems>
 						</entry>
