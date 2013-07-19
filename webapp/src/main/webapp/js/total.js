@@ -10,7 +10,7 @@ $(function(){
 		var colentries = table.find('tr:not(".skipTotal") [columnnumber="'+columnnumber+'"].text');
 		
 		var update = function (){
-			var tot = 0;
+			var tot = 0.0;
 			var allAvaliable=true;
 			colentries.each(function(){
 				if(totcel.is($(this))) return;
@@ -22,8 +22,9 @@ $(function(){
 				var container = $(this).find('#cell-content');
 				var value = container.text();
 				if ($.isNumeric(value)){
-					
-						tot +=parseFloat(value);
+						var sum =parseFloat(value);
+						tot =sum + tot;
+						tot -= tot - tot.toFixed(12); 
 					
 				}else{
 					allAvaliable=false;
