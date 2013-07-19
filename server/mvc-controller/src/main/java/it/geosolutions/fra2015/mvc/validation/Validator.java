@@ -438,7 +438,6 @@ public class Validator implements InitializingBean, ApplicationContextAware {
      * @return
      */
     private boolean checkRuleNA(List<String> vars, Map<String, String> test) {
-        List<String> missing = new ArrayList<String>();
 
         for (String name : vars) {
             if(test==null) {
