@@ -2,29 +2,36 @@
  */
 package it.geosolutions.fra2015.init;
 
+import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Search;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.init.model.CountryList;
 import it.geosolutions.fra2015.server.dao.CountryDAO;
 import it.geosolutions.fra2015.server.dao.EntryDAO;
+import it.geosolutions.fra2015.server.dao.NumberValueDAO;
 import it.geosolutions.fra2015.server.dao.SurveyDAO;
+import it.geosolutions.fra2015.server.dao.TextValueDAO;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Element;
 import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.NumberValue;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Session;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
+import it.geosolutions.fra2015.server.model.survey.TextValue;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import javax.xml.bind.JAXB;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -43,6 +50,8 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
     private CountryDAO countryDAO;
     private EntryDAO entryDAO;
     private SurveyDAO surveyDAO;
+    private NumberValueDAO numberValueDAO;
+    private TextValueDAO textValueDAO;
     
     private UserService userService;
     private SurveyServiceEntryPoint restSurveyService;
@@ -69,7 +78,9 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         
         checkAndInsertCountries();
         checkAndInsertSurvey();
-        checkAndInsertAdmin();               
+        checkAndInsertAdmin();
+
+        fixBadEntries();
     }
 
     private void checkAndInsertAdmin() throws BadRequestServiceEx, IOException {
@@ -265,6 +276,14 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
         this.surveyDAO = surveyDAO;
     }
 
+    public void setNumberValueDAO(NumberValueDAO numberValueDAO) {
+        this.numberValueDAO = numberValueDAO;
+    }
+
+    public void setTextValueDAO(TextValueDAO textValueDAO) {
+        this.textValueDAO = textValueDAO;
+    }
+    
     @Override
     public void setApplicationContext(ApplicationContext ac) throws BeansException {
         this.applicationContext = ac;
@@ -276,6 +295,50 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
 
     public void setSurveyCatalog(SurveyCatalog surveyCatalog) {
         this.surveyCatalog = surveyCatalog;
+    }
+
+    /**
+     * Entries with rownames 4.1, 4.2, 21.1, 21.2, were incorrectly set as String, while they are Numeric.
+     * This means that all related values have been saved as TextValue instead of NumberValue.
+     * This method will migrate such values from TextValue to NumberValue.
+     */
+    private void fixBadEntries() {
+
+        Search search = new Search(TextValue.class);
+        search.addFilterOr(
+                Filter.equal("entryItem.rowName", "4.1"),
+                Filter.equal("entryItem.rowName", "4.2"),
+                Filter.equal("entryItem.rowName", "21.1"),
+                Filter.equal("entryItem.rowName", "21.2")
+                );
+        List<TextValue> textValues = textValueDAO.search(search);
+        LOGGER.warn("Found " +textValues.size() + " TextValues to convert into NumericValues");
+
+        for (TextValue textValue : textValues) {
+            NumberValue numberValue = null;
+            if( StringUtils.isBlank(textValue.getContent())) {
+                LOGGER.info("Skipping blank content for "+ textValue.getEntryItem().getRowName() + " variable for " + textValue.getCountry().getIso3());
+            } else {
+                try {
+                    Double d = Double.valueOf(textValue.getValue());
+                    numberValue = new NumberValue();
+                    numberValue.setValue(d);
+                } catch(NumberFormatException e) {
+                    LOGGER.warn("Error parsing value '"+textValue.getContent()+"': will be set as NaN");
+                    numberValue = new NumberValue();
+                    numberValue.setValue(Double.NaN);
+                }
+            }
+
+            if(numberValue != null) {
+                numberValue.setCountry(textValue.getCountry());
+                numberValue.setEntryItem(textValue.getEntryItem()); // same entryitem: we should have updated the DB by hand
+                LOGGER.info("Migrating " + textValue.getEntryItem().getRowName() + " variable for " + textValue.getCountry().getIso3());
+                numberValueDAO.persist(numberValue);
+            }
+            LOGGER.info("Removing  " + textValue.getEntryItem().getRowName() + " variable for " + textValue.getCountry().getIso3());
+            textValueDAO.remove(textValue);
+        }
     }
 
     
