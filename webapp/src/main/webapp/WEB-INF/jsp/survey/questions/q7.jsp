@@ -413,11 +413,14 @@
 								<div id="cell-content">${_fraVariable_7_11_2_}</div></td>
 						</tr>
 						<tr>
-							<td rownumber="12" columnnumber="0"><spring:message
-									code="ref332"></spring:message></td>
-							<td class="total" rownumber="12" columnnumber="1"></td>
-							<td class="total" rownumber="12" columnnumber="2"></td>
-						</tr>
+							<td rownumber="12" columnnumber="0"><spring:message code="ref332"></spring:message></td>
+                            <td class="prefilled entry-item editable text" rownumber="12" columnnumber="1" style="background-color: rgb(242, 245, 169);" entry-id="7">
+                                <span class="entry_item_placeholder" id="_fraVariable_7_12_1_">&#160;</span>
+                                <div id="cell-content">${_fraVariable_7_12_1_}</div></td>
+                           <td class="entry-item editable text" rownumber="12" columnnumber="2" style="background-color: rgb(242, 245, 169);" entry-id="7">
+                                <span class="entry_item_placeholder" id="_fraVariable_7_12_2_">&#160;</span>
+                                <div id="cell-content">${_fraVariable_7_12_2_}</div></td>
+                        </tr>
 					</tbody>
 				</table>
 			</div>

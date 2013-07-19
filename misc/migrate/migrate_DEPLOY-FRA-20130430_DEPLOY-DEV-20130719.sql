@@ -113,3 +113,7 @@ DELETE from fra_entry_item where entry_id in (select id from fra_entry where var
 update fra_entry_item set type='Number' where entry_id in (select id from fra_entry where variable='4a');
 update fra_entry_item set type='Number' where entry_id in (select id from fra_entry where variable='21a' or variable='21b');
 
+
+INSERT INTO fra_entry_item (id,columnname,columnnumber,rowname,rownumber,type,entry_id) VALUES (71201,null,1,'7.1.2',12,'Number',(select id from fra_entry where variable='7'));
+INSERT INTO fra_entry_item (id,columnname,columnnumber,rowname,rownumber,type,entry_id) VALUES (71202,null,2,'7.1.2',12,'Number',(select id from fra_entry where variable='7'));
+
