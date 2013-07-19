@@ -1384,7 +1384,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="3e"><span class="entry_item_placeholder" id="_fraVariable_3e_4_10_">&#160;</span>
 							<div id="cell-content">${_fraVariable_3e_4_10_}</div></td>
 						</tr>
-						<tr>
+						<tr class="skipTotal">
 							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="5" columnnumber="0"><spring:message
@@ -1522,7 +1522,7 @@
 								style="background-color: rgb(242, 245, 169);" entry-id="3e"><span class="entry_item_placeholder" id="_fraVariable_3e_7_10_">&#160;</span>
 							<div id="cell-content">${_fraVariable_3e_7_10_}</div></td>
 						</tr>
-						<tr>
+						<tr class="skipTotal">
 							<td><img class="cfrq-logo" src="${baseURL}/img/CFRQbutton.png" />
 							</td>
 							<td class="title" rownumber="8" columnnumber="0"><spring:message

@@ -7,7 +7,8 @@ $(function(){
 		var columnnumber =$(this).attr('columnnumber');
 		var table = $(this).closest('table');
 		var totcel =$(this); 
-		var colentries = table.find('[columnnumber="'+columnnumber+'"].text');
+		var colentries = table.find('tr:not(".skipTotal") [columnnumber="'+columnnumber+'"].text');
+		
 		var update = function (){
 			var tot = 0;
 			var allAvaliable=true;
