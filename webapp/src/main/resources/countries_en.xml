@@ -198,8 +198,10 @@
    <label ref="RUS">Russian Federation</label>
    <label ref="RWA">Rwanda</label>
    <label ref="REU">Réunion</label>
+   <label ref="BLM">Saint Barthelemy</label>
    <label ref="KNA">Saint Kitts and Nevis</label>
    <label ref="LCA">Saint Lucia</label>
+   <label ref="MAF">Saint Martin</label>
    <label ref="VCT">Saint Vincent and the Grenadines</label>
    <label ref="WSM">Samoa</label>
    <label ref="SMR">San Marino</label>
@@ -241,7 +243,6 @@
    <label ref="ZWE">Zimbabwe</label>
    <label ref="MNE">Montenegro</label>
    <label ref="SRB">Serbia</label>
-   <label ref="PRT">Azores Islands</label>
    <label ref="SGS">South Georgia and the South Sandwich Islands</label>
    <label ref="TKL">Tokelau</label>
    <label ref="WAK">Wake Island</label>
