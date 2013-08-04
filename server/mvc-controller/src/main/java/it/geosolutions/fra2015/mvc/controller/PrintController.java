@@ -64,6 +64,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.beanutils.BeanPropertyValueEqualsPredicate;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
@@ -156,7 +157,8 @@ public class PrintController {
 		
 
 		if(mode.equalsIgnoreCase("allschema")){
-			utils.prepareHTTPRequestOnlyVariablesName(model, country);            
+			utils.prepareHTTPRequestOnlyVariablesName(model, country); 
+			return "survey/printPage";
 		}
 		else if(mode.equalsIgnoreCase("onlyvalues") || mode.equalsIgnoreCase("onlyvalues_feedback")){
 
@@ -205,7 +207,7 @@ public class PrintController {
 				Source xslt = new StreamSource(pathname);
 				Transformer transformer = factory.newTransformer(xslt);
 				transformer.setParameter("versionParam", "2.0");
-				StringReader xmlReader = new StringReader(xml);
+				StringReader xmlReader = new StringReader(StringEscapeUtils.unescapeHtml(xml));
 				Source src = new StreamSource(xmlReader);
 				String filename =  "FRA_2015_Feedback_Report_"+ country.replace(" ","_") + "_"+su.getUsername()+".pdf";
 
@@ -270,7 +272,7 @@ public class PrintController {
 				Transformer transformer = factory.newTransformer(xslt);
 				transformer.setParameter("versionParam", "2.0");
 
-				StringReader xmlReader = new StringReader(xml);
+				StringReader xmlReader = new StringReader(StringEscapeUtils.unescapeHtml(xml));
 				Source src = new StreamSource(xmlReader);
 
 				String title =  "FRA_2015_Country_Report_";
@@ -284,7 +286,7 @@ public class PrintController {
 					Transformer cfraFilter = factory.newTransformer(cfrqXslt);
 					cfraFilter.setParameter("versionParam", "2.0");
 					cfraFilter.transform(src, xmlResult);
-					src = new StreamSource( new StringReader(xmlOutWriter.toString()));
+					src = new StreamSource( new StringReader(StringEscapeUtils.unescapeHtml(xmlOutWriter.toString())));
 					title = title + "CFRQ_";
 				}
 				String filename = title + country.replace(" ","_") + ".pdf";
