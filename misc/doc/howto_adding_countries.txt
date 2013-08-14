@@ -1,0 +1,20 @@
+If you have to add a new Country:
+
+- add entry in webapp/src/main/resources/countries.xml, es:
+  <country><id>99900002</id><iso3>BLM</iso3><name>Saint Barthelemy</name><type>FRA</type><countryarea>2.1</countryarea><landarea>2.1</landarea></country>
+  This entry will be used when creating the DB from scratch.
+
+- add translations in:
+  webapp/src/main/webapp/WEB-INF/loc/countries_en.properties
+  webapp/src/main/webapp/WEB-INF/loc/countries_es.properties
+  webapp/src/main/webapp/WEB-INF/loc/countries_fr.properties
+
+- create migration file in misc/migrate. 
+  File names are in the form fix-country-<SEQ NUM>-<ISO3 CODE>.sql
+  
+- update DB in prod and test
+
+TODO: add the new country to reviewers associated to all the countries.
+
+
+

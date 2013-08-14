@@ -232,4 +232,5 @@
 <country><id>227</id><iso3>ZAF</iso3><name>South Africa</name><type>FRA</type><countryarea>121909</countryarea><landarea>121447</landarea></country>
 <country><id>270</id><iso3>ZMB</iso3><name>Zambia</name><type>FRA</type><countryarea>75261</countryarea><landarea>74339</landarea></country>
 <country><id>271</id><iso3>ZWE</iso3><name>Zimbabwe</name><type>FRA</type><countryarea>39076</countryarea><landarea>38685</landarea></country>
+<country><id>275</id><iso3>PSE</iso3><name>Occupied Palestinian territory</name><type>FRA</type><countryarea>602</countryarea><landarea>602</landarea></country>
 </countries>
