@@ -1,4 +1,4 @@
-Hi ${receiver.name},
+Dear ${receiver.name},
 
 The user ${user.name} has just submitted the survey for ${country}( ${status.country} )
 

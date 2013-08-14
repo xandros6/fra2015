@@ -8,14 +8,10 @@ import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import org.apache.commons.beanutils.BeanToPropertyValueTransformer;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 
 
 import org.apache.log4j.Logger;
@@ -202,11 +198,8 @@ public class NotificationSerivice {
         message.setText(body);
         message.setFrom(this.mailFromAddress);
         mailSender.send(message);
-        if(LOGGER.isDebugEnabled()){
-            String logmessage = "\nmail sent:" +
-                    "\n from:" +mailFromAddress +
-                    "\n to:" + address + "\nusing mailSender" + mailSender.toString();
-            LOGGER.info(logmessage);
+        if(LOGGER.isInfoEnabled()){
+            LOGGER.info("Mail sent FROM " +mailFromAddress + " TO " + address + " USING " + mailSender.toString());
         }
         
 
