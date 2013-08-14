@@ -93,6 +93,9 @@ public class User implements Serializable {
     @Column(nullable =true,updatable =true)
     private String language;
     
+    @Column(nullable =false,updatable =true)
+    private Boolean preventContributorsEmails = false;
+    
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="fra_users_countries", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name="country_id")})
    	@Fetch(value=FetchMode.JOIN)
@@ -260,5 +263,13 @@ public class User implements Serializable {
     public String toString() {
         return "User{" + "id=" + id + ", name=" + name + '}';
     }
+
+	public Boolean getPreventContributorsEmails() {
+		return preventContributorsEmails;
+	}
+
+	public void setPreventContributorsEmails(Boolean preventContributorsEmails) {
+		this.preventContributorsEmails = preventContributorsEmails;
+	}
 
 }

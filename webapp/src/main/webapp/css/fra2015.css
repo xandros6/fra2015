@@ -312,8 +312,8 @@ hr.soften {
   margin: -250px 0 0 -450px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (original = margin: -250px 0 0 -280px;) */
 }
 .myModal .modal-body {
-  max-height: 400px;
-  height: 400px;
+  max-height: 485px;
+  height: 485px;
 }
 .border{
     border-right: 2px solid #eee;
@@ -321,6 +321,7 @@ hr.soften {
 }
 .row-fluid.custom [class*="span"] {
   padding: 15px;
+  height: 480px;
 }
 .table-noborder th, .table-noborder td{
 	border: 0;
@@ -390,6 +391,16 @@ td.number #cell-content,td.total{
 .summary td.numeric{
 	text-align:right;	
 }
+
+.modal-footer-slim{
+	background-color: #F5F5F5;
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid #DDDDDD;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+  margin-bottom: 0;
+  padding: 4px 15px 5px;
+  text-align: right;
+}
 /*TODO remove background color inline and use this instead */
 /*
 table.table-hover tbody tr td.editable{
@@ -444,4 +455,11 @@ div.feedbackentry-head.alert{
 .cke_skin_kama .cke_dialog_body input.cke_dialog_ui_input_text, .cke_skin_kama  .cke_dialog_body input.cke_dialog_ui_input_password{
 	margin-bottom:0px;
 	height:20px
+}
+
+.dropdown-menu.right {
+    left:auto;
+    right:0;
+    &::before {left:auto !important; right:9px;}
+    &::after {left:auto !important; right:10px;}
 }
