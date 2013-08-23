@@ -84,7 +84,7 @@
     <fo:block-container break-before='page'>
       <fo:block />
       <fo:block text-align="center" margin-top="100pt">
-        <fo:external-graphic src="{$basePath}/img/fra2015logo.jpg"
+        <fo:external-graphic src="url('/img/fra2015logo.jpg')"
           width="280pt" height="102pt" content-width="scale-to-fit"
           content-height="scale-to-fit" />
       </fo:block>
@@ -96,7 +96,7 @@
           <xsl:value-of select="//div[@id='userName']" /> feedback <xsl:value-of select="//div[@id='profileName']" /> summary on <xsl:value-of select="//div[@id='currentDate']" />
         </fo:block>
       <fo:block text-align="center" margin-top="100pt">
-        <fo:external-graphic src="{$basePath}/img/faologo.png"
+        <fo:external-graphic src="url('/img/faologo.png')"
           width="50pt" height="50pt" content-width="scale-to-fit"
           content-height="scale-to-fit" />
       </fo:block>
