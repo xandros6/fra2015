@@ -41,6 +41,7 @@ import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.HttpCookie;
+import java.net.URI;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -64,12 +65,15 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.beanutils.BeanPropertyValueEqualsPredicate;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 import org.apache.log4j.Logger;
+import org.htmlcleaner.CleanerProperties;
+import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.PrettyXmlSerializer;
+import org.htmlcleaner.TagNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -95,6 +99,9 @@ public class PrintController {
 
 	@Autowired
 	private FeedbackService feedbackService;
+	
+	@Autowired
+	private ServletContext servletContext;
 
 	Logger LOGGER = Logger.getLogger(PrintController.class);
 
@@ -153,8 +160,8 @@ public class PrintController {
 			}
 		}
 
-		
-		
+
+
 
 		if(mode.equalsIgnoreCase("allschema")){
 			utils.prepareHTTPRequestOnlyVariablesName(model, country); 
@@ -163,7 +170,7 @@ public class PrintController {
 		else if(mode.equalsIgnoreCase("onlyvalues") || mode.equalsIgnoreCase("onlyvalues_feedback")){
 
 			utils.prepareEmptyElement(model, null, country, false);
-			
+
 			utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), false);
 		}
 		else if(mode.equalsIgnoreCase("onlynames")){
@@ -196,18 +203,25 @@ public class PrintController {
 
 			ServletOutputStream out = resp.getOutputStream();
 			try {
+				String requestUrl = req.getRequestURL().toString();
 				FopFactory fopFactory = FopFactory.newInstance();
+				
+				String appPath = servletContext.getRealPath(""); //root of web app
+				fopFactory.setBaseURL(appPath);		
+				
 				FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+				fopFactory.setBaseURL(requestUrl);
 				Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
 
 				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
 				String xslFilename = "/WEB-INF/xsl/feedbackReport.xsl" ;
-				ServletContext context = session.getServletContext();
-				String pathname =context.getRealPath(xslFilename); 
+
+				String pathname =servletContext.getRealPath(xslFilename); 
 				Source xslt = new StreamSource(pathname);
 				Transformer transformer = factory.newTransformer(xslt);
 				transformer.setParameter("versionParam", "2.0");
-				StringReader xmlReader = new StringReader(StringEscapeUtils.unescapeHtml(xml));
+				
+				StringReader xmlReader = new StringReader(cleanXml(xml));
 				Source src = new StreamSource(xmlReader);
 				String filename =  "FRA_2015_Feedback_Report_"+ country.replace(" ","_") + "_"+su.getUsername()+".pdf";
 
@@ -249,8 +263,11 @@ public class PrintController {
 			req.getRequestDispatcher(template).include(req, customResponse);
 			String xml = customResponse.getOutput();
 
-
 			FopFactory fopFactory = FopFactory.newInstance();
+
+			String appPath = servletContext.getRealPath(""); //root of web app
+			fopFactory.setBaseURL(appPath);			
+			
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 			ServletOutputStream out = null;
 
@@ -265,14 +282,13 @@ public class PrintController {
 				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
 
 				String xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;
-				ServletContext context = session.getServletContext();
-				String pathname =context.getRealPath(xslFilename); 
+				String pathname =servletContext.getRealPath(xslFilename); 
 
 				Source xslt = new StreamSource(pathname);
 				Transformer transformer = factory.newTransformer(xslt);
 				transformer.setParameter("versionParam", "2.0");
 
-				StringReader xmlReader = new StringReader(StringEscapeUtils.unescapeHtml(xml));
+				StringReader xmlReader = new StringReader(cleanXml(xml));
 				Source src = new StreamSource(xmlReader);
 
 				String title =  "FRA_2015_Country_Report_";
@@ -280,13 +296,13 @@ public class PrintController {
 				if(type.equals("cfrq")){
 					StringWriter xmlOutWriter = new StringWriter();				
 					String cfrqFilterFilename = "/WEB-INF/xsl/cfrqFilter.xsl" ;
-					String cfrqFilterPathname = context.getRealPath(cfrqFilterFilename); 					
+					String cfrqFilterPathname = servletContext.getRealPath(cfrqFilterFilename); 					
 					Source cfrqXslt = new StreamSource(new File(cfrqFilterPathname));			
 					StreamResult xmlResult = new StreamResult(xmlOutWriter);
 					Transformer cfraFilter = factory.newTransformer(cfrqXslt);
 					cfraFilter.setParameter("versionParam", "2.0");
 					cfraFilter.transform(src, xmlResult);
-					src = new StreamSource( new StringReader(StringEscapeUtils.unescapeHtml(xmlOutWriter.toString())));
+					src = new StreamSource(new StringReader(cleanXml(xml)));
 					title = title + "CFRQ_";
 				}
 				String filename = title + country.replace(" ","_") + ".pdf";
@@ -308,5 +324,21 @@ public class PrintController {
 			LOGGER.error(e.getMessage(), e);
 		}
 
+	}
+
+	private String cleanXml(String sourceXml){
+		CleanerProperties props = new CleanerProperties();			 
+		// set some properties to non-default values
+		props.setTranslateSpecialEntities(true);
+		props.setTransResCharsToNCR(true);
+		props.setOmitComments(true);
+		props.setAdvancedXmlEscape(true);
+		props.setTranslateSpecialEntities(true);
+		props.setTransSpecialEntitiesToNCR(true);
+
+		// do parsing
+		TagNode tagNode = new HtmlCleaner(props).clean(sourceXml);
+		String cleanXml = new PrettyXmlSerializer(props).getAsString(tagNode,"utf-8");
+		return cleanXml;
 	}
 }

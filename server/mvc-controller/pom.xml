@@ -121,6 +121,11 @@
         <!--  FOP Libs -->
         <!-- ================================================================-->
 
+  <dependency>
+    <groupId>net.sourceforge.htmlcleaner</groupId>
+    <artifactId>htmlcleaner</artifactId>
+    <version>2.6</version>
+  </dependency>
 		 <dependency>
 		  <groupId>org.apache.xmlgraphics</groupId>
 		  <artifactId>fop</artifactId>
