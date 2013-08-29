@@ -615,10 +615,7 @@
 				<td class="notpresent" ></td>
 				<td class="numeric">
 					<c:catch var="exception2">
-						${_fraVariable_7_2_1_ + _fraVariable_7_3_1_ + _fraVariable_7_4_1_  +
-							  _fraVariable_7_5_1_ + _fraVariable_7_6_1_ + _fraVariable_7_7_1_  +
-							  _fraVariable_7_8_1_ + _fraVariable_7_9_1_ + _fraVariable_7_10_1_  +
-							  _fraVariable_7_11_1_} 
+						${_fraVariable_7_12_1_} 
 				    </c:catch>
 				    <c:if test="${not empty exception2}">
 					    N/A
@@ -626,10 +623,7 @@
 			    </td>
 				<td class="numeric">
 					<c:catch var="exception3">
-						${_fraVariable_7_2_2_ + _fraVariable_7_3_2_ + _fraVariable_7_4_2_  +
-						  _fraVariable_7_5_2_ + _fraVariable_7_6_2_ + _fraVariable_7_7_2_  +
-						  _fraVariable_7_8_2_ + _fraVariable_7_9_2_ + _fraVariable_7_10_2_  +
-						  _fraVariable_7_11_2_} 
+						${_fraVariable_7_12_2_} 
 				  	</c:catch>
 				    <c:if test="${not empty exception3}">
 					    N/A
