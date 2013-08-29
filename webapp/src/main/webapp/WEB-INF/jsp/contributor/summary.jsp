@@ -436,12 +436,24 @@
 				<td>1000 local currency</td><%//TODO localize %>
 				<td class="notpresent"></td>
 				<td class="notpresent"></td>
-				<td class="numeric">${_fraVariable_4b_2_3_ + 
-					  _fraVariable_4b_3_3_ +
-					  _fraVariable_4b_4_3_ +
-					  _fraVariable_4b_5_3_ + _fraVariable_4b_6_3_ + _fraVariable_4b_7_3_ +
-					  _fraVariable_4b_8_3_ + _fraVariable_4b_9_3_ + _fraVariable_4b_10_3_ +
-					  _fraVariable_4b_11_3_}</td>
+				<td class="numeric">
+					<c:catch var="exception1">
+				    	 ${_fraVariable_4b_2_3_ + 
+						  _fraVariable_4b_3_3_ +
+						  _fraVariable_4b_4_3_ +
+						  _fraVariable_4b_5_3_ + 
+						  _fraVariable_4b_6_3_ + 
+						  _fraVariable_4b_7_3_ +
+						  _fraVariable_4b_8_3_ + 
+						  _fraVariable_4b_9_3_ + 
+						  _fraVariable_4b_10_3_ +
+						  _fraVariable_4b_11_3_
+						  }
+	    			</c:catch>
+					<c:if test="${not empty exception1}">
+					    N/A
+					</c:if>
+   </td>
 				<td class="notpresent"></td>
 				<td class="notpresent"></td>
 			</tr>
@@ -601,14 +613,27 @@
 				<td>1000 ha</td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
-				<td class="numeric">${_fraVariable_7_2_1_ + _fraVariable_7_3_1_ + _fraVariable_7_4_1_  +
-					  _fraVariable_7_5_1_ + _fraVariable_7_6_1_ + _fraVariable_7_7_1_  +
-					  _fraVariable_7_8_1_ + _fraVariable_7_9_1_ + _fraVariable_7_10_1_  +
-					  _fraVariable_7_11_1_} </td>
-				<td class="numeric">${_fraVariable_7_2_2_ + _fraVariable_7_3_2_ + _fraVariable_7_4_2_  +
-					  _fraVariable_7_5_2_ + _fraVariable_7_6_2_ + _fraVariable_7_7_2_  +
-					  _fraVariable_7_8_2_ + _fraVariable_7_9_2_ + _fraVariable_7_10_2_  +
-					  _fraVariable_7_11_2_} </td>
+				<td class="numeric">
+					<c:catch var="exception2">
+						${_fraVariable_7_2_1_ + _fraVariable_7_3_1_ + _fraVariable_7_4_1_  +
+							  _fraVariable_7_5_1_ + _fraVariable_7_6_1_ + _fraVariable_7_7_1_  +
+							  _fraVariable_7_8_1_ + _fraVariable_7_9_1_ + _fraVariable_7_10_1_  +
+							  _fraVariable_7_11_1_} 
+				    </c:catch>
+				    <c:if test="${not empty exception2}">
+					    N/A
+					</c:if>
+			    </td>
+				<td class="numeric">
+					<c:catch var="exception3">
+						${_fraVariable_7_2_2_ + _fraVariable_7_3_2_ + _fraVariable_7_4_2_  +
+						  _fraVariable_7_5_2_ + _fraVariable_7_6_2_ + _fraVariable_7_7_2_  +
+						  _fraVariable_7_8_2_ + _fraVariable_7_9_2_ + _fraVariable_7_10_2_  +
+						  _fraVariable_7_11_2_} 
+				  	</c:catch>
+				    <c:if test="${not empty exception3}">
+					    N/A
+					</c:if></td>
 				<td class="notpresent" ></td>
 			</tr>
 			<tr>
@@ -636,9 +661,15 @@
 			</tr>
 			<tr><td>8b</td><td><spring:message	code="ref362"></spring:message></td>
 			<td>1000 ha</td>						
-			<td class="numeric" colspan="5">${_fraVariable_8b_1_3_ + _fraVariable_8b_2_3_ + _fraVariable_8b_3_3_  +
+			<td class="numeric" colspan="5">
+				<c:catch var="exception4">
+					${_fraVariable_8b_1_3_ + _fraVariable_8b_2_3_ + _fraVariable_8b_3_3_  +
 					  _fraVariable_8b_4_3_ + _fraVariable_8b_5_3_ + _fraVariable_8b_6_3_  +
-					  _fraVariable_8b_7_3_ + _fraVariable_8b_8_3_ + _fraVariable_8b_9_3_ + _fraVariable_8b_10_3_} </td>
+					  _fraVariable_8b_7_3_ + _fraVariable_8b_8_3_ + _fraVariable_8b_9_3_ + _fraVariable_8b_10_3_} 
+			  	</c:catch>
+			    <c:if test="${not empty exception4}">
+				</c:if>
+			</td>
 			<tr>
 			<tr>
 				<td rowspan="2">9</td>
