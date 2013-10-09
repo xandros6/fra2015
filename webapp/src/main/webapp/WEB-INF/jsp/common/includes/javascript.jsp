@@ -112,7 +112,10 @@ $(function(){
                 var labelId = matchArr[index2].substr(2,matchArr[index2].length-4)
                 // console.log( "labelid ->" + labelId + "<-" );
                 var tooltip =fra.tooltips["ref"+labelId];
-					$(entry2).attr("data-content",tooltip.replace("\"","\\\"") );
+				if(!tooltip){
+					tooltip = 'Tooltip NOT DEFINED';
+				}
+                $(entry2).attr("data-content",tooltip.replace("\"","\\\"") );
 				$(entry2).attr("data-original-title",'<spring:message code="tootip.title.note"/>');
 				$(entry2).attr("data-toggle","popover");
 				$(entry2).addClass=("tooltip-popover");
