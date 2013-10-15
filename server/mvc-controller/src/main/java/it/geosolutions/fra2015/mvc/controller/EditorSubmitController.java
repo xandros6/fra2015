@@ -81,6 +81,7 @@ public class EditorSubmitController {
         Status status = surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.submitFailed", 10000, null, null);
+            LOGGER.error("Survey can't be submitted now");
             return "redirect:/surveylist/0";
         }
         status.setStatus(StatusUtils.PENDING_FIX);
@@ -108,24 +109,28 @@ public class EditorSubmitController {
         }
         try {
             notificationService.notifyPendingFix(user, status, reviewers);
+
         } catch (MailException e) {
             FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
                     10000, null, null);
-            LOGGER.error(
-                    "The reviewers were not notified of the message submit because of an Mail Exception",
-                    e);
+            LOGGER.error("Error in mail notification (pending fixes) ",e);
             return "redirect:/surveylist/0";
+
         } catch (TemplateException e) {
             FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
                     10000, null, null);
+            LOGGER.error("Error in mail notification (pending fixes) ",e);
             return "redirect:/surveylist/0";
+
         } catch (IOException e) {
             FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
                     10000, null, null);
+            LOGGER.error("Error in mail notification (pending fixes) ",e);
             return "redirect:/surveylist/0";
         }
         
         FlashAttributesHandler.addFlashAttribute(session, "success", "editor.pendingfix.notnotified", 10000, null, null);
+        LOGGER.info("Pending fixes notification successfully sent");
         return "redirect:/surveylist/0";
 
     }
@@ -174,21 +179,24 @@ public class EditorSubmitController {
         } catch (MailException e) {
             FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
                     10000, null, null);
-            LOGGER.error(
-                    "The validators were not notified of the message submit because of an Mail Exception",
-                    e);
+            LOGGER.error("Error in mail notification (submit) ",e);
             return "redirect:/surveylist/0";
+
         } catch (TemplateException e) {
             FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
                     10000, null, null);
+            LOGGER.error("Error in mail notification (submit) ",e);
             return "redirect:/surveylist/0";
+
         } catch (IOException e) {
             FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
                     10000, null, null);
+            LOGGER.error("Error in mail notification (submit) ",e);
             return "redirect:/surveylist/0";
         }
 
         FlashAttributesHandler.addFlashAttribute(session, "success", "editor.complete.notnotified", 10000, null, null);
+        LOGGER.info("Submit notification successfully sent");
         return "redirect:/surveylist/0";
 
     }
