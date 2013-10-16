@@ -23,6 +23,7 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import freemarker.template.TemplateException;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Country;
@@ -51,6 +52,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * @author DamianoG
  * 
+ * This class expose 2 SpringMVC controllers that are responsible for the state transition between UNDERREVIEW to COMPLETE/PENDINGFIX
+ * These controllers should be invoked just from the surveylist page by a ReviewerEditor
+ * 
  */
 @Controller
 public class EditorSubmitController {
@@ -66,6 +70,17 @@ public class EditorSubmitController {
     @Autowired
     private NotificationSerivice notificationService;
     
+    /**
+     * This Method is responsible for change the status of the survey from UNDERREVIEW to PENDINGFIX
+     * 
+     * -> Change the survey status on DB (if it is allowed) from UNDERREVIEW to PENDINGFIX
+     * -> Notify all the contributors involved 
+     * 
+     * @param country
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/editorPendingFix/{countryIso3}", method = RequestMethod.GET)
     public String editorPendingFix(@PathVariable(value = "countryIso3") String country,
             ModelMap model, HttpSession session) {
@@ -76,14 +91,22 @@ public class EditorSubmitController {
             return "redirect:/";
         }
         
+        //
+        // Check the status of the survey: 
+        //    if (change status is allowed) then Set the status=pendingFix
+        //                                  else display an error message to the user
+        //
+        
         //check status
         String iso3 = country;
         Status status = surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
+            LOGGER.warn("A reviewerEditor has tried to change the status for country '" + iso3 + "' but the survey status is not set to 'underreview' at this moment");
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.submitFailed", 10000, null, null);
             LOGGER.error("Survey can't be submitted now");
             return "redirect:/surveylist/0";
         }
+        //change status
         status.setStatus(StatusUtils.PENDING_FIX);
         status.setCountry(iso3);
         status.setReviewerSubmit("");
@@ -96,45 +119,64 @@ public class EditorSubmitController {
         try {
             surveyService.changeStatus(status);
         } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("Error -1- while changing status to pendingfix. " + e.getMessage(), e);
+            FlashAttributesHandler.addFlashAttribute(session, "error", "editor.pendingfix.error", 10000, null, null);
+            return "redirect:/surveylist/0";
         } catch (NotFoundServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("Error -2- while changing status to pendingfix. " + e.getMessage(), e);
+            FlashAttributesHandler.addFlashAttribute(session, "error", "editor.pendingfix.error", 10000, null, null);
+            return "redirect:/surveylist/0";
         }
-        LOGGER.info("submitted survey:"+status.getCountry());
- 
-        List<User> reviewers = userService.getUsersToNotify("reviewer", iso3 );
-        if (reviewers.size() <= 0) {
-            LOGGER.error("No reviewer associated to country " + iso3);
-            // TODO notify someone this error
+        LOGGER.info("Submission for survey: '" + status.getCountry() + "' has been succesful. The transition done is UNDERREVIEW->PENDINGFIX");
+        
+        //
+        // Notify of the status changed with a mail to all Contributors involved
+        //
+        List<User> contributors = userService.getUsersToNotify(Profile.CONTRIBUTOR.toString().toLowerCase(), iso3 );
+        if (contributors.size() <= 0) {
+            LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
+            // TODO notify with mail this error to admin ???
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified", 10000, null, null);
         }
         try {
-            notificationService.notifyPendingFix(user, status, reviewers);
-
+            notificationService.notifyPendingFix(user, status, contributors);
         } catch (MailException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
                     10000, null, null);
             LOGGER.error("Error in mail notification (pending fixes) ",e);
             return "redirect:/surveylist/0";
 
         } catch (TemplateException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
                     10000, null, null);
             LOGGER.error("Error in mail notification (pending fixes) ",e);
             return "redirect:/surveylist/0";
 
         } catch (IOException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.pendingfix.notnotified",
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
                     10000, null, null);
             LOGGER.error("Error in mail notification (pending fixes) ",e);
             return "redirect:/surveylist/0";
         }
         
-        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.pendingfix.notnotified", 10000, null, null);
-        LOGGER.info("Pending fixes notification successfully sent");
+        LOGGER.info("The survey status-changed notification for survey: '" + status.getCountry() + "' has been done.");
+        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.pendingfix.notified", 10000, null, null);
+        
         return "redirect:/surveylist/0";
 
     }
 
+    /**
+     * This Method is responsible for change the status of the survey from UNDERREVIEW to COMPLETED
+     * 
+     * -> Change the survey status on DB (if it is allowed) from UNDERREVIEW to COMPLETED
+     * -> Notify all the validators involved 
+     * 
+     * @param country
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/editorCompleted/{countryIso3}", method = RequestMethod.GET)
     public String editorCompleted(@PathVariable(value = "countryIso3") String country,
             ModelMap model, HttpSession session) {
@@ -145,13 +187,21 @@ public class EditorSubmitController {
             return "redirect:/";
         }
         
-      //check status
+        //
+        // Check the status of the survey: 
+        //    if (change status is allowed) then Set the status=completed
+        //                                  else display an error message to the user
+        //
+        
+        //check status
         String iso3 = country;
         Status status = surveyService.getStatus(iso3);
         if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
+            LOGGER.warn("A reviewerEditor has tried to change the status for country '" + iso3 + "' but the survey status is not set to 'underreview' at this moment");
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.submitFailed", 10000, null, null);
             return "redirect:/surveylist/0";
         }
+        //change status
         status.setStatus(StatusUtils.COMPLETED);
         status.setCountry(iso3);
         status.setReviewerSubmit("");
@@ -163,40 +213,49 @@ public class EditorSubmitController {
         try {
             surveyService.changeStatus(status);
         } catch (BadRequestServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("Error -1- while changing status to complete. " + e.getMessage(), e);
+            FlashAttributesHandler.addFlashAttribute(session, "error", "editor.complete.error", 10000, null, null);
+            return "redirect:/surveylist/0";
         } catch (NotFoundServiceEx e) {
-            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("Error -2- while changing status to complete. " + e.getMessage(), e);
+            FlashAttributesHandler.addFlashAttribute(session, "error", "editor.complete.error", 10000, null, null);
+            return "redirect:/surveylist/0";
         }
-        LOGGER.info("submitted survey:"+status.getCountry());
+        LOGGER.info("Submission for survey: '" + status.getCountry() + "' has been succesful. The transition done is UNDERREVIEW->COMPLETED");
 
-        List<User> validators = userService.getUsersToNotify("validator", iso3 );
+        //
+        // Notify of the status changed with a mail to all Validators involved
+        //
+        List<User> validators = userService.getUsersToNotify(Profile.VALIDATOR.toString().toLowerCase(), iso3 );
         if (validators.size() <= 0) {
-            LOGGER.error("No reviewer associated to country " + iso3);
-            // TODO notify someone this error
+            LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
+            // TODO notify with mail this error to admin ???
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.complete.notnotified", 10000, null, null);
         }
         try {
             notificationService.notifyComplete(user, status, validators);
         } catch (MailException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.complete.notnotified",
                     10000, null, null);
             LOGGER.error("Error in mail notification (submit) ",e);
             return "redirect:/surveylist/0";
 
         } catch (TemplateException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.complete.notnotified",
                     10000, null, null);
             LOGGER.error("Error in mail notification (submit) ",e);
             return "redirect:/surveylist/0";
 
         } catch (IOException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "waring", "editor.complete.notnotified",
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.complete.notnotified",
                     10000, null, null);
             LOGGER.error("Error in mail notification (submit) ",e);
             return "redirect:/surveylist/0";
         }
 
-        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.complete.notnotified", 10000, null, null);
-        LOGGER.info("Submit notification successfully sent");
+        LOGGER.info("The survey status-changed notification for survey: '" + status.getCountry() + "' has been done.");
+        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.complete.notified", 10000, null, null);
+
         return "redirect:/surveylist/0";
 
     }

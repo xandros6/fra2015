@@ -21,7 +21,7 @@
 					<c:if test="${survey.status.status != 'underreview'}">
 						<c:set scope="page" var="pendingFixEnabled" value="disabled" />
 					</c:if>
-					<c:if test="${survey.status.status != 'completed'}">
+					<c:if test="${survey.status.status != 'underreview'}">
 						<c:set scope="page" var="completeEnabled" value="disabled" />
 					</c:if>
 					<tr class="rowItem">
@@ -129,6 +129,11 @@
 		$('.pendingConfirm').click(function(){
 			$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country'));
 		});
+	});
+	
+	// Disable the onClick event if the submit buttons are disabled (because the button is an anchor not a button)
+	$('body').on('click', 'a.disabled', function(event) {
+	    event.stopImmediatePropagation();
 	});
 	
 	</script>
