@@ -20,7 +20,7 @@
 				<td colspan="7"><strong><spring:message code="ref10"></spring:message></strong></td>
 			</tr>
 			<tr>
-				<td rowspan="7">1a</td>
+				<td rowspan="6">1a</td>
 			</tr>
 			<tr>
 				<td>1.1 <spring:message code="ref58"></spring:message></td>
@@ -66,15 +66,6 @@
 				<td class="numeric">${_fraVariable_1a_6_3_}</td>
 				<td class="numeric">${_fraVariable_1a_6_4_}</td>
 				<td class="numeric">${_fraVariable_1a_6_5_}</td>
-			</tr>
-			<tr>
-				<td>1.5 <spring:message code="ref62"></spring:message></td>
-				<td>1000 ha</td>
-				<td class="numeric">${_fraVariable_1a_7_1_}</td>
-				<td class="numeric">${_fraVariable_1a_7_2_}</td>
-				<td class="numeric">${_fraVariable_1a_7_3_}</td>
-				<td class="numeric">${_fraVariable_1a_7_4_}</td>
-				<td class="numeric">${_fraVariable_1a_7_5_}</td>
 			</tr>
 			<tr>
 				<td rowspan="8">1b</td>
@@ -175,15 +166,6 @@
 			<tr>
 				<td>2.1.1.1 <spring:message code="ref111"></spring:message></td>
 				<td>1000 ha</td>
-				<td class="numeric">${_fraVariable_2a_4_1_}</td>
-				<td class="numeric">${_fraVariable_2a_4_2_}</td>
-				<td class="numeric">${_fraVariable_2a_4_3_}</td>
-				<td class="numeric">${_fraVariable_2a_4_4_}</td>
-				<td class="numeric">${_fraVariable_2a_4_5_}</td>
-			</tr>
-			<tr>
-				<td>2.3 <spring:message code="ref101"></spring:message></td>
-				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_2a_5_1_}</td>
 				<td class="numeric">${_fraVariable_2a_5_2_}</td>
 				<td class="numeric">${_fraVariable_2a_5_3_}</td>
@@ -191,13 +173,22 @@
 				<td class="numeric">${_fraVariable_2a_5_5_}</td>
 			</tr>
 			<tr>
-				<td>2.3.1 <spring:message code="ref110"></spring:message></td>
+				<td>2.3 <spring:message code="ref101"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_2a_6_1_}</td>
 				<td class="numeric">${_fraVariable_2a_6_2_}</td>
 				<td class="numeric">${_fraVariable_2a_6_3_}</td>
 				<td class="numeric">${_fraVariable_2a_6_4_}</td>
 				<td class="numeric">${_fraVariable_2a_6_5_}</td>
+			</tr>
+			<tr>
+				<td>2.3.1 <spring:message code="ref110"></spring:message></td>
+				<td>1000 ha</td>
+				<td class="numeric">${_fraVariable_2a_7_1_}</td>
+				<td class="numeric">${_fraVariable_2a_7_2_}</td>
+				<td class="numeric">${_fraVariable_2a_7_3_}</td>
+				<td class="numeric">${_fraVariable_2a_7_4_}</td>
+				<td class="numeric">${_fraVariable_2a_7_5_}</td>
 			</tr>
 			<tr>
 				<td rowspan="2">2b</td>
@@ -240,56 +231,56 @@
 			<tr>
 				<td>3.1 <spring:message code="ref154"></spring:message></td>
 				<td>million m3</td>
-				<td class="numeric">${_fraVariable_3a_3_1_}, ${_fraVariable_3a_3_6_}</td>
-				<td class="numeric">${_fraVariable_3a_3_2_}, ${_fraVariable_3a_3_7_}</td>
-				<td class="numeric">${_fraVariable_3a_3_3_}, ${_fraVariable_3a_3_8_}</td>
-				<td class="numeric">${_fraVariable_3a_3_4_}, ${_fraVariable_3a_3_9_}</td>
-				<td class="numeric">${_fraVariable_3a_3_5_}, ${_fraVariable_3a_3_10_}</td>
+				<td class="numeric">${_fraVariable_3a_3_1_}</td>
+				<td class="numeric">${_fraVariable_3a_3_2_}</td>
+				<td class="numeric">${_fraVariable_3a_3_3_}</td>
+				<td class="numeric">${_fraVariable_3a_3_4_}</td>
+				<td class="numeric">${_fraVariable_3a_3_5_}</td>
 			</tr>
 			<tr>
 				<td>3.1.1 <spring:message code="ref155"></spring:message></td>
 				<td>million m3</td>
-				<td class="numeric">${_fraVariable_3a_4_1_}, ${_fraVariable_3a_4_6_}</td>
-				<td class="numeric">${_fraVariable_3a_4_2_}, ${_fraVariable_3a_4_7_}</td>
-				<td class="numeric">${_fraVariable_3a_4_3_}, ${_fraVariable_3a_4_8_}</td>
-				<td class="numeric">${_fraVariable_3a_4_4_}, ${_fraVariable_3a_4_9_}</td>
-				<td class="numeric">${_fraVariable_3a_4_5_}, ${_fraVariable_3a_4_10_}</td>
+				<td class="numeric">${_fraVariable_3a_4_1_}</td>
+				<td class="numeric">${_fraVariable_3a_4_2_}</td>
+				<td class="numeric">${_fraVariable_3a_4_3_}</td>
+				<td class="numeric">${_fraVariable_3a_4_4_}</td>
+				<td class="numeric">${_fraVariable_3a_4_5_}</td>
 			</tr>
 			<tr>
 				<td>3.1.2 <spring:message code="ref156"></spring:message></td>
 				<td>million m3</td>
-				<td class="numeric">${_fraVariable_3a_5_1_}, ${_fraVariable_3a_5_6_}</td>
-				<td class="numeric">${_fraVariable_3a_5_2_}, ${_fraVariable_3a_5_7_}</td>
-				<td class="numeric">${_fraVariable_3a_5_3_}, ${_fraVariable_3a_5_8_}</td>
-				<td class="numeric">${_fraVariable_3a_5_4_}, ${_fraVariable_3a_5_9_}</td>
-				<td class="numeric">${_fraVariable_3a_5_5_}, ${_fraVariable_3a_5_10_}</td>
+				<td class="numeric">${_fraVariable_3a_5_1_}</td>
+				<td class="numeric">${_fraVariable_3a_5_2_}</td>
+				<td class="numeric">${_fraVariable_3a_5_3_}</td>
+				<td class="numeric">${_fraVariable_3a_5_4_}</td>
+				<td class="numeric">${_fraVariable_3a_5_5_}</td>
 			</tr>
 			<tr>
 				<td>3.2 <spring:message code="ref157"></spring:message></td>
 				<td>million m3</td>
-				<td class="numeric">${_fraVariable_3a_6_1_}, ${_fraVariable_3a_6_6_}</td>
-				<td class="numeric">${_fraVariable_3a_6_2_}, ${_fraVariable_3a_6_7_}</td>
-				<td class="numeric">${_fraVariable_3a_6_3_}, ${_fraVariable_3a_6_8_}</td>
-				<td class="numeric">${_fraVariable_3a_6_4_}, ${_fraVariable_3a_6_9_}</td>
-				<td class="numeric">${_fraVariable_3a_6_5_}, ${_fraVariable_3a_6_10_}</td>
+				<td class="numeric">${_fraVariable_3a_3_6_}</td>
+				<td class="numeric">${_fraVariable_3a_3_7_}</td>
+				<td class="numeric">${_fraVariable_3a_3_8_}</td>
+				<td class="numeric">${_fraVariable_3a_3_9_}</td>
+				<td class="numeric">${_fraVariable_3a_3_10_}</td>
 			</tr>
 			<tr>
 				<td>3.2.1 <spring:message code="ref155"></spring:message></td>
 				<td>million m3</td>
-				<td class="numeric">${_fraVariable_3a_7_1_}, ${_fraVariable_3a_7_6_}</td>
-				<td class="numeric">${_fraVariable_3a_7_2_}, ${_fraVariable_3a_7_7_}</td>
-				<td class="numeric">${_fraVariable_3a_7_3_}, ${_fraVariable_3a_7_8_}</td>
-				<td class="numeric">${_fraVariable_3a_7_4_}, ${_fraVariable_3a_7_9_}</td>
-				<td class="numeric">${_fraVariable_3a_7_5_}, ${_fraVariable_3a_7_10_}</td>
+				<td class="numeric">${_fraVariable_3a_4_6_}</td>
+				<td class="numeric">${_fraVariable_3a_4_7_}</td>
+				<td class="numeric">${_fraVariable_3a_4_8_}</td>
+				<td class="numeric">${_fraVariable_3a_4_9_}</td>
+				<td class="numeric">${_fraVariable_3a_4_10_}</td>
 			</tr>
 			<tr>
 				<td>3.2.2 <spring:message code="ref156"></spring:message></td>
 				<td>million m3</td>
-				<td class="numeric">${_fraVariable_3a_8_1_}, ${_fraVariable_3a_8_6_}</td>
-				<td class="numeric">${_fraVariable_3a_8_2_}, ${_fraVariable_3a_8_7_}</td>
-				<td class="numeric">${_fraVariable_3a_8_3_}, ${_fraVariable_3a_8_8_}</td>
-				<td class="numeric">${_fraVariable_3a_8_4_}, ${_fraVariable_3a_8_9_}</td>
-				<td class="numeric">${_fraVariable_3a_8_5_}, ${_fraVariable_3a_8_10_}</td>
+				<td class="numeric">${_fraVariable_3a_5_6_}</td>
+				<td class="numeric">${_fraVariable_3a_5_7_}</td>
+				<td class="numeric">${_fraVariable_3a_5_8_}</td>
+				<td class="numeric">${_fraVariable_3a_5_9_}</td>
+				<td class="numeric">${_fraVariable_3a_5_10_}</td>
 			</tr>
 			<tr>
 				<td rowspan="4">3c</td>
@@ -605,6 +596,7 @@
 				<td></td>
 				<td colspan="7"><strong><spring:message code="ref318"></spring:message></strong></td>
 			</tr>
+			<!--
 			<tr>
 				<td rowspan="2">7</td>
 			</tr>
@@ -630,6 +622,7 @@
 					</c:if></td>
 				<td class="notpresent" ></td>
 			</tr>
+			-->
 			<tr>
 				<td rowspan="5">8a</td>
 			</tr>
@@ -773,30 +766,55 @@
 			</tr>
 			<tr>
 				<td>13.1 <spring:message code="ref423"></spring:message></td>
-				<td>%,year,checkbox</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td>%,year,checkboxes</td>
+				<td>${_fraVariable_13a_2_1_}</td>
+				<td>${_fraVariable_13a_2_2_}</td>
+				<td colspan="3">
+					<c:if test="${_fraVariable_13a_2_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_2_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_2_4_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_2_4_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_2_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_2_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_2_6_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_2_6_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_2_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_2_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_2_8_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_2_8_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>	
+				</td>
 			</tr>
 			<tr>
 				<td>13.2 <spring:message code="ref424"></spring:message></td>
-				<td>%,year,checkbox</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td>%,year,checkboxes</td>
+				<td>${_fraVariable_13a_3_1_}</td>
+				<td>${_fraVariable_13a_3_2_}</td>
+				<td colspan="3">
+					<c:if test="${_fraVariable_13a_3_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_3_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_3_4_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_3_4_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_3_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_3_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_3_6_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_3_6_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_3_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_3_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_3_8_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_3_8_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>
+				</td>
 			</tr>
 			<tr>
 				<td>13.3 <spring:message code="ref425"></spring:message></td>
-				<td>%,year,checkbox</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td>%,year,checkboxes</td>
+				<td>${_fraVariable_13a_4_1_}</td>
+				<td>${_fraVariable_13a_4_2_}</td>
+				<td colspan="3">
+					<c:if test="${_fraVariable_13a_4_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_4_4_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_4_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>
+				</td>
 			</tr>
 			<tr>
 				<td>13.4 <spring:message code="ref426"></spring:message></td>
-				<td>%,year,checkbox</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td>%,year,checkboxes</td>
+				<td>${_fraVariable_13a_5_1_}</td>
+				<td>${_fraVariable_13a_5_2_}</td>
+				<td colspan="3" class="notpresent"></td>
 			</tr>
 			<tr>
 				<td rowspan="6">13b</td>
 			</tr>
 			<tr>
 				<td>13.5 <spring:message code="ref428"></spring:message></td>
-				<td>%,year,checkbox</td>
+				<td>%,year,checkboxes</td>
 				<td class="numeric" colspan="5">${_fraVariable_13a_2_2_}, ${_fraVariable_13a_3_2_}, ${_fraVariable_13a_4_2_}, ${_fraVariable_13a_5_2_}</td>
 				
 			</tr>
@@ -913,26 +931,22 @@
 				<td rowspan="5">15</td>
 			</tr>
 			<tr>
-				<td>15.1 <spring:message code="ref461"></spring:message></td>
-				<td ></td>
-				<td  colspan="5" class="noneditable"></td>
-				
-				
+				<td colspan="6">15.1 <spring:message code="ref461"></spring:message></td>
 			</tr>
 			<tr>
 				<td>15.1.1 <spring:message code="ref462"></spring:message></td>
 				<td>Boolean</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td colspan="5">${_fraVariable_15_1_1_}</td>
 			</tr>
 			<tr>
 				<td>15.1.2 <spring:message code="ref463"></spring:message></td>
 				<td>Boolean</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td colspan="5">${_fraVariable_15_3_1_}</td>
 			</tr>
 			<tr>
 				<td>15.1.3 <spring:message code="ref464"></spring:message></td>
 				<td>Boolean</td>
-				<td colspan="5" class="noneditable">NA</td>
+				<td colspan="5">${_fraVariable_15_5_1_}</td>
 			</tr>
 			<tr>
 				<td rowspan="9">16</td>
