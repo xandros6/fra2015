@@ -282,6 +282,112 @@
 				<td class="numeric">${_fraVariable_3a_5_9_}</td>
 				<td class="numeric">${_fraVariable_3a_5_10_}</td>
 			</tr>
+			
+			
+			<tr>
+				<td rowspan="12">3b</td>
+			</tr>
+			<tr>
+				<td>3.3.1 <spring:message code="ref161"></spring:message> 1st</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_2_3_}</td>
+				<td class="numeric">${_fraVariable_3b_2_4_}</td>
+				<td class="numeric">${_fraVariable_3b_2_5_}</td>
+				<td class="numeric">${_fraVariable_3b_2_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.2 <spring:message code="ref161"></spring:message> 2nd</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_3_3_}</td>
+				<td class="numeric">${_fraVariable_3b_3_4_}</td>
+				<td class="numeric">${_fraVariable_3b_3_5_}</td>
+				<td class="numeric">${_fraVariable_3b_3_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.3 <spring:message code="ref161"></spring:message> 3rd</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_4_3_}</td>
+				<td class="numeric">${_fraVariable_3b_4_4_}</td>
+				<td class="numeric">${_fraVariable_3b_4_5_}</td>
+				<td class="numeric">${_fraVariable_3b_4_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.4 <spring:message code="ref161"></spring:message> 4th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_5_3_}</td>
+				<td class="numeric">${_fraVariable_3b_5_4_}</td>
+				<td class="numeric">${_fraVariable_3b_5_5_}</td>
+				<td class="numeric">${_fraVariable_3b_5_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.5 <spring:message code="ref161"></spring:message> 5th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_6_3_}</td>
+				<td class="numeric">${_fraVariable_3b_6_4_}</td>
+				<td class="numeric">${_fraVariable_3b_6_5_}</td>
+				<td class="numeric">${_fraVariable_3b_6_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.6 <spring:message code="ref161"></spring:message> 6th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_7_3_}</td>
+				<td class="numeric">${_fraVariable_3b_7_4_}</td>
+				<td class="numeric">${_fraVariable_3b_7_5_}</td>
+				<td class="numeric">${_fraVariable_3b_7_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.7 <spring:message code="ref161"></spring:message> 7th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_8_3_}</td>
+				<td class="numeric">${_fraVariable_3b_8_4_}</td>
+				<td class="numeric">${_fraVariable_3b_8_5_}</td>
+				<td class="numeric">${_fraVariable_3b_8_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.8 <spring:message code="ref161"></spring:message> 8th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_9_3_}</td>
+				<td class="numeric">${_fraVariable_3b_9_4_}</td>
+				<td class="numeric">${_fraVariable_3b_9_5_}</td>
+				<td class="numeric">${_fraVariable_3b_9_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.9 <spring:message code="ref161"></spring:message> 9th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_10_3_}</td>
+				<td class="numeric">${_fraVariable_3b_10_4_}</td>
+				<td class="numeric">${_fraVariable_3b_10_5_}</td>
+				<td class="numeric">${_fraVariable_3b_10_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.10 <spring:message code="ref161"></spring:message> 10th</td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_11_3_}</td>
+				<td class="numeric">${_fraVariable_3b_11_4_}</td>
+				<td class="numeric">${_fraVariable_3b_11_5_}</td>
+				<td class="numeric">${_fraVariable_3b_11_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			<tr>
+				<td>3.3.11 <spring:message code="ref161"></spring:message> <spring:message code="ref174"></spring:message></td>
+				<td>million m3</td>
+				<td class="numeric">${_fraVariable_3b_12_3_}</td>
+				<td class="numeric">${_fraVariable_3b_12_4_}</td>
+				<td class="numeric">${_fraVariable_3b_12_5_}</td>
+				<td class="numeric">${_fraVariable_3b_12_6_}</td>
+				<td class="notpresent"></td>
+			</tr>
+			
+			
 			<tr>
 				<td rowspan="4">3c</td>
 			</tr>
@@ -427,6 +533,7 @@
 				<td>1000 local currency</td><%//TODO localize %>
 				<td class="notpresent"></td>
 				<td class="notpresent"></td>
+				<td class="notpresent"></td>
 				<td class="numeric">
 					<c:catch var="exception1">
 				    	 ${_fraVariable_4b_2_3_ + 
@@ -444,11 +551,19 @@
 					<c:if test="${not empty exception1}">
 					    N/A
 					</c:if>
-   </td>
-				<td class="notpresent"></td>
+   				</td>
 				<td class="notpresent"></td>
 			</tr>
-			
+			<tr>
+				<td rowspan="3">4c</td>
+			</tr>
+			<tr>
+				<td><spring:message code="ref222"></spring:message></td>
+				<td colspan="8" rowspan="2" class="notpresent"><small><spring:message code="refq4prffaostat"></spring:message></small></td>
+			</tr>
+			<tr>
+				<td><spring:message code="refq4twrfcat"></spring:message></td>
+			</tr>
 			<tr>
 				<td></td>
 				<td colspan="7"><strong><spring:message code="ref258"></spring:message></strong></td>
@@ -663,7 +778,7 @@
 			</tr>
 			
 				<td>9.1 <spring:message code="ref372"></spring:message></td>
-				<td>% canopy cover</td>
+				<td>1000 ha</td>
 				<td class="numeric" colspan="5">${_fraVariable_9_1_1_}</td>
 			</tr>
 			<tr>
@@ -762,7 +877,13 @@
 				<td class="notpresent" ></td>
 			</tr>
 			<tr>
-				<td rowspan="5">13a</td>
+				<td rowspan="6">13a</td>
+			</tr>
+			<tr>
+				<td colspan="2"></td>
+				<td><strong><spring:message code="ref414"></spring:message></strong></td>
+				<td><strong><spring:message code="ref415"></spring:message></strong></td>
+				<td colspan="3"><strong>Checkboxes</strong></td>
 			</tr>
 			<tr>
 				<td>13.1 <spring:message code="ref423"></spring:message></td>
@@ -931,7 +1052,7 @@
 				<td rowspan="5">15</td>
 			</tr>
 			<tr>
-				<td colspan="6">15.1 <spring:message code="ref461"></spring:message></td>
+				<td colspan="7">15.1 <strong><spring:message code="ref461"></spring:message></strong></td>
 			</tr>
 			<tr>
 				<td>15.1.1 <spring:message code="ref462"></spring:message></td>
@@ -949,7 +1070,7 @@
 				<td colspan="5">${_fraVariable_15_5_1_}</td>
 			</tr>
 			<tr>
-				<td rowspan="9">16</td>
+				<td rowspan="5">16a</td>
 			</tr>
 			<tr>
 				<td colspan="2">16.1 <spring:message code="ref479"></spring:message></td>
@@ -995,7 +1116,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>16.1.3 <spring:message code="ref481"></spring:message></td>
+				<td>16.1.3 <spring:message code="ref478"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric" colspan="5">
 					${_fraVariable_16a_4_1_},
@@ -1012,6 +1133,9 @@
 					${_fraVariable_16a_8_5_},
 					${_fraVariable_16a_8_6_}
 				</td>
+			</tr>
+			<tr>
+				<td rowspan="5">16b</td>
 			</tr>
 			<tr>
 				<td colspan="2">16.2 <spring:message code="ref482"></spring:message></td>

@@ -600,9 +600,6 @@
 		</c:if>
 		<c:if test="${fn:contains(notEmptyEntry,'_46_') || param.hideEmpty != 'true'}">
 		<div>
-			<h4>
-				<spring:message code="ref227"></spring:message>
-			</h4>
 			<div></div>
 			<div class="entry">
 				<table
