@@ -84,7 +84,6 @@ public class SessionUtils {
             
             List<Feedback> feedbacks = null;
             feedbacks = fh.retrieveFeedbacks(country, question, session, userForQuery, harmonized);
-            session.setAttribute(COUNTRY_FEEDBACKS, feedbacks);
             return feedbacks;
         }
         List<Feedback> returnList = (List<Feedback>)session.getAttribute(COUNTRY_FEEDBACKS);
