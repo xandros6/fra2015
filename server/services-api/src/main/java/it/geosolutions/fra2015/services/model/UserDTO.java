@@ -175,4 +175,12 @@ public class UserDTO {
     public void setCanSubmit(Boolean canSubmit) {
         user.setCanSubmit(canSubmit);
     }
+    
+	public Boolean getPreventContributorsEmails() {
+		return user.getPreventContributorsEmails();
+	}
+
+	public void setPreventContributorsEmails(Boolean preventContributorsEmails) {
+		user.setPreventContributorsEmails(preventContributorsEmails);
+	}
 }

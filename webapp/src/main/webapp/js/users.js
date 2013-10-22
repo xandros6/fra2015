@@ -14,14 +14,23 @@ var countryDeleteHandelr = function(id,el) {
 }
 
 var enableCountry = function(el){
+	var countryMenu = el.find('#countryMenu');
 	var addCountryBtn = el.find('#addCountryBtn');
+	var addAllCountryBtn = el.find('#addAllCountryBtn');
 	var countriesField = el.find('#countries');
+	var roleComboBox = el.find('#roleComboBox');
 	addCountryBtn.on('click');
+	addCountryBtn.removeClass('disabled');
 	addCountryBtn.click(function() {
 		addCountryHandler(el);
-	});
-	addCountryBtn.removeClass('disabled');
+	});	
 	countriesField.removeAttr('disabled');
+	var role = roleComboBox.val();
+	if (role == 'reviewer' || role == 'editor'){
+		countryMenu.removeClass('disabled');
+	}else{
+		countryMenu.addClass('disabled');
+	}	
 }
 
 var createCountryRow = function(id,name,iso3,el) {
@@ -31,6 +40,45 @@ var createCountryRow = function(id,name,iso3,el) {
 		countryDeleteHandelr(id,el);
 	});
 	return row;
+}
+
+var addAllCountryHandler = function(el) {
+	var countriesField = el.find('#countries');
+	var countriesString = el.find('#ccountries'); 
+	countriesField.val("");
+	countriesString.val("");
+	el.find('#countriesTable > tbody:last').empty();
+	
+	var countries = "";	
+	$.each(countriesArr, function (i, country) {
+		createCountryRow(country.id,country.name,country.iso3,el);
+		countries += ',' + country.id;
+	}); 
+	countriesString.val(countries);
+}
+
+var addAllQuestionHandler = function(el) {
+	var questions = el.find('#questionsCheck');
+	questions.find(':checkbox').attr('checked', true);
+}
+
+var removeAllQuestionHandler = function(el) {
+	var questions = el.find('#questionsCheck');
+	questions.find(':checkbox').attr('checked', false);
+}
+
+var removeAllCountryHandler = function(el) {
+	var countriesField = el.find('#countries');
+	var countriesString = el.find('#ccountries'); 
+	countriesField.val("");
+	countriesString.val("");
+	el.find('#countriesTable > tbody:last').empty();
+}
+
+var reviewerPresetHandler = function(el) {
+	addAllCountryHandler(el);
+	addAllQuestionHandler(el);
+	el.find('#preventContributorsEmails').attr('checked', true);	
 }
 
 var addCountryHandler = function(el) {
@@ -71,7 +119,9 @@ function changeRole(el){
 	var roleComboBox = el.find('#roleComboBox');
 	var countriesString = el.find('#ccountries');
 	var countriesBlock = el.find('#selectedCountries');
+	var countryMenu = el.find('#countryMenu');
 	var addCountryBtn = el.find('#addCountryBtn');
+	var addAllCountryBtn = el.find('#addAllCountryBtn');
 	var countriesField = el.find('#countries');
 	var questionsBlock =  el.find('#questions');
 	var canSubmitBlock = el.find('#submittercbx');
@@ -81,6 +131,7 @@ function changeRole(el){
 	var role = roleComboBox.val();
 	var countries = countriesString.val();
 	if (role != 'reviewer' && role != 'editor' && countries) {
+		countryMenu.addClass('disabled');
 		addCountryBtn.off('click');
 		addCountryBtn.addClass('disabled');
 		countriesField.attr('disabled', 'disabled');
@@ -100,6 +151,8 @@ function changeRole(el){
 	if(role == ''){
 		addCountryBtn.off('click');
 		addCountryBtn.addClass('disabled');
+		addAllCountryBtn.off('click');
+		addAllCountryBtn.addClass('disabled');
 		countriesField.attr('disabled', 'disabled');
 		countriesField.val("Chose a role before");
 	}
@@ -108,17 +161,21 @@ function changeRole(el){
 function initEditUserWindow(el){
 	initShowAll(el);
 	initCountrySelector(el);
+	initMenuHandlers(el);
 	var roleComboBox = el.find('#roleComboBox');
 	var usernameField = el.find('#cusername');
 	var addCountryBtn = el.find('#addCountryBtn');
 	var countriesField = el.find('#countries');
 	var questionsBlock =  el.find('#questions');
 	var canSubmitBlock = el.find('#submittercbx');
-
+	var countryMenu = el.find('#countryMenu');
 	usernameField.attr('disabled', 'true');
 	roleComboBox.attr('disabled', 'true');
+	
 	var role = roleComboBox.val();
 	if (role != 'reviewer' && role != 'editor') {
+		var countryMenu = el.find('#countryMenu');
+		countryMenu.addClass('disabled');
 		addCountryBtn.off('click');
 		addCountryBtn.addClass('disabled');
 		countriesField.attr('disabled', 'disabled');
@@ -127,7 +184,8 @@ function initEditUserWindow(el){
 		addCountryBtn.click(function() {
 			addCountryHandler(el);
 		});
-		addCountryBtn.removeClass('disabled');
+		addCountryBtn.removeClass('disabled');		
+		countryMenu.removeClass('disabled');		
 		countriesField.removeAttr('disabled');
 	}
 	if (role == 'reviewer') {
@@ -155,6 +213,37 @@ function initCreateUserWindow(el){
 	var roleComboBox = el.find('#roleComboBox');
 	roleComboBox.change(function() {
 		changeRole(el);
+	});
+	initMenuHandlers(el);
+}
+
+function initMenuHandlers(el){
+	var countryMenu = el.find('#countryMenu');
+	countryMenu.addClass('disabled');
+	var addAllQuestionBtn = el.find('#addAllQuestionBtn');
+	addAllQuestionBtn.on('click');
+	addAllQuestionBtn.click(function() {
+		addAllQuestionHandler(el);
+	});
+	var removeAllQuestionBtn = el.find('#removeAllQuestionBtn');
+	removeAllQuestionBtn.on('click');
+	removeAllQuestionBtn.click(function() {
+		removeAllQuestionHandler(el);
+	});
+	var addAllCountryBtn = el.find('#addAllCountryBtn');
+	addAllCountryBtn.on('click');
+	addAllCountryBtn.click(function() {
+		addAllCountryHandler(el);
+	});	
+	var removeAllCountryBtn = el.find('#removeAllCountryBtn');
+	removeAllCountryBtn.on('click');
+	removeAllCountryBtn.click(function() {
+		removeAllCountryHandler(el);
+	});
+	var reviewerPresetBtn = el.find('#reviewerPresetBtn');
+	reviewerPresetBtn.on('click');
+	reviewerPresetBtn.click(function() {
+		reviewerPresetHandler(el);
 	});
 }
 

@@ -98,8 +98,8 @@ public class UsersController {
 		model.addAttribute("messageType", "success");
 		model.addAttribute("messageText", "User saved successfully");
 
-        User user = new User();
-        userDto.copyTo(user);
+		User user = new User();
+		userDto.copyTo(user);
 
 		try{
 			if(!userDto.getQuestionsStr().isEmpty()){
@@ -112,8 +112,10 @@ public class UsersController {
 			if(!userDto.getSelCountries().isEmpty()){
 				String[] cos = userDto.getSelCountries().split(",");
 				for(String co : cos){
-					Country c = surveyService.findCountry(Long.parseLong(co));
-					user.getCountriesSet().add(c);
+					if(!co.isEmpty()){
+						Country c = surveyService.findCountry(Long.parseLong(co));
+						user.getCountriesSet().add(c);
+					}
 				}
 			}
 
@@ -129,7 +131,7 @@ public class UsersController {
 		}
 		return "forward:/users/"+page;
 	}
-	
+
 	@RequestMapping(value = "/save/{page}", method = RequestMethod.GET)
 	public String reloadSavedUser(@PathVariable(value = "page") Integer page, ModelMap model) {
 		return "redirect:/users/"+page;
@@ -165,7 +167,7 @@ public class UsersController {
 	@RequestMapping(value = "/updateFilter", method = RequestMethod.POST)
 	public String updateFilter(@ModelAttribute("formUserFilter") UserFilter formUserFilter, ModelMap model , SessionStatus sessionStatus) {
 
-        LOGGER.debug("updating filter by " + formUserFilter);
+		LOGGER.debug("updating filter by " + formUserFilter);
 
 		model.addAttribute("context", "users");
 		model.addAttribute("messageType", "success");
@@ -173,7 +175,7 @@ public class UsersController {
 		model.addAttribute("userFilter", formUserFilter);
 		return "forward:/users/0";
 	}
-	
+
 	@RequestMapping(value = "/updateFilter", method = RequestMethod.GET)
 	public String reloadFilter(ModelMap model , SessionStatus sessionStatus) {
 		return "redirect:/users/0";
@@ -189,15 +191,15 @@ public class UsersController {
 		Set<Country> set = user.getCountriesSet();
 		SortedSet<Country> sorted=new TreeSet<Country>(new Comparator<Country>(){
 
-                    @Override
-                    public int compare(Country a, Country b) {
-                        return a.getIso3().compareTo(b.getIso3());
-                    }
-                   
-                });
+			@Override
+			public int compare(Country a, Country b) {
+				return a.getIso3().compareTo(b.getIso3());
+			}
+
+		});
 		sorted.addAll(set);
 		user.setCountriesSet(sorted);
-		
+
 		//Add countries code to page model formatted as CSV string
 		List<Question> questions = surveyService.getQuestions();
 		//Check user question
@@ -214,8 +216,8 @@ public class UsersController {
 		model.addAttribute("questions", questions);
 
 
-        UserDTO userDTO = new UserDTO();
-        userDTO.copyFrom(user);
+		UserDTO userDTO = new UserDTO();
+		userDTO.copyFrom(user);
 
 		BeanToPropertyValueTransformer transformer = new BeanToPropertyValueTransformer( "id" );
 		Collection<String> countriesId = CollectionUtils.collect( user.getCountriesSet(), transformer );
@@ -238,9 +240,9 @@ public class UsersController {
 		model.addAttribute("countries", surveyService.getCountries());
 		model.addAttribute("context", "users");
 
-        LOGGER.debug("filtering by " + userFilter);
+		LOGGER.debug("filtering by " + userFilter);
 
-        List<UserDTO> users = this.getPage(page, userFilter);
+		List<UserDTO> users = this.getPage(page, userFilter);
 		if(users.isEmpty() && page > 0){
 			return "redirect:/users/"+(page-1);
 		}
@@ -299,12 +301,12 @@ public class UsersController {
 			return null;
 		}
 		try {
-            List<UserDTO> ret = new ArrayList<UserDTO>(pagesize);
+			List<UserDTO> ret = new ArrayList<UserDTO>(pagesize);
 			for(User user : userService.getAll(page, pagesize,userFilter)){
-                UserDTO dto = new UserDTO();
-                dto.copyFrom(user);
+				UserDTO dto = new UserDTO();
+				dto.copyFrom(user);
 				dto.setRole(roles.get(user.getRole())); // translate role string
-                dto.setSelCountries(UserUtil.getSpacedIso3(user,true));
+				dto.setSelCountries(UserUtil.getSpacedIso3(user,true));
 
 				ret.add(dto);
 			}
