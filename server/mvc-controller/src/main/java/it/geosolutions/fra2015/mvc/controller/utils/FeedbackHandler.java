@@ -76,11 +76,14 @@ public class FeedbackHandler{
     
     private List<Feedback> feedbackList;
     
+    private List<Feedback> feedbackListToRemove;
+    
     public FeedbackHandler(ControllerServices controllerServiceUtils, FeedbackService feedbackService){
         
         this.controllerServiceUtils = controllerServiceUtils;
         this.feedbackService = feedbackService;
         this.feedbackList = new ArrayList<Feedback>();
+        this.feedbackListToRemove = new ArrayList<Feedback>();
     }
    
     public List<Feedback> retrieveFeedbacks(String country, Long question,
@@ -136,6 +139,25 @@ public class FeedbackHandler{
         }
     }
     
+    /**
+     * This method remove all the feedbacks that are in the feedbackListToRemove instance var
+     * and empty the feedbackListToRemove var too.
+     * 
+     * Usually It is used when a feedback come back to status "NOT revisioned": in that case the feedback should be removed by the DB.
+     *  
+     * @throws BadRequestServiceEx
+     */
+    public void removeFeedbacks() throws BadRequestServiceEx {
+        if (this.feedbackListToRemove != null) {
+            if (!this.feedbackListToRemove.isEmpty()) {
+                feedbackService.removeFeedback(feedbackListToRemove);
+            }
+        } else {
+            throw new BadRequestServiceEx("feedbackList equals to null");
+        }
+        this.feedbackListToRemove = new ArrayList<Feedback>();
+    }
+    
     public void mergefeedbacks(List<Feedback> oldFeedbacks){
         
         List<Feedback> feedbacksMerged = new ArrayList<Feedback>();
@@ -156,6 +178,13 @@ public class FeedbackHandler{
                 feedbacksMerged.add(el);
             }
         }
+        for(Feedback el : oldFeedbacks){
+            int oldFbIndex = feedbackList.indexOf(el);
+            if(oldFbIndex < 0){
+                feedbackListToRemove.add(el);
+            }
+        }
+        
         feedbackList = feedbacksMerged;
         
     }

@@ -194,8 +194,12 @@ public class ReviewController {
         try {
 
             List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
+            // Compute which feedbacks must be updated, which feedbacks must be added and wich must be removed 
             fh.mergefeedbacks(oldFeedbacks);
+            // Store the computed new and updated feedbacks
             fh.storeFeedbacks();
+            // Remove the feedback that has the status changed to "NOT revisioned"
+            fh.removeFeedbacks();
             
             changeStatusToUnderReview(country, su);
             status = utils.getStatusByCountry(country);

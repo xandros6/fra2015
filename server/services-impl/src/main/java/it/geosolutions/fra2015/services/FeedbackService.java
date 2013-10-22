@@ -66,6 +66,21 @@ public class FeedbackService {
         return true;
     }
     
+    public boolean removeFeedback(List<Feedback> feedback) throws BadRequestServiceEx{
+
+        try {
+            for(Feedback f : feedback){
+                feedbackDAO.remove(f);
+            }
+        }
+        catch (Exception e) {
+            
+            LOGGER.error(e.getLocalizedMessage());
+            throw new BadRequestServiceEx(e.getLocalizedMessage());
+        }
+        return true;
+    }
+    
     /**
      * Load All feedbacks related to the Latest review / ReviewEditing.
      * The feedback is loaded only if his timestamp is > to the LastContributorSubmission field stored in the survey status
