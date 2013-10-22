@@ -224,7 +224,8 @@ public class UserServiceImpl implements UserService {
         Search searchCriteria = new Search(User.class);
 
         searchCriteria.addFilter(Filter.some("countriesSet", Filter.equal("iso3",iso3)));
-        searchCriteria.addFilter(Filter.equal("role",role));   
+        searchCriteria.addFilter(Filter.equal("role",role));
+        searchCriteria.addFilter(Filter.notEqual("preventContributorsEmails", true));
         return userDAO.search(searchCriteria);
         
     }
