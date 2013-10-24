@@ -68,17 +68,51 @@ public class NotificationSerivice {
    
     }
     
+    /**
+     * @param user
+     * @param status
+     * @param validators
+     * @throws IOException
+     * @throws TemplateException
+     */
     public void notifyComplete(User user, Status status, List<User> validators) throws IOException, TemplateException {
         notifyUsers(user,status,validators,"complete");
    
     }
     
+    /**
+     * @param user
+     * @param status
+     * @param reviewEditors
+     * @throws IOException
+     * @throws TemplateException
+     */
     public void notifyReviewerSubmit(User user, Status status, List<User> reviewEditors) throws IOException, TemplateException {
         notifyUsers(user,status,reviewEditors,"reviewerSubmit");
         
     }
+    
+    /**
+     * @param user
+     * @param status
+     * @param reviewEditors
+     * @throws IOException
+     * @throws TemplateException
+     */
     public void notifyDecline(User user,Status status,List<User> reviewEditors) throws IOException,TemplateException{
         notifyUsers(user, status, reviewEditors, "surveyDeclined");
+    }
+    
+    /**
+     * @param user
+     * @param status
+     * @param reviewers
+     * @throws IOException
+     * @throws TemplateException
+     */
+    public void notify(User user, Status status, List<User> reviewers) throws IOException, TemplateException {
+        notifyUsers(user, status, reviewers, "notify");
+   
     }
     
     /**
@@ -89,7 +123,7 @@ public class NotificationSerivice {
      * @throws TemplateException 
      * @throws IOException 
      */
-    public void notifyUsers(User user, Status status, List<User> receivers,String templateName) throws IOException, TemplateException {
+    public void notifyUsers(User user, Status status, List<User> receivers, String templateName) throws IOException, TemplateException {
         Map<String,String> messageConfig = messages.get(templateName);
         
         for(User receiver: receivers){
@@ -98,11 +132,14 @@ public class NotificationSerivice {
             String message = applyTemplate(getTemplate(messageConfig,receiver),model);
             sendMessage(receiver.getEmail(),getSubject(receiver,templateName),message);
         }
-   
     }
-
-
     
+    /**
+     * @param user
+     * @param receiver
+     * @param status
+     * @return
+     */
     public Map<String,Object> buildMessageModel(User user,User receiver,Status status) {
         Map<String,Object> model = new HashMap<String,Object>();
         model.put("receiver",receiver);
@@ -112,9 +149,13 @@ public class NotificationSerivice {
 
         // TODO Auto-generated method stub
         return model;
-        
     }
     
+    /**
+     * @param receiver
+     * @param status
+     * @param model
+     */
     public void buildCountry(User receiver,Status status,Map<String, Object> model){
         String country =status.getCountry();
         if (country == null) country = UserUtil.getSpacedIso3(receiver);
@@ -152,8 +193,6 @@ public class NotificationSerivice {
             else return conf.get("subject");
         }
         return subject;
-        
-        
     }
 
     /**
@@ -169,10 +208,7 @@ public class NotificationSerivice {
             return messageConfig.get(lang);
         }
         return messageConfig.get("template");
-        
-       
     }
-
 
     private String applyTemplate(String template, Map model) throws IOException, TemplateException{
         String result=null;
@@ -188,8 +224,8 @@ public class NotificationSerivice {
             throw e; 
         }
         return result;
-        
     }
+    
     private void sendMessage(String address,String subject, String body) {
 
         SimpleMailMessage message = new SimpleMailMessage();
@@ -201,10 +237,7 @@ public class NotificationSerivice {
         if(LOGGER.isInfoEnabled()){
             LOGGER.info("Mail sent FROM " +mailFromAddress + " TO " + address + " USING " + mailSender.toString());
         }
-        
-
     }
-    
 
     // getters and setters  
     public void setConfiguration(Configuration configuration) {

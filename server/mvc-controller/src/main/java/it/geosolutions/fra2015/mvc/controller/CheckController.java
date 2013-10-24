@@ -185,7 +185,7 @@ public class CheckController {
         surveyService.changeStatus(status);
         LOGGER.info("submitted survey:"+status.getCountry());
 
-        List<User> reviewers=  userService.getUsersToNotify("reviewer", iso3 );
+        List<User> reviewers=  userService.getUsersToNotify("reviewer", iso3, true);
        
          if(reviewers.size()<=0){
            LOGGER.error("No reviewer associated to country " + iso3 );

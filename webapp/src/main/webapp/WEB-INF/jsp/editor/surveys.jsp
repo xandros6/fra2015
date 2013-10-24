@@ -20,6 +20,7 @@
 					
 					<c:set scope="page" var="pendingFixEnabled" value="" />
 					<c:set scope="page" var="completeEnabled" value="" />
+					<c:set scope="page" var="notifyEnabled" value="" />
 					
 					<c:if test="${survey.status.status != 'underreview'}">
 						<c:set scope="page" var="pendingFixEnabled" value="disabled" />
@@ -27,6 +28,10 @@
 					<c:if test="${survey.status.status != 'underreview'}">
 						<c:set scope="page" var="completeEnabled" value="disabled" />
 					</c:if>
+					<c:if test="${survey.status.status != 'underreview'}">
+						<c:set scope="page" var="notifyEnabled" value="disabled" />
+					</c:if>
+					
 					<tr class="rowItem">
 						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
 						<!-- <td>TODO</td> -->
@@ -54,13 +59,18 @@
 								</c:otherwise>
 							</c:choose>
 						</td>
-						<td><a href="../survey/review/${survey.country.iso3}/0"
+						<td>
+							<a href="../survey/review/${survey.country.iso3}/0"
 							class="btn"><spring:message code="editor.surveylist.view"></spring:message></a>
 						</td>
-						<td><a data-toggle="modal" data-country="${survey.country.iso3}" href="#pendingConfirm" class="btn ${pendingFixEnabled} pendingConfirm"><spring:message
-									code="editor.surveylist.pending"></spring:message></a> <a
-							data-toggle="modal"  data-country="${survey.country.iso3}" href="#completedConfirm" class="btn ${completeEnabled} completedConfirm"><spring:message
-									code="editor.surveylist.completed"></spring:message></a></td>
+						<td>
+							<a data-toggle="modal" data-country="${survey.country.iso3}" href="#pendingConfirm" class="btn ${pendingFixEnabled} pendingConfirm">
+								<spring:message code="editor.surveylist.pending"></spring:message></a> 
+							<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#completedConfirm" class="btn ${completeEnabled} completedConfirm">
+								<spring:message code="editor.surveylist.completed"></spring:message></a>
+							<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#sendNotification" class="btn ${notifyEnabled} sendNotification">
+								<spring:message	code="editor.surveylist.notify"></spring:message></a>
+						</td>
 					</tr>
 				</c:forEach>
 
@@ -122,23 +132,50 @@
 				class="btn btn-primary confirm"><spring:message code="editor.surveylist.completed"></spring:message></a>
 		</div>
 	</div>
+	
+    <div id="sendNotification" class="modal hide fade span8">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">x</button>
+			<h3>
+				<spring:message code="editor.notify"></spring:message>
+			</h3>
+		</div>
+
+		<div id="modal-body" class="modal-body">
+			<spring:message code="editor.surveylist.notify.msg"></spring:message>
+			<br /> 
+			<b><spring:message code="editor.surveylist.alert"></spring:message></b>
+		</div>
+
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">
+				<spring:message code="close"></spring:message></a> 
+			<a id="updateBtn" href="#" class="btn btn-primary confirm">
+				<spring:message code="editor.surveylist.notify"></spring:message></a>
+		</div>
+	</div>
+	
 	<script type="text/javascript">
-	$(function(){
-		var sethref 
-		$('.completedConfirm').click(function(){
-			$('#completedConfirm .confirm').attr('href','../editorCompleted/'+$(this).attr('data-country'));
+		$(function(){
+			var sethref 
+			$('.completedConfirm').click(function(){
+				$('#completedConfirm .confirm').attr('href','../editorCompleted/'+$(this).attr('data-country'));
+				
+			})
+			$('.pendingConfirm').click(function(){
+				$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country'));
+			});
 			
-		})
-		$('.pendingConfirm').click(function(){
-			$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country'));
+			$('.sendNotification').click(function(){
+				$('#sendNotification .confirm').attr('href','../editorNotify/'+$(this).attr('data-country'));
+			});
 		});
-	});
-	
-	// Disable the onClick event if the submit buttons are disabled (because the button is an anchor not a button)
-	$('body').on('click', 'a.disabled', function(event) {
-	    event.stopImmediatePropagation();
-	});
-	
+		
+		// Disable the onClick event if the submit buttons are disabled (because the button is an anchor not a button)
+		$('body').on('click', 'a.disabled', function(event) {
+		    event.stopImmediatePropagation();
+		});	
 	</script>
 
 </div>

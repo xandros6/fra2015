@@ -113,6 +113,12 @@
 						<entry key="subject"  value="Fra 2015 Notification - Private Message"></entry><!-- TODO: i18n -->
 					</map>
 				</entry>
+			    <entry key="notify">
+					<map>
+						<entry key="template" value="notify.ftl"></entry>
+						<entry key="subject"  value="Fra 2015 Notification - Survey will almost completed"></entry><!-- TODO: i18n -->
+					</map>
+				</entry>
 			</map>
 		</property>
 		<property name="mailFromAddress" value="admin@fra.fao.org" />
