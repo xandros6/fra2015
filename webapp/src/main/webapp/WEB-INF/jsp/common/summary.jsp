@@ -1,11 +1,10 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
-
 <div class="container">
 <c:if test="${not empty statuscode && not empty country }">
 				<jsp:include page="../common/statuslabel.jsp"></jsp:include>
 
 	</c:if>
-	${allowedQuestions}
+
 	<br/><br/><br/>
 	<table
 		class="table table-bordered table-hover table-condensed table-striped summary">
