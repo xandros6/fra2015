@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.validation.TiersValidator;
 import it.geosolutions.fra2015.mvc.validation.Validator;
@@ -46,15 +47,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
+ * Provides Validation check results and allow the contributor submission
  * @author Lorenzo Natali
  * 
  */
 @Controller
-@RequestMapping("/check")
 public class CheckController {
     Logger LOGGER = Logger.getLogger(CheckController.class);
     
@@ -72,7 +74,7 @@ public class CheckController {
     @Autowired
     private TiersValidator tiersValidator;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value ="/check",method = RequestMethod.GET)
     public String printWelcome(ModelMap model, HttpSession session) {
         model.addAttribute("context", "check");
         User su = (User) session.getAttribute(SESSION_USER);
@@ -93,7 +95,7 @@ public class CheckController {
             return "index";
         }
         ValidationResult tiersResult = tiersValidator.checkTiers(iso3);
-        ValidationResult rulesResult = rulesResult = validator.validate(iso3, tiersResult);
+        ValidationResult rulesResult = validator.validate(iso3, tiersResult);
         ValidationResult v = (rulesResult==null)?tiersResult:rulesResult;
         if (v.getSuccess() && tiersResult.getSuccess()) {
             model.addAttribute("allowsubmit", true);
@@ -103,10 +105,59 @@ public class CheckController {
         return "index";
 
     }
+    /**
+     * Provides check for reviewers and editors
+     * @param model
+     * @param session
+     * @param country iso3 of the country
+     * @return
+     */
+    @RequestMapping(value ="/check/{country}",method = RequestMethod.GET)
+    public String printWelcome(ModelMap model, HttpSession session,@PathVariable(value = "country") String country) {
+        model.addAttribute("context", "check");
+        model.addAttribute("country", country);
+        User su = (User) session.getAttribute(SESSION_USER);
+        String iso3 = country;
+        Status status = surveyService.getStatus(iso3);
+        String statusLocale= StatusUtils.getStatusLocaleCode(status);
+
+        model.addAttribute("statuscode",statusLocale);
+        String targetPage = "";
+        if(su==null){
+            return "redirect:/"; 
+         }
+        if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+            targetPage = "editor";
+        }
+        else if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+            targetPage = "reviewer";
+        }
+        else{
+            targetPage= "redirect:/";
+        }
+        
+        
+        ValidationResult tiersResult = tiersValidator.checkTiers(iso3);
+        ValidationResult rulesResult = validator.validate(iso3, tiersResult);
+        ValidationResult v = (rulesResult==null)?tiersResult:rulesResult;
+        if (v.getSuccess() && tiersResult.getSuccess()) {
+            model.addAttribute("allowsubmit", true);
+        } else {
+            model.addAttribute("validationResult", v);
+        }
+        return targetPage;
+
+    }
 
    
-
-    @RequestMapping(method = RequestMethod.POST)
+    /**
+     * Manages contributor submission
+     * @param request
+     * @param model
+     * @param session
+     * @return
+     */
+    @RequestMapping(value="/check",method = RequestMethod.POST)
     public String printWelcome(HttpServletRequest request, ModelMap model, HttpSession session) {
 
 
