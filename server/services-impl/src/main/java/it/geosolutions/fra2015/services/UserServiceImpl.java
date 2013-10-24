@@ -220,14 +220,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsersToNotify(String role, String iso3) {
+    public List<User> getUsersToNotify(String role, String iso3, boolean preventContributorsEmailsFilter) {
         Search searchCriteria = new Search(User.class);
 
         searchCriteria.addFilter(Filter.some("countriesSet", Filter.equal("iso3",iso3)));
         searchCriteria.addFilter(Filter.equal("role",role));
-        searchCriteria.addFilter(Filter.notEqual("preventContributorsEmails", true));
-        return userDAO.search(searchCriteria);
         
+        if(preventContributorsEmailsFilter){
+        	searchCriteria.addFilter(Filter.notEqual("preventContributorsEmails", true));
+        }
+        
+        return userDAO.search(searchCriteria);        
     }
     
     @Override

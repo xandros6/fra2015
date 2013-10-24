@@ -146,7 +146,7 @@ public class AcceptController{
     
     private void notifyEditors(User su, Status status, HttpSession session) {
         String iso3 = status.getCountry();
-        List<User> editors = userService.getUsersToNotify("editor", iso3);
+        List<User> editors = userService.getUsersToNotify("editor", iso3, true);
 
         if (editors.size() <= 0) {
             LOGGER.error("No reviewer associated to country " + iso3);

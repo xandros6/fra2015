@@ -34,8 +34,11 @@ import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
+import it.geosolutions.fra2015.services.model.UserFilter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -51,6 +54,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author DamianoG
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  * This class expose 2 SpringMVC controllers that are responsible for the state transition between UNDERREVIEW to COMPLETE/PENDINGFIX
  * These controllers should be invoked just from the surveylist page by a ReviewerEditor
@@ -132,7 +136,7 @@ public class EditorSubmitController {
         //
         // Notify of the status changed with a mail to all Contributors involved
         //
-        List<User> contributors = userService.getUsersToNotify(Profile.CONTRIBUTOR.toString().toLowerCase(), iso3 );
+        List<User> contributors = userService.getUsersToNotify(Profile.CONTRIBUTOR.toString().toLowerCase(), iso3, true);
         if (contributors.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???
@@ -226,7 +230,7 @@ public class EditorSubmitController {
         //
         // Notify of the status changed with a mail to all Validators involved
         //
-        List<User> validators = userService.getUsersToNotify(Profile.VALIDATOR.toString().toLowerCase(), iso3 );
+        List<User> validators = userService.getUsersToNotify(Profile.VALIDATOR.toString().toLowerCase(), iso3, true);
         if (validators.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???
@@ -259,5 +263,115 @@ public class EditorSubmitController {
         return "redirect:/surveylist/0";
 
     }
+    
+    /**
+     * This Method is responsible to notify to all country's Reviewers to submit own changes.
+     * 
+     * -> Find the reviewers that have not yet submit own review.
+     * -> Notify all the reviewer involved 
+     * 
+     * @param country
+     * @param model
+     * @param session
+     * @return String
+     * @throws NotFoundServiceEx 
+     */ 
+    @RequestMapping(value = "/editorNotify/{countryIso3}", method = RequestMethod.GET)
+    public String editorNotify(@PathVariable(value = "countryIso3") String country,
+            ModelMap model, HttpSession session) throws NotFoundServiceEx {
 
+        User user = (User) session.getAttribute(SESSION_USER);
+        if (user == null) {
+            return "redirect:/";
+        }
+        
+        // ///////////////////////
+        // Check the status 
+        // ///////////////////////
+        String iso3 = country;
+        Status status = surveyService.getStatus(iso3);
+        if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
+            LOGGER.warn("A reviewerEditor has tried to sent a notification for country '" + iso3 + "' but the survey status is not set to 'underreview' at this moment");
+            FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.notifyFailed", 10000, null, null);
+            return "redirect:/surveylist/0";
+        }
+        
+        status.setCountry(iso3);
+        Country c = surveyService.findCountryByISO3(iso3);
+        if(c != null){
+            status.setCountry(iso3);
+        }
+        
+        // ///////////////////////////////////////
+        // Get All reviewers that have submitted
+        // ///////////////////////////////////////
+        String reviewerSubmit = status.getReviewerSubmit();
+        
+        String[] reviewers = reviewerSubmit.split(";");
+        int size = reviewers.length;
+        
+        List<User> reviewersList = new ArrayList<User>();
+        for(int i=0; i<size; i++){
+        	String reviewer = reviewers[i];
+        	if(reviewer != null && !reviewer.isEmpty()){
+        		User userReviewer = userService.get(reviewer);
+        		if(userReviewer != null && userReviewer.getRole().equals(Profile.REVIEWER.toString().toLowerCase())){
+        			reviewersList.add(userReviewer);
+        		}
+        	}
+        }
+        
+        // ///////////////////////////////////////////
+        // Retrieve all reviewers for defined 'iso3' 
+        // including the Topic Reviewer
+        // ///////////////////////////////////////////
+        List<User> countryReviewers = userService.getUsersToNotify(Profile.REVIEWER.toString().toLowerCase(), iso3, false);
+        if (reviewersList.size() <= 0) {
+            LOGGER.error("No reviewer associated to country '" + iso3 + "' anyone has been notificated, no mail sent");
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.notnotified", 10000, null, null);
+        }
+        
+        // ///////////////////////////////////////////////////
+        // Get only the reviewer that not have submitted yet
+        // ///////////////////////////////////////////////////
+        Iterator<User> iterator = reviewersList.iterator();
+        while(iterator.hasNext()){
+        	User u = (User)iterator.next();
+        	
+        	if(countryReviewers.contains(u)){
+        		countryReviewers.remove(u);
+        	}
+        }
+        
+        // /////////////////////////////////////////////
+        // Notify of the status changed with a mail 
+        // to all Reviewers involved.
+        // /////////////////////////////////////////////
+        
+        try {
+            notificationService.notify(user, status, countryReviewers);
+        } catch (MailException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.notnotified",
+                    10000, null, null);
+            LOGGER.error("Error in mail notification",e);
+            return "redirect:/surveylist/0";
+
+        } catch (TemplateException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.notnotified",
+                    10000, null, null);
+            LOGGER.error("Error in mail notification",e);
+            return "redirect:/surveylist/0";
+
+        } catch (IOException e) {
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.notnotified",
+                    10000, null, null);
+            LOGGER.error("Error in mail notification",e);
+            return "redirect:/surveylist/0";
+        }
+
+        LOGGER.info("The survey status-changed notification for survey: '" + status.getCountry() + "' has been done.");
+        FlashAttributesHandler.addFlashAttribute(session, "success", "editor.notify.notified", 10000, null, null);
+
+        return "redirect:/surveylist/0";
+    }
 }

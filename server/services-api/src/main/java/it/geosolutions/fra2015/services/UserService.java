@@ -97,7 +97,7 @@ public interface UserService {
 
     public long getCountFiltered(UserFilter userFilter) throws BadRequestServiceEx;
 
-    public List<User> getUsersToNotify(String role, String iso3);
+    public List<User> getUsersToNotify(String role, String iso3, boolean preventContributorsEmails);
 
     /**
      * @param userName

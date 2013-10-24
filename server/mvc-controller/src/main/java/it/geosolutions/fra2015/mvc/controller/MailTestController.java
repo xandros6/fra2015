@@ -117,7 +117,7 @@ public class MailTestController {
                 receivers.add(r);
             }
         }else{
-            receivers = userService.getUsersToNotify(role, iso3);
+            receivers = userService.getUsersToNotify(role, iso3, true);
         
         }if(receivers.size()==0){
             composeErrorMessage(model,"reciver not specified");
