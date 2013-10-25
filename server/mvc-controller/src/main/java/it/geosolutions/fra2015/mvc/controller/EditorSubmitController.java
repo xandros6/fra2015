@@ -34,10 +34,10 @@ import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
-import it.geosolutions.fra2015.services.model.UserFilter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -113,6 +113,7 @@ public class EditorSubmitController {
         //change status
         status.setStatus(StatusUtils.PENDING_FIX);
         status.setCountry(iso3);
+        status.setLastPendingFixSubmit(System.currentTimeMillis());
         status.setReviewerSubmit("");
         status.setCoverage("");
         StatusUtils.updateRevision(status);
@@ -208,6 +209,7 @@ public class EditorSubmitController {
         //change status
         status.setStatus(StatusUtils.COMPLETED);
         status.setCountry(iso3);
+        status.setLastAcceptanceRequest(System.currentTimeMillis());
         status.setReviewerSubmit("");
         status.setCoverage("");
         Country c = surveyService.findCountryByISO3(iso3);

@@ -17,6 +17,7 @@
 		<intercept-url pattern="/editoractivitylog/*" access="ROLE_editor" />
 		<intercept-url pattern="/revieweractivitylog*" access="ROLE_reviewer" />
 		<intercept-url pattern="/revieweractivitylog/*" access="ROLE_reviewer" />
+		<intercept-url pattern="/summaryStatus/*" access="ROLE_admin,ROLE_reviewer,ROLE_editor" />
 		<intercept-url pattern="/summary*" access="ROLE_contributor" />
 		
 

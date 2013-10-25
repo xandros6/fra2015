@@ -22,6 +22,7 @@ import java.util.List;
 /**
  *
  * @author DamianoG
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  * This API Represents the Services EntryPoint.
  * 
@@ -51,6 +52,10 @@ public interface SurveyServiceEntryPoint {
     public List<Entry> updateValues(Updates updates);
     
     
+    /**
+     * @param survey
+     * @return
+     */
     public Survey create(Survey survey);
     
     
@@ -98,18 +103,49 @@ public interface SurveyServiceEntryPoint {
      */
     void insertQuestionRevisionNumber(QuestionRevision qr);
     
+    /**
+     * @param questionNumber
+     * @return
+     */
     Question findQuestion(Long questionNumber);
     
+    /**
+     * @param iso3
+     * @return
+     */
     Country searchCountry(String iso3);
     
+    /**
+     * @param countryList
+     * @param page
+     * @param index
+     * @return
+     */
     List<SurveyInstance> getSurveysByCountry(String[] countryList,int page, int index);
 
-
+    /**
+     * @param country
+     * @return
+     */
     public Status getStatus(String country);
 
-
+    /**
+     * @param country
+     * @return
+     */
     public Country findCountryByISO3(String country);
     
+    /**
+     * @param iso3
+     * @param questionNumber
+     * @return
+     * @throws BadRequestServiceEx
+     */
     public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx;
+    
+    /**
+     * @return List<Country>
+     */
+    public List<Country> getCountries();
 
 }

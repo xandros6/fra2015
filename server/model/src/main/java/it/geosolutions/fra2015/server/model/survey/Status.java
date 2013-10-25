@@ -54,12 +54,18 @@ public class Status implements Serializable {
     @Column(nullable = true, updatable = true)
     private Integer revisionNumber;
     
+    @Column(nullable = true, updatable = true)
+    private Long lastPendingFixSubmit;
+    
+    @Column(nullable = true, updatable = true)
+    private Long lastAcceptanceRequest;
+    
     @Transient
     private String country;
 
     public Status(){}
     
-    public Status(String status) {
+	public Status(String status) {
         this.status = status;
     }
 
@@ -78,8 +84,6 @@ public class Status implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
-
     
     public Long getId() {
         return id;
@@ -181,6 +185,31 @@ public class Status implements Serializable {
         this.revisionNumber = revisionNumber;
     }
     
-    
-    
+    /**
+	 * @return the lastPendingFixSubmit
+	 */
+	public Long getLastPendingFixSubmit() {
+		return lastPendingFixSubmit;
+	}
+
+	/**
+	 * @param lastPendingFixSubmit the lastPendingFixSubmit to set
+	 */
+	public void setLastPendingFixSubmit(Long lastPendingFixSubmit) {
+		this.lastPendingFixSubmit = lastPendingFixSubmit;
+	}
+
+	/**
+	 * @return the lastaceptanceRequest
+	 */
+	public Long getLastAcceptanceRequest() {
+		return lastAcceptanceRequest;
+	}
+
+	/**
+	 * @param lastaceptanceRequest the lastaceptanceRequest to set
+	 */
+	public void setLastAcceptanceRequest(Long lastacceptanceRequest) {
+		this.lastAcceptanceRequest = lastacceptanceRequest;
+	}
 }

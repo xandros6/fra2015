@@ -148,8 +148,7 @@ public final class StatusUtils {
         return false;
     }
     
-    public static boolean updateRevision(Status status){
-        
+    public static boolean updateRevision(Status status){        
         Long lastReview = (status.getLastSurveyReview() != null)?status.getLastSurveyReview():0;
         Integer revNumber = (status.getRevisionNumber() != null)?status.getRevisionNumber():0;
         status.setPreviousSurveyReview(lastReview);

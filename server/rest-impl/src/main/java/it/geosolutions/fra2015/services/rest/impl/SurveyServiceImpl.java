@@ -45,6 +45,7 @@ import org.springframework.core.io.Resource;
  * This implementation uses the Interface it.geosolutions.fra2015.services.SurveyServices
  * 
  * @author marco
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  */
 public class SurveyServiceImpl implements SurveyServiceEntryPoint {
 
@@ -231,5 +232,13 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
     public List<Value> getValues(String iso3, Integer questionNumber) throws BadRequestServiceEx {
         return surveyService.getValues(iso3, questionNumber);
     }
+
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint#getCountries()
+	 */
+	@Override
+	public List<Country> getCountries() {
+		 return surveyService.getCountries();
+	}
 
 }

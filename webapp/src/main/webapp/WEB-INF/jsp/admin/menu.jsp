@@ -8,4 +8,6 @@
 		class="tab" data-i18n="toolbar_export"><spring:message code="toolbar.importexport" /></a></li>
 	<li class="${context=='settings' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/usersettings"
 		class="tab"><spring:message code="toolbar.settings" /></a></li>
+	<li class="${context=='summaryStatus' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/summaryStatus/0"
+		class="tab"><spring:message code="toolbar.summaryStatus" /></a></li>
 </ul>
