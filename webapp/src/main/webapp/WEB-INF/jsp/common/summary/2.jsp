@@ -1,6 +1,7 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
-			<tr>
-				<td rowspan="7">2a</td>
+<c:set var="q" value="2" />
+<c:set var ="qpath" value="${surveypath}/${q}" />			<tr>
+				<td rowspan="7"><a href="${qpath}#2a">2a</a></td>
 			</tr>
 			<tr>
 				<td>2.1 <spring:message code="ref95"></spring:message></td>

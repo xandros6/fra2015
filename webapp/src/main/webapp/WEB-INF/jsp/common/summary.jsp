@@ -1,4 +1,19 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
+<c:choose>
+	<c:when test="sessionUser.role = 'validator'">
+		<!-- VALIDATOR -->
+		<c:set var="surveypath" value="../survey/acceptance/view" scope="request" />
+	</c:when>
+	<c:when test="sessionUser.role = 'contributor'">
+		<!-- CONTRIBUTOR -->
+		<c:set var="surveypath" value="../survey/${country}" scope="request" />
+	</c:when>
+	<c:otherwise>
+		<!-- REVIEWER -->
+		<c:set var="surveypath" value="../survey/review/${country}" scope="request" />
+	</c:otherwise>
+</c:choose>
+
 <div class="container">
 <c:if test="${not empty statuscode && not empty country }">
 				<jsp:include page="../common/statuslabel.jsp"></jsp:include>

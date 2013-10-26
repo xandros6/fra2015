@@ -1,6 +1,8 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
+	<c:set var="q" value="1" />
+	<c:set var ="qpath" value="${surveypath}/${q}" />
 	<tr>
-				<td rowspan="6">1a</td>
+				<td rowspan="6"><a href="${qpath}#1a">1a</a></td>
 			</tr>
 			<tr>
 				<td>1.1 <spring:message code="ref58"></spring:message></td>
@@ -48,7 +50,7 @@
 				<td class="numeric">${_fraVariable_1a_6_5_}</td>
 			</tr>
 			<tr>
-				<td rowspan="8">1b</td>
+				<td rowspan="8"><a href="${qpath}#1b">1b</td>
 			</tr>
 			<tr>
 				<td>1.6 <spring:message code="ref68"></spring:message></td>

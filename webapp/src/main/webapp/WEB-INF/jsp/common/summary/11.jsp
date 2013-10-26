@@ -1,4 +1,6 @@
 <%@ include file="../../common/includes/taglibs.jsp"%>
+<c:set var="q" value="11" />
+	<c:set var ="qpath" value="${surveypath}/${q}" />
 <tr>
 				<td rowspan="2">11</td>
 			</tr>

@@ -270,7 +270,7 @@
 			<spring:message code="ref49"></spring:message>
 		</h2>
 		<c:if test="${(fn:contains(notEmptyEntry,'_1a_')) || param.hideEmpty != 'true'}">
-		<div>
+		<div><a name="1a"></a>
 			<h4>
 				<spring:message code="ref50"></spring:message>
 			</h4>
@@ -468,7 +468,7 @@
 		</div>
 		</c:if>
 		<c:if test="${(fn:contains(notEmptyEntry,'_1b_')) || param.hideEmpty != 'true'}">
-		<div>
+		<div><a name="1b"></a>
 			<h4>
 				<spring:message code="ref64"></spring:message>
 			</h4>
