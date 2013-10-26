@@ -58,7 +58,7 @@
 				<td class="numeric">${_fraVariable_2a_7_5_}</td>
 			</tr>
 			<tr>
-				<td rowspan="2">2b</td>
+				<td rowspan="2"><a href="${qpath}#2b">2b</a></td>
 			</tr>
 			<tr>
 				<td>2.4</td>
@@ -68,7 +68,7 @@
 				<td class="numeric" colspan="2">${_fraVariable_2b_7_7_}, ${_fraVariable_2b_7_8_}, ${_fraVariable_2b_7_9_}</td>
 			</tr>
 			<tr>
-				<td rowspan="3">2c</td>
+				<td rowspan="3"><a href="${qpath}#2c">2c</a></td>
 			</tr>
 			<tr>
 				<td>2.5 <spring:message code="ref121"></spring:message></td>

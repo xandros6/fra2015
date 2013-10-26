@@ -3,7 +3,7 @@
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 
 			<tr>
-				<td rowspan="2">9</td>
+				<td rowspan="2"><a href="${qpath}#9">9</a></td>
 			</tr>
 			
 				<td>9.1 <spring:message code="ref372"></spring:message></td>

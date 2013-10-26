@@ -2,7 +2,7 @@
 <c:set var="q" value="8" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="5">8a</td>
+				<td rowspan="5"><a href="${qpath}#8a">8a</a></td>
 			</tr>
 			<tr>
 				<td>8.1 <spring:message code="ref352"></spring:message></td>
@@ -24,7 +24,7 @@
 				<td>Number</td>
 				<td class="numeric" colspan="5">${_fraVariable_8a_4_2_}, ${_fraVariable_8a_4_4_}, ${_fraVariable_8a_4_6_}, ${_fraVariable_8a_4_8_}, ${_fraVariable_8a_4_10_}, ${_fraVariable_8a_8_2_}, ${_fraVariable_8a_8_4_}, ${_fraVariable_8a_8_6_}, ${_fraVariable_8a_8_8_}, ${_fraVariable_8a_8_10_}</td>
 			</tr>
-			<tr><td>8b</td><td><spring:message	code="ref362"></spring:message></td>
+			<tr><td><a href="${qpath}#8b">8b</a></td><td><spring:message	code="ref362"></spring:message></td>
 			<td>1000 ha</td>						
 			<td class="numeric" colspan="5">
 				<c:catch var="exception4">

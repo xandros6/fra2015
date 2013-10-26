@@ -2,7 +2,7 @@
 <c:set var="q" value="10" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="7">10</td>
+				<td rowspan="7"><a href="${qpath}#10">10</a></td>
 			</tr>
 			
 			<tr>

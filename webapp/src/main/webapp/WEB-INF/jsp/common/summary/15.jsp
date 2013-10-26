@@ -2,7 +2,7 @@
 <c:set var="q" value="15" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="5">15</td>
+				<td rowspan="5"><a href="${qpath}#15">15</a></td>
 			</tr>
 			<tr>
 				<td colspan="7">15.1 <strong><spring:message code="ref461"></spring:message></strong></td>

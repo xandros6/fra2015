@@ -3,7 +3,7 @@
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<!--
 			<tr>
-				<td rowspan="2">7</td>
+				<td rowspan="2"><a href="${qpath}#7">7</a></td>
 			</tr>
 			<tr>
 				<td>7.2</td>

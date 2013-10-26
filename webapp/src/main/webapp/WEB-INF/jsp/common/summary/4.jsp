@@ -2,7 +2,7 @@
 <c:set var="q" value="4" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="3">4a</td>
+				<td rowspan="3"><a href="${qpath}#4a">4a</a></td>
 			</tr>
 			<tr>
 				<td>4.1 <spring:message code="ref218"></spring:message></td>
@@ -33,7 +33,7 @@
 			</tr>
 			*/ %>
 			<tr>
-				<td>4b</td>
+				<td><a href="${qpath}#4b">4b</a></td>
 				<td><spring:message code="ref231"></spring:message>
 				<td>1000 local currency</td><%//TODO localize %>
 				<td class="notpresent"></td>
@@ -60,7 +60,7 @@
 				<td class="notpresent"></td>
 			</tr>
 			<tr>
-				<td rowspan="3">4c</td>
+				<td rowspan="3"><a href="${qpath}#4c">4c</a></td>
 			</tr>
 			<tr>
 				<td><spring:message code="ref222"></spring:message></td>

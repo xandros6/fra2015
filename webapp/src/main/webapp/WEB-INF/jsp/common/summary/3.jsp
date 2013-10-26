@@ -2,7 +2,7 @@
 <c:set var="q" value="3" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="7">3a</td>
+				<td rowspan="7"><a href="${qpath}#3a">3a</a></td>
 			</tr>
 			<tr>
 				<td>3.1 <spring:message code="ref154"></spring:message></td>
@@ -61,7 +61,7 @@
 			
 			
 			<tr>
-				<td rowspan="12">3b</td>
+				<td rowspan="12"><a href="${qpath}#3b">3b</a></td>
 			</tr>
 			<tr>
 				<td>3.3.1 <spring:message code="ref161"></spring:message> 1st</td>
@@ -165,7 +165,7 @@
 			
 			
 			<tr>
-				<td rowspan="4">3c</td>
+				<td rowspan="4"><a href="${qpath}#3c">3c</a></td>
 			</tr>
 			<tr>
 				<td>3.4 <spring:message code="ref186"></spring:message></td>
@@ -195,7 +195,7 @@
 				<td class="numeric">${_fraVariable_3c_5_5_}</td>
 			</tr>
 			<tr>
-				<td rowspan="4">3d</td>
+				<td rowspan="4"><a href="${qpath}#3d">3d</a></td>
 			</tr>
 			<tr>
 				<td>3.5 <spring:message code="ref189"></spring:message></td>
@@ -225,7 +225,7 @@
 				<td class="numeric">${_fraVariable_3d_5_5_}, ${_fraVariable_3d_5_10_}</td>
 			</tr>
 			<tr>
-				<td rowspan="6">3e</td>
+				<td rowspan="6"><a href="${qpath}#3e">3e</a></td>
 			</tr>
 			<tr>
 				<td>3.8 <spring:message code="ref194"></spring:message></td>

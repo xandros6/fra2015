@@ -2,7 +2,7 @@
 <c:set var="q" value="5" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="8">5a</td>
+				<td rowspan="8"><a href="${qpath}#5a">5a</a></td>
 			</tr>
 			<tr>
 				<td>5.1 <spring:message code="ref285"></spring:message></td>
@@ -68,7 +68,7 @@
 				<td class="numeric">${_fraVariable_5a_8_5_}</td>
 			</tr>
 			<tr>
-				<td rowspan="6">5b</td>
+				<td rowspan="6"><a href="${qpath}#5b">5b</a></td>
 			</tr>
 			<tr>
 				<td>5.2 <spring:message code="ref274"></spring:message></td>

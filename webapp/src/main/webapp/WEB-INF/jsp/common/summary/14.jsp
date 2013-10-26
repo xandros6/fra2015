@@ -2,7 +2,7 @@
 <c:set var="q" value="14" />
 	<c:set var ="qpath" value="${surveypath}/${q}" />
 			<tr>
-				<td rowspan="4">14</td>
+				<td rowspan="4"><a href="${qpath}#14a">14a</a></td>
 			</tr>
 			<tr>
 				<td>14.1 <spring:message code="ref436"></spring:message></td>
@@ -32,7 +32,7 @@
 				<td class="notpresent" ></td>
 			</tr>
 			<tr>
-				<td rowspan="4">14b</td>
+				<td rowspan="4"><a href="${qpath}#14b">14b</a></td>
 			</tr>
 			
 			<tr>
@@ -63,7 +63,7 @@
 				<td class="notpresent"></td>
 			</tr>
 			<tr>
-				<td rowspan="2">14c</td>
+				<td rowspan="2"><a href="${qpath}#14c">14c</a></td>
 			</tr>
 			<tr>
 				<td>14.3 <spring:message code="ref454"></spring:message></td>

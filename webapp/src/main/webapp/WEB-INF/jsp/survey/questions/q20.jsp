@@ -58,7 +58,7 @@
 			20.2
 			<spring:message code="ref49"></spring:message>
 		</h2>
-		<div>
+		<div><a name="20"></a>
 			<h4>
 				<spring:message code="ref548"></spring:message>
 			</h4>
