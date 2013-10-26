@@ -1,5 +1,6 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
 <ul class="nav">
+	<jsp:include page="../common/survey_menu.jsp" />
 	<li class="${context=='surveylist' ? 'active' : '' }"><a
 		href="${pageContext.request.contextPath}/surveylist/0" class="tab" data-i18n="toolbar_surveys"><spring:message
 				code="toolbar.surveys" /></a></li>
