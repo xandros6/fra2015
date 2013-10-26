@@ -49,7 +49,7 @@
 								<jsp:include page="contributor/check-submit.jsp" />
 							</c:when>
 							<c:when test="${context=='summary'}">
-								<jsp:include page="contributor/summary.jsp" />
+								<jsp:include page="common/summary.jsp" />
 							</c:when>
 							<c:when test="${context=='export'}">
 								<jsp:include page="contributor/export.jsp" />
