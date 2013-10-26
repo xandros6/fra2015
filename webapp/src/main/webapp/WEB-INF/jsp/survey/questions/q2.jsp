@@ -274,7 +274,7 @@
 		</h2>
 		
 		<c:if test="${(fn:contains(notEmptyEntry,'_2a_')) || param.hideEmpty != 'true'}">
-		<div><a name="2a"></a>
+		<div><a id="inpagelink_var_2a"></a>
 			<h4>
 				<spring:message code="ref108"></spring:message>
 			</h4>
@@ -479,7 +479,7 @@
 		</c:if>
 		
 		<c:if test="${(fn:contains(notEmptyEntry,'_2b_')) || param.hideEmpty != 'true'}">
-		<div><a name="2b"></a>
+		<div><a id="inpagelink_var_2b"></a>
 			<h4>
 				<spring:message code="ref112"></spring:message>
 			</h4>
@@ -580,7 +580,7 @@
 		</c:if>
 		
 		<c:if test="${(fn:contains(notEmptyEntry,'_2c_')) || param.hideEmpty != 'true'}">
-		<div><a name="2c"></a>
+		<div><a id="inpagelink_var_2c"></a>
 			<h4>
 				<spring:message code="ref120"></spring:message>
 			</h4>

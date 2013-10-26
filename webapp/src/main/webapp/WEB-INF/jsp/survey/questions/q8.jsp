@@ -245,7 +245,7 @@
 			<spring:message code="ref49"></spring:message>
 		</h2>
 		<c:if test="${fn:contains(notEmptyEntry,'_8a_') || param.hideEmpty != 'true'}">
-		<div><a name="8a"></a>
+		<div><a id="inpagelink_var_8a"></a>
 			<h4>
 				<spring:message code="ref345"></spring:message>
 			</h4>

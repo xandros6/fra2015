@@ -97,7 +97,7 @@
 			</div>
 			</c:if>
 			<c:if test="${fn:contains(notEmptyEntry,'_11_') || param.hideEmpty != 'true'}">
-			<div><a name="11"></a>
+			<div><a id="inpagelink_var_11"></a>
 				<h4>
 					<spring:message code="ref395"></spring:message>
 				</h4>

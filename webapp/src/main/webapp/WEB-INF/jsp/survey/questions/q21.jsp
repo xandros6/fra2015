@@ -114,7 +114,7 @@
 			<spring:message code="ref49"></spring:message>
 		</h2>
 		<c:if test="${fn:contains(notEmptyEntry,'_21a_') || param.hideEmpty != 'true'}">
-		<div><a name="21a"></a>
+		<div><a id="inpagelink_var_21a"></a>
 			<h4>
 				<spring:message code="ref559"></spring:message>
 			</h4>
@@ -158,7 +158,7 @@
 		</div>
 		</c:if>
 		<c:if test="${fn:contains(notEmptyEntry,'_21b_') || param.hideEmpty != 'true'}">
-		<div><a name="21b"></a>
+		<div><a id="inpagelink_var_21b"></a>
 			<h4>
 				<spring:message code="ref563"></spring:message>
 			</h4>

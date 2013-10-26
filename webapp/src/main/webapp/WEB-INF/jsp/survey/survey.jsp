@@ -118,6 +118,7 @@ $(function(){
 		})
 		
 		
+		
 	});
 	
 	//enable /disable CKEDITOR when fbstatus changes
@@ -136,7 +137,15 @@ $(function(){
     		window.onbeforeload=null;
     	})
     })
-	    
-     
+    
+    //Move to proper position
+    var hash = location.href.substring(location.href.indexOf('#'));
+	var name = hash.substring(1);
+	setTimeout(function(){
+	$('body,html').animate({
+		
+	    'scrollTop':   $('a#inpagelink_var_'+name).offset().top
+	  }, 1200);
+	},300);
 }); 
 </script>

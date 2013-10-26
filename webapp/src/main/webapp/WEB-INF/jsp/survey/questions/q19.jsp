@@ -171,7 +171,7 @@
 			19.3
 			<spring:message code="ref49"></spring:message>
 		</h2>
-		<div><a name="19"></a>
+		<div><a id="inpagelink_var_19"></a>
 			<h4>
 				<spring:message code="ref541"></spring:message>
 			</h4>
