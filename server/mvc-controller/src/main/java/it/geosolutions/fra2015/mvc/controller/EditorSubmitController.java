@@ -25,6 +25,7 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.LoggingUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -138,6 +139,10 @@ public class EditorSubmitController {
         // Notify of the status changed with a mail to all Contributors involved
         //
         List<User> contributors = userService.getUsersToNotify(Profile.CONTRIBUTOR.toString().toLowerCase(), iso3, true);
+        LOGGER.info("----------------- state transition: UNDERREVIEW-PENDINGFIX -----------------------");
+        LOGGER.info("----------------- Selected Users (Contributors) to notify with Mail: -------------");
+        LOGGER.info(LoggingUtils.printUsernames(contributors));
+        LOGGER.info("----------------------------------------------------------------------------------");
         if (contributors.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???
@@ -233,6 +238,10 @@ public class EditorSubmitController {
         // Notify of the status changed with a mail to all Validators involved
         //
         List<User> validators = userService.getUsersToNotify(Profile.VALIDATOR.toString().toLowerCase(), iso3, true);
+        LOGGER.info("----------------- state transition: UNDERREVIEW-COMPLETED -----------------------");
+        LOGGER.info("----------------- Selected Users (Validators) to notify with Mail: --------------");
+        LOGGER.info(LoggingUtils.printUsernames(validators));
+        LOGGER.info("----------------------------------------------------------------------------------");
         if (validators.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???
@@ -328,6 +337,12 @@ public class EditorSubmitController {
         // including the Topic Reviewer
         // ///////////////////////////////////////////
         List<User> countryReviewers = userService.getUsersToNotify(Profile.REVIEWER.toString().toLowerCase(), iso3, false);
+        
+        LOGGER.info("----------------- state: UNDERREVIEW-PingReviewers that don't aready submitted yet");
+        LOGGER.info("----------------- Selected Users (Reviewers) to notify with Mail: ---------------");
+        LOGGER.info(LoggingUtils.printUsernames(countryReviewers));
+        LOGGER.info("----------------------------------------------------------------------------------");
+        
         if (reviewersList.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' anyone has been notificated, no mail sent");
             FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.notnotified", 10000, null, null);

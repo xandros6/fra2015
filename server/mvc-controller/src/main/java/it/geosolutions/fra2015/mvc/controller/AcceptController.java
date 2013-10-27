@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.LoggingUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
@@ -148,6 +149,11 @@ public class AcceptController{
         String iso3 = status.getCountry();
         List<User> editors = userService.getUsersToNotify("editor", iso3, true);
 
+        LOGGER.info("----------------- state transition: COMPLETED-UNDERREVIEW -----------------------");
+        LOGGER.info("----------------- Selected Users (RevEditors) to notify with Mail: --------------");
+        LOGGER.info(LoggingUtils.printUsernames(editors));
+        LOGGER.info("----------------------------------------------------------------------------------");
+        
         if (editors.size() <= 0) {
             LOGGER.error("No reviewer associated to country " + iso3);
             // TODO notify someone this error

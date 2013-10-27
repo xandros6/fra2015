@@ -25,6 +25,7 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.mvc.controller.utils.LoggingUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.validation.TiersValidator;
 import it.geosolutions.fra2015.mvc.validation.Validator;
@@ -186,7 +187,12 @@ public class CheckController {
         LOGGER.info("submitted survey:"+status.getCountry());
 
         List<User> reviewers=  userService.getUsersToNotify("reviewer", iso3, true);
-       
+        
+        LOGGER.info("----------------- state transition: WORKINPROGRESS-COMPLILED --------------------");
+        LOGGER.info("----------------- Selected Users (Reviewers) to notify with Mail: ---------------");
+        LOGGER.info(LoggingUtils.printUsernames(reviewers));
+        LOGGER.info("----------------------------------------------------------------------------------");
+        
          if(reviewers.size()<=0){
            LOGGER.error("No reviewer associated to country " + iso3 );
            //TODO notify someone this error
