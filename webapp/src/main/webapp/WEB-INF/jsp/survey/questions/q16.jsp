@@ -672,6 +672,23 @@
 		</div>
 	</section>
 	</c:if>
+	<c:if test="${fn:contains(notEmptyEntry,'_910_') || param.hideEmpty != 'true'}">
+		<section>
+			<h3>
+				<spring:message code="ref565"></spring:message>
+			</h3>
+			<div>
+				<div></div>
+				<div class="entry">
+					<fra:richtextentry name="_fraVariable_910_"></fra:richtextentry>
+				</div>
+				<div class="control clearfix"></div>
+				<fra:feedback feedbackName="_feedback_910_"/>
+				<br/>
+				<br/>
+			</div>
+		</section>
+	</c:if>
 </section>
 
 </c:if>
