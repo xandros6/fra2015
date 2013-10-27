@@ -338,16 +338,11 @@ public class EditorSubmitController {
         // ///////////////////////////////////////////
         List<User> countryReviewers = userService.getUsersToNotify(Profile.REVIEWER.toString().toLowerCase(), iso3, false);
         
-        LOGGER.info("----------------- state: UNDERREVIEW-PingReviewers that don't aready submitted yet");
-        LOGGER.info("----------------- Selected Users (Reviewers) to notify with Mail: ---------------");
-        LOGGER.info(LoggingUtils.printUsernames(countryReviewers));
-        LOGGER.info("----------------------------------------------------------------------------------");
-        
-        if (reviewersList.size() <= 0) {
+        if (countryReviewers.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' anyone has been notificated, no mail sent");
             FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.notnotified", 10000, null, null);
+            return "redirect:/surveylist/0";
         }
-        
         // ///////////////////////////////////////////////////
         // Get only the reviewer that not have submitted yet
         // ///////////////////////////////////////////////////
@@ -359,6 +354,17 @@ public class EditorSubmitController {
         		countryReviewers.remove(u);
         	}
         }
+        
+        if (countryReviewers.size() <= 0) {
+            LOGGER.info("All reviewers associated to country '" + iso3 + "' has already submitted yet, no mails sent");
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.notify.allrevsubmitted", 10000, null, null);
+            return "redirect:/surveylist/0";
+        }
+        
+        LOGGER.info("----------------- state: UNDERREVIEW-PingReviewers that don't aready submitted yet");
+        LOGGER.info("----------------- Selected Users (Reviewers) to notify with Mail: ---------------");
+        LOGGER.info(LoggingUtils.printUsernames(countryReviewers));
+        LOGGER.info("----------------------------------------------------------------------------------");
         
         // /////////////////////////////////////////////
         // Notify of the status changed with a mail 
