@@ -106,11 +106,6 @@ public class SummaryStatusController {
         }
         
         List<SurveyInstance> surveys = surveyService.getSurveysByCountry(countries, page, pagesize);
-             
-		/*model.addAttribute("prev", page > 0);
-		boolean next = surveyService.getSurveysByCountry(countries, page + 1, pagesize).size() > 0;
-		model.addAttribute("next", next);
-        model.addAttribute("page", page);*/
         
 		model.addAttribute("surveys", surveys);
 		

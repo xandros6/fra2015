@@ -21,16 +21,16 @@
  */
 package it.geosolutions.fra2015.mvc.controller.utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
-import it.geosolutions.fra2015.mvc.controller.ReviewerSubmitController;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 
 /**
  * Utility Class for status. Wraps various checks for Status, if the status is
@@ -40,6 +40,7 @@ import it.geosolutions.fra2015.server.model.user.User;
  * Also provide utility methods for manage the reviewersubmit field.
  * 
  * @author Lorenzo Natali
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  */
 public final class StatusUtils {
@@ -355,8 +356,41 @@ public final class StatusUtils {
         return false;
     }
 
-    
-    
-    
+    public static String getLatestTimestamp(Status s){
+		
+    	Long lContSubmit = s.getLastContributorSubmission();
+		Long lRevSubmit = s.getLastSurveyReview();
+		Long lPendSubmit = s.getLastPendingFixSubmit();
+		Long lAcceptReq = s.getLastAcceptanceRequest();
+		Long lAccept = s.getLastStatusAccepted();
+		
+		String timestampName = "";
+		if(lContSubmit != null && lRevSubmit != null &&
+				lPendSubmit != null && lAcceptReq != null && lAccept != null){
+			List<Long> list = new ArrayList<Long>();
+			list.add(lContSubmit);
+			list.add(lRevSubmit);
+			list.add(lPendSubmit);
+			list.add(lAcceptReq);
+			list.add(lAccept);
+			
+			Long maxTimestamp = Collections.max(list);
+			
+			
+			if(maxTimestamp.equals(lContSubmit)){
+				timestampName = "lContSubmit";
+			}else if(maxTimestamp.equals(lRevSubmit)){
+				timestampName = "lRevSubmit";
+			}else if(maxTimestamp.equals(lPendSubmit)){
+				timestampName = "lPendSubmit";
+			}else if(maxTimestamp.equals(lAcceptReq)){
+				timestampName = "lAcceptReq";
+			}else if(maxTimestamp.equals(lAccept)){
+				timestampName = "lAccept";
+			}
+		}
+		
+    	return timestampName;
+    }
 
 }

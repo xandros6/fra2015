@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author marco
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  */
 @Entity(name = "Status")
 @Table(name = "fra_status" )
@@ -60,7 +61,10 @@ public class Status implements Serializable {
     @Column(nullable = true, updatable = true)
     private Long lastAcceptanceRequest;
     
-    @Transient
+    @Column(nullable = true, updatable = true)
+    private Long lastStatusAccepted;
+
+	@Transient
     private String country;
 
     public Status(){}
@@ -211,5 +215,19 @@ public class Status implements Serializable {
 	 */
 	public void setLastAcceptanceRequest(Long lastacceptanceRequest) {
 		this.lastAcceptanceRequest = lastacceptanceRequest;
+	}
+	
+    /**
+	 * @return the lastStatusAccepted
+	 */
+	public Long getLastStatusAccepted() {
+		return lastStatusAccepted;
+	}
+
+	/**
+	 * @param lastStatusAccepted the lastStatusAccepted to set
+	 */
+	public void setLastStatusAccepted(Long lastStatusAccepted) {
+		this.lastStatusAccepted = lastStatusAccepted;
 	}
 }

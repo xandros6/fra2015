@@ -147,7 +147,37 @@ td.entry-item{
 }	
 .table.table-bordered thead th{
 	background:lightgray;
+	vertical-align: middle;
 	
+}
+
+.table td.center{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table td.centerHighlight{
+	text-align: center;
+	vertical-align: middle;
+	background: #4AD964;
+	font-weight: bold;
+}
+
+.table thead th.center {
+	vertical-align: middle;
+	text-align: center;
+}
+
+.table thead th.country {
+	width: 180px;
+}
+
+.table td.centercountry{
+	vertical-align: middle;
+}
+
+.table thead th.timestamp {
+	width: 120px;
 }
 
 .nav-list > li > a {

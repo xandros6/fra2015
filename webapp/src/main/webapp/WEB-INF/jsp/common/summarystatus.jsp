@@ -13,24 +13,27 @@
 			class="table table-bordered table-hover table-condensed">
 			<thead>
 				<tr>
-				    <th>Country Name</th>
-					<th>Latest Contributor Submit</th>
-					<th>Latest Reviewer Submit</th>
-					<th>Latest Pending Fix Submit</th>
-					<th>Latest Acceptance Request</th>
+				    <th class="country center">Country Name</th>
+				    <th class="center">ISO3</th>
+					<th class="timestamp center">Latest Contributor Submit</th>
+					<th class="timestamp center">Latest Reviewer Submit</th>
+					<th class="timestamp center">Latest Pending Fix Submit</th>
+					<th class="timestamp center">Latest Acceptance Request</th>
+					<th class="timestamp center">Latest Acceptance</th>
 					<th>Current Status</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
-					<c:set scope="page" var="countryIso3" value="${survey.country.iso3}" />
-					
-					<c:set scope="page" var="countryIso3" value="${survey.status.status}" />
-					
+				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>		
+				
+					<c:set scope="page" var="timestampName" value="${fra:getLatestTimestamp(survey.status)}" />
+								
 					<tr class="rowItem">
-						<td>${survey.country.name} ( ${survey.country.iso3} )</td>
+						<td class="centercountry">${survey.country.name}</td>
 
-						<td>
+						<td class="center">${survey.country.iso3}</td>
+						
+						<td class="${timestampName != 'lContSubmit'  ? 'center' : 'centerHighlight'}">
 							<c:choose>
 							      <c:when test="${survey.status.lastContributorSubmission != null}">
 									  <jsp:setProperty name="dateValue" property="time"
@@ -45,7 +48,7 @@
 							</c:choose>
 						</td>
 						
-						<td>
+						<td class="${timestampName != 'lRevSubmit' ? 'center' : 'centerHighlight'}">
 							<c:choose>
 							      <c:when test="${survey.status.lastSurveyReview != null}">
 									  <jsp:setProperty name="dateValue" property="time"
@@ -60,7 +63,7 @@
 							</c:choose>
 						</td>
 						
-						<td>
+						<td class="${timestampName != 'lPendSubmit' ? 'center' : 'centerHighlight'}">
 							<c:choose>
 							      <c:when test="${survey.status.lastPendingFixSubmit != null}">
 									  <jsp:setProperty name="dateValue" property="time"
@@ -75,7 +78,7 @@
 							</c:choose>
 						</td>
 						
-						<td>
+						<td class="${timestampName != 'lAcceptReq' ? 'center' : 'centerHighlight'}">
 							<c:choose>
 							      <c:when test="${survey.status.lastAcceptanceRequest != null}">
 									  <jsp:setProperty name="dateValue" property="time"
@@ -90,7 +93,22 @@
 							</c:choose>
 						</td>
 						
-						<td>
+					    <td class="${timestampName != 'lAccept' ? 'center' : 'centerHighlight'}">
+							<c:choose>
+							      <c:when test="${survey.status.lastStatusAccepted != null}">
+									  <jsp:setProperty name="dateValue" property="time"
+											value="${survey.status.lastStatusAccepted}" />
+									  <fmt:formatDate value="${dateValue}"
+											pattern="MM/dd/yyyy HH:mm" />
+							      </c:when>
+							
+							      <c:otherwise>
+							      		${survey.status.lastStatusAccepted}
+							      </c:otherwise>
+							</c:choose>
+						</td>
+						
+						<td class="center">
 							<spring:message code="survey.status.${survey.status.status}" text=""></spring:message>
 						</td>
 						
@@ -98,16 +116,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<!-- ul class="pager pull-right">
-			<c:if test="${prev}">
-				<li class="${prev?'':'disabled'}"><a href="${prev?page-1:'#'}"><spring:message
-							code="prev"></spring:message></a></li>
-			</c:if>
-			<c:if test="${next}">
-				<li class="${next?'':'disabled'}"><a href="${next?page+1:'#'}"><spring:message
-							code="next"></spring:message></a></li>
-			</c:if>
-		</ul-->
 		<div class="pagination pagination-centered">
           <ul>
 

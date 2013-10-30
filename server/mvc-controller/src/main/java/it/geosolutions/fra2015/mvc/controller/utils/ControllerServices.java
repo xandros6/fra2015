@@ -50,6 +50,7 @@ import org.springframework.ui.Model;
 
 /**
  * @author DamianoG
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  * This class contains a set of utils that implements several operation used in several Controller.
  * 
@@ -259,6 +260,7 @@ public class ControllerServices {
 		if(StatusUtils.isCompleted(s)){
 			s.setCountry(c);
 			s.setStatus(StatusUtils.ACCEPTED);
+			s.setLastStatusAccepted(System.currentTimeMillis());
 			surveyService.changeStatus(s);
 		}
 

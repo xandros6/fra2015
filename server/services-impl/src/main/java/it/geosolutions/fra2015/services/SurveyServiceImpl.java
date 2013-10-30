@@ -43,6 +43,7 @@ import com.googlecode.genericdao.search.Search;
 /**
  *
  * @author marco
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  */
 public class SurveyServiceImpl implements SurveyService {
 
@@ -395,6 +396,7 @@ public class SurveyServiceImpl implements SurveyService {
 			survey.getStatus().setCoverage(status.getCoverage());
 			survey.getStatus().setLastAcceptanceRequest(status.getLastAcceptanceRequest());
 			survey.getStatus().setLastPendingFixSubmit(status.getLastPendingFixSubmit());
+			survey.getStatus().setLastStatusAccepted(status.getLastStatusAccepted());
 			surveyDAO.merge(survey);
 			return survey.getStatus().getStatus();
 		}

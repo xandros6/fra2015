@@ -1,0 +1,1 @@
+ALTER TABLE fra_status ADD laststatusaccepted bigint;
