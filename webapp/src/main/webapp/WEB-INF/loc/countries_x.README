@@ -1,0 +1,3 @@
+The x* country files are simply a copy of the non-x files (e.g. country_xen = country.en)
+These files are needed by the system when using the eXtended languages.
+
