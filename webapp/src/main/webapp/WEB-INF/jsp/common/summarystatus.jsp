@@ -13,14 +13,14 @@
 			class="table table-bordered table-hover table-condensed">
 			<thead>
 				<tr>
-				    <th class="country center">Country Name</th>
-				    <th class="center">ISO3</th>
-					<th class="timestamp center">Latest Contributor Submit</th>
-					<th class="timestamp center">Latest Reviewer Submit</th>
-					<th class="timestamp center">Latest Pending Fix Submit</th>
-					<th class="timestamp center">Latest Acceptance Request</th>
-					<th class="timestamp center">Latest Acceptance</th>
-					<th>Current Status</th>
+				    <th class="country center"><spring:message code="summaryStatus.name" text=""></spring:message></th>
+				    <th class="center"><spring:message code="summaryStatus.iso" text=""></spring:message></th>
+					<th class="timestamp center"><spring:message code="summaryStatus.contsubmit" text=""></spring:message></th>
+					<th class="timestamp center"><spring:message code="summaryStatus.revsubmit" text=""></spring:message></th>
+					<th class="timestamp center"><spring:message code="summaryStatus.pendsubmit" text=""></spring:message></th>
+					<th class="timestamp center"><spring:message code="summaryStatus.lastaccept" text=""></spring:message></th>
+					<th class="timestamp center"><spring:message code="summaryStatus.acceptance" text=""></spring:message></th>
+					<th class="center"><spring:message code="summaryStatus.status" text=""></spring:message></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,7 +29,9 @@
 					<c:set scope="page" var="timestampName" value="${fra:getLatestTimestamp(survey.status)}" />
 								
 					<tr class="rowItem">
-						<td class="centercountry">${survey.country.name}</td>
+						<td class="centercountry">
+							<spring:message code="country.${survey.country.iso3}" text=""></spring:message>
+						</td>
 
 						<td class="center">${survey.country.iso3}</td>
 						
