@@ -211,7 +211,7 @@ public final class StatusUtils {
      * @return
      */
     public static boolean isReviewEditorEditable(String s){
-        return isUnderReview(s);
+        return isCompiled(s) || isUnderReview(s);
     }
     
     public static boolean isValidStatus(Status s) {

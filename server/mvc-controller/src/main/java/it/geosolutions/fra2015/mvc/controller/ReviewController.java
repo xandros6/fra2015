@@ -260,7 +260,7 @@ public class ReviewController {
     private void changeStatusToUnderReview(String iso3, User su){
         
         Status status =surveyService.getStatus(iso3);
-        if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString()) && StatusUtils.isCompiled(status)){
+        if((su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString()) || su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) && StatusUtils.isCompiled(status)){
             status.setCountry(iso3);
             status.setStatus(StatusUtils.UNDER_REVIEW);
             surveyService.changeStatus(status);

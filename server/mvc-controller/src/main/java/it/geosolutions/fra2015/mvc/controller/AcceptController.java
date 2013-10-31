@@ -147,7 +147,7 @@ public class AcceptController{
     
     private void notifyEditors(User su, Status status, HttpSession session) {
         String iso3 = status.getCountry();
-        List<User> editors = userService.getUsersToNotify("editor", iso3, true);
+        List<User> editors = userService.getUsersToNotify("editor", iso3, false);
 
         LOGGER.info("----------------- state transition: COMPLETED-UNDERREVIEW -----------------------");
         LOGGER.info("----------------- Selected Users (RevEditors) to notify with Mail: --------------");

@@ -138,7 +138,7 @@ public class EditorSubmitController {
         //
         // Notify of the status changed with a mail to all Contributors involved
         //
-        List<User> contributors = userService.getUsersToNotify(Profile.CONTRIBUTOR.toString().toLowerCase(), iso3, true);
+        List<User> contributors = userService.getUsersToNotify(Profile.CONTRIBUTOR.toString().toLowerCase(), iso3, false);
         LOGGER.info("----------------- state transition: UNDERREVIEW-PENDINGFIX -----------------------");
         LOGGER.info("----------------- Selected Users (Contributors) to notify with Mail: -------------");
         LOGGER.info(LoggingUtils.printUsernames(contributors));
@@ -235,9 +235,9 @@ public class EditorSubmitController {
         LOGGER.info("Submission for survey: '" + status.getCountry() + "' has been succesful. The transition done is UNDERREVIEW->COMPLETED");
 
         //
-        // Notify of the status changed with a mail to all Validators involved
+        // Notify of the status changed with a mail to Validator involved
         //
-        List<User> validators = userService.getUsersToNotify(Profile.VALIDATOR.toString().toLowerCase(), iso3, true);
+        List<User> validators = userService.getUsersToNotify(Profile.VALIDATOR.toString().toLowerCase(), iso3, false);
         LOGGER.info("----------------- state transition: UNDERREVIEW-COMPLETED -----------------------");
         LOGGER.info("----------------- Selected Users (Validators) to notify with Mail: --------------");
         LOGGER.info(LoggingUtils.printUsernames(validators));
