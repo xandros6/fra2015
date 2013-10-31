@@ -12,7 +12,7 @@ CKEDITOR.editorConfig = function( config )
 		/*{ name: 'document', items : [ 'NewPage','Preview' ] },*/
 		{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
 		{ name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','Scayt' ] },
-		{ name: 'insert', items : [ /*'Image', */ 'Table','HorizontalRule'] },
+		{ name: 'insert', items : [ 'Image', 'Table','HorizontalRule'] },
                 '/',
 		{ name: 'styles', items : [ 'Styles','Format' ] },
 		{ name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
