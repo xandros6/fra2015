@@ -302,7 +302,7 @@ public class PrintController {
 					Transformer cfraFilter = factory.newTransformer(cfrqXslt);
 					cfraFilter.setParameter("versionParam", "2.0");
 					cfraFilter.transform(src, xmlResult);
-					src = new StreamSource(new StringReader(cleanXml(xml)));
+					src = new StreamSource(new StringReader(cleanXml(xmlOutWriter.toString())));
 					title = title + "CFRQ_";
 				}
 				String filename = title + country.replace(" ","_") + ".pdf";
