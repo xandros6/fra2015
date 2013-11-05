@@ -31,10 +31,13 @@ import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.Value;
+import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.SurveyCatalog;
+import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -71,6 +74,9 @@ public class ControllerServices {
 
 	@Autowired
 	private SurveyCatalog catalog;
+	
+    @Autowired
+    private UserService userService;
 
 	@Autowired
 	private BulkModelEntitiesLoader bulkLoader;
@@ -338,13 +344,47 @@ public class ControllerServices {
 	}
 
 	public Entry getEntry(String varName){
-
 		Entry e = catalog.getEntry(varName);    
 		return e;
 	}
 
+	/**
+	 * @param question
+	 * @return Question
+	 */
+	public Question findQuestion(long question){
+		Question q = surveyService.findQuestion(question);
+		return q;
+	}
 
 
+	/**
+	 * @param name
+	 * @return User
+	 * @throws NotFoundServiceEx
+	 */
+	public User getUser(String name) throws NotFoundServiceEx {
+		User user = userService.get(name);
+		return user;
+	}
+	
+	/**
+	 * @param question
+	 * @return Collection<Entry>
+	 */
+	public Collection<Entry> getEntriesForQuestion(Long question){
+		Collection<Entry> entries = catalog.getEntriesForQuestion(question);
+		return entries;
+	}
 
+	/**
+	 * @param country
+	 * @param question
+	 * @return List<User>
+	 */
+	public List<User> getReviewersForSurveyAndQuestion(String country, Long question) {
+		List<User> users = userService.getReviewersForSurveyAndQuestion(country, question);	
+		return users;
+	}
 
 }

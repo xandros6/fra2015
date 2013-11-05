@@ -55,10 +55,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author DamianoG
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  */
 @Controller
-@RequestMapping("/reviewersubmit/{country}")
 public class ReviewerSubmitController {
 
     @Autowired
@@ -75,9 +75,29 @@ public class ReviewerSubmitController {
     
     private static final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String handleGet(@PathVariable(value = "country") String country, HttpServletRequest request, Model model,
-            HttpSession session) {
+    /**
+     * @param country
+     * @param session
+     * @return SurveyInstance
+     */
+    private SurveyInstance getSurveyInstance(String country, HttpSession session){
+        @SuppressWarnings("unchecked")
+		Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+        return si;
+    }
+    
+    /**
+     * @param country
+     * @param request
+     * @param model
+     * @param session
+     * @return String
+     */
+    @RequestMapping(value = "/reviewersubmit/{country}", method = RequestMethod.GET)
+    public String handleGet(@PathVariable(value = "country") String country, HttpServletRequest request, 
+    		Model model, HttpSession session) {
 
         model.addAttribute("context","surveylist");
         User su = (User) session.getAttribute("sessionUser");
@@ -85,11 +105,17 @@ public class ReviewerSubmitController {
             return "redirect:/login";
         }
 
-        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
-                .getAttribute(SURVEY_INSTANCES);
-        SurveyInstance si = surveyInstanceMap.get(country);
+        SurveyInstance si = getSurveyInstance(country, session);
+        
+        // ////////////////////////////////////
         // Update the status in surveyIstance
+        // ////////////////////////////////////
+        
         si.setStatus(surveyService.getStatus(country));
+        
+        // //////////////////////////////////
+        // Check for not accepted questions
+        // //////////////////////////////////
         
         List<Long> notAcceptedQuestions = new ArrayList<Long>();
         boolean accepted = true;
@@ -97,50 +123,102 @@ public class ReviewerSubmitController {
         Set<Question> questions = su.getQuestions();
         if(questions == null || questions.isEmpty()){
             StatusUtils.addReviewerToReviewerSubmit(su, si.getStatus());
+            
+            // ///////////////////////
             // submit the Survey
+            // ///////////////////////
+            
             FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.error", 10000, null, null);
             return "redirect:/surveylist/0";
         }
+        
         for (Question el : questions) {
-
             long qid = el.getId();
-            if (!feedbackService.checkQuestionFeedbackStatus(su, si, qid)) {
-                
+            if (!feedbackService.checkQuestionFeedbackStatus(su, si, qid)) {                
                 notAcceptedQuestions.add(qid);
                 accepted = false;
             }
         }
+        
         Long[] qArray = (Long[]) notAcceptedQuestions.toArray(new Long[notAcceptedQuestions.size()]);
         Arrays.sort(qArray);
         
         if (accepted) {
-            Status s = si.getStatus();
-            s.setCountry(si.getCountry().getIso3());
-            boolean outcome = StatusUtils.addReviewerToReviewerSubmit(su, s);
-            if(!outcome){
-                FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.doublesubmit", 10000, null, null);
-                return "redirect:/surveylist/0";
-            }
-            
-            //Calculate the revision coverage
-            List<String> reviewers = StatusUtils.getReviewerSubmit(s);
-            ReviewerUtils ru = new ReviewerUtils(catalog, userService);
-            s.setCoverage(ru.getSurveyCoverage(reviewers));
-            
-            try {
-                surveyService.changeStatus(s);
-            } catch (BadRequestServiceEx e) {
-                LOGGER.error(e.getMessage(), e);
-            } catch (NotFoundServiceEx e) {
-                LOGGER.error(e.getMessage(), e);
-            }
-            
-            // submit the Survey
-            FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null, null);
+            String redirect = doSubmit(si, su, session);            
+            return redirect;
+        }else{
+            FlashAttributesHandler.addFlashAttribute(session, "confirm", "revsubmit.ko", 10000, null, Arrays.toString(qArray));
+            FlashAttributesHandler.addFlashConfirmedAttribute(session, country);
+            return "redirect:/surveylist/0";
+        }       
+    }
+    
+    /**
+     * @param country
+     * @param request
+     * @param model
+     * @param session
+     * @return String
+     */
+    @RequestMapping(value = "/reviewersubmitconfirmed/{country}", method = RequestMethod.GET)
+    public String revisionSubmitConfirmed(@PathVariable(value = "country") String country,
+    		HttpServletRequest request, Model model, HttpSession session) {
+
+        model.addAttribute("context","surveylist");
+        User su = (User) session.getAttribute("sessionUser");
+        if (su == null) {
+            return "redirect:/login";
+        }
+
+        SurveyInstance si = getSurveyInstance(country, session);
+        
+        // //////////////////////////////////////
+        // Update the status in surveyIstance
+        // //////////////////////////////////////
+        
+        si.setStatus(surveyService.getStatus(country));
+        
+        String redirect = doSubmit(si, su, session);
+        
+        return redirect;
+    }
+    
+    /**
+     * @param si
+     * @param su
+     * @param session
+     * @return String
+     */
+    private String doSubmit(SurveyInstance si, User su, HttpSession session){
+        Status s = si.getStatus();
+        s.setCountry(si.getCountry().getIso3());
+        boolean outcome = StatusUtils.addReviewerToReviewerSubmit(su, s);
+        if(!outcome){
+            FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.doublesubmit", 10000, null, null);
             return "redirect:/surveylist/0";
         }
         
-        FlashAttributesHandler.addFlashAttribute(session, "warning", "revsubmit.ko", 10000, null, Arrays.toString(qArray));
-        return "redirect:/surveylist/0";
+        // ////////////////////////////////////
+        // Calculate the revision coverage
+        // ////////////////////////////////////
+        
+        List<String> reviewers = StatusUtils.getReviewerSubmit(s);
+        ReviewerUtils ru = new ReviewerUtils(catalog, userService);
+        s.setCoverage(ru.getSurveyCoverage(reviewers));
+        
+        try {
+            surveyService.changeStatus(s);
+        } catch (BadRequestServiceEx e) {
+            LOGGER.error(e.getMessage(), e);
+        } catch (NotFoundServiceEx e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+        
+        // /////////////////////
+        // Submit the Survey
+        // /////////////////////
+        
+        FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null, null);
+        return "redirect:/surveylist/0"; 
     }
 }

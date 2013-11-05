@@ -13,9 +13,6 @@
 				</tr>
 			</thead>
 			<tbody>
-
-
-
 				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
 					<c:set scope="page" var="submitAllowed" value="enabled" />
 					<c:if test="${survey.status.status != 'underreview'}">
@@ -26,13 +23,11 @@
 						<!-- <td>TODO</td>  -->
 						<td><spring:message code="survey.status.${survey.status.status}"></spring:message></td>
 						<td>
-						<a href="../survey/review/${survey.country.iso3}/0" class="btn"><spring:message code="surveylist.view"></spring:message></a>
-						
+							<a href="../survey/review/${survey.country.iso3}/0" class="btn"><spring:message code="surveylist.view"></spring:message></a>
 							<a href="../reviewersubmit/${survey.country.iso3}" class="btn ${submitAllowed}"><spring:message code="surveylist.submit"></spring:message></a>
 						</td>
 					</tr>
 				</c:forEach>
-
 			</tbody>
 		</table>
 		<ul class="pager pull-right">
@@ -43,5 +38,5 @@
 			<li class="${next?'':'disabled'}"><a href="${next?page+1:'#'}"><spring:message code="next"></spring:message></a></li>
 			</c:if>
 		</ul>
-	</div>
+	</div>	
 </div>

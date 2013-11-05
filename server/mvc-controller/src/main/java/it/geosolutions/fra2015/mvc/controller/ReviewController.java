@@ -35,6 +35,7 @@ import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author DamianoG
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  *
  */
 @Controller
@@ -76,7 +78,7 @@ public class ReviewController {
     public String handleGet(
             @PathVariable(value = "country") String country,
             @PathVariable(value = "question") Long question, Model model,
-            HttpSession session) {
+            HttpSession session) throws NotFoundServiceEx {
 
         User su = (User) session.getAttribute("sessionUser");
         if (su == null) {
@@ -96,7 +98,6 @@ public class ReviewController {
             userProfile = Profile.REVIEWER;
             FeedbackHandler.loadPreviousFeedbacks(model, feedbackService, session, su, question, country);
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
-
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
             model.addAttribute("context", "survey");
             model.addAttribute("question", question);
@@ -125,10 +126,15 @@ public class ReviewController {
 
             List<Feedback> listF = SessionUtils.retrieveFeedbacksAndStoreInSession(fh, session, question, country, userForQuery, harmonized);
             if (Profile.EDITOR.toString().equalsIgnoreCase(su.getRole())) {
-
+                // /////////////////////////////////////////////////////////////////
+                // Find and Add the  unrevisioned entries feedbacks to the question
+                // /////////////////////////////////////////////////////////////////
+            	listF = fh.addUnrevisionedFeedbacks(session, listF, country, question);
+            	
                 listF = fh.packageFeedbacks(listF, true, utils.getStatusInstanceByCountry(country));
                 model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, false));
             }
+            
             fh.prepareFeedbackModel(model, listF);
 
         } catch (BadRequestServiceEx e) {
@@ -147,7 +153,7 @@ public class ReviewController {
     @RequestMapping(value = "/survey/review/{country}/{question}", method = RequestMethod.POST)
     public String handlePost(HttpServletRequest request,
             @PathVariable(value = "country") String country,
-            @PathVariable(value = "question") String question, HttpSession session, Model model) {
+            @PathVariable(value = "question") String question, HttpSession session, Model model) throws NumberFormatException, NotFoundServiceEx {
 
         String status = utils.getStatusByCountry(country);
         String statusLocale = StatusUtils.getStatusLocaleCode(status);
@@ -175,7 +181,6 @@ public class ReviewController {
             harmonizedWrite = false;
             userForQuery = su;
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
-
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
             model.addAttribute("reviewers", userService.getReviewersForSurveyAndQuestion(country, Long.parseLong(question)));
             harmonizedWrite = true;

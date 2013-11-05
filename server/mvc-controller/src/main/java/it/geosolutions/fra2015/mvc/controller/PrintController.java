@@ -26,25 +26,19 @@ import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
 import it.geosolutions.fra2015.mvc.view.MyReloadableResourceBundleMessageSource;
-import it.geosolutions.fra2015.server.model.survey.CompactValue;
-import it.geosolutions.fra2015.server.model.survey.Entry;
-import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
-import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.net.HttpCookie;
-import java.net.URI;
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -107,7 +101,7 @@ public class PrintController {
 
 	@RequestMapping(value = "/survey/print/{country}/{mode}", method = RequestMethod.GET)
 	public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "mode") String mode, Model model,
-			HttpSession session,  Locale locale) throws IllegalArgumentException, InternalErrorServiceEx{
+			HttpSession session,  Locale locale) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
 
 		User su = (User) session.getAttribute("sessionUser");
 
@@ -131,8 +125,6 @@ public class PrintController {
 
 		model.addAttribute("userName", su!=null?su.getUsername().toUpperCase():"");    
 		model.addAttribute("currentDate", df.format(new java.util.Date()));    
-
-
 
 		model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
 
@@ -159,9 +151,6 @@ public class PrintController {
 				}
 			}
 		}
-
-
-
 
 		if(mode.equalsIgnoreCase("allschema")){
 			utils.prepareHTTPRequestOnlyVariablesName(model, country); 
@@ -246,7 +235,6 @@ public class PrintController {
 
 	}
 
-
 	@RequestMapping(value = "/survey/print/pdf/{country}/{type}", method = RequestMethod.GET)
 	public void printPdf(@PathVariable(value = "country") String country, @PathVariable(value = "type") String type, Model model,
 			HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException, InternalErrorServiceEx{
@@ -256,8 +244,6 @@ public class PrintController {
 		}
 
 		try {
-
-
 			String template = "/survey/print/"+country+"/onlyvalues";
 			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
 			req.getRequestDispatcher(template).include(req, customResponse);

@@ -38,6 +38,7 @@ import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class SurveyController{
     
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.GET)
     public String handleGet(@PathVariable(value = "question") String question, Model model,
-            HttpSession session) {
+            HttpSession session) throws NotFoundServiceEx {
 
         Long questionLong = Long.parseLong(question); 
         try{
@@ -147,7 +148,7 @@ public class SurveyController{
 
     @RequestMapping(value = "/survey/{question}", method = RequestMethod.POST)
     public String handlePost(HttpServletRequest request,
-            @PathVariable(value = "question") String question, HttpSession session, Model model) {
+            @PathVariable(value = "question") String question, HttpSession session, Model model) throws NotFoundServiceEx {
 
         Long questionLong = null;
         try{

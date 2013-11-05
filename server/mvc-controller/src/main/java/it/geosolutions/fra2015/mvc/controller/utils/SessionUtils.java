@@ -25,6 +25,7 @@ import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class SessionUtils {
         return cv;
     }
     
-    public static List<Feedback> retrieveFeedbacksAndStoreInSession(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx{
+    public static List<Feedback> retrieveFeedbacksAndStoreInSession(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx, NotFoundServiceEx{
         
         List<Feedback> feedbackList = fh.retrieveFeedbacks(country, question, session, userForQuery, harmonized);
         
@@ -78,7 +79,7 @@ public class SessionUtils {
         return feedbackList;
     }
     
-    public static List<Feedback> retrieveFeedbacksFromSessionOrLoadFromDB(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx{
+    public static List<Feedback> retrieveFeedbacksFromSessionOrLoadFromDB(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx, NotFoundServiceEx{
         
         if(session.getAttribute(COUNTRY_FEEDBACKS) == null){
             

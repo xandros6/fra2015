@@ -24,6 +24,7 @@ package it.geosolutions.fra2015.mvc.controller.utils;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.FEEDBACK;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Status;
@@ -31,6 +32,7 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
+import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,9 +41,11 @@ import java.io.Reader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
@@ -62,6 +66,7 @@ import org.springframework.ui.Model;
  * Hold the feedback management: take as input the req and session objects, build a Feedback Instance and add to a feedback list 
  * 
  * @author DamianoG
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  *
  */
 public class FeedbackHandler{
@@ -86,8 +91,18 @@ public class FeedbackHandler{
         this.feedbackListToRemove = new ArrayList<Feedback>();
     }
    
+    /**
+     * @param country
+     * @param question
+     * @param session
+     * @param su
+     * @param harmonized
+     * @return List<Feedback> 
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx
+     */
     public List<Feedback> retrieveFeedbacks(String country, Long question,
-            HttpSession session, User su, Boolean harmonized) throws BadRequestServiceEx {
+            HttpSession session, User su, Boolean harmonized) throws BadRequestServiceEx, NotFoundServiceEx {
 
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
@@ -103,11 +118,168 @@ public class FeedbackHandler{
 
            throw new BadRequestServiceEx("Errors loading feedbacks...");
         }
+        
         feedbackList.addAll(harmonizedFeedbackList);
+        
         return feedbackList;
     }
     
-    public List<Feedback> retrieveAllFeedbacks(String country, HttpSession session, User su) throws BadRequestServiceEx {
+    /**
+     * @param entry
+     * @param si
+     * @param user
+     * @return Feedback
+     */
+    private Feedback buildUnrevisionedFeedback(Entry entry, SurveyInstance si, User user){
+		Feedback feedback = new Feedback();
+		feedback.setEntry(entry);
+		feedback.setFeedback("");
+		feedback.setFeedbackId(entry.getVariable());
+		feedback.setHarmonized(false);
+		feedback.setStatus("notrevisioned");
+		feedback.setSurvey(si);
+		feedback.setTimestamp(System.currentTimeMillis());
+		feedback.setUser(user);
+		
+		return feedback;
+    }
+    
+    /**
+     * @param session 
+     * @param feedbackList
+     * @param country 
+     * @param question
+     * @param si
+     * @return List<Feedback>
+     * @throws NotFoundServiceEx
+     */
+    public List<Feedback> addUnrevisionedFeedbacks(HttpSession session, List<Feedback> feedbackList, 
+    		String country, Long question) throws NotFoundServiceEx{
+    	
+        Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
+                .getAttribute(SURVEY_INSTANCES);
+        SurveyInstance si = surveyInstanceMap.get(country);
+        
+        // ------------------------------- //
+        // Find unrevisioned entries       //
+        // ------------------------------- //
+        
+        // List of question entries
+    	Collection<Entry> entries = this.controllerServiceUtils.getEntriesForQuestion(question);
+        
+    	// ///////////////////////////////////////
+        // List of submit users for the survey
+    	// ///////////////////////////////////////
+        Status status = si.getStatus();
+        String reviewerSubmit = status.getReviewerSubmit();
+        String[] reviewers = reviewerSubmit.split(";");
+        
+        List<User> reviewersForSurveyAndQuestion = null;
+        if(question != null){
+        	reviewersForSurveyAndQuestion = this.controllerServiceUtils.getReviewersForSurveyAndQuestion(country, question);
+        }
+        
+        int size = reviewers.length;
+        
+        List<User> reviewersList = new ArrayList<User>();
+        for(int i=0; i<size; i++){
+        	String reviewer = reviewers[i];
+        	if(reviewer != null && !reviewer.isEmpty()){
+        		User userReviewer = this.controllerServiceUtils.getUser(reviewer);
+        		
+        		boolean contians = reviewersForSurveyAndQuestion != null ? reviewersForSurveyAndQuestion.contains(userReviewer) : true;
+        		
+        		if(userReviewer != null && 
+        				userReviewer.getRole().equals(Profile.REVIEWER.toString().toLowerCase()) &&	contians){
+        			reviewersList.add(userReviewer);
+        		}
+        	}
+        }
+        
+        // ///////////////////////////////////////////////////////
+        // get the list of entries and users in feedback list
+        // ///////////////////////////////////////////////////////
+    	List<Entry> feedbackEntryList = new ArrayList<Entry>();
+    	List<User> feedbackUserList = new ArrayList<User>();
+    	
+    	Iterator<Feedback> iterator = feedbackList.iterator();
+    	while(iterator.hasNext()){
+    		Feedback f = (Feedback)iterator.next();
+    		
+    		Entry entry = f.getEntry();
+    		User user = f.getUser();
+    		
+    		if(entry != null){
+    			feedbackEntryList.add(entry);
+    			feedbackUserList.add(user);
+    		}
+    	}
+    	
+    	Iterator<User> i = reviewersList.iterator();
+    	while(i.hasNext()){
+    		User user = (User)i.next();
+    		
+    		if(!feedbackUserList.contains(user)){
+    			// ////////////////////////////////////////////
+    			// The user have not revisioned any entry.
+    			// Creare the dummy feedback for each entry.
+    			// ////////////////////////////////////////////    			
+    			Iterator<Entry> iterEntry = entries.iterator();
+    			while(iterEntry.hasNext()){
+    				Entry entry = (Entry)iterEntry.next();
+    				
+    				Feedback feedback = this.buildUnrevisionedFeedback(entry, si, user);    
+    				feedbackList.add(feedback);
+    			}
+    		}else{
+    			// ////////////////////////////////////////////////////////////////
+    			// The user have revisioned at least one entry. Determine which 
+    			// he have not revisioned and create the dummies feedback for each
+    			// of these entries.
+    			// ////////////////////////////////////////////////////////////////
+    			Iterator<Entry> iterEntry = entries.iterator();
+    			while(iterEntry.hasNext()){
+    				Entry entry = (Entry)iterEntry.next();
+    				
+    				iterator = feedbackList.iterator();
+    				boolean exists = false;
+    				
+    				while(iterator.hasNext()){
+    					Feedback f = (Feedback)iterator.next();
+    					
+    					Entry e = f.getEntry();
+    					User u = f.getUser();
+    					
+    					boolean eb = e.equals(entry);
+    					boolean ub = u.equals(user);
+    					if(eb && ub){
+    						exists = true;
+    					}
+    				}
+    				
+    				if(!exists){
+    					// ///////////////////////////////////////////////////////////
+    					// Entry not revisioned. Add a dummy feedback for this.
+    					// ///////////////////////////////////////////////////////////
+        				Feedback feedback = this.buildUnrevisionedFeedback(entry, si, user);        				
+        				feedbackList.add(feedback);
+    				}
+    			}
+    		}
+    	}
+    	
+    	return feedbackList;
+    }
+    
+    /**
+     * @param country
+     * @param session
+     * @param su
+     * @return List<Feedback> 
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx 
+     */
+    public List<Feedback> retrieveAllFeedbacks(String country, HttpSession session, User su) throws BadRequestServiceEx, NotFoundServiceEx {
 
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);
@@ -116,14 +288,15 @@ public class FeedbackHandler{
         List<Feedback> feedbackList = null;
         List<Feedback> harmonizedFeedbackList = null;
         try {
-
             feedbackList = feedbackService.loadAllFeedback(su, si);
             harmonizedFeedbackList = feedbackService.loadAllHarmonizedfeedbacks(si);
         } catch (BadRequestServiceEx e) {
 
            throw new BadRequestServiceEx("Errors loading feedbacks...");
         }
+        
         feedbackList.addAll(harmonizedFeedbackList);
+        
         return feedbackList;
     }
     
@@ -207,7 +380,7 @@ public class FeedbackHandler{
                 }
             }
             
-            String record = (el.getStatus().equals("ok"))?recordOK:recordKO;
+            String record = (el.getStatus().equals("ko")) ? recordKO : recordOK;
             String colorClass = "";
             if(!StatusUtils.getReviewerSubmit(status).contains(el.getUser().getUsername())){
                        colorClass= "alert alert-warning";
@@ -379,6 +552,7 @@ public class FeedbackHandler{
         }
         return templates;
     }
+    
     public int[] getFeedbackCounter(String country,HttpSession session,boolean harmonized){
         Map<String, SurveyInstance> surveyInstanceMap = (Map<String, SurveyInstance>) session
                 .getAttribute(SURVEY_INSTANCES);

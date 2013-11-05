@@ -40,6 +40,8 @@ public class FlashAttributesHandler {
     private static final String MESSAGE_TRAILCODE = "messageTrailCode";
     
     private static final String NOT_LOCALIZED_MESSAGE = "notLocalizedMessage";
+    
+    private static final String CONFIRMED_ATTRIBUTE = "confirmedAttribute";
 
     public static void addFlashAttribute(HttpSession session, String messageType,
             String messageCode, Integer messageTimeout, String messageTrailCode, String notLocalizedMessage) {
@@ -49,6 +51,7 @@ public class FlashAttributesHandler {
         session.removeAttribute(MESSAGE_TIMEOUT);
         session.removeAttribute(MESSAGE_TRAILCODE);
         session.removeAttribute(NOT_LOCALIZED_MESSAGE);
+        session.removeAttribute(CONFIRMED_ATTRIBUTE);
 
         session.setAttribute(MESSAGE_TYPE, messageType);
         session.setAttribute(MESSAGE_CODE, messageCode);
@@ -87,5 +90,11 @@ public class FlashAttributesHandler {
         session.removeAttribute(MESSAGE_TRAILCODE);
         session.removeAttribute(NOT_LOCALIZED_MESSAGE);
     }
+
+	public static void addFlashConfirmedAttribute(HttpSession session,
+			String country) {
+        session.removeAttribute(CONFIRMED_ATTRIBUTE);
+        session.setAttribute(CONFIRMED_ATTRIBUTE, country);
+	}
 
 }
