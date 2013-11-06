@@ -46,7 +46,11 @@
 				<td>${_fraVariable_13a_4_2_}</td>
 				<td colspan="3">
 					<c:if test="${_fraVariable_13a_4_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
-					<c:if test="${_fraVariable_13a_4_4_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_4_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>
+					<c:if test="${_fraVariable_13a_4_4_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_4_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_4_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_4_6_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_6_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_4_7_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_7_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>,
+					<c:if test="${_fraVariable_13a_4_8_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_13a_4_8_ =='no'}"><spring:message code="chk.no"></spring:message></c:if>
 				</td>
 			</tr>
 			<tr class="summaryRow">

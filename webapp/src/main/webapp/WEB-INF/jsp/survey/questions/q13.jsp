@@ -239,12 +239,16 @@
 							<div id="cell-content">${_fraVariable_13a_4_2_}</div></td>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_4_3_"  rownumber="2" columnnumber="3" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
 							<fra:yesno mod=" editable " name="_fraVariable_13a_4_4_"  rownumber="2" columnnumber="4" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
-
+							<fra:yesno mod=" editable " name="_fraVariable_13a_4_5_"  rownumber="2" columnnumber="5" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
+							<fra:yesno mod=" editable " name="_fraVariable_13a_4_6_"  rownumber="2" columnnumber="6" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
+							<fra:yesno mod=" editable " name="_fraVariable_13a_4_7_"  rownumber="2" columnnumber="7" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
+							<fra:yesno mod=" editable " name="_fraVariable_13a_4_8_"  rownumber="2" columnnumber="8" style="background-color: rgb(242, 245, 169); " entryId="13a"></fra:yesno>
 							
-							<td class="noneditable" rownumber="4" columnnumber="5"></td>
+							<!-- old disabled cells --> 
+							<!-- td class="noneditable" rownumber="4" columnnumber="5"></td>
 							<td class="noneditable" rownumber="4" columnnumber="6"></td>
 							<td class="noneditable" rownumber="4" columnnumber="7"></td>
-							<td class="noneditable" rownumber="4" columnnumber="8"></td>
+							<td class="noneditable" rownumber="4" columnnumber="8"></td -->
 						</tr>
 						<tr rowname="13.4" unit="%,year,checkbox" class="summary-na">
 							<td class="title" rownumber="5" columnnumber="0"><spring:message
