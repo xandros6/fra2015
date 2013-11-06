@@ -98,10 +98,9 @@
 				<jsp:include page="summary/9.jsp"/>
 			</c:if>
 			
-			<!-- TOPIC VI -->
+			<!-- TOPIC VI i -->
 			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 'q10')|| fn:contains(allowedQuestions, 'q11')|| fn:contains(allowedQuestions, 'q12')
-														|| fn:contains(allowedQuestions, 'q13')
-														|| fn:contains(allowedQuestions, 'q14')|| fn:contains(allowedQuestions, 'q15')|| fn:contains(allowedQuestions, 'q16') }">
+														|| fn:contains(allowedQuestions, 'q13')}">
 				<tr>
 					<td></td>
 					<td colspan="7"><strong><spring:message code="ref376"></spring:message></strong></td>
@@ -119,6 +118,14 @@
 			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q13')}">
 				<jsp:include page="summary/13.jsp"/>
 			</c:if>
+			
+			<!-- TOPIC VI ii -->
+			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q14')|| fn:contains(allowedQuestions, 'q15')|| fn:contains(allowedQuestions, 'q16') }">
+				<tr>
+					<td></td>
+					<td colspan="7"><strong><spring:message code="reftopic6b"></spring:message></strong></td>
+				</tr>
+			</c:if>			
 			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q14')}">
 				<jsp:include page="summary/14.jsp"/>
 			</c:if>
@@ -128,6 +135,7 @@
 			<c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q16')}">
 				<jsp:include page="summary/16.jsp"/>
 			</c:if>
+			
 			<!-- TOPIC VII -->
 			<c:if test="${sessionUser.role!='reviewer'  || fn:contains(allowedQuestions, 'q17')|| fn:contains(allowedQuestions, 'q18')|| fn:contains(allowedQuestions,'q19')
 														|| fn:contains(allowedQuestions, 'q20')}">
