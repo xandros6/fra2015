@@ -4,7 +4,7 @@
 <tr>
 				<td rowspan="2"><a href="${qpath}#11">11</a></td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>11.1 <spring:message code="ref396"></spring:message></td>
 				<td>Boolean</td>
 				<td class="notpresent" ></td>

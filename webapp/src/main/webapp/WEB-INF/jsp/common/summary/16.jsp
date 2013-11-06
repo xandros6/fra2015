@@ -5,10 +5,9 @@
 				<td rowspan="5"><a href="${qpath}#16a">16a</a></td>
 			</tr>
 			<tr>
-				<td colspan="2">16.1 <spring:message code="ref479"></spring:message></td>
-				<td colspan="5"></td>
+				<td colspan="7">16.1 <spring:message code="ref479"></spring:message></td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>16.1.1 <spring:message code="ref480"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric" colspan="5">
@@ -28,7 +27,7 @@
 				</td>
 				
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>16.1.2 <spring:message code="ref481"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric" colspan="5">
@@ -47,7 +46,7 @@
 					${_fraVariable_16a_7_6_}
 				</td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>16.1.3 <spring:message code="ref478"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric" colspan="5">
@@ -70,11 +69,9 @@
 				<td rowspan="5"><a href="${qpath}#16b">16b</a></td>
 			</tr>
 			<tr>
-				<td colspan="2">16.2 <spring:message code="ref482"></spring:message></td>
-				
-				<td colspan="5"></td>
+				<td colspan="7">16.2 <spring:message code="ref482"></spring:message></td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>16.2.1 ${_fraVariable_16b_2_0_}</td>
 				<td>1000 ha</td>
 				<td class="numeric" colspan="5">
@@ -93,7 +90,7 @@
 					${_fraVariable_16b_6_6_}
 				</td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>16.2.2 ${_fraVariable_16b_3_0_}</td>
 				<td>1000 ha</td>
 								<td class="numeric" colspan="5">
@@ -112,7 +109,7 @@
 					${_fraVariable_16b_7_6_}
 				</td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>16.2.3 ${_fraVariable_16b_4_0_}</td>
 				<td>1000 ha</td>
 								<td class="numeric" colspan="5">

@@ -4,7 +4,7 @@
 			<tr>
 				<td rowspan="3"><a href="${qpath}#6">6</a></td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>6.1 <spring:message code="ref311"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_6_2_1_}</td>
@@ -13,7 +13,7 @@
 				<td class="numeric">${_fraVariable_6_2_4_}</td>
 				<td class="numeric">${_fraVariable_6_2_5_}</td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>6.2 <spring:message code="ref313"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_6_3_1_}</td>

@@ -20,7 +20,6 @@
 		<br/><br/><br/>
 	</c:if>
 
-	
 	<table
 		class="table table-bordered table-hover table-condensed table-striped summary">
 		<thead>
@@ -161,4 +160,26 @@
 			</c:if>
 		</tbody>
 	</table>
+	
+	<!-- BUTTON to hide/show empty rows of the summary -->
+	
+	<div style="position:fixed;right:0;bottom:50" class="control-panel">    
+	    <button id="summaryHideShowButton" type="button" class="btn btn-danger btn-small btn-save-survey" data-toggle="button">
+			<spring:message code="summary.hide.empty.records"></spring:message>
+		</button>
+	</div>
+	
+    <script type="text/javascript">
+		$("#summaryHideShowButton").toggle(function() {
+			
+			$('.summaryRow').each(function(){		
+				hideEmptySummaryRecords(this);		
+			});
+			
+			$(this).text('<spring:message code="summary.show.empty.records"></spring:message>');
+			
+		}, function() {
+			location.reload(); 
+		});   	
+	</script>
 </div>

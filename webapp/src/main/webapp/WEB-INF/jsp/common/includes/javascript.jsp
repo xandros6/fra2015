@@ -24,6 +24,7 @@
 <script src="${pageContext.request.contextPath}/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/js/utils.js"></script>
 <script src="${pageContext.request.contextPath}/js/total.js"></script>
+<script src="${pageContext.request.contextPath}/js/summaryrow.js"></script>
 <!--  
 		<script src="${pageContext.request.contextPath}/js/constants.js"></script>
 		<script src="${pageContext.request.contextPath}/js/rest.js"></script>

@@ -4,7 +4,7 @@
 			<tr>
 				<td rowspan="3"><a href="${qpath}#4a">4a</a></td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>4.1 <spring:message code="ref218"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_4a_2_1_}</td>
@@ -13,7 +13,7 @@
 				<td class="numeric">${_fraVariable_4a_2_4_}</td>
 				<td class="numeric">${_fraVariable_4a_2_5_}</td>
 			</tr>
-			<tr>
+			<tr class="summaryRow">
 				<td>4.2 <spring:message code="ref220"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_4a_3_1_}</td>
@@ -32,7 +32,7 @@
 				<td class="numeric">${_fraVariable_4a_4_5_}</td>
 			</tr>
 			*/ %>
-			<tr>
+			<tr class="summaryRow">
 				<td><a href="${qpath}#4b">4b</a></td>
 				<td><spring:message code="ref231"></spring:message>
 				<td>1000 local currency</td><%//TODO localize %>
