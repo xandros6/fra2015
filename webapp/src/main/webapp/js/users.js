@@ -308,6 +308,7 @@ function initFilterWindow(el){
 
 function saveUser(el){
 	var cquestions = "";
+	
 	el.find(".questionCheck").each(function( index ) {
 		if($(this).is(':checked')){
 			if(cquestions == ""){
@@ -318,25 +319,35 @@ function saveUser(el){
 		}
 	});
 	
-	
 	el.find("#questionsStr").val(cquestions);
-	//at least 1 question for reviewer
+	
+	// At least 1 question for reviewer
 	var valRules = {ignore: ""};
 	var role = el.find('#roleComboBox').val();
+	
+	// ///////////////////////////////////////
+	// Reset the form validator every time.
+	// ///////////////////////////////////////
+	var form = el.find("#createUserForm");
+	if(form){
+		var formValidator = $.data(form[0], 'validator');
+		if(formValidator){
+			$.data(form[0], 'validator', null);
+		}		
+	}
+	
 	if (role == 'reviewer') {
 		valRules.rules={
 			questionsStr: "required"
 		}
-	}else{
-		var settings = $('form').validate().settings;
-		if (settings.rules.questionsStr) {
-			delete settings.rules.questionsStr;
-		}
-		
-	}
-	el.find("#createUserForm").validate(valRules);
-
-	el.find('#createUserForm').submit();
+	}/*else if (role == 'contributor' || role == 'validator') {
+		valRules.rules = {
+			ccountries: "required"
+		}		
+	}*/
+	
+	form.validate(valRules);
+	form.submit();
 }
 
 function initActivityLog(){
