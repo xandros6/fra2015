@@ -99,6 +99,14 @@ public class UsersController {
 
 		User user = new User();
 		userDto.copyTo(user);
+		
+		// /////////////////////////////////////////////////
+		// Remove undesirable white spaces from the user 
+		// relevant fields.
+		// /////////////////////////////////////////////////
+		user.setName(user.getName().trim());
+		user.setUsername(user.getUsername().trim());
+		user.setNewPassword(user.getNewPassword().trim());
 
 		try{
 			if(!userDto.getQuestionsStr().isEmpty()){
