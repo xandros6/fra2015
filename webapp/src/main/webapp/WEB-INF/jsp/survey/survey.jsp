@@ -67,22 +67,26 @@ $(function(){
     jQuery('textarea.texteditor').each( function() {                       
                         
   		var id = $(this).attr('id');
+  		
   		id = (id!=undefined)?id:$(this).attr('name');
+  		
   		if(id == undefined){
   			id = "cke_" +Math.floor(Math.random()*999999);
   			$(this).attr('id',id);
 		}
+  		
         var readOnly = false;
         var status = $('input:radio[name=STATUS'+id+']:checked').val();
+        
 		if(status && status!="undefined"){ //returns undefined string, don't know why
 			if( status == "ok"){
 				readOnly= true; 
-				}
-			else{
+			}else{
 				readOnly= false; 
-
 			}
+		
 			var data;
+			
 			$('input:radio[name=STATUS'+id+']').change(function(){
 				var input = $('input:radio[name=STATUS'+id+']:checked');
 				var status = input.val();
@@ -94,19 +98,21 @@ $(function(){
 				if( status == "ok"){
 					instance.setReadOnly(true); 
 					container.addClass('alert-success');
+					fra.dirty = true;
 
 				}else if(status =="ko"){
 					instance.setReadOnly(false);
 					container.addClass('alert-error');
-
+					fra.dirty = true;
+					
 				}else{
 					instance.setReadOnly(true);
 					container.addClass('alert-warning');
-
+					fra.dirty = true;
 				}
-
 			})
 		}
+		
 		CKEDITOR.replace( id, { 
 			toolbar: 'MyToolbar',
 			language : '${pageContext.response.locale}',
@@ -116,19 +122,13 @@ $(function(){
 				fra.dirty=true;
 			}
 		})
-		
-		
-		
-	});
-	
-	//enable /disable CKEDITOR when fbstatus changes
-	 
+	});    
     
-    window.onbeforeunload =   function confirmExit()
-    {
-      if(fra.dirty && !fra.submit){
-    	  return '<spring:message code="alert.survey.pageleaving" />';
-      }
+	// enable/disable CKEDITOR when fbstatus changes
+    window.onbeforeunload = function confirmExit(){
+	      if(fra.dirty && !fra.submit){
+	    	  return '<spring:message code="alert.survey.pageleaving" />';
+	      }
     }
  
     $(function(){
@@ -141,11 +141,12 @@ $(function(){
     //Move to proper position
     var hash = location.href.substring(location.href.indexOf('#'));
 	var name = hash.substring(1);
+	
 	setTimeout(function(){
-	$('body,html').animate({
-		
-	    'scrollTop':   $('a#inpagelink_var_'+name).offset().top
-	  }, 1200);
+		$('body,html').animate({
+			
+		    'scrollTop':   $('a#inpagelink_var_'+name).offset().top
+		}, 1200);
 	},300);
 }); 
 </script>
