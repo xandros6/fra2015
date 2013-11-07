@@ -365,28 +365,30 @@ public final class StatusUtils {
 		Long lAccept = s.getLastStatusAccepted();
 		
 		String timestampName = "";
-		if(lContSubmit != null && lRevSubmit != null &&
-				lPendSubmit != null && lAcceptReq != null && lAccept != null){
-			List<Long> list = new ArrayList<Long>();
-			list.add(lContSubmit);
-			list.add(lRevSubmit);
-			list.add(lPendSubmit);
-			list.add(lAcceptReq);
-			list.add(lAccept);
-			
+
+		List<Long> list = new ArrayList<Long>();
+		
+		if(lContSubmit != null) list.add(lContSubmit);
+		if(lRevSubmit != null) list.add(lRevSubmit);
+		if(lPendSubmit != null) list.add(lPendSubmit);
+		if(lAcceptReq != null) list.add(lAcceptReq);
+		if(lAccept != null) list.add(lAccept);
+		
+		if(list.size() > 0){
 			Long maxTimestamp = Collections.max(list);
 			
-			
-			if(maxTimestamp.equals(lContSubmit)){
-				timestampName = "lContSubmit";
-			}else if(maxTimestamp.equals(lRevSubmit)){
-				timestampName = "lRevSubmit";
-			}else if(maxTimestamp.equals(lPendSubmit)){
-				timestampName = "lPendSubmit";
-			}else if(maxTimestamp.equals(lAcceptReq)){
-				timestampName = "lAcceptReq";
-			}else if(maxTimestamp.equals(lAccept)){
-				timestampName = "lAccept";
+			if(maxTimestamp != null){
+				if(maxTimestamp.equals(lContSubmit)){
+					timestampName = "lContSubmit";
+				}else if(maxTimestamp.equals(lRevSubmit)){
+					timestampName = "lRevSubmit";
+				}else if(maxTimestamp.equals(lPendSubmit)){
+					timestampName = "lPendSubmit";
+				}else if(maxTimestamp.equals(lAcceptReq)){
+					timestampName = "lAcceptReq";
+				}else if(maxTimestamp.equals(lAccept)){
+					timestampName = "lAccept";
+				}
 			}
 		}
 		
