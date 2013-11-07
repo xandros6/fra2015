@@ -2,6 +2,9 @@
 
 ALTER TABLE fra_status ADD lastacceptancerequest bigint;
 ALTER TABLE fra_status ADD lastpendingfixsubmit bigint;
+
+-- https://github.com/geosolutions-it/fra2015/issues/334  ( DEPLOY-DEV-20131027 -> DEPLOY-DEV-20131031 )
+
 ALTER TABLE fra_status ADD laststatusaccepted bigint;
 
 -- https://github.com/geosolutions-it/fra2015/issues/323
