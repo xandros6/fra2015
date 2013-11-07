@@ -278,6 +278,11 @@ public class ImportExportController {
                     questions.add(el2.getId());
                 }
                 uDTO.setQuestionsId(questions);
+                /**
+                 * Remove the password for now, in the future maybe will be requested to export and import
+                 * the users, so the password must be encrypt... 
+                 */
+                uDTO.setPassword("********");
                 usersDTO.add(uDTO);
             }
         } catch (Exception e) {
