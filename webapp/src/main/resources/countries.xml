@@ -1,236 +1,236 @@
 <countries>
-<country><id>14</id><iso3>ABW</iso3><name>Aruba</name><type>FRA</type><countryarea>18</countryarea><landarea>18</landarea></country>
-<country><id>1</id><iso3>AFG</iso3><name>Afghanistan</name><type>FRA</type><countryarea>65223</countryarea><landarea>65223</landarea></country>
-<country><id>8</id><iso3>AGO</iso3><name>Angola</name><type>FRA</type><countryarea>124670</countryarea><landarea>124670</landarea></country>
-<country><id>9</id><iso3>AIA</iso3><name>Anguilla</name><type>FRA</type><countryarea>9</countryarea><landarea>9</landarea></country>
-<country><id>3</id><iso3>ALB</iso3><name>Albania</name><type>CFRQ</type><countryarea>2875</countryarea><landarea>2740</landarea></country>
-<country><id>7</id><iso3>AND</iso3><name>Andorra</name><type>CFRQ</type><countryarea>47</countryarea><landarea>47</landarea></country>
-<country><id>176</id><iso3>ANT</iso3><name>Netherlands Antilles</name><type>FRA</type><countryarea>80</countryarea><landarea>80</landarea></country>
-<country><id>255</id><iso3>ARE</iso3><name>United Arab Emirates</name><type>FRA</type><countryarea>8360</countryarea><landarea>8360</landarea></country>
-<country><id>12</id><iso3>ARG</iso3><name>Argentina</name><type>CFRQ</type><countryarea>278040</countryarea><landarea>273669</landarea></country>
-<country><id>13</id><iso3>ARM</iso3><name>Armenia</name><type>CFRQ</type><countryarea>2974</countryarea><landarea>2848</landarea></country>
-<country><id>5</id><iso3>ASM</iso3><name>American Samoa</name><type>FRA</type><countryarea>20</countryarea><landarea>20</landarea></country>
-<country><id>11</id><iso3>ATG</iso3><name>Antigua and Barbuda</name><type>FRA</type><countryarea>44</countryarea><landarea>44</landarea></country>
-<country><id>17</id><iso3>AUS</iso3><name>Australia</name><type>CFRQ</type><countryarea>774122</countryarea><landarea>768230</landarea></country>
-<country><id>18</id><iso3>AUT</iso3><name>Austria</name><type>CFRQ</type><countryarea>8387.9</countryarea><landarea>8243.5</landarea></country>
-<country><id>19</id><iso3>AZE</iso3><name>Azerbaijan</name><type>CFRQ</type><countryarea>8660</countryarea><landarea>8262.2</landarea></country>
-<country><id>43</id><iso3>BDI</iso3><name>Burundi</name><type>CFRQ</type><countryarea>2783</countryarea><landarea>2568</landarea></country>
-<country><id>27</id><iso3>BEL</iso3><name>Belgium</name><type>CFRQ</type><countryarea>3053</countryarea><landarea>3028</landarea></country>
-<country><id>29</id><iso3>BEN</iso3><name>Benin</name><type>CFRQ</type><countryarea>11262</countryarea><landarea>11062</landarea></country>
-<country><id>42</id><iso3>BFA</iso3><name>Burkina Faso</name><type>FRA</type><countryarea>27422</countryarea><landarea>27360</landarea></country>
-<country><id>23</id><iso3>BGD</iso3><name>Bangladesh</name><type>FRA</type><countryarea>14400</countryarea><landarea>13017</landarea></country>
-<country><id>41</id><iso3>BGR</iso3><name>Bulgaria</name><type>CFRQ</type><countryarea>11100</countryarea><landarea>10856</landarea></country>
-<country><id>21</id><iso3>BHR</iso3><name>Bahrain</name><type>FRA</type><countryarea>76</countryarea><landarea>76</landarea></country>
-<country><id>20</id><iso3>BHS</iso3><name>Bahamas</name><type>FRA</type><countryarea>1388</countryarea><landarea>1001</landarea></country>
-<country><id>34</id><iso3>BIH</iso3><name>Bosnia and Herzegovina</name><type>CFRQ</type><countryarea>5121</countryarea><landarea>5100</landarea></country>
-<country><id>99900002</id><iso3>BLM</iso3><name>Saint Barthelemy</name><type>FRA</type><countryarea>2.1</countryarea><landarea>2.1</landarea></country>
-<country><id>26</id><iso3>BLR</iso3><name>Belarus</name><type>CFRQ</type><countryarea>20760</countryarea><landarea>20282</landarea></country>
-<country><id>28</id><iso3>BLZ</iso3><name>Belize</name><type>FRA</type><countryarea>2297</countryarea><landarea>2281</landarea></country>
-<country><id>30</id><iso3>BMU</iso3><name>Bermuda</name><type>FRA</type><countryarea>5</countryarea><landarea>5</landarea></country>
-<country><id>33</id><iso3>BOL</iso3><name>Bolivia</name><type>FRA</type><countryarea>109858</countryarea><landarea>108330</landarea></country>
-<country><id>37</id><iso3>BRA</iso3><name>Brazil</name><type>CFRQ</type><countryarea>851488</countryarea><landarea>845942</landarea></country>
-<country><id>24</id><iso3>BRB</iso3><name>Barbados</name><type>FRA</type><countryarea>43</countryarea><landarea>43</landarea></country>
-<country><id>40</id><iso3>BRN</iso3><name>Brunei Darussalam</name><type>FRA</type><countryarea>577</countryarea><landarea>527</landarea></country>
-<country><id>31</id><iso3>BTN</iso3><name>Bhutan</name><type>FRA</type><countryarea>3839.4</countryarea><landarea>3839.4</landarea></country>
-<country><id>35</id><iso3>BWA</iso3><name>Botswana</name><type>FRA</type><countryarea>58173</countryarea><landarea>56673</landarea></country>
-<country><id>49</id><iso3>CAF</iso3><name>Central African Republic</name><type>CFRQ</type><countryarea>62298</countryarea><landarea>62298</landarea></country>
-<country><id>46</id><iso3>CAN</iso3><name>Canada</name><type>CFRQ</type><countryarea>998467</countryarea><landarea>909351</landarea></country>
-<country><id>237</id><iso3>CHE</iso3><name>Switzerland</name><type>CFRQ</type><countryarea>4128</countryarea><landarea>4000</landarea></country>
-<country><id>51</id><iso3>CHL</iso3><name>Chile</name><type>CFRQ</type><countryarea>75609.6</countryarea><landarea>74353.2</landarea></country>
-<country><id>53</id><iso3>CHN</iso3><name>China</name><type>CFRQ</type><countryarea>960000.05</countryarea><landarea>932748.95</landarea></country>
-<country><id>66</id><iso3>CIV</iso3><name>Côte d'Ivoire</name><type>CFRQ</type><countryarea>32246</countryarea><landarea>31800</landarea></country>
-<country><id>45</id><iso3>CMR</iso3><name>Cameroon</name><type>CFRQ</type><countryarea>47544</countryarea><landarea>47271</landarea></country>
-<country><id>68</id><iso3>COD</iso3><name>Democratic Republic of the Congo</name><type>CFRQ</type><countryarea>234486</countryarea><landarea>226705</landarea></country>
-<country><id>59</id><iso3>COG</iso3><name>Congo</name><type>CFRQ</type><countryarea>34200</countryarea><landarea>34150</landarea></country>
-<country><id>60</id><iso3>COK</iso3><name>Cook Islands</name><type>FRA</type><countryarea>24</countryarea><landarea>24</landarea></country>
-<country><id>57</id><iso3>COL</iso3><name>Colombia</name><type>CFRQ</type><countryarea>114175</countryarea><landarea>110950</landarea></country>
-<country><id>58</id><iso3>COM</iso3><name>Comoros</name><type>FRA</type><countryarea>186.1</countryarea><landarea>186.1</landarea></country>
-<country><id>47</id><iso3>CPV</iso3><name>Cape Verde</name><type>FRA</type><countryarea>403</countryarea><landarea>403</landarea></country>
-<country><id>61</id><iso3>CRI</iso3><name>Costa Rica</name><type>FRA</type><countryarea>5110</countryarea><landarea>5106</landarea></country>
-<country><id>63</id><iso3>CUB</iso3><name>Cuba</name><type>FRA</type><countryarea>10989</countryarea><landarea>10644</landarea></country>
-<country><id>48</id><iso3>CYM</iso3><name>Cayman Islands</name><type>FRA</type><countryarea>26.4</countryarea><landarea>24</landarea></country>
-<country><id>64</id><iso3>CYP</iso3><name>Cyprus</name><type>CFRQ</type><countryarea>925</countryarea><landarea>924</landarea></country>
-<country><id>65</id><iso3>CZE</iso3><name>Czech Republic</name><type>CFRQ</type><countryarea>7887</countryarea><landarea>7725</landarea></country>
-<country><id>93</id><iso3>DEU</iso3><name>Germany</name><type>CFRQ</type><countryarea>35712</countryarea><landarea>34861</landarea></country>
-<country><id>70</id><iso3>DJI</iso3><name>Djibouti</name><type>FRA</type><countryarea>2320</countryarea><landarea>2318</landarea></country>
-<country><id>71</id><iso3>DMA</iso3><name>Dominica</name><type>FRA</type><countryarea>75</countryarea><landarea>75</landarea></country>
-<country><id>69</id><iso3>DNK</iso3><name>Denmark</name><type>CFRQ</type><countryarea>4309</countryarea><landarea>4243</landarea></country>
-<country><id>72</id><iso3>DOM</iso3><name>Dominican Republic</name><type>FRA</type><countryarea>4867</countryarea><landarea>4832</landarea></country>
-<country><id>4</id><iso3>DZA</iso3><name>Algeria</name><type>FRA</type><countryarea>238174</countryarea><landarea>238174</landarea></country>
-<country><id>73</id><iso3>ECU</iso3><name>Ecuador</name><type>CFRQ</type><countryarea>25637</countryarea><landarea>24836</landarea></country>
-<country><id>40765</id><iso3>EGY</iso3><name>Egypt</name><type>FRA</type><countryarea>100145</countryarea><landarea>99545</landarea></country>
-<country><id>77</id><iso3>ERI</iso3><name>Eritrea</name><type>FRA</type><countryarea>11760</countryarea><landarea>10100</landarea></country>
-<country><id>268</id><iso3>ESH</iso3><name>Western Sahara</name><type>FRA</type><countryarea>26600</countryarea><landarea>26600</landarea></country>
-<country><id>229</id><iso3>ESP</iso3><name>Spain</name><type>CFRQ</type><countryarea>50537</countryarea><landarea>49880</landarea></country>
-<country><id>78</id><iso3>EST</iso3><name>Estonia</name><type>CFRQ</type><countryarea>4523</countryarea><landarea>4239</landarea></country>
-<country><id>79</id><iso3>ETH</iso3><name>Ethiopia</name><type>FRA</type><countryarea>110430</countryarea><landarea>100000</landarea></country>
-<country><id>84</id><iso3>FIN</iso3><name>Finland</name><type>CFRQ</type><countryarea>33842</countryarea><landarea>30390</landarea></country>
-<country><id>83</id><iso3>FJI</iso3><name>Fiji</name><type>CFRQ</type><countryarea>1827</countryarea><landarea>1827</landarea></country>
-<country><id>81</id><iso3>FLK</iso3><name>Falkland Islands (Malvinas)</name><type>FRA</type><countryarea>139.6</countryarea><landarea>139.6</landarea></country>
-<country><id>85</id><iso3>FRA</iso3><name>France</name><type>CFRQ</type><countryarea>54919</countryarea><landarea>54766</landarea></country>
-<country><id>82</id><iso3>FRO</iso3><name>Faroe Islands</name><type>FRA</type><countryarea>1217</countryarea><landarea>1217</landarea></country>
-<country><id>163</id><iso3>FSM</iso3><name>Micronesia (Federated States of)</name><type>FRA</type><countryarea>70</countryarea><landarea>70</landarea></country>
-<country><id>89</id><iso3>GAB</iso3><name>Gabon</name><type>CFRQ</type><countryarea>26767</countryarea><landarea>25767</landarea></country>
-<country><id>256</id><iso3>GBR</iso3><name>U.K. of Great Britain and Northern Ireland</name><type>CFRQ</type><countryarea>24361</countryarea><landarea>24193</landarea></country>
-<country><id>92</id><iso3>GEO</iso3><name>Georgia</name><type>FRA</type><countryarea>6970</countryarea><landarea>6949</landarea></country>
-<country><id>104</id><iso3>GGY</iso3><name>Guernsey</name><type>FRA</type><countryarea>7.8</countryarea><landarea>7.8</landarea></country>
-<country><id>94</id><iso3>GHA</iso3><name>Ghana</name><type>CFRQ</type><countryarea>23854</countryarea><landarea>22754</landarea></country>
-<country><id>95</id><iso3>GIB</iso3><name>Gibraltar</name><type>FRA</type><countryarea>1</countryarea><landarea>1</landarea></country>
-<country><id>106</id><iso3>GIN</iso3><name>Guinea</name><type>FRA</type><countryarea>24586</countryarea><landarea>24572</landarea></country>
-<country><id>100</id><iso3>GLP</iso3><name>Guadeloupe</name><type>FRA</type><countryarea>170</countryarea><landarea>169</landarea></country>
-<country><id>90</id><iso3>GMB</iso3><name>Gambia</name><type>FRA</type><countryarea>1130</countryarea><landarea>1000</landarea></country>
-<country><id>105</id><iso3>GNB</iso3><name>Guinea-Bissau</name><type>FRA</type><countryarea>3613</countryarea><landarea>2812</landarea></country>
-<country><id>76</id><iso3>GNQ</iso3><name>Equatorial Guinea</name><type>CFRQ</type><countryarea>2805</countryarea><landarea>2805</landarea></country>
-<country><id>97</id><iso3>GRC</iso3><name>Greece</name><type>CFRQ</type><countryarea>13196</countryarea><landarea>12890</landarea></country>
-<country><id>99</id><iso3>GRD</iso3><name>Grenada</name><type>FRA</type><countryarea>34</countryarea><landarea>34</landarea></country>
-<country><id>98</id><iso3>GRL</iso3><name>Greenland</name><type>FRA</type><countryarea>41045</countryarea><landarea>41045</landarea></country>
-<country><id>103</id><iso3>GTM</iso3><name>Guatemala</name><type>CFRQ</type><countryarea>10889</countryarea><landarea>10716</landarea></country>
-<country><id>86</id><iso3>GUF</iso3><name>French Guiana</name><type>FRA</type><countryarea>8353</countryarea><landarea>8220</landarea></country>
-<country><id>101</id><iso3>GUM</iso3><name>Guam</name><type>FRA</type><countryarea>54</countryarea><landarea>54</landarea></country>
-<country><id>107</id><iso3>GUY</iso3><name>Guyana</name><type>CFRQ</type><countryarea>21497</countryarea><landarea>19685</landarea></country>
-<country><id>111</id><iso3>HND</iso3><name>Honduras</name><type>CFRQ</type><countryarea>11249</countryarea><landarea>11189</landarea></country>
-<country><id>62</id><iso3>HRV</iso3><name>Croatia</name><type>CFRQ</type><countryarea>5659</countryarea><landarea>5596</landarea></country>
-<country><id>108</id><iso3>HTI</iso3><name>Haiti</name><type>FRA</type><countryarea>2775</countryarea><landarea>2756</landarea></country>
-<country><id>113</id><iso3>HUN</iso3><name>Hungary</name><type>CFRQ</type><countryarea>9303</countryarea><landarea>9053</landarea></country>
-<country><id>116</id><iso3>IDN</iso3><name>Indonesia</name><type>CFRQ</type><countryarea>190457</countryarea><landarea>181157</landarea></country>
-<country><id>120</id><iso3>IMN</iso3><name>Isle of Man</name><type>FRA</type><countryarea>57</countryarea><landarea>57</landarea></country>
-<country><id>115</id><iso3>IND</iso3><name>India</name><type>CFRQ</type><countryarea>328726</countryarea><landarea>297319</landarea></country>
-<country><id>119</id><iso3>IRL</iso3><name>Ireland</name><type>CFRQ</type><countryarea>7028</countryarea><landarea>6889</landarea></country>
-<country><id>117</id><iso3>IRN</iso3><name>Iran  (Islamic Republic of)</name><type>FRA</type><countryarea>174515</countryarea><landarea>162855</landarea></country>
-<country><id>118</id><iso3>IRQ</iso3><name>Iraq</name><type>FRA</type><countryarea>43524</countryarea><landarea>43432</landarea></country>
-<country><id>114</id><iso3>ISL</iso3><name>Iceland</name><type>CFRQ</type><countryarea>10300</countryarea><landarea>10025</landarea></country>
-<country><id>121</id><iso3>ISR</iso3><name>Israel</name><type>CFRQ</type><countryarea>2207</countryarea><landarea>2164</landarea></country>
-<country><id>122</id><iso3>ITA</iso3><name>Italy</name><type>CFRQ</type><countryarea>30134</countryarea><landarea>29414</landarea></country>
-<country><id>123</id><iso3>JAM</iso3><name>Jamaica</name><type>FRA</type><countryarea>1099</countryarea><landarea>1083</landarea></country>
-<country><id>128</id><iso3>JEY</iso3><name>Jersey</name><type>FRA</type><countryarea>11.6</countryarea><landarea>11.6</landarea></country>
-<country><id>130</id><iso3>JOR</iso3><name>Jordan</name><type>FRA</type><countryarea>8932</countryarea><landarea>8878</landarea></country>
-<country><id>126</id><iso3>JPN</iso3><name>Japan</name><type>CFRQ</type><countryarea>37794.7</countryarea><landarea>36450</landarea></country>
-<country><id>132</id><iso3>KAZ</iso3><name>Kazakhstan</name><type>CFRQ</type><countryarea>272490</countryarea><landarea>269970</landarea></country>
-<country><id>133</id><iso3>KEN</iso3><name>Kenya</name><type>FRA</type><countryarea>58037</countryarea><landarea>56914</landarea></country>
-<country><id>138</id><iso3>KGZ</iso3><name>Kyrgyzstan</name><type>CFRQ</type><countryarea>19994.9</countryarea><landarea>19180</landarea></country>
-<country><id>44</id><iso3>KHM</iso3><name>Cambodia</name><type>CFRQ</type><countryarea>18104</countryarea><landarea>17652</landarea></country>
-<country><id>135</id><iso3>KIR</iso3><name>Kiribati</name><type>FRA</type><countryarea>81</countryarea><landarea>81</landarea></country>
-<country><id>208</id><iso3>KNA</iso3><name>Saint Kitts and Nevis</name><type>FRA</type><countryarea>26</countryarea><landarea>26</landarea></country>
-<country><id>202</id><iso3>KOR</iso3><name>Republic of Korea</name><type>CFRQ</type><countryarea>9990</countryarea><landarea>9710</landarea></country>
-<country><id>137</id><iso3>KWT</iso3><name>Kuwait</name><type>FRA</type><countryarea>1782</countryarea><landarea>1782</landarea></country>
-<country><id>139</id><iso3>LAO</iso3><name>Lao People's Democratic Republic</name><type>FRA</type><countryarea>23680</countryarea><landarea>23080</landarea></country>
-<country><id>141</id><iso3>LBN</iso3><name>Lebanon</name><type>FRA</type><countryarea>1045</countryarea><landarea>1023</landarea></country>
-<country><id>144</id><iso3>LBR</iso3><name>Liberia</name><type>CFRQ</type><countryarea>11137</countryarea><landarea>9632</landarea></country>
-<country><id>145</id><iso3>LBY</iso3><name>Libyan Arab Jamahiriya</name><type>FRA</type><countryarea>175954</countryarea><landarea>175954</landarea></country>
-<country><id>209</id><iso3>LCA</iso3><name>Saint Lucia</name><type>FRA</type><countryarea>62</countryarea><landarea>61</landarea></country>
-<country><id>146</id><iso3>LIE</iso3><name>Liechtenstein</name><type>CFRQ</type><countryarea>16</countryarea><landarea>16</landarea></country>
-<country><id>231</id><iso3>LKA</iso3><name>Sri Lanka</name><type>FRA</type><countryarea>6561</countryarea><landarea>6271</landarea></country>
-<country><id>142</id><iso3>LSO</iso3><name>Lesotho</name><type>FRA</type><countryarea>3036</countryarea><landarea>3036</landarea></country>
-<country><id>147</id><iso3>LTU</iso3><name>Lithuania</name><type>CFRQ</type><countryarea>6530</countryarea><landarea>6267.5</landarea></country>
-<country><id>148</id><iso3>LUX</iso3><name>Luxembourg</name><type>CFRQ</type><countryarea>259</countryarea><landarea>259</landarea></country>
-<country><id>140</id><iso3>LVA</iso3><name>Latvia</name><type>CFRQ</type><countryarea>6456</countryarea><landarea>6218</landarea></country>
-<country><id>99900001</id><iso3>MAF</iso3><name>Saint Martin (French part)</name><type>FRA</type><countryarea>5.44</countryarea><landarea>5.44</landarea></country>
-<country><id>169</id><iso3>MAR</iso3><name>Morocco</name><type>FRA</type><countryarea>44655</countryarea><landarea>44630</landarea></country>
-<country><id>166</id><iso3>MCO</iso3><name>Monaco</name><type>CFRQ</type><countryarea>0.2</countryarea><landarea>0.2</landarea></country>
-<country><id>165</id><iso3>MDA</iso3><name>Republic of Moldova</name><type>CFRQ</type><countryarea>3385</countryarea><landarea>3289</landarea></country>
-<country><id>150</id><iso3>MDG</iso3><name>Madagascar</name><type>CFRQ</type><countryarea>58704</countryarea><landarea>58154</landarea></country>
-<country><id>154</id><iso3>MDV</iso3><name>Maldives</name><type>FRA</type><countryarea>30</countryarea><landarea>30</landarea></country>
-<country><id>162</id><iso3>MEX</iso3><name>Mexico</name><type>CFRQ</type><countryarea>196438</countryarea><landarea>194395</landarea></country>
-<country><id>157</id><iso3>MHL</iso3><name>Marshall Islands</name><type>FRA</type><countryarea>18</countryarea><landarea>18</landarea></country>
-<country><id>241</id><iso3>MKD</iso3><name>The former Yugoslav Republic of Macedonia</name><type>CFRQ</type><countryarea>2571</countryarea><landarea>2522</landarea></country>
-<country><id>155</id><iso3>MLI</iso3><name>Mali</name><type>CFRQ</type><countryarea>124019</countryarea><landarea>122019</landarea></country>
-<country><id>156</id><iso3>MLT</iso3><name>Malta</name><type>CFRQ</type><countryarea>32</countryarea><landarea>32</landarea></country>
-<country><id>171</id><iso3>MMR</iso3><name>Myanmar</name><type>CFRQ</type><countryarea>67659</countryarea><landarea>65352</landarea></country>
-<country><id>2647</id><iso3>MNE</iso3><name>Montenegro</name><type>CFRQ</type><countryarea>1381</countryarea><landarea>1345</landarea></country>
-<country><id>167</id><iso3>MNG</iso3><name>Mongolia</name><type>FRA</type><countryarea>156412</countryarea><landarea>155356</landarea></country>
-<country><id>185</id><iso3>MNP</iso3><name>Northern Mariana Islands</name><type>FRA</type><countryarea>46</countryarea><landarea>46</landarea></country>
-<country><id>170</id><iso3>MOZ</iso3><name>Mozambique</name><type>CFRQ</type><countryarea>79938</countryarea><landarea>78638</landarea></country>
-<country><id>159</id><iso3>MRT</iso3><name>Mauritania</name><type>FRA</type><countryarea>103070</countryarea><landarea>103070</landarea></country>
-<country><id>168</id><iso3>MSR</iso3><name>Montserrat</name><type>FRA</type><countryarea>10</countryarea><landarea>10</landarea></country>
-<country><id>158</id><iso3>MTQ</iso3><name>Martinique</name><type>FRA</type><countryarea>113</countryarea><landarea>106</landarea></country>
-<country><id>160</id><iso3>MUS</iso3><name>Mauritius</name><type>FRA</type><countryarea>204</countryarea><landarea>203</landarea></country>
-<country><id>152</id><iso3>MWI</iso3><name>Malawi</name><type>FRA</type><countryarea>11848</countryarea><landarea>9428</landarea></country>
-<country><id>153</id><iso3>MYS</iso3><name>Malaysia</name><type>CFRQ</type><countryarea>33080</countryarea><landarea>32855</landarea></country>
-<country><id>161</id><iso3>MYT</iso3><name>Mayotte</name><type>FRA</type><countryarea>37.5</countryarea><landarea>37.5</landarea></country>
-<country><id>172</id><iso3>NAM</iso3><name>Namibia</name><type>FRA</type><countryarea>82429</countryarea><landarea>82329</landarea></country>
-<country><id>178</id><iso3>NCL</iso3><name>New Caledonia</name><type>FRA</type><countryarea>1858</countryarea><landarea>1828</landarea></country>
-<country><id>181</id><iso3>NER</iso3><name>Niger</name><type>FRA</type><countryarea>126700</countryarea><landarea>126670</landarea></country>
-<country><id>184</id><iso3>NFK</iso3><name>Norfolk Island</name><type>FRA</type><countryarea>4</countryarea><landarea>4</landarea></country>
-<country><id>182</id><iso3>NGA</iso3><name>Nigeria</name><type>CFRQ</type><countryarea>92377</countryarea><landarea>91077</landarea></country>
-<country><id>180</id><iso3>NIC</iso3><name>Nicaragua</name><type>FRA</type><countryarea>13037</countryarea><landarea>12034</landarea></country>
-<country><id>183</id><iso3>NIU</iso3><name>Niue</name><type>FRA</type><countryarea>26</countryarea><landarea>26</landarea></country>
-<country><id>177</id><iso3>NLD</iso3><name>Netherlands</name><type>CFRQ</type><countryarea>4154</countryarea><landarea>3373</landarea></country>
-<country><id>186</id><iso3>NOR</iso3><name>Norway</name><type>CFRQ</type><countryarea>32378</countryarea><landarea>30547</landarea></country>
-<country><id>175</id><iso3>NPL</iso3><name>Nepal</name><type>FRA</type><countryarea>14718</countryarea><landarea>14335</landarea></country>
-<country><id>173</id><iso3>NRU</iso3><name>Nauru</name><type>FRA</type><countryarea>2</countryarea><landarea>2</landarea></country>
-<country><id>179</id><iso3>NZL</iso3><name>New Zealand</name><type>CFRQ</type><countryarea>26771</countryarea><landarea>26331</landarea></country>
-<country><id>187</id><iso3>OMN</iso3><name>Oman</name><type>FRA</type><countryarea>30950</countryarea><landarea>30950</landarea></country>
-<country><id>188</id><iso3>PAK</iso3><name>Pakistan</name><type>FRA</type><countryarea>79610</countryarea><landarea>77088</landarea></country>
-<country><id>191</id><iso3>PAN</iso3><name>Panama</name><type>CFRQ</type><countryarea>7542</countryarea><landarea>7434</landarea></country>
-<country><id>197</id><iso3>PCN</iso3><name>Pitcairn</name><type>FRA</type><countryarea>4.7</countryarea><landarea>4.7</landarea></country>
-<country><id>195</id><iso3>PER</iso3><name>Peru</name><type>CFRQ</type><countryarea>128522</countryarea><landarea>128000</landarea></country>
-<country><id>196</id><iso3>PHL</iso3><name>Philippines</name><type>CFRQ</type><countryarea>30000</countryarea><landarea>29817</landarea></country>
-<country><id>189</id><iso3>PLW</iso3><name>Palau</name><type>FRA</type><countryarea>46</countryarea><landarea>46</landarea></country>
-<country><id>192</id><iso3>PNG</iso3><name>Papua New Guinea</name><type>CFRQ</type><countryarea>46284</countryarea><landarea>45286</landarea></country>
-<country><id>198</id><iso3>POL</iso3><name>Poland</name><type>CFRQ</type><countryarea>31268</countryarea><landarea>30420</landarea></country>
-<country><id>200</id><iso3>PRI</iso3><name>Puerto Rico</name><type>FRA</type><countryarea>887</countryarea><landarea>887</landarea></country>
-<country><id>67</id><iso3>PRK</iso3><name>Dem People's Rep of Korea</name><type>FRA</type><countryarea>12054</countryarea><landarea>12041</landarea></country>
-<country><id>199</id><iso3>PRT</iso3><name>Portugal</name><type>CFRQ</type><countryarea>9209</countryarea><landarea>9147</landarea></country>
-<country><id>194</id><iso3>PRY</iso3><name>Paraguay</name><type>FRA</type><countryarea>40675</countryarea><landarea>39730</landarea></country>
-<country><id>87</id><iso3>PYF</iso3><name>French Polynesia</name><type>FRA</type><countryarea>400</countryarea><landarea>366</landarea></country>
-<country><id>201</id><iso3>QAT</iso3><name>Qatar</name><type>FRA</type><countryarea>1159</countryarea><landarea>1159</landarea></country>
-<country><id>206</id><iso3>REU</iso3><name>Réunion</name><type>FRA</type><countryarea>251</countryarea><landarea>250</landarea></country>
-<country><id>203</id><iso3>ROU</iso3><name>Romania</name><type>CFRQ</type><countryarea>23839</countryarea><landarea>23006</landarea></country>
-<country><id>204</id><iso3>RUS</iso3><name>Russian Federation</name><type>CFRQ</type><countryarea>1709824</countryarea><landarea>1637687</landarea></country>
-<country><id>205</id><iso3>RWA</iso3><name>Rwanda</name><type>CFRQ</type><countryarea>2634</countryarea><landarea>2467</landarea></country>
-<country><id>215</id><iso3>SAU</iso3><name>Saudi Arabia</name><type>FRA</type><countryarea>214969</countryarea><landarea>214969</landarea></country>
-<country><id>40764</id><iso3>SDN</iso3><name>Sudan</name><type>FRA</type><countryarea>186148.4</countryarea><landarea>186148.4</landarea></country>
-<country><id>99940764</id><iso3>SSD</iso3><name>South Sudan</name><type>FRA</type><countryarea>64433</countryarea><landarea>64433</landarea></country>
-<country><id>217</id><iso3>SEN</iso3><name>Senegal</name><type>FRA</type><countryarea>19672</countryarea><landarea>19253</landarea></country>
-<country><id>222</id><iso3>SGP</iso3><name>Singapore</name><type>FRA</type><countryarea>71</countryarea><landarea>70</landarea></country>
-<country><id>207</id><iso3>SHN</iso3><name>Saint Helena</name><type>FRA</type><countryarea>39</countryarea><landarea>39</landarea></country>
-<country><id>234</id><iso3>SJM</iso3><name>Svalbard and Jan Mayen Islands</name><type>FRA</type><countryarea>6204</countryarea><landarea>6204</landarea></country>
-<country><id>225</id><iso3>SLB</iso3><name>Solomon Islands</name><type>FRA</type><countryarea>2890</countryarea><landarea>2799</landarea></country>
-<country><id>221</id><iso3>SLE</iso3><name>Sierra Leone</name><type>FRA</type><countryarea>7174</countryarea><landarea>7162</landarea></country>
-<country><id>75</id><iso3>SLV</iso3><name>El Salvador</name><type>FRA</type><countryarea>2104</countryarea><landarea>2072</landarea></country>
-<country><id>213</id><iso3>SMR</iso3><name>San Marino</name><type>CFRQ</type><countryarea>6</countryarea><landarea>6</landarea></country>
-<country><id>226</id><iso3>SOM</iso3><name>Somalia</name><type>FRA</type><countryarea>63766</countryarea><landarea>62734</landarea></country>
-<country><id>210</id><iso3>SPM</iso3><name>Saint Pierre et Miquelon</name><type>FRA</type><countryarea>24</countryarea><landarea>23</landarea></country>
-<country><id>2648</id><iso3>SRB</iso3><name>Serbia</name><type>CFRQ</type><countryarea>8836</countryarea><landarea>8746</landarea></country>
-<country><id>214</id><iso3>STP</iso3><name>Sao Tome and Principe</name><type>CFRQ</type><countryarea>96</countryarea><landarea>96</landarea></country>
-<country><id>233</id><iso3>SUR</iso3><name>Suriname</name><type>CFRQ</type><countryarea>16382</countryarea><landarea>15600</landarea></country>
-<country><id>223</id><iso3>SVK</iso3><name>Slovakia</name><type>CFRQ</type><countryarea>4904</countryarea><landarea>4809</landarea></country>
-<country><id>224</id><iso3>SVN</iso3><name>Slovenia</name><type>CFRQ</type><countryarea>2027</countryarea><landarea>2014</landarea></country>
-<country><id>236</id><iso3>SWE</iso3><name>Sweden</name><type>CFRQ</type><countryarea>45030</countryarea><landarea>41034</landarea></country>
-<country><id>235</id><iso3>SWZ</iso3><name>Swaziland</name><type>FRA</type><countryarea>1736</countryarea><landarea>1720</landarea></country>
-<country><id>220</id><iso3>SYC</iso3><name>Seychelles</name><type>FRA</type><countryarea>46</countryarea><landarea>46</landarea></country>
-<country><id>238</id><iso3>SYR</iso3><name>Syrian Arab Republic</name><type>FRA</type><countryarea>18518</countryarea><landarea>18363</landarea></country>
-<country><id>251</id><iso3>TCA</iso3><name>Turks and Caicos islands</name><type>FRA</type><countryarea>95</countryarea><landarea>95</landarea></country>
-<country><id>50</id><iso3>TCD</iso3><name>Chad</name><type>CFRQ</type><countryarea>128400</countryarea><landarea>125920</landarea></country>
-<country><id>243</id><iso3>TGO</iso3><name>Togo</name><type>CFRQ</type><countryarea>5679</countryarea><landarea>5439</landarea></country>
-<country><id>240</id><iso3>THA</iso3><name>Thailand</name><type>CFRQ</type><countryarea>51312</countryarea><landarea>51089</landarea></country>
-<country><id>239</id><iso3>TJK</iso3><name>Tajikistan</name><type>CFRQ</type><countryarea>14255</countryarea><landarea>13996</landarea></country>
-<country><id>244</id><iso3>TKL</iso3><name>Tokelau</name><type>FRA</type><countryarea>1</countryarea><landarea>1</landarea></country>
-<country><id>250</id><iso3>TKM</iso3><name>Turkmenistan</name><type>CFRQ</type><countryarea>48810</countryarea><landarea>46993</landarea></country>
-<country><id>242</id><iso3>TLS</iso3><name>Timor-Leste</name><type>FRA</type><countryarea>1487</countryarea><landarea>1487</landarea></country>
-<country><id>245</id><iso3>TON</iso3><name>Tonga</name><type>FRA</type><countryarea>75</countryarea><landarea>72</landarea></country>
-<country><id>246</id><iso3>TTO</iso3><name>Trinidad and Tobago</name><type>CFRQ</type><countryarea>513</countryarea><landarea>513</landarea></country>
-<country><id>248</id><iso3>TUN</iso3><name>Tunisia</name><type>FRA</type><countryarea>16361</countryarea><landarea>15536</landarea></country>
-<country><id>249</id><iso3>TUR</iso3><name>Turkey</name><type>CFRQ</type><countryarea>78356</countryarea><landarea>76963</landarea></country>
-<country><id>252</id><iso3>TUV</iso3><name>Tuvalu</name><type>FRA</type><countryarea>3</countryarea><landarea>3</landarea></country>
-<country><id>257</id><iso3>TZA</iso3><name>United Republic of Tanzania</name><type>FRA</type><countryarea>94730</countryarea><landarea>88580</landarea></country>
-<country><id>253</id><iso3>UGA</iso3><name>Uganda</name><type>FRA</type><countryarea>24155</countryarea><landarea>19981</landarea></country>
-<country><id>254</id><iso3>UKR</iso3><name>Ukraine</name><type>CFRQ</type><countryarea>60355</countryarea><landarea>57932</landarea></country>
-<country><id>260</id><iso3>URY</iso3><name>Uruguay</name><type>CFRQ</type><countryarea>17622</countryarea><landarea>17502</landarea></country>
-<country><id>259</id><iso3>USA</iso3><name>United States of America</name><type>CFRQ</type><countryarea>983151</countryarea><landarea>914742</landarea></country>
-<country><id>261</id><iso3>UZB</iso3><name>Uzbekistan</name><type>CFRQ</type><countryarea>44740</countryarea><landarea>42540</landarea></country>
-<country><id>110</id><iso3>VAT</iso3><name>Holy See</name><type>CFRQ</type><countryarea>0.044</countryarea><landarea>0.044</landarea></country>
-<country><id>211</id><iso3>VCT</iso3><name>Saint Vincent and the Grenadines</name><type>FRA</type><countryarea>39</countryarea><landarea>39</landarea></country>
-<country><id>263</id><iso3>VEN</iso3><name>Venezuela</name><type>CFRQ</type><countryarea>91205</countryarea><landarea>88205</landarea></country>
-<country><id>39</id><iso3>VGB</iso3><name>British Virgin Islands</name><type>FRA</type><countryarea>15</countryarea><landarea>15</landarea></country>
-<country><id>258</id><iso3>VIR</iso3><name>United States Virgin Islands</name><type>FRA</type><countryarea>35</countryarea><landarea>35</landarea></country>
-<country><id>264</id><iso3>VNM</iso3><name>Viet Nam</name><type>FRA</type><countryarea>33105.1</countryarea><landarea>31007</landarea></country>
-<country><id>262</id><iso3>VUT</iso3><name>Vanuatu</name><type>FRA</type><countryarea>1219</countryarea><landarea>1219</landarea></country>
-<country><id>266</id><iso3>WLF</iso3><name>Wallis and Futuna</name><type>FRA</type><countryarea>14</countryarea><landarea>14</landarea></country>
-<country><id>212</id><iso3>WSM</iso3><name>Samoa</name><type>FRA</type><countryarea>284</countryarea><landarea>283</landarea></country>
-<country><id>269</id><iso3>YEM</iso3><name>Yemen</name><type>FRA</type><countryarea>52797</countryarea><landarea>52797</landarea></country>
-<country><id>227</id><iso3>ZAF</iso3><name>South Africa</name><type>FRA</type><countryarea>121909</countryarea><landarea>121447</landarea></country>
-<country><id>270</id><iso3>ZMB</iso3><name>Zambia</name><type>FRA</type><countryarea>75261</countryarea><landarea>74339</landarea></country>
-<country><id>271</id><iso3>ZWE</iso3><name>Zimbabwe</name><type>FRA</type><countryarea>39076</countryarea><landarea>38685</landarea></country>
-<country><id>275</id><iso3>PSE</iso3><name>Occupied Palestinian territory</name><type>FRA</type><countryarea>602</countryarea><landarea>602</landarea></country>
+<country><id>14</id><iso3>ABW</iso3><name>Aruba</name><type>FRA</type><countryarea>18</countryarea><landarea>18</landarea><name_es>Aruba</name_es><name_fr>Aruba</name_fr><name_en>Aruba</name_en></country>
+<country><id>1</id><iso3>AFG</iso3><name>Afghanistan</name><type>FRA</type><countryarea>65223</countryarea><landarea>65223</landarea><name_es>Afganistán</name_es><name_fr>Afghanistan</name_fr><name_en>Afghanistan</name_en></country>
+<country><id>8</id><iso3>AGO</iso3><name>Angola</name><type>FRA</type><countryarea>124670</countryarea><landarea>124670</landarea><name_es>Angola</name_es><name_fr>Angola</name_fr><name_en>Angola</name_en></country>
+<country><id>9</id><iso3>AIA</iso3><name>Anguilla</name><type>FRA</type><countryarea>9</countryarea><landarea>9</landarea><name_es>Anguila</name_es><name_fr>Anguilla</name_fr><name_en>Anguilla</name_en></country>
+<country><id>3</id><iso3>ALB</iso3><name>Albania</name><type>CFRQ</type><countryarea>2875</countryarea><landarea>2740</landarea><name_es>Albania</name_es><name_fr>Albanie</name_fr><name_en>Albania</name_en></country>
+<country><id>7</id><iso3>AND</iso3><name>Andorra</name><type>CFRQ</type><countryarea>47</countryarea><landarea>47</landarea><name_es>Andorra</name_es><name_fr>Andorre</name_fr><name_en>Andorra</name_en></country>
+<country><id>176</id><iso3>ANT</iso3><name>Netherlands Antilles</name><type>FRA</type><countryarea>80</countryarea><landarea>80</landarea><name_es>Antillas Neerlandesas</name_es><name_fr>Antilles néerlandaises</name_fr><name_en>Netherlands Antilles</name_en></country>
+<country><id>255</id><iso3>ARE</iso3><name>United Arab Emirates</name><type>FRA</type><countryarea>8360</countryarea><landarea>8360</landarea><name_es>Emiratos Árabes Unidos</name_es><name_fr>Émirats arabes unis</name_fr><name_en>United Arab Emirates</name_en></country>
+<country><id>12</id><iso3>ARG</iso3><name>Argentina</name><type>CFRQ</type><countryarea>278040</countryarea><landarea>273669</landarea><name_es>Argentina</name_es><name_fr>Argentine</name_fr><name_en>Argentina</name_en></country>
+<country><id>13</id><iso3>ARM</iso3><name>Armenia</name><type>CFRQ</type><countryarea>2974</countryarea><landarea>2848</landarea><name_es>Armenia</name_es><name_fr>Arménie</name_fr><name_en>Armenia</name_en></country>
+<country><id>5</id><iso3>ASM</iso3><name>American Samoa</name><type>FRA</type><countryarea>20</countryarea><landarea>20</landarea><name_es>Samoa Americana</name_es><name_fr>Samoa américaines</name_fr><name_en>American Samoa</name_en></country>
+<country><id>11</id><iso3>ATG</iso3><name>Antigua and Barbuda</name><type>FRA</type><countryarea>44</countryarea><landarea>44</landarea><name_es>Antigua y Barbuda</name_es><name_fr>Antigua-et-Barbuda</name_fr><name_en>Antigua and Barbuda</name_en></country>
+<country><id>17</id><iso3>AUS</iso3><name>Australia</name><type>CFRQ</type><countryarea>774122</countryarea><landarea>768230</landarea><name_es>Australia</name_es><name_fr>Australie</name_fr><name_en>Australia</name_en></country>
+<country><id>18</id><iso3>AUT</iso3><name>Austria</name><type>CFRQ</type><countryarea>8387.9</countryarea><landarea>8243.5</landarea><name_es>Austria</name_es><name_fr>Autriche</name_fr><name_en>Austria</name_en></country>
+<country><id>19</id><iso3>AZE</iso3><name>Azerbaijan</name><type>CFRQ</type><countryarea>8660</countryarea><landarea>8262.2</landarea><name_es>Azerbaiyán</name_es><name_fr>Azerbaïdjan</name_fr><name_en>Azerbaijan</name_en></country>
+<country><id>43</id><iso3>BDI</iso3><name>Burundi</name><type>CFRQ</type><countryarea>2783</countryarea><landarea>2568</landarea><name_es>Burundi</name_es><name_fr>Burundi</name_fr><name_en>Burundi</name_en></country>
+<country><id>27</id><iso3>BEL</iso3><name>Belgium</name><type>CFRQ</type><countryarea>3053</countryarea><landarea>3028</landarea><name_es>Bélgica</name_es><name_fr>Belgique</name_fr><name_en>Belgium</name_en></country>
+<country><id>29</id><iso3>BEN</iso3><name>Benin</name><type>CFRQ</type><countryarea>11262</countryarea><landarea>11062</landarea><name_es>Benin</name_es><name_fr>Bénin</name_fr><name_en>Benin</name_en></country>
+<country><id>42</id><iso3>BFA</iso3><name>Burkina Faso</name><type>FRA</type><countryarea>27422</countryarea><landarea>27360</landarea><name_es>Burkina Faso</name_es><name_fr>Burkina Faso</name_fr><name_en>Burkina Faso</name_en></country>
+<country><id>23</id><iso3>BGD</iso3><name>Bangladesh</name><type>FRA</type><countryarea>14400</countryarea><landarea>13017</landarea><name_es>Bangladesh</name_es><name_fr>Bangladesh</name_fr><name_en>Bangladesh</name_en></country>
+<country><id>41</id><iso3>BGR</iso3><name>Bulgaria</name><type>CFRQ</type><countryarea>11100</countryarea><landarea>10856</landarea><name_es>Bulgaria</name_es><name_fr>Bulgarie</name_fr><name_en>Bulgaria</name_en></country>
+<country><id>21</id><iso3>BHR</iso3><name>Bahrain</name><type>FRA</type><countryarea>76</countryarea><landarea>76</landarea><name_es>Bahrein</name_es><name_fr>Bahreïn</name_fr><name_en>Bahrain</name_en></country>
+<country><id>20</id><iso3>BHS</iso3><name>Bahamas</name><type>FRA</type><countryarea>1388</countryarea><landarea>1001</landarea><name_es>Bahamas</name_es><name_fr>Bahamas</name_fr><name_en>Bahamas</name_en></country>
+<country><id>34</id><iso3>BIH</iso3><name>Bosnia and Herzegovina</name><type>CFRQ</type><countryarea>5121</countryarea><landarea>5100</landarea><name_es>Bosnia y Herzegovina</name_es><name_fr>Bosnie-Herzégovine</name_fr><name_en>Bosnia and Herzegovina</name_en></country>
+<country><id>99900002</id><iso3>BLM</iso3><name>Saint Barthelemy</name><type>FRA</type><countryarea>2.1</countryarea><landarea>2.1</landarea><name_es>Saint Barthelemy</name_es><name_fr>Saint-Barthélemy</name_fr><name_en>Saint Barthelemy</name_en></country>
+<country><id>26</id><iso3>BLR</iso3><name>Belarus</name><type>CFRQ</type><countryarea>20760</countryarea><landarea>20282</landarea><name_es>Belarús</name_es><name_fr>Bélarus</name_fr><name_en>Belarus</name_en></country>
+<country><id>28</id><iso3>BLZ</iso3><name>Belize</name><type>FRA</type><countryarea>2297</countryarea><landarea>2281</landarea><name_es>Belice</name_es><name_fr>Belize</name_fr><name_en>Belize</name_en></country>
+<country><id>30</id><iso3>BMU</iso3><name>Bermuda</name><type>FRA</type><countryarea>5</countryarea><landarea>5</landarea><name_es>Bermudas</name_es><name_fr>Bermudes</name_fr><name_en>Bermuda</name_en></country>
+<country><id>33</id><iso3>BOL</iso3><name>Bolivia</name><type>FRA</type><countryarea>109858</countryarea><landarea>108330</landarea><name_es>Bolivia</name_es><name_fr>Bolivie</name_fr><name_en>Bolivia</name_en></country>
+<country><id>37</id><iso3>BRA</iso3><name>Brazil</name><type>CFRQ</type><countryarea>851488</countryarea><landarea>845942</landarea><name_es>Brasil</name_es><name_fr>Brésil</name_fr><name_en>Brazil</name_en></country>
+<country><id>24</id><iso3>BRB</iso3><name>Barbados</name><type>FRA</type><countryarea>43</countryarea><landarea>43</landarea><name_es>Barbados</name_es><name_fr>Barbade</name_fr><name_en>Barbados</name_en></country>
+<country><id>40</id><iso3>BRN</iso3><name>Brunei Darussalam</name><type>FRA</type><countryarea>577</countryarea><landarea>527</landarea><name_es>Brunei Darussalam</name_es><name_fr>Brunéi Darussalam</name_fr><name_en>Brunei Darussalam</name_en></country>
+<country><id>31</id><iso3>BTN</iso3><name>Bhutan</name><type>FRA</type><countryarea>3839.4</countryarea><landarea>3839.4</landarea><name_es>Bhután</name_es><name_fr>Bhoutan</name_fr><name_en>Bhutan</name_en></country>
+<country><id>35</id><iso3>BWA</iso3><name>Botswana</name><type>FRA</type><countryarea>58173</countryarea><landarea>56673</landarea><name_es>Botswana</name_es><name_fr>Botswana</name_fr><name_en>Botswana</name_en></country>
+<country><id>49</id><iso3>CAF</iso3><name>Central African Republic</name><type>CFRQ</type><countryarea>62298</countryarea><landarea>62298</landarea><name_es>República Centroafricana</name_es><name_fr>République centrafricaine</name_fr><name_en>Central African Republic</name_en></country>
+<country><id>46</id><iso3>CAN</iso3><name>Canada</name><type>CFRQ</type><countryarea>998467</countryarea><landarea>909351</landarea><name_es>Canadá</name_es><name_fr>Canada</name_fr><name_en>Canada</name_en></country>
+<country><id>237</id><iso3>CHE</iso3><name>Switzerland</name><type>CFRQ</type><countryarea>4128</countryarea><landarea>4000</landarea><name_es>Suiza</name_es><name_fr>Suisse</name_fr><name_en>Switzerland</name_en></country>
+<country><id>51</id><iso3>CHL</iso3><name>Chile</name><type>CFRQ</type><countryarea>75609.6</countryarea><landarea>74353.2</landarea><name_es>Chile</name_es><name_fr>Chili</name_fr><name_en>Chile</name_en></country>
+<country><id>53</id><iso3>CHN</iso3><name>China</name><type>CFRQ</type><countryarea>960000.05</countryarea><landarea>932748.95</landarea><name_es>China</name_es><name_fr>Chine</name_fr><name_en>China</name_en></country>
+<country><id>66</id><iso3>CIV</iso3><name>Côte d'Ivoire</name><type>CFRQ</type><countryarea>32246</countryarea><landarea>31800</landarea><name_es>Côte d'Ivoire</name_es><name_fr>Côte d'Ivoire</name_fr><name_en>Côte d'Ivoire</name_en></country>
+<country><id>45</id><iso3>CMR</iso3><name>Cameroon</name><type>CFRQ</type><countryarea>47544</countryarea><landarea>47271</landarea><name_es>Camerún</name_es><name_fr>Cameroun</name_fr><name_en>Cameroon</name_en></country>
+<country><id>68</id><iso3>COD</iso3><name>Democratic Republic of the Congo</name><type>CFRQ</type><countryarea>234486</countryarea><landarea>226705</landarea><name_es>República Democrática del Congo</name_es><name_fr>République démocratique du Congo</name_fr><name_en>Democratic Republic of the Congo</name_en></country>
+<country><id>59</id><iso3>COG</iso3><name>Congo</name><type>CFRQ</type><countryarea>34200</countryarea><landarea>34150</landarea><name_es>Congo</name_es><name_fr>Congo</name_fr><name_en>Congo</name_en></country>
+<country><id>60</id><iso3>COK</iso3><name>Cook Islands</name><type>FRA</type><countryarea>24</countryarea><landarea>24</landarea><name_es>Islas Cook</name_es><name_fr>Îles Cook</name_fr><name_en>Cook Islands</name_en></country>
+<country><id>57</id><iso3>COL</iso3><name>Colombia</name><type>CFRQ</type><countryarea>114175</countryarea><landarea>110950</landarea><name_es>Colombia</name_es><name_fr>Colombie</name_fr><name_en>Colombia</name_en></country>
+<country><id>58</id><iso3>COM</iso3><name>Comoros</name><type>FRA</type><countryarea>186.1</countryarea><landarea>186.1</landarea><name_es>Comoras</name_es><name_fr>Comores</name_fr><name_en>Comoros</name_en></country>
+<country><id>47</id><iso3>CPV</iso3><name>Cape Verde</name><type>FRA</type><countryarea>403</countryarea><landarea>403</landarea><name_es>Cabo Verde</name_es><name_fr>Cap-Vert</name_fr><name_en>Cape Verde</name_en></country>
+<country><id>61</id><iso3>CRI</iso3><name>Costa Rica</name><type>FRA</type><countryarea>5110</countryarea><landarea>5106</landarea><name_es>Costa Rica</name_es><name_fr>Costa Rica</name_fr><name_en>Costa Rica</name_en></country>
+<country><id>63</id><iso3>CUB</iso3><name>Cuba</name><type>FRA</type><countryarea>10989</countryarea><landarea>10644</landarea><name_es>Cuba</name_es><name_fr>Cuba</name_fr><name_en>Cuba</name_en></country>
+<country><id>48</id><iso3>CYM</iso3><name>Cayman Islands</name><type>FRA</type><countryarea>26.4</countryarea><landarea>24</landarea><name_es>Islas Caimán</name_es><name_fr>Îles Caïmanes</name_fr><name_en>Cayman Islands</name_en></country>
+<country><id>64</id><iso3>CYP</iso3><name>Cyprus</name><type>CFRQ</type><countryarea>925</countryarea><landarea>924</landarea><name_es>Chipre</name_es><name_fr>Chypre</name_fr><name_en>Cyprus</name_en></country>
+<country><id>65</id><iso3>CZE</iso3><name>Czech Republic</name><type>CFRQ</type><countryarea>7887</countryarea><landarea>7725</landarea><name_es>República Checa</name_es><name_fr>République tchèque</name_fr><name_en>Czech Republic</name_en></country>
+<country><id>93</id><iso3>DEU</iso3><name>Germany</name><type>CFRQ</type><countryarea>35712</countryarea><landarea>34861</landarea><name_es>Alemania</name_es><name_fr>Allemagne</name_fr><name_en>Germany</name_en></country>
+<country><id>70</id><iso3>DJI</iso3><name>Djibouti</name><type>FRA</type><countryarea>2320</countryarea><landarea>2318</landarea><name_es>Djibouti</name_es><name_fr>Djibouti</name_fr><name_en>Djibouti</name_en></country>
+<country><id>71</id><iso3>DMA</iso3><name>Dominica</name><type>FRA</type><countryarea>75</countryarea><landarea>75</landarea><name_es>Dominica</name_es><name_fr>Dominique</name_fr><name_en>Dominica</name_en></country>
+<country><id>69</id><iso3>DNK</iso3><name>Denmark</name><type>CFRQ</type><countryarea>4309</countryarea><landarea>4243</landarea><name_es>Dinamarca</name_es><name_fr>Danemark</name_fr><name_en>Denmark</name_en></country>
+<country><id>72</id><iso3>DOM</iso3><name>Dominican Republic</name><type>FRA</type><countryarea>4867</countryarea><landarea>4832</landarea><name_es>República Dominicana</name_es><name_fr>République dominicaine</name_fr><name_en>Dominican Republic</name_en></country>
+<country><id>4</id><iso3>DZA</iso3><name>Algeria</name><type>FRA</type><countryarea>238174</countryarea><landarea>238174</landarea><name_es>Argelia</name_es><name_fr>Algérie</name_fr><name_en>Algeria</name_en></country>
+<country><id>73</id><iso3>ECU</iso3><name>Ecuador</name><type>CFRQ</type><countryarea>25637</countryarea><landarea>24836</landarea><name_es>Ecuador</name_es><name_fr>Équateur</name_fr><name_en>Ecuador</name_en></country>
+<country><id>40765</id><iso3>EGY</iso3><name>Egypt</name><type>FRA</type><countryarea>100145</countryarea><landarea>99545</landarea><name_es>Egipto</name_es><name_fr>Égypte</name_fr><name_en>Egypt</name_en></country>
+<country><id>77</id><iso3>ERI</iso3><name>Eritrea</name><type>FRA</type><countryarea>11760</countryarea><landarea>10100</landarea><name_es>Eritrea</name_es><name_fr>Érythrée</name_fr><name_en>Eritrea</name_en></country>
+<country><id>268</id><iso3>ESH</iso3><name>Western Sahara</name><type>FRA</type><countryarea>26600</countryarea><landarea>26600</landarea><name_es>Sahara Occidental</name_es><name_fr>Sahara occidental</name_fr><name_en>Western Sahara</name_en></country>
+<country><id>229</id><iso3>ESP</iso3><name>Spain</name><type>CFRQ</type><countryarea>50537</countryarea><landarea>49880</landarea><name_es>España</name_es><name_fr>Espagne</name_fr><name_en>Spain</name_en></country>
+<country><id>78</id><iso3>EST</iso3><name>Estonia</name><type>CFRQ</type><countryarea>4523</countryarea><landarea>4239</landarea><name_es>Estonia</name_es><name_fr>Estonie</name_fr><name_en>Estonia</name_en></country>
+<country><id>79</id><iso3>ETH</iso3><name>Ethiopia</name><type>FRA</type><countryarea>110430</countryarea><landarea>100000</landarea><name_es>Etiopía</name_es><name_fr>Éthiopie</name_fr><name_en>Ethiopia</name_en></country>
+<country><id>84</id><iso3>FIN</iso3><name>Finland</name><type>CFRQ</type><countryarea>33842</countryarea><landarea>30390</landarea><name_es>Finlandia</name_es><name_fr>Finlande</name_fr><name_en>Finland</name_en></country>
+<country><id>83</id><iso3>FJI</iso3><name>Fiji</name><type>CFRQ</type><countryarea>1827</countryarea><landarea>1827</landarea><name_es>Fiji</name_es><name_fr>Fidji</name_fr><name_en>Fiji</name_en></country>
+<country><id>81</id><iso3>FLK</iso3><name>Falkland Islands (Malvinas)</name><type>FRA</type><countryarea>139.6</countryarea><landarea>139.6</landarea><name_es>Islas Malvinas (Falkland Islands)</name_es><name_fr>Îles Falkland (Malvinas)</name_fr><name_en>Falkland Islands (Malvinas)</name_en></country>
+<country><id>85</id><iso3>FRA</iso3><name>France</name><type>CFRQ</type><countryarea>54919</countryarea><landarea>54766</landarea><name_es>Francia</name_es><name_fr>France</name_fr><name_en>France</name_en></country>
+<country><id>82</id><iso3>FRO</iso3><name>Faroe Islands</name><type>FRA</type><countryarea>1217</countryarea><landarea>1217</landarea><name_es>Islas Feroe</name_es><name_fr>Îles Féroé</name_fr><name_en>Faroe Islands</name_en></country>
+<country><id>163</id><iso3>FSM</iso3><name>Micronesia (Federated States of)</name><type>FRA</type><countryarea>70</countryarea><landarea>70</landarea><name_es>Micronesia (Estados Federados de)</name_es><name_fr>Micronésie (États fédérés de)</name_fr><name_en>Micronesia (Federated States of)</name_en></country>
+<country><id>89</id><iso3>GAB</iso3><name>Gabon</name><type>CFRQ</type><countryarea>26767</countryarea><landarea>25767</landarea><name_es>Gabón</name_es><name_fr>Gabon</name_fr><name_en>Gabon</name_en></country>
+<country><id>256</id><iso3>GBR</iso3><name>U.K. of Great Britain and Northern Ireland</name><type>CFRQ</type><countryarea>24361</countryarea><landarea>24193</landarea><name_es>Reino Unido</name_es><name_fr>Royaume-Uni</name_fr><name_en>U.K. of Great Britain and Northern Ireland</name_en></country>
+<country><id>92</id><iso3>GEO</iso3><name>Georgia</name><type>FRA</type><countryarea>6970</countryarea><landarea>6949</landarea><name_es>Georgia</name_es><name_fr>Géorgie</name_fr><name_en>Georgia</name_en></country>
+<country><id>104</id><iso3>GGY</iso3><name>Guernsey</name><type>FRA</type><countryarea>7.8</countryarea><landarea>7.8</landarea><name_es>Guernesey</name_es><name_fr>Guernesey</name_fr><name_en>Guernsey</name_en></country>
+<country><id>94</id><iso3>GHA</iso3><name>Ghana</name><type>CFRQ</type><countryarea>23854</countryarea><landarea>22754</landarea><name_es>Ghana</name_es><name_fr>Ghana</name_fr><name_en>Ghana</name_en></country>
+<country><id>95</id><iso3>GIB</iso3><name>Gibraltar</name><type>FRA</type><countryarea>1</countryarea><landarea>1</landarea><name_es>Gibraltar</name_es><name_fr>Gibraltar</name_fr><name_en>Gibraltar</name_en></country>
+<country><id>106</id><iso3>GIN</iso3><name>Guinea</name><type>FRA</type><countryarea>24586</countryarea><landarea>24572</landarea><name_es>Guinea</name_es><name_fr>Guinée</name_fr><name_en>Guinea</name_en></country>
+<country><id>100</id><iso3>GLP</iso3><name>Guadeloupe</name><type>FRA</type><countryarea>170</countryarea><landarea>169</landarea><name_es>Guadalupe</name_es><name_fr>Guadeloupe</name_fr><name_en>Guadeloupe</name_en></country>
+<country><id>90</id><iso3>GMB</iso3><name>Gambia</name><type>FRA</type><countryarea>1130</countryarea><landarea>1000</landarea><name_es>Gambia</name_es><name_fr>Gambie</name_fr><name_en>Gambia</name_en></country>
+<country><id>105</id><iso3>GNB</iso3><name>Guinea-Bissau</name><type>FRA</type><countryarea>3613</countryarea><landarea>2812</landarea><name_es>Guinea-Bissau</name_es><name_fr>Guinée-Bissau</name_fr><name_en>Guinea-Bissau</name_en></country>
+<country><id>76</id><iso3>GNQ</iso3><name>Equatorial Guinea</name><type>CFRQ</type><countryarea>2805</countryarea><landarea>2805</landarea><name_es>Guinea Ecuatorial</name_es><name_fr>Guinée équatoriale</name_fr><name_en>Equatorial Guinea</name_en></country>
+<country><id>97</id><iso3>GRC</iso3><name>Greece</name><type>CFRQ</type><countryarea>13196</countryarea><landarea>12890</landarea><name_es>Grecia</name_es><name_fr>Grèce</name_fr><name_en>Greece</name_en></country>
+<country><id>99</id><iso3>GRD</iso3><name>Grenada</name><type>FRA</type><countryarea>34</countryarea><landarea>34</landarea><name_es>Granada</name_es><name_fr>Grenade</name_fr><name_en>Grenada</name_en></country>
+<country><id>98</id><iso3>GRL</iso3><name>Greenland</name><type>FRA</type><countryarea>41045</countryarea><landarea>41045</landarea><name_es>Groenlandia</name_es><name_fr>Groenland</name_fr><name_en>Greenland</name_en></country>
+<country><id>103</id><iso3>GTM</iso3><name>Guatemala</name><type>CFRQ</type><countryarea>10889</countryarea><landarea>10716</landarea><name_es>Guatemala</name_es><name_fr>Guatemala</name_fr><name_en>Guatemala</name_en></country>
+<country><id>86</id><iso3>GUF</iso3><name>French Guiana</name><type>FRA</type><countryarea>8353</countryarea><landarea>8220</landarea><name_es>Guayana Francesa</name_es><name_fr>Guyane française</name_fr><name_en>French Guiana</name_en></country>
+<country><id>101</id><iso3>GUM</iso3><name>Guam</name><type>FRA</type><countryarea>54</countryarea><landarea>54</landarea><name_es>Guam</name_es><name_fr>Guam</name_fr><name_en>Guam</name_en></country>
+<country><id>107</id><iso3>GUY</iso3><name>Guyana</name><type>CFRQ</type><countryarea>21497</countryarea><landarea>19685</landarea><name_es>Guyana</name_es><name_fr>Guyana</name_fr><name_en>Guyana</name_en></country>
+<country><id>111</id><iso3>HND</iso3><name>Honduras</name><type>CFRQ</type><countryarea>11249</countryarea><landarea>11189</landarea><name_es>Honduras</name_es><name_fr>Honduras</name_fr><name_en>Honduras</name_en></country>
+<country><id>62</id><iso3>HRV</iso3><name>Croatia</name><type>CFRQ</type><countryarea>5659</countryarea><landarea>5596</landarea><name_es>Croacia</name_es><name_fr>Croatie</name_fr><name_en>Croatia</name_en></country>
+<country><id>108</id><iso3>HTI</iso3><name>Haiti</name><type>FRA</type><countryarea>2775</countryarea><landarea>2756</landarea><name_es>Haití</name_es><name_fr>Haïti</name_fr><name_en>Haiti</name_en></country>
+<country><id>113</id><iso3>HUN</iso3><name>Hungary</name><type>CFRQ</type><countryarea>9303</countryarea><landarea>9053</landarea><name_es>Hungría</name_es><name_fr>Hongrie</name_fr><name_en>Hungary</name_en></country>
+<country><id>116</id><iso3>IDN</iso3><name>Indonesia</name><type>CFRQ</type><countryarea>190457</countryarea><landarea>181157</landarea><name_es>Indonesia</name_es><name_fr>Indonésie</name_fr><name_en>Indonesia</name_en></country>
+<country><id>120</id><iso3>IMN</iso3><name>Isle of Man</name><type>FRA</type><countryarea>57</countryarea><landarea>57</landarea><name_es>Isla de Man</name_es><name_fr>Île de Man</name_fr><name_en>Isle of Man</name_en></country>
+<country><id>115</id><iso3>IND</iso3><name>India</name><type>CFRQ</type><countryarea>328726</countryarea><landarea>297319</landarea><name_es>India</name_es><name_fr>Inde</name_fr><name_en>India</name_en></country>
+<country><id>119</id><iso3>IRL</iso3><name>Ireland</name><type>CFRQ</type><countryarea>7028</countryarea><landarea>6889</landarea><name_es>Irlanda</name_es><name_fr>Irlande</name_fr><name_en>Ireland</name_en></country>
+<country><id>117</id><iso3>IRN</iso3><name>Iran  (Islamic Republic of)</name><type>FRA</type><countryarea>174515</countryarea><landarea>162855</landarea><name_es>Irán (República Islámica del)</name_es><name_fr>Iran (République islamique d')</name_fr><name_en>Iran  (Islamic Republic of)</name_en></country>
+<country><id>118</id><iso3>IRQ</iso3><name>Iraq</name><type>FRA</type><countryarea>43524</countryarea><landarea>43432</landarea><name_es>Iraq</name_es><name_fr>Iraq</name_fr><name_en>Iraq</name_en></country>
+<country><id>114</id><iso3>ISL</iso3><name>Iceland</name><type>CFRQ</type><countryarea>10300</countryarea><landarea>10025</landarea><name_es>Islandia</name_es><name_fr>Islande</name_fr><name_en>Iceland</name_en></country>
+<country><id>121</id><iso3>ISR</iso3><name>Israel</name><type>CFRQ</type><countryarea>2207</countryarea><landarea>2164</landarea><name_es>Israel</name_es><name_fr>Israël</name_fr><name_en>Israel</name_en></country>
+<country><id>122</id><iso3>ITA</iso3><name>Italy</name><type>CFRQ</type><countryarea>30134</countryarea><landarea>29414</landarea><name_es>Italia</name_es><name_fr>Italie</name_fr><name_en>Italy</name_en></country>
+<country><id>123</id><iso3>JAM</iso3><name>Jamaica</name><type>FRA</type><countryarea>1099</countryarea><landarea>1083</landarea><name_es>Jamaica</name_es><name_fr>Jamaïque</name_fr><name_en>Jamaica</name_en></country>
+<country><id>128</id><iso3>JEY</iso3><name>Jersey</name><type>FRA</type><countryarea>11.6</countryarea><landarea>11.6</landarea><name_es>Jersey</name_es><name_fr>Jersey</name_fr><name_en>Jersey</name_en></country>
+<country><id>130</id><iso3>JOR</iso3><name>Jordan</name><type>FRA</type><countryarea>8932</countryarea><landarea>8878</landarea><name_es>Jordania</name_es><name_fr>Jordanie</name_fr><name_en>Jordan</name_en></country>
+<country><id>126</id><iso3>JPN</iso3><name>Japan</name><type>CFRQ</type><countryarea>37794.7</countryarea><landarea>36450</landarea><name_es>Japón</name_es><name_fr>Japon</name_fr><name_en>Japan</name_en></country>
+<country><id>132</id><iso3>KAZ</iso3><name>Kazakhstan</name><type>CFRQ</type><countryarea>272490</countryarea><landarea>269970</landarea><name_es>Kazajstán</name_es><name_fr>Kazakhstan</name_fr><name_en>Kazakhstan</name_en></country>
+<country><id>133</id><iso3>KEN</iso3><name>Kenya</name><type>FRA</type><countryarea>58037</countryarea><landarea>56914</landarea><name_es>Kenya</name_es><name_fr>Kenya</name_fr><name_en>Kenya</name_en></country>
+<country><id>138</id><iso3>KGZ</iso3><name>Kyrgyzstan</name><type>CFRQ</type><countryarea>19994.9</countryarea><landarea>19180</landarea><name_es>Kirguistán</name_es><name_fr>Kirghizistan</name_fr><name_en>Kyrgyzstan</name_en></country>
+<country><id>44</id><iso3>KHM</iso3><name>Cambodia</name><type>CFRQ</type><countryarea>18104</countryarea><landarea>17652</landarea><name_es>Camboya</name_es><name_fr>Cambodge</name_fr><name_en>Cambodia</name_en></country>
+<country><id>135</id><iso3>KIR</iso3><name>Kiribati</name><type>FRA</type><countryarea>81</countryarea><landarea>81</landarea><name_es>Kiribati</name_es><name_fr>Kiribati</name_fr><name_en>Kiribati</name_en></country>
+<country><id>208</id><iso3>KNA</iso3><name>Saint Kitts and Nevis</name><type>FRA</type><countryarea>26</countryarea><landarea>26</landarea><name_es>Saint Kitts y Nevis</name_es><name_fr>Saint-Kitts-et-Nevis</name_fr><name_en>Saint Kitts and Nevis</name_en></country>
+<country><id>202</id><iso3>KOR</iso3><name>Republic of Korea</name><type>CFRQ</type><countryarea>9990</countryarea><landarea>9710</landarea><name_es>República de Corea</name_es><name_fr>République de Corée</name_fr><name_en>Republic of Korea</name_en></country>
+<country><id>137</id><iso3>KWT</iso3><name>Kuwait</name><type>FRA</type><countryarea>1782</countryarea><landarea>1782</landarea><name_es>Kuwait</name_es><name_fr>Koweït</name_fr><name_en>Kuwait</name_en></country>
+<country><id>139</id><iso3>LAO</iso3><name>Lao People's Democratic Republic</name><type>FRA</type><countryarea>23680</countryarea><landarea>23080</landarea><name_es>República Democrática Popular Lao</name_es><name_fr>République démocratique populaire lao</name_fr><name_en>Lao People's Democratic Republic</name_en></country>
+<country><id>141</id><iso3>LBN</iso3><name>Lebanon</name><type>FRA</type><countryarea>1045</countryarea><landarea>1023</landarea><name_es>Líbano</name_es><name_fr>Liban</name_fr><name_en>Lebanon</name_en></country>
+<country><id>144</id><iso3>LBR</iso3><name>Liberia</name><type>CFRQ</type><countryarea>11137</countryarea><landarea>9632</landarea><name_es>Liberia</name_es><name_fr>Libéria</name_fr><name_en>Liberia</name_en></country>
+<country><id>145</id><iso3>LBY</iso3><name>Libyan Arab Jamahiriya</name><type>FRA</type><countryarea>175954</countryarea><landarea>175954</landarea><name_es>Jamahiriya Árabe Libia</name_es><name_fr>Jamahiriya arabe libyenne</name_fr><name_en>Libyan Arab Jamahiriya</name_en></country>
+<country><id>209</id><iso3>LCA</iso3><name>Saint Lucia</name><type>FRA</type><countryarea>62</countryarea><landarea>61</landarea><name_es>Santa Lucía</name_es><name_fr>Sainte-Lucie</name_fr><name_en>Saint Lucia</name_en></country>
+<country><id>146</id><iso3>LIE</iso3><name>Liechtenstein</name><type>CFRQ</type><countryarea>16</countryarea><landarea>16</landarea><name_es>Liechtenstein</name_es><name_fr>Liechtenstein</name_fr><name_en>Liechtenstein</name_en></country>
+<country><id>231</id><iso3>LKA</iso3><name>Sri Lanka</name><type>FRA</type><countryarea>6561</countryarea><landarea>6271</landarea><name_es>Sri Lanka</name_es><name_fr>Sri Lanka</name_fr><name_en>Sri Lanka</name_en></country>
+<country><id>142</id><iso3>LSO</iso3><name>Lesotho</name><type>FRA</type><countryarea>3036</countryarea><landarea>3036</landarea><name_es>Lesotho</name_es><name_fr>Lesotho</name_fr><name_en>Lesotho</name_en></country>
+<country><id>147</id><iso3>LTU</iso3><name>Lithuania</name><type>CFRQ</type><countryarea>6530</countryarea><landarea>6267.5</landarea><name_es>Lituania</name_es><name_fr>Lituanie</name_fr><name_en>Lithuania</name_en></country>
+<country><id>148</id><iso3>LUX</iso3><name>Luxembourg</name><type>CFRQ</type><countryarea>259</countryarea><landarea>259</landarea><name_es>Luxemburgo</name_es><name_fr>Luxembourg</name_fr><name_en>Luxembourg</name_en></country>
+<country><id>140</id><iso3>LVA</iso3><name>Latvia</name><type>CFRQ</type><countryarea>6456</countryarea><landarea>6218</landarea><name_es>Letonia</name_es><name_fr>Lettonie</name_fr><name_en>Latvia</name_en></country>
+<country><id>99900001</id><iso3>MAF</iso3><name>Saint Martin (French part)</name><type>FRA</type><countryarea>5.44</countryarea><landarea>5.44</landarea><name_es>Saint Martin</name_es><name_fr>Saint-Martin</name_fr><name_en>Saint Martin</name_en></country>
+<country><id>169</id><iso3>MAR</iso3><name>Morocco</name><type>FRA</type><countryarea>44655</countryarea><landarea>44630</landarea><name_es>Marruecos</name_es><name_fr>Maroc</name_fr><name_en>Morocco</name_en></country>
+<country><id>166</id><iso3>MCO</iso3><name>Monaco</name><type>CFRQ</type><countryarea>0.2</countryarea><landarea>0.2</landarea><name_es>Mónaco</name_es><name_fr>Monaco</name_fr><name_en>Monaco</name_en></country>
+<country><id>165</id><iso3>MDA</iso3><name>Republic of Moldova</name><type>CFRQ</type><countryarea>3385</countryarea><landarea>3289</landarea><name_es>Moldova</name_es><name_fr>Moldova</name_fr><name_en>Republic of Moldova</name_en></country>
+<country><id>150</id><iso3>MDG</iso3><name>Madagascar</name><type>CFRQ</type><countryarea>58704</countryarea><landarea>58154</landarea><name_es>Madagascar</name_es><name_fr>Madagascar</name_fr><name_en>Madagascar</name_en></country>
+<country><id>154</id><iso3>MDV</iso3><name>Maldives</name><type>FRA</type><countryarea>30</countryarea><landarea>30</landarea><name_es>Maldivas</name_es><name_fr>Maldives</name_fr><name_en>Maldives</name_en></country>
+<country><id>162</id><iso3>MEX</iso3><name>Mexico</name><type>CFRQ</type><countryarea>196438</countryarea><landarea>194395</landarea><name_es>México</name_es><name_fr>Mexique</name_fr><name_en>Mexico</name_en></country>
+<country><id>157</id><iso3>MHL</iso3><name>Marshall Islands</name><type>FRA</type><countryarea>18</countryarea><landarea>18</landarea><name_es>Islas Marshall</name_es><name_fr>Îles Marshall</name_fr><name_en>Marshall Islands</name_en></country>
+<country><id>241</id><iso3>MKD</iso3><name>The former Yugoslav Republic of Macedonia</name><type>CFRQ</type><countryarea>2571</countryarea><landarea>2522</landarea><name_es>ex República Yugoslava de Macedonia</name_es><name_fr>Ex-République yougoslave de Macédoine</name_fr><name_en>The former Yugoslav Republic of Macedonia</name_en></country>
+<country><id>155</id><iso3>MLI</iso3><name>Mali</name><type>CFRQ</type><countryarea>124019</countryarea><landarea>122019</landarea><name_es>Malí</name_es><name_fr>Mali</name_fr><name_en>Mali</name_en></country>
+<country><id>156</id><iso3>MLT</iso3><name>Malta</name><type>CFRQ</type><countryarea>32</countryarea><landarea>32</landarea><name_es>Malta</name_es><name_fr>Malte</name_fr><name_en>Malta</name_en></country>
+<country><id>171</id><iso3>MMR</iso3><name>Myanmar</name><type>CFRQ</type><countryarea>67659</countryarea><landarea>65352</landarea><name_es>Myanmar</name_es><name_fr>Myanmar</name_fr><name_en>Myanmar</name_en></country>
+<country><id>2647</id><iso3>MNE</iso3><name>Montenegro</name><type>CFRQ</type><countryarea>1381</countryarea><landarea>1345</landarea><name_es>Montenegro</name_es><name_fr>Monténégro</name_fr><name_en>Montenegro</name_en></country>
+<country><id>167</id><iso3>MNG</iso3><name>Mongolia</name><type>FRA</type><countryarea>156412</countryarea><landarea>155356</landarea><name_es>Mongolia</name_es><name_fr>Mongolie</name_fr><name_en>Mongolia</name_en></country>
+<country><id>185</id><iso3>MNP</iso3><name>Northern Mariana Islands</name><type>FRA</type><countryarea>46</countryarea><landarea>46</landarea><name_es>Islas Marianas Septentrionales</name_es><name_fr>Îles Mariannes septentrionales</name_fr><name_en>Northern Mariana Islands</name_en></country>
+<country><id>170</id><iso3>MOZ</iso3><name>Mozambique</name><type>CFRQ</type><countryarea>79938</countryarea><landarea>78638</landarea><name_es>Mozambique</name_es><name_fr>Mozambique</name_fr><name_en>Mozambique</name_en></country>
+<country><id>159</id><iso3>MRT</iso3><name>Mauritania</name><type>FRA</type><countryarea>103070</countryarea><landarea>103070</landarea><name_es>Mauritania</name_es><name_fr>Mauritanie</name_fr><name_en>Mauritania</name_en></country>
+<country><id>168</id><iso3>MSR</iso3><name>Montserrat</name><type>FRA</type><countryarea>10</countryarea><landarea>10</landarea><name_es>Montserrat</name_es><name_fr>Montserrat</name_fr><name_en>Montserrat</name_en></country>
+<country><id>158</id><iso3>MTQ</iso3><name>Martinique</name><type>FRA</type><countryarea>113</countryarea><landarea>106</landarea><name_es>Martinica</name_es><name_fr>Martinique</name_fr><name_en>Martinique</name_en></country>
+<country><id>160</id><iso3>MUS</iso3><name>Mauritius</name><type>FRA</type><countryarea>204</countryarea><landarea>203</landarea><name_es>Mauricio</name_es><name_fr>Maurice</name_fr><name_en>Mauritius</name_en></country>
+<country><id>152</id><iso3>MWI</iso3><name>Malawi</name><type>FRA</type><countryarea>11848</countryarea><landarea>9428</landarea><name_es>Malawi</name_es><name_fr>Malawi</name_fr><name_en>Malawi</name_en></country>
+<country><id>153</id><iso3>MYS</iso3><name>Malaysia</name><type>CFRQ</type><countryarea>33080</countryarea><landarea>32855</landarea><name_es>Malasia</name_es><name_fr>Malaisie</name_fr><name_en>Malaysia</name_en></country>
+<country><id>161</id><iso3>MYT</iso3><name>Mayotte</name><type>FRA</type><countryarea>37.5</countryarea><landarea>37.5</landarea><name_es>Mayotte</name_es><name_fr>Mayotte</name_fr><name_en>Mayotte</name_en></country>
+<country><id>172</id><iso3>NAM</iso3><name>Namibia</name><type>FRA</type><countryarea>82429</countryarea><landarea>82329</landarea><name_es>Namibia</name_es><name_fr>Namibie</name_fr><name_en>Namibia</name_en></country>
+<country><id>178</id><iso3>NCL</iso3><name>New Caledonia</name><type>FRA</type><countryarea>1858</countryarea><landarea>1828</landarea><name_es>Nueva Caledonia</name_es><name_fr>Nouvelle-Calédonie</name_fr><name_en>New Caledonia</name_en></country>
+<country><id>181</id><iso3>NER</iso3><name>Niger</name><type>FRA</type><countryarea>126700</countryarea><landarea>126670</landarea><name_es>Níger</name_es><name_fr>Niger</name_fr><name_en>Niger</name_en></country>
+<country><id>184</id><iso3>NFK</iso3><name>Norfolk Island</name><type>FRA</type><countryarea>4</countryarea><landarea>4</landarea><name_es>Islas Norfolk</name_es><name_fr>Île Norfolk</name_fr><name_en>Norfolk Island</name_en></country>
+<country><id>182</id><iso3>NGA</iso3><name>Nigeria</name><type>CFRQ</type><countryarea>92377</countryarea><landarea>91077</landarea><name_es>Nigeria</name_es><name_fr>Nigéria</name_fr><name_en>Nigeria</name_en></country>
+<country><id>180</id><iso3>NIC</iso3><name>Nicaragua</name><type>FRA</type><countryarea>13037</countryarea><landarea>12034</landarea><name_es>Nicaragua</name_es><name_fr>Nicaragua</name_fr><name_en>Nicaragua</name_en></country>
+<country><id>183</id><iso3>NIU</iso3><name>Niue</name><type>FRA</type><countryarea>26</countryarea><landarea>26</landarea><name_es>Niue</name_es><name_fr>Nioué</name_fr><name_en>Niue</name_en></country>
+<country><id>177</id><iso3>NLD</iso3><name>Netherlands</name><type>CFRQ</type><countryarea>4154</countryarea><landarea>3373</landarea><name_es>Países Bajos</name_es><name_fr>Pays-Bas</name_fr><name_en>Netherlands</name_en></country>
+<country><id>186</id><iso3>NOR</iso3><name>Norway</name><type>CFRQ</type><countryarea>32378</countryarea><landarea>30547</landarea><name_es>Noruega</name_es><name_fr>Norvège</name_fr><name_en>Norway</name_en></country>
+<country><id>175</id><iso3>NPL</iso3><name>Nepal</name><type>FRA</type><countryarea>14718</countryarea><landarea>14335</landarea><name_es>Nepal</name_es><name_fr>Népal</name_fr><name_en>Nepal</name_en></country>
+<country><id>173</id><iso3>NRU</iso3><name>Nauru</name><type>FRA</type><countryarea>2</countryarea><landarea>2</landarea><name_es>Nauru</name_es><name_fr>Nauru</name_fr><name_en>Nauru</name_en></country>
+<country><id>179</id><iso3>NZL</iso3><name>New Zealand</name><type>CFRQ</type><countryarea>26771</countryarea><landarea>26331</landarea><name_es>Nueva Zelandia</name_es><name_fr>Nouvelle-Zélande</name_fr><name_en>New Zealand</name_en></country>
+<country><id>187</id><iso3>OMN</iso3><name>Oman</name><type>FRA</type><countryarea>30950</countryarea><landarea>30950</landarea><name_es>Omán</name_es><name_fr>Oman</name_fr><name_en>Oman</name_en></country>
+<country><id>188</id><iso3>PAK</iso3><name>Pakistan</name><type>FRA</type><countryarea>79610</countryarea><landarea>77088</landarea><name_es>Pakistán</name_es><name_fr>Pakistan</name_fr><name_en>Pakistan</name_en></country>
+<country><id>191</id><iso3>PAN</iso3><name>Panama</name><type>CFRQ</type><countryarea>7542</countryarea><landarea>7434</landarea><name_es>Panamá</name_es><name_fr>Panama</name_fr><name_en>Panama</name_en></country>
+<country><id>197</id><iso3>PCN</iso3><name>Pitcairn</name><type>FRA</type><countryarea>4.7</countryarea><landarea>4.7</landarea><name_es>Pitcairn</name_es><name_fr>Pitcairn</name_fr><name_en>Pitcairn</name_en></country>
+<country><id>195</id><iso3>PER</iso3><name>Peru</name><type>CFRQ</type><countryarea>128522</countryarea><landarea>128000</landarea><name_es>Perú</name_es><name_fr>Pérou</name_fr><name_en>Peru</name_en></country>
+<country><id>196</id><iso3>PHL</iso3><name>Philippines</name><type>CFRQ</type><countryarea>30000</countryarea><landarea>29817</landarea><name_es>Filipinas</name_es><name_fr>Philippines</name_fr><name_en>Philippines</name_en></country>
+<country><id>189</id><iso3>PLW</iso3><name>Palau</name><type>FRA</type><countryarea>46</countryarea><landarea>46</landarea><name_es>Palau</name_es><name_fr>Palaos</name_fr><name_en>Palau</name_en></country>
+<country><id>192</id><iso3>PNG</iso3><name>Papua New Guinea</name><type>CFRQ</type><countryarea>46284</countryarea><landarea>45286</landarea><name_es>Papua Nueva Guinea</name_es><name_fr>Papouasie-Nouvelle-Guinée</name_fr><name_en>Papua New Guinea</name_en></country>
+<country><id>198</id><iso3>POL</iso3><name>Poland</name><type>CFRQ</type><countryarea>31268</countryarea><landarea>30420</landarea><name_es>Polonia</name_es><name_fr>Pologne</name_fr><name_en>Poland</name_en></country>
+<country><id>200</id><iso3>PRI</iso3><name>Puerto Rico</name><type>FRA</type><countryarea>887</countryarea><landarea>887</landarea><name_es>Puerto Rico</name_es><name_fr>Porto Rico</name_fr><name_en>Puerto Rico</name_en></country>
+<country><id>67</id><iso3>PRK</iso3><name>Dem People's Rep of Korea</name><type>FRA</type><countryarea>12054</countryarea><landarea>12041</landarea><name_es>República Popular Democrática de Corea</name_es><name_fr>République populaire démocratique de Corée</name_fr><name_en>Dem People's Rep of Korea</name_en></country>
+<country><id>199</id><iso3>PRT</iso3><name>Portugal</name><type>CFRQ</type><countryarea>9209</countryarea><landarea>9147</landarea><name_es>Portugal</name_es><name_fr>Portugal</name_fr><name_en>Portugal</name_en></country>
+<country><id>194</id><iso3>PRY</iso3><name>Paraguay</name><type>FRA</type><countryarea>40675</countryarea><landarea>39730</landarea><name_es>Paraguay</name_es><name_fr>Paraguay</name_fr><name_en>Paraguay</name_en></country>
+<country><id>275</id><iso3>PSE</iso3><name>Occupied Palestinian territory</name><type>FRA</type><countryarea>602</countryarea><landarea>602</landarea><name_es>Territorio Palestino Ocupado</name_es><name_fr>Territoire palestinien occupé</name_fr><name_en>Occupied Palestinian territory</name_en></country>
+<country><id>87</id><iso3>PYF</iso3><name>French Polynesia</name><type>FRA</type><countryarea>400</countryarea><landarea>366</landarea><name_es>Polinesia Francesa</name_es><name_fr>Polynésie française</name_fr><name_en>French Polynesia</name_en></country>
+<country><id>201</id><iso3>QAT</iso3><name>Qatar</name><type>FRA</type><countryarea>1159</countryarea><landarea>1159</landarea><name_es>Qatar</name_es><name_fr>Qatar</name_fr><name_en>Qatar</name_en></country>
+<country><id>206</id><iso3>REU</iso3><name>Réunion</name><type>FRA</type><countryarea>251</countryarea><landarea>250</landarea><name_es>Reunión</name_es><name_fr>Réunion</name_fr><name_en>Réunion</name_en></country>
+<country><id>203</id><iso3>ROU</iso3><name>Romania</name><type>CFRQ</type><countryarea>23839</countryarea><landarea>23006</landarea><name_es>Rumania</name_es><name_fr>Roumanie</name_fr><name_en>Romania</name_en></country>
+<country><id>204</id><iso3>RUS</iso3><name>Russian Federation</name><type>CFRQ</type><countryarea>1709824</countryarea><landarea>1637687</landarea><name_es>Federación de Rusia</name_es><name_fr>Fédération de Russie</name_fr><name_en>Russian Federation</name_en></country>
+<country><id>205</id><iso3>RWA</iso3><name>Rwanda</name><type>CFRQ</type><countryarea>2634</countryarea><landarea>2467</landarea><name_es>Rwanda</name_es><name_fr>Rwanda</name_fr><name_en>Rwanda</name_en></country>
+<country><id>215</id><iso3>SAU</iso3><name>Saudi Arabia</name><type>FRA</type><countryarea>214969</countryarea><landarea>214969</landarea><name_es>Arabia Saudita</name_es><name_fr>Arabie saoudite</name_fr><name_en>Saudi Arabia</name_en></country>
+<country><id>40764</id><iso3>SDN</iso3><name>Sudan</name><type>FRA</type><countryarea>186148.4</countryarea><landarea>186148.4</landarea><name_es>Sudán</name_es><name_fr>Soudan</name_fr><name_en>Sudan</name_en></country>
+<country><id>217</id><iso3>SEN</iso3><name>Senegal</name><type>FRA</type><countryarea>19672</countryarea><landarea>19253</landarea><name_es>Senegal</name_es><name_fr>Sénégal</name_fr><name_en>Senegal</name_en></country>
+<country><id>222</id><iso3>SGP</iso3><name>Singapore</name><type>FRA</type><countryarea>71</countryarea><landarea>70</landarea><name_es>Singapur</name_es><name_fr>Singapour</name_fr><name_en>Singapore</name_en></country>
+<country><id>207</id><iso3>SHN</iso3><name>Saint Helena</name><type>FRA</type><countryarea>39</countryarea><landarea>39</landarea><name_es>Santa Elena</name_es><name_fr>Sainte-Hélène</name_fr><name_en>Saint Helena</name_en></country>
+<country><id>234</id><iso3>SJM</iso3><name>Svalbard and Jan Mayen Islands</name><type>FRA</type><countryarea>6204</countryarea><landarea>6204</landarea><name_es>Islas Svalbard y Jan Mayen</name_es><name_fr>Îles Svalbard et Jan Mayen</name_fr><name_en>Svalbard and Jan Mayen Islands</name_en></country>
+<country><id>225</id><iso3>SLB</iso3><name>Solomon Islands</name><type>FRA</type><countryarea>2890</countryarea><landarea>2799</landarea><name_es>Islas Salomón</name_es><name_fr>Îles Salomon</name_fr><name_en>Solomon Islands</name_en></country>
+<country><id>221</id><iso3>SLE</iso3><name>Sierra Leone</name><type>FRA</type><countryarea>7174</countryarea><landarea>7162</landarea><name_es>Sierra Leona</name_es><name_fr>Sierra Leone</name_fr><name_en>Sierra Leone</name_en></country>
+<country><id>75</id><iso3>SLV</iso3><name>El Salvador</name><type>FRA</type><countryarea>2104</countryarea><landarea>2072</landarea><name_es>El Salvador</name_es><name_fr>El Salvador</name_fr><name_en>El Salvador</name_en></country>
+<country><id>213</id><iso3>SMR</iso3><name>San Marino</name><type>CFRQ</type><countryarea>6</countryarea><landarea>6</landarea><name_es>San Marino</name_es><name_fr>Saint-Marin</name_fr><name_en>San Marino</name_en></country>
+<country><id>226</id><iso3>SOM</iso3><name>Somalia</name><type>FRA</type><countryarea>63766</countryarea><landarea>62734</landarea><name_es>Somalia</name_es><name_fr>Somalie</name_fr><name_en>Somalia</name_en></country>
+<country><id>210</id><iso3>SPM</iso3><name>Saint Pierre et Miquelon</name><type>FRA</type><countryarea>24</countryarea><landarea>23</landarea><name_es>Saint-Pierre y Miquelon</name_es><name_fr>Saint-Pierre-et-Miquelon</name_fr><name_en>Saint Pierre et Miquelon</name_en></country>
+<country><id>2648</id><iso3>SRB</iso3><name>Serbia</name><type>CFRQ</type><countryarea>8836</countryarea><landarea>8746</landarea><name_es>Serbia</name_es><name_fr>Serbie</name_fr><name_en>Serbia</name_en></country>
+<country><id>99940764</id><iso3>SSD</iso3><name>South Sudan</name><type>FRA</type><countryarea>64433</countryarea><landarea>64433</landarea><name_es>Sudán del Sur</name_es><name_fr>Soudan du Sud</name_fr><name_en>South Sudan</name_en></country>
+<country><id>214</id><iso3>STP</iso3><name>Sao Tome and Principe</name><type>CFRQ</type><countryarea>96</countryarea><landarea>96</landarea><name_es>Santo Tomé y Príncipe</name_es><name_fr>Sao Tomé-et-Principe</name_fr><name_en>Sao Tome and Principe</name_en></country>
+<country><id>233</id><iso3>SUR</iso3><name>Suriname</name><type>CFRQ</type><countryarea>16382</countryarea><landarea>15600</landarea><name_es>Suriname</name_es><name_fr>Suriname</name_fr><name_en>Suriname</name_en></country>
+<country><id>223</id><iso3>SVK</iso3><name>Slovakia</name><type>CFRQ</type><countryarea>4904</countryarea><landarea>4809</landarea><name_es>Eslovaquia</name_es><name_fr>Slovaquie</name_fr><name_en>Slovakia</name_en></country>
+<country><id>224</id><iso3>SVN</iso3><name>Slovenia</name><type>CFRQ</type><countryarea>2027</countryarea><landarea>2014</landarea><name_es>Eslovenia</name_es><name_fr>Slovénie</name_fr><name_en>Slovenia</name_en></country>
+<country><id>236</id><iso3>SWE</iso3><name>Sweden</name><type>CFRQ</type><countryarea>45030</countryarea><landarea>41034</landarea><name_es>Suecia</name_es><name_fr>Suède</name_fr><name_en>Sweden</name_en></country>
+<country><id>235</id><iso3>SWZ</iso3><name>Swaziland</name><type>FRA</type><countryarea>1736</countryarea><landarea>1720</landarea><name_es>Swazilandia</name_es><name_fr>Swaziland</name_fr><name_en>Swaziland</name_en></country>
+<country><id>220</id><iso3>SYC</iso3><name>Seychelles</name><type>FRA</type><countryarea>46</countryarea><landarea>46</landarea><name_es>Seychelles</name_es><name_fr>Seychelles</name_fr><name_en>Seychelles</name_en></country>
+<country><id>238</id><iso3>SYR</iso3><name>Syrian Arab Republic</name><type>FRA</type><countryarea>18518</countryarea><landarea>18363</landarea><name_es>República Árabe Siria</name_es><name_fr>République arabe syrienne</name_fr><name_en>Syrian Arab Republic</name_en></country>
+<country><id>251</id><iso3>TCA</iso3><name>Turks and Caicos islands</name><type>FRA</type><countryarea>95</countryarea><landarea>95</landarea><name_es>Islas Turcas y Caicos</name_es><name_fr>Îles Turques et Caïques</name_fr><name_en>Turks and Caicos islands</name_en></country>
+<country><id>50</id><iso3>TCD</iso3><name>Chad</name><type>CFRQ</type><countryarea>128400</countryarea><landarea>125920</landarea><name_es>Chad</name_es><name_fr>Tchad</name_fr><name_en>Chad</name_en></country>
+<country><id>243</id><iso3>TGO</iso3><name>Togo</name><type>CFRQ</type><countryarea>5679</countryarea><landarea>5439</landarea><name_es>Togo</name_es><name_fr>Togo</name_fr><name_en>Togo</name_en></country>
+<country><id>240</id><iso3>THA</iso3><name>Thailand</name><type>CFRQ</type><countryarea>51312</countryarea><landarea>51089</landarea><name_es>Tailandia</name_es><name_fr>Thaïlande</name_fr><name_en>Thailand</name_en></country>
+<country><id>239</id><iso3>TJK</iso3><name>Tajikistan</name><type>CFRQ</type><countryarea>14255</countryarea><landarea>13996</landarea><name_es>Tayikistán</name_es><name_fr>Tadjikistan</name_fr><name_en>Tajikistan</name_en></country>
+<country><id>244</id><iso3>TKL</iso3><name>Tokelau</name><type>FRA</type><countryarea>1</countryarea><landarea>1</landarea><name_es>Tokelau</name_es><name_fr>Tokélaou</name_fr><name_en>Tokelau</name_en></country>
+<country><id>250</id><iso3>TKM</iso3><name>Turkmenistan</name><type>CFRQ</type><countryarea>48810</countryarea><landarea>46993</landarea><name_es>Turkmenistán</name_es><name_fr>Turkménistan</name_fr><name_en>Turkmenistan</name_en></country>
+<country><id>242</id><iso3>TLS</iso3><name>Timor-Leste</name><type>FRA</type><countryarea>1487</countryarea><landarea>1487</landarea><name_es>Timor-Leste</name_es><name_fr>Timor-Leste</name_fr><name_en>Timor-Leste</name_en></country>
+<country><id>245</id><iso3>TON</iso3><name>Tonga</name><type>FRA</type><countryarea>75</countryarea><landarea>72</landarea><name_es>Tonga</name_es><name_fr>Tonga</name_fr><name_en>Tonga</name_en></country>
+<country><id>246</id><iso3>TTO</iso3><name>Trinidad and Tobago</name><type>CFRQ</type><countryarea>513</countryarea><landarea>513</landarea><name_es>Trinidad y Tabago</name_es><name_fr>Trinité-et-Tobago</name_fr><name_en>Trinidad and Tobago</name_en></country>
+<country><id>248</id><iso3>TUN</iso3><name>Tunisia</name><type>FRA</type><countryarea>16361</countryarea><landarea>15536</landarea><name_es>Túnez</name_es><name_fr>Tunisie</name_fr><name_en>Tunisia</name_en></country>
+<country><id>249</id><iso3>TUR</iso3><name>Turkey</name><type>CFRQ</type><countryarea>78356</countryarea><landarea>76963</landarea><name_es>Turquía</name_es><name_fr>Turquie</name_fr><name_en>Turkey</name_en></country>
+<country><id>252</id><iso3>TUV</iso3><name>Tuvalu</name><type>FRA</type><countryarea>3</countryarea><landarea>3</landarea><name_es>Tuvalu</name_es><name_fr>Tuvalu</name_fr><name_en>Tuvalu</name_en></country>
+<country><id>257</id><iso3>TZA</iso3><name>United Republic of Tanzania</name><type>FRA</type><countryarea>94730</countryarea><landarea>88580</landarea><name_es>República Unida de Tanzanía</name_es><name_fr>République-Unie de Tanzanie</name_fr><name_en>United Republic of Tanzania</name_en></country>
+<country><id>253</id><iso3>UGA</iso3><name>Uganda</name><type>FRA</type><countryarea>24155</countryarea><landarea>19981</landarea><name_es>Uganda</name_es><name_fr>Ouganda</name_fr><name_en>Uganda</name_en></country>
+<country><id>254</id><iso3>UKR</iso3><name>Ukraine</name><type>CFRQ</type><countryarea>60355</countryarea><landarea>57932</landarea><name_es>Ucrania</name_es><name_fr>Ukraine</name_fr><name_en>Ukraine</name_en></country>
+<country><id>260</id><iso3>URY</iso3><name>Uruguay</name><type>CFRQ</type><countryarea>17622</countryarea><landarea>17502</landarea><name_es>Uruguay</name_es><name_fr>Uruguay</name_fr><name_en>Uruguay</name_en></country>
+<country><id>259</id><iso3>USA</iso3><name>United States of America</name><type>CFRQ</type><countryarea>983151</countryarea><landarea>914742</landarea><name_es>Estados Unidos de América</name_es><name_fr>États-Unis d'Amérique</name_fr><name_en>United States of America</name_en></country>
+<country><id>261</id><iso3>UZB</iso3><name>Uzbekistan</name><type>CFRQ</type><countryarea>44740</countryarea><landarea>42540</landarea><name_es>Uzbekistán</name_es><name_fr>Ouzbékistan</name_fr><name_en>Uzbekistan</name_en></country>
+<country><id>110</id><iso3>VAT</iso3><name>Holy See</name><type>CFRQ</type><countryarea>0.044</countryarea><landarea>0.044</landarea><name_es>Santa Sede</name_es><name_fr>Saint-Siège</name_fr><name_en>Holy See</name_en></country>
+<country><id>211</id><iso3>VCT</iso3><name>Saint Vincent and the Grenadines</name><type>FRA</type><countryarea>39</countryarea><landarea>39</landarea><name_es>San Vicente y las Granadinas</name_es><name_fr>Saint-Vincent-et-les Grenadines</name_fr><name_en>Saint Vincent and the Grenadines</name_en></country>
+<country><id>263</id><iso3>VEN</iso3><name>Venezuela</name><type>CFRQ</type><countryarea>91205</countryarea><landarea>88205</landarea><name_es>Venezuela (República Bolivariana de)</name_es><name_fr>Venezuela (République bolivarienne du)</name_fr><name_en>Venezuela</name_en></country>
+<country><id>39</id><iso3>VGB</iso3><name>British Virgin Islands</name><type>FRA</type><countryarea>15</countryarea><landarea>15</landarea><name_es>Islas Vírgenes Británicas</name_es><name_fr>Îles Vierges britanniques</name_fr><name_en>British Virgin Islands</name_en></country>
+<country><id>258</id><iso3>VIR</iso3><name>United States Virgin Islands</name><type>FRA</type><countryarea>35</countryarea><landarea>35</landarea><name_es>Islas Vírgenes (EE.UU.)</name_es><name_fr>Îles Vierges américaines</name_fr><name_en>United States Virgin Islands</name_en></country>
+<country><id>264</id><iso3>VNM</iso3><name>Viet Nam</name><type>FRA</type><countryarea>33105.1</countryarea><landarea>31007</landarea><name_es>Viet Nam</name_es><name_fr>Viet Nam</name_fr><name_en>Viet Nam</name_en></country>
+<country><id>262</id><iso3>VUT</iso3><name>Vanuatu</name><type>FRA</type><countryarea>1219</countryarea><landarea>1219</landarea><name_es>Vanuatu</name_es><name_fr>Vanuatu</name_fr><name_en>Vanuatu</name_en></country>
+<country><id>266</id><iso3>WLF</iso3><name>Wallis and Futuna</name><type>FRA</type><countryarea>14</countryarea><landarea>14</landarea><name_es>Islas Wallis y Futuna</name_es><name_fr>Îles Wallis et Futuna</name_fr><name_en>Wallis and Futuna</name_en></country>
+<country><id>212</id><iso3>WSM</iso3><name>Samoa</name><type>FRA</type><countryarea>284</countryarea><landarea>283</landarea><name_es>Samoa</name_es><name_fr>Samoa</name_fr><name_en>Samoa</name_en></country>
+<country><id>269</id><iso3>YEM</iso3><name>Yemen</name><type>FRA</type><countryarea>52797</countryarea><landarea>52797</landarea><name_es>Yemen</name_es><name_fr>Yémen</name_fr><name_en>Yemen</name_en></country>
+<country><id>227</id><iso3>ZAF</iso3><name>South Africa</name><type>FRA</type><countryarea>121909</countryarea><landarea>121447</landarea><name_es>Sudáfrica</name_es><name_fr>Afrique du Sud</name_fr><name_en>South Africa</name_en></country>
+<country><id>270</id><iso3>ZMB</iso3><name>Zambia</name><type>FRA</type><countryarea>75261</countryarea><landarea>74339</landarea><name_es>Zambia</name_es><name_fr>Zambie</name_fr><name_en>Zambia</name_en></country>
+<country><id>271</id><iso3>ZWE</iso3><name>Zimbabwe</name><type>FRA</type><countryarea>39076</countryarea><landarea>38685</landarea><name_es>Zimbabwe</name_es><name_fr>Zimbabwe</name_fr><name_en>Zimbabwe</name_en></country>
 </countries>
