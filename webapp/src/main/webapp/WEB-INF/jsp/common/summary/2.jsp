@@ -61,7 +61,7 @@
 				<td rowspan="2"><a href="${qpath}#2b">2b</a></td>
 			</tr>
 			<tr class="summaryRow">
-				<td>2.4</td>
+				<td>2.4 <spring:message code="ref113"></spring:message></td>
 				<td>1000 ha</td>
 				<td class="numeric">${_fraVariable_2b_7_1_}, ${_fraVariable_2b_7_2_}, ${_fraVariable_2b_7_3_}</td>
 				<td class="numeric" colspan="2">${_fraVariable_2b_7_4_}, ${_fraVariable_2b_7_5_}, ${_fraVariable_2b_7_6_}</td>
