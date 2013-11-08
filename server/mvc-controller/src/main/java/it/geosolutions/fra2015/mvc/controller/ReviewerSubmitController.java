@@ -207,6 +207,7 @@ public class ReviewerSubmitController {
         ReviewerUtils ru = new ReviewerUtils(catalog, userService);
         
         s.setCoverage(ru.getSurveyCoverage(reviewers));
+        s.setLastSurveyReview(System.currentTimeMillis());
         
         try {
             surveyService.changeStatus(s);
