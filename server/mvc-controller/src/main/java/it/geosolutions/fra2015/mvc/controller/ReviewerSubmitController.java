@@ -192,6 +192,7 @@ public class ReviewerSubmitController {
     private String doSubmit(SurveyInstance si, User su, HttpSession session){
         Status s = si.getStatus();
         s.setCountry(si.getCountry().getIso3());
+        
         boolean outcome = StatusUtils.addReviewerToReviewerSubmit(su, s);
         if(!outcome){
             FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.doublesubmit", 10000, null, null);
@@ -204,6 +205,7 @@ public class ReviewerSubmitController {
         
         List<String> reviewers = StatusUtils.getReviewerSubmit(s);
         ReviewerUtils ru = new ReviewerUtils(catalog, userService);
+        
         s.setCoverage(ru.getSurveyCoverage(reviewers));
         
         try {

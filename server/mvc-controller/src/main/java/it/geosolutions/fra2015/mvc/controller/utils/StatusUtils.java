@@ -150,10 +150,15 @@ public final class StatusUtils {
     }
     
     public static boolean updateRevision(Status status){        
-        Long lastReview = (status.getLastSurveyReview() != null)?status.getLastSurveyReview():0;
+        //Long lastReview = (status.getLastSurveyReview() != null)?status.getLastSurveyReview():0;
+        Long lastReview = (status.getLastPendingFixSubmit() != null) ? status.getLastPendingFixSubmit() : 0;
+        
         Integer revNumber = (status.getRevisionNumber() != null)?status.getRevisionNumber():0;
-        status.setPreviousSurveyReview(lastReview);
-        status.setLastSurveyReview(System.currentTimeMillis());
+        status.setPreviousPendingFix(lastReview);
+        
+        //status.setLastSurveyReview(System.currentTimeMillis());
+        status.setLastPendingFixSubmit(System.currentTimeMillis());
+        
         status.setRevisionNumber(revNumber+1);
         return true;
     }

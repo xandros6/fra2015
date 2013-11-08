@@ -492,4 +492,6 @@ ALTER TABLE fra_country ALTER COLUMN name_en SET NOT NULL;
 ALTER TABLE fra_country ALTER COLUMN name_es SET NOT NULL;
 ALTER TABLE fra_country ALTER COLUMN name_fr SET NOT NULL;
 
+-- https://github.com/geosolutions-it/fra2015/issues/326
 
+ALTER TABLE fra_status RENAME COLUMN previoussurveyreview TO previouspendingfix;

@@ -110,17 +110,19 @@ public class EditorSubmitController {
             LOGGER.error("Survey can't be submitted now");
             return "redirect:/surveylist/0";
         }
+        
         //change status
         status.setStatus(StatusUtils.PENDING_FIX);
         status.setCountry(iso3);
-        status.setLastPendingFixSubmit(System.currentTimeMillis());
         status.setReviewerSubmit("");
         status.setCoverage("");
         StatusUtils.updateRevision(status);
         Country c = surveyService.findCountryByISO3(iso3);
+        
         if(c!=null){
             status.setCountry(iso3);
         }
+        
         try {
             surveyService.changeStatus(status);
         } catch (BadRequestServiceEx e) {
@@ -132,6 +134,7 @@ public class EditorSubmitController {
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.pendingfix.error", 10000, null, null);
             return "redirect:/surveylist/0";
         }
+        
         LOGGER.info("Submission for survey: '" + status.getCountry() + "' has been succesful. The transition done is UNDERREVIEW->PENDINGFIX");
         
         //
@@ -142,11 +145,13 @@ public class EditorSubmitController {
         LOGGER.info("----------------- Selected Users (Contributors) to notify with Mail: -------------");
         LOGGER.info(LoggingUtils.printUsernames(contributors));
         LOGGER.info("----------------------------------------------------------------------------------");
+        
         if (contributors.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???
             FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified", 10000, null, null);
         }
+        
         try {
             notificationService.notifyPendingFix(user, status, contributors);
         } catch (MailException e) {

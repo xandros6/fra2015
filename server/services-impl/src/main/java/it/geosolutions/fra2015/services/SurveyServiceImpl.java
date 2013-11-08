@@ -390,7 +390,7 @@ public class SurveyServiceImpl implements SurveyService {
 			survey.getStatus().setStatus( status.getStatus() );			
 			survey.getStatus().setRevisionNumber( status.getRevisionNumber() );
 			survey.getStatus().setLastSurveyReview( status.getLastSurveyReview() );
-			survey.getStatus().setPreviousSurveyReview( status.getPreviousSurveyReview() );
+			survey.getStatus().setPreviousPendingFix( status.getPreviousPendingFix() );
 			survey.getStatus().setLastContributorSubmission( status.getLastContributorSubmission() );
 			survey.getStatus().setReviewerSubmit(status.getReviewerSubmit());
 			survey.getStatus().setCoverage(status.getCoverage());

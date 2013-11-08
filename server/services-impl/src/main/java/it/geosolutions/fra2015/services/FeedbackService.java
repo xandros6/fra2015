@@ -24,7 +24,6 @@ package it.geosolutions.fra2015.services;
 import it.geosolutions.fra2015.server.dao.FeedbackDAO;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
-import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -105,7 +104,10 @@ public class FeedbackService {
             search.addFilterEqual("harmonized", false);
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
-            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
+            
+            //search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastPendingFixSubmit());
+            
             list = feedbackDAO.search(search);
         }
         catch (Exception e) {
@@ -130,7 +132,8 @@ public class FeedbackService {
             search.addFilterEqual("harmonized", false);
             search.addFilterEqual("survey", survey);
             //search.addFilterEqual("entry.question.id", question);
-            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
+            //search.addFilterGreaterThan("timestamp", survey.getStatus().getLastSurveyReview());
+            search.addFilterGreaterThan("timestamp", survey.getStatus().getLastPendingFixSubmit());
             list = feedbackDAO.search(search);
         }
         catch (Exception e) {
@@ -214,8 +217,11 @@ public class FeedbackService {
             search.addFilterEqual("user", user);
             search.addFilterEqual("survey", survey);
             search.addFilterEqual("entry.question.id", question);
-            Long prev = (survey.getStatus().getPreviousSurveyReview() != null)?survey.getStatus().getPreviousSurveyReview():0;
-            Long last = (survey.getStatus().getLastSurveyReview() != null)?survey.getStatus().getLastSurveyReview():0;
+            Long prev = (survey.getStatus().getPreviousPendingFix() != null) ? survey.getStatus().getPreviousPendingFix() : 0;
+
+            //Long last = (survey.getStatus().getLastSurveyReview() != null)?survey.getStatus().getLastSurveyReview():0;
+            Long last = (survey.getStatus().getLastPendingFixSubmit() != null) ? survey.getStatus().getLastPendingFixSubmit() : 0;
+            
             search.addFilterGreaterThan("timestamp", prev);
             search.addFilterLessThan("timestamp", last);
             list = feedbackDAO.search(search);

@@ -105,8 +105,11 @@ public class ActivityLogAspect {
                 + status.getMessage() + SEPARATOR + "coverage=" + status.getCoverage() + SEPARATOR
                 + "reviewerSubmit=" + status.getReviewerSubmit() + SEPARATOR
                 + "lastContributorSubmission=" + status.getLastContributorSubmission() + SEPARATOR
-                + "lastSurveyReview=" + status.getLastSurveyReview() + SEPARATOR
-                + "previousSurveyReview=" + status.getPreviousSurveyReview() + SEPARATOR
+                
+                //+ "lastSurveyReview=" + status.getLastSurveyReview() + SEPARATOR
+                + "lastSurveyReview=" + status.getLastPendingFixSubmit() + SEPARATOR
+                
+                + "previousSurveyReview=" + status.getPreviousPendingFix() + SEPARATOR
                 + "revisionNumber=" + status.getRevisionNumber();
         return tostring;
     }

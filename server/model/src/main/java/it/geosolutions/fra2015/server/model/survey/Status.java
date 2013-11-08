@@ -15,16 +15,21 @@ import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author marco
  * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
+ * 
  */
 @Entity(name = "Status")
 @Table(name = "fra_status" )
 @XmlRootElement(name = "Status")
 public class Status implements Serializable {
     
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7339102975419456453L;
+
+	@Id
     @GeneratedValue
     private Long id;
     
@@ -50,7 +55,7 @@ public class Status implements Serializable {
     private Long lastSurveyReview;
     
     @Column(nullable = true, updatable = true)
-    private Long previousSurveyReview;
+    private Long previousPendingFix;
     
     @Column(nullable = true, updatable = true)
     private Integer revisionNumber;
@@ -162,17 +167,17 @@ public class Status implements Serializable {
     }
 
     /**
-     * @return the previousSurveyReview
+     * @return the previousPendingFix
      */
-    public Long getPreviousSurveyReview() {
-        return previousSurveyReview;
+    public Long getPreviousPendingFix() {
+        return previousPendingFix;
     }
 
     /**
-     * @param previousSurveyReview the previousSurveyReview to set
+     * @param previousPendingFix the previousPendingFix to set
      */
-    public void setPreviousSurveyReview(Long previousSurveyReview) {
-        this.previousSurveyReview = previousSurveyReview;
+    public void setPreviousPendingFix(Long previousPendingFix) {
+        this.previousPendingFix = previousPendingFix;
     }
 
     /**
