@@ -121,7 +121,7 @@ public interface SurveyServiceEntryPoint {
      * @param index
      * @return
      */
-    List<SurveyInstance> getSurveysByCountry(String[] countryList,int page, int index);
+    List<SurveyInstance> getSurveysByCountry(String[] countryList,int page, int index, String orderBy);
 
     /**
      * @param country

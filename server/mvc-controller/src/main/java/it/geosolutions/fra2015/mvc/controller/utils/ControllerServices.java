@@ -322,9 +322,9 @@ public class ControllerServices {
 	}
 
 	public List<SurveyInstance> retriveSurveyListByCountries(String[] countryList, int page,
-			int index) {
+			int index, String orderBy) {
 
-		return surveyService.getSurveysByCountry(countryList, page, index);
+		return surveyService.getSurveysByCountry(countryList, page, index, orderBy);
 	}
 
 	public void updateValuesService(Updates updates, Updates removes) {

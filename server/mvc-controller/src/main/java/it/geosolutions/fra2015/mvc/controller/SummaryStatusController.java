@@ -32,6 +32,7 @@ import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -74,7 +75,7 @@ public class SummaryStatusController {
      */
     @RequestMapping(value = "/summaryStatus/{page}", method = RequestMethod.GET)
     public String printWelcome(@PathVariable(value = "page") int page, Model model,
-            HttpSession session) throws IllegalArgumentException, InternalErrorServiceEx {
+            HttpSession session, Locale locale) throws IllegalArgumentException, InternalErrorServiceEx {
     	model.addAttribute("context", "summaryStatus");
     	
     	User user = (User) session.getAttribute("sessionUser");
@@ -105,7 +106,8 @@ public class SummaryStatusController {
         	countries = UserUtil.getIso3Array(user);
         }
         
-        List<SurveyInstance> surveys = surveyService.getSurveysByCountry(countries, page, pagesize);
+        String countryName = "name_" + locale;
+        List<SurveyInstance> surveys = surveyService.getSurveysByCountry(countries, page, pagesize, countryName);
         
 		model.addAttribute("surveys", surveys);
 		

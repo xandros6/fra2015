@@ -17,8 +17,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Index;
 
 /**
- *
  * @author marco
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
+ * 
  */
 @Entity(name = "Country")
 @Table(name = "fra_country" ,
@@ -42,6 +43,15 @@ public class Country implements Serializable {
     
     @Column(name = "name", nullable=false)
     private String name;
+    
+    @Column(name = "name_en", nullable=false)
+    private String name_en;
+    
+	@Column(name = "name_es", nullable=false)
+    private String name_es;
+    
+    @Column(name = "name_fr", nullable=false)
+    private String name_fr;
 
     @Column(name = "ctype", nullable=false)
     @Enumerated(EnumType.STRING)
@@ -87,6 +97,49 @@ public class Country implements Serializable {
         this.name = name;
     }
 
+    /**
+	 * @return the name_en
+	 */
+	public String getName_en() {
+		return name_en;
+	}
+
+	/**
+	 * @param name_en the name_en to set
+	 */
+	public void setName_en(String name_en) {
+		this.name_en = name_en;
+	}
+
+	/**
+	 * @return the name_es
+	 */
+	public String getName_es() {
+		return name_es;
+	}
+
+	/**
+	 * @param name_es the name_es to set
+	 */
+	public void setName_es(String name_es) {
+		this.name_es = name_es;
+	}
+
+	/**
+	 * @return the name_fr
+	 */
+	public String getName_fr() {
+		return name_fr;
+	}
+
+	/**
+	 * @param name_fr the name_fr to set
+	 */
+	public void setName_fr(String name_fr) {
+		this.name_fr = name_fr;
+	}
+
+	
     public String getIso3() {
         return iso3;
     }

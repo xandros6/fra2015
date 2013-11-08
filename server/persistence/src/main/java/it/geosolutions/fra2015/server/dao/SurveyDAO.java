@@ -12,13 +12,14 @@ import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
  */
 
 /**
- *
  * @author marco
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
+ * 
  */
 public interface SurveyDAO extends RestrictedGenericDAO<SurveyInstance>{
 
     public SurveyInstance findByCountry(String country);
 
-	List<SurveyInstance> findByCountries(String[] countries, int page, int entries);
+	List<SurveyInstance> findByCountries(String[] countries, int page, int entries, String orderBy);
     
 }

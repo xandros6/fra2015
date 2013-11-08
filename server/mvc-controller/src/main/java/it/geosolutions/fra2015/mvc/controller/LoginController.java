@@ -34,6 +34,7 @@ import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -69,7 +70,7 @@ public class LoginController {
     
     @RequestMapping(value = "/dologin", method = RequestMethod.GET)
     public String processForm(@ModelAttribute("login") User user, BindingResult result, Map model,
-            HttpSession session) {
+            HttpSession session, Locale locale) {
 
         // Retrieve the UserDetails from SecurityContext
         UserDetails userDetails = null;
@@ -100,8 +101,10 @@ public class LoginController {
                     countries.add(el.getIso3());
                 }
                 String [] countriesArr = new String[countries.size()];
+                
                 // Retrieve all SurveyInstances
-                List<SurveyInstance> surveyInstanceList = controllerServices.retriveSurveyListByCountries(countries.toArray(countriesArr), -1, -1);
+                String countryName = "name_" + locale;
+                List<SurveyInstance> surveyInstanceList = controllerServices.retriveSurveyListByCountries(countries.toArray(countriesArr), -1, -1, countryName);
                 
                 Map<String, SurveyInstance> surveyInstancesMap = new HashMap<String, SurveyInstance>();
                 for(SurveyInstance el : surveyInstanceList){

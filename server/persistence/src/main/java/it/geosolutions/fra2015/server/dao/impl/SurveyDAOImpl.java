@@ -16,8 +16,9 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
  * @author marco
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
+ * 
  */
 @Transactional(value = "fra2015TransactionManager")
 public class SurveyDAOImpl extends BaseDAO<SurveyInstance, Long> implements SurveyDAO {
@@ -59,9 +60,15 @@ public class SurveyDAOImpl extends BaseDAO<SurveyInstance, Long> implements Surv
     }
     
     @Override
-    public List<SurveyInstance> findByCountries(String[] countries,int page,int entries){
+    public List<SurveyInstance> findByCountries(String[] countries, int page, int entries, String orderBy){
     	Search searchCriteria = new Search(SurveyInstance.class);
-    	searchCriteria.addSort(Sort.asc("country.iso3"));
+    	
+    	if(orderBy != null && !orderBy.isEmpty()){
+    		searchCriteria.addSort(Sort.asc("country." + orderBy));
+    	}else{
+    		searchCriteria.addSort(Sort.asc("country.iso3"));
+    	}
+    	    	
         searchCriteria.setMaxResults(entries);
         searchCriteria.setPage(page);
         searchCriteria.addFilterIn("country.iso3", Arrays.asList(countries));

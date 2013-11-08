@@ -12,7 +12,6 @@ import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Element;
 import it.geosolutions.fra2015.server.model.survey.Entry;
-import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.QuestionRevision;
 import it.geosolutions.fra2015.server.model.survey.Session;
@@ -20,21 +19,14 @@ import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.Survey;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.survey.Value;
-import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import it.geosolutions.fra2015.services.rest.exception.BadRequestWebEx;
-import it.geosolutions.fra2015.services.rest.exception.InternalErrorWebEx;
 import it.geosolutions.fra2015.services.rest.exception.NotFoundWebEx;
-import it.geosolutions.fra2015.services.rest.model.ExtendedSurvey;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.ws.rs.core.SecurityContext;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 import org.springframework.core.io.Resource;
@@ -210,8 +202,8 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
     }
 
 	@Override
-	public List<SurveyInstance> getSurveysByCountry(String[] country,int page,int index) {
-		return surveyService.getSurveysByCountry(country,page,index);
+	public List<SurveyInstance> getSurveysByCountry(String[] country,int page,int index, String orderBy) {
+		return surveyService.getSurveysByCountry(country,page,index, orderBy);
 		
 	}
 

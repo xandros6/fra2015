@@ -19,11 +19,9 @@ import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 import java.util.List;
 
 /**
- *
  * @author marco
- */
-/**
  * @author Xandros
+ * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  */
 public interface SurveyService {
@@ -125,7 +123,7 @@ public interface SurveyService {
      * @param page 
      * @return
      */
-    public List<SurveyInstance> getSurveysByCountry(String[] country, int page, int index);
+    public List<SurveyInstance> getSurveysByCountry(String[] country, int page, int index, String orderBy);
 
     public List<Value> getEntryListByVariableName(List<String> vars, String country) throws BadRequestServiceEx;
 

@@ -22,14 +22,11 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.security.Assembler;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
-import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,6 +40,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author Lorenzo Natali
+ * 
  * Controller for personal user settings (for now only mail notification message)
  */
 @Controller
