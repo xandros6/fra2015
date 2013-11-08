@@ -29,9 +29,13 @@
 				<td>1000 ha</td>						
 				<td class="numeric" colspan="5">
 					<c:catch var="exception4">
-						${_fraVariable_8b_1_3_ + _fraVariable_8b_2_3_ + _fraVariable_8b_3_3_  +
-						  _fraVariable_8b_4_3_ + _fraVariable_8b_5_3_ + _fraVariable_8b_6_3_  +
-						  _fraVariable_8b_7_3_ + _fraVariable_8b_8_3_ + _fraVariable_8b_9_3_ + _fraVariable_8b_10_3_} 
+						<c:set scope="page" var="total" value="${_fraVariable_8b_1_3_ + _fraVariable_8b_2_3_ + _fraVariable_8b_3_3_ + _fraVariable_8b_4_3_ + _fraVariable_8b_5_3_ + _fraVariable_8b_6_3_  + _fraVariable_8b_7_3_ + _fraVariable_8b_8_3_ + _fraVariable_8b_9_3_ + _fraVariable_8b_10_3_}" />
+						
+						<fmt:parseNumber var="totalDameged" value="${total}" />
+						
+						<c:if test="${totalDameged > 0}">
+						    ${total}
+						</c:if>
 				  	</c:catch>
 				    <c:if test="${not empty exception4}">
 					</c:if>

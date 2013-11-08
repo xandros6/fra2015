@@ -41,17 +41,13 @@
 				<td class="notpresent"></td>
 				<td class="numeric">
 					<c:catch var="exception1">
-				    	 ${_fraVariable_4b_2_3_ + 
-						  _fraVariable_4b_3_3_ +
-						  _fraVariable_4b_4_3_ +
-						  _fraVariable_4b_5_3_ + 
-						  _fraVariable_4b_6_3_ + 
-						  _fraVariable_4b_7_3_ +
-						  _fraVariable_4b_8_3_ + 
-						  _fraVariable_4b_9_3_ + 
-						  _fraVariable_4b_10_3_ +
-						  _fraVariable_4b_11_3_
-						  }
+						<c:set scope="page" var="total" value="${_fraVariable_4b_2_3_ + _fraVariable_4b_3_3_ + _fraVariable_4b_4_3_ + _fraVariable_4b_5_3_ + _fraVariable_4b_6_3_ + _fraVariable_4b_7_3_ + _fraVariable_4b_8_3_ + _fraVariable_4b_9_3_ + _fraVariable_4b_10_3_ + _fraVariable_4b_11_3_}" />
+						
+						<fmt:parseNumber var="totalValues" value="${total}" />
+						
+						<c:if test="${totalValues > 0}">
+						    ${total}
+						</c:if>
 	    			</c:catch>
 					<c:if test="${not empty exception1}">
 					    N/A
