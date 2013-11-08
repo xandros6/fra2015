@@ -26,9 +26,38 @@
 									test="${not empty command.id}">(left blank to not change current)</c:if>
 							</form:label>
 							<label class="error inline" for="newPassword" generated="true" />
-							<input id="newPassword" name="newPassword" size="25"
-								type="password" value="${user.password}"
-								class="<c:if test="${empty command.id}">required</c:if> password input-block-level" />
+							
+							<c:choose>
+								<c:when test="${empty command.id}">
+									<input id="newPassword" name="newPassword" size="25"
+										type="password" value="${user.password}"
+										class="required password input-block-level" />
+								</c:when>
+								<c:otherwise>
+									<div class="input-append">
+									    <input id="newPassword" name="newPassword" size="25"
+											type="password" value="${user.password}"
+											class="showHidePassword password input-block-level" />
+											
+										<a href="#" class="btn topopup" data-toggle="tooltip">
+											<spring:message	code="editor.popup.show" text="Show"></spring:message>
+										</a>
+									</div>
+									
+									<!-- The as default hidden Popup to show to the Admin the old password of the User -->
+								    <div id="toPopup">
+								       	<span class="ecs_tooltip"><spring:message code="editor.popup.close" text="Close"></spring:message><span class="arrow"></span></span>
+										<div id="popup_content">
+											<div id="closePopup" class="close">X</div>
+								            <h4><spring:message	code="editor.popup.olduserpw" text="Current User Password"></spring:message></h4>
+								            <b align="center">${command.password}</b>
+								        </div>						
+								    </div>
+								    
+		   							<div id="backgroundPopup"></div>
+								</c:otherwise>
+							</c:choose>
+							
 						</p>
 						<p>
 							<form:label path="email" for="email" class="control-label inline">E-Mail</form:label>
@@ -168,5 +197,62 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
 </form:form>
+
+<script type="text/javascript">
+    jQuery(function($) {
+    	$("a.topopup").click(function() {
+    		// ////////////////////////////////////
+    		// then show popup, delay in .1 second
+    		// ////////////////////////////////////
+   			setTimeout(function(){ 
+   				loadPopup(); 
+   			}, 100); 
+   			return false;
+    	});
+
+    	/* event for close the popup */
+    	$("div#closePopup").hover(
+			function() {
+				$('span.ecs_tooltip').show();
+			},
+			function () {
+				$('span.ecs_tooltip').hide();
+			}
+		);
+
+    	$("div#closePopup").click(function() {
+    		disablePopup();
+    	});
+
+        $("div#backgroundPopup").click(function() {
+    		disablePopup();
+    	});
+
+    	var popupStatus = 0;
+
+    	function loadPopup() {
+    		// ///////////////////////////////
+    		// If value is 0, show the popup
+    		// ///////////////////////////////
+    		if(popupStatus == 0) { 
+    			$("#toPopup").fadeIn(0500); // fadein popup div
+    			$("#backgroundPopup").css("opacity", "0.7"); // css opacity, supports IE7, IE8
+    			$("#backgroundPopup").fadeIn(0001);
+    			popupStatus = 1; // and set value to 1
+    		}
+    	}
+
+    	function disablePopup() {
+    		// ///////////////////////////////
+    		// If value is 1, close the popup
+    		// ///////////////////////////////
+    		if(popupStatus == 1) { 
+    			$("#toPopup").fadeOut("normal");
+    			$("#backgroundPopup").fadeOut("normal");
+    			popupStatus = 0;  // and set value to 0
+    		}
+    	}
+    });
+</script>
