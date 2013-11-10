@@ -172,7 +172,7 @@ public class FeedbackHandler{
     	// ///////////////////////////////////////
         Status status = si.getStatus();
         String reviewerSubmit = status.getReviewerSubmit();
-        String[] reviewers = reviewerSubmit.split(";");
+        String[] reviewers = (reviewerSubmit!=null)?reviewerSubmit.split(";"):new String[]{""};
         
         List<User> reviewersForSurveyAndQuestion = null;
         if(question != null){
