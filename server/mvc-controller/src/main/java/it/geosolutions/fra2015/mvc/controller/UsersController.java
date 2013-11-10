@@ -110,9 +110,9 @@ public class UsersController {
 		// Remove undesirable white spaces from the user 
 		// relevant fields.
 		// /////////////////////////////////////////////////
-		user.setName(user.getName().trim());
-		user.setUsername(user.getUsername().trim());
-		user.setNewPassword(user.getNewPassword().trim());
+		user.setName((user.getName()!=null)?user.getName().trim():user.getName());
+		user.setUsername((user.getUsername()!=null)?user.getUsername().trim():user.getUsername());
+		user.setNewPassword((user.getNewPassword()!=null)?user.getNewPassword().trim():user.getNewPassword());
 		
 
 		try{
