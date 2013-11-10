@@ -21,10 +21,13 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.mvc.controller.utils.SessionUtils;
 import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
@@ -80,6 +83,9 @@ public class UsersController {
 
 	@Autowired
 	private SurveyService surveyService;
+	
+	@Autowired
+	private FeedbackService feedbackService;
 
 	private int pagesize = 10;
 
@@ -107,6 +113,7 @@ public class UsersController {
 		user.setName(user.getName().trim());
 		user.setUsername(user.getUsername().trim());
 		user.setNewPassword(user.getNewPassword().trim());
+		
 
 		try{
 			if(!userDto.getQuestionsStr().isEmpty()){
@@ -148,18 +155,29 @@ public class UsersController {
 	public String deleteUser(@PathVariable(value = "userId") Integer userId, @PathVariable(value = "page") Integer page, ModelMap model) {
 		model.addAttribute("page", page);
 		model.addAttribute("context", "users");
-		model.addAttribute("messageType", "success");
-		model.addAttribute("messageText", "User deleted successfully");
 		try{
 			if(userId != null){
-				User user = userService.get(userId);
+			        User user = userService.get(userId);
+			        if(user.getRole().equalsIgnoreCase(Profile.EDITOR.toString()) || user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+			            int feedbacks = feedbackService.countFeedback(user);
+			            if(feedbacks > 0){
+			                logger.info("can't delete user '" + user.getUsername() + "' due to feedbacks presence...");
+			                model.addAttribute("messageType", "error");
+		                        model.addAttribute("messageCode", "admin.delete.notallowed");
+			                return "forward:/users/"+page;
+			            }
+			        }
 				userService.delete(user);
 			}
 		}catch (Exception e) {
 			logger.error(e.getMessage(),e);
 			model.addAttribute("messageType", "error");
 			model.addAttribute("messageText", "Fails to delete user");
+			return "forward:/users/"+page;
 		}
+
+                model.addAttribute("messageType", "success");
+                model.addAttribute("messageText", "User deleted successfully");
 		return "forward:/users/"+page;
 	}
 

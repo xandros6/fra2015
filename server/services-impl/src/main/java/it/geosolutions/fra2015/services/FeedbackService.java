@@ -119,6 +119,33 @@ public class FeedbackService {
         return list;
     }
     
+    /**
+     * Count all the feedbacks associated to an User
+     * 
+     * @param user
+     * @param survey
+     * @return
+     * @throws BadRequestServiceEx
+     */
+    public int countFeedback(User user) throws BadRequestServiceEx{
+
+        try {
+            
+            Search search = new Search();
+            if(user == null){
+                throw new IllegalArgumentException("The User be NOT NULL in order to count their feedbacks...");
+            }
+            search.addFilterEqual("user", user);
+            
+            return feedbackDAO.count(search);
+        }
+        catch (Exception e) {
+            
+            LOGGER.error(e.getLocalizedMessage());
+            throw new BadRequestServiceEx(e.getLocalizedMessage());
+        }
+    }
+    
     public List<Feedback> loadAllFeedback(User user, SurveyInstance survey) throws BadRequestServiceEx{
 
         List<Feedback> list = new ArrayList<Feedback>();
