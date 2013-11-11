@@ -186,7 +186,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         if (values.size() == 0) {
             
             ValidationMessage v = new ValidationMessage();
-            v.setMessage("validation.notcompiled");
+            v.setMessage("validation.check.ifcompiled");
             v.addElements(Arrays.asList((rule.getEntryId().split(","))));
             result.addMessage(v);
             return;
@@ -218,7 +218,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         ValidationMessage m = new ValidationMessage();
         if (missing.size() > 0) {
             m.setSuccess(false);
-            m.setMessage("validation.notcompiled");
+            m.setMessage("validation.check.ifcompiled");
             m.addElements(missing);
             result.addMessage(m);
             return;
@@ -227,7 +227,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         missing = checkRuleFields(rule.getSingleValues(), singleValues);
         if (missing.size() > 0) {
             m.setSuccess(false);
-            m.setMessage("validation.notcompiled");
+            m.setMessage("validation.check.ifcompiled");
             m.addElements(missing);
             result.addMessage(m);
             return;
@@ -277,7 +277,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             Map<String, String> test = tests.get(key);
             if(test==null){
                 message = new ValidationMessage();
-                message.setMessage("validation.notcompiled");
+                message.setMessage("validation.check.ifcompiled");
                 message.setRule(rule);
                 message.setSuccess(false);
                 message.addElements(Arrays.asList(rule.getEntryId().split(",")));
@@ -289,7 +289,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             if (missing.size() > 0) {
                 if(missing.size()==rule.getVariables().size() && message !=null) continue;
                 message = new ValidationMessage();
-                message.setMessage("validation.notcompiled");
+                message.setMessage("validation.check.ifcompiled");
                 message.setRule(rule);
                 message.setSuccess(false);
                 
@@ -340,7 +340,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         }
         if (message == null) {
             message = new ValidationMessage();
-            message.setMessage("validation.notcompiled");
+            message.setMessage("validation.check.ifcompiled");
             message.setRule(rule);
             message.setSuccess(false);
 
