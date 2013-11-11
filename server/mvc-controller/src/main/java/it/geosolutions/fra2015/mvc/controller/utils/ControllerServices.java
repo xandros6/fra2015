@@ -27,6 +27,7 @@ import it.geosolutions.fra2015.entrypoint.model.Updates;
 import it.geosolutions.fra2015.server.model.survey.CompactValue;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
+import it.geosolutions.fra2015.server.model.survey.Feedback;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
@@ -118,9 +119,21 @@ public class ControllerServices {
 		return es;
 	}
 
-	
+	/**
+	 * Iterate over all value of a country and build a notEmptyEntry list
+	 * that will be used for display just the filled entries.
+	 * 
+	 * NOTE that if an entry is empty but the related feedback is filled 
+	 * that feedback will be displayed in the feedbacks report.
+	 * 
+	 * @param model
+	 * @param question
+	 * @param country
+	 * @param printNameInsteadOfValue
+	 * @param listF
+	 */
 	public void prepareEmptyElement(Model model, String question, String country,
-			boolean printNameInsteadOfValue){
+			boolean printNameInsteadOfValue, List<Feedback> listF){
 		
 		List<Value> values = null;
 		try {
@@ -135,6 +148,21 @@ public class ControllerServices {
 		for (Value val : values) {
 			notEmptyEntry.add("_"+val.getEntryItem().getEntry().getVariable()+"_");
 			notEmptyQuestion.add("_"+val.getEntryItem().getEntry().getQuestion().getId()+"_");
+		}
+		
+		//if feedbacks arePresent add to notEmptyEntry list also the empty entries with feedbacks
+		if(listF != null){
+			for(Feedback f : listF){
+				boolean found = false;
+				for(String entryId : notEmptyEntry){
+					if(entryId.equals("_"+f.getFeedbackId()+"_")){
+						found = true;
+					}
+				}
+				if(!found){
+					notEmptyEntry.add("_"+f.getFeedbackId()+"_");
+				}
+			}
 		}
 		
 		model.addAttribute("notEmptyEntry", notEmptyEntry);

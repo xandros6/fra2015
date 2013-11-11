@@ -158,7 +158,7 @@ public class PrintController {
 		}
 		else if(mode.equalsIgnoreCase("onlyvalues") || mode.equalsIgnoreCase("onlyvalues_feedback")){
 
-			utils.prepareEmptyElement(model, null, country, false);
+			utils.prepareEmptyElement(model, null, country, false, listF);
 
 			utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, country), false);
 		}
