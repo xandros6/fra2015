@@ -71,6 +71,6 @@
 				<td class="notpresent"></td>
 				<td class="notpresent"></td>
 				<td class="notpresent"></td>
-				<td class="numeric">${_fraVariable_14c_0_1_}	</td>
+				<td class="numeric">${_fraVariable_14c_0_1_}</td>
 				<td class="notpresent"></td>
 			</tr>

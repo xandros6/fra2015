@@ -32,8 +32,11 @@
 				<td class="numeric">${_fraVariable_4a_4_5_}</td>
 			</tr>
 			*/ %>
+			<tr>
+				<td rowspan="2"><a href="${qpath}#4b">4b</a></td>
+			</tr>
 			<tr class="summaryRow">
-				<td><a href="${qpath}#4b">4b</a></td>
+				<!-- td><a href="${qpath}#4b">4b</a></td -->
 				<td><spring:message code="ref231"></spring:message>
 				<td>1000 local currency</td><%//TODO localize %>
 				<td class="notpresent"></td>

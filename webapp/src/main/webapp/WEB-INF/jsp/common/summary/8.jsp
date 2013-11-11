@@ -24,8 +24,11 @@
 				<td>Number</td>
 				<td class="numeric" colspan="5">${_fraVariable_8a_4_2_}, ${_fraVariable_8a_4_4_}, ${_fraVariable_8a_4_6_}, ${_fraVariable_8a_4_8_}, ${_fraVariable_8a_4_10_}, ${_fraVariable_8a_8_2_}, ${_fraVariable_8a_8_4_}, ${_fraVariable_8a_8_6_}, ${_fraVariable_8a_8_8_}, ${_fraVariable_8a_8_10_}</td>
 			</tr>
+			<tr>
+				<td rowspan="2"><a href="${qpath}#8b">8b</a></td>
+			</tr>
 			<tr class="summaryRow">
-				<td><a href="${qpath}#8b">8b</a></td><td><spring:message code="ref362"></spring:message></td>
+				<td><spring:message code="ref362"></spring:message></td>
 				<td>1000 ha</td>						
 				<td class="numeric" colspan="5">
 					<c:catch var="exception4">

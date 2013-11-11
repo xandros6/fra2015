@@ -63,15 +63,17 @@
 			<tr>
 				<td rowspan="6"><a href="${qpath}#13b">13b</a></td>
 			</tr>
-			<tr class="summaryRow">
+			<!--tr class="summaryRow">
 				<td>13.5 <spring:message code="ref428"></spring:message></td>
 				<td>%,year,checkboxes</td>
 				<td class="numeric" colspan="5">${_fraVariable_13a_2_2_}, ${_fraVariable_13a_3_2_}, ${_fraVariable_13a_4_2_}, ${_fraVariable_13a_5_2_}</td>
-				
+			</tr-->
+			<tr>
+				<td colspan="7">13.5 <strong><spring:message code="ref428"></spring:message></strong></td>
 			</tr>
 			<tr class="summaryRow">
 				<td>13.5.1 <spring:message code="ref430"></spring:message></td>
-				<td>checkbox</td>
+				<td>Boolean</td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
@@ -80,7 +82,7 @@
 			</tr>
 			<tr class="summaryRow">
 				<td>13.5.2 <spring:message code="ref431"></spring:message></td>
-				<td>checkbox</td>
+				<td>Boolean</td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
@@ -89,7 +91,7 @@
 			</tr>
 			<tr class="summaryRow">
 				<td>13.5.3 <spring:message code="ref432"></spring:message></td>
-				<td>checkbox</td>
+				<td>Boolean</td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
@@ -98,7 +100,7 @@
 			</tr>
 			<tr class="summaryRow">
 				<td>13.5.4 <spring:message code="ref433"></spring:message></td>
-				<td>checkbox</td>
+				<td>Boolean</td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>
 				<td class="notpresent" ></td>

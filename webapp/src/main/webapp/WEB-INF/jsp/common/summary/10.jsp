@@ -43,7 +43,7 @@
 			</tr>
 			<tr class="summaryRow">
 				<td>10.2.1 <spring:message code="ref389"></spring:message></td>
-				<td class="boolean">Boolean</td>
+				<td>Boolean</td>
 				<td class="boolean"><c:if test="${_fraVariable_10_10_1_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_1_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td class="boolean"><c:if test="${_fraVariable_10_10_3_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_3_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>
 				<td class="boolean"><c:if test="${_fraVariable_10_10_5_ =='yes'}"><spring:message code="chk.yes"></spring:message></c:if><c:if test="${_fraVariable_10_10_5_ =='no'}"><spring:message code="chk.no"></spring:message></c:if></td>

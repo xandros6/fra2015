@@ -28,3 +28,17 @@
 				<td class="notpresent" ></td>
 			</tr>
 			-->
+
+			<tr>
+				<td rowspan="2"><a href="${qpath}#inpagelink_var_7">7</a></td>
+			</tr>
+			
+			<tr class="summaryRow">
+			    <td><spring:message code="ref323"></spring:message></td>
+				<td>1000 ha</td>						
+				<td class="notpresent"></td>
+				<td class="notpresent"></td>
+				<td class="numeric">${_fraVariable_7_12_1_}</td>
+				<td class="numeric">${_fraVariable_7_12_2_}</td>
+				<td class="notpresent"></td>
+			<tr>
