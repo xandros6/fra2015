@@ -331,7 +331,13 @@ public class FeedbackHandler{
         this.feedbackListToRemove = new ArrayList<Feedback>();
     }
     
-    public void mergefeedbacks(List<Feedback> oldFeedbacks){
+    /**
+     * Create a feedback list to update the status on DB checking which feedback must be added, updated, deleted
+     * 
+     * @param oldFeedbacks The list of the feedback before the current REVIEWER or REVIEWEREDITOR changes
+     * @param deleteNotRevised a flag that indicate basically if the current user is a REVIEWER or REVIEWER EDITOR
+     */
+    public void mergefeedbacks(List<Feedback> oldFeedbacks, boolean deleteNotRevised){
         
         List<Feedback> feedbacksMerged = new ArrayList<Feedback>();
         for(Feedback el : feedbackList){
@@ -351,10 +357,15 @@ public class FeedbackHandler{
                 feedbacksMerged.add(el);
             }
         }
-        for(Feedback el : oldFeedbacks){
-            int oldFbIndex = feedbackList.indexOf(el);
-            if(oldFbIndex < 0){
-                feedbackListToRemove.add(el);
+        // This loop check if some feedback has been transitioned from state OK or KO to state NOT REVISED
+        // In that case the feedback must be removed. This loop must be executed only if the user is REVIEWER
+        // and not with REVIEWEREDITOR: with reved we delete all feedbacks for that questions!
+        if(deleteNotRevised){
+            for(Feedback el : oldFeedbacks){
+                int oldFbIndex = feedbackList.indexOf(el);
+                if(oldFbIndex < 0){
+                    feedbackListToRemove.add(el);
+                }
             }
         }
         

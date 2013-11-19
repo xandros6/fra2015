@@ -168,6 +168,7 @@ public class ReviewController {
         User su = (User) session.getAttribute("sessionUser");
         Boolean harmonizedRead = null;
         Boolean harmonizedWrite = null;
+        boolean deleteNotRevised = false;
         User userForQuery = new User();
 
         if (su == null) {
@@ -181,6 +182,7 @@ public class ReviewController {
             harmonizedRead = false;
             harmonizedWrite = false;
             userForQuery = su;
+            deleteNotRevised = true;
         } else if (su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())) {
             model.addAttribute("profile", ControllerServices.Profile.EDITOR.toString());
             model.addAttribute("reviewers", userService.getReviewersForSurveyAndQuestion(country, Long.parseLong(question)));
@@ -202,7 +204,7 @@ public class ReviewController {
             // WARNING have a look inside the method, the name is not correct
             List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
             // Compute which feedbacks must be updated, which feedbacks must be added and which must be removed 
-            fh.mergefeedbacks(oldFeedbacks);
+            fh.mergefeedbacks(oldFeedbacks, deleteNotRevised);
             // Store the computed new and updated feedbacks
             fh.storeFeedbacks();
             // Remove the feedback that has the status changed to "NOT revised"
