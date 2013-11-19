@@ -66,29 +66,67 @@ public class SessionUtils {
         return cv;
     }
     
+    /*****************************************************************
+     * WARNING: The following two methods: 
+     *              - retrieveFeedbacksAndStoreInSession
+     *              - retrieveFeedbacksFromSessionOrLoadFromDB
+     * Has been changed and their names are not representatives.
+     * Please read their Javadoc
+     *****************************************************************/
+    
+    /**
+     * WARNING 18/11/2013: This method was originally designed to perform a some kind of data caching using user Session but it has created
+     * lot of problem in pre-production testing so the base feedback load has been restored keeping the same method signature in order to avoid regressions.
+     * Same case of method retrieveFeedbacksFromSessionOrLoadFromDB(...)
+     *   
+     * @param fh
+     * @param session
+     * @param question
+     * @param country
+     * @param userForQuery
+     * @param harmonized
+     * @return
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx
+     */
     public static List<Feedback> retrieveFeedbacksAndStoreInSession(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx, NotFoundServiceEx{
         
         List<Feedback> feedbackList = fh.retrieveFeedbacks(country, question, session, userForQuery, harmonized);
         
-        if(session.getAttribute(COUNTRY_FEEDBACKS) != null){
-            
-            session.removeAttribute(COUNTRY_FEEDBACKS);
-        }
-        session.setAttribute(COUNTRY_FEEDBACKS, feedbackList);
+//        if(session.getAttribute(COUNTRY_FEEDBACKS) != null){
+//            
+//            session.removeAttribute(COUNTRY_FEEDBACKS);
+//        }
+//        session.setAttribute(COUNTRY_FEEDBACKS, feedbackList);
         
         return feedbackList;
     }
     
+    /**
+     * WARNING 18/11/2013: This method was originally designed to perform a some kind of data caching using user Session but it has created
+     * lot of problem in pre-production testing so the base feedback load has been restored keeping the same method signature in order to avoid regressions.
+     * Same case of method retrieveFeedbacksAndStoreInSession(...)
+     * 
+     * @param fh
+     * @param session
+     * @param question
+     * @param country
+     * @param userForQuery
+     * @param harmonized
+     * @return
+     * @throws BadRequestServiceEx
+     * @throws NotFoundServiceEx
+     */
     public static List<Feedback> retrieveFeedbacksFromSessionOrLoadFromDB(FeedbackHandler fh, HttpSession session, Long question, String country, User userForQuery, Boolean harmonized) throws BadRequestServiceEx, NotFoundServiceEx{
         
-        if(session.getAttribute(COUNTRY_FEEDBACKS) == null){
-            
+//        if(session.getAttribute(COUNTRY_FEEDBACKS) == null){
+//            
             List<Feedback> feedbacks = null;
             feedbacks = fh.retrieveFeedbacks(country, question, session, userForQuery, harmonized);
             return feedbacks;
-        }
-        List<Feedback> returnList = (List<Feedback>)session.getAttribute(COUNTRY_FEEDBACKS);
-        session.removeAttribute(COUNTRY_FEEDBACKS);
-        return returnList;
+//        }
+//        List<Feedback> returnList = (List<Feedback>)session.getAttribute(COUNTRY_FEEDBACKS);
+//        session.removeAttribute(COUNTRY_FEEDBACKS);
+//        return returnList;
     }
 }

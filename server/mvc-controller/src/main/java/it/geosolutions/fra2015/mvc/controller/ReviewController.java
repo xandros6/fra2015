@@ -119,6 +119,7 @@ public class ReviewController {
         model.addAttribute("country", country);
         
         try {
+            // WARNING have a look inside the method, the name is not correct 
             CountryValues cvalues = SessionUtils.retrieveQuestionValueAndStoreInSession(utils, session, question, country);
             utils.prepareHTTPRequest(model, question.toString(), cvalues, false);
 
@@ -197,13 +198,14 @@ public class ReviewController {
         fh.populateFeedbackList(request, session, utils, country, harmonizedWrite);
         
         try {
-
+            
+            // WARNING have a look inside the method, the name is not correct
             List<Feedback> oldFeedbacks = SessionUtils.retrieveFeedbacksFromSessionOrLoadFromDB(fh, session, Long.parseLong(question), country, userForQuery, harmonizedRead);
-            // Compute which feedbacks must be updated, which feedbacks must be added and wich must be removed 
+            // Compute which feedbacks must be updated, which feedbacks must be added and which must be removed 
             fh.mergefeedbacks(oldFeedbacks);
             // Store the computed new and updated feedbacks
             fh.storeFeedbacks();
-            // Remove the feedback that has the status changed to "NOT revisioned"
+            // Remove the feedback that has the status changed to "NOT revised"
             fh.removeFeedbacks();
             
             changeStatusToUnderReview(country, su);
