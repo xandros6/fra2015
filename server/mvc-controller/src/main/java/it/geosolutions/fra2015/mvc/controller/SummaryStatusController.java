@@ -126,7 +126,7 @@ public class SummaryStatusController {
 		pagination.setCurrentPage(page);
 		
 		if((page+1) < totalPage){
-			pagination.setLastPage(totalPage);
+			pagination.setLastPage(totalPage-1);
 		}
 		if((page+1)*pagesize < totalCountries){
 			pagination.setNext1(page+1);
