@@ -17,6 +17,15 @@ public class ValidationResult {
         this.messages = messages;
     }
 
+    /**
+     * This method merge a single message in the ValidationResult message list.
+     * 
+     * If all messages related to a single label have status = positive add the positive messages
+     * If, for a single label, there is at least one message with status = negative discard the positive elements 
+     * and fill the elements list only with the negative elements.
+     * 
+     * @param message
+     */
     public void addMessage(ValidationMessage message) {
         if (messages == null) {
             messages = new ArrayList<ValidationMessage>();
@@ -27,6 +36,17 @@ public class ValidationResult {
         for (ValidationMessage v : messages) {
 
             if (v.getMessage().equals(message.getMessage())) {
+                // if the current message list is a positive message and the new message is negative: 
+                // Remove all the elements (that are positive) and  change the status
+                if(v.getSuccess() && !message.getSuccess()){
+                    v.removeExistingElements();
+                    v.setSuccess(false);
+                }
+                // if the current message list is a negative message and the new message is positive:
+                // skip, I want only the negative messages...
+                if(!v.getSuccess() && message.getSuccess()){
+                    continue;
+                }
                 v.addElements(message.getElements());
                 return;
             }

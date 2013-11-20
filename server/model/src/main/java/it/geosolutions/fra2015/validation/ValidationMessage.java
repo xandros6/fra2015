@@ -45,6 +45,9 @@ public class ValidationMessage {
 	public void addElements(List<String> elements){
 	    this.elements.addAll(elements);
 	}
+	public void removeExistingElements(){
+            this.elements.clear();
+        }
 	public List<String> getSortedElements(){
 	    List<String> sort= new ArrayList<String>(this.elements);
 	    java.util.Collections.sort(sort);

@@ -265,6 +265,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
     private void evaluateColumns(ValidationResult result, Map<String, Map<String, String>> tests,
             Map<String, String> externals, ValidationRule rule, List<Value> values) {
         ValidationMessage message = null;
+        ValidationMessage messageCheckIfCompiled = null;
         // some validation problems have priority
         boolean alreadyChecked = false;
         
@@ -276,28 +277,29 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             // get the map name ->value
             Map<String, String> test = tests.get(key);
             if(test==null){
-                message = new ValidationMessage();
-                message.setMessage("validation.check.ifcompiled");
-                message.setRule(rule);
-                message.setSuccess(false);
-                message.addElements(Arrays.asList(rule.getEntryId().split(",")));
-                alreadyChecked = true;
+                messageCheckIfCompiled = new ValidationMessage();
+                messageCheckIfCompiled.setMessage("validation.check.ifcompiled");
+                messageCheckIfCompiled.setRule(rule);
+                messageCheckIfCompiled.setSuccess(false);
+                messageCheckIfCompiled.addElements(Arrays.asList(rule.getEntryId().split(",")));
+                //DamGiam 19/11/2013 I want to validate the other columns although there are some missing values in the entry see issue #277 
+                //alreadyChecked = true;
                 continue;
             }
             List<String> missing = checkRuleFields(rule.getVariables(), test);
             // missing variables
             if (missing.size() > 0) {
-                if(missing.size()==rule.getVariables().size() && message !=null) continue;
-                message = new ValidationMessage();
-                message.setMessage("validation.check.ifcompiled");
-                message.setRule(rule);
-                message.setSuccess(false);
+                if(missing.size()==rule.getVariables().size() && messageCheckIfCompiled !=null) continue;
+                messageCheckIfCompiled = new ValidationMessage();
+                messageCheckIfCompiled.setMessage("validation.check.ifcompiled");
+                messageCheckIfCompiled.setRule(rule);
+                messageCheckIfCompiled.setSuccess(false);
                 
-                //whole table
-                message.addElements(Arrays.asList(rule.getEntryId().split(",")));
+                //whole table //DamGiam 19/11/2013 whole table? at least whole rule!
+                messageCheckIfCompiled.addElements(Arrays.asList(rule.getEntryId().split(",")));
                 
-                
-                alreadyChecked = true;
+                //DamGiam 19/11/2013 I want to validate the other columns although there are some missing values in the entry see issue #277
+                //alreadyChecked = true;
                 continue;
             }
             //skip the column if contains N/A values
@@ -348,8 +350,12 @@ public class Validator implements InitializingBean, ApplicationContextAware {
             message.addElements(Arrays.asList(rule.getEntryId().split(",")));
           
         }
+        if(message != null){
             result.addMessage(message);
-
+        }
+        if(messageCheckIfCompiled != null){
+            result.addMessage(messageCheckIfCompiled);
+        }
     }
     /**
      * Creates a map for single values <<1.2-2000>>-->12.34
