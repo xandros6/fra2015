@@ -118,7 +118,7 @@
 						<td>
 							<c:choose>
 								<c:when test="${empty survey.status.coverage}">
-									<div style="text-align: center"> 0 / 21 </div>
+									<div style="text-align: center"> 0 / 22 </div>
 								</c:when>
 								<c:otherwise>
 									<div style="text-align: center">${survey.status.coverage}</div>
