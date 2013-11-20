@@ -87,7 +87,7 @@ public class ActivityLogAspect {
     private static ActivityLogEntry fromStatusToActivityLog(Status status){
         
         ActivityLogEntry al = new ActivityLogEntry();
-        al.setContent(composeStatusChangeContent(status));
+        al.setContent(truncateContent(composeStatusChangeContent(status), 3900));
         al.setCountry(status.getCountry());
         al.setVarName(null);
         al.setVarCol(null);
@@ -101,23 +101,20 @@ public class ActivityLogAspect {
     private static String composeStatusChangeContent(Status status) {
 
         final String SEPARATOR = " % ";
-        String tostring = "status=" + status.getStatus() + SEPARATOR + "message="
-                + status.getMessage() + SEPARATOR + "coverage=" + status.getCoverage() + SEPARATOR
-                + "reviewerSubmit=" + status.getReviewerSubmit() + SEPARATOR
-                + "lastContributorSubmission=" + status.getLastContributorSubmission() + SEPARATOR
-                
-                //+ "lastSurveyReview=" + status.getLastSurveyReview() + SEPARATOR
-                + "lastSurveyReview=" + status.getLastPendingFixSubmit() + SEPARATOR
-                
+        String tostring = "status=" + status.getStatus() + SEPARATOR + "coverage="
+                + status.getCoverage() + SEPARATOR + "reviewerSubmit=" + status.getReviewerSubmit()
+                + SEPARATOR + "lastContributorSubmission=" + status.getLastContributorSubmission()
+                + SEPARATOR + "lastSurveyReview=" + status.getLastPendingFixSubmit() + SEPARATOR
                 + "previousSurveyReview=" + status.getPreviousPendingFix() + SEPARATOR
-                + "revisionNumber=" + status.getRevisionNumber();
+                + "revisionNumber=" + status.getRevisionNumber() + SEPARATOR + "message="
+                + status.getMessage();
         return tostring;
     }
     
     private static ActivityLogEntry fromUpdateToActivityLog(Update u, String question, String username){
         
         ActivityLogEntry al = new ActivityLogEntry();
-        al.setContent(truncateContent(u.getValue()));
+        al.setContent(truncateContent(u.getValue(), 20));
         al.setCountry(u.getCountry());
         al.setVarName(u.getVariable());
         al.setVarCol(u.getColumn());
@@ -142,11 +139,11 @@ public class ActivityLogAspect {
         return al;
     }
     
-    private static String truncateContent(String content){
+    private static String truncateContent(String content, int lenght){
         
-        if(!StringUtils.isBlank(content) && content.length() > 20){
+        if(!StringUtils.isBlank(content) && content.length() > lenght){
             StringBuilder sb = new StringBuilder();
-            sb.append(content.substring(0, 20)).append("[...]");
+            sb.append(content.substring(0, lenght)).append("[...]");
             return sb.toString();
         }
         return content;
