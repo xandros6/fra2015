@@ -456,41 +456,145 @@
     </rule>  
 <!-- q5 -->  
 	<rule>
-        <id>35</id>
-        <description>
-            5.1 >= 5.1.x
-        </description>
-        <entryId>5a</entryId>
-        <error>refrule_error_1</error>
-        <columns>1990,2000,2005,2010,2015</columns>
-        <condition>
-            <![CDATA[ 
-            	{{5.1}} >= {{5.1.1}} &&
-            	{{5.1}} >= {{5.1.2}} &&
-            	{{5.1}} >= {{5.1.3}} &&
-            	{{5.1}} >= {{5.1.4}} &&
-            	{{5.1}} >= {{5.1.5}} &&
-            	{{5.1}} >= {{5.1.6}}           
-             ]]>
-        </condition>
-    </rule>
+		<id>35a</id>
+		<description>
+			5.1 >= 5.1.x
+		</description>
+		<entryId>5a</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.1}} >= {{5.1.1}}
+			 ]]>
+		</condition>
+	</rule>
 	<rule>
-        <id>36</id>
-        <description>
-            5.2 >= 5.2.x
-        </description>
-        <entryId>5b</entryId>
-        <error>refrule_error_1</error>
-        <columns>1990,2000,2005,2010,2015</columns>
-        <condition>
-            <![CDATA[ 
-            	{{5.2}} >= {{5.2.1}} &&
-            	{{5.2}} >= {{5.2.2}} &&
-            	{{5.2}} >= {{5.2.3}} &&
-            	{{5.2}} >= {{5.2.4}}          
-             ]]>
-        </condition>
-    </rule>     
+		<id>35b</id>
+		<description>
+			5.1 >= 5.1.x
+		</description>
+		<entryId>5a</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.1}} >= {{5.1.2}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>35c</id>
+		<description>
+			5.1 >= 5.1.x
+		</description>
+		<entryId>5a</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.1}} >= {{5.1.3}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>35d</id>
+		<description>
+			5.1 >= 5.1.x
+		</description>
+		<entryId>5a</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.1}} >= {{5.1.4}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>35e</id>
+		<description>
+			5.1 >= 5.1.x
+		</description>
+		<entryId>5a</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.1}} >= {{5.1.5}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>35f</id>
+		<description>
+			5.1 >= 5.1.x
+		</description>
+		<entryId>5a</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.1}} >= {{5.1.6}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>36a</id>
+		<description>
+			5.2 >= 5.2.x
+		</description>
+		<entryId>5b</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.2}} >= {{5.2.1}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>36b</id>
+		<description>
+			5.2 >= 5.2.x
+		</description>
+		<entryId>5b</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.2}} >= {{5.2.2}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>36c</id>
+		<description>
+			5.2 >= 5.2.x
+		</description>
+		<entryId>5b</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.2}} >= {{5.2.3}}
+			 ]]>
+		</condition>
+	</rule>
+	<rule>
+		<id>36d</id>
+		<description>
+			5.2 >= 5.2.x
+		</description>
+		<entryId>5b</entryId>
+		<error>refrule_error_1</error>
+		<columns>1990,2000,2005,2010,2015</columns>
+		<condition>
+			<![CDATA[
+				{{5.2}} >= {{5.2.4}}
+			 ]]>
+		</condition>
+	</rule>
     <rule>
         <id>37</id>
         <description>
