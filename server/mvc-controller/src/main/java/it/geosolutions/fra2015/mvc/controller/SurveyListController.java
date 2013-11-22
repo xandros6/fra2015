@@ -117,6 +117,7 @@ public class SurveyListController {
 		model.addAttribute("pagination", pagination);		
 		model.addAttribute("allowedsubmitstatus",StatusUtils.UNDER_REVIEW);
 		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+		model.addAttribute("username", user.getName());
 		
 		return targetPage;
 

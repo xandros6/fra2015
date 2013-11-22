@@ -78,9 +78,18 @@
 			<tbody>
 				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
 					<c:set scope="page" var="submitAllowed" value="enabled" />
+					
 					<c:if test="${survey.status.status != 'underreview'}">
 						<c:set scope="page" var="submitAllowed" value="disabled" />
 					</c:if>
+					
+					<c:if test="${survey.status.status == 'underreview'}">
+						<c:if test="${fn:contains(survey.status.reviewerSubmit, username)}">
+							<!-- In this case the user have already submitted -->
+							<c:set scope="page" var="submitAllowed" value="disabled" />
+						</c:if>
+					</c:if>
+					
 					<tr class="rowItem">
 						<td>
 							<spring:message code="country.${survey.country.iso3}" text=""></spring:message> (${survey.country.iso3})
@@ -169,4 +178,11 @@
           </ul>
         </div>
 	</div>	
+	
+    <script type="text/javascript">		
+		// Disable the onClick event if the submit buttons are disabled (because the button is an anchor not a button)
+		$('body').on('click', 'a.disabled', function(event) {
+		    event.preventDefault();
+		});	
+	</script>
 </div>
