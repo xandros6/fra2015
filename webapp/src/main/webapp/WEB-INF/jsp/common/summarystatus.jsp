@@ -74,7 +74,7 @@
         </div>
         
 		<table id="summaryStatusListTable"
-			class="table table-bordered table-hover table-condensed">
+			class="table table-bordered table-condensed">
 			<thead>
 				<tr>
 				    <th class="country center"><spring:message code="summaryStatus.name" text=""></spring:message></th>
@@ -105,7 +105,7 @@
 									  <jsp:setProperty name="dateValue" property="time"
 											value="${survey.status.lastContributorSubmission}" />
 									  <fmt:formatDate value="${dateValue}"
-											pattern="MM/dd/yyyy HH:mm" />
+											pattern="dd/MM/yyyy HH:mm" />
 							      </c:when>
 							
 							      <c:otherwise>
@@ -120,7 +120,7 @@
 									  <jsp:setProperty name="dateValue" property="time"
 											value="${survey.status.lastSurveyReview}" />
 									  <fmt:formatDate value="${dateValue}"
-											pattern="MM/dd/yyyy HH:mm" />
+											pattern="dd/MM/yyyy HH:mm" />
 							      </c:when>
 							
 							      <c:otherwise>
@@ -135,7 +135,7 @@
 									  <jsp:setProperty name="dateValue" property="time"
 											value="${survey.status.lastPendingFixSubmit}" />
 									  <fmt:formatDate value="${dateValue}"
-											pattern="MM/dd/yyyy HH:mm" />
+											pattern="dd/MM/yyyy HH:mm" />
 							      </c:when>
 							
 							      <c:otherwise>
@@ -150,7 +150,7 @@
 									  <jsp:setProperty name="dateValue" property="time"
 											value="${survey.status.lastAcceptanceRequest}" />
 									  <fmt:formatDate value="${dateValue}"
-											pattern="MM/dd/yyyy HH:mm" />
+											pattern="dd/MM/yyyy HH:mm" />
 							      </c:when>
 							
 							      <c:otherwise>
@@ -165,7 +165,7 @@
 									  <jsp:setProperty name="dateValue" property="time"
 											value="${survey.status.lastStatusAccepted}" />
 									  <fmt:formatDate value="${dateValue}"
-											pattern="MM/dd/yyyy HH:mm" />
+											pattern="dd/MM/yyyy HH:mm" />
 							      </c:when>
 							
 							      <c:otherwise>
