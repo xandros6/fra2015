@@ -77,7 +77,7 @@ var removeAllCountryHandler = function(el) {
 
 var reviewerPresetHandler = function(el) {
 	addAllCountryHandler(el);
-	addAllQuestionHandler(el);
+	//addAllQuestionHandler(el);
 	el.find('#preventContributorsEmails').attr('checked', true);	
 }
 
