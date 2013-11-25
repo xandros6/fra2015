@@ -585,8 +585,10 @@
 						<tr>
 							<td colspan="2" rownumber="12" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
+									
+              <c:set var="sum" value="${_fraVariable_4b_2_3_};${_fraVariable_4b_3_3_};${_fraVariable_4b_4_3_};${_fraVariable_4b_5_3_};${_fraVariable_4b_6_3_};${_fraVariable_4b_7_3_};${_fraVariable_4b_8_3_};${_fraVariable_4b_9_3_};${_fraVariable_4b_10_3_};${_fraVariable_4b_11_3_}"/>   
 							<td class="noneditable" rownumber="12" columnnumber="2"></td>
-							<td rownumber="12" columnnumber="3" class="total"></td>
+							<td rownumber="12" columnnumber="3" class="total">${fraFn:computeSum(sum)}</td>
 							<td class="noneditable" rownumber="12" columnnumber="4"></td>
 						</tr>
 					</tbody>

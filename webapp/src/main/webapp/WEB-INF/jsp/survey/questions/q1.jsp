@@ -452,11 +452,16 @@
 							<td></td>
 							<td colspan="2" rownumber="8" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
-							<td class="total" rownumber="8" columnnumber="1"></td>
-							<td class="total" rownumber="8" columnnumber="2"></td>
-							<td class="total" rownumber="8" columnnumber="3"></td>
-							<td class="total" rownumber="8" columnnumber="4"></td>
-							<td class="total" rownumber="8" columnnumber="5"></td>
+							<c:set var="sum" value="${_fraVariable_1a_2_1_};${_fraVariable_1a_3_1_};${_fraVariable_1a_4_1_};${_fraVariable_1a_6_1_}"/>
+							<td class="total" rownumber="8" columnnumber="1">${fraFn:computeSum(sum)}</td>
+							<c:set var="sum" value="${_fraVariable_1a_2_2_};${_fraVariable_1a_3_2_};${_fraVariable_1a_4_2_};${_fraVariable_1a_6_2_}"/>
+							<td class="total" rownumber="8" columnnumber="2">${fraFn:computeSum(sum)}</td>
+							<c:set var="sum" value="${_fraVariable_1a_2_3_};${_fraVariable_1a_3_3_};${_fraVariable_1a_4_3_};${_fraVariable_1a_6_3_}"/>
+							<td class="total" rownumber="8" columnnumber="3">${fraFn:computeSum(sum)}</td>
+							<c:set var="sum" value="${_fraVariable_1a_2_4_};${_fraVariable_1a_3_4_};${_fraVariable_1a_4_4_};${_fraVariable_1a_6_4_}"/>
+							<td class="total" rownumber="8" columnnumber="4">${fraFn:computeSum(sum)}</td>
+							<c:set var="sum" value="${_fraVariable_1a_2_5_};${_fraVariable_1a_3_5_};${_fraVariable_1a_4_5_};${_fraVariable_1a_6_5_}"/>
+							<td class="total" rownumber="8" columnnumber="5">${fraFn:computeSum(sum)}</td>
 						</tr>
 					</tbody>
 				</table>
