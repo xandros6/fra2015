@@ -24,7 +24,6 @@ import java.util.Map;
 import javax.script.ScriptException;
 import javax.xml.bind.JAXB;
 
-import org.dom4j.rule.RuleSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -469,7 +468,7 @@ public class Validator implements InitializingBean, ApplicationContextAware {
     // inizializer
     @Override
     public void afterPropertiesSet() throws Exception {
-        // TODO Auto-generated method stub
+        
         InputStream rulesFile;
         try {
             rulesFile = applicationContext.getResource("classpath:validation-rules.xml")
@@ -486,13 +485,13 @@ public class Validator implements InitializingBean, ApplicationContextAware {
         // throw new IllegalArgumentException("rulesFile does not exist: " + rulesFile);
 
         ruleList = JAXB.unmarshal(rulesFile, RuleList.class);
-        Iterator<ValidationRule> it = ruleList.iterator();
-        LOGGER.info(it.hasNext() + "");
-        while (it.hasNext()) {
-            LOGGER.info(it.next().getDescription());
 
-        }
-
+        LOGGER.info("Loaded " + ruleList.getRules().size() + " validation rules.");
+//        Iterator<ValidationRule> it = ruleList.iterator();
+//        LOGGER.info(it.hasNext() + "");
+//        while (it.hasNext()) {
+//            LOGGER.info(it.next().getDescription());
+//        }
     }
 
     @Override

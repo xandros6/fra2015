@@ -60,10 +60,10 @@
         <!-- ================================================================-->
 
         <!-- needed for @Multipart -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- needed for @RolesAllowed 
         <dependency>
