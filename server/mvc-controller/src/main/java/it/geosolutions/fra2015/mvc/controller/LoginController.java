@@ -118,6 +118,15 @@ public class LoginController {
         
         // Store the User in session
         session.setAttribute(SESSION_USER, storedUser);
+
+        if(LOGGER.isInfoEnabled()) {
+            String c = "";
+            if (storedUser.getCountriesSet()!= null && storedUser.getCountriesSet().size()==1) {
+                c =  " ("+storedUser.getCountriesSet().iterator().next().getIso3()+")";
+            }
+
+            LOGGER.info("User " + storedUser.getUsername() + c + " is logging in" );
+        }
         
         return "redirect:/";
     }
