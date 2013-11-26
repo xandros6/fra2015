@@ -1,5 +1,7 @@
-Estimado ${receiver.name},
+Estimado/a ${receiver.name},
 
-Un ciclo de revisión ha sido completada para su encuesta [ ${country}(${status.country}) ].
-Hay algunas correcciones pendientes de aplicar.
-Por favor, compruebe la retroalimentación de la encuesta para obtener más detalles.
+Un ciclo de revisión se ha completado para el cuestionario del país: [ ${country} (${status.country})].
+Hay algunas correcciones pendientes que se deben realizar.
+Por favor, consulte las observaciones en el cuestionario para obtener más detalles.
+http://foreststats.org/fra2015
+

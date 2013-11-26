@@ -1,6 +1,7 @@
 Dear ${receiver.name},
 
-All the survey revision cycles have been completed for Country [ ${country} (${status.country})].
-The survey now is in status 'Complete' and you can review it for the country acceptance phase.
+All the questionnaire revision cycles have been completed for [ ${country} (${status.country})].
+The questionnaire status is now 'Complete' and we would be grateful if you could review it for country acceptance.
 
 Regards.
+
