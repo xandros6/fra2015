@@ -71,6 +71,9 @@ public class TiersValidator {
             List<EntryItem> emptyTiers = fromValueListToTiersList(emptyTiersValue);
             for(EntryItem entryItem : emptyTiers){
                 List<String> varList = new ArrayList<String>();
+                if(entryItem.getRowName() == null) {
+                    LOGGER.warn("Null name for tier " + entryItem);
+                }
                 TierRowName trn = new TierRowName(entryItem.getRowName());
                 varList.add(trn.getReletedEntityId());
                 // load the row variables related to the current tier 
