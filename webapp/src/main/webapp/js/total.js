@@ -45,7 +45,7 @@ $(function(){
 				if (isNumeric){
 					var sum = parseFloat(value);
 					tot = sum + tot;
-					tot -= tot - tot.toFixed(12); 
+					tot -= tot - tot.toFixed(12);
 				}else{
 					allAvaliable=false;
 				}
@@ -55,7 +55,19 @@ $(function(){
 				}				
 			});
 			
-			totcel.text(allAvaliable?tot:"");
+			if(allAvaliable){
+				// approximate only if the integer digit is > 0
+				var integer = parseInt(tot);
+				if(integer > 0){
+					tot = Math.floor(tot * 100) / 100;
+				}
+				
+				totcel.text(tot);
+			}else{
+				totcel.text("");
+			}
+			
+			//totcel.text(allAvaliable ? tot : "");
 		};
 		
 		colentries.each(update);
