@@ -38,22 +38,27 @@
     <!-- ************************************** -->
     <!-- Spring Security -->
     <!-- ************************************** -->
+
+    <!-- UTF8 enconding BEFORE spring security -->
+
     <filter>  
-	 <filter-name>encodingFilter</filter-name>  
-	 <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
-	 <init-param>  
-	    <param-name>encoding</param-name>  
-    	<param-value>UTF-8</param-value>  
-	 </init-param>  
-	 	<init-param>  
-	    	<param-name>forceEncoding</param-name>  
-	    	<param-value>true</param-value>  
- 		</init-param>  
-	</filter>  
-	<filter-mapping>  
- 		<filter-name>encodingFilter</filter-name>  
- 		<url-pattern>/*</url-pattern>  
-	</filter-mapping> 
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -87,35 +92,18 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
-		<listener-class>it.geosolutions.fra2015.mvc.concurrency.SessionListener</listener-class>
-	</listener>
+        <listener-class>it.geosolutions.fra2015.mvc.concurrency.SessionListener</listener-class>
+    </listener>
  
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
- 	<!-- encoding -->
- 	<filter>
-    <filter-name>encodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-    <init-param>
-        <param-name>encoding</param-name>
-        <param-value>UTF-8</param-value>
-    </init-param>
-    <init-param>
-        <param-name>forceEncoding</param-name>
-        <param-value>true</param-value>
-    </init-param>
- </filter>
-
- <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
- </filter-mapping>
- <!-- Session duration -->
- <session-config>
-    <session-timeout>180</session-timeout> <!--180 3 hour Session -->
-</session-config>
+    
+    <!-- Session duration -->
+    <session-config>
+        <session-timeout>180</session-timeout> <!--180 3 hour Session -->
+    </session-config>
 
 
     <!--  js and css -->
