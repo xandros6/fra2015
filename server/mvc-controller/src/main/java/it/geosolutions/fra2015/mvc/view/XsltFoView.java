@@ -25,6 +25,7 @@ public class XsltFoView extends XsltView {
 	protected void renderMergedOutputModel(Map<String,Object> model, javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws Exception {
 
 		FopFactory fopFactory = FopFactory.newInstance();
+		fopFactory.setStrictValidation(false); 
 		FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 
 		ServletOutputStream out = null;
