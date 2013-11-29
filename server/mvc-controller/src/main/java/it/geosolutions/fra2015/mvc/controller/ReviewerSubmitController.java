@@ -22,9 +22,13 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
+import freemarker.template.TemplateException;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.LoggingUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.ReviewerUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
@@ -35,7 +39,9 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +53,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,6 +79,12 @@ public class ReviewerSubmitController {
     
     @Autowired
     private SurveyCatalog catalog;
+    
+    @Autowired
+    private ControllerServices utils;
+    
+    @Autowired
+    private NotificationSerivice notificationService;
     
     private static final Logger LOGGER = Logger.getLogger(ReviewerSubmitController.class);
 
@@ -144,7 +157,31 @@ public class ReviewerSubmitController {
         Arrays.sort(qArray);
         
         if (accepted) {
-            String redirect = doSubmit(si, su, session);            
+            String redirect = "redirect:/surveylist/0";
+            boolean outcome = doSubmit(si, su, session);
+            Status surveyStatus = utils.getStatusInstanceByCountry(country);
+            if(outcome && checkIfAllRevsHasSubmitted(country, surveyStatus)){
+                try {
+                    sendMailToReviewerEditor(country, session, su, surveyStatus);
+                } catch (MailException e) {
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                            10000, null, null);
+                    LOGGER.error("Error in mail notification (pending fixes) ",e);
+                    return "redirect:/surveylist/0";
+
+                } catch (TemplateException e) {
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                            10000, null, null);
+                    LOGGER.error("Error in mail notification (pending fixes) ",e);
+                    return "redirect:/surveylist/0";
+
+                } catch (IOException e) {
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                            10000, null, null);
+                    LOGGER.error("Error in mail notification (pending fixes) ",e);
+                    return "redirect:/surveylist/0";
+                }
+            }
             return redirect;
         }else{
             FlashAttributesHandler.addFlashAttribute(session, "confirm", "revsubmit.ko", 10000, null, Arrays.toString(qArray));
@@ -178,8 +215,31 @@ public class ReviewerSubmitController {
         
         si.setStatus(surveyService.getStatus(country));
         
-        String redirect = doSubmit(si, su, session);
-        
+        boolean outcome = doSubmit(si, su, session);
+        String redirect = "redirect:/surveylist/0";
+        Status surveyStatus = utils.getStatusInstanceByCountry(country);
+        if(outcome && checkIfAllRevsHasSubmitted(country, surveyStatus)){
+            try {
+                sendMailToReviewerEditor(country, session, su, surveyStatus);
+            } catch (MailException e) {
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                        10000, null, null);
+                LOGGER.error("Error in mail notification (pending fixes) ",e);
+                return "redirect:/surveylist/0";
+
+            } catch (TemplateException e) {
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                        10000, null, null);
+                LOGGER.error("Error in mail notification (pending fixes) ",e);
+                return "redirect:/surveylist/0";
+
+            } catch (IOException e) {
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                        10000, null, null);
+                LOGGER.error("Error in mail notification (pending fixes) ",e);
+                return "redirect:/surveylist/0";
+            }
+        }
         return redirect;
     }
     
@@ -189,14 +249,14 @@ public class ReviewerSubmitController {
      * @param session
      * @return String
      */
-    private String doSubmit(SurveyInstance si, User su, HttpSession session){
+    private boolean doSubmit(SurveyInstance si, User su, HttpSession session){
         Status s = si.getStatus();
         s.setCountry(si.getCountry().getIso3());
         
         boolean outcome = StatusUtils.addReviewerToReviewerSubmit(su, s);
         if(!outcome){
             FlashAttributesHandler.addFlashAttribute(session, "error", "revsubmit.doublesubmit", 10000, null, null);
-            return "redirect:/surveylist/0";
+            return false;
         }
         
         // ////////////////////////////////////
@@ -222,6 +282,43 @@ public class ReviewerSubmitController {
         // /////////////////////
         
         FlashAttributesHandler.addFlashAttribute(session, "success", "revsubmit.ok", 10000, null, null);
-        return "redirect:/surveylist/0"; 
+        return true; 
     }
+    
+    private boolean checkIfAllRevsHasSubmitted(String country, Status status){
+        
+        String revsListAsBlob = status.getReviewerSubmit();
+        String [] revsList = (revsListAsBlob == null)?new String[]{}:revsListAsBlob.split(";");
+        int reviewerHasBeenSubmitted = 0;
+        // Ok seem that I'm crazy but often happens that empty elements appears in the rev list...
+        // Don't trust of .length!!!
+        for(String el : revsList){
+            if(!el.isEmpty()){
+                reviewerHasBeenSubmitted++;
+            }
+        }
+        List<User> users = userService.getReviewersForSurveyAndQuestion(country, null);
+        int totalReviewers = (users != null)?users.size():0; 
+        return reviewerHasBeenSubmitted == totalReviewers;
+    }
+    
+    private void sendMailToReviewerEditor(String country, HttpSession session, User user, Status status) throws IOException, TemplateException{
+        //
+        // Notify of the status changed with a mail to the Reviewer Editor
+        //
+        List<User> revEditors = userService.getUsersToNotify(Profile.EDITOR.toString().toLowerCase(), country, false);
+        LOGGER.info("----------------- state transition: EDITOR NOTIFICATION AFTER LATEST REVIEWER SUBMISSION ---");
+        LOGGER.info("----------------- Selected Users (Editors) to notify with Mail: ----------------------------");
+        LOGGER.info(LoggingUtils.printUsernames(revEditors));
+        LOGGER.info("--------------------------------------------------------------------------------------------");
+        
+        if (revEditors.size() <= 0) {
+            LOGGER.error("No reviewer associated to country '" + country + "' The submit has been done correctly but anyone has been notificated, no mail sent");
+            // TODO notify with mail this error to admin ???
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified", 10000, null, null);
+        }
+        notificationService.notifyReviewerSubmit(user, status, revEditors);
+        
+    }
+    
 }
