@@ -84,7 +84,7 @@
 					</c:if>
 					
 					<c:if test="${survey.status.status == 'underreview'}">
-						<c:if test="${fn:contains(survey.status.reviewerSubmit, username)}">
+						<c:if test="${fn:contains(survey.status.reviewerSubmit, userId)}">
 							<!-- In this case the user have already submitted -->
 							<c:set scope="page" var="submitAllowed" value="disabled" />
 						</c:if>
