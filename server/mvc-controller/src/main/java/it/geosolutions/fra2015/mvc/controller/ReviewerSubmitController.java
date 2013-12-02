@@ -164,21 +164,21 @@ public class ReviewerSubmitController {
                 try {
                     sendMailToReviewerEditor(country, session, su, surveyStatus);
                 } catch (MailException e) {
-                    FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
                             10000, null, null);
-                    LOGGER.error("Error in mail notification (pending fixes) ",e);
+                    LOGGER.error("Error in mail notification (last reviewer submission) ",e);
                     return "redirect:/surveylist/0";
 
                 } catch (TemplateException e) {
-                    FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
                             10000, null, null);
-                    LOGGER.error("Error in mail notification (pending fixes) ",e);
+                    LOGGER.error("Error in mail notification (last reviewer submission) ",e);
                     return "redirect:/surveylist/0";
 
                 } catch (IOException e) {
-                    FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
                             10000, null, null);
-                    LOGGER.error("Error in mail notification (pending fixes) ",e);
+                    LOGGER.error("Error in mail notification (last reviewer submission) ",e);
                     return "redirect:/surveylist/0";
                 }
             }
@@ -222,21 +222,21 @@ public class ReviewerSubmitController {
             try {
                 sendMailToReviewerEditor(country, session, su, surveyStatus);
             } catch (MailException e) {
-                FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
                         10000, null, null);
-                LOGGER.error("Error in mail notification (pending fixes) ",e);
+                LOGGER.error("Error in mail notification (last reviewer submission) ",e);
                 return "redirect:/surveylist/0";
 
             } catch (TemplateException e) {
-                FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
                         10000, null, null);
-                LOGGER.error("Error in mail notification (pending fixes) ",e);
+                LOGGER.error("Error in mail notification (last reviewer submission) ",e);
                 return "redirect:/surveylist/0";
 
             } catch (IOException e) {
-                FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified",
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
                         10000, null, null);
-                LOGGER.error("Error in mail notification (pending fixes) ",e);
+                LOGGER.error("Error in mail notification (last reviewer submission) ",e);
                 return "redirect:/surveylist/0";
             }
         }
@@ -315,7 +315,7 @@ public class ReviewerSubmitController {
         if (revEditors.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + country + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???
-            FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotified", 10000, null, null);
+            FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified", 10000, null, null);
         }
         notificationService.notifyReviewerSubmit(user, status, revEditors);
         
