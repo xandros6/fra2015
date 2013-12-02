@@ -100,9 +100,9 @@ public interface UserService {
     public List<User> getUsersToNotify(String role, String iso3, boolean preventContributorsEmails);
 
     /**
-     * @param userName
-     * @param iso3
-     * @param questions
+     * 
+     * @param iso3 Mandatory. the iso3 code of the country to get the reviewer list
+     * @param question Optional, if null search just using the country
      * @return
      */
     public List<User> getReviewersForSurveyAndQuestion(String iso3, Long question);

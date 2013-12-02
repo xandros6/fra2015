@@ -237,7 +237,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getReviewersForSurveyAndQuestion(String iso3, Long question) {
         Search searchCriteria = new Search(User.class);
         searchCriteria.addFilterSome("countriesSet", Filter.equal("iso3", iso3));
-        searchCriteria.addFilterSome("questions", Filter.equal("id", Long.toString(question)));
+        searchCriteria.addFilterEqual("role", "reviewer");
+        if(question != null){
+            searchCriteria.addFilterSome("questions", Filter.equal("id", Long.toString(question)));
+        }
         return userDAO.search(searchCriteria);
         
     }
