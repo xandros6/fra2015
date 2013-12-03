@@ -194,6 +194,7 @@ public class PrintController {
 			try {
 				String requestUrl = req.getRequestURL().toString();
 				FopFactory fopFactory = FopFactory.newInstance();
+				fopFactory.setStrictValidation(false); 
 				
 				String appPath = servletContext.getRealPath(""); //root of web app
 				fopFactory.setBaseURL(appPath);		
@@ -250,9 +251,10 @@ public class PrintController {
 			String xml = customResponse.getOutput();
 
 			FopFactory fopFactory = FopFactory.newInstance();
+			fopFactory.setStrictValidation(false); 
 
 			String appPath = servletContext.getRealPath(""); //root of web app
-			fopFactory.setBaseURL(appPath);			
+			fopFactory.setBaseURL(appPath);	
 			
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 			ServletOutputStream out = null;

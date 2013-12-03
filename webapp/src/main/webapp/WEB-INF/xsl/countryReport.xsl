@@ -270,8 +270,7 @@
 
 	<xsl:template match="table">
 		<fo:table table-layout="fixed" width="100%" border-collapse="collapse"
-			border-spacing="2px" border="1px solid black" margin-bottom="10pt"
-			keep-together.within-page="always">
+			border-spacing="2px" border="1px solid black" margin-bottom="10pt">
 			<xsl:choose>
 				<xsl:when test="@cols">
 					<xsl:call-template name="build-columns">
@@ -286,8 +285,8 @@
 	</xsl:template>
 
 	<xsl:template match="tr">
-		<fo:table-row>
-			<xsl:apply-templates select="td | text()" />
+		<fo:table-row keep-together.within-page="always">
+			<xsl:apply-templates select="td | th | text()" />
 		</fo:table-row>
 	</xsl:template>
 
