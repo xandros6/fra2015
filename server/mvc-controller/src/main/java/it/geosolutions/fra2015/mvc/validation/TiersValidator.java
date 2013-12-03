@@ -72,7 +72,8 @@ public class TiersValidator {
             for(EntryItem entryItem : emptyTiers){
                 List<String> varList = new ArrayList<String>();
                 if(entryItem.getRowName() == null) {
-                    LOGGER.warn("Null name for tier " + entryItem);
+                    LOGGER.error("Null name for tier " + entryItem);
+                    continue;
                 }
                 TierRowName trn = new TierRowName(entryItem.getRowName());
                 varList.add(trn.getReletedEntityId());
