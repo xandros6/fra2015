@@ -111,8 +111,11 @@ public class NotificationSerivice {
      * @throws TemplateException
      */
     public void notify(User user, Status status, List<User> reviewers) throws IOException, TemplateException {
-        notifyUsers(user, status, reviewers, "notify");
-   
+    	if(status.getStatus().equals("compiled")){
+    		notifyUsers(user, status, reviewers, "notifyCompiled");
+    	}else{
+    		notifyUsers(user, status, reviewers, "notify");
+    	}
     }
     
     /**

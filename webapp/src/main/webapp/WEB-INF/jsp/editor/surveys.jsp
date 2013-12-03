@@ -93,6 +93,9 @@
 					</c:if>
 					<c:if test="${survey.status.status != 'underreview'}">
 						<c:set scope="page" var="notifyEnabled" value="disabled" />
+					</c:if>					
+					<c:if test="${survey.status.status == 'compiled'}">
+						<c:set scope="page" var="notifyEnabled" value="enabled" />
 					</c:if>
 					
 					<tr class="rowItem">

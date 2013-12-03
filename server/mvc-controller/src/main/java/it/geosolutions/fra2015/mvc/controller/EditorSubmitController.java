@@ -305,8 +305,8 @@ public class EditorSubmitController {
         // ///////////////////////
         String iso3 = country;
         Status status = surveyService.getStatus(iso3);
-        if(!StatusUtils.isSubmitAllowedByReviewerEditor(status)){
-            LOGGER.warn("A reviewerEditor has tried to sent a notification for country '" + iso3 + "' but the survey status is not set to 'underreview' at this moment");
+        if(!StatusUtils.isSubmitAllowedByReviewerEditor(status) && !StatusUtils.isCompiled(status)){
+            LOGGER.warn("A reviewerEditor has tried to sent a notification for country '" + iso3 + "' but the survey status is not set to 'underreview' or 'compiled' at this moment");
             FlashAttributesHandler.addFlashAttribute(session, "error", "editor.surveylist.notifyFailed", 10000, null, null);
             return "redirect:/surveylist/0";
         }
