@@ -75,7 +75,7 @@ public class ReviewerUtils {
             }
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(revisionedQuestions.size()).append(" / ").append(catalog.countAllSurveyQuestions()-1);
+        sb.append(revisionedQuestions.size()).append(" / ").append(catalog.countAllSurveyQuestions());
         return sb.toString();
     } 
 }
