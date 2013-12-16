@@ -303,7 +303,11 @@ function initFilterWindow(el){
 	el.find('#filter_cusername_clear_btn').click(function(event){ el.find('#filter_cusername').val('') });
 	el.find('#filter_cemail_clear_btn').click(function(event){ el.find('#filter_cemail').val('') });
 	el.find('#filter_roleComboBox_clear_btn').click(function(event){ el.find('#filter_roleComboBox').val('') });
-	el.find('#filter_countries_clear_btn').click(function(event){ el.find('#filter_countries').val(''); el.find('#selCountries').val('') });
+	el.find('#filter_countries_clear_btn').click(function(event){ 
+		el.find('#filter_countries').val(''); 
+//		el.find('#selCountries').val('') 
+		el.find('#countries').val('');
+	});
 }
 
 function saveUser(el){
