@@ -281,6 +281,11 @@ public class ControllerServices {
 		if(StatusUtils.isEmpty(s)){
 			s.setCountry(c);
 			s.setStatus(StatusUtils.IN_PROGRESS);
+			s.setLastContributorSave(System.currentTimeMillis());
+			surveyService.changeStatus(s);
+		}else{
+			s.setCountry(c);
+			s.setLastContributorSave(System.currentTimeMillis());
 			surveyService.changeStatus(s);
 		}
 

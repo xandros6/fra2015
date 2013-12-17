@@ -79,12 +79,13 @@
 				<tr>
 				    <th class="country center"><spring:message code="summaryStatus.name" text=""></spring:message></th>
 				    <th class="center"><spring:message code="summaryStatus.iso" text=""></spring:message></th>
+				    <th class="timestamp center"><spring:message code="summaryStatus.contsave" text=""></spring:message></th>
 					<th class="timestamp center"><spring:message code="summaryStatus.contsubmit" text=""></spring:message></th>
 					<th class="timestamp center"><spring:message code="summaryStatus.revsubmit" text=""></spring:message></th>
 					<th class="timestamp center"><spring:message code="summaryStatus.pendsubmit" text=""></spring:message></th>
 					<th class="timestamp center"><spring:message code="summaryStatus.lastaccept" text=""></spring:message></th>
 					<th class="timestamp center"><spring:message code="summaryStatus.acceptance" text=""></spring:message></th>
-					<th class="center">Reviewer submissions</th>
+					<th class="center"><spring:message code="summaryStatus.revsubmission" text=""></spring:message></th>
 					<th class="center"><spring:message code="summaryStatus.status" text=""></spring:message></th>
 				</tr>
 			</thead>
@@ -99,6 +100,21 @@
 						</td>
 
 						<td class="center">${survey.country.iso3}</td>
+						
+					    <td class="${timestampName != 'lContSave'  ? 'center' : 'centerHighlight'}">
+							<c:choose>
+							      <c:when test="${survey.status.lastContributorSave != null}">
+									  <jsp:setProperty name="dateValue" property="time"
+											value="${survey.status.lastContributorSave}" />
+									  <fmt:formatDate value="${dateValue}"
+											pattern="dd/MM/yyyy HH:mm" />
+							      </c:when>
+							
+							      <c:otherwise>
+							      		${survey.status.lastContributorSave}
+							      </c:otherwise>
+							</c:choose>
+						</td>
 						
 						<td class="${timestampName != 'lContSubmit'  ? 'center' : 'centerHighlight'}">
 							<c:choose>

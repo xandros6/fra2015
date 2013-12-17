@@ -364,6 +364,7 @@ public final class StatusUtils {
     public static String getLatestTimestamp(Status s){
 		
     	Long lContSubmit = s.getLastContributorSubmission();
+    	Long lContSave = s.getLastContributorSave();
 		Long lRevSubmit = s.getLastSurveyReview();
 		Long lPendSubmit = s.getLastPendingFixSubmit();
 		Long lAcceptReq = s.getLastAcceptanceRequest();
@@ -374,6 +375,7 @@ public final class StatusUtils {
 		List<Long> list = new ArrayList<Long>();
 		
 		if(lContSubmit != null) list.add(lContSubmit);
+		if(lContSave != null) list.add(lContSave);
 		if(lRevSubmit != null) list.add(lRevSubmit);
 		if(lPendSubmit != null) list.add(lPendSubmit);
 		if(lAcceptReq != null) list.add(lAcceptReq);
@@ -385,6 +387,8 @@ public final class StatusUtils {
 			if(maxTimestamp != null){
 				if(maxTimestamp.equals(lContSubmit)){
 					timestampName = "lContSubmit";
+				}else if(maxTimestamp.equals(lContSave)){
+					timestampName = "lContSave";
 				}else if(maxTimestamp.equals(lRevSubmit)){
 					timestampName = "lRevSubmit";
 				}else if(maxTimestamp.equals(lPendSubmit)){

@@ -69,6 +69,9 @@ public class Status implements Serializable {
     @Column(nullable = true, updatable = true)
     private Long lastStatusAccepted;
 
+    @Column(nullable = true, updatable = true)
+    private Long lastContributorSave;
+    
 	@Transient
     private String country;
 
@@ -234,5 +237,19 @@ public class Status implements Serializable {
 	 */
 	public void setLastStatusAccepted(Long lastStatusAccepted) {
 		this.lastStatusAccepted = lastStatusAccepted;
+	}
+	
+	/**
+	 * @return the lastContributorSave
+	 */
+	public Long getLastContributorSave() {
+		return lastContributorSave;
+	}
+
+	/**
+	 * @param lastContributorSave the lastContributorSave to set
+	 */
+	public void setLastContributorSave(Long lastContributorSave) {
+		this.lastContributorSave = lastContributorSave;
 	}
 }

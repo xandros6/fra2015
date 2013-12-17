@@ -397,6 +397,7 @@ public class SurveyServiceImpl implements SurveyService {
 			survey.getStatus().setLastAcceptanceRequest(status.getLastAcceptanceRequest());
 			survey.getStatus().setLastPendingFixSubmit(status.getLastPendingFixSubmit());
 			survey.getStatus().setLastStatusAccepted(status.getLastStatusAccepted());
+			survey.getStatus().setLastContributorSave(status.getLastContributorSave());
 			surveyDAO.merge(survey);
 			return survey.getStatus().getStatus();
 		}
