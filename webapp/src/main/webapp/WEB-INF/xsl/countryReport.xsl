@@ -101,8 +101,8 @@
 		<fo:block-container break-before='page'>
 			<fo:block />
 			<fo:block text-align="center" margin-top="100pt">
-				<fo:external-graphic src="url('img/fra2015logo.jpg')"
-					width="280pt" height="102pt" content-width="scale-to-fit"
+				<fo:external-graphic src="url('img/cfrqlogin.jpg')"
+					content-width="scale-to-fit"
 					content-height="scale-to-fit" />
 			</fo:block>
 			<fo:block text-align="center" font-size="30pt" font-weight="bold"
