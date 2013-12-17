@@ -3,6 +3,7 @@
 <div id="footer">
 <div class="container">
 <p class="muted credit">
+<spring:message code="footer.eu.notice"/>
 <spring:message code="footer.disclaimer"/>
 <spring:message code="footer.help"/>
 </p>
