@@ -22,14 +22,18 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
+import it.geosolutions.fra2015.mvc.controller.SurveyListController.SurveyInstanceExt;
+import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.model.Pagination;
 import it.geosolutions.fra2015.server.model.survey.Country;
+import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -53,11 +57,97 @@ public class SummaryStatusController {
 
     @Autowired
     private SurveyServiceEntryPoint surveyService;
+    
+	@Autowired
+	private ControllerServices utils;
 
 	private int pagesize = 20;
 
     Logger LOGGER = Logger.getLogger(SummaryStatusController.class);
 
+	public class SurveyInstanceExt{
+		
+	    public Long id;
+	    
+	    public Status status;
+	    
+	    public Country country;
+	    
+	    public String reviewerSubmissions;
+	    
+		/**
+		 * @param id
+		 * @param status
+		 * @param country
+		 * @param reviewerSubmissions
+		 */
+		public SurveyInstanceExt(Long id, Status status, Country country,
+				String reviewerSubmissions) {
+			super();
+			this.id = id;
+			this.status = status;
+			this.country = country;
+			this.reviewerSubmissions = reviewerSubmissions;
+		}
+
+		/**
+		 * @return the id
+		 */
+		public Long getId() {
+			return id;
+		}
+
+		/**
+		 * @param id the id to set
+		 */
+		public void setId(Long id) {
+			this.id = id;
+		}
+
+		/**
+		 * @return the status
+		 */
+		public Status getStatus() {
+			return status;
+		}
+
+		/**
+		 * @param status the status to set
+		 */
+		public void setStatus(Status status) {
+			this.status = status;
+		}
+
+		/**
+		 * @return the country
+		 */
+		public Country getCountry() {
+			return country;
+		}
+
+		/**
+		 * @param country the country to set
+		 */
+		public void setCountry(Country country) {
+			this.country = country;
+		}
+
+		/**
+		 * @return the reviewerSubmissions
+		 */
+		public String getReviewerSubmissions() {
+			return reviewerSubmissions;
+		}
+
+		/**
+		 * @param reviewerSubmissions the reviewerSubmissions to set
+		 */
+		public void setReviewerSubmissions(String reviewerSubmissions) {
+			this.reviewerSubmissions = reviewerSubmissions;
+		}
+
+	}
+	
     /**
      * Gets latest checksum for each country. Shows:
      *  * Country Name
@@ -109,7 +199,15 @@ public class SummaryStatusController {
         String countryName = "name_" + locale;
         List<SurveyInstance> surveys = surveyService.getSurveysByCountry(countries, page, pagesize, countryName);
         
-		model.addAttribute("surveys", surveys);
+        if(user.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+        	// /////////////////////////////////////////////////
+        	// Calculate a list with reviewer submissions stats
+        	// /////////////////////////////////////////////////
+        	List<SurveyInstanceExt> surveyExtList = surveyInstanceToSurveyInstanceExt(surveys);
+        	model.addAttribute("surveys", surveyExtList);
+        }else{
+    		model.addAttribute("surveys", surveys);
+        }
 		
 		// /////////////////////////////////////
 		// Check prev and next pages presence
@@ -154,4 +252,42 @@ public class SummaryStatusController {
         	return "redirect:/login";
         }
     }    
+    
+	/**
+	 * @param surveys
+	 * @return List<SurveyInstanceExt>
+	 */
+	private List<SurveyInstanceExt> surveyInstanceToSurveyInstanceExt(List<SurveyInstance> surveys){
+		
+		List<SurveyInstanceExt> list = new ArrayList<SurveyInstanceExt>();
+		
+		Iterator<SurveyInstance> iterator = surveys.iterator();
+		while(iterator.hasNext()){
+			SurveyInstance sInstance = iterator.next();
+			
+			List<User> reviewerList = utils.getUsersForCountry(sInstance.getCountry().getIso3(), "reviewer");	
+			Status status = sInstance.getStatus();
+			String reviewerSubmit = status.getReviewerSubmit();
+			
+			long revsSubmitLenght = 0;
+			if(reviewerSubmit != null && !reviewerSubmit.isEmpty()){
+				String[] revsSubmit = reviewerSubmit.split(";");
+				
+				for(int i=0; i<revsSubmit.length; i++){
+					if(revsSubmit[i] != null && !revsSubmit[i].isEmpty()){
+						revsSubmitLenght++;
+					}
+				}
+			}
+
+    		String reviewerSubmissions = revsSubmitLenght + "/" + reviewerList.size(); 
+    		
+    		SurveyInstanceExt surveyInstanceExt = new SurveyInstanceExt(sInstance.getId(), 
+    				sInstance.getStatus(), sInstance.getCountry(), reviewerSubmissions);
+    		
+    		list.add(surveyInstanceExt);
+		}
+		
+		return list;
+	}
 }

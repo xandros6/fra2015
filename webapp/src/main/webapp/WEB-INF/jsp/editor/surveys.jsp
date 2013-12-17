@@ -131,7 +131,7 @@
 						</td>
 						<td class="center flat">
 							<c:choose>
-								<c:when test="${not empty survey.reviewerSubmissions}">
+								<c:when test="${not empty survey.reviewerSubmissions and survey.status.status == 'underreview'}">
 									<div style="text-align: center">${survey.reviewerSubmissions}</div>
 								</c:when>
 							</c:choose>

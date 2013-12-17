@@ -61,7 +61,7 @@
 								<jsp:include page="common/check_only.jsp" />
 							</c:when>
 							<c:when test="${context=='summaryStatus'}">
-								<jsp:include page="common/summarystatus.jsp" />
+								<jsp:include page="editor/summarystatus.jsp" />
 							</c:when>
 						</c:choose>
 
