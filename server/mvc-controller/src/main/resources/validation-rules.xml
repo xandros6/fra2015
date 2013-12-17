@@ -242,7 +242,7 @@
             <![CDATA[ {{3.2}} >= {{3.2.2}} ]]>
         </condition>
     </rule>
-         <rule>
+    <!-- rule>
         <id>20</id>
         <description>
             3.4 >= 3.4.1
@@ -265,7 +265,7 @@
         <condition>
             <![CDATA[ {{3.4}} >= {{3.4.2}}]]>
         </condition>
-    </rule> 
+    </rule--> 
     <rule>
         <id>22</id>
         <description>
