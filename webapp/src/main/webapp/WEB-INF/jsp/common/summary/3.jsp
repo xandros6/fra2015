@@ -195,80 +195,164 @@
 				<td class="numeric">${_fraVariable_3c_5_5_}</td>
 			</tr>
 			<tr>
-				<td rowspan="4"><a href="${qpath}#3d">3d</a></td>
+				<td rowspan="9"><a href="${qpath}#3d">3d</a></td>
+			</tr>
+			<tr>
+			    <td colspan="7"><strong><spring:message code="ref58"></spring:message></strong></td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.5 <spring:message code="ref189"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3d_3_1_}, ${_fraVariable_3d_3_6_}</td>
-				<td class="numeric">${_fraVariable_3d_3_2_}, ${_fraVariable_3d_3_7_}</td>
-				<td class="numeric">${_fraVariable_3d_3_3_}, ${_fraVariable_3d_3_8_}</td>
-				<td class="numeric">${_fraVariable_3d_3_4_}, ${_fraVariable_3d_3_9_}</td>
-				<td class="numeric">${_fraVariable_3d_3_5_}, ${_fraVariable_3d_3_10_}</td>
+				<td class="numeric">${_fraVariable_3d_3_1_}</td>
+				<td class="numeric">${_fraVariable_3d_3_2_}</td>
+				<td class="numeric">${_fraVariable_3d_3_3_}</td>
+				<td class="numeric">${_fraVariable_3d_3_4_}</td>
+				<td class="numeric">${_fraVariable_3d_3_5_}</td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.6 <spring:message code="ref190"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3d_4_1_}, ${_fraVariable_3d_4_6_}</td>
-				<td class="numeric">${_fraVariable_3d_4_2_}, ${_fraVariable_3d_4_7_}</td>
-				<td class="numeric">${_fraVariable_3d_4_3_}, ${_fraVariable_3d_4_8_}</td>
-				<td class="numeric">${_fraVariable_3d_4_4_}, ${_fraVariable_3d_4_9_}</td>
-				<td class="numeric">${_fraVariable_3d_4_5_}, ${_fraVariable_3d_4_10_}</td>
+				<td class="numeric">${_fraVariable_3d_4_1_}</td>
+				<td class="numeric">${_fraVariable_3d_4_2_}</td>
+				<td class="numeric">${_fraVariable_3d_4_3_}</td>
+				<td class="numeric">${_fraVariable_3d_4_4_}</td>
+				<td class="numeric">${_fraVariable_3d_4_5_}</td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.7 <spring:message code="ref139"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3d_5_1_}, ${_fraVariable_3d_5_6_}</td>
-				<td class="numeric">${_fraVariable_3d_5_2_}, ${_fraVariable_3d_5_7_}</td>
-				<td class="numeric">${_fraVariable_3d_5_3_}, ${_fraVariable_3d_5_8_}</td>
-				<td class="numeric">${_fraVariable_3d_5_4_}, ${_fraVariable_3d_5_9_}</td>
-				<td class="numeric">${_fraVariable_3d_5_5_}, ${_fraVariable_3d_5_10_}</td>
+				<td class="numeric">${_fraVariable_3d_5_1_}</td>
+				<td class="numeric">${_fraVariable_3d_5_2_}</td>
+				<td class="numeric">${_fraVariable_3d_5_3_}</td>
+				<td class="numeric">${_fraVariable_3d_5_4_}</td>
+				<td class="numeric">${_fraVariable_3d_5_5_}</td>
+			</tr>
+		    <tr>
+			    <td colspan="7"><strong><spring:message code="ref59"></spring:message></strong></td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.5 <spring:message code="ref189"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3d_3_6_}</td>
+				<td class="numeric">${_fraVariable_3d_3_7_}</td>
+				<td class="numeric">${_fraVariable_3d_3_8_}</td>
+				<td class="numeric">${_fraVariable_3d_3_9_}</td>
+				<td class="numeric">${_fraVariable_3d_3_10_}</td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.6 <spring:message code="ref190"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3d_4_6_}</td>
+				<td class="numeric">${_fraVariable_3d_4_7_}</td>
+				<td class="numeric">${_fraVariable_3d_4_8_}</td>
+				<td class="numeric">${_fraVariable_3d_4_9_}</td>
+				<td class="numeric">${_fraVariable_3d_4_10_}</td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.7 <spring:message code="ref139"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3d_5_6_}</td>
+				<td class="numeric">${_fraVariable_3d_5_7_}</td>
+				<td class="numeric">${_fraVariable_3d_5_8_}</td>
+				<td class="numeric">${_fraVariable_3d_5_9_}</td>
+				<td class="numeric">${_fraVariable_3d_5_10_}</td>
 			</tr>
 			<tr>
-				<td rowspan="6"><a href="${qpath}#3e">3e</a></td>
+				<td rowspan="13"><a href="${qpath}#3e">3e</a></td>
+			</tr>
+			<tr>
+			    <td colspan="7"><strong><spring:message code="ref58"></spring:message></strong></td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.8 <spring:message code="ref194"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3e_3_1_}, ${_fraVariable_3e_3_6_}</td>
-				<td class="numeric">${_fraVariable_3e_3_2_}, ${_fraVariable_3e_3_7_}</td>
-				<td class="numeric">${_fraVariable_3e_3_3_}, ${_fraVariable_3e_3_8_}</td>
-				<td class="numeric">${_fraVariable_3e_3_4_}, ${_fraVariable_3e_3_9_}</td>
-				<td class="numeric">${_fraVariable_3e_3_5_}, ${_fraVariable_3e_3_10_}</td>
+				<td class="numeric">${_fraVariable_3e_3_1_}</td>
+				<td class="numeric">${_fraVariable_3e_3_2_}</td>
+				<td class="numeric">${_fraVariable_3e_3_3_}</td>
+				<td class="numeric">${_fraVariable_3e_3_4_}</td>
+				<td class="numeric">${_fraVariable_3e_3_5_}</td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.9 <spring:message code="ref195"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3e_4_1_}, ${_fraVariable_3e_4_6_}</td>
-				<td class="numeric">${_fraVariable_3e_4_2_}, ${_fraVariable_3e_4_7_}</td>
-				<td class="numeric">${_fraVariable_3e_4_3_}, ${_fraVariable_3e_4_8_}</td>
-				<td class="numeric">${_fraVariable_3e_4_4_}, ${_fraVariable_3e_4_9_}</td>
-				<td class="numeric">${_fraVariable_3e_4_5_}, ${_fraVariable_3e_4_10_}</td>
+				<td class="numeric">${_fraVariable_3e_4_1_}</td>
+				<td class="numeric">${_fraVariable_3e_4_2_}</td>
+				<td class="numeric">${_fraVariable_3e_4_3_}</td>
+				<td class="numeric">${_fraVariable_3e_4_4_}</td>
+				<td class="numeric">${_fraVariable_3e_4_5_}</td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.10 <spring:message code="ref145"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3e_6_1_}, ${_fraVariable_3e_6_6_}</td>
-				<td class="numeric">${_fraVariable_3e_6_2_}, ${_fraVariable_3e_6_7_}</td>
-				<td class="numeric">${_fraVariable_3e_6_3_}, ${_fraVariable_3e_6_8_}</td>
-				<td class="numeric">${_fraVariable_3e_6_4_}, ${_fraVariable_3e_6_9_}</td>
-				<td class="numeric">${_fraVariable_3e_6_5_}, ${_fraVariable_3e_6_10_}</td>
+				<td class="numeric">${_fraVariable_3e_6_1_}</td>
+				<td class="numeric">${_fraVariable_3e_6_2_}</td>
+				<td class="numeric">${_fraVariable_3e_6_3_}</td>
+				<td class="numeric">${_fraVariable_3e_6_4_}</td>
+				<td class="numeric">${_fraVariable_3e_6_5_}</td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.11 <spring:message code="ref147"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3e_7_1_}, ${_fraVariable_3e_7_6_}</td>
-				<td class="numeric">${_fraVariable_3e_7_2_}, ${_fraVariable_3e_7_7_}</td>
-				<td class="numeric">${_fraVariable_3e_7_3_}, ${_fraVariable_3e_7_8_}</td>
-				<td class="numeric">${_fraVariable_3e_7_4_}, ${_fraVariable_3e_7_9_}</td>
-				<td class="numeric">${_fraVariable_3e_7_5_}, ${_fraVariable_3e_7_10_}</td>
+				<td class="numeric">${_fraVariable_3e_7_1_}</td>
+				<td class="numeric">${_fraVariable_3e_7_2_}</td>
+				<td class="numeric">${_fraVariable_3e_7_3_}</td>
+				<td class="numeric">${_fraVariable_3e_7_4_}</td>
+				<td class="numeric">${_fraVariable_3e_7_5_}</td>
 			</tr>
 			<tr class="summaryRow">
 				<td>3.12 <spring:message code="ref149"></spring:message></td>
 				<td>million tonnes</td>
-				<td class="numeric">${_fraVariable_3e_9_1_}, ${_fraVariable_3e_9_6_}</td>
-				<td class="numeric">${_fraVariable_3e_9_2_}, ${_fraVariable_3e_9_7_}</td>
-				<td class="numeric">${_fraVariable_3e_9_3_}, ${_fraVariable_3e_9_8_}</td>
-				<td class="numeric">${_fraVariable_3e_9_4_}, ${_fraVariable_3e_9_9_}</td>
-				<td class="numeric">${_fraVariable_3e_9_5_}, ${_fraVariable_3e_9_10_}</td>
+				<td class="numeric">${_fraVariable_3e_9_1_}</td>
+				<td class="numeric">${_fraVariable_3e_9_2_}</td>
+				<td class="numeric">${_fraVariable_3e_9_3_}</td>
+				<td class="numeric">${_fraVariable_3e_9_4_}</td>
+				<td class="numeric">${_fraVariable_3e_9_5_}</td>
+			</tr>
+			<tr>
+			    <td colspan="7"><strong><spring:message code="ref59"></spring:message></strong></td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.8 <spring:message code="ref194"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3e_3_6_}</td>
+				<td class="numeric">${_fraVariable_3e_3_7_}</td>
+				<td class="numeric">${_fraVariable_3e_3_8_}</td>
+				<td class="numeric">${_fraVariable_3e_3_9_}</td>
+				<td class="numeric">${_fraVariable_3e_3_10_}</td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.9 <spring:message code="ref195"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3e_4_6_}</td>
+				<td class="numeric">${_fraVariable_3e_4_7_}</td>
+				<td class="numeric">${_fraVariable_3e_4_8_}</td>
+				<td class="numeric">${_fraVariable_3e_4_9_}</td>
+				<td class="numeric">${_fraVariable_3e_4_10_}</td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.10 <spring:message code="ref145"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3e_6_6_}</td>
+				<td class="numeric">${_fraVariable_3e_6_7_}</td>
+				<td class="numeric">${_fraVariable_3e_6_8_}</td>
+				<td class="numeric">${_fraVariable_3e_6_9_}</td>
+				<td class="numeric">${_fraVariable_3e_6_10_}</td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.11 <spring:message code="ref147"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3e_7_6_}</td>
+				<td class="numeric">${_fraVariable_3e_7_7_}</td>
+				<td class="numeric">${_fraVariable_3e_7_8_}</td>
+				<td class="numeric">${_fraVariable_3e_7_9_}</td>
+				<td class="numeric">${_fraVariable_3e_7_10_}</td>
+			</tr>
+			<tr class="summaryRow">
+				<td>3.12 <spring:message code="ref149"></spring:message></td>
+				<td>million tonnes</td>
+				<td class="numeric">${_fraVariable_3e_9_6_}</td>
+				<td class="numeric">${_fraVariable_3e_9_7_}</td>
+				<td class="numeric">${_fraVariable_3e_9_8_}</td>
+				<td class="numeric">${_fraVariable_3e_9_9_}</td>
+				<td class="numeric">${_fraVariable_3e_9_10_}</td>
 			</tr>
