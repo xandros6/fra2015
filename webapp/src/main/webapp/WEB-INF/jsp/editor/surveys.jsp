@@ -68,13 +68,14 @@
 			class="table table-bordered table-hover table-condensed">
 			<thead>
 				<tr>
-					<th>Survey</th>
+					<th class="center">Survey</th>
 					<!-- <th>Last update</th>  -->
-					<th>Status</th>
-					<th>Reviewer complete</th>
-					<th>Revision coverage</th>
-					<th></th>
-					<th>Submit</th>
+					<th class="center">Status</th>
+					<th class="center">Reviewer complete</th>
+					<th class="center">Revision coverage</th>
+					<th class="center">Reviewer submissions</th>
+					<th class="center"></th>
+					<th class="center">Submit</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -99,16 +100,16 @@
 					</c:if>
 					
 					<tr class="rowItem">
-						<td>
+						<td class="centercountry">
 							<spring:message code="country.${survey.country.iso3}" text=""></spring:message> (${survey.country.iso3})
 						</td>
 						
 						<!-- <td>TODO</td> -->
 
-						<td><spring:message
+						<td class="center"><spring:message
 								code="survey.status.${survey.status.status}"></spring:message></td>
 						<%-- 								<td>${user.countries}</td> --%>
-						<td>
+						<td class="center flat">
 							<c:choose>
 								<c:when test="${empty survey.status.reviewerSubmit}">
 									<div  style="text-align: center">No submission yet</div>
@@ -118,7 +119,7 @@
 								</c:otherwise>
 							</c:choose>
 						</td>
-						<td>
+						<td class="center flat">
 							<c:choose>
 								<c:when test="${empty survey.status.coverage}">
 									<div style="text-align: center"> 0 / 22 </div>
@@ -128,11 +129,18 @@
 								</c:otherwise>
 							</c:choose>
 						</td>
-						<td>
+						<td class="center flat">
+							<c:choose>
+								<c:when test="${not empty survey.reviewerSubmissions}">
+									<div style="text-align: center">${survey.reviewerSubmissions}</div>
+								</c:when>
+							</c:choose>
+						</td>
+						<td class="center">
 							<a href="../survey/review/${survey.country.iso3}/0"
 							class="btn"><spring:message code="editor.surveylist.view"></spring:message></a>
 						</td>
-						<td>
+						<td class="centercountry">
 							<a data-toggle="modal" data-country="${survey.country.iso3}" href="#pendingConfirm" class="btn ${pendingFixEnabled} pendingConfirm">
 								<spring:message code="editor.surveylist.pending"></spring:message></a> 
 							<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#completedConfirm" class="btn ${completeEnabled} completedConfirm">

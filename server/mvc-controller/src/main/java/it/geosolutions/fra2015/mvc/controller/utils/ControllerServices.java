@@ -415,4 +415,19 @@ public class ControllerServices {
 		return users;
 	}
 
+	/**
+	 * @param country
+	 * @param role
+	 * @return List<User>
+	 */
+	public List<User> getUsersForCountry(String country, String role){
+		
+		List<User> list = null;
+		if(country != null && role != null){
+			list = userService.getUsersForCountry(country, role);
+		}
+		
+		return list;
+	}
+	
 }

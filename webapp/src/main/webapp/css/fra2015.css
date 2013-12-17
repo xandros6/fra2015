@@ -176,6 +176,10 @@ td.entry-item{
 	vertical-align: middle;
 }
 
+.table td.flat{
+	width: 50px;
+}
+
 .table thead th.timestamp {
 	width: 120px;
 }
