@@ -10,10 +10,6 @@
 
 </head>
 <body>
-
-
-
-
 	<div id="wrap">
 		<div id="main">
 			<div>
@@ -87,7 +83,7 @@
 
 						</div>
 						<div class="span6">
-							<img src="img/cfrqlogin2.png" />
+							<img src="img/cfrqlogin3.jpg" />
 							<!-- TO BE USED ON fra-dev (and on fra2015 while testing) -->
 							<div class="alert alert-error" style="margin-top: 6px">
 								<strong>Warning</strong>: This is a test instance (<i>Release yyyymmdd</i>)
