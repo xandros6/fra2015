@@ -269,7 +269,13 @@ public class PrintController {
 
 				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
 
-				String xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;
+				String xslFilename;
+				if(type.equalsIgnoreCase("full")){
+					xslFilename = "/WEB-INF/xsl/countryReportFull.xsl" ;
+				}else{
+					xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;					
+				}
+				
 				String pathname =servletContext.getRealPath(xslFilename); 
 
 				Source xslt = new StreamSource(pathname);
