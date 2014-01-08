@@ -391,6 +391,36 @@ function initActivityLog(){
 	}
 }
 
+function initSummaryStatus(){
+	var el = $('#filterSummaryForm');
+	el.find('#filter_country_clear_btn').click(function(event){ el.find('#country').val(''); el.find('#filter_countries').val('');el.submit( )});
+	el.find('#summaryStatusFilterBtn').click(function(event){el.submit()});
+	el.find('#filter_countries').typeahead({
+	    source: function (query, process) {
+	    	var result  = [];	 
+	    	map = {};
+	        $.each(countriesArr, function (i, country) {
+	        	var label = country.name + " (" + country.iso3 + ")";
+	        	result.push(label);
+	        	map[label] = country;
+	        });
+	        process(result);
+	    },
+	    updater: function(item) {
+	    	if(map[item]){
+	    		el.find('#country').val(map[item].iso3);
+	    	}
+	        return item;
+	    }
+	});
+	var selectedIso3 = el.find('#country').val();
+	if(selectedIso3){
+		var filterCountriesValue = $.grep(countriesArr, function(e){ return e.iso3 == selectedIso3; })[0];
+		var label = filterCountriesValue.name + " (" + filterCountriesValue.iso3 + ")";
+		el.find('#filter_countries').val(label);
+	}
+}
+
 $(function(){
 	$('#createUserWindow').on('hidden', function() {
 		$(this).data('modal').$element.removeData();
@@ -444,4 +474,6 @@ $(function(){
 	});
 	
 	initActivityLog();
+	
+	initSummaryStatus();
 });

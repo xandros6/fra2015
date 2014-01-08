@@ -22,7 +22,6 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
-import it.geosolutions.fra2015.mvc.controller.SurveyListController.SurveyInstanceExt;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.model.Pagination;
@@ -31,6 +30,7 @@ import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
+import it.geosolutions.fra2015.services.model.SummaryStatusFilter;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
@@ -43,16 +43,21 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  * 
  */
 @Controller
+@RequestMapping("/summaryStatus")
+@SessionAttributes("summaryFilter")
 public class SummaryStatusController {
 
     @Autowired
@@ -147,6 +152,28 @@ public class SummaryStatusController {
 		}
 
 	}
+
+    /**
+     * @param summaryFilter
+     * @param model
+     * @param sessionStatus
+     * @return String
+     */
+    @RequestMapping(value = "/filter", method = RequestMethod.POST)
+	public String updateFilter(@ModelAttribute("summaryFilter") SummaryStatusFilter summaryFilter, ModelMap model , SessionStatus sessionStatus) {
+		model.addAttribute("summaryFilter", summaryFilter);
+		return "forward:/summaryStatus/0";
+	}
+	
+	/**
+	 * @param model
+	 * @param sessionStatus
+	 * @return String
+	 */
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public String reloadFilter(ModelMap model , SessionStatus sessionStatus) {
+		return "redirect:/summaryStatus/0";
+	}
 	
     /**
      * Gets latest checksum for each country. Shows:
@@ -163,9 +190,10 @@ public class SummaryStatusController {
      * @throws IllegalArgumentException
      * @throws InternalErrorServiceEx
      */
-    @RequestMapping(value = "/summaryStatus/{page}", method = RequestMethod.GET)
-    public String printWelcome(@PathVariable(value = "page") int page, Model model,
+    @RequestMapping(value = "/{page}")
+    public String getStausPage(@PathVariable(value = "page") int page, ModelMap model,
             HttpSession session, Locale locale) throws IllegalArgumentException, InternalErrorServiceEx {
+    	
     	model.addAttribute("context", "summaryStatus");
     	
     	User user = (User) session.getAttribute("sessionUser");
@@ -173,27 +201,33 @@ public class SummaryStatusController {
             return "redirect:/login";
         }
         
+        SummaryStatusFilter summaryFilter = (SummaryStatusFilter) model.get("summaryFilter");
+         
         String[] countries = null;
-        
-        if(user.getRole().equalsIgnoreCase(Profile.ADMIN.toString())){
-        	List<Country> countriesList = surveyService.getCountries();
-        	
-        	countries = new String[countriesList.size()];
-        	Iterator<Country> iterator = countriesList.iterator();
-        	
-        	int i = 0;
-        	while(iterator.hasNext()){
-        		Country ctry = (Country)iterator.next();
-        		
-        		if(ctry != null){
-        			String ctryIso3 = ctry.getIso3();
-        			countries[i] = ctryIso3;
-        		}
-        		
-        		i++;
-        	}
-        }else{
-        	countries = UserUtil.getIso3Array(user);
+        if(summaryFilter != null && summaryFilter.getCountry() != null && !summaryFilter.getCountry().isEmpty()){
+        	countries = new String[1];
+        	countries[0] = summaryFilter.getCountry();
+        }else{        	
+            if(user.getRole().equalsIgnoreCase(Profile.ADMIN.toString())){
+            	List<Country> countriesList = surveyService.getCountries();
+            	
+            	countries = new String[countriesList.size()];
+            	Iterator<Country> iterator = countriesList.iterator();
+            	
+            	int i = 0;
+            	while(iterator.hasNext()){
+            		Country ctry = (Country)iterator.next();
+            		
+            		if(ctry != null){
+            			String ctryIso3 = ctry.getIso3();
+            			countries[i] = ctryIso3;
+            		}
+            		
+            		i++;
+            	}
+            }else{
+            	countries = UserUtil.getIso3Array(user);
+            }
         }
         
         String countryName = "name_" + locale;
@@ -208,6 +242,9 @@ public class SummaryStatusController {
         }else{
     		model.addAttribute("surveys", surveys);
         }
+        
+        summaryFilter = (model.get("summaryFilter") != null ? (SummaryStatusFilter) model.get("summaryFilter") : new SummaryStatusFilter());
+		model.addAttribute("summaryFilter", summaryFilter);
 		
 		// /////////////////////////////////////
 		// Check prev and next pages presence
@@ -241,6 +278,7 @@ public class SummaryStatusController {
 		}
 		
 		model.addAttribute("pagination", pagination);
+		model.addAttribute("countries", surveyService.getCountries());
         
         if (user.getRole().equalsIgnoreCase(Profile.ADMIN.toString())) {
         	return "admin";
