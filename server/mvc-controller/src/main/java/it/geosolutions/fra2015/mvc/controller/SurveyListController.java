@@ -22,6 +22,7 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
@@ -31,21 +32,27 @@ import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.model.CountryFilter;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  * @author Lorenzo Natali
@@ -53,10 +60,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 
  */
 @Controller
+@RequestMapping("/surveylist")
+@SessionAttributes("surveyFilter")
 public class SurveyListController {
 	
 	@Autowired
 	private ControllerServices utils;
+	
+    @Autowired
+    private SurveyServiceEntryPoint surveyService;
 	
 	private int pagesize = 15;
 	
@@ -143,7 +155,29 @@ public class SurveyListController {
 
 	}
 	
-	 @RequestMapping(value = "/surveylist/{page}", method = RequestMethod.GET)
+    /**
+     * @param summaryFilter
+     * @param model
+     * @param sessionStatus
+     * @return String
+     */
+    @RequestMapping(value = "/filter", method = RequestMethod.POST)
+	public String updateFilter(@ModelAttribute("surveyFilter") CountryFilter surveyFilter, ModelMap model , SessionStatus sessionStatus) {
+		model.addAttribute("surveylist", surveyFilter);
+		return "forward:/surveylist/0";
+	}
+	
+	/**
+	 * @param model
+	 * @param sessionStatus
+	 * @return String
+	 */
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public String reloadFilter(ModelMap model , SessionStatus sessionStatus) {
+		return "redirect:/surveylist/0";
+	}
+	
+	@RequestMapping(value = "/{page}")
 	public String printWelcome(@PathVariable(value = "page") int page, Model model, HttpSession session, Locale locale) {
 		model.addAttribute("context", "surveylist");
 
@@ -152,19 +186,31 @@ public class SurveyListController {
 		if (user==null){
 		    return "/";
 		}
+		
+		Map<String, Object> modelMap = model.asMap();	
+		
+		// Reviewers and RevEd have not Filter 
+		CountryFilter surveyFilter = (CountryFilter) modelMap.get("surveyFilter");
+		
+        String[] countries = null;
+        if(surveyFilter != null && surveyFilter.getCountry() != null && !surveyFilter.getCountry().isEmpty()){
+        	countries = new String[1];
+        	countries[0] = surveyFilter.getCountry();
+        }else{        	
+            countries = UserUtil.getIso3Array(user);
+        }
+        
 		if(user.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
 		    targetPage = "editor";
-		}
-		else if(user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+		} else if(user.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
 		    targetPage = "reviewer";
-                }
-		else{
+        } else{
 		    targetPage= "redirect:/";
 		}
 		
 		FlashAttributesHandler.copyToModel(session, model);
 		
-		String[] countries = UserUtil.getIso3Array(user);
+		//String[] countries = UserUtil.getIso3Array(user);
 		
         String countryName = "name_" + locale;
         List<SurveyInstance> surveys = utils.retriveSurveyListByCountries(countries, page, pagesize, countryName);
@@ -175,6 +221,12 @@ public class SurveyListController {
         	// /////////////////////////////////////////////////
         	List<SurveyInstanceExt> surveyExtList = surveyInstanceToSurveyInstanceExt(surveys);
         	model.addAttribute("surveys", surveyExtList);
+        	
+            surveyFilter = (modelMap.get("surveyFilter") != null ? (CountryFilter) modelMap.get("surveyFilter") : new CountryFilter());
+    		model.addAttribute("surveyFilter", surveyFilter);
+    		
+//    		model.addAttribute("countries", user.getCountriesSet());  //Return only the user countries
+    		model.addAttribute("countries", surveyService.getCountries());
         }else{
     		model.addAttribute("surveys", surveys);
         }
@@ -210,7 +262,19 @@ public class SurveyListController {
 			pagination.setPrev2(page-2);
 		}
 		
-		model.addAttribute("pagination", pagination);		
+		if(surveyFilter != null){
+			String country = surveyFilter.getCountry();
+			if(user.getRole().equalsIgnoreCase(Profile.EDITOR.toString()) && (country != null && !country.isEmpty())){
+				model.addAttribute("paginationEnable", false);
+			}else{
+				model.addAttribute("paginationEnable", true);
+				model.addAttribute("pagination", pagination);
+			}
+		}else{
+			model.addAttribute("paginationEnable", true);
+			model.addAttribute("pagination", pagination);
+		}
+
 		model.addAttribute("allowedsubmitstatus",StatusUtils.UNDER_REVIEW);
 		model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
 		model.addAttribute("username", user.getName());

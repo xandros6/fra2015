@@ -30,7 +30,7 @@ import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
-import it.geosolutions.fra2015.services.model.SummaryStatusFilter;
+import it.geosolutions.fra2015.services.model.CountryFilter;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
 import java.util.ArrayList;
@@ -160,7 +160,7 @@ public class SummaryStatusController {
      * @return String
      */
     @RequestMapping(value = "/filter", method = RequestMethod.POST)
-	public String updateFilter(@ModelAttribute("summaryFilter") SummaryStatusFilter summaryFilter, ModelMap model , SessionStatus sessionStatus) {
+	public String updateFilter(@ModelAttribute("summaryFilter") CountryFilter summaryFilter, ModelMap model , SessionStatus sessionStatus) {
 		model.addAttribute("summaryFilter", summaryFilter);
 		return "forward:/summaryStatus/0";
 	}
@@ -201,7 +201,7 @@ public class SummaryStatusController {
             return "redirect:/login";
         }
         
-        SummaryStatusFilter summaryFilter = (SummaryStatusFilter) model.get("summaryFilter");
+        CountryFilter summaryFilter = (CountryFilter) model.get("summaryFilter");
          
         String[] countries = null;
         if(summaryFilter != null && summaryFilter.getCountry() != null && !summaryFilter.getCountry().isEmpty()){
@@ -243,7 +243,7 @@ public class SummaryStatusController {
     		model.addAttribute("surveys", surveys);
         }
         
-        summaryFilter = (model.get("summaryFilter") != null ? (SummaryStatusFilter) model.get("summaryFilter") : new SummaryStatusFilter());
+        summaryFilter = (model.get("summaryFilter") != null ? (CountryFilter) model.get("summaryFilter") : new CountryFilter());
 		model.addAttribute("summaryFilter", summaryFilter);
 		
 		// /////////////////////////////////////
@@ -277,7 +277,14 @@ public class SummaryStatusController {
 			pagination.setPrev2(page-2);
 		}
 		
-		model.addAttribute("pagination", pagination);
+		String country = summaryFilter.getCountry();
+		if(country != null && !country.isEmpty()){
+			model.addAttribute("paginationEnable", false);
+		}else{
+			model.addAttribute("paginationEnable", true);
+			model.addAttribute("pagination", pagination);
+		}
+		
 		model.addAttribute("countries", surveyService.getCountries());
         
         if (user.getRole().equalsIgnoreCase(Profile.ADMIN.toString())) {

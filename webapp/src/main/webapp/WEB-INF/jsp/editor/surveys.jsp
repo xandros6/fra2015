@@ -1,158 +1,187 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ include file="../common/includes/javascript.jsp"%>
 <div>
 	<div class="container">
-		<div class="pagination pagination-centered">
-          <ul>
-            <c:if test="${not empty pagination.firstPage}">
-            <li><a href="${pagination.firstPage}"><spring:message code="first"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.firstPage}">
-              <li class="disabled"><a href="#"><spring:message code="first"></spring:message></a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pagination.prev1}"><spring:message code="prev"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.prev1}">
-              <li class="disabled"><a href="#"><spring:message code="prev"></spring:message></a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.prev2}">
-            <li><a href="${pagination.prev2}">${pagination.prev2+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.prev2}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pagination.prev1}">${pagination.prev1+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.prev1}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
-            
-            <c:if test="${not empty pagination.next1}">
-              <li><a href="${pagination.next1}">${pagination.next1+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.next1}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.next2}">
-              <li><a href="${pagination.next2}">${pagination.next2+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.next2}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.next1}">
-              <li><a href="${pagination.next1}"><spring:message code="next"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.next1}">
-              <li class="disabled"><a href="#"><spring:message code="next"></spring:message></a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.lastPage}">
-              <li><a href="${pagination.lastPage}"><spring:message code="last"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.lastPage}">
-              <li class="disabled"><a href="#"><spring:message code="last"></spring:message></a></li>
-            </c:if>            
-
-          </ul>
-        </div>
+		<c:if test="${paginationEnable}">
+			<div class="pagination pagination-centered">
+	          <ul>
+	            <c:if test="${not empty pagination.firstPage}">
+	            <li><a href="${pagination.firstPage}"><spring:message code="first"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.firstPage}">
+	              <li class="disabled"><a href="#"><spring:message code="first"></spring:message></a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.prev1}">
+	            <li><a href="${pagination.prev1}"><spring:message code="prev"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.prev1}">
+	              <li class="disabled"><a href="#"><spring:message code="prev"></spring:message></a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.prev2}">
+	            <li><a href="${pagination.prev2}">${pagination.prev2+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.prev2}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.prev1}">
+	            <li><a href="${pagination.prev1}">${pagination.prev1+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.prev1}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
+	            
+	            <c:if test="${not empty pagination.next1}">
+	              <li><a href="${pagination.next1}">${pagination.next1+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.next1}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.next2}">
+	              <li><a href="${pagination.next2}">${pagination.next2+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.next2}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.next1}">
+	              <li><a href="${pagination.next1}"><spring:message code="next"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.next1}">
+	              <li class="disabled"><a href="#"><spring:message code="next"></spring:message></a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.lastPage}">
+	              <li><a href="${pagination.lastPage}"><spring:message code="last"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.lastPage}">
+	              <li class="disabled"><a href="#"><spring:message code="last"></spring:message></a></li>
+	            </c:if>            
+	          </ul>
+	        </div>
+		</c:if>
         
-		<table id="surveyListTable"
-			class="table table-bordered table-hover table-condensed">
-			<thead>
-				<tr>
-					<th class="center">Survey</th>
-					<!-- <th>Last update</th>  -->
-					<th class="center">Status</th>
-					<th class="center">Reviewer complete</th>
-					<th class="center">Revision coverage</th>
-					<th class="center">Reviewer submissions</th>
-					<th class="center"></th>
-					<th class="center">Submit</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
-					<c:set scope="page" var="countryIso3" value="${survey.country.iso3}" />
-					
-					<c:set scope="page" var="pendingFixEnabled" value="" />
-					<c:set scope="page" var="completeEnabled" value="" />
-					<c:set scope="page" var="notifyEnabled" value="" />
-					
-					<c:if test="${survey.status.status != 'underreview'}">
-						<c:set scope="page" var="pendingFixEnabled" value="disabled" />
-					</c:if>
-					<c:if test="${survey.status.status != 'underreview'}">
-						<c:set scope="page" var="completeEnabled" value="disabled" />
-					</c:if>
-					<c:if test="${survey.status.status != 'underreview'}">
-						<c:set scope="page" var="notifyEnabled" value="disabled" />
-					</c:if>					
-					<c:if test="${survey.status.status == 'compiled'}">
-						<c:set scope="page" var="notifyEnabled" value="enabled" />
-					</c:if>
-					
-					<tr class="rowItem">
-						<td class="centercountry">
-							<spring:message code="country.${survey.country.iso3}" text=""></spring:message> (${survey.country.iso3})
-						</td>
-						
-						<!-- <td>TODO</td> -->
-
-						<td class="center"><spring:message
-								code="survey.status.${survey.status.status}"></spring:message></td>
-						<%-- 								<td>${user.countries}</td> --%>
-						<td class="center flat">
-							<c:choose>
-								<c:when test="${empty survey.status.reviewerSubmit}">
-									<div  style="text-align: center">No submission yet</div>
-								</c:when>
-								<c:otherwise>
-									<div  style="text-align: center">${fn:replace(survey.status.reviewerSubmit, ";", " ")}</div>
-								</c:otherwise>
-							</c:choose>
-						</td>
-						<td class="center flat">
-							<c:choose>
-								<c:when test="${empty survey.status.coverage}">
-									<div style="text-align: center"> 0 / 22 </div>
-								</c:when>
-								<c:otherwise>
-									<div style="text-align: center">${survey.status.coverage}</div>
-								</c:otherwise>
-							</c:choose>
-						</td>
-						<td class="center flat">
-							<c:choose>
-								<c:when test="${not empty survey.reviewerSubmissions and survey.status.status == 'underreview'}">
-									<div style="text-align: center">${survey.reviewerSubmissions}</div>
-								</c:when>
-							</c:choose>
-						</td>
-						<td class="center">
-							<a href="../survey/review/${survey.country.iso3}/0"
-							class="btn"><spring:message code="editor.surveylist.view"></spring:message></a>
-						</td>
-						<td class="centercountry">
-							<a data-toggle="modal" data-country="${survey.country.iso3}" href="#pendingConfirm" class="btn ${pendingFixEnabled} pendingConfirm">
-								<spring:message code="editor.surveylist.pending"></spring:message></a> 
-							<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#completedConfirm" class="btn ${completeEnabled} completedConfirm">
-								<spring:message code="editor.surveylist.completed"></spring:message></a>
-							<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#sendNotification" class="btn ${notifyEnabled} sendNotification">
-								<spring:message	code="editor.surveylist.notify"></spring:message></a>
-						</td>
+        <form:form id="filterSurveyForm" commandName="surveyFilter"  method="post" action="filter">
+			<table id="surveyListTable"
+				class="table table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<th class="center">Survey</th>
+						<!-- <th>Last update</th>  -->
+						<th class="center">Status</th>
+						<th class="center">Reviewer complete</th>
+						<th class="center">Revision coverage</th>
+						<th class="center">Reviewer submissions</th>
+						<th class="center"></th>
+						<th class="center">Submit</th>
 					</tr>
-				</c:forEach>
-
-			</tbody>
-		</table>
+					<tr>
+	              		<th>
+		              		<div class="input-append"  align="center">
+				                <input id="filter_countries" type="text" class="span2 input-small ui-autocomplete-input" autocomplete="off"/>     
+				                <form:input path="country" name="country" type="hidden" id="country"/>           
+				                <span class="add-on">
+				                  <i id="filter_country_clear_btn" class="icon-remove-sign"> </i>
+				                </span>
+			                </div>
+	              		</th>
+	              		<th colspan="7">
+	              		</th>
+	              	</tr>
+				</thead>
+				<thead>
+		            <tr>
+		              <th colspan="8" style="text-align: right;">
+		                <button class="btn" type="button" id="surveyFilterBtn">
+		                	<i class="icon-filter"></i>
+		                	<spring:message code="filter"></spring:message>
+		                </button>
+		              </th>
+		            </tr>
+		        </thead>
+				<tbody>
+					<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
+						<c:set scope="page" var="countryIso3" value="${survey.country.iso3}" />
+						
+						<c:set scope="page" var="pendingFixEnabled" value="" />
+						<c:set scope="page" var="completeEnabled" value="" />
+						<c:set scope="page" var="notifyEnabled" value="" />
+						
+						<c:if test="${survey.status.status != 'underreview'}">
+							<c:set scope="page" var="pendingFixEnabled" value="disabled" />
+						</c:if>
+						<c:if test="${survey.status.status != 'underreview'}">
+							<c:set scope="page" var="completeEnabled" value="disabled" />
+						</c:if>
+						<c:if test="${survey.status.status != 'underreview'}">
+							<c:set scope="page" var="notifyEnabled" value="disabled" />
+						</c:if>					
+						<c:if test="${survey.status.status == 'compiled'}">
+							<c:set scope="page" var="notifyEnabled" value="enabled" />
+						</c:if>
+						
+						<tr class="rowItem">
+							<td class="centercountry">
+								<spring:message code="country.${survey.country.iso3}" text=""></spring:message> (${survey.country.iso3})
+							</td>
+							
+							<!-- <td>TODO</td> -->
+	
+							<td class="center"><spring:message
+									code="survey.status.${survey.status.status}"></spring:message></td>
+							<%-- 								<td>${user.countries}</td> --%>
+							<td class="center flat">
+								<c:choose>
+									<c:when test="${empty survey.status.reviewerSubmit}">
+										<div  style="text-align: center">No submission yet</div>
+									</c:when>
+									<c:otherwise>
+										<div  style="text-align: center">${fn:replace(survey.status.reviewerSubmit, ";", " ")}</div>
+									</c:otherwise>
+								</c:choose>
+							</td>
+							<td class="center flat">
+								<c:choose>
+									<c:when test="${empty survey.status.coverage}">
+										<div style="text-align: center"> 0 / 22 </div>
+									</c:when>
+									<c:otherwise>
+										<div style="text-align: center">${survey.status.coverage}</div>
+									</c:otherwise>
+								</c:choose>
+							</td>
+							<td class="center flat">
+								<c:choose>
+									<c:when test="${not empty survey.reviewerSubmissions and survey.status.status == 'underreview'}">
+										<div style="text-align: center">${survey.reviewerSubmissions}</div>
+									</c:when>
+								</c:choose>
+							</td>
+							<td class="center">
+								<a href="../survey/review/${survey.country.iso3}/0"
+								class="btn"><spring:message code="editor.surveylist.view"></spring:message></a>
+							</td>
+							<td class="centercountry">
+								<a data-toggle="modal" data-country="${survey.country.iso3}" href="#pendingConfirm" class="btn ${pendingFixEnabled} pendingConfirm">
+									<spring:message code="editor.surveylist.pending"></spring:message></a> 
+								<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#completedConfirm" class="btn ${completeEnabled} completedConfirm">
+									<spring:message code="editor.surveylist.completed"></spring:message></a>
+								<a data-toggle="modal"  data-country="${survey.country.iso3}" href="#sendNotification" class="btn ${notifyEnabled} sendNotification">
+									<spring:message	code="editor.surveylist.notify"></spring:message></a>
+							</td>
+						</tr>
+					</c:forEach>
+	
+				</tbody>
+			</table>
+		</form:form>
+		
 		<!-- ul class="pager pull-right">
 			<c:if test="${prev}">
 				<li class="${prev?'':'disabled'}"><a href="${prev?page-1:'#'}"><spring:message
@@ -163,68 +192,71 @@
 							code="next"></spring:message></a></li>
 			</c:if>
 		</ul -->
-		<div class="pagination pagination-centered">
-          <ul>
-            <c:if test="${not empty pagination.firstPage}">
-            <li><a href="${pagination.firstPage}"><spring:message code="first"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.firstPage}">
-              <li class="disabled"><a href="#"><spring:message code="first"></spring:message></a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pagination.prev1}"><spring:message code="prev"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.prev1}">
-              <li class="disabled"><a href="#"><spring:message code="prev"></spring:message></a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.prev2}">
-            <li><a href="${pagination.prev2}">${pagination.prev2+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.prev2}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.prev1}">
-            <li><a href="${pagination.prev1}">${pagination.prev1+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.prev1}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
-            
-            <c:if test="${not empty pagination.next1}">
-              <li><a href="${pagination.next1}">${pagination.next1+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.next1}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.next2}">
-              <li><a href="${pagination.next2}">${pagination.next2+1}</a></li>
-            </c:if>
-            <c:if test="${empty pagination.next2}">
-              <li class="disabled"><a href="#"> - </a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.next1}">
-              <li><a href="${pagination.next1}"><spring:message code="next"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.next1}">
-              <li class="disabled"><a href="#"><spring:message code="next"></spring:message></a></li>
-            </c:if>
-            
-            <c:if test="${not empty pagination.lastPage}">
-              <li><a href="${pagination.lastPage}"><spring:message code="last"></spring:message></a></li>
-            </c:if>
-            <c:if test="${empty pagination.lastPage}">
-              <li class="disabled"><a href="#"><spring:message code="last"></spring:message></a></li>
-            </c:if>            
+		
+		<c:if test="${paginationEnable}">
+			<div class="pagination pagination-centered">
+	          <ul>
+	            <c:if test="${not empty pagination.firstPage}">
+	            <li><a href="${pagination.firstPage}"><spring:message code="first"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.firstPage}">
+	              <li class="disabled"><a href="#"><spring:message code="first"></spring:message></a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.prev1}">
+	            <li><a href="${pagination.prev1}"><spring:message code="prev"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.prev1}">
+	              <li class="disabled"><a href="#"><spring:message code="prev"></spring:message></a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.prev2}">
+	            <li><a href="${pagination.prev2}">${pagination.prev2+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.prev2}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.prev1}">
+	            <li><a href="${pagination.prev1}">${pagination.prev1+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.prev1}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <li class="disabled"><a href="#" style="background-color: #0088CC;color:white;">${pagination.currentPage+1}</a></li>
+	            
+	            <c:if test="${not empty pagination.next1}">
+	              <li><a href="${pagination.next1}">${pagination.next1+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.next1}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.next2}">
+	              <li><a href="${pagination.next2}">${pagination.next2+1}</a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.next2}">
+	              <li class="disabled"><a href="#"> - </a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.next1}">
+	              <li><a href="${pagination.next1}"><spring:message code="next"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.next1}">
+	              <li class="disabled"><a href="#"><spring:message code="next"></spring:message></a></li>
+	            </c:if>
+	            
+	            <c:if test="${not empty pagination.lastPage}">
+	              <li><a href="${pagination.lastPage}"><spring:message code="last"></spring:message></a></li>
+	            </c:if>
+	            <c:if test="${empty pagination.lastPage}">
+	              <li class="disabled"><a href="#"><spring:message code="last"></spring:message></a></li>
+	            </c:if>          
+	          </ul>
+	        </div>
+		</c:if>
 
-          </ul>
-        </div>
 	</div>
 
 	<div id="pendingConfirm" class="modal hide fade span8">

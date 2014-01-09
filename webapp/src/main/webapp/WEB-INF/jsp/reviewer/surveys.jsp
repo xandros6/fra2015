@@ -71,8 +71,7 @@
 					<th>Survey</th>
 					<!-- <th>Last update</th>  -->
 					<th>Status</th>
-					<th></th>
-					
+					<th></th>					
 				</tr>
 			</thead>
 			<tbody>

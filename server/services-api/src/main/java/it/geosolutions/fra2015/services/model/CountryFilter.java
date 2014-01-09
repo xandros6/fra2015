@@ -23,7 +23,7 @@ package it.geosolutions.fra2015.services.model;
 /**
  * @author Tobia Di Pisa at tobia.dipisa@geo-solutions.it
  */
-public class SummaryStatusFilter {
+public class CountryFilter {
 
     private String country;
 
