@@ -130,6 +130,7 @@ td.entry-item{
 
 .uedisclaimer{
 	margin: 0px 0px 0px 250px;
+	font-style: italic;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
