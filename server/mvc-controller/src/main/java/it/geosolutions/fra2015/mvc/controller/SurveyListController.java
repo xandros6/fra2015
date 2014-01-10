@@ -225,8 +225,8 @@ public class SurveyListController {
             surveyFilter = (modelMap.get("surveyFilter") != null ? (CountryFilter) modelMap.get("surveyFilter") : new CountryFilter());
     		model.addAttribute("surveyFilter", surveyFilter);
     		
-//    		model.addAttribute("countries", user.getCountriesSet());  //Return only the user countries
-    		model.addAttribute("countries", surveyService.getCountries());
+    		model.addAttribute("countries", user.getCountriesSet());  //Return only the user countries
+//    		model.addAttribute("countries", surveyService.getCountries());
         }else{
     		model.addAttribute("surveys", surveys);
         }
