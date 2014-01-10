@@ -85,7 +85,10 @@
 	              		<th>
 		              		<div class="input-append"  align="center">
 				                <input id="filter_countries" type="text" class="span2 input-small ui-autocomplete-input" autocomplete="off"/>     
-				                <form:input path="country" name="country" type="hidden" id="country"/>           
+				                <form:input path="country" name="country" type="hidden" id="country"/>   
+				                <span class="add-on">
+				                  <i id="surveyFilterBtn" class="icon-filter"> </i>
+				                </span>          
 				                <span class="add-on">
 				                  <i id="filter_country_clear_btn" class="icon-remove-sign"> </i>
 				                </span>
@@ -95,16 +98,16 @@
 	              		</th>
 	              	</tr>
 				</thead>
-				<thead>
-		            <tr>
-		              <th colspan="8" style="text-align: right;">
-		                <button class="btn" type="button" id="surveyFilterBtn">
-		                	<i class="icon-filter"></i>
-		                	<spring:message code="filter"></spring:message>
-		                </button>
-		              </th>
-		            </tr>
-		        </thead>
+<!-- 				<thead> -->
+<!-- 		            <tr> -->
+<!-- 		              <th colspan="8" style="text-align: right;"> -->
+<!-- 		                <button class="btn" type="button" id="surveyFilterBtn"> -->
+<!-- 		                	<i class="icon-filter"></i> -->
+<%-- 		                	<spring:message code="filter"></spring:message> --%>
+<!-- 		                </button> -->
+<!-- 		              </th> -->
+<!-- 		            </tr> -->
+<!-- 		        </thead> -->
 				<tbody>
 					<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>
 						<c:set scope="page" var="countryIso3" value="${survey.country.iso3}" />
