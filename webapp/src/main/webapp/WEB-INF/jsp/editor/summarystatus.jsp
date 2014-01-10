@@ -74,6 +74,9 @@
         </c:if>
         
         <form:form id="filterSummaryForm" commandName="summaryFilter"  method="post" action="filter">
+            <form:input path="propertyToSort" name="propertyToSort" type="hidden" id="propertyToSort"/> 
+        	<form:input path="sortType" name="sortType" type="hidden" id="sortType"/> 
+        	
 			<table id="summaryStatusListTable"
 				class="table table-bordered table-condensed">
 				<thead>
@@ -89,44 +92,98 @@
 						<th class="center"><spring:message code="summaryStatus.revsubmission" text=""></spring:message></th>
 						<th class="center"><spring:message code="summaryStatus.status" text=""></spring:message></th>
 					</tr>
-				<tr>
-              		<th colspan="2">
-	              		<div class="input-append"  align="center">
-			                <input id="filter_countries" type="text" class="span2 input-small ui-autocomplete-input" autocomplete="off"/>     
-			                <form:input path="country" name="country" type="hidden" id="country"/>           
-			                <span class="add-on">
-			                  <i id="filter_country_clear_btn" class="icon-remove-sign"> </i>
-			                </span>
-		                </div>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              		<th>
-              		</th>
-              	</tr>
+					<tr>
+		              	<th colspan="2">
+		              		<div class="input-append" align="center">
+				                <input id="filter_countries" type="text" class="span2 input-small ui-autocomplete-input" autocomplete="off"/>     
+				                <form:input path="country" name="country" type="hidden" id="country"/> 
+	<!-- 			                <button class="btn" type="button" id="summaryStatusFilterBtn"> -->
+	<!-- 			                	<i class="icon-filter"></i> -->
+	<!-- 			                </button>    -->
+				                <span class="add-on">
+				                  <i id="summaryStatusFilterBtn" class="icon-filter"> </i>
+				                </span>       
+				                <span class="add-on">
+				                  <i id="filter_country_clear_btn" class="icon-remove-sign"> </i>
+				                </span>
+			                </div>
+	              		</th>
+						<th>
+		              		<div class="input-append" align="center">
+				                <button class="${(summaryFilter.propertyToSort == 'lContSave' && summaryFilter.sortType == 'asc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block; margin: 0px 0px 0px;" type="button" id="lContSaveAscBtn">
+				                	<i class="icon-asc"></i>
+				                </button>
+				                <button class="${(summaryFilter.propertyToSort == 'lContSave' && summaryFilter.sortType == 'desc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block;" type="button" id="lContSaveDescBtn">
+				                	<i class="icon-desc"></i>
+				                </button>
+			                </div>
+	              		</th>
+	              		<th>
+	              			<div class="input-append" align="center">
+				                <button class="${(summaryFilter.propertyToSort == 'lContSubmit' && summaryFilter.sortType == 'asc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block; margin: 0px 0px 0px;" type="button" id="lContSubmitAscBtn">
+				                	<i class="icon-asc"></i>
+				                </button>
+				                <button class="${(summaryFilter.propertyToSort == 'lContSubmit' && summaryFilter.sortType == 'desc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block;" type="button" id="lContSubmitDescBtn">
+				                	<i class="icon-desc"></i>
+				                </button>
+			                </div>
+	              		</th>
+	              		<th>
+	              			<div class="input-append" align="center">
+				                <button class="${(summaryFilter.propertyToSort == 'lRevSubmit' && summaryFilter.sortType == 'asc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block; margin: 0px 0px 0px;" type="button" id="lRevSubmitAscBtn">
+				                	<i class="icon-asc"></i>
+				                </button>
+				                <button class="${(summaryFilter.propertyToSort == 'lRevSubmit' && summaryFilter.sortType == 'desc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block;" type="button" id="lRevSubmitDescBtn">
+				                	<i class="icon-desc"></i>
+				                </button>
+			                </div>
+	              		</th>
+	              		<th>
+	              			<div class="input-append" align="center">
+				                <button class="${(summaryFilter.propertyToSort == 'lPendSubmit' && summaryFilter.sortType == 'asc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block; margin: 0px 0px 0px;" type="button" id="lPendSubmitAscBtn">
+				                	<i class="icon-asc"></i>
+				                </button>
+				                <button class="${(summaryFilter.propertyToSort == 'lPendSubmit' && summaryFilter.sortType == 'desc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block;" type="button" id="lPendSubmitDescBtn">
+				                	<i class="icon-desc"></i>
+				                </button>
+			                </div>
+	              		</th>
+	              		<th>
+	              			<div class="input-append" align="center">
+				                <button class="${(summaryFilter.propertyToSort == 'lAcceptReq' && summaryFilter.sortType == 'asc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block; margin: 0px 0px 0px;" type="button" id="lAcceptReqAscBtn">
+				                	<i class="icon-asc"></i>
+				                </button>
+				                <button class="${(summaryFilter.propertyToSort == 'lAcceptReq' && summaryFilter.sortType == 'desc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block;" type="button" id="lAcceptReqDescBtn">
+				                	<i class="icon-desc"></i>
+				                </button>
+			                </div>
+	              		</th>
+	              		<th>
+	              			<div class="input-append" align="center">
+				                <button class="${(summaryFilter.propertyToSort == 'lAccept' && summaryFilter.sortType == 'asc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block; margin: 0px 0px 0px;" type="button" id="lAcceptAscBtn">
+				                	<i class="icon-asc"></i>
+				                </button>
+				                <button class="${(summaryFilter.propertyToSort == 'lAccept' && summaryFilter.sortType == 'desc') ? 'sortBtnPressed' : 'sortBtn'}" style="display:inline-block;" type="button" id="lAcceptDescBtn">
+				                	<i class="icon-desc"></i>
+				                </button>
+			                </div>
+	              		</th>
+	              		<th>
+	              		</th>
+	             		<th>
+	              		</th>
+              		</tr>
 				</thead>
-				<thead>
-		            <tr>
-		              <th colspan="11" style="text-align: right;">
-		                <button class="btn" type="button" id="summaryStatusFilterBtn">
-		                	<i class="icon-filter"></i>
-		                	<spring:message code="filter"></spring:message>
-		                </button>
-		              </th>
-		            </tr>
-		        </thead>
+<!-- 				<thead> -->
+<!-- 		            <tr> -->
+<!-- 		              <th colspan="11" style="text-align: right;"> -->
+<!-- 		                <button class="btn" type="button" id="summaryStatusFilterBtn"> -->
+<!-- 		                	<i class="icon-filter"></i> -->
+<%-- 		                	<spring:message code="filter"></spring:message> --%>
+<!-- 		                </button> -->
+<!-- 		              </th> -->
+<!-- 		            </tr> -->
+<!-- 		        </thead> -->
 				<tbody>
 					<c:forEach items='${surveys}' var='survey' varStatus='rowItem'>		
 					

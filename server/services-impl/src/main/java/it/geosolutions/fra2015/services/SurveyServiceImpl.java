@@ -253,6 +253,9 @@ public class SurveyServiceImpl implements SurveyService {
 		});
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#updateValues(java.lang.String, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String)
+	 */
 	@Override
 	public Entry updateValues(String iso3, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
@@ -312,6 +315,9 @@ public class SurveyServiceImpl implements SurveyService {
 	 * UNTESTED
 	 */
 	// TODO untested!
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#removeValues(java.lang.String, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String)
+	 */
 	@Override
 	public boolean removeValues(String iso3, String entryId, Integer row, Integer col, String value) throws BadRequestServiceEx, NotFoundServiceEx {
 
@@ -351,12 +357,18 @@ public class SurveyServiceImpl implements SurveyService {
         return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#getQuestionCountryValues(java.lang.String, java.lang.Integer)
+	 */
 	@Override
 	public List<CompactValue> getQuestionCountryValues(String iso3, Integer questionId) throws BadRequestServiceEx, InternalErrorServiceEx {
 
 		return getCompactValues(iso3, questionId);
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#upsert(it.geosolutions.fra2015.server.model.survey.Entry)
+	 */
 	@Override
 	public void upsert(Entry entry) throws BadRequestServiceEx, NotFoundServiceEx {
 		List<EntryItem> items = entry.getEntryItems();
@@ -369,6 +381,9 @@ public class SurveyServiceImpl implements SurveyService {
 		entryDAO.persist(entry);
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#upsert(it.geosolutions.fra2015.server.model.survey.Question)
+	 */
 	@Override
 	public void upsert(Question question) throws BadRequestServiceEx, NotFoundServiceEx {
 		for(Entry entry : question.getEntries()){
@@ -382,6 +397,9 @@ public class SurveyServiceImpl implements SurveyService {
 		questionDAO.persist(question);
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#changeStatus(it.geosolutions.fra2015.server.model.survey.Status)
+	 */
 	@Override
 	public String changeStatus(Status status) throws BadRequestServiceEx, NotFoundServiceEx {
 		SurveyInstance survey = surveyDAO.findByCountry( status.getCountry() );
@@ -404,6 +422,9 @@ public class SurveyServiceImpl implements SurveyService {
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#getStatus(java.lang.String)
+	 */
 	@Override
     public Status getStatus(String iso3) {
         SurveyInstance survey = surveyDAO.findByCountry(iso3);
@@ -414,9 +435,20 @@ public class SurveyServiceImpl implements SurveyService {
         return null;
     }
 	
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#getSurveysByCountry(java.lang.String[], int, int, java.lang.String)
+	 */
 	@Override
 	public List<SurveyInstance> getSurveysByCountry(String[] countries,int page,int entries, String orderBy){
 		return surveyDAO.findByCountries(countries, page, entries, orderBy);
+	}
+	
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.services.SurveyService#getSurveysByCountryTimestamp(java.lang.String[], int, int, java.lang.String)
+	 */
+	@Override
+	public List<SurveyInstance> getSurveysByCountrySortTimestamp(String[] countries,int page,int entries, String orderBy, String sortType){
+		return surveyDAO.getSurveysByCountrySortTimestamp(countries, page, entries, orderBy, sortType);
 	}
 	
 	/**
@@ -682,6 +714,5 @@ public class SurveyServiceImpl implements SurveyService {
         }
 
     }
-
 
 }

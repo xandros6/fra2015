@@ -26,9 +26,41 @@ package it.geosolutions.fra2015.services.model;
 public class CountryFilter {
 
     private String country;
+    
+    private String propertyToSort;
+    
+    private String sortType;
 
 
-    public String getCountry() {
+    /**
+	 * @return the sortType
+	 */
+	public String getSortType() {
+		return sortType;
+	}
+
+	/**
+	 * @param sortType the sortType to set
+	 */
+	public void setSortType(String sortType) {
+		this.sortType = sortType;
+	}
+
+	/**
+	 * @return the propertyToSort
+	 */
+	public String getPropertyToSort() {
+		return propertyToSort;
+	}
+
+	/**
+	 * @param propertyToSort the propertyToSort to set
+	 */
+	public void setPropertyToSort(String propertyToSort) {
+		this.propertyToSort = propertyToSort;
+	}
+
+	public String getCountry() {
         return country;
     }
 

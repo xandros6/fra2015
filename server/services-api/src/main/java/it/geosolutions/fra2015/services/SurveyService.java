@@ -153,4 +153,16 @@ public interface SurveyService {
      */
     public List<Value> getEntryItemsListByFieldValues(String field, List<String> fieldValues,
             List<String> rowNamesValue, String iso3, boolean emptyValues) throws BadRequestServiceEx;
+
+	/**
+	 * @param countries
+	 * @param page
+	 * @param pagesize
+	 * @param timestampPropertyToShort
+	 * @param sortType 
+	 * @return List<SurveyInstance>
+	 */
+	public List<SurveyInstance> getSurveysByCountrySortTimestamp(
+			String[] countries, int page, int pagesize,
+			String timestampPropertyToShort, String sortType);
 }

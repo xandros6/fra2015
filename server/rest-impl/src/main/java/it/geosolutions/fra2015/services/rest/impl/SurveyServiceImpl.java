@@ -233,4 +233,14 @@ public class SurveyServiceImpl implements SurveyServiceEntryPoint {
 		 return surveyService.getCountries();
 	}
 
+	/* (non-Javadoc)
+	 * @see it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint#getSurveysByCountryTimestamp(java.lang.String[], int, int, java.lang.String)
+	 */
+	@Override
+	public List<SurveyInstance> getSurveysByCountrySortTimestamp(
+			String[] countries, int page, int pagesize,
+			String timestampPropertyToShort, String sortType) {
+		return surveyService.getSurveysByCountrySortTimestamp(countries,page, pagesize, timestampPropertyToShort, sortType);
+	}
+
 }

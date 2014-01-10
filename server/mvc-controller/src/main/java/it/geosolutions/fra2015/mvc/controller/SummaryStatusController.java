@@ -230,8 +230,7 @@ public class SummaryStatusController {
             }
         }
         
-        String countryName = "name_" + locale;
-        List<SurveyInstance> surveys = surveyService.getSurveysByCountry(countries, page, pagesize, countryName);
+        List<SurveyInstance> surveys = this.getSurveysFromFilter(summaryFilter, countries, page, locale);       
         
         if(user.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
         	// /////////////////////////////////////////////////
@@ -297,6 +296,52 @@ public class SummaryStatusController {
         	return "redirect:/login";
         }
     }    
+    
+    /**
+     * @param summaryFilter
+     * @param countries
+     * @param page
+     * @param locale
+     * @return List<SurveyInstance>
+     */
+    private List<SurveyInstance> getSurveysFromFilter(CountryFilter summaryFilter, String[] countries, int page, Locale locale){
+    	List<SurveyInstance> surveys = null;
+        if(summaryFilter != null){
+            String propertyToShort = summaryFilter.getPropertyToSort();
+            String sortType = summaryFilter.getSortType();
+            if(propertyToShort != null && !propertyToShort.isEmpty()
+            		&& sortType != null && !sortType.isEmpty()){
+
+            	if(propertyToShort.contains("lContSubmit")){	
+            		propertyToShort = "lastContributorSubmission";
+    			}else if(propertyToShort.contains("lContSave")){	
+    				propertyToShort = "lastContributorSave";
+    			}else if(propertyToShort.contains("lRevSubmit")){	
+    				propertyToShort = "lastSurveyReview";
+    			}else if(propertyToShort.contains("lPendSubmit")){	
+    				propertyToShort = "lastPendingFixSubmit";
+    			}else if(propertyToShort.contains("lAcceptReq")){	
+    				propertyToShort = "lastAcceptanceRequest";
+    			}else if(propertyToShort.contains("lAccept")){	
+    				propertyToShort = "lastStatusAccepted";
+    			}else{
+    				String countryName = "name_" + locale;
+                    surveys = surveyService.getSurveysByCountry(countries, page, pagesize, countryName);
+                    return surveys;
+    			}
+    				
+            	surveys = surveyService.getSurveysByCountrySortTimestamp(countries, page, pagesize, propertyToShort, sortType);
+            }else{
+                String countryName = "name_" + locale;
+                surveys = surveyService.getSurveysByCountry(countries, page, pagesize, countryName);
+            }
+        }else{
+            String countryName = "name_" + locale;
+            surveys = surveyService.getSurveysByCountry(countries, page, pagesize, countryName);
+        }
+        
+        return surveys;
+    }
     
 	/**
 	 * @param surveys

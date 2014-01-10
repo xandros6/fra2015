@@ -8,7 +8,7 @@
 		</p>
 		<br />
 		<div id="uelogo">
-			<img src="${pageContext.request.contextPath}/img/uelogo2.png" width="100" height="70"/> <br/>
+			<img src="${pageContext.request.contextPath}/img/uelogo2.png" width="99" height="70"/> <br/>
 		</div>
         <br />
 		<p class="muted credit uedisclaimer">

@@ -391,10 +391,32 @@ function initActivityLog(){
 	}
 }
 
+function resetSummaryFilter(el){
+	el.find('#country').val(''); 
+	el.find('#filter_countries').val('');
+	el.find('#propertyToSort').val('');
+	el.find('#sortType').val('');
+}
+
 function initSummaryStatus(){
 	var el = $('#filterSummaryForm');
-	el.find('#filter_country_clear_btn').click(function(event){ el.find('#country').val(''); el.find('#filter_countries').val('');el.submit( )});
-	el.find('#summaryStatusFilterBtn').click(function(event){el.submit()});
+	el.find('#filter_country_clear_btn').click(
+		function(event){ 
+			resetSummaryFilter(el);
+			el.submit();
+		}
+	);
+	
+	el.find('#summaryStatusFilterBtn').click(
+		function(event){
+		    el.find('#propertyToSort').val('');
+			el.find('#sortType').val('');
+			el.submit();
+		}
+	);
+	
+	initSortingButtons(el);
+	
 	el.find('#filter_countries').typeahead({
 	    source: function (query, process) {
 	    	var result  = [];	 
@@ -419,6 +441,176 @@ function initSummaryStatus(){
 		var label = filterCountriesValue.name + " (" + filterCountriesValue.iso3 + ")";
 		el.find('#filter_countries').val(label);
 	}
+}
+
+function initSortingButtons(el){
+	$('#lContSaveAscBtn').on('click', function() {		
+		var styleCls = $('#lContSaveAscBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lContSave');
+			el.find('#sortType').val('asc');
+		}	
+
+		el.submit();
+	});
+	
+	$('#lContSaveDescBtn').on('click', function() {
+		var styleCls = $('#lContSaveDescBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lContSave');
+			el.find('#sortType').val('desc');
+		}
+		
+		el.submit();
+	});
+	
+	$('#lContSubmitAscBtn').on('click', function() {
+		var styleCls = $('#lContSubmitAscBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lContSubmit');
+			el.find('#sortType').val('asc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lContSubmitDescBtn').on('click', function() {
+		var styleCls = $('#lContSubmitDescBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lContSubmit');
+			el.find('#sortType').val('desc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lRevSubmitAscBtn').on('click', function() {
+		var styleCls = $('#lRevSubmitAscBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lRevSubmit');
+			el.find('#sortType').val('asc');
+		}
+	
+		el.submit();
+	});
+	
+	$('#lRevSubmitDescBtn').on('click', function() {
+		var styleCls = $('#lRevSubmitDescBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lRevSubmit');
+			el.find('#sortType').val('desc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lPendSubmitAscBtn').on('click', function() {
+		var styleCls = $('#lPendSubmitAscBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lPendSubmit');
+			el.find('#sortType').val('asc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lPendSubmitDescBtn').on('click', function() {
+		var styleCls = $('#lPendSubmitDescBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lPendSubmit');
+			el.find('#sortType').val('desc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lAcceptReqAscBtn').on('click', function() {
+		var styleCls = $('#lAcceptReqAscBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lAcceptReq');
+			el.find('#sortType').val('asc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lAcceptReqDescBtn').on('click', function() {
+		var styleCls = $('#lAcceptReqDescBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lAcceptReq');
+			el.find('#sortType').val('desc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lAcceptAscBtn').on('click', function() {
+		var styleCls = $('#lAcceptAscBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lAccept');
+			el.find('#sortType').val('asc');
+		}
+
+		el.submit();
+	});
+	
+	$('#lAcceptDescBtn').on('click', function() {
+		var styleCls = $('#lAcceptDescBtn').attr("class");
+		if(styleCls == "sortBtnPressed"){
+			resetSummaryFilter(el);
+		}else{
+			el.find('#country').val(''); 
+			el.find('#filter_countries').val('');
+			el.find('#propertyToSort').val('lAccept');
+			el.find('#sortType').val('desc');
+		}
+
+		el.submit();
+	});
 }
 
 function initFilterSurveyForm(){

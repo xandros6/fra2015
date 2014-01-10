@@ -148,4 +148,15 @@ public interface SurveyServiceEntryPoint {
      */
     public List<Country> getCountries();
 
+	/**
+	 * @param countries
+	 * @param page
+	 * @param pagesize
+	 * @param sortType 
+	 * @param propertyToShort
+	 * @return List<SurveyInstance>
+	 */
+	public List<SurveyInstance> getSurveysByCountrySortTimestamp(
+			String[] countries, int page, int pagesize, String timestampPropertyToShort, String sortType);
+
 }
