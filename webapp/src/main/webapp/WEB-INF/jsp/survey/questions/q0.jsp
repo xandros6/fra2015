@@ -70,6 +70,40 @@
 			<br/>
 		</div>
 	</c:if>
+	
+	<c:if test="${(fn:contains(notEmptyEntry,'_1000_')) || param.hideEmpty != 'true'}">
+		<div>
+			<h4>
+				<spring:message code="ref1000"></spring:message>
+			</h4>
+			<div></div>
+
+			<div class="entry">
+				<table
+					class="editable table table-bordered table-hover table-condensed table-striped">
+					<tbody>
+						<tr rowname="14.2" unit="Boolean">
+							<td class="title" colspan="3" rownumber="0" columnnumber="0"><spring:message
+									code="ref1001"></spring:message></td>
+						</tr>
+						<tr rowname="14.2.1" unit="Boolean">
+							<td class="title" colspan="2" rownumber="1" columnnumber="0"><spring:message
+									code="ref1000"></spring:message></td>
+							<fra:yesno mod=" editable " name="_fraVariable_1000_"
+								rownumber="1" columnnumber="1"
+								style="background-color: rgb(242, 245, 169); " entryId="1000"></fra:yesno>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="control clearfix"></div>
+			<fra:feedback feedbackName="_feedback_1000_"/>
+			<br/>
+			<br/>
+		</div>
+	</c:if>
+	
 </section>
 
 </c:if>
