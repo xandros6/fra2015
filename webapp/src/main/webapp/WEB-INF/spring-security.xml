@@ -28,6 +28,7 @@
 		<intercept-url pattern="/export/*" access="ROLE_admin,ROLE_contributor,ROLE_editor,ROLE_validator" />
 		<intercept-url pattern="/acceptance/**" access="ROLE_validator" />
 		<intercept-url pattern="/admin/**" access="ROLE_admin" />
+		<intercept-url pattern="/fullSummary" access="ROLE_reviewer,ROLE_editor" />
 		
 		<form-login always-use-default-target="true"  login-page="/login" default-target-url="/dologin"
 			authentication-failure-url="/loginfailed" />

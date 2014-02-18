@@ -217,7 +217,27 @@ public class ControllerServices {
 		}
 	}
 
-
+	/**
+	 * Build a nested HashMap to be easilly displayed in the reviewers summary page
+	 * 
+	 * @param countriesValues
+	 * @return a map of hash map
+	 */
+        public Map<String, Map<String, String>> prepareCountryValuesMaps(Map <String,CountryValues> countriesValues) {
+    
+            Map<String, Map<String, String>> countriesMap = new HashMap<String, Map<String, String>>();
+            Map<String, String> countryMap = null;
+            
+            for (String country : countriesValues.keySet()) {
+                countryMap = new HashMap<String, String>();
+                for(CompactValue cv : countriesValues.get(country).getValues()){
+                    String var = VariableNameUtils.buildVariableAsText(cv);
+                    countryMap.put(var, cv.getContent());
+                }
+                countriesMap.put(country, countryMap);
+            }
+            return countriesMap;
+        }
 
 	/**
 	 * Put in the model all entryItems name and the dynamic table rows counters.

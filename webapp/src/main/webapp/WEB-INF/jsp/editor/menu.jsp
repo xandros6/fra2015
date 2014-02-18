@@ -14,4 +14,6 @@
 		class="tab"><spring:message code="toolbar.settings" /></a></li>
 	<li class="${context=='summaryStatus' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/summaryStatus/0"
 		class="tab"><spring:message code="toolbar.summaryStatus" /></a></li>
+	<li class="${context=='fullSummary' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/fullSummary"
+		class="tab"><spring:message code="toolbar.fullSummary" /></a></li>
 </ul>

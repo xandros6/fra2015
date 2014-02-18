@@ -22,20 +22,23 @@
 package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
+import it.geosolutions.fra2015.entrypoint.model.CountryValues;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
+import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.utils.UserUtil;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -124,6 +127,57 @@ public class SummaryController {
         return targetPage;
 
     }
+    
+    /**
+     * Provides summary for reviewers and editor
+     * @param model
+     * @param session
+     * @param country the country iso3
+     * @return
+     * @throws InternalErrorServiceEx
+     */
+    @RequestMapping(value = "/fullSummary", method = RequestMethod.GET)
+    public String handleGetAllCountries(Model model, HttpSession session) throws InternalErrorServiceEx {
+
+      User su = (User) session.getAttribute(SESSION_USER);
+      String targetPage = "";
+      if(su==null){
+         return "redirect:/"; 
+      }
+      if(su.getRole().equalsIgnoreCase(Profile.EDITOR.toString())){
+          targetPage = "editor";
+      }
+      else if(su.getRole().equalsIgnoreCase(Profile.REVIEWER.toString())){
+          targetPage = "reviewer";
+      }
+      else{
+          targetPage= "redirect:/";
+      }
+        
+        long start = System.currentTimeMillis();
+        
+        List<Country> countriesList = new ArrayList<Country>(su.getCountriesSet());
+        Map<String,CountryValues> map = new java.util.HashMap<String, CountryValues>();
+        CountryValues cv = null;
+        List<String> sortedCountryNames = new ArrayList<String>();
+        int i = 0;
+        for(Country country : countriesList){
+            cv = utils.retrieveValues(null, country.getIso3());
+            map.put(country.getIso3(), cv);
+            sortedCountryNames.add(country.getName() + ";" + country.getIso3());
+        }
+        model.addAttribute("allowedQuestions",getAllowedQuestions(su));
+        Map<String, Map<String, String>> mapToBeDisplayed = utils.prepareCountryValuesMaps(map);
+        session.setAttribute("countryValuesToDisplay", mapToBeDisplayed);
+        Collections.sort(sortedCountryNames);
+        session.setAttribute("sortedCountryNames", sortedCountryNames);
+        long end = System.currentTimeMillis();
+        
+        System.out.println("I have taken '" + (end-start)/1000 + "' seconds to finish. The map built has '" + mapToBeDisplayed.size() + "' elements");
+        model.addAttribute("context", "totalSummary");
+        return targetPage;
+    }
+    
     
     /**
      * Provide a list of strings of <String> that represent
