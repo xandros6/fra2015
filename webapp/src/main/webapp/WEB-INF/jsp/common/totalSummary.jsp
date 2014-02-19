@@ -35,7 +35,7 @@
     }
 %>
 <!-- BUTTON to hide/show empty rows of the summary -->
-	
+<!--	
 	<div style="position:fixed;right:0;bottom:50" class="control-panel">    
 	    <button id="summaryHideShowButton" type="button" class="btn btn-danger btn-small btn-save-survey" data-toggle="button">
 			<spring:message code="summary.hide.empty.records"></spring:message>
@@ -55,3 +55,4 @@
 			location.reload(); 
 		});   	
 	</script>
+-->
