@@ -34,6 +34,8 @@
 		RequestUtils.requestRestore(request, reqBackup);
     }
 %>
+<div id="kosentailerfraut"></div>
+
 <!-- BUTTON to hide/show empty rows of the summary -->
 <!--	
 	<div style="position:fixed;right:0;bottom:50" class="control-panel">    

@@ -104,7 +104,10 @@ $(function(){
         value = value.replace( re, '<i class="icon-question-sign" data></i>');
         cell.empty().append( value );
 
-		
+        var deactivateTooltip = false;
+        if($("#kosentailerfraut").length > 0){
+        	deactivateTooltip = true;
+        }
         if(matchArr) {
             // console.log( "value " + value );
 
@@ -116,11 +119,16 @@ $(function(){
 				if(!tooltip){
 					tooltip = 'Tooltip NOT DEFINED';
 				}
-                $(entry2).attr("data-content",tooltip.replace("\"","\\\"") );
-				$(entry2).attr("data-original-title",'<spring:message code="tootip.title.note"/>');
-				$(entry2).attr("data-toggle","popover");
-				$(entry2).addClass=("tooltip-popover");
-                if (tooltip) {
+				if(!deactivateTooltip){
+					$(entry2).attr("data-content",tooltip.replace("\"","\\\"") );
+					$(entry2).attr("data-original-title",'<spring:message code="tootip.title.note"/>');
+					$(entry2).attr("data-toggle","popover");
+					$(entry2).addClass=("tooltip-popover");
+				}
+				else{
+					$(entry2).removeClass();
+				}
+                if (tooltip && !deactivateTooltip) {
                     $(entry2).popover({
                         title: 'Note',
                         placement:function(tip, element) {
@@ -183,7 +191,9 @@ $(function(){
                     });
                     
                 } else {
-                    alert("Bad tooltip # " + labelId);
+                	if(!deactivateTooltip){
+                    	alert("Bad tooltip # " + labelId);
+                	}
                 }
 				
       
