@@ -1,6 +1,4 @@
 <%@ include file="../common/includes/taglibs.jsp"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ include file="../common/includes/javascript.jsp"%>
 
 <div><div class="container">
 <input id="countries" style="margin: 0 auto;" type="text" autocomplete="off" />

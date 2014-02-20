@@ -12,8 +12,11 @@
 				code="toolbar.export" /></a></li>
 	<li class="${context=='settings' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/usersettings"
 		class="tab"><spring:message code="toolbar.settings" /></a></li>
-	<li class="${context=='summaryStatus' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/summaryStatus/0"
-		class="tab"><spring:message code="toolbar.summaryStatus" /></a></li>
-	<li class="${context=='fullSummary' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/fullSummary"
-		class="tab"><spring:message code="toolbar.fullSummary" /></a></li>
+	<li class="dropdown ${not empty country ? 'active' : ''}">
+		       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="toolbar.summaryTitle" /><b class="caret"></b></a>
+		       <ul class="dropdown-menu">
+	             <li class="${context=='summaryStatus' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/summaryStatus/0"><spring:message code="toolbar.summaryStatus" /></a></li>
+				 <li class="${context=='fullSummary' ? 'active' : '' }"><a href="${pageContext.request.contextPath}/fullSummary"><spring:message code="toolbar.fullSummary" /></a></li>
+		       </ul>
+     </li>
 </ul>
