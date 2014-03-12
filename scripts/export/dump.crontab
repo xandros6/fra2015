@@ -1,0 +1,4 @@
+# data extraction for FRIMS, twice a day
+
+00 00,12 * * *  /usr/local/tomcat_instances/fra2015/bin/dump.sh  >/dev/null 2>&1
+
