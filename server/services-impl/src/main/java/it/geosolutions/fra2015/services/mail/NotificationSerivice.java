@@ -142,7 +142,7 @@ public class NotificationSerivice {
                 checkEmailAddress(receiver.getEmail());
                 sendMessage(receiver.getEmail(),getSubject(receiver,templateName),message);
             }
-            catch(Exception e){
+            catch(AddressException e){
                 fme.addFailedRecipient(receiver);
                 faultOccurred = true;
             }

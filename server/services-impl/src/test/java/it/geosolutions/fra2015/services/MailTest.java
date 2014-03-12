@@ -73,6 +73,7 @@ public class MailTest{
             receivers = new ArrayList<User>();
             sender = new User();
             sender.setUsername("sender");
+            sender.setName("sender");
             sender.setEmail("sender@sender.send");
             
             status = new Status();
@@ -105,7 +106,7 @@ public class MailTest{
     }
     
     @Test
-    public void testNotifyUsersWithFaults(){
+    public void testNotifyCompleteWithFaults(){
         
         if(!"true".equals(prop.getProperty("mail.test.active"))){
             Assume.assumeTrue(true);
@@ -153,7 +154,56 @@ public class MailTest{
     }
     
     @Test
-    public void testNotifyUsersWithoutFaults(){
+    public void testNotifyContributorSubmitWithFaults(){
+        
+        if(!"true".equals(prop.getProperty("mail.test.active"))){
+            Assume.assumeTrue(true);
+            return;
+        };
+        
+        User receiverKO1 = new User();
+        receiverKO1.setName("receiverKO1");
+        receiverKO1.setUsername("receiverKO1");
+        
+        receiverKO1.setEmail(prop.getProperty("mail.test.mailKO1"));
+        receivers.add(receiverKO1);
+        
+        User receiverKO2 = new User();
+        receiverKO2.setName("receiverKO2");
+        receiverKO2.setUsername("receiverKO2");
+        receiverKO2.setEmail(prop.getProperty("mail.test.mailKO2"));
+        receivers.add(receiverKO2);
+        
+        User receiverKO3 = new User();
+        receiverKO3.setName("receiverKO3");
+        receiverKO3.setUsername("receiverKO3");
+        receiverKO3.setEmail(prop.getProperty("mail.test.mailKO3"));
+        receivers.add(receiverKO3);
+        
+        User receiverKO4 = new User();
+        receiverKO4.setName("receiverKO4");
+        receiverKO4.setUsername("receiverKO4");
+        receiverKO4.setEmail(prop.getProperty("mail.test.mailKO4"));
+        receivers.add(receiverKO4);        
+        
+        try {
+            ns.notifyContributorSubmit(sender, status, receivers);
+        } catch (IOException e) {
+            if(!(e instanceof FraMailException)){
+                Assert.fail();
+            }
+            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("The following recipients address aren't valid: " + ((FraMailException)e).getFailedRecipientsNameList());
+            Assert.assertEquals(4, ((FraMailException)e).getFailedRecipientsList().size());
+        } catch (TemplateException e) {
+            LOGGER.error(e.getMessage(), e);
+            Assert.fail();
+        }
+        
+    }
+    
+    @Test
+    public void testNotifyCompleteWithoutFaults(){
         
         if(!"true".equals(prop.getProperty("mail.test.active"))){
             Assume.assumeTrue(true);
