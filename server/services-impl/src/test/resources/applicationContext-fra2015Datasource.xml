@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd"
+>
+
+    <!-- ==================================================================== -->
+    <!-- PLEASE DO NO CHANGE THE PROPERTIES IN THIS FILE                      -->
+    <!-- ==================================================================== -->
+    <!-- If you need to customize something for your junit tests, create a file test/resources/fra2015-datasource-ovr.properties -->
+    <!-- If you need to customize something in the running application, define the java arg -Dfra2015-ovr=/PATH/TO/YOUR/OVR -->
+    <!-- ==================================================================== -->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="0"/>
+        <property name="locations">
+            <list>
+                <value>classpath:fra2015-datasource.dummy.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="order" value="5"/>
+        <property name="locations">
+            <list>
+                <!-- used for overriding props during maven tests -->
+                <value>classpath*:fra2015-datasource-ovr.properties</value>
+                <!-- used for externalized override -->
+                <value>${fra2015-ovr}</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ==================================================================== -->
+
+    <bean id="fra2015DataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.hsqldb.jdbc.JDBCDriver" />
+        <property name="url" value="jdbc:hsqldb:hsql//localhost" />
+        <property name="username" value="fra2015" />
+        <property name="password" value="fra2015" />
+    </bean>
+
+    <bean id="fra2015EntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="fra2015" />
+        <property name="persistenceXmlLocation" value="classpath:META-INF/fra2015-persistence.xml" />
+        <property name="dataSource" ref="fra2015DataSource" />
+        <property name="loadTimeWeaver">
+            <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+        </property>
+        <property name="jpaVendorAdapter" ref="fra2015VendorAdapter" />
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="hibernate.cache.provider_class" value="org.hibernate.cache.EhCacheProvider"/>
+                <entry key="hibernate.cache.provider_configuration_file_resource_path" value="classpath:fra2015-ehcache.xml"/>
+                <entry key="hibernate.cache.use_second_level_cache" value="true"/>
+                <entry key="hibernate.connection.autocommit" value="true"/>
+                <entry key="hibernate.generate_statistics" value="false"/>
+                <entry key="hibernate.default_schema" value="public" />
+                <entry key="hibernate.hbm2ddl.auto" value="validate" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="fra2015VendorAdapter"
+          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+        <property name="showSql" value="false" />
+        <property name="generateDdl" value="true" />
+    </bean>
+
+    <bean id="fra2015TransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="fra2015EntityManagerFactory" />
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+    <tx:annotation-driven />
+
+</beans>

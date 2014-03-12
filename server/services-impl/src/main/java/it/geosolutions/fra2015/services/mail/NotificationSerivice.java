@@ -12,7 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import javax.mail.internet.AddressException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,11 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 public class NotificationSerivice {
     private static final Logger LOGGER = Logger.getLogger(NotificationSerivice.class);
    
+    public static final String MAIL_EXCEPTION_MESSAGE = "At least one recipients email address is wrong... invoke the methods getFailedRecipientsList or getFailedRecipientsNameList to know which are the fault addresses...";
+    
+    //http://www.mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    
     @Autowired
     private MessageSource messageSource;
     @Autowired
@@ -124,12 +132,23 @@ public class NotificationSerivice {
      */
     public void notifyUsers(User user, Status status, List<User> receivers, String templateName) throws IOException, TemplateException {
         Map<String,String> messageConfig = messages.get(templateName);
-        
+        FraMailException fme = new FraMailException(MAIL_EXCEPTION_MESSAGE);
+        boolean faultOccurred = false;
         for(User receiver: receivers){
             Map<String,Object> model =buildMessageModel(user,receiver,status);
             buildCountry(receiver,status,model);
             String message = applyTemplate(getTemplate(messageConfig,receiver),model);
-            sendMessage(receiver.getEmail(),getSubject(receiver,templateName),message);
+            try{
+                checkEmailAddress(receiver.getEmail());
+                sendMessage(receiver.getEmail(),getSubject(receiver,templateName),message);
+            }
+            catch(Exception e){
+                fme.addFailedRecipient(receiver);
+                faultOccurred = true;
+            }
+        }
+        if(faultOccurred){
+            throw fme;
         }
     }
     
@@ -238,6 +257,14 @@ public class NotificationSerivice {
         }
     }
 
+    public static void checkEmailAddress(String emailAddress) throws AddressException {
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(emailAddress);
+        if(!matcher.matches()){
+            throw new AddressException("The address '" + emailAddress + "' is not a valid eMail address");
+        }
+    }
+    
     // getters and setters  
     public void setConfiguration(Configuration configuration) {
         this.configuration = configuration;

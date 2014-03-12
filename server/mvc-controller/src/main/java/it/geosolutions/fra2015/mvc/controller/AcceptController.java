@@ -23,7 +23,6 @@ package it.geosolutions.fra2015.mvc.controller;
 
 import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SURVEY_INSTANCES;
 import freemarker.template.TemplateException;
-import it.geosolutions.fra2015.mvc.concurrency.BasicConcurrencyHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
@@ -33,6 +32,7 @@ import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.survey.SurveyInstance;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.mail.FraMailException;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 
@@ -48,7 +48,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -179,10 +178,18 @@ public class AcceptController{
                     "The editor were not notified of the message submit because of an Mail Exception",
                     e);
         } catch (IOException e) {
-            FlashAttributesHandler.addFlashAttribute(session, "warning", "acceptance.error.decline.notNotified", 10000, null, null);
-            LOGGER.error(
-                    "The editor were not notified of the message submit because of an Mail Exception",
-                    e);
+            if(e instanceof FraMailException){
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "recipients.not.valid", 10000, null, ((FraMailException) e).getFailedRecipientsNameList());
+                LOGGER.error(
+                        "Error sending Mail to the following recipients: " + ((FraMailException)e).getFailedRecipientsNameList(),
+                        e);
+            }
+            else{
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "acceptance.error.decline.notNotified", 10000, null, null);
+                LOGGER.error(
+                        "The editor were not notified of the message submit because of an Mail Exception",
+                        e);
+            }
         }
     }
     

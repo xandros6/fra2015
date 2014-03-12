@@ -21,23 +21,20 @@
  */
 package it.geosolutions.fra2015.mvc.controller;
 
-import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SESSION_USER;
+import freemarker.template.TemplateException;
+import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
+import it.geosolutions.fra2015.server.model.survey.Status;
+import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.SurveyService;
+import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.mail.FraMailException;
+import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import freemarker.template.TemplateException;
-import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
-import it.geosolutions.fra2015.server.model.survey.Status;
-import it.geosolutions.fra2015.server.model.user.User;
-import it.geosolutions.fra2015.services.SurveyService;
-import it.geosolutions.fra2015.services.UserService;
-import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
-import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
-import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -133,8 +130,16 @@ public class MailTestController {
             notificationService.notifyUsers(su, status, receivers, template);
             composeSuccessMessage(model,receivers);
         } catch (IOException e) {
-            LOGGER.error( e.getMessage(), e);
-            composeErrorMessage(model,e);
+            if(e instanceof FraMailException){
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "recipients.not.valid", 10000, null, ((FraMailException) e).getFailedRecipientsNameList());
+                LOGGER.error(
+                        "Error sending Mail to the following recipients: " + ((FraMailException)e).getFailedRecipientsNameList(),
+                        e);
+            }
+            else{
+                LOGGER.error( e.getMessage(), e);
+                composeErrorMessage(model,e);
+            }
         } catch (TemplateException e) {
             LOGGER.error(e.getMessage(), e);
             composeErrorMessage(model,e);

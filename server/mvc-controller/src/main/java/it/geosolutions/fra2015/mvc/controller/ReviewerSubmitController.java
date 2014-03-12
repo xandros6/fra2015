@@ -39,6 +39,7 @@ import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
+import it.geosolutions.fra2015.services.mail.FraMailException;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 
 import java.io.IOException;
@@ -176,9 +177,17 @@ public class ReviewerSubmitController {
                     return "redirect:/surveylist/0";
 
                 } catch (IOException e) {
-                    FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
-                            10000, null, null);
-                    LOGGER.error("Error in mail notification (last reviewer submission) ",e);
+                    if(e instanceof FraMailException){
+                        FlashAttributesHandler.addFlashAttribute(session, "warning", "recipients.not.valid", 10000, null, ((FraMailException) e).getFailedRecipientsNameList());
+                        LOGGER.error(
+                                "Error sending Mail to the following recipients: " + ((FraMailException)e).getFailedRecipientsNameList(),
+                                e);
+                    }
+                    else{
+                        FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
+                                10000, null, null);
+                        LOGGER.error("Error in mail notification (last reviewer submission) ",e);
+                    }
                     return "redirect:/surveylist/0";
                 }
             }
@@ -234,9 +243,17 @@ public class ReviewerSubmitController {
                 return "redirect:/surveylist/0";
 
             } catch (IOException e) {
-                FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
-                        10000, null, null);
-                LOGGER.error("Error in mail notification (last reviewer submission) ",e);
+                if(e instanceof FraMailException){
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "recipients.not.valid", 10000, null, ((FraMailException) e).getFailedRecipientsNameList());
+                    LOGGER.error(
+                            "Error sending Mail to the following recipients: " + ((FraMailException)e).getFailedRecipientsNameList(),
+                            e);
+                }
+                else{
+                    FlashAttributesHandler.addFlashAttribute(session, "warning", "reviewer.lastsubmission.notnotified",
+                            10000, null, null);
+                    LOGGER.error("Error in mail notification (last reviewer submission) ",e);
+                }   
                 return "redirect:/surveylist/0";
             }
         }

@@ -25,6 +25,7 @@ import static it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.SE
 import freemarker.template.TemplateException;
 import it.geosolutions.fra2015.entrypoint.SurveyServiceEntryPoint;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
+import it.geosolutions.fra2015.mvc.controller.utils.FlashAttributesHandler;
 import it.geosolutions.fra2015.mvc.controller.utils.LoggingUtils;
 import it.geosolutions.fra2015.mvc.controller.utils.StatusUtils;
 import it.geosolutions.fra2015.mvc.validation.TiersValidator;
@@ -33,6 +34,7 @@ import it.geosolutions.fra2015.server.model.survey.Country;
 import it.geosolutions.fra2015.server.model.survey.Status;
 import it.geosolutions.fra2015.server.model.user.User;
 import it.geosolutions.fra2015.services.UserService;
+import it.geosolutions.fra2015.services.mail.FraMailException;
 import it.geosolutions.fra2015.services.mail.NotificationSerivice;
 import it.geosolutions.fra2015.services.utils.UserUtil;
 import it.geosolutions.fra2015.validation.ValidationResult;
@@ -211,8 +213,16 @@ public class CheckController {
             model.addAttribute("context", "messageonly");  
             sumbitNotNotifiedError(model);
         }catch(IOException e){
-            model.addAttribute("context", "messageonly");
-            sumbitNotNotifiedError(model);
+            if(e instanceof FraMailException){
+                FlashAttributesHandler.addFlashAttribute(session, "warning", "recipients.not.valid", 10000, null, ((FraMailException) e).getFailedRecipientsNameList());
+                LOGGER.error(
+                        "Error sending Mail to the following recipients: " + ((FraMailException)e).getFailedRecipientsNameList(),
+                        e);
+            }
+            else{
+                model.addAttribute("context", "messageonly");
+                sumbitNotNotifiedError(model);
+            }
         }
         
         return "index";
