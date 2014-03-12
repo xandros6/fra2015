@@ -25,7 +25,15 @@
           		(i.e. EntityManagerFactory). We're wiring these to the Generic DAOs
           		using an autowire annotation in BaseDAO.
    	-->
-	
+	<bean id="fra2015SearchProcessor" class="com.googlecode.genericdao.search.jpa.JPASearchProcessor">
+		<constructor-arg ref="fra2015MetadataUtil" />
+	</bean>
+
+	<bean id="fra2015MetadataUtil"
+		class="com.googlecode.genericdao.search.jpa.hibernate.HibernateMetadataUtil"
+		factory-method="getInstanceForEntityManagerFactory">
+		<constructor-arg ref="fra2015EntityManagerFactory" />
+	</bean>
     <!--=====================================================================-->
     <!-- DAOs -->
     <!--=====================================================================-->
