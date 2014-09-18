@@ -272,15 +272,21 @@
 
 		<div id="modal-body" class="modal-body">
 			<spring:message code="editor.surveylist.pending.msg"></spring:message>
-			<br /> <b><spring:message code="editor.surveylist.alert"></spring:message></b>
-		</div>
+      <br />
+      <label class="checkbox inline"> 
+        <input type="checkbox" name="sendContributorsEmails" type="checkbox" id="sendContributorsEmails" checked="checked"/>
+        <spring:message code="editor.surveylist.pending.emailmsg"></spring:message>
+      </label>
+      <br />
+      <br /> 
+        <b><spring:message code="editor.surveylist.alert"></spring:message></b>
+      <br />
+    </div>  
 
 		<div class="modal-footer">
 			<a href="#" class="btn" data-dismiss="modal"><spring:message
-					code="close"></spring:message></a> <a id="updateBtn"
-				href="../editorPendingFix/${countryIso3}"
-				class="btn btn-primary confirm"><spring:message
-					code="editor.surveylist.pending"></spring:message></a>
+					code="close"></spring:message></a> 
+			<a id="pendingConfirmBtn" href="#" class="btn btn-primary confirm"><spring:message code="editor.surveylist.pending"></spring:message></a>
 		</div>
 	</div>
 
@@ -333,16 +339,21 @@
 		$(function(){
 			var sethref 
 			$('.completedConfirm').click(function(){
-				$('#completedConfirm .confirm').attr('href','../editorCompleted/'+$(this).attr('data-country'));
-				
+				$('#completedConfirm .confirm').attr('href','../editorCompleted/'+$(this).attr('data-country'));				
 			})
 			$('.pendingConfirm').click(function(){
-				$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country'));
+				$('#sendContributorsEmails').prop("checked", true);
+				$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country')+"/1");
 			});
 			
 			$('.sendNotification').click(function(){
 				$('#sendNotification .confirm').attr('href','../editorNotify/'+$(this).attr('data-country'));
 			});
+			
+			$('#sendContributorsEmails').change(function(){
+				 var sendContributorsEmails = $(this).prop('checked');
+				 $('#pendingConfirm .confirm').attr('href','../editorPendingFix/${countryIso3}/'+(sendContributorsEmails|0));
+			 });
 		});
 		
 		// Disable the onClick event if the submit buttons are disabled (because the button is an anchor not a button)
