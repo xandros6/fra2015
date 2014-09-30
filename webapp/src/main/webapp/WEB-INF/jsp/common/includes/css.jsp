@@ -4,3 +4,4 @@
 <link href="${pageContext.request.contextPath}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/css/fra2015.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/css/ribbon.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" media="all">
