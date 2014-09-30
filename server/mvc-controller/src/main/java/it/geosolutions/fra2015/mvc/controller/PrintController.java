@@ -39,9 +39,12 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
@@ -74,6 +77,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * @author DamianoG
@@ -93,24 +99,38 @@ public class PrintController {
 
 	@Autowired
 	private FeedbackService feedbackService;
-	
+
 	@Autowired
 	private ServletContext servletContext;
 
 	Logger LOGGER = Logger.getLogger(PrintController.class);
 
-	@RequestMapping(value = "/survey/print/{country}/{mode}", method = RequestMethod.GET)
-	public String printWelcome(@PathVariable(value = "country") String country, @PathVariable(value = "mode") String mode, Model model,
-			HttpSession session,  Locale locale) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
+	@RequestMapping(value = "/survey/print/{country}/{mode}", method = RequestMethod.POST)
+	public String printWelcome(Model model, HttpSession session,  Locale locale,
+			@PathVariable(value = "country") String country, 
+			@PathVariable(value = "mode") String mode, 
+			@RequestParam(value="excludeUnedited",required=false,defaultValue="false") Boolean excludeUnedited,
+			@RequestParam(value="batchExportQuestionsDuallistbox") Integer[] questions
+			) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
 
 		User su = (User) session.getAttribute("sessionUser");
 
-		//Check if user have this country
+		//Check if user have this country, not for admin
 		if(!su.getName().equals("admin")){
 			BeanPropertyValueEqualsPredicate predicate = new BeanPropertyValueEqualsPredicate( "iso3", country );
-			if(CollectionUtils.find( su.getCountriesSet(), predicate ) == null){
+			if(!CollectionUtils.exists( su.getCountriesSet(), predicate )){
 				throw new IllegalArgumentException("Permission denied for country: " + country);
 			}
+			//Check if user have these questions, only for reviewers
+			if(su.getRole().equals("reviewer")){
+				for(Integer qId : questions) {
+					BeanPropertyValueEqualsPredicate qPredicate = new BeanPropertyValueEqualsPredicate( "id",new Long(qId.longValue()));
+					if(!CollectionUtils.exists( su.getQuestions(), qPredicate )){
+						throw new IllegalArgumentException("Permission denied for question: " + qId);
+					}
+				}
+			}
+
 		}
 
 		DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy");
@@ -119,6 +139,13 @@ public class PrintController {
 
 		String countryName = surveyService.findCountryByISO3(country).getName();
 
+		if(excludeUnedited) {
+			model.addAttribute("hideEmpty",true);
+		}else{
+			model.addAttribute("hideEmpty",false);
+		}
+		
+		model.addAttribute("questions", questions); 
 		model.addAttribute("context", "survey");    
 		model.addAttribute("country", countryName);  
 		model.addAttribute("messageKeys", messageKeys);   
@@ -179,6 +206,108 @@ public class PrintController {
 
 	}
 
+	@RequestMapping(value = "/survey/print/pdf", method = RequestMethod.POST)
+	public String printWelcome(Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp, Locale locale, 
+			@RequestParam(value="batchExportCountriesDuallistbox") String[] countries, 
+			@RequestParam(value="batchExportQuestionsDuallistbox") Integer[] questions,
+			@RequestParam(value="excludeUnedited",required=false,defaultValue="false") Boolean excludeUnedited,
+			@RequestParam(value="includeComments",required=false,defaultValue="false") Boolean includeComments,
+			@RequestParam(value="onlyCFRQ",required=false,defaultValue="false") Boolean onlyCFRQ) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
+		try {
+			User su = (User) session.getAttribute("sessionUser");
+
+			String zipName =  "FRA_2015_Feedback_Report_"+su.getUsername()+".zip";
+			// Tell the browser is a ZIP
+			resp.setContentType("application/zip"); 
+			// Tell the browser the filename, and that it needs to be downloaded instead of opened
+			resp.addHeader("Content-Disposition", "attachment; filename=\""+zipName+"\"");        
+			// Tell the browser the overall size, so it can show a realistic progressbar
+			//response.setHeader("Content-Length", String.valueOf(overallSize));    
+			Cookie cookie = new Cookie("fileDownload", "true");
+			cookie.setPath("/");
+			cookie.setMaxAge(-1);
+			resp.addCookie(cookie);			
+
+			ServletOutputStream sos = resp.getOutputStream();
+			ZipOutputStream zos = new ZipOutputStream(sos);
+			zos.setLevel(9);
+
+			String xslFilename = "/WEB-INF/xsl/countryReportFull.xsl" ;
+			String mode = "onlyvalues";
+
+			if(includeComments) {
+				//xslFilename = "/WEB-INF/xsl/feedbackReport.xsl" ;
+				//mode = "onlyvalues_feedback";
+			}
+
+			if(onlyCFRQ) {
+				xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;
+			}
+
+			String pathname =servletContext.getRealPath(xslFilename); 
+			Source xslt = new StreamSource(pathname);
+			TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
+			Transformer transformer = factory.newTransformer(xslt);			
+			transformer.setParameter("versionParam", "2.0");			
+			String requestUrl = req.getRequestURL().toString();
+			FopFactory fopFactory = FopFactory.newInstance();
+			fopFactory.setStrictValidation(false); 
+			String appPath = servletContext.getRealPath(""); //root of web app
+			fopFactory.setBaseURL(appPath);	
+			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+			fopFactory.setBaseURL(requestUrl);			
+
+			for(String country : countries) {
+				try {
+					String template = "/survey/print/"+country+"/"+mode;
+
+					CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
+					req.getRequestDispatcher(template).include(req, customResponse);
+					String xml = customResponse.getOutput();				
+					StringReader xmlReader = new StringReader(cleanXml(xml));
+					Source src = new StreamSource(xmlReader);
+
+					String title =  "FRA_2015_Country_Report_";
+					if(onlyCFRQ){
+						StringWriter xmlOutWriter = new StringWriter();				
+						String cfrqFilterFilename = "/WEB-INF/xsl/cfrqFilter.xsl" ;
+						String cfrqFilterPathname = servletContext.getRealPath(cfrqFilterFilename); 					
+						Source cfrqXslt = new StreamSource(new File(cfrqFilterPathname));			
+						StreamResult xmlResult = new StreamResult(xmlOutWriter);
+						Transformer cfraFilter = factory.newTransformer(cfrqXslt);
+						cfraFilter.setParameter("versionParam", "2.0");
+						cfraFilter.transform(src, xmlResult);
+						src = new StreamSource(new StringReader(cleanXml(xmlOutWriter.toString())));
+						title = title + "CFRQ_";
+					}
+					String filename = title + country.replace(" ","_") + ".pdf";
+
+					ZipEntry zipEntry = new ZipEntry(filename);
+					zos.putNextEntry(zipEntry);		
+					Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, zos);	
+					Result res = new SAXResult(fop.getDefaultHandler());
+					transformer.transform(src, res);
+					zos.flush();
+					zos.closeEntry();
+
+				}catch (Throwable e) {
+					LOGGER.error(e.getMessage(), e);
+				}
+
+			}
+
+			zos.close();
+			sos.close();
+
+
+
+		} catch (Throwable e) {
+			LOGGER.error(e.getMessage(), e);
+		}
+		return null;
+	}
+
+	/*
 	@RequestMapping(value = "/survey/print/pdf/{country}/feedback", method = RequestMethod.GET)
 	public void printPdf(@PathVariable(value = "country") String country, Model model,
 			HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException, InternalErrorServiceEx{
@@ -195,10 +324,10 @@ public class PrintController {
 				String requestUrl = req.getRequestURL().toString();
 				FopFactory fopFactory = FopFactory.newInstance();
 				fopFactory.setStrictValidation(false); 
-				
+
 				String appPath = servletContext.getRealPath(""); //root of web app
 				fopFactory.setBaseURL(appPath);		
-				
+
 				FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 				fopFactory.setBaseURL(requestUrl);
 				Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
@@ -210,7 +339,7 @@ public class PrintController {
 				Source xslt = new StreamSource(pathname);
 				Transformer transformer = factory.newTransformer(xslt);
 				transformer.setParameter("versionParam", "2.0");
-				
+
 				StringReader xmlReader = new StringReader(cleanXml(xml));
 				Source src = new StreamSource(xmlReader);
 				String filename =  "FRA_2015_Feedback_Report_"+ country.replace(" ","_") + "_"+su.getUsername()+".pdf";
@@ -255,7 +384,7 @@ public class PrintController {
 
 			String appPath = servletContext.getRealPath(""); //root of web app
 			fopFactory.setBaseURL(appPath);	
-			
+
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 			ServletOutputStream out = null;
 
@@ -275,7 +404,7 @@ public class PrintController {
 				}else{
 					xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;					
 				}
-				
+
 				String pathname =servletContext.getRealPath(xslFilename); 
 
 				Source xslt = new StreamSource(pathname);
@@ -319,6 +448,7 @@ public class PrintController {
 		}
 
 	}
+	 */
 
 	private String cleanXml(String sourceXml){
 		CleanerProperties props = new CleanerProperties();			 
@@ -335,4 +465,5 @@ public class PrintController {
 		String cleanXml = new PrettyXmlSerializer(props).getAsString(tagNode,"utf-8");
 		return cleanXml;
 	}
+
 }

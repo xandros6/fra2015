@@ -40,6 +40,7 @@ import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -454,5 +455,28 @@ public class ControllerServices {
 		
 		return list;
 	}
+	
+    /**
+     * Provide a list of strings of <String> that represent
+     * the allowed questions for the user.
+     * @param su
+     * @return the list of questions. e.g.  q00,q01,q12,q21
+     */
+    public static List<String> getAllowedQuestions(User su){
+        Set<Question> allowed = su.getQuestions();
+        List<Long> allowedQuestionNumbers = new ArrayList<Long>();
+        for (Question q : allowed) {
+            allowedQuestionNumbers.add(q.getId());
+            
+        }
+        
+        //create a string list to parse
+        List<String> allowedQuestions = new ArrayList<String>();
+        for (Long n : allowedQuestionNumbers) {
+
+            allowedQuestions.add("q" + (n > 9 ? n : "0" + n));
+        }
+        return allowedQuestions;
+    }
 	
 }

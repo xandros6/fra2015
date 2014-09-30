@@ -122,7 +122,7 @@ public class SummaryController {
         // Set the parameter operationWR, the domain is "WRITE" "READ"
         model.addAttribute("profile", ControllerServices.Profile.PRINT.toString());
         utils.prepareHTTPRequest(model, null, utils.retrieveValues(null, iso3), false);
-        model.addAttribute("allowedQuestions",getAllowedQuestions(su));
+        model.addAttribute("allowedQuestions",ControllerServices.getAllowedQuestions(su));
         model.addAttribute("sessionUser",su);
         return targetPage;
 
@@ -166,7 +166,7 @@ public class SummaryController {
             map.put(country.getIso3(), cv);
             sortedCountryNames.add(country.getName() + ";" + country.getIso3());
         }
-        model.addAttribute("allowedQuestions",getAllowedQuestions(su));
+        model.addAttribute("allowedQuestions",ControllerServices.getAllowedQuestions(su));
         Map<String, Map<String, String>> mapToBeDisplayed = utils.prepareCountryValuesMaps(map);
         session.setAttribute("countryValuesToDisplay", mapToBeDisplayed);
         Collections.sort(sortedCountryNames);
@@ -176,31 +176,6 @@ public class SummaryController {
         System.out.println("I have taken '" + (end-start)/1000 + "' seconds to finish. The map built has '" + mapToBeDisplayed.size() + "' elements");
         model.addAttribute("context", "totalSummary");
         return targetPage;
-    }
-    
-    
-    /**
-     * Provide a list of strings of <String> that represent
-     * the allowed questions for the user.
-     * @param su
-     * @return the list of questions. e.g.  q00,q01,q12,q21
-     */
-    private static List<String> getAllowedQuestions(User su){
-        Set<Question> allowed = su.getQuestions();
-        List<Long> allowedQuestionNumbers = new ArrayList<Long>();
-        for (Question q : allowed) {
-            allowedQuestionNumbers.add(q.getId());
-            
-        }
-        
-        //create a string list to parse
-        List<String> allowedQuestions = new ArrayList<String>();
-        for (Long n : allowedQuestionNumbers) {
-
-            allowedQuestions.add("q" + (n > 9 ? n : "0" + n));
-        }
-        return allowedQuestions;
-    }
-    
+    }    
     
 }
