@@ -192,7 +192,7 @@ $(function() {
        batchExportQuestionsDuallistbox.append('<option value="18"><spring:message code='ref536'></spring:message></option>');
     </c:if>
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q20')}">
-       batchExportQuestionsDuallistbox.append('<option value="29"><spring:message code='ref545'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="19"><spring:message code='ref545'></spring:message></option>');
     </c:if>
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q21')}">
        batchExportQuestionsDuallistbox.append('<option value="20"><spring:message code='ref554'></spring:message></option>');
