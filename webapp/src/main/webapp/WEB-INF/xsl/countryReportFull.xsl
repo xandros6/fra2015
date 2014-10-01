@@ -277,9 +277,9 @@
     </fo:block>
   </xsl:template>
   
-   <xsl:template match='button'>
-   </xsl:template>
-
+  <xsl:template match='button'>
+  </xsl:template>
+   
 	<xsl:template match="table">
 		<fo:table table-layout="fixed" width="100%" border-collapse="collapse"
 			border-spacing="2px" border="1px solid black" margin-bottom="10pt">
@@ -1313,4 +1313,6 @@
     </fo:inline>
   </xsl:template>
  
+  <xsl:template match='div[@id="cell-content" and not(text())]'>N/A</xsl:template> 
+  
 </xsl:stylesheet>
