@@ -110,11 +110,18 @@ public class PrintController {
 			@PathVariable(value = "country") String country, 
 			@PathVariable(value = "mode") String mode, 
 			@RequestParam(value="excludeUnedited",required=false,defaultValue="false") Boolean excludeUnedited,
-			@RequestParam(value="batchExportQuestionsDuallistbox") Integer[] questions
+			@RequestParam(value="includeComments",required=false,defaultValue="false") Boolean includeComments,
+			@RequestParam(value="printAllQuestions",required=false,defaultValue="false") Boolean printAllQuestions,
+			@RequestParam(value="batchExportQuestionsDuallistbox",required=false) Integer[] questions
 			) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
 
 		User su = (User) session.getAttribute("sessionUser");
-
+		
+		//USE TO TEST!!!
+		//questions = new Integer[] {0,1};
+		//includeComments= true;
+		
+		
 		//Check if user have this country, not for admin
 		if(!su.getName().equals("admin")){
 			BeanPropertyValueEqualsPredicate predicate = new BeanPropertyValueEqualsPredicate( "iso3", country );
@@ -143,6 +150,10 @@ public class PrintController {
 			model.addAttribute("hideEmpty",true);
 		}else{
 			model.addAttribute("hideEmpty",false);
+		}
+		
+		if(printAllQuestions) {
+			questions = new Integer[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		}
 		
 		model.addAttribute("questions", questions); 
@@ -177,7 +188,7 @@ public class PrintController {
 					LOGGER.error(e.getMessage(), e);
 				}
 			}
-		}
+		}	
 
 		if(mode.equalsIgnoreCase("allschema")){
 			utils.prepareHTTPRequestOnlyVariablesName(model, country); 
@@ -197,7 +208,7 @@ public class PrintController {
 			throw new IllegalArgumentException("the mode: '" + mode + "' doesn't exist, valid ones are 'allschema', 'onlyvalues', 'onlyvalues_feedback' and 'onlynames'");
 		}
 
-		if(!listF.isEmpty() && mode.equalsIgnoreCase("onlyvalues_feedback")){
+		if(!listF.isEmpty() && (mode.equalsIgnoreCase("onlyvalues_feedback") || includeComments)){
 			listF = fh.packageFeedbacks(listF, true, utils.getStatusInstanceByCountry(country));
 			model.addAttribute("feedbackCount",fh.getFeedbackCounter(country, session, true));
 			fh.prepareFeedbackModel(model, listF);
@@ -208,15 +219,16 @@ public class PrintController {
 
 	@RequestMapping(value = "/survey/print/pdf", method = RequestMethod.POST)
 	public String printWelcome(Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp, Locale locale, 
-			@RequestParam(value="batchExportCountriesDuallistbox") String[] countries, 
-			@RequestParam(value="batchExportQuestionsDuallistbox") Integer[] questions,
+			@RequestParam(value="printAllQuestions",required=false,defaultValue="false") Boolean printAllQuestions,
+			@RequestParam(value="batchExportCountriesDuallistbox",required=false) String[] countries, 
+			@RequestParam(value="batchExportQuestionsDuallistbox",required=false) Integer[] questions,
 			@RequestParam(value="excludeUnedited",required=false,defaultValue="false") Boolean excludeUnedited,
 			@RequestParam(value="includeComments",required=false,defaultValue="false") Boolean includeComments,
 			@RequestParam(value="onlyCFRQ",required=false,defaultValue="false") Boolean onlyCFRQ) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
 		try {
 			User su = (User) session.getAttribute("sessionUser");
 
-			String zipName =  "FRA_2015_Feedback_Report_"+su.getUsername()+".zip";
+			String zipName =  "FRA_2015_Report_"+su.getUsername()+".zip";
 			// Tell the browser is a ZIP
 			resp.setContentType("application/zip"); 
 			// Tell the browser the filename, and that it needs to be downloaded instead of opened

@@ -14,7 +14,11 @@
 <div class="row-fluid">
     <div class="span6 expSection">
       <div class="checkbox"><label><input type="checkbox" id="excludeUnedited" name="excludeUnedited"><spring:message code="export.excludeUnedited" /></label></div>
-      <div class="checkbox"><label><input type="checkbox" id="includeComments" name="includeComments"><spring:message code="export.includeComments" /></label></div>
+      
+      <c:if test="${sessionUser.role=='reviewer' || sessionUser.role=='editor' }">
+        <div class="checkbox"><label><input type="checkbox" id="includeComments" name="includeComments"><spring:message code="export.includeComments" /></label></div>
+      </c:if>
+      
       <div class="checkbox"><label><input type="checkbox" id="onlyCFRQ" name="onlyCFRQ"><spring:message code="export.onlyCFRQ" /></label></div>
       <button class="btn" id="batchPdf" title="Export" disabled="disabled" >Export PDF</button>
     </div>
