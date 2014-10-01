@@ -161,6 +161,7 @@ public class ImportExportController {
         model.addAttribute("countries", user.getCountriesSet());
         String role = user.getRole();
         if ("reviewer".equals(role)) {
+            model.addAttribute("allowedQuestions",ControllerServices.getAllowedQuestions(user));
             return "reviewer";
         }
         if("editor".equals(role)){
