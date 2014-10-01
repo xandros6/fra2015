@@ -19,19 +19,23 @@ $(function() {
 	  });
     $("#fullPdf").click(function() {
       var countryCode = "${country}";
-      var url = 'survey/print/pdf/'+countryCode+'/full';
+      var url = 'survey/print/pdf';
       $.fileDownload(url, {
-            preparingMessageHtml: "We are preparing your report, please wait...",
-            failMessageHtml: "There was a problem generating your report, please try again."
+          preparingMessageHtml: "We are preparing your report, please wait...",
+          httpMethod: "POST",
+          data: {printAllQuestions:"true",batchExportCountriesDuallistbox:countryCode},
+          failMessageHtml: "There was a problem generating your report, please try again."
       });
       return false;
     });
     $("#cfrqPdf").click(function() {
-    	var countryCode = "${country}";
-     var url = 'survey/print/pdf/'+countryCode+'/cfrq';
+        var countryCode = "${country}";
+        var url = 'survey/print/pdf';
         $.fileDownload(url, {
-              preparingMessageHtml: "We are preparing your report, please wait...",
-              failMessageHtml: "There was a problem generating your report, please try again."
+            preparingMessageHtml: "We are preparing your report, please wait...",
+            httpMethod: "POST",
+            data: {printAllQuestions:"true",batchExportCountriesDuallistbox:countryCode,onlyCFRQ:"true"},
+            failMessageHtml: "There was a problem generating your report, please try again."
         });
         return false;
     });
