@@ -129,6 +129,8 @@ public interface SurveyService {
 
     
     public List<Question> getQuestions();
+    
+    public List<Question> getQuestions(Integer[] questionNumbers);
 
     Country findCountryByISO3(String iso3);
 
