@@ -25,16 +25,26 @@ import it.geosolutions.fra2015.mvc.controller.utils.CharArrayWriterResponse;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
+import it.geosolutions.fra2015.mvc.controller.utils.ReviewerUtils;
 import it.geosolutions.fra2015.mvc.view.MyReloadableResourceBundleMessageSource;
+import it.geosolutions.fra2015.server.model.survey.Entry;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Feedback;
+import it.geosolutions.fra2015.server.model.survey.NumberValue;
+import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.services.BulkModelEntitiesLoader;
 import it.geosolutions.fra2015.services.FeedbackService;
 import it.geosolutions.fra2015.services.SurveyService;
 import it.geosolutions.fra2015.services.exception.BadRequestServiceEx;
 import it.geosolutions.fra2015.services.exception.InternalErrorServiceEx;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.text.DateFormat;
@@ -62,6 +72,9 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.beanutils.BeanPropertyValueEqualsPredicate;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
@@ -78,8 +91,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * @author DamianoG
@@ -98,12 +109,16 @@ public class PrintController {
 	private MyReloadableResourceBundleMessageSource messageSource;
 
 	@Autowired
+	private BulkModelEntitiesLoader bulkLoader;
+
+	@Autowired
 	private FeedbackService feedbackService;
 
 	@Autowired
 	private ServletContext servletContext;
 
-	Logger LOGGER = Logger.getLogger(PrintController.class);
+	private Logger LOGGER = Logger.getLogger(PrintController.class);
+	private static final String CSV_SEPARATOR = ",";
 
 	@RequestMapping(value = "/survey/print/{country}/{mode}", method = RequestMethod.POST)
 	public String printWelcome(Model model, HttpSession session,  Locale locale,
@@ -116,29 +131,12 @@ public class PrintController {
 			) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
 
 		User su = (User) session.getAttribute("sessionUser");
-		
+
 		//USE TO TEST!!!
 		//questions = new Integer[] {0,1};
 		//includeComments= true;
-		
-		
-		//Check if user have this country, not for admin
-		if(!su.getName().equals("admin")){
-			BeanPropertyValueEqualsPredicate predicate = new BeanPropertyValueEqualsPredicate( "iso3", country );
-			if(!CollectionUtils.exists( su.getCountriesSet(), predicate )){
-				throw new IllegalArgumentException("Permission denied for country: " + country);
-			}
-			//Check if user have these questions, only for reviewers
-			if(su.getRole().equals("reviewer")){
-				for(Integer qId : questions) {
-					BeanPropertyValueEqualsPredicate qPredicate = new BeanPropertyValueEqualsPredicate( "id",new Long(qId.longValue()));
-					if(!CollectionUtils.exists( su.getQuestions(), qPredicate )){
-						throw new IllegalArgumentException("Permission denied for question: " + qId);
-					}
-				}
-			}
-
-		}
+		checkCountriesPermissions(su,country);
+		checkQuestionsPermissions(su, questions);
 
 		DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy");
 
@@ -151,11 +149,11 @@ public class PrintController {
 		}else{
 			model.addAttribute("hideEmpty",false);
 		}
-		
+
 		if(printAllQuestions) {
 			questions = new Integer[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		}
-		
+
 		model.addAttribute("questions", questions); 
 		model.addAttribute("context", "survey");    
 		model.addAttribute("country", countryName);  
@@ -319,148 +317,83 @@ public class PrintController {
 		return null;
 	}
 
-	/*
-	@RequestMapping(value = "/survey/print/pdf/{country}/feedback", method = RequestMethod.GET)
-	public void printPdf(@PathVariable(value = "country") String country, Model model,
-			HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException, InternalErrorServiceEx{
+	@RequestMapping(value = "/survey/print/csv", method = RequestMethod.POST)
+	public String printCsv(Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp, Locale locale, 
+			@RequestParam(value="batchExportCountriesDuallistbox",required=false) String[] countries, 
+			@RequestParam(value="batchExportQuestionsDuallistbox",required=false) Integer[] questions) throws IllegalArgumentException, InternalErrorServiceEx, NotFoundServiceEx{
+
+		OutputStreamWriter outputwriter = null;  
 		try {
 			User su = (User) session.getAttribute("sessionUser");
+			checkQuestionsPermissions(su, questions);
 
-			String template = "/survey/print/"+country+"/onlyvalues_feedback";
-			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
-			req.getRequestDispatcher(template).include(req, customResponse);
-			String xml = customResponse.getOutput();
+			List<Question> questionList = surveyService.getQuestions(questions);
 
-			ServletOutputStream out = resp.getOutputStream();
-			try {
-				String requestUrl = req.getRequestURL().toString();
-				FopFactory fopFactory = FopFactory.newInstance();
-				fopFactory.setStrictValidation(false); 
+			String csvName =  "FRA_2015_Report_"+su.getUsername()+".csv";
+			// Tell the browser is a ZIP
+			resp.setContentType("text/csv"); 
+			// Tell the browser the filename, and that it needs to be downloaded instead of opened
+			resp.addHeader("Content-Disposition", "attachment; filename=\""+csvName+"\"");        
+			Cookie cookie = new Cookie("fileDownload", "true");
+			cookie.setPath("/");
+			cookie.setMaxAge(-1);
+			resp.addCookie(cookie);		
+			OutputStream resOs= resp.getOutputStream();  
+			OutputStream buffOs= new BufferedOutputStream(resOs);   
+			outputwriter = new OutputStreamWriter(buffOs);  
 
-				String appPath = servletContext.getRealPath(""); //root of web app
-				fopFactory.setBaseURL(appPath);		
+			String[] questionsHeader = null;
+			Arrays.sort(countries);
+			for(String country : countries) {
+				List<NumberValue> numberValues = bulkLoader.loadAllNumericValuesWithQuestions(country,questions);
+				if(questionsHeader == null) {
+					questionsHeader = new String[numberValues.size()+1];
+					questionsHeader[0] = "Country";
+					for(int i = 0 ; i <numberValues.size() ; i++) {
+						NumberValue nValue = numberValues.get(i);
+						EntryItem ei = nValue.getEntryItem();
+						Entry e = ei.getEntry();
+						Question q = e.getQuestion();
 
-				FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-				fopFactory.setBaseURL(requestUrl);
-				Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
+						String nQuestion = "q"+q.getId();
+						String nTable = "t"+e.getVariable();
+						String nRow = "r"+ei.getRowNumber();
+						String nCol = "y"+ei.getColumnName();
 
-				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
-				String xslFilename = "/WEB-INF/xsl/feedbackReport.xsl" ;
+						questionsHeader[i+1] = StringEscapeUtils.escapeCsv(nQuestion+"-"+nTable+"-"+nRow+"-"+nCol);
 
-				String pathname =servletContext.getRealPath(xslFilename); 
-				Source xslt = new StreamSource(pathname);
-				Transformer transformer = factory.newTransformer(xslt);
-				transformer.setParameter("versionParam", "2.0");
+					}
+					outputwriter.write(StringUtils.join(questionsHeader, CSV_SEPARATOR));
+					outputwriter.write(SystemUtils.LINE_SEPARATOR);
+				}
+				String[] values = new String[numberValues.size()+1];
+				values[0] = country;
+				for(int i = 0 ; i <numberValues.size() ; i++) {
+					NumberValue nv = numberValues.get(i);
+					if ("NaN".equalsIgnoreCase(nv.getContent())){
+						nv.setContent("N/A");
+					}
+					values[i+1] = StringEscapeUtils
+							.escapeCsv(nv.getContent());
+				}
+				outputwriter.write(StringUtils.join(values, CSV_SEPARATOR));
+				outputwriter.write(SystemUtils.LINE_SEPARATOR);
 
-				StringReader xmlReader = new StringReader(cleanXml(xml));
-				Source src = new StreamSource(xmlReader);
-				String filename =  "FRA_2015_Feedback_Report_"+ country.replace(" ","_") + "_"+su.getUsername()+".pdf";
-
-				resp.setContentType(MimeConstants.MIME_PDF);
-				resp.setHeader("Content-Disposition", "attachment ; filename=\"" + filename +"\"");
-
-				Cookie cookie = new Cookie("fileDownload", "true");
-				cookie.setPath("/");
-				cookie.setMaxAge(-1);
-				resp.addCookie(cookie);
-
-				Result res = new SAXResult(fop.getDefaultHandler());
-				transformer.transform(src, res);
-
-			} finally {
-				out.close();
 			}
-
 		} catch (Throwable e) {
 			LOGGER.error(e.getMessage(), e);
-		}
-
-	}
-
-	@RequestMapping(value = "/survey/print/pdf/{country}/{type}", method = RequestMethod.GET)
-	public void printPdf(@PathVariable(value = "country") String country, @PathVariable(value = "type") String type, Model model,
-			HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException, InternalErrorServiceEx{
-
-		if(!type.equalsIgnoreCase("cfrq") && !type.equalsIgnoreCase("full")){
-			throw new IllegalArgumentException("the type: '" + type + "' doesn't exist, valid ones are 'full', 'cfrq'");         
-		}
-
-		try {
-			String template = "/survey/print/"+country+"/onlyvalues";
-			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
-			req.getRequestDispatcher(template).include(req, customResponse);
-			String xml = customResponse.getOutput();
-
-			FopFactory fopFactory = FopFactory.newInstance();
-			fopFactory.setStrictValidation(false); 
-
-			String appPath = servletContext.getRealPath(""); //root of web app
-			fopFactory.setBaseURL(appPath);	
-
-			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-			ServletOutputStream out = null;
-
-			try {
-
-				out = resp.getOutputStream();
-				resp.setContentType(MimeConstants.MIME_PDF);
-
-				// Construct fop with desired output format
-				Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
-
-				TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl();
-
-				String xslFilename;
-				if(type.equalsIgnoreCase("full")){
-					xslFilename = "/WEB-INF/xsl/countryReportFull.xsl" ;
-				}else{
-					xslFilename = "/WEB-INF/xsl/countryReport.xsl" ;					
+		}finally {
+			if( outputwriter != null ) {
+				try {
+					outputwriter.flush();   
+					outputwriter.close();
+				} catch (IOException e) {
+					LOGGER.error(e.getMessage(), e);
 				}
-
-				String pathname =servletContext.getRealPath(xslFilename); 
-
-				Source xslt = new StreamSource(pathname);
-				Transformer transformer = factory.newTransformer(xslt);
-				transformer.setParameter("versionParam", "2.0");
-
-				StringReader xmlReader = new StringReader(cleanXml(xml));
-				Source src = new StreamSource(xmlReader);
-
-				String title =  "FRA_2015_Country_Report_";
-
-				if(type.equals("cfrq")){
-					StringWriter xmlOutWriter = new StringWriter();				
-					String cfrqFilterFilename = "/WEB-INF/xsl/cfrqFilter.xsl" ;
-					String cfrqFilterPathname = servletContext.getRealPath(cfrqFilterFilename); 					
-					Source cfrqXslt = new StreamSource(new File(cfrqFilterPathname));			
-					StreamResult xmlResult = new StreamResult(xmlOutWriter);
-					Transformer cfraFilter = factory.newTransformer(cfrqXslt);
-					cfraFilter.setParameter("versionParam", "2.0");
-					cfraFilter.transform(src, xmlResult);
-					src = new StreamSource(new StringReader(cleanXml(xmlOutWriter.toString())));
-					title = title + "CFRQ_";
-				}
-				String filename = title + country.replace(" ","_") + ".pdf";
-				resp.setHeader("Content-Disposition", "attachment ; filename=\"" + filename +"\"");
-				Cookie cookie = new Cookie("fileDownload", "true");
-				cookie.setPath("/");
-				cookie.setMaxAge(-1);
-				resp.addCookie(cookie);
-
-				Result res = new SAXResult(fop.getDefaultHandler());
-
-				transformer.transform(src, res);
-
-			} finally {
-				out.close();
 			}
-
-		} catch (Throwable e) {
-			LOGGER.error(e.getMessage(), e);
 		}
-
+		return null;
 	}
-	 */
 
 	private String cleanXml(String sourceXml){
 		CleanerProperties props = new CleanerProperties();			 
@@ -476,6 +409,28 @@ public class PrintController {
 		TagNode tagNode = new HtmlCleaner(props).clean(sourceXml);
 		String cleanXml = new PrettyXmlSerializer(props).getAsString(tagNode,"utf-8");
 		return cleanXml;
+	}
+
+	private void checkCountriesPermissions(User su, String country) {
+		//Check if user have this country, not for admin
+		if(!su.getName().equals("admin")){
+			BeanPropertyValueEqualsPredicate predicate = new BeanPropertyValueEqualsPredicate( "iso3", country );
+			if(!CollectionUtils.exists( su.getCountriesSet(), predicate )){
+				throw new IllegalArgumentException("Permission denied for country: " + country);
+			}
+		}
+	}
+
+	private void checkQuestionsPermissions(User su, Integer[] questions) {
+		//Check if user have these questions, only for reviewers
+		if(su.getRole().equals("reviewer")){
+			for(Integer qId : questions) {
+				BeanPropertyValueEqualsPredicate qPredicate = new BeanPropertyValueEqualsPredicate( "id",new Long(qId.longValue()));
+				if(!CollectionUtils.exists( su.getQuestions(), qPredicate )){
+					throw new IllegalArgumentException("Permission denied for question: " + qId);
+				}
+			}
+		}
 	}
 
 }

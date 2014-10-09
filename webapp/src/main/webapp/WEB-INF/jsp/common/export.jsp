@@ -43,11 +43,17 @@
 
 <script>
 $(function() {
+	  $("#batchCSV").click(function() {
+	      var url = 'survey/print/csv';
+	      $.fileDownload(url, {
+	            preparingMessageHtml: "We are preparing your report, please wait...",
+	            httpMethod: "POST",
+	            data: $('#batchExportConfiguration').serialize(),
+	            failMessageHtml: "There was a problem generating your report, please try again."
+	      });
+	      return false;
+	  });
     $("#batchPdf").click(function() {
-    	var countriesSelected = $('select[name="batchExportCountriesDuallistbox"]').val();
-      var questionsSelected = $('select[name="batchExportQuestionsDuallistbox"]').val();
-        
-      var countryCode = getSelectedCountry().iso3;
       var url = 'survey/print/pdf';
       $.fileDownload(url, {
             preparingMessageHtml: "We are preparing your report, please wait...",
