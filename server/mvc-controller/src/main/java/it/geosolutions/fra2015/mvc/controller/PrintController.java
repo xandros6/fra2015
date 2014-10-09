@@ -25,7 +25,6 @@ import it.geosolutions.fra2015.mvc.controller.utils.CharArrayWriterResponse;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices;
 import it.geosolutions.fra2015.mvc.controller.utils.ControllerServices.Profile;
 import it.geosolutions.fra2015.mvc.controller.utils.FeedbackHandler;
-import it.geosolutions.fra2015.mvc.controller.utils.ReviewerUtils;
 import it.geosolutions.fra2015.mvc.view.MyReloadableResourceBundleMessageSource;
 import it.geosolutions.fra2015.server.model.survey.Entry;
 import it.geosolutions.fra2015.server.model.survey.EntryItem;
@@ -226,21 +225,12 @@ public class PrintController {
 		try {
 			User su = (User) session.getAttribute("sessionUser");
 
-			String zipName =  "FRA_2015_Report_"+su.getUsername()+".zip";
-			// Tell the browser is a ZIP
-			resp.setContentType("application/zip"); 
-			// Tell the browser the filename, and that it needs to be downloaded instead of opened
-			resp.addHeader("Content-Disposition", "attachment; filename=\""+zipName+"\"");        
-			// Tell the browser the overall size, so it can show a realistic progressbar
-			//response.setHeader("Content-Length", String.valueOf(overallSize));    
 			Cookie cookie = new Cookie("fileDownload", "true");
 			cookie.setPath("/");
 			cookie.setMaxAge(-1);
 			resp.addCookie(cookie);			
 
 			ServletOutputStream sos = resp.getOutputStream();
-			ZipOutputStream zos = new ZipOutputStream(sos);
-			zos.setLevel(9);
 
 			String xslFilename = "/WEB-INF/xsl/countryReportFull.xsl" ;
 			String mode = "onlyvalues";
@@ -265,56 +255,78 @@ public class PrintController {
 			String appPath = servletContext.getRealPath(""); //root of web app
 			fopFactory.setBaseURL(appPath);	
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-			fopFactory.setBaseURL(requestUrl);			
+			fopFactory.setBaseURL(requestUrl);	
+			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
 
-			for(String country : countries) {
-				try {
-					String template = "/survey/print/"+country+"/"+mode;
-
-					CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
-					req.getRequestDispatcher(template).include(req, customResponse);
-					String xml = customResponse.getOutput();				
-					StringReader xmlReader = new StringReader(cleanXml(xml));
-					Source src = new StreamSource(xmlReader);
-
-					String title =  "FRA_2015_Country_Report_";
-					if(onlyCFRQ){
-						StringWriter xmlOutWriter = new StringWriter();				
-						String cfrqFilterFilename = "/WEB-INF/xsl/cfrqFilter.xsl" ;
-						String cfrqFilterPathname = servletContext.getRealPath(cfrqFilterFilename); 					
-						Source cfrqXslt = new StreamSource(new File(cfrqFilterPathname));			
-						StreamResult xmlResult = new StreamResult(xmlOutWriter);
-						Transformer cfraFilter = factory.newTransformer(cfrqXslt);
-						cfraFilter.setParameter("versionParam", "2.0");
-						cfraFilter.transform(src, xmlResult);
-						src = new StreamSource(new StringReader(cleanXml(xmlOutWriter.toString())));
-						title = title + "CFRQ_";
-					}
-					String filename = title + country.replace(" ","_") + ".pdf";
-
-					ZipEntry zipEntry = new ZipEntry(filename);
-					zos.putNextEntry(zipEntry);		
-					Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, zos);	
-					Result res = new SAXResult(fop.getDefaultHandler());
-					transformer.transform(src, res);
-					zos.flush();
-					zos.closeEntry();
-
-				}catch (Throwable e) {
-					LOGGER.error(e.getMessage(), e);
+			if(countries.length == 1) {
+				String fileName = "FRA_2015_Country_Report_"+su.getUsername();
+				if(onlyCFRQ) {
+					fileName = fileName + "_CFRQ";
 				}
-
+				fileName = fileName + ".pdf";
+				resp.setContentType("application/pdf"); 
+				resp.addHeader("Content-Disposition", "attachment; filename=\""+fileName+"\""); 
+				fillPdfStreamForCountry(sos,transformer,fopFactory,foUserAgent,factory,countries[0],mode,req,customResponse,onlyCFRQ);
+			}else {
+				String fileName =  "FRA_2015_Countries_Report_"+su.getUsername();
+				if(onlyCFRQ) {
+					fileName = fileName + "_CFRQ";
+				}
+				fileName = fileName + ".zip";
+				resp.setContentType("application/zip"); 
+				resp.addHeader("Content-Disposition", "attachment; filename=\""+fileName+"\""); 
+				ZipOutputStream zos = new ZipOutputStream(sos);
+				zos.setLevel(9);
+				for(String country : countries) {
+					try {
+						LOGGER.debug("Processing PDF generation for "+ country);
+						String zFilename = "FRA_2015_Country_Report_" + country.replace(" ","_") + ".pdf";
+						ZipEntry zipEntry = new ZipEntry(zFilename);
+						zos.putNextEntry(zipEntry);		
+						fillPdfStreamForCountry(zos,transformer,fopFactory,foUserAgent,factory,countries[0],mode,req,customResponse,onlyCFRQ);
+						zos.flush();
+						zos.closeEntry();
+					}catch (Throwable e) {
+						LOGGER.error(e.getMessage(), e);
+					}
+				}
+				zos.close();
+				sos.close();
 			}
-
-			zos.close();
-			sos.close();
-
-
-
 		} catch (Throwable e) {
 			LOGGER.error(e.getMessage(), e);
 		}
 		return null;
+	}
+
+	private void fillPdfStreamForCountry(OutputStream os, Transformer transformer, FopFactory fopFactory, 
+			FOUserAgent foUserAgent, 
+			TransformerFactory factory, 
+			String country, 
+			String mode, 
+			HttpServletRequest req, 
+			CharArrayWriterResponse customResponse, 
+			Boolean onlyCFRQ) throws Exception {
+
+		String template = "/survey/print/"+country+"/"+mode;
+		req.getRequestDispatcher(template).include(req, customResponse);
+		String xml = customResponse.getOutput();				
+		StringReader xmlReader = new StringReader(cleanXml(xml));
+		Source src = new StreamSource(xmlReader);
+		if(onlyCFRQ){
+			StringWriter xmlOutWriter = new StringWriter();				
+			String cfrqFilterFilename = "/WEB-INF/xsl/cfrqFilter.xsl" ;
+			String cfrqFilterPathname = servletContext.getRealPath(cfrqFilterFilename); 					
+			Source cfrqXslt = new StreamSource(new File(cfrqFilterPathname));			
+			StreamResult xmlResult = new StreamResult(xmlOutWriter);
+			Transformer cfraFilter = factory.newTransformer(cfrqXslt);
+			cfraFilter.setParameter("versionParam", "2.0");
+			cfraFilter.transform(src, xmlResult);
+			src = new StreamSource(new StringReader(cleanXml(xmlOutWriter.toString())));
+		}
+		Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, os);	
+		Result res = new SAXResult(fop.getDefaultHandler());
+		transformer.transform(src, res);
 	}
 
 	@RequestMapping(value = "/survey/print/csv", method = RequestMethod.POST)
@@ -330,7 +342,6 @@ public class PrintController {
 			List<Question> questionList = surveyService.getQuestions(questions);
 
 			String csvName =  "FRA_2015_Report_"+su.getUsername()+".csv";
-			// Tell the browser is a ZIP
 			resp.setContentType("text/csv"); 
 			// Tell the browser the filename, and that it needs to be downloaded instead of opened
 			resp.addHeader("Content-Disposition", "attachment; filename=\""+csvName+"\"");        
