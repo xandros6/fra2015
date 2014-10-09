@@ -129,7 +129,10 @@ $(function() {
 
     checkEnableControls();
     
-    var batchExportCountriesDuallistbox = $('select[name="batchExportCountriesDuallistbox"]').bootstrapDualListbox();
+    var batchExportCountriesDuallistbox = $('select[name="batchExportCountriesDuallistbox"]').bootstrapDualListbox({
+    	  nonSelectedListLabel: '<spring:message code="export.available"></spring:message>',
+    	  selectedListLabel: '<spring:message code="export.selected"></spring:message>'
+    });
     $.each(countriesArr, function(i, country) {
       batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '">' + country.name + '</option>');
     });
@@ -139,7 +142,10 @@ $(function() {
     }); 
 
     
-    var batchExportQuestionsDuallistbox = $('select[name="batchExportQuestionsDuallistbox"]').bootstrapDualListbox(); 
+    var batchExportQuestionsDuallistbox = $('select[name="batchExportQuestionsDuallistbox"]').bootstrapDualListbox({
+        nonSelectedListLabel: '<spring:message code="export.available"></spring:message>',
+        selectedListLabel: '<spring:message code="export.selected"></spring:message>'
+    }); 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q01')}">
        batchExportQuestionsDuallistbox.append('<option value="0"><spring:message code='ref1'></spring:message></option>');
     </c:if>   
