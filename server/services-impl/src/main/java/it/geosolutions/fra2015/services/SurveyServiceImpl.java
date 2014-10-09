@@ -475,7 +475,9 @@ public class SurveyServiceImpl implements SurveyService {
 
 	@Override
 	public List<Country> getCountries() {
-		List<Country> countries = countryDAO.findAll();
+		Search searchCriteria = new Search(Country.class);
+		searchCriteria.addSortAsc("name");
+		List<Country> countries = countryDAO.search(searchCriteria);
 		return countries;
 	}
 
