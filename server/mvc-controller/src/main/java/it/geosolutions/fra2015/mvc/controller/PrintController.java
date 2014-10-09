@@ -134,6 +134,7 @@ public class PrintController {
 		//USE TO TEST!!!
 		//questions = new Integer[] {0,1};
 		//includeComments= true;
+		//printAllQuestions= true;
 		checkCountriesPermissions(su,country);
 		checkQuestionsPermissions(su, questions);
 
@@ -259,7 +260,7 @@ public class PrintController {
 			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
 
 			if(countries.length == 1) {
-				String fileName = "FRA_2015_Country_Report_"+su.getUsername();
+				String fileName = "FRA_2015_Country_Report_"+ countries[0] + "_" + su.getUsername();
 				if(onlyCFRQ) {
 					fileName = fileName + "_CFRQ";
 				}
@@ -280,7 +281,7 @@ public class PrintController {
 				for(String country : countries) {
 					try {
 						LOGGER.debug("Processing PDF generation for "+ country);
-						String zFilename = "FRA_2015_Country_Report_" + country.replace(" ","_") + ".pdf";
+						String zFilename = "FRA_2015_Country_Report_" + country + ".pdf";
 						ZipEntry zipEntry = new ZipEntry(zFilename);
 						zos.putNextEntry(zipEntry);		
 						fillPdfStreamForCountry(zos,transformer,fopFactory,foUserAgent,factory,countries[0],mode,req,customResponse,onlyCFRQ);

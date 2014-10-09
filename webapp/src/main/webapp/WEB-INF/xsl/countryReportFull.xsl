@@ -297,9 +297,13 @@
 	</xsl:template>
 
 	<xsl:template match="tr">
-		<fo:table-row keep-together.within-page="always">
-			<xsl:apply-templates select="td | th | text()" />
-		</fo:table-row>
+	   <xsl:choose>
+            <xsl:when test="*">
+                  <fo:table-row keep-together.within-page="always">
+							      <xsl:apply-templates select="td | th | text()" />
+							    </fo:table-row>
+            </xsl:when>
+      </xsl:choose>	
 	</xsl:template>
 
 	<xsl:template
