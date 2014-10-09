@@ -21,8 +21,11 @@
  */
 package it.geosolutions.fra2015.mvc.controller.utils;
 
+import it.geosolutions.fra2015.server.model.survey.CompactValue;
+import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.Question;
 import it.geosolutions.fra2015.server.model.user.User;
+import it.geosolutions.fra2015.server.model.xmlexport.BasicValue;
 import it.geosolutions.fra2015.services.SurveyCatalog;
 import it.geosolutions.fra2015.services.UserService;
 import it.geosolutions.fra2015.services.exception.NotFoundServiceEx;
@@ -78,4 +81,25 @@ public class ReviewerUtils {
         sb.append(revisionedQuestions.size()).append(" / ").append(catalog.countAllSurveyQuestions());
         return sb.toString();
     } 
+    
+    public static String composeEntryItemName(EntryItem el){
+        CompactValue cv = new CompactValue();
+        if (el != null && el.getEntry() != null && el.getEntry().getVariable() != null) {
+            cv.setVariable(el.getEntry().getVariable());
+        }
+        cv.setRowNumber(el.getRowNumber());
+        cv.setColumnNumber(el.getColumnNumber());
+        String entryItemName = VariableNameUtils.buildVariableAsShortText(cv);
+        // String entryItemShortName = entryItemName.replaceFirst("_fraVariable", "");
+        return entryItemName;
+    }
+    
+    public static BasicValue buildBasicValue(Long questionId, String content, String reference, String type){
+        BasicValue val = new BasicValue();
+        val.setQuestionId(questionId);
+        val.setContent(content);
+        val.setReference(reference);
+        val.setType(type);
+        return val;
+    }
 }
