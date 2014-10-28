@@ -182,6 +182,17 @@ public class FRA2015Init implements InitializingBean, ApplicationContextAware {
                 LOGGER.error("Error creating " + user + ": " + ex.getMessage());
             }
         }
+        //Add editor
+        User ed = new User();
+        ed.setName("Editor");
+        ed.setUsername("ed");
+        ed.setNewPassword("ed");
+        ed.setRole("editor");
+        ed.setEmail("ed@survey.fra.fao.org");
+        //ARG
+        Country edcountry = countryDAO.find((long) 12);
+        ed.getCountriesSet().add(edcountry);
+        userService.insert(ed);
 
     }
     

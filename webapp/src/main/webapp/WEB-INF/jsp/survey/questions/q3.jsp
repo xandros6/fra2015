@@ -826,7 +826,7 @@
 							<td class="total" rownumber="13" columnnumber="4">${fraFn:computeSum(sum)}</td>							
 							<c:set var="sum" value="${_fraVariable_3b_2_5_};${_fraVariable_3b_3_5_};${_fraVariable_3b_4_5_};${_fraVariable_3b_5_5_};${_fraVariable_3b_6_5_};${_fraVariable_3b_7_5_};${_fraVariable_3b_8_5_};${_fraVariable_3b_9_5_};${_fraVariable_3b_10_5_};${_fraVariable_3b_11_5_};${_fraVariable_3b_12_5_}"/>
 							<td class="total" rownumber="13" columnnumber="5">${fraFn:computeSum(sum)}</td>							
-							<c:set var="sum" value="${_fraVariable_3b_2_6_};${_fraVariable_3b_3_6_};${_fraVariable_3b_4_6_};${_fraVariable_3b_5_6_};${_fraVariable_3b_6_6_};${_fraVariable_3b_7_6_};${_fraVariable_3b_8_6_};${_fraVariable_3b_9_6_};${_fraVariable_3b_10_6_};${_fraVariable_3b_11_6_};${_fraVariable_3b_12_3_}"/>
+							<c:set var="sum" value="${_fraVariable_3b_2_6_};${_fraVariable_3b_3_6_};${_fraVariable_3b_4_6_};${_fraVariable_3b_5_6_};${_fraVariable_3b_6_6_};${_fraVariable_3b_7_6_};${_fraVariable_3b_8_6_};${_fraVariable_3b_9_6_};${_fraVariable_3b_10_6_};${_fraVariable_3b_11_6_};${_fraVariable_3b_12_6_}"/>
 							<td class="total" rownumber="13" columnnumber="6">${fraFn:computeSum(sum)}</td>
 						</tr>
 					</tbody>

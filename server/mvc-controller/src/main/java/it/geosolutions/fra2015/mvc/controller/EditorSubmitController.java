@@ -86,8 +86,8 @@ public class EditorSubmitController {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/editorPendingFix/{countryIso3}", method = RequestMethod.GET)
-    public String editorPendingFix(@PathVariable(value = "countryIso3") String country,
+    @RequestMapping(value = "/editorPendingFix/{countryIso3}/{sendContributorsEmails}", method = RequestMethod.GET)
+	public String editorPendingFix(@PathVariable(value = "countryIso3") String country, @PathVariable(value = "sendContributorsEmails") Boolean sendContributorsEmails,
             ModelMap model, HttpSession session) {
 
         User user = (User) session.getAttribute(SESSION_USER);
@@ -147,6 +147,11 @@ public class EditorSubmitController {
         LOGGER.info(LoggingUtils.printUsernames(contributors));
         LOGGER.info("----------------------------------------------------------------------------------");
         
+		if(!sendContributorsEmails) {
+			LOGGER.error("The survey was successfully submitted but the contributors were not notified of this submission as required");
+			FlashAttributesHandler.addFlashAttribute(session, "warning", "editor.pendingfix.notnotifiedasrequired", 10000, null, null);
+			return "redirect:/surveylist/0";
+		}
         if (contributors.size() <= 0) {
             LOGGER.error("No reviewer associated to country '" + iso3 + "' The submit has been done correctly but anyone has been notificated, no mail sent");
             // TODO notify with mail this error to admin ???

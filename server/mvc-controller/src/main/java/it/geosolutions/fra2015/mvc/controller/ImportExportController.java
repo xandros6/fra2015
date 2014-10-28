@@ -51,6 +51,7 @@ import it.geosolutions.fra2015.services.utils.UserUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -63,6 +64,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.beanutils.BeanComparator;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -85,314 +87,320 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 @Controller
 public class ImportExportController {
 
-    @Autowired
-    private SurveyService surveyService;
+	@Autowired
+	private SurveyService surveyService;
 
-    @Autowired
-    private BulkModelEntitiesLoader bulkLoader;
+	@Autowired
+	private BulkModelEntitiesLoader bulkLoader;
 
-    @Autowired
-    private ControllerServices utils;
+	@Autowired
+	private ControllerServices utils;
 
-    @Autowired
-    private UserService usersServices;
+	@Autowired
+	private UserService usersServices;
 
-    private static Logger LOGGER = Logger.getLogger(ImportExportController.class);
+	private static Logger LOGGER = Logger.getLogger(ImportExportController.class);
 
-    @RequestMapping(value = "/export", method = RequestMethod.GET)
-    public String export(ModelMap model, HttpSession session) {
+	@RequestMapping(value = "/export", method = RequestMethod.GET)
+	public String export(ModelMap model, HttpSession session) {
 
-        model.addAttribute("context", "export");
-        User user = (User) session.getAttribute(SESSION_USER);
-        if (user == null){
-            return "redirect:/";
-        }
-        String role = user.getRole();
-        if ("reviewer".equals(role)) {
+		model.addAttribute("context", "export");
+		User user = (User) session.getAttribute(SESSION_USER);
+		if (user == null){
+			return "redirect:/";
+		}
+		String role = user.getRole();
+		if ("reviewer".equals(role)) {
 
-            return "reviewer";
-        }
+			return "reviewer";
+		}
 
-        if (Profile.VALIDATOR.toString().equalsIgnoreCase(role)){
-            model.addAttribute("country", UserUtil.getSingleIso3(user));
-            return "validator";
-        }
-        if ("admin".equals(role)) {
+		if (Profile.VALIDATOR.toString().equalsIgnoreCase(role)){
+			model.addAttribute("country", UserUtil.getSingleIso3(user));
+			return "validator";
+		}
+		if ("admin".equals(role)) {
 
-            return "redirect:/adminexport";
-        }
-        if (role.equals("contributor")) {
-            model.addAttribute("country", UserUtil.getSingleIso3(user));
-        }
-        return "index";
+			return "redirect:/adminexport";
+		}
+		if (role.equals("contributor")) {
+			model.addAttribute("country", UserUtil.getSingleIso3(user));
+		}
+		return "index";
 
-    }
+	}
 
-    @RequestMapping(value = "/adminexport", method = RequestMethod.GET)
-    public String adminexport(ModelMap model, HttpSession session) {
+	@RequestMapping(value = "/adminexport", method = RequestMethod.GET)
+	public String adminexport(ModelMap model, HttpSession session) {
 
-        model.addAttribute("context", "export");
-        User user = (User) session.getAttribute(SESSION_USER);
-        if (user == null){
+		model.addAttribute("context", "export");
+		User user = (User) session.getAttribute(SESSION_USER);
+		if (user == null){
 
-            return "redirect:/";
-        }
-        String role = user.getRole();
-        if ("reviewer".equals(role)) {
-            return "redirect:/export";
-        }
-        if ("admin".equals(role)) {
-            model.addAttribute("countries", surveyService.getCountries());
-            model.addAttribute("uploadItem", new SurveyUpload());
-            return "admin";
-        }
-        return "/";
+			return "redirect:/";
+		}
+		String role = user.getRole();
+		if ("reviewer".equals(role)) {
+			return "redirect:/export";
+		}
+		if ("admin".equals(role)) {
+			model.addAttribute("countries", surveyService.getCountries());
+			model.addAttribute("uploadItem", new SurveyUpload());
+			return "admin";
+		}
+		return "/";
 
-    }
-    @RequestMapping(value = "/revexport", method = RequestMethod.GET)
-    public String revExport(ModelMap model, HttpSession session) {
+	}
+	@RequestMapping(value = "/revexport", method = RequestMethod.GET)
+	public String revExport(ModelMap model, HttpSession session) {
 
-        model.addAttribute("context", "export");
-        User user = (User) session.getAttribute(SESSION_USER);
-        if (user == null){
+		model.addAttribute("context", "export");
+		User user = (User) session.getAttribute(SESSION_USER);
+		if (user == null){
 
-            return "redirect:/";
-        }
-        model.addAttribute("countries", user.getCountriesSet());
-        String role = user.getRole();
-        if ("reviewer".equals(role)) {
-            return "reviewer";
-        }
-        if("editor".equals(role)){
-            return "editor";
-        }
-        return "redirect:/";
+			return "redirect:/";
+		}
 
-    }
+		ArrayList<Country> cList = new ArrayList<Country>(user.getCountriesSet());
+		BeanComparator beanComparator = new BeanComparator("name");
+		Collections.sort(cList, beanComparator);
 
-    @RequestMapping(value = "/importXml", method = RequestMethod.POST)
-    public String importXml(ModelMap model, SurveyUpload uploadItem, BindingResult result) {
-        if (result.hasErrors()) {
-            for (ObjectError error : result.getAllErrors()) {
+		model.addAttribute("countries", cList);
+		String role = user.getRole();
+		if ("reviewer".equals(role)) {
+			model.addAttribute("allowedQuestions",ControllerServices.getAllowedQuestions(user));
+			return "reviewer";
+		}
+		if("editor".equals(role)){
+			return "editor";
+		}
+		return "redirect:/";
 
-                LOGGER.error("Error: " + error.getCode() + " - " + error.getDefaultMessage());
-            }
-            return "redirect:/adminexport";
-        }
-        if(uploadItem == null || uploadItem.getFileData() == null || uploadItem.getFileData().isEmpty() || StringUtils.isBlank(uploadItem.getCountryForImport())){
+	}
 
-            model.addAttribute("messageType", "warning");
-            model.addAttribute("messageCode", "import.resultKO");
-            model.addAttribute("messageTimeout",10000);
-        }
-        else{
-            Boolean outcome = importFromXML(uploadItem.getFileData(), uploadItem.getCountryForImport());
-            if(outcome == null){
+	@RequestMapping(value = "/importXml", method = RequestMethod.POST)
+	public String importXml(ModelMap model, SurveyUpload uploadItem, BindingResult result) {
+		if (result.hasErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
 
-                model.addAttribute("messageType", "warning");
-                model.addAttribute("messageCode", "import.resultKO");
-                model.addAttribute("messageTimeout",10000);
-            }
-            else if(!outcome){
+				LOGGER.error("Error: " + error.getCode() + " - " + error.getDefaultMessage());
+			}
+			return "redirect:/adminexport";
+		}
+		if(uploadItem == null || uploadItem.getFileData() == null || uploadItem.getFileData().isEmpty() || StringUtils.isBlank(uploadItem.getCountryForImport())){
 
-                model.addAttribute("messageType", "warning");
-                model.addAttribute("messageCode", "import.countrynotmatch");
-                model.addAttribute("messageTimeout",10000);
-            }
-            else{
-                model.addAttribute("messageType", "success");
-                model.addAttribute("messageCode", "import.resultOK");
-                model.addAttribute("messageTimeout",10000);
-            }
-        }
+			model.addAttribute("messageType", "warning");
+			model.addAttribute("messageCode", "import.resultKO");
+			model.addAttribute("messageTimeout",10000);
+		}
+		else{
+			Boolean outcome = importFromXML(uploadItem.getFileData(), uploadItem.getCountryForImport());
+			if(outcome == null){
 
-        model.addAttribute("countries", surveyService.getCountries());
-        model.addAttribute("uploadItem", new SurveyUpload());
-        model.addAttribute("context","export");
-        return "admin";
-    }
+				model.addAttribute("messageType", "warning");
+				model.addAttribute("messageCode", "import.resultKO");
+				model.addAttribute("messageTimeout",10000);
+			}
+			else if(!outcome){
 
-    @RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
-    public @ResponseBody XmlSurvey handleGet(
-            @PathVariable(value = "country") String country, Model model, HttpSession session, HttpServletResponse response)
-            throws IllegalArgumentException, IllegalStateException, BadRequestServiceEx {
+				model.addAttribute("messageType", "warning");
+				model.addAttribute("messageCode", "import.countrynotmatch");
+				model.addAttribute("messageTimeout",10000);
+			}
+			else{
+				model.addAttribute("messageType", "success");
+				model.addAttribute("messageCode", "import.resultOK");
+				model.addAttribute("messageTimeout",10000);
+			}
+		}
 
-        SurveyInfo surveyInfo = new SurveyInfo();
-        surveyInfo.setCountry(country);
-        Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
-        surveyInfo.setTimestamp(cal.getTime());
+		model.addAttribute("countries", surveyService.getCountries());
+		model.addAttribute("uploadItem", new SurveyUpload());
+		model.addAttribute("context","export");
+		return "admin";
+	}
 
-        SurveyStatus surveyStatusDto = new SurveyStatus();
-        Status surveyStatus = surveyService.getStatus(country);
-        try {
-            BeanUtils.copyProperties(surveyStatusDto, surveyStatus);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(), e);
-            throw new IllegalStateException("Error occurred while copying DTO object into entity onject");
-        }
+	@RequestMapping(value = "/export/{country}", method = RequestMethod.GET)
+	public @ResponseBody XmlSurvey handleGet(
+			@PathVariable(value = "country") String country, Model model, HttpSession session, HttpServletResponse response)
+					throws IllegalArgumentException, IllegalStateException, BadRequestServiceEx {
 
-        XmlSurvey survey = new XmlSurvey();
-        survey.setInfo(surveyInfo);
-        survey.setSurveyStatus(surveyStatusDto);
-        List<BasicValue> valList = new ArrayList<BasicValue>();
-        survey.setBasicValues(valList);
+		SurveyInfo surveyInfo = new SurveyInfo();
+		surveyInfo.setCountry(country);
+		Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
+		surveyInfo.setTimestamp(cal.getTime());
 
-//        List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
-        List<TextValue> textValues = bulkLoader.loadAllTextValues(country);
-        List<NumberValue> numberValues = bulkLoader.loadAllNumericValues(country);
+		SurveyStatus surveyStatusDto = new SurveyStatus();
+		Status surveyStatus = surveyService.getStatus(country);
+		try {
+			BeanUtils.copyProperties(surveyStatusDto, surveyStatus);
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+			throw new IllegalStateException("Error occurred while copying DTO object into entity onject");
+		}
 
-        for (TextValue el : textValues) {
+		XmlSurvey survey = new XmlSurvey();
+		survey.setInfo(surveyInfo);
+		survey.setSurveyStatus(surveyStatusDto);
+		List<BasicValue> valList = new ArrayList<BasicValue>();
+		survey.setBasicValues(valList);
 
-            Long questionId = null;
-            if(el != null && el.getEntryItem() != null && el.getEntryItem().getEntry() != null){
-                questionId = el.getEntryItem().getEntry().getQuestion().getId();
-            }
-            valList.add(buildBasicValue(questionId, el.getValue(), composeEntryItemName(el.getEntryItem()),"text"));
-        }
+		//        List<EntryItem> entryItems = bulkLoader.loadAllEntryItem();
+		List<TextValue> textValues = bulkLoader.loadAllTextValues(country);
+		List<NumberValue> numberValues = bulkLoader.loadAllNumericValues(country);
 
-        for (NumberValue el : numberValues) {
+		for (TextValue el : textValues) {
 
-            Long questionId = null;
-            if(el != null && el.getEntryItem() != null && el.getEntryItem().getEntry() != null){
-                questionId = el.getEntryItem().getEntry().getQuestion().getId();
-            }
-            valList.add(buildBasicValue(questionId, String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
-        }
+			Long questionId = null;
+			if(el != null && el.getEntryItem() != null && el.getEntryItem().getEntry() != null){
+				questionId = el.getEntryItem().getEntry().getQuestion().getId();
+			}
+			valList.add(buildBasicValue(questionId, el.getValue(), composeEntryItemName(el.getEntryItem()),"text"));
+		}
 
-        // Get the users (Just for export not for import)
-        UserFilter uf = new UserFilter();
-        Country countryInstance = surveyService.findCountryByISO3(country);
-        if(countryInstance == null){
+		for (NumberValue el : numberValues) {
 
-            throw new IllegalStateException("Country '" + country + "' doesn't exist.");
-        }
-        uf.setCountries(String.valueOf(countryInstance.getId()));
-        List<User> users = usersServices.getAll(null, null, uf);
-        List<UserDTO> usersDTO = new ArrayList<UserDTO>();
-        try {
-            for(User el : users){
-                UserDTO uDTO = new UserDTO();
-                BeanUtils.copyProperties(uDTO, el);
-                List<Long> questions = new ArrayList<Long>();
-                for(Question el2 : el.getQuestions()){
-                    questions.add(el2.getId());
-                }
-                uDTO.setQuestionsId(questions);
-                /**
-                 * Remove the password for now, in the future maybe will be requested to export and import
-                 * the users, so the password must be encrypt... 
-                 */
-                uDTO.setPassword("********");
-                usersDTO.add(uDTO);
-            }
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(), e);
-            throw new IllegalStateException("Error occurred while copying DTO object into entity onject");
-        }
-        survey.setUsers(usersDTO);
+			Long questionId = null;
+			if(el != null && el.getEntryItem() != null && el.getEntryItem().getEntry() != null){
+				questionId = el.getEntryItem().getEntry().getQuestion().getId();
+			}
+			valList.add(buildBasicValue(questionId, String.valueOf(el.getValue().doubleValue()), composeEntryItemName(el.getEntryItem()),"numeric"));
+		}
 
-        response.setContentType("application/force-download");
-        response.setHeader("Content-Disposition","attachment; filename=\"" + country +  "-surveyExport.xml\"");
+		// Get the users (Just for export not for import)
+		UserFilter uf = new UserFilter();
+		Country countryInstance = surveyService.findCountryByISO3(country);
+		if(countryInstance == null){
 
-        return survey;
+			throw new IllegalStateException("Country '" + country + "' doesn't exist.");
+		}
+		uf.setCountries(String.valueOf(countryInstance.getId()));
+		List<User> users = usersServices.getAll(null, null, uf);
+		List<UserDTO> usersDTO = new ArrayList<UserDTO>();
+		try {
+			for(User el : users){
+				UserDTO uDTO = new UserDTO();
+				BeanUtils.copyProperties(uDTO, el);
+				List<Long> questions = new ArrayList<Long>();
+				for(Question el2 : el.getQuestions()){
+					questions.add(el2.getId());
+				}
+				uDTO.setQuestionsId(questions);
+				/**
+				 * Remove the password for now, in the future maybe will be requested to export and import
+				 * the users, so the password must be encrypt... 
+				 */
+				uDTO.setPassword("********");
+				usersDTO.add(uDTO);
+			}
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+			throw new IllegalStateException("Error occurred while copying DTO object into entity onject");
+		}
+		survey.setUsers(usersDTO);
 
-//        for (EntryItem el : entryItems) {
-//
-//            valList.add(buildBasicValue("", composeEntryItemName(el)));
-//        }
-    }
+		response.setContentType("application/force-download");
+		response.setHeader("Content-Disposition","attachment; filename=\"" + country +  "-surveyExport.xml\"");
 
-    private static String composeEntryItemName(EntryItem el){
+		return survey;
 
-        CompactValue cv = new CompactValue();
-        if (el != null && el.getEntry() != null && el.getEntry().getVariable() != null) {
-            cv.setVariable(el.getEntry().getVariable());
-        }
-        cv.setRowNumber(el.getRowNumber());
-        cv.setColumnNumber(el.getColumnNumber());
-        String entryItemName = VariableNameUtils.buildVariableAsShortText(cv);
-        // String entryItemShortName = entryItemName.replaceFirst("_fraVariable", "");
-        return entryItemName;
-    }
+		//        for (EntryItem el : entryItems) {
+		//
+		//            valList.add(buildBasicValue("", composeEntryItemName(el)));
+		//        }
+	}
 
-    private static BasicValue buildBasicValue(Long questionId, String content, String reference, String type){
+	private static String composeEntryItemName(EntryItem el){
 
-        BasicValue val = new BasicValue();
-        val.setQuestionId(questionId);
-        val.setContent(content);
-        val.setReference(reference);
-        val.setType(type);
-        return val;
-    }
+		CompactValue cv = new CompactValue();
+		if (el != null && el.getEntry() != null && el.getEntry().getVariable() != null) {
+			cv.setVariable(el.getEntry().getVariable());
+		}
+		cv.setRowNumber(el.getRowNumber());
+		cv.setColumnNumber(el.getColumnNumber());
+		String entryItemName = VariableNameUtils.buildVariableAsShortText(cv);
+		// String entryItemShortName = entryItemName.replaceFirst("_fraVariable", "");
+		return entryItemName;
+	}
 
-    public Boolean importFromXML(CommonsMultipartFile file, String countryCheck) {
+	private static BasicValue buildBasicValue(Long questionId, String content, String reference, String type){
 
-        JAXBContext jc = null;
-        XmlSurvey survey = null;
-        Updates updates = new Updates();
-        Map<Long, List<Update>> updatesMap = new HashMap<Long, List<Update>>();
-//        List<Update> updateList = new ArrayList<Update>();
-        Updates removes = new Updates();
+		BasicValue val = new BasicValue();
+		val.setQuestionId(questionId);
+		val.setContent(content);
+		val.setReference(reference);
+		val.setType(type);
+		return val;
+	}
 
-        try {
+	public Boolean importFromXML(CommonsMultipartFile file, String countryCheck) {
 
-            jc = JAXBContext.newInstance(XmlSurvey.class);
-            Unmarshaller um = jc.createUnmarshaller();
-            survey = (XmlSurvey) um.unmarshal(file.getInputStream());
-        }
-        catch (IOException e) {
+		JAXBContext jc = null;
+		XmlSurvey survey = null;
+		Updates updates = new Updates();
+		Map<Long, List<Update>> updatesMap = new HashMap<Long, List<Update>>();
+		//        List<Update> updateList = new ArrayList<Update>();
+		Updates removes = new Updates();
 
-            LOGGER.error(e.getMessage(), e);
-            return null;
-        }  catch (JAXBException e) {
+		try {
 
-            LOGGER.error(e.getMessage(), e);
-            return null;
-        }
+			jc = JAXBContext.newInstance(XmlSurvey.class);
+			Unmarshaller um = jc.createUnmarshaller();
+			survey = (XmlSurvey) um.unmarshal(file.getInputStream());
+		}
+		catch (IOException e) {
 
-        SurveyInfo info = survey.getInfo();
-        String country = info.getCountry();
-        if(!country.equals(countryCheck)){
-            return false;
-        }
+			LOGGER.error(e.getMessage(), e);
+			return null;
+		}  catch (JAXBException e) {
 
-        Country countryInstance = surveyService.findCountryByISO3(country);
-        if(countryInstance == null){
-            throw new IllegalStateException("Country '" + country + "' doesn't exist.");
-        }
+			LOGGER.error(e.getMessage(), e);
+			return null;
+		}
 
-        LOGGER.info("Starting XML import for Country " + country);
+		SurveyInfo info = survey.getInfo();
+		String country = info.getCountry();
+		if(!country.equals(countryCheck)){
+			return false;
+		}
 
-        if(survey.getBasicValues() != null){
-            for(BasicValue el : survey.getBasicValues()){
+		Country countryInstance = surveyService.findCountryByISO3(country);
+		if(countryInstance == null){
+			throw new IllegalStateException("Country '" + country + "' doesn't exist.");
+		}
 
-                Long qId = el.getQuestionId();
-                List<Update> upList = updatesMap.get(qId);
-                if(upList == null){
-                    List<Update> newUpList = new ArrayList<Update>();
-                    updatesMap.put(qId, newUpList);
-                    upList = newUpList;
-                }
-                String reference = (el.getReference().startsWith("_fraVariable_"))?el.getReference():"_fraVariable_"+el.getReference();
-                VariableNameUtils.VariableName varName = VariableNameUtils.buildVariable(reference, el.getContent());
-                Update up = new Update();
-                up.setColumn(varName.col);
-                up.setCountry(country);
-                up.setRow(varName.row);
-                up.setValue(varName.value);
-                up.setVariable(varName.variableName);
+		LOGGER.info("Starting XML import for Country " + country);
 
-                upList.add(up);
-            }
+				if(survey.getBasicValues() != null){
+					for(BasicValue el : survey.getBasicValues()){
 
-            for(Long el : updatesMap.keySet()){
-                List<Update> up = updatesMap.get(el);
-                updates.setQuestion(String.valueOf(el));
-                updates.setUsername("IMPORTED_FROM_XML");
-                updates.setUpdates(up);
-                utils.updateValuesService(updates, removes);
-            }
-        }
-        return true;
-    }
+						Long qId = el.getQuestionId();
+						List<Update> upList = updatesMap.get(qId);
+						if(upList == null){
+							List<Update> newUpList = new ArrayList<Update>();
+							updatesMap.put(qId, newUpList);
+							upList = newUpList;
+						}
+						String reference = (el.getReference().startsWith("_fraVariable_"))?el.getReference():"_fraVariable_"+el.getReference();
+						VariableNameUtils.VariableName varName = VariableNameUtils.buildVariable(reference, el.getContent());
+						Update up = new Update();
+						up.setColumn(varName.col);
+						up.setCountry(country);
+						up.setRow(varName.row);
+						up.setValue(varName.value);
+						up.setVariable(varName.variableName);
+
+						upList.add(up);
+					}
+
+					for(Long el : updatesMap.keySet()){
+						List<Update> up = updatesMap.get(el);
+						updates.setQuestion(String.valueOf(el));
+						updates.setUsername("IMPORTED_FROM_XML");
+						updates.setUpdates(up);
+						utils.updateValuesService(updates, removes);
+					}
+				}
+				return true;
+	}
 }

@@ -28,9 +28,10 @@ import it.geosolutions.fra2015.server.model.survey.EntryItem;
 import it.geosolutions.fra2015.server.model.survey.NumberValue;
 import it.geosolutions.fra2015.server.model.survey.TextValue;
 
+import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.hibernate.FetchMode;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.googlecode.genericdao.search.Search;
@@ -69,17 +70,60 @@ public class BulkModelEntitiesLoader {
         
         Search searchCriteria = new Search();
         searchCriteria.addFilterEqual("country.iso3", iso3);
+        searchCriteria.addFetch("entryItem.entry");
         return textValueDAO.search(searchCriteria);
     }
     
     /**
-     * Bulk loading of all persisted TextValue
+     * Bulk loading of all persisted NumerciValue for country
      * @return
      */
     public List<NumberValue> loadAllNumericValues(String iso3){
         
         Search searchCriteria = new Search();
         searchCriteria.addFilterEqual("country.iso3", iso3);
+        searchCriteria.addFetch("entryItem.entry");
+        return textNumberDAO.search(searchCriteria);
+    }
+    
+    /**
+     * Bulk loading of all persisted NumerciValue of specific questions for country
+     * @return
+     */
+    public List<NumberValue> loadAllNumericValues(String iso3, Integer[] questions){
+        
+        Search searchCriteria = new Search();
+        searchCriteria.addFilterEqual("country.iso3", iso3);
+        searchCriteria.addFetch("entryItem.entry");
+        if(questions != null && questions.length > 0) {
+        	searchCriteria.addFilterIn("entryItem.entry.question.id", Arrays.asList(questions));
+        }
+        return textNumberDAO.search(searchCriteria);
+    }
+    
+    public List<NumberValue> loadAllNumericValuesWithQuestions(String iso3, Integer[] questions){
+        
+        Search searchCriteria = new Search();
+        searchCriteria.addFilterEqual("country.iso3", iso3);
+        searchCriteria.addFilterNotNull("entryItem.columnName");
+        searchCriteria.addFetch("entryItem.entry");
+        if(questions != null && questions.length > 0) {
+        	searchCriteria.addFilterIn("entryItem.entry.question.id", Arrays.asList(questions));
+        }
+        searchCriteria.addSortAsc("entryItem.entry.id");
+        searchCriteria.addSortAsc("entryItem.rowName");
+        searchCriteria.addSortAsc("entryItem.columnName");
+        return textNumberDAO.search(searchCriteria);
+    }
+    
+    
+    
+  public List<NumberValue> loadAllNumericValues(String iso3, Integer questions){
+        
+        Search searchCriteria = new Search();
+        searchCriteria.addFilterEqual("country.iso3", iso3);
+        searchCriteria.addFetch("entryItem.entry");
+       	searchCriteria.addFilterEqual("entryItem.entry.question.id", questions);
         return textNumberDAO.search(searchCriteria);
     }
 }

@@ -255,7 +255,6 @@
 		</fo:block>
 	</xsl:template>
 
-
 	<xsl:template match='div[@class="entry"]/div'>
 		<fo:block text-align="justify" border="1pt solid black"
 			background-color="ghostwhite" margin-top="10pt" margin-bottom="10pt">
@@ -267,7 +266,20 @@
 		</fo:block>
 	</xsl:template>
 
-
+  <xsl:template match='div[contains(@id,"_feedback_")]'>
+    <fo:block text-align="justify" border="1pt solid black"
+      background-color="ghostwhite" margin-top="10pt" margin-bottom="10pt">
+      <fo:block space-before="5pt" start-indent="5pt" space-after="5pt"
+        end-indent="5pt">
+        <xsl:apply-templates />
+        <!-- <xsl:value-of select='normalize-space(.)' />  -->
+      </fo:block>
+    </fo:block>
+  </xsl:template>
+  
+  <xsl:template match='button'>
+  </xsl:template>
+   
 	<xsl:template match="table">
 		<fo:table table-layout="fixed" width="100%" border-collapse="collapse"
 			border-spacing="2px" border="1px solid black" margin-bottom="10pt">
@@ -285,9 +297,13 @@
 	</xsl:template>
 
 	<xsl:template match="tr">
-		<fo:table-row keep-together.within-page="always">
-			<xsl:apply-templates select="td | th | text()" />
-		</fo:table-row>
+	   <xsl:choose>
+            <xsl:when test="*">
+                  <fo:table-row keep-together.within-page="always">
+							      <xsl:apply-templates select="td | th | text()" />
+							    </fo:table-row>
+            </xsl:when>
+      </xsl:choose>	
 	</xsl:template>
 
 	<xsl:template
@@ -1301,4 +1317,6 @@
     </fo:inline>
   </xsl:template>
  
+  <xsl:template match='div[@id="cell-content" and not(text())]'>N/A</xsl:template> 
+  
 </xsl:stylesheet>

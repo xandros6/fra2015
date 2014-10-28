@@ -15,6 +15,8 @@
 
 <script src="${pageContext.request.contextPath}/js/bootstrap-datetimepicker.min.js"></script>
 
+<script src="${pageContext.request.contextPath}/js/jquery.bootstrap-duallistbox.js"></script>
+
 <script src="${pageContext.request.contextPath}/js/jquery.numeric.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/jquery.fileDownload.js"></script>

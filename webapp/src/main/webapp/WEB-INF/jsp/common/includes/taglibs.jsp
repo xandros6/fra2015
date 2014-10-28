@@ -5,5 +5,6 @@
 <%@ taglib prefix="fra" uri="/WEB-INF/tld/surveyentry.tld"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fraFn" uri="/WEB-INF/tld/computeSum.tld"  %>
+<%@ taglib prefix="fraFnUtils" uri="/WEB-INF/tld/tagutils.tld"  %>
 <c:set var="baseURL" value="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, pageContext.request.contextPath)}" />
 

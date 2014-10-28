@@ -5,8 +5,9 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 import java.io.Serializable;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import org.hibernate.annotations.Index;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  *
@@ -35,13 +38,14 @@ public abstract class Value implements Serializable {
     /**
      * fixme: value should refer to a survey, not to a country
      */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
     
     @Transient
     private String content;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Fetch(value=FetchMode.JOIN)
     @JoinColumn(name="item_id", nullable=false)
     private EntryItem entryItem;
 

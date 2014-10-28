@@ -1109,11 +1109,13 @@
 							<td rownumber="1" columnnumber="2"><spring:message
 									code="ref79"></spring:message></td>
 						</tr>
+						<!-- 
 						<tr>
 							<td><spring:message code="ref254"></spring:message></td>
 							<td><spring:message code="ref255"></spring:message></td>
 							<td class="noneditable"></td>
 						</tr>
+						 -->
 					</tbody>
 				</table>
 			</div>

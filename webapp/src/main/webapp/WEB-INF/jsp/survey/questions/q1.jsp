@@ -277,7 +277,7 @@
 			<div></div>
 			<div class="entry">
 				<!--?xml version="1.0"?-->
-				<table cols="20 * * * * * * *" class="editable table table-bordered table-hover table-condensed table-striped">
+				<table class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr>
 							<td rowspan="2" colspan="3" rownumber="0" columnnumber="0"><spring:message

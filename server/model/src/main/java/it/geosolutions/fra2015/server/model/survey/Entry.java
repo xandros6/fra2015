@@ -58,14 +58,15 @@ public class Entry extends Element {
     @Column(nullable = false, updatable = false)
     private String type;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Fetch(value=FetchMode.JOIN)
     @JoinColumn(name="question_id", referencedColumnName="id")
     @ForeignKey(name = "fk_entry_question")
     @Index(name = "idx_entry_question")
     private Question question;
     
-    @OneToMany(mappedBy = "entry", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @Fetch(value=FetchMode.JOIN)
+    @OneToMany(mappedBy = "entry", cascade= javax.persistence.CascadeType.PERSIST, fetch = FetchType.LAZY)
+   // @Fetch(value=FetchMode.JOIN)
     @Cascade({CascadeType.SAVE_UPDATE})
     @JoinColumn(name="entry_id", referencedColumnName="id")
     // see http://www.intertech.com/Blog/Post/Hibernate-Why-Are-there-nulls-in-my-collection.aspx

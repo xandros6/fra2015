@@ -5,6 +5,7 @@
 package it.geosolutions.fra2015.server.model.survey;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * This class represents a text area or a cell within a table.
@@ -32,7 +36,8 @@ public class EntryItem implements Serializable {
     private Integer rowNumber;
     @Column(nullable = true, updatable = true)
     private Integer columnNumber;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Fetch(value=FetchMode.JOIN)
     @JoinColumn(name="entry_id", referencedColumnName="id")
     private Entry entry;
     
