@@ -1631,25 +1631,25 @@
 							<td rownumber="10" colspan="2" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
 							
-							<c:set var="sum" value="${_fraVariable_3e_5_1_};${_fraVariable_3e_8_1_};${_fraVariable_3e_9_1_}"/>							
+							<c:set var="sum" value="${_fraVariable_3e_3_1_};${_fraVariable_3e_4_1_};${_fraVariable_3e_6_1_};${_fraVariable_3e_7_1_};${_fraVariable_3e_9_1_}"/>							
 							<td class="total" rownumber="10" columnnumber="1">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_2_};${_fraVariable_3e_8_2_};${_fraVariable_3e_9_2_}"/>      
+							<c:set var="sum" value="${_fraVariable_3e_3_2_};${_fraVariable_3e_4_2_};${_fraVariable_3e_6_2_};${_fraVariable_3e_7_2_};${_fraVariable_3e_9_2_}"/>  
 							<td class="total" rownumber="10" columnnumber="2">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_3_};${_fraVariable_3e_8_3_};${_fraVariable_3e_9_3_}"/>    
+							<c:set var="sum" value="${_fraVariable_3e_3_3_};${_fraVariable_3e_4_3_};${_fraVariable_3e_6_3_};${_fraVariable_3e_7_3_};${_fraVariable_3e_9_3_}"/>    
 							<td class="total" rownumber="10" columnnumber="3">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_4_};${_fraVariable_3e_8_4_};${_fraVariable_3e_9_4_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_4_};${_fraVariable_3e_4_4_};${_fraVariable_3e_6_4_};${_fraVariable_3e_7_4_};${_fraVariable_3e_9_4_}"/>  
 							<td class="total" rownumber="10" columnnumber="4">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_5_};${_fraVariable_3e_8_5_};${_fraVariable_3e_9_5_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_5_};${_fraVariable_3e_4_5_};${_fraVariable_3e_6_5_};${_fraVariable_3e_7_5_};${_fraVariable_3e_9_5_}"/> 
 							<td class="total" rownumber="10" columnnumber="5">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_6_};${_fraVariable_3e_8_6_};${_fraVariable_3e_9_6_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_6_};${_fraVariable_3e_4_6_};${_fraVariable_3e_6_6_};${_fraVariable_3e_7_6_};${_fraVariable_3e_9_6_}"/> 
 							<td class="total" rownumber="10" columnnumber="6">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_7_};${_fraVariable_3e_8_7_};${_fraVariable_3e_9_7_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_7_};${_fraVariable_3e_4_7_};${_fraVariable_3e_6_7_};${_fraVariable_3e_7_7_};${_fraVariable_3e_9_7_}"/> 
 							<td class="total" rownumber="10" columnnumber="7">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_8_};${_fraVariable_3e_8_8_};${_fraVariable_3e_9_8_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_8_};${_fraVariable_3e_4_8_};${_fraVariable_3e_6_8_};${_fraVariable_3e_7_8_};${_fraVariable_3e_9_8_}"/> 
 							<td class="total" rownumber="10" columnnumber="8">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_9_};${_fraVariable_3e_8_9_};${_fraVariable_3e_9_9_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_9_};${_fraVariable_3e_4_9_};${_fraVariable_3e_6_9_};${_fraVariable_3e_7_9_};${_fraVariable_3e_9_9_}"/> 
 							<td class="total" rownumber="10" columnnumber="9">${fraFn:computeSum(sum)}</td>
-							<c:set var="sum" value="${_fraVariable_3e_5_10_};${_fraVariable_3e_8_10_};${_fraVariable_3e_9_10_}"/> 
+							<c:set var="sum" value="${_fraVariable_3e_3_10_};${_fraVariable_3e_4_10_};${_fraVariable_3e_6_10_};${_fraVariable_3e_7_10_};${_fraVariable_3e_9_10_}"/> 
 							<td class="total" rownumber="10" columnnumber="10">${fraFn:computeSum(sum)}</td>
 						</tr>
 					</tbody>
