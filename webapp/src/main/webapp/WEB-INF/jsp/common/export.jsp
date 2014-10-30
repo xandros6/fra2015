@@ -4,10 +4,12 @@
 
 <h3><spring:message code="export.title" /></h3>
 
-<h4><spring:message code="export.country" /></h4>
 <form:form modelAttribute="batchExportConfiguration" action="batchExport" method="post" enctype="multipart/form-data" class="exportForm" id="batchExportConfiguration">
+<div id="countriesSection" style="display: none;">
+<h4><spring:message code="export.country" /></h4>
 <select multiple="multiple" size="10" name="batchExportCountriesDuallistbox">
 </select>
+</div>
 <h4><spring:message code="export.question" /></h4>
 <select multiple="multiple" size="5" name="batchExportQuestionsDuallistbox">
 </select>
@@ -41,8 +43,15 @@
 </form:form>
 </c:if>
 
-<script>
+<script type="text/javascript">
 $(function() {
+	  if(countriesArr.length == 1){
+		  $('#countries').val(countriesArr[0].name);
+		  $('#xml').removeAttr("disabled");
+	  }else{
+		  $('#countries').show();
+	    $('#countriesSection').show();  
+	  }
 	  $("#batchCSV").click(function() {
 	      var url = 'survey/print/csv';
 	      $.fileDownload(url, {
@@ -127,14 +136,17 @@ $(function() {
       }
     });
 
-    checkEnableControls();
     
     var batchExportCountriesDuallistbox = $('select[name="batchExportCountriesDuallistbox"]').bootstrapDualListbox({
     	  nonSelectedListLabel: '<spring:message code="export.available"></spring:message>',
     	  selectedListLabel: '<spring:message code="export.selected"></spring:message>'
     });
     $.each(countriesArr, function(i, country) {
-      batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '">' + country.name + '</option>');
+    	if(countriesArr.length == 1){
+    		  batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '" selected="selected">' + country.name + '</option>');
+    	}else{
+    		  batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '" >' + country.name + '</option>');
+    	}
     });
     batchExportCountriesDuallistbox.bootstrapDualListbox('refresh');
     batchExportCountriesDuallistbox.change(function(e) {
@@ -213,6 +225,7 @@ $(function() {
     batchExportQuestionsDuallistbox.change(function(e) {
         checkEnableControls();
     }); 
+    checkEnableControls();
   });
   
   function checkEnableControls() {

@@ -26,8 +26,8 @@ public class SumFunction {
 		for(String s : StringUtils.splitPreserveAllTokens(numbers,";")){
 			s = s.trim();
 			if(s==null || s.isEmpty() || !NumberUtils.isNumber(s)){
-				result = null;
-				break;
+				//result = null;
+				continue;
 			}else{
 				try {
 					result = result + df.parse(s).doubleValue();
