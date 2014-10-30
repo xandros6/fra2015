@@ -101,6 +101,20 @@ public class BulkModelEntitiesLoader {
         return textNumberDAO.search(searchCriteria);
     }
     
+    public List<NumberValue> loadAllNumericValues(List<String> iso3s, Integer[] questions){        
+    	 Search searchCriteria = new Search();
+         searchCriteria.addFilterIn("country.iso3", iso3s);
+         searchCriteria.addFilterNotNull("entryItem.columnName");
+         searchCriteria.addFetch("entryItem.entry");
+         if(questions != null && questions.length > 0) {
+         	searchCriteria.addFilterIn("entryItem.entry.question.id", Arrays.asList(questions));
+         }
+         searchCriteria.addSortAsc("entryItem.entry.id");
+         searchCriteria.addSortAsc("entryItem.rowName");
+         searchCriteria.addSortAsc("entryItem.columnName");
+         return textNumberDAO.search(searchCriteria);
+    }
+    
     public List<NumberValue> loadAllNumericValuesWithQuestions(String iso3, Integer[] questions){
         
         Search searchCriteria = new Search();

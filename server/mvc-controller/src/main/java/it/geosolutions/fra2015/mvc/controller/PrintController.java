@@ -340,7 +340,7 @@ public class PrintController {
 			User su = (User) session.getAttribute("sessionUser");
 			checkQuestionsPermissions(su, questions);
 
-			List<Question> questionList = surveyService.getQuestions(questions);
+			//List<Question> questionList = surveyService.getQuestions(questions);
 
 			String csvName =  "FRA_2015_Report_"+su.getUsername()+".csv";
 			resp.setContentType("text/csv"); 
@@ -354,41 +354,58 @@ public class PrintController {
 			OutputStream buffOs= new BufferedOutputStream(resOs);   
 			outputwriter = new OutputStreamWriter(buffOs);  
 
-			String[] questionsHeader = null;
 			Arrays.sort(countries);
+			
+			List<String> questionsHeader = new ArrayList<String>();
+			questionsHeader.add("Country");
+			List<NumberValue> all = bulkLoader.loadAllNumericValues(Arrays.asList(countries),questions);
+			for(NumberValue nValue: all) {
+				EntryItem ei = nValue.getEntryItem();
+				Entry e = ei.getEntry();
+				Question q = e.getQuestion();
+				String nQuestion = "q"+q.getId();
+				String nTable = "t"+e.getVariable();
+				if(ei.getRowNumber() != null) {
+					String nRow = "r"+ei.getRowNumber();
+					if(ei.getColumnName() != null) {
+						String nCol = "y"+ei.getColumnName();				
+						String h = StringEscapeUtils.escapeCsv(nQuestion+"-"+nTable+"-"+nRow+"-"+nCol);
+						if(!questionsHeader.contains(h)) {
+							questionsHeader.add(h);
+						}
+					}
+				}
+			}
+			outputwriter.write(StringUtils.join(questionsHeader, CSV_SEPARATOR));
+			outputwriter.write(SystemUtils.LINE_SEPARATOR);
+
+			
 			for(String country : countries) {
+				String[] outputValues = new String[questionsHeader.size()];
+				Arrays.fill(outputValues, "N/A");
+				outputValues[0] = country;
 				List<NumberValue> numberValues = bulkLoader.loadAllNumericValuesWithQuestions(country,questions);
-				if(questionsHeader == null) {
-					questionsHeader = new String[numberValues.size()+1];
-					questionsHeader[0] = "Country";
-					for(int i = 0 ; i <numberValues.size() ; i++) {
-						NumberValue nValue = numberValues.get(i);
-						EntryItem ei = nValue.getEntryItem();
-						Entry e = ei.getEntry();
-						Question q = e.getQuestion();
 
-						String nQuestion = "q"+q.getId();
-						String nTable = "t"+e.getVariable();
-						String nRow = "r"+ei.getRowNumber();
-						String nCol = "y"+ei.getColumnName();
-
-						questionsHeader[i+1] = StringEscapeUtils.escapeCsv(nQuestion+"-"+nTable+"-"+nRow+"-"+nCol);
-
-					}
-					outputwriter.write(StringUtils.join(questionsHeader, CSV_SEPARATOR));
-					outputwriter.write(SystemUtils.LINE_SEPARATOR);
-				}
-				String[] values = new String[numberValues.size()+1];
-				values[0] = country;
 				for(int i = 0 ; i <numberValues.size() ; i++) {
-					NumberValue nv = numberValues.get(i);
-					if ("NaN".equalsIgnoreCase(nv.getContent())){
-						nv.setContent("N/A");
+					NumberValue nValue = numberValues.get(i);
+					EntryItem ei = nValue.getEntryItem();
+					Entry e = ei.getEntry();
+					Question q = e.getQuestion();
+					String nQuestion = "q"+q.getId();
+					String nTable = "t"+e.getVariable();
+					String nRow = "r"+ei.getRowNumber();
+					String nCol = "y"+ei.getColumnName();
+					String h = StringEscapeUtils.escapeCsv(nQuestion+"-"+nTable+"-"+nRow+"-"+nCol);
+					int valueIndex = questionsHeader.indexOf(h);
+					if(valueIndex != -1) {
+						if ("NaN".equalsIgnoreCase(nValue.getContent())){
+							nValue.setContent("N/A");
+						}
+						outputValues[valueIndex] = StringEscapeUtils.escapeCsv(nValue.getContent());
 					}
-					values[i+1] = StringEscapeUtils
-							.escapeCsv(nv.getContent());
 				}
-				outputwriter.write(StringUtils.join(values, CSV_SEPARATOR));
+
+				outputwriter.write(StringUtils.join(outputValues, CSV_SEPARATOR));
 				outputwriter.write(SystemUtils.LINE_SEPARATOR);
 
 			}
