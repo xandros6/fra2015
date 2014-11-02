@@ -23,7 +23,7 @@
 
 		<intercept-url pattern="/survey/print/**/feedback" access="ROLE_reviewer,ROLE_editor" />   
 		
-		<intercept-url pattern="/survey/print/**/onlyvalues" access="ROLE_admin,ROLE_reviewer,ROLE_editor" />		
+		<intercept-url pattern="/survey/print/**/onlyvalues" access="ROLE_contributor,ROLE_admin,ROLE_reviewer,ROLE_editor" />		
 		<intercept-url pattern="/reviewersubmit*" access="ROLE_reviewer" />
 		<intercept-url pattern="/export/*" access="ROLE_admin,ROLE_contributor,ROLE_editor,ROLE_validator" />
 		<intercept-url pattern="/acceptance/**" access="ROLE_validator" />

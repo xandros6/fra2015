@@ -17,7 +17,7 @@
     <div class="span6 expSection">
       <div class="checkbox"><label><input type="checkbox" id="excludeUnedited" name="excludeUnedited"><spring:message code="export.excludeUnedited" /></label></div>
       
-      <c:if test="${sessionUser.role=='reviewer' || sessionUser.role=='editor' }">
+      <c:if test="${sessionUser.role=='reviewer' || sessionUser.role=='editor' || sessionUser.role=='contributor' }">
         <div class="checkbox"><label><input type="checkbox" id="includeComments" name="includeComments"><spring:message code="export.includeComments" /></label></div>
       </c:if>
       

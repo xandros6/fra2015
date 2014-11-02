@@ -186,6 +186,15 @@ public class PrintController {
 					LOGGER.error(e.getMessage(), e);
 				}
 			}
+			if(su.getRole().equalsIgnoreCase(Profile.CONTRIBUTOR.toString())){
+				try{
+					model.addAttribute("profile", ControllerServices.Profile.CONTRIBUTOR.toString());
+					model.addAttribute("profileName","CONTRIBUTOR");
+					listF = fh.retrieveAllFeedbacks(country, session, null);
+				} catch (BadRequestServiceEx e) {
+					LOGGER.error(e.getMessage(), e);
+				}
+			}
 		}	
 
 		if(mode.equalsIgnoreCase("allschema")){
