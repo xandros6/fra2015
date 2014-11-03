@@ -1317,6 +1317,6 @@
     </fo:inline>
   </xsl:template>
  
-  <xsl:template match='div[@id="cell-content" and not(text())]'>N/A</xsl:template> 
+  <xsl:template match='div[@id="cell-content" and not(text()) and not(descendant::text())]'>N/A</xsl:template> 
   
 </xsl:stylesheet>

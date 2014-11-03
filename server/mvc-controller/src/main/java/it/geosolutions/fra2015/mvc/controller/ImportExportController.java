@@ -124,7 +124,8 @@ public class ImportExportController {
 			return "redirect:/adminexport";
 		}
 		if (role.equals("contributor")) {
-			model.addAttribute("country", UserUtil.getSingleIso3(user));
+			ArrayList<Country> cList = new ArrayList<Country>(user.getCountriesSet());
+			model.addAttribute("countries", cList);
 		}
 		return "index";
 

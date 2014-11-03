@@ -4,10 +4,12 @@
 
 <h3><spring:message code="export.title" /></h3>
 
-<h4><spring:message code="export.country" /></h4>
 <form:form modelAttribute="batchExportConfiguration" action="batchExport" method="post" enctype="multipart/form-data" class="exportForm" id="batchExportConfiguration">
+<div id="countriesSection" style="display: none;">
+<h4><spring:message code="export.country" /></h4>
 <select multiple="multiple" size="10" name="batchExportCountriesDuallistbox">
 </select>
+</div>
 <h4><spring:message code="export.question" /></h4>
 <select multiple="multiple" size="5" name="batchExportQuestionsDuallistbox">
 </select>
@@ -15,7 +17,7 @@
     <div class="span6 expSection">
       <div class="checkbox"><label><input type="checkbox" id="excludeUnedited" name="excludeUnedited"><spring:message code="export.excludeUnedited" /></label></div>
       
-      <c:if test="${sessionUser.role=='reviewer' || sessionUser.role=='editor' }">
+      <c:if test="${sessionUser.role=='reviewer' || sessionUser.role=='editor' || sessionUser.role=='contributor' }">
         <div class="checkbox"><label><input type="checkbox" id="includeComments" name="includeComments"><spring:message code="export.includeComments" /></label></div>
       </c:if>
       
@@ -41,8 +43,15 @@
 </form:form>
 </c:if>
 
-<script>
+<script type="text/javascript">
 $(function() {
+	  if(countriesArr.length == 1){
+		  $('#countries').val(countriesArr[0].name);
+		  $('#xml').removeAttr("disabled");
+	  }else{
+		  $('#countries').show();
+	    $('#countriesSection').show();  
+	  }
 	  $("#batchCSV").click(function() {
 	      var url = 'survey/print/csv';
 	      $.fileDownload(url, {
@@ -127,14 +136,17 @@ $(function() {
       }
     });
 
-    checkEnableControls();
     
     var batchExportCountriesDuallistbox = $('select[name="batchExportCountriesDuallistbox"]').bootstrapDualListbox({
     	  nonSelectedListLabel: '<spring:message code="export.available"></spring:message>',
     	  selectedListLabel: '<spring:message code="export.selected"></spring:message>'
     });
     $.each(countriesArr, function(i, country) {
-      batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '">' + country.name + '</option>');
+    	if(countriesArr.length == 1){
+    		  batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '" selected="selected">' + country.name + '</option>');
+    	}else{
+    		  batchExportCountriesDuallistbox.append('<option value="' + country.iso3 + '" >' + country.name + '</option>');
+    	}
     });
     batchExportCountriesDuallistbox.bootstrapDualListbox('refresh');
     batchExportCountriesDuallistbox.change(function(e) {
@@ -147,72 +159,73 @@ $(function() {
         selectedListLabel: '<spring:message code="export.selected"></spring:message>'
     }); 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q01')}">
-       batchExportQuestionsDuallistbox.append('<option value="0" selected="selected"><spring:message code='ref1'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="0" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref1'></spring:message></option>');
     </c:if>   
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q02')}">
-       batchExportQuestionsDuallistbox.append('<option value="1" selected="selected"><spring:message code='ref89'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="1" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref89'></spring:message></option>');
     </c:if>   
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q03')}">
-       batchExportQuestionsDuallistbox.append('<option value="2" selected="selected"><spring:message code='ref130'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="2" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref130'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q04')}">
-       batchExportQuestionsDuallistbox.append('<option value="3" selected="selected"><spring:message code='ref215'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="3" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref215'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q05')}">
-       batchExportQuestionsDuallistbox.append('<option value="4" selected="selected"><spring:message code='ref259'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="4" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref259'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q06')}">
-       batchExportQuestionsDuallistbox.append('<option value="5" selected="selected"><spring:message code='ref310'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="5" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref310'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q07')}">
-       batchExportQuestionsDuallistbox.append('<option value="6" selected="selected"><spring:message code='ref319'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="6" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref319'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q08')}">
-       batchExportQuestionsDuallistbox.append('<option value="7" selected="selected"><spring:message code='ref334'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="7" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref334'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q09')}">
-       batchExportQuestionsDuallistbox.append('<option value="8" selected="selected"><spring:message code='ref371'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="8" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref371'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q10')}">
-       batchExportQuestionsDuallistbox.append('<option value="9" selected="selected"><spring:message code='ref377'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="9" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref377'></spring:message></option>');
     </c:if>
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q11')}">
-       batchExportQuestionsDuallistbox.append('<option value="10" selected="selected"><spring:message code='ref392'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="10" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref392'></spring:message></option>');
     </c:if>  
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q12')}">
-       batchExportQuestionsDuallistbox.append('<option value="11" selected="selected"><spring:message code='ref397'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="11" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref397'></spring:message></option>');
     </c:if>  
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q13')}">
-       batchExportQuestionsDuallistbox.append('<option value="12" selected="selected"><spring:message code='ref407'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="12" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref407'></spring:message></option>');
     </c:if>  
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q14')}">
-       batchExportQuestionsDuallistbox.append('<option value="13" selected="selected"><spring:message code='ref435'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="13" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref435'></spring:message></option>');
     </c:if>  
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q15')}">
-       batchExportQuestionsDuallistbox.append('<option value="14" selected="selected"><spring:message code='ref457'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="14" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref457'></spring:message></option>');
     </c:if>  
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q16')}">
-       batchExportQuestionsDuallistbox.append('<option value="15" selected="selected"><spring:message code='ref467'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="15" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref467'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q17')}">
-       batchExportQuestionsDuallistbox.append('<option value="16" selected="selected"><spring:message code='ref487'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="16" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref487'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q18')}">
-       batchExportQuestionsDuallistbox.append('<option value="17" selected="selected"><spring:message code='ref495'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="17" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref495'></spring:message></option>');
     </c:if> 
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q19')}">
-       batchExportQuestionsDuallistbox.append('<option value="18" selected="selected"><spring:message code='ref536'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="18" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref536'></spring:message></option>');
     </c:if>
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q20')}">
-       batchExportQuestionsDuallistbox.append('<option value="19" selected="selected"><spring:message code='ref545'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="19" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref545'></spring:message></option>');
     </c:if>
     <c:if test="${sessionUser.role!='reviewer' || fn:contains(allowedQuestions, 'q21')}">
-       batchExportQuestionsDuallistbox.append('<option value="20" selected="selected"><spring:message code='ref554'></spring:message></option>');
+       batchExportQuestionsDuallistbox.append('<option value="20" selected="selected"><spring:message htmlEscape='true' javaScriptEscape='true' code='ref554'></spring:message></option>');
     </c:if>
     batchExportQuestionsDuallistbox.bootstrapDualListbox('refresh');
     batchExportQuestionsDuallistbox.change(function(e) {
         checkEnableControls();
     }); 
+    checkEnableControls();
   });
   
   function checkEnableControls() {

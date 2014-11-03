@@ -274,6 +274,7 @@
 			<spring:message code="editor.surveylist.pending.msg"></spring:message>
       <br />
       <label class="checkbox inline"> 
+        <input type="hidden" name="modalDataCountry" id="modalDataCountry" />
         <input type="checkbox" name="sendContributorsEmails" type="checkbox" id="sendContributorsEmails" checked="checked"/>
         <spring:message code="editor.surveylist.pending.emailmsg"></spring:message>
       </label>
@@ -343,6 +344,7 @@
 			})
 			$('.pendingConfirm').click(function(){
 				$('#sendContributorsEmails').prop("checked", true);
+				$('#modalDataCountry').val($(this).attr('data-country'));				
 				$('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$(this).attr('data-country')+"/1");
 			});
 			
@@ -352,7 +354,7 @@
 			
 			$('#sendContributorsEmails').change(function(){
 				 var sendContributorsEmails = $(this).prop('checked');
-				 $('#pendingConfirm .confirm').attr('href','../editorPendingFix/${countryIso3}/'+(sendContributorsEmails|0));
+				 $('#pendingConfirm .confirm').attr('href','../editorPendingFix/'+$('#modalDataCountry').val()+'/'+(sendContributorsEmails|0));
 			 });
 		});
 		
