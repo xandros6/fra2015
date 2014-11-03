@@ -242,18 +242,6 @@
 		font-size="12pt"> <xsl:value-of select='normalize-space(.)'/> </fo:block> 
 		</xsl:template> -->
 
-	<xsl:template match='section/h2'>
-		<fo:block text-align="start" font-size="12pt" font-weight="bold"
-			margin-top="10pt">
-			<xsl:value-of select='normalize-space(.)' />
-		</fo:block>
-	</xsl:template>
-
-	<xsl:template match='section/div/h4'>
-		<fo:block text-align="start" font-size="12pt">
-			<xsl:value-of select='normalize-space(.)' />
-		</fo:block>
-	</xsl:template>
 
 	<xsl:template match='div[@class="entry"]/div'>
 		<fo:block text-align="justify" border="1pt solid black"
@@ -268,7 +256,7 @@
 
   <xsl:template match='div[contains(@id,"_feedback_")]'>
     <fo:block text-align="justify" border="1pt solid black"
-      background-color="ghostwhite" margin-top="10pt" margin-bottom="10pt">
+      background-color="Tomato" margin-top="10pt" margin-bottom="10pt">
       <fo:block space-before="5pt" start-indent="5pt" space-after="5pt"
         end-indent="5pt">
         <xsl:apply-templates />
@@ -896,12 +884,19 @@
     </fo:block>
   </xsl:template>
 
+	<xsl:template match='section/h2'>
+		<fo:block text-align="start" font-size="12pt" font-weight="bold"
+			margin-top="10pt">
+			<xsl:value-of select='normalize-space(.)' />
+		</fo:block>
+	</xsl:template>
+
   <!-- ============================================
     <h3> is slightly smaller than <h2>.
     =============================================== -->
 
   <xsl:template match="h3">
-    <fo:block font-size="21pt" line-height="24pt"
+    <fo:block font-size="12pt" line-height="24pt"
       keep-with-next="always" space-after="14pt"
       font-family="serif">
       <xsl:attribute name="id">
@@ -925,7 +920,7 @@
     =============================================== -->
 
   <xsl:template match="h4">
-    <fo:block font-size="18pt" line-height="21pt"
+    <fo:block font-size="10pt" line-height="21pt"
       keep-with-next="always" space-after="12pt"
       font-family="serif">
       <xsl:attribute name="id">
@@ -941,6 +936,12 @@
       <xsl:apply-templates select="*|text()"/>
     </fo:block>
   </xsl:template>
+
+	<xsl:template match='section/div/h4'>
+		<fo:block text-align="start" font-size="12pt">
+			<xsl:value-of select='normalize-space(.)' />
+		</fo:block>
+	</xsl:template>
 
   <!-- ============================================
     <h5> is pretty small, and is underlined to 

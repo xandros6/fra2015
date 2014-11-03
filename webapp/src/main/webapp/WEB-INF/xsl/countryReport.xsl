@@ -885,7 +885,7 @@
     =============================================== -->
 
   <xsl:template match="h3">
-    <fo:block font-size="21pt" line-height="24pt"
+    <fo:block font-size="12pt" line-height="24pt"
       keep-with-next="always" space-after="14pt"
       font-family="serif">
       <xsl:attribute name="id">
@@ -909,7 +909,7 @@
     =============================================== -->
 
   <xsl:template match="h4">
-    <fo:block font-size="18pt" line-height="21pt"
+    <fo:block font-size="10pt" line-height="21pt"
       keep-with-next="always" space-after="12pt"
       font-family="serif">
       <xsl:attribute name="id">
