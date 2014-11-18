@@ -265,8 +265,7 @@ public class PrintController {
 			String appPath = servletContext.getRealPath(""); //root of web app
 			fopFactory.setBaseURL(appPath);	
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-			fopFactory.setBaseURL(requestUrl);	
-			CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
+			fopFactory.setBaseURL(requestUrl);				
 
 			if(countries.length == 1) {
 				String fileName = "FRA_2015_Country_Report_"+ countries[0] + "_" + su.getUsername();
@@ -276,7 +275,7 @@ public class PrintController {
 				fileName = fileName + ".pdf";
 				resp.setContentType("application/pdf"); 
 				resp.addHeader("Content-Disposition", "attachment; filename=\""+fileName+"\""); 
-				fillPdfStreamForCountry(sos,transformer,fopFactory,foUserAgent,factory,countries[0],mode,req,customResponse,onlyCFRQ);
+				fillPdfStreamForCountry(sos,transformer,fopFactory,foUserAgent,factory,countries[0],mode,req,resp,onlyCFRQ);
 			}else {
 				String fileName =  "FRA_2015_Countries_Report_"+su.getUsername();
 				if(onlyCFRQ) {
@@ -293,7 +292,7 @@ public class PrintController {
 						String zFilename = "FRA_2015_Country_Report_" + country + ".pdf";
 						ZipEntry zipEntry = new ZipEntry(zFilename);
 						zos.putNextEntry(zipEntry);		
-						fillPdfStreamForCountry(zos,transformer,fopFactory,foUserAgent,factory,countries[0],mode,req,customResponse,onlyCFRQ);
+						fillPdfStreamForCountry(zos,transformer,fopFactory,foUserAgent,factory,country,mode,req,resp,onlyCFRQ);
 						zos.flush();
 						zos.closeEntry();
 					}catch (Throwable e) {
@@ -315,12 +314,13 @@ public class PrintController {
 			String country, 
 			String mode, 
 			HttpServletRequest req, 
-			CharArrayWriterResponse customResponse, 
+			HttpServletResponse resp,
 			Boolean onlyCFRQ) throws Exception {
-
+		transformer.reset();
 		String template = "/survey/print/"+country+"/"+mode;
+		CharArrayWriterResponse customResponse = new CharArrayWriterResponse(resp);
 		req.getRequestDispatcher(template).include(req, customResponse);
-		String xml = customResponse.getOutput();				
+		String xml = customResponse.getOutput();
 		StringReader xmlReader = new StringReader(cleanXml(xml));
 		Source src = new StreamSource(xmlReader);
 		if(onlyCFRQ){
