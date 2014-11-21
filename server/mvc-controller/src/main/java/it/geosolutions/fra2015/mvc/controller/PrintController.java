@@ -367,9 +367,9 @@ public class PrintController {
 			
 			List<String> questionsHeader = new ArrayList<String>();
 			questionsHeader.add("Country");
-			List<NumberValue> all = bulkLoader.loadAllNumericValues(Arrays.asList(countries),questions);
-			for(NumberValue nValue: all) {
-				EntryItem ei = nValue.getEntryItem();
+			List<EntryItem> all = bulkLoader.loadAllNumericValues(Arrays.asList(countries),questions);
+			for(EntryItem nValue: all) {
+				EntryItem ei = nValue;
 				Entry e = ei.getEntry();
 				Question q = e.getQuestion();
 				String nQuestion = "q"+q.getId();
@@ -377,7 +377,7 @@ public class PrintController {
 				if(ei.getRowNumber() != null) {
 					String nRow = "r"+ei.getRowNumber();
 					if(ei.getColumnName() != null) {
-						String nCol = "y"+ei.getColumnName();				
+						String nCol = "y"+ei.getColumnName()+"_"+ei.getColumnNumber();				
 						String h = StringEscapeUtils.escapeCsv(nQuestion+"-"+nTable+"-"+nRow+"-"+nCol);
 						if(!questionsHeader.contains(h)) {
 							questionsHeader.add(h);
@@ -403,7 +403,7 @@ public class PrintController {
 					String nQuestion = "q"+q.getId();
 					String nTable = "t"+e.getVariable();
 					String nRow = "r"+ei.getRowNumber();
-					String nCol = "y"+ei.getColumnName();
+					String nCol = "y"+ei.getColumnName()+"_"+ei.getColumnNumber();
 					String h = StringEscapeUtils.escapeCsv(nQuestion+"-"+nTable+"-"+nRow+"-"+nCol);
 					int valueIndex = questionsHeader.indexOf(h);
 					if(valueIndex != -1) {
