@@ -300,6 +300,12 @@
 			padding-end="3pt" padding-before="3pt" padding-after="3pt"
 			border="1px solid black" text-align="center" background-color="LightGreen"
 			display-align="center">
+			<xsl:if test=".='Category' or .='Term' ">
+        <xsl:attribute name="width">4cm</xsl:attribute>
+      </xsl:if>
+      <xsl:if test=" .='' ">
+        <xsl:attribute name="width">1cm</xsl:attribute>
+      </xsl:if>
 			<xsl:if test="@colspan">
 				<xsl:attribute name="number-columns-spanned">
                     <xsl:value-of select="@colspan" />
@@ -336,6 +342,7 @@
 			border="1px solid black">
 			<xsl:if test="img">
 				<xsl:attribute name="display-align">center</xsl:attribute>
+        <xsl:attribute name="width">10%</xsl:attribute>
 			</xsl:if>
 			<xsl:if test="@colspan">
 				<xsl:attribute name="number-columns-spanned">
@@ -590,8 +597,8 @@
           
 
 	<xsl:template match="ul">
-		<fo:list-block provisional-distance-between-starts="1cm"
-			provisional-label-separation="0.5cm">
+		<fo:list-block provisional-distance-between-starts="4mm"
+			provisional-label-separation="2mm">
 			<xsl:attribute name="space-after">
       <xsl:choose>
         <xsl:when test="ancestor::ul or ancestor::ol">
@@ -601,7 +608,10 @@
           <xsl:text>12pt</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
+      
     </xsl:attribute>
+    
+    <!-- 
 			<xsl:attribute name="start-indent">
       <xsl:variable name="ancestors">
         <xsl:choose>
@@ -615,6 +625,7 @@
       </xsl:variable>
       <xsl:value-of select="concat($ancestors, 'cm')" />
     </xsl:attribute>
+    -->
 			<xsl:apply-templates select="*" />
 		</fo:list-block>
 	</xsl:template>

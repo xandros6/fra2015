@@ -506,10 +506,8 @@
 							<div id="cell-content">${_fraVariable_18a_9_4_}</div></td>
 						</tr>
 						<tr>
-							<td rownumber="10" columnnumber="0"><spring:message
-									code="ref63"></spring:message></td>
-							<td rownumber="10" columnnumber="1"></td>
-							
+							<td rownumber="10" columnnumber="0" colspan="2"><spring:message
+									code="ref63"></spring:message></td>							
 							<c:set var="sum" value="${_fraVariable_18a_2_1_};${_fraVariable_18a_5_1_};${_fraVariable_18a_9_1_}"/>              
  							<td class="total" rownumber="10" columnnumber="1">${fraFn:computeSum(sum)}</td>
  							<c:set var="sum" value="${_fraVariable_18a_2_2_};${_fraVariable_18a_5_2_};${_fraVariable_18a_9_2_}"/>        
