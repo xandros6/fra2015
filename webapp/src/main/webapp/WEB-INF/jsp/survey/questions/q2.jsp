@@ -459,9 +459,8 @@
 							<div id="cell-content">${_fraVariable_2a_7_5_}</div></td>
 						</tr>
 						<tr>
-							<td colspan="2" rownumber="10" columnnumber="0"><spring:message
+							<td colspan="3" rownumber="10" columnnumber="0"><spring:message
 									code="ref63"></spring:message></td>
-							<td  rownumber="10" columnnumber="1"></td>
 							<c:set var="sum" value="${_fraVariable_2a_2_1_};${_fraVariable_2a_3_1_};${_fraVariable_2a_6_1_}"/>
 							<td class="total" rownumber="10" columnnumber="1">${fraFn:computeSum(sum)}</td>
 							<c:set var="sum" value="${_fraVariable_2a_2_2_};${_fraVariable_2a_3_2_};${_fraVariable_2a_6_2_}"/>
