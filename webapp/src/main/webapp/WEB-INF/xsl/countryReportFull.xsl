@@ -296,7 +296,7 @@
 
 	<xsl:template
 		match="th | td[@rownumber='0'] | td[ancestor::tr[@class='defhead']]">
-		<fo:table-cell min-height="20pt" padding-start="3pt"
+		<fo:table-cell min-height="20pt" padding-start="3pt" wrap-option="wrap" hyphenate="true"
 			padding-end="3pt" padding-before="3pt" padding-after="3pt"
 			border="1px solid black" text-align="center" background-color="LightGreen"
 			display-align="center">
