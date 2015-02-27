@@ -28,7 +28,7 @@
 				class="table table-bordered table-hover table-condensed table-striped">
 				<tbody>
 					<tr>
-						<td rownumber="0" columnnumber="0"><spring:message
+						<td rownumber="0" columnnumber="0" class="small_column"><spring:message
 								code="ref13"></spring:message></td>
 						<td rownumber="0" columnnumber="1"><spring:message
 								code="ref14"></spring:message></td>
@@ -57,7 +57,7 @@
 				class="editable table table-bordered table-hover table-condensed table-striped">
 				<tbody>
 					<tr>
-						<td rownumber="0" columnnumber="0"><spring:message
+						<td rownumber="0" columnnumber="0" class="small_column"><spring:message
 								code="ref152"></spring:message></td>
 						<td rownumber="0" columnnumber="1"><spring:message
 								code="ref375"></spring:message></td>
@@ -92,7 +92,7 @@
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr>
-							<td rownumber="0" columnnumber="0"><spring:message
+							<td rownumber="0" columnnumber="0" class="small_column"><spring:message
 									code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="2"><spring:message
 									code="ref75"></spring:message></td>
@@ -129,7 +129,7 @@
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr>
-							<td rownumber="0" columnnumber="0"><spring:message
+							<td rownumber="0" columnnumber="0" class="small_column"><spring:message
 									code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message
 									code="ref75"></spring:message></td>
@@ -155,7 +155,7 @@
 					class="editable table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr>
-							<td rownumber="0" columnnumber="0"><spring:message
+							<td rownumber="0" columnnumber="0" class="small_column"><spring:message
 									code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message
 									code="ref81"></spring:message></td>

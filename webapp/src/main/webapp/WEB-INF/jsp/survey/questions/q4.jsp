@@ -33,7 +33,7 @@
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
 						<tr class="defhead">
-							<td rownumber="0" columnnumber="0"><spring:message code="ref90"></spring:message></td>
+							<td rownumber="0" columnnumber="0" class="small_column"><spring:message code="ref90"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
 						<tr>
@@ -111,7 +111,7 @@
 						class="editable extensible table table-bordered table-hover table-condensed table-striped">
 						<tbody>
 							<tr>
-								<td rownumber="0" columnnumber="0"></td>
+								<td rownumber="0" columnnumber="0" class="verysmall_column"></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref35"></spring:message></td>
 								<td rownumber="0" columnnumber="2"><spring:message

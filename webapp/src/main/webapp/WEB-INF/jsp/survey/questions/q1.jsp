@@ -32,8 +32,8 @@
 				<table
 					class="table table-bordered table-hover table-condensed table-striped">
 					<tbody>
-                        <tr>
-							<td rownumber="0" columnnumber="0"><spring:message code="ref13"></spring:message></td>
+            <tr>
+							<td rownumber="0" columnnumber="0" class="small_column"><spring:message code="ref13"></spring:message></td>
 							<td rownumber="0" columnnumber="1"><spring:message code="ref14"></spring:message></td>
 						</tr>
 						<tr>
@@ -112,7 +112,7 @@
 						class="editable extensible table table-bordered table-hover table-condensed table-striped">
 						<tbody>
 							<tr>
-								<td rownumber="0" columnnumber="0"></td>
+								<td rownumber="0" columnnumber="0" class="verysmall_column"></td>
 								<td rownumber="0" columnnumber="1"><spring:message
 										code="ref35"></spring:message></td>
 								<td rownumber="0" columnnumber="2"><spring:message
@@ -299,7 +299,7 @@
 									code="ref57"></spring:message></td>
 						</tr>
 						<tr rowname="1.1" unit="1000 ha">
-							<td><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
+							<td class="small_img"><img width="20px" src="${baseURL}/img/CFRQbutton.png" /></td>
 							<td class="title" colspan="2" rownumber="2" columnnumber="0"><spring:message
 									code="ref58"></spring:message></td>
 							<td columnname="1990" class="prefilled entry-item editable text"

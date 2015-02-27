@@ -300,12 +300,12 @@
 			padding-end="3pt" padding-before="3pt" padding-after="3pt"
 			border="1px solid black" text-align="center" background-color="LightGreen"
 			display-align="center">
-			<xsl:if test=".='Category' or .='Term' ">
+			<xsl:if test=".[@class='small_column']">
         <xsl:attribute name="width">4cm</xsl:attribute>
       </xsl:if>
-      <xsl:if test=" .='' ">
+      <xsl:if test=".[@class='verysmall_column']">
         <xsl:attribute name="width">1cm</xsl:attribute>
-      </xsl:if>
+      </xsl:if>      
 			<xsl:if test="@colspan">
 				<xsl:attribute name="number-columns-spanned">
                     <xsl:value-of select="@colspan" />
@@ -340,9 +340,12 @@
 		<fo:table-cell min-height="20pt" padding-start="3pt"
 			padding-end="3pt" padding-before="3pt" padding-after="3pt"
 			border="1px solid black">
+			<xsl:if test=".[@class='verysmall_column']">
+        <xsl:attribute name="width">1cm</xsl:attribute>
+      </xsl:if>   
 			<xsl:if test="img">
 				<xsl:attribute name="display-align">center</xsl:attribute>
-        <xsl:attribute name="width">10%</xsl:attribute>
+				<xsl:attribute name="width">1cm</xsl:attribute>
 			</xsl:if>
 			<xsl:if test="@colspan">
 				<xsl:attribute name="number-columns-spanned">
