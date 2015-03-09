@@ -85,13 +85,15 @@
 						<div class="span6">
 							<img src="img/cfrqlogin3.jpg" />
 							<!-- TO BE USED ON fra-dev (and on fra2015 while testing) -->
+<!--
 							<div class="alert alert-error" style="margin-top: 6px">
 								<strong>Warning</strong>: This is a test instance (<i>Release yyyymmdd</i>)
 							</div>
+-->
 							<!-- TO BE USED on fra2015 (once deployed and tested) -->
-							<!--
-							<div style="text-align: right; padding-right: 5px;"><i>Release yyyymmdd</i></div>
-							-->
+							
+							<div style="text-align: right; padding-right: 5px;"><i>Release 20150227</i></div>
+							
 						</div>
 					</div>
 						
